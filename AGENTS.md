@@ -62,6 +62,11 @@ The goal is not ordinary RAG. The goal is to compile source material into a pers
 * Use concise but human-readable writing. Do not use unexplained shorthand.
 * Use abbreviations only if they are defined in `schema/glossary.md`.
 
+## Default wiki task behavior
+
+For wiki-related work, apply the `Default wiki task contract` in `schema/workflows.md` unless the user explicitly overrides it. Use the `Default report format` from `schema/workflows.md` when reporting completion. Preserve provenance, sensitivity metadata, encryption metadata, and the narrow scope of the requested task.
+
+
 ## Expected structure
 
 Use this structure unless the user explicitly changes it:
@@ -81,6 +86,7 @@ wiki/
   claims/
   tensions/
   questions/
+  categories/
 
 schema/
   glossary.md
@@ -101,12 +107,17 @@ All wiki pages should use YAML frontmatter where practical:
 
 ```yaml
 ---
-type: concept | entity | source | claim | tension | question | overview
+type: concept | entity | source | claim | tension | question | overview | category
 status: seed | active | needs-review | deprecated
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
-sources: []
+areas: []
+categories: []
 tags: []
+related: []
+sources: []
+sensitivity: public
+encryption: none
 ---
 ```
 
