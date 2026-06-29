@@ -68,6 +68,8 @@ For wiki-related work, apply the `Default wiki task contract` in `schema/workflo
 
 A request of the form `Ingest <path>` means: inspect the source enough to determine a human-readable title when practical, import the source if needed using the `Source import workflow` in `schema/workflows.md`, pass `--title` or `--slug` to the importer when appropriate, normalize it into `raw/sources/`, then ingest exactly that one source.
 
+Future ingestion tasks automatically include source import if needed, semantic filename normalization, source summary creation, concept extraction or concept updates, representation of important limitations and validation boundaries, source-specific retrieval QA, and an explicit completion decision under the `Ingestion completion contract` in `schema/workflows.md`.
+
 
 ## Expected structure
 
@@ -169,15 +171,18 @@ Do not invent citations. If provenance is unclear, mark the claim as `needs-sour
 When asked to ingest a source:
 
 1. Inspect the source.
-2. Assign or confirm a source ID.
+2. Import it into `raw/sources/` if needed, assign or confirm a stable source ID, and normalize the imported filename semantically.
 3. Create or update a source summary page in `wiki/sources/`.
 4. Extract key claims into existing or new pages.
 5. Update relevant concept/entity pages.
 6. Add or update tension pages if the source contradicts existing claims.
-7. Update `wiki/index.md`.
-8. Append an entry to `wiki/log.md`.
-9. Run available validation checks.
-10. Summarize changed files and unresolved issues.
+7. Represent important limitations, caveats, contradictions, validation boundaries, and open questions.
+8. Update `wiki/index.md`.
+9. Append an entry to `wiki/log.md`.
+10. Run source-specific retrieval QA and record it in the source page.
+11. Run available validation checks.
+12. Decide whether the ingestion is complete, partial, or needs review using the ingestion completion contract.
+13. Summarize changed files and unresolved issues using the default report format.
 
 Do not perform a broad refactor during ingestion unless requested.
 

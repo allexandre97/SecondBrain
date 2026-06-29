@@ -20,6 +20,15 @@ encryption: none
 ---
 ```
 
+Source pages should also include:
+
+```yaml
+ingestion_status: complete | partial | needs-review
+coverage_profile: minimal | standard | deep
+```
+
+For source pages, `coverage_profile` defaults to `standard` unless there is a reason to choose `minimal` or `deep`.
+
 ## Concept Page
 
 ```md
@@ -53,6 +62,7 @@ encryption: none
 ## Links
 
 ## Open Questions
+
 ```
 
 ## Source Page
@@ -65,6 +75,8 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 source_id: SRC-0000
 source_path: raw/sources/example.md
+original_path: /original/path/or/filename.md
+sha256: optional-sha256-when-available
 areas: []
 categories: []
 tags: []
@@ -73,6 +85,8 @@ sources:
   - SRC-0000
 sensitivity: public
 encryption: none
+ingestion_status: complete
+coverage_profile: standard
 ---
 
 # SRC-0000: Source Title
@@ -84,4 +98,12 @@ encryption: none
 ## Links
 
 ## Open Questions
+
+## Ingestion QA
+
+### Retrieval questions checked
+
+### Coverage decision
+
+### Known gaps
 ```

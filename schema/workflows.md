@@ -51,6 +51,53 @@ Use this workflow when a source is provided from any local path, not only from `
 
 For simple imports, use `python3 tools/import_source.py /path/to/source.ext`, pass `--title` or `--slug` when a better name is known, or preview with `python3 tools/import_source.py --dry-run /path/to/source.ext`.
 
+## Ingestion Completion Contract
+
+An ingestion is complete only when all of the following are true:
+
+- The source has been imported or identified with a stable `SRC-XXXX` ID.
+- The source summary page exists in `wiki/sources/`.
+- The source summary page records source ID, imported path, original path or filename when available, SHA256 hash when available, sensitivity, encryption, areas, categories, and tags.
+- The source has been skimmed broadly enough to identify its main topics, claims, methods, evidence, limitations, and open questions.
+- All major concepts introduced by the source are represented either in existing concept pages or newly created concept pages.
+- Important limitations, caveats, contradictions, and validation boundaries are represented in source, concept, question, claim, or tension pages as appropriate.
+- `wiki/index.md` links the source and the main concept pages.
+- `wiki/log.md` records the ingestion.
+- `python3 tools/validate_wiki.py` passes.
+- Codex has run a source-specific retrieval QA check, recorded it in the source page, and verified that the wiki can answer the main questions a future user would naturally ask about the source.
+
+If any item is missing, mark the source page with `ingestion_status: partial` or `ingestion_status: needs-review`, document the gap under `## Ingestion QA`, and do not report the ingestion as complete.
+
+## Source-Specific Retrieval QA
+
+During ingestion, Codex must generate 5-10 likely retrieval questions from the source itself and check whether the wiki can answer them using the source page and relevant concept, entity, claim, tension, and question pages. The questions should match the source type and should test retrieval of the source's central contribution, practical implications, evidence, limitations, and unresolved issues.
+
+For a scientific paper, likely questions include:
+
+- What is the central contribution?
+- What problem does it address?
+- What methods were used?
+- What evidence or benchmarks support it?
+- What are the main limitations?
+- What future work does it identify?
+- What claims should not be overgeneralized?
+
+For a project note, likely questions include:
+
+- What decision or design does this note establish?
+- What constraints does it introduce?
+- What workflow changes are required?
+- What remains unresolved?
+
+For an admin or personal document, likely questions include:
+
+- What action, deadline, obligation, or decision does it contain?
+- What people, institutions, dates, or dependencies are involved?
+- What sensitivity level should it have?
+- What should be retrievable later?
+
+Record the checked questions under the source page's `## Ingestion QA` section. The coverage decision must state whether the wiki representation is complete, partial, or needs review, and known gaps must be listed explicitly.
+
 ## Sensitive Material Handling
 
 - Do not store credentials, passwords, private keys, API tokens, recovery codes, or secrets in the repo.
@@ -65,6 +112,10 @@ For simple imports, use `python3 tools/import_source.py /path/to/source.ext`, pa
 
 1. Place or import exactly one source into `raw/sources/`.
 2. Ask Codex to ingest only that source.
-3. Review new or changed wiki pages.
-4. Run `python3 tools/validate_wiki.py`.
-5. Commit the reviewed changes.
+3. Apply the source import workflow if the source is not already normalized in `raw/sources/`.
+4. Create or update the source summary page and relevant concept, entity, claim, tension, or question pages.
+5. Run source-specific retrieval QA and record the checked questions, coverage decision, and known gaps in the source page.
+6. Apply the ingestion completion contract before reporting the ingestion as complete.
+7. Review new or changed wiki pages.
+8. Run `python3 tools/validate_wiki.py`.
+9. Commit the reviewed changes.

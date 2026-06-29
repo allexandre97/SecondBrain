@@ -26,10 +26,11 @@ Relative binding free energy benchmarking evaluates how well simulations rank or
 
 ## Key Points
 
-- SRC-0003 evaluates Garnet on 8 systems from a public OpenFE benchmark set. [SRC-0003]
+- SRC-0003 evaluates Garnet on selected systems from a public OpenFE benchmark set, including targets such as Tyk2, Cdk2, P38, Mcl1, chk1, galectin, BACE, T4 lysozyme, and c-Met. [SRC-0003]
 - The authors modified OpenFE to support the double exponential potential and related soft-core potential. [SRC-0003]
 - Garnet is reported as broadly comparable to OpenFE on the tested systems, with a chk1 outlier noted. [SRC-0003]
-- The benchmark is limited relative to the full 58-system public benchmark set. [SRC-0003]
+- Some transformations failed in the BACE and c-Met systems; the authors removed redundant failed edges from the analysis network. [SRC-0003]
+- The benchmark is limited relative to the full 58-system public benchmark set, so it supports promising but not definitive RBFE generalization. [SRC-0003]
 
 ## Links
 

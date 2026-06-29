@@ -25,6 +25,7 @@ FRONTMATTER_EXEMPT = {
     ROOT / "wiki" / "log.md",
 }
 WIKILINK_RE = re.compile(r"!?\[\[([^\]]+)\]\]")
+SOURCE_QA_SECTION = "## Ingestion QA"
 
 
 def has_frontmatter(path: Path) -> bool:
@@ -84,6 +85,11 @@ def main() -> int:
     for path in wiki_pages:
         if path not in FRONTMATTER_EXEMPT and not has_frontmatter(path):
             errors.append(f"Missing YAML frontmatter: {path.relative_to(ROOT)}")
+
+    for path in wiki_pages:
+        text = path.read_text(encoding="utf-8")
+        if "ingestion_status: complete" in text and SOURCE_QA_SECTION not in text:
+            errors.append(f"Complete source page missing ingestion QA section: {path.relative_to(ROOT)}")
 
     link_index = build_link_index(wiki_pages)
     for path in wiki_pages:
