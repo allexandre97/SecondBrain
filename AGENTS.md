@@ -66,15 +66,11 @@ The goal is not ordinary RAG. The goal is to compile source material into a pers
 
 For wiki-related work, apply the `Default wiki task contract` in `schema/workflows.md` unless the user explicitly overrides it. Use the `Default report format` from `schema/workflows.md` when reporting completion. Preserve provenance, sensitivity metadata, encryption metadata, and the narrow scope of the requested task.
 
-A request of the form `Ingest <path>` or `Ingest <these files/folder>` means: inspect the provided source material enough to infer a human-readable title, source type, ingestion mode, and metadata when practical; import files if needed using the `Source import workflow` in `schema/workflows.md`; pass `--title` or `--slug` to the importer when appropriate; normalize imports into `raw/sources/`; then ingest only the requested source material.
+For `Ingest <path>`, `Ingest <these files/folder>`, source import, source-bundle ingestion, or math-heavy source ingestion, use the repository-scoped Codex skill at `.agents/skills/wiki-source-ingestion/SKILL.md`.
 
-Future ingestion tasks automatically include source import if needed, semantic filename normalization, source summary creation, concept extraction or concept updates, representation of important limitations and validation boundaries, source-specific retrieval QA, and an explicit completion decision under the `Ingestion completion contract` in `schema/workflows.md`. When multiple files or a folder are provided, Codex should infer whether they form a source bundle and assign bundle roles such as main paper, supplement, appendix, data, code, or notes when practical.
+For `Answer in the wiki: <question>` or `Write a wiki answer for: <question>`, use the repository-scoped Codex skill at `.agents/skills/wiki-answer-note/SKILL.md`.
 
-If a source contains substantial equations, derivations, proofs, algorithms, or implementation recursions, Codex automatically applies the `Math-heavy source ingestion` workflow in `schema/workflows.md`. Such ingestions must represent key definitions, equations, variables, recursions, theorem/proposition structure, implementation-relevant formulas, proof maps for long proofs, an equation inventory, and mathematical gaps before being marked complete.
-
-All mathematical wiki content must be written in Obsidian-compatible Markdown math, using `$...$` for inline math and `$$...$$` for display math. Do not put important equations in code fences.
-
-Codex should infer the appropriate ingestion workflow from the files and content instead of requiring the user to list expected concepts. It should detect whether the source is math-heavy, code-heavy, admin/personal, project-design, scientific, review, or ordinary prose; choose the relevant workflow sections from `schema/workflows.md`; infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile; and record uncertainty in the source page when inferred metadata is weak. Ask for clarification only when ambiguity blocks safe ingestion.
+For validation, cleanup, duplicate detection, math-format repair, concept splitting or merging, index/log consistency, or wiki health checks, use the repository-scoped Codex skill at `.agents/skills/wiki-note-maintenance/SKILL.md`.
 
 
 ## Expected structure
@@ -175,22 +171,7 @@ Do not invent citations. If provenance is unclear, mark the claim as `needs-sour
 
 ## Ingest workflow
 
-When asked to ingest a source:
-
-1. Inspect the requested file, files, or folder enough to infer source type, title, bundle membership, bundle roles, sensitivity, encryption, coverage profile, and applicable workflow.
-2. Import requested source files into `raw/sources/` if needed, assign or confirm stable source IDs, and normalize imported filenames semantically.
-3. Create or update source summary pages in `wiki/sources/`, recording inferred metadata and uncertainty where relevant.
-4. Extract key claims into existing or new pages.
-5. Update relevant concept/entity pages.
-6. Add or update tension pages if the source contradicts existing claims.
-7. Represent important limitations, caveats, contradictions, validation boundaries, and open questions.
-8. If the source is math-heavy, apply the math-heavy source ingestion workflow and add equation inventory coverage.
-9. Update `wiki/index.md`.
-10. Append an entry to `wiki/log.md`.
-11. Run source-specific retrieval QA and record it in the source page.
-12. Run available validation checks.
-13. Decide whether the ingestion is complete, partial, or needs review using the ingestion completion contract.
-14. Summarize changed files and unresolved issues using the default report format.
+When asked to ingest a source, use `.agents/skills/wiki-source-ingestion/SKILL.md`.
 
 Do not perform a broad refactor during ingestion unless requested.
 
@@ -216,24 +197,11 @@ or:
 Write a wiki answer for: <question>
 ```
 
-mean Codex should apply the answer-note workflow in `schema/workflows.md`: search the wiki first, answer from existing wiki pages when possible, consult raw sources only if the wiki is insufficient, update durable wiki pages when missing reusable knowledge is found, create a readable answer note under `wiki/answers/`, run validation, and report the answer note path and any durable pages updated.
+mean Codex should apply `.agents/skills/wiki-answer-note/SKILL.md`: search the wiki first, answer from existing wiki pages when possible, consult raw sources only if the wiki is insufficient, update durable wiki pages when missing reusable knowledge is found, create a readable answer note under `wiki/answers/`, run validation, and report the answer note path and any durable pages updated.
 
 ## Lint workflow
 
-When asked to lint or health-check the wiki:
-
-Check for:
-
-* Broken wikilinks.
-* Orphan pages.
-* Pages missing frontmatter.
-* Claims marked `needs-source`.
-* Contradictions without a tension page.
-* Thin pages that should be merged or expanded.
-* Important repeated terms that deserve concept/entity pages.
-* Stale pages superseded by newer sources.
-
-Prefer deterministic checks in `tools/` before asking the model to reason over many files.
+When asked to lint, validate, clean up, detect duplicates, repair formatting, split or merge concepts, or health-check the wiki, use `.agents/skills/wiki-note-maintenance/SKILL.md`. Prefer deterministic checks in `tools/` before asking the model to reason over many files.
 
 ## Development rules
 
