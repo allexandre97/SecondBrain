@@ -150,6 +150,55 @@ For math-heavy sources, ingestion must include:
 
 Use `coverage_profile: math-standard` when the wiki captures the main mathematical structure well enough for retrieval and orientation. Use `coverage_profile: math-deep` when the wiki is detailed enough for close technical use, including important dependencies between equations and implementation-relevant formulas.
 
+### Obsidian math formatting
+
+Mathematical wiki content must use Obsidian-compatible Markdown math:
+
+- Use inline math with single dollar delimiters:
+
+```md
+The free energy is $F_k = -\log Z_k$.
+```
+
+- Use display math with double dollar delimiters:
+
+```md
+$$
+\rho_\lambda(x) = \frac{e^{-H_\lambda(x)}}{Z_\lambda}
+$$
+```
+
+- Prefer `$$ ... $$` display blocks over `\[ ... \]` for this wiki.
+- Put display math on its own lines, with a blank line before and after when practical.
+- Do not put important equations inside code fences.
+- Do not store equations only as screenshots or images if they can be represented in LaTeX.
+- Use standard LaTeX math syntax supported by MathJax and Obsidian where practical.
+- Avoid full LaTeX document constructs such as `\documentclass`, `\usepackage`, `\begin{document}`, and custom preamble-dependent macros.
+- Avoid relying on automatic equation numbering, `\label`, or `\ref`. Instead, identify equations in surrounding Markdown text:
+
+```md
+**TSS free-energy update, source Eq. (2.8) [SRC-0006]:**
+
+$$
+F^{t+1}_k = \cdots
+$$
+```
+
+- For multi-line equations, use environments inside display math:
+
+```md
+$$
+\begin{aligned}
+Z_k &= e^{-F_k}, \\
+\xi_{km} &= e^{-F_k}\mu_{km}.
+\end{aligned}
+$$
+```
+
+- For equation inventories, keep very long formulas out of Markdown tables. Put the equation in a normal display block and let the table link to the section containing it.
+- Define symbols in a `Variable glossary` section.
+- If a formula cannot be reliably reconstructed from the PDF, do not guess. Mark it under `## Mathematical gaps`.
+
 ### Equation inventory
 
 For math-heavy sources, the source page should include an equation inventory table with columns like:

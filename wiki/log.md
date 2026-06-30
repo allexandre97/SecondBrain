@@ -10,3 +10,4 @@
 - 2026-06-29: Imported and ingested SRC-0004, a review on automated and semi-automated cytoskeletal network enhancement, segmentation, and tracing in microscopy images.
 - 2026-06-29: Imported and deeply ingested SRC-0005, the Times Square Sampling paper on adaptive on-the-fly free energy estimation.
 - 2026-06-29: Imported SRC-0006 and upgraded SRC-0005/SRC-0006 as the Times Square Sampling source bundle with math-deep equation, proof-map, implementation, and retrieval-QA coverage.
+- 2026-06-30: Fixed Obsidian math formatting in existing Times Square Sampling wiki pages without re-ingesting sources.

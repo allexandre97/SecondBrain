@@ -72,6 +72,12 @@ Mathematically important concept pages may also include:
 ```md
 ## Core equations
 
+**Equation name, source Eq. (...) [SRC-XXXX]:**
+
+$$
+...
+$$
+
 ## Variable glossary
 
 ## Derivation sketch

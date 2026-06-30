@@ -72,6 +72,8 @@ Future ingestion tasks automatically include source import if needed, semantic f
 
 If a source contains substantial equations, derivations, proofs, algorithms, or implementation recursions, Codex automatically applies the `Math-heavy source ingestion` workflow in `schema/workflows.md`. Such ingestions must represent key definitions, equations, variables, recursions, theorem/proposition structure, implementation-relevant formulas, proof maps for long proofs, an equation inventory, and mathematical gaps before being marked complete.
 
+All mathematical wiki content must be written in Obsidian-compatible Markdown math, using `$...$` for inline math and `$$...$$` for display math. Do not put important equations in code fences.
+
 Codex should infer the appropriate ingestion workflow from the files and content instead of requiring the user to list expected concepts. It should detect whether the source is math-heavy, code-heavy, admin/personal, project-design, scientific, review, or ordinary prose; choose the relevant workflow sections from `schema/workflows.md`; infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile; and record uncertainty in the source page when inferred metadata is weak. Ask for clarification only when ambiguity blocks safe ingestion.
 
 

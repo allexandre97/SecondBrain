@@ -45,36 +45,36 @@ SRC-0005 argues that on-the-fly free energy estimation can sometimes achieve low
 
 TSS asymptotic covariance under the independent-sample setup is identified with an overlap matrix expression in the supplement. [SRC-0006, sections 4.1 and 4.5]
 
-```math
+$$
 \Sigma_{TSS}=O.
-```
+$$
 
 The MBAR covariance is expressed as: [SRC-0006, section 4.2]
 
-```math
+$$
 \Sigma_{MBAR}=(\Pi-\Pi O\Pi)^+ - \Pi^{-1}.
-```
+$$
 
 The variance of a free-energy difference is evaluated by a quadratic form: [SRC-0006, section 4.5]
 
-```math
+$$
 Var(F_j-F_i)=(e_j-e_i)^T\Sigma(e_j-e_i).
-```
+$$
 
 The theorem's comparison target is positive semidefiniteness of the difference: [SRC-0006, section 4.5]
 
-```math
+$$
 (e_j-e_i)^T(\Sigma_{MBAR}-\Sigma_{TSS})(e_j-e_i) \ge 0.
-```
+$$
 
 ## Variable glossary
 
 - `MBAR`: multistate Bennett acceptance ratio estimator, treated as a maximum-likelihood estimator in the source. [SRC-0005, introduction]
-- `Sigma_TSS`: asymptotic covariance of TSS free-energy difference estimates under the theorem setup. [SRC-0006, section 4]
-- `Sigma_MBAR`: asymptotic covariance of the MBAR estimator. [SRC-0006, section 4.2]
-- `O`: overlap matrix between distributions. [SRC-0006, section 4.5]
-- `Pi`: diagonal matrix of sampling proportions. [SRC-0006, section 4.2]
-- `nu`: number of repeated sampler moves per estimator update interval in self-adjustment examples. [SRC-0005, section 2.2.3] [SRC-0006, section 10.2.3]
+- $\Sigma_{TSS}$: asymptotic covariance of TSS free-energy difference estimates under the theorem setup. [SRC-0006, section 4]
+- $\Sigma_{MBAR}$: asymptotic covariance of the MBAR estimator. [SRC-0006, section 4.2]
+- $O$: overlap matrix between distributions. [SRC-0006, section 4.5]
+- $\Pi$: diagonal matrix of sampling proportions. [SRC-0006, section 4.2]
+- $\nu$: number of repeated sampler moves per estimator update interval in self-adjustment examples. [SRC-0005, section 2.2.3] [SRC-0006, section 10.2.3]
 
 ## Derivation sketch
 
@@ -85,7 +85,7 @@ The intuition is not that post-processing has become worse. Instead, TSS changes
 ## Implementation consequences
 
 - Repeating rung moves between global estimator updates can capture much of the variance benefit when rung moves are cheap and communication is expensive. [SRC-0005, section 4.3] [SRC-0006, section 10.2.3]
-- The supplement's high-frequency kernel breaks one long MD interval into `nu` smaller pieces followed by intermediate rung moves while keeping the estimator-update interval fixed. [SRC-0006, eqs. 10.1-10.2]
+- The supplement's high-frequency kernel breaks one long MD interval into $\nu$ smaller pieces followed by intermediate rung moves while keeping the estimator-update interval fixed. [SRC-0006, eqs. 10.1-10.2]
 
 ## Caveats
 

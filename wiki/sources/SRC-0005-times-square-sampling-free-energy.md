@@ -66,136 +66,136 @@ The paper's central mathematical move is to treat free energy estimation as a ro
 
 ## Mathematical structure
 
-The source starts with a family of distributions `\rho_\lambda(x)` over a high-dimensional state space `S`, parameterized by a lower-dimensional space `Lambda`. A finite set of rungs `lambda_1, ..., lambda_K` turns the problem into estimating free energies `F_k^* = -log Z_k^*` up to a common additive constant. [SRC-0005, section 2.1]
+The source starts with a family of distributions $\rho_\lambda(x)$ over a high-dimensional state space $S$, parameterized by a lower-dimensional space $\Lambda$. A finite set of rungs $\lambda_1, \ldots, \lambda_K$ turns the problem into estimating free energies $F_k^* = -\log Z_k^*$ up to a common additive constant. [SRC-0005, section 2.1]
 
-TSS samples an extended state `(X,K)` or, with windows, `(X,K,J)`. For fixed estimates, simulated tempering alternates a rung move conditional on `X` with an `X` move conditional on `K`. Free energy estimates are then updated by stochastic approximation, using conditional probabilities over rungs rather than only the sampled rung. [SRC-0005, eqs. 2-8]
+TSS samples an extended state $(X,K)$ or, with windows, $(X,K,J)$. For fixed estimates, simulated tempering alternates a rung move conditional on $X$ with an $X$ move conditional on $K$. Free energy estimates are then updated by stochastic approximation, using conditional probabilities over rungs rather than only the sampled rung. [SRC-0005, eqs. 2-8]
 
-The algorithm evolves a parameter vector `theta=(F, mu, o)`: `F` are free energy estimates, `mu` are auxiliary observable averages, and `o` are visit-control tilts. The supplement derives these recursions through stochastic approximation and iterative importance sampling, explaining why the logarithmic partition-function coordinates are numerically useful. [SRC-0005, eqs. 24-26] [SRC-0006, sections 1-2]
+The algorithm evolves a parameter vector $\theta=(F,\mu,o)$: $F$ are free energy estimates, $\mu$ are auxiliary observable averages, and $o$ are visit-control tilts. The supplement derives these recursions through stochastic approximation and iterative importance sampling, explaining why the logarithmic partition-function coordinates are numerically useful. [SRC-0005, eqs. 24-26] [SRC-0006, sections 1-2]
 
-For large `Lambda`, the global problem is replaced by per-window local recursions. The supplement then reconstructs global quantities by solving an eigenvector problem for window probabilities, a convex or fixed-point problem for visit-control free-energy offsets, and a separate lower-noise reporting problem in the `eta -> infinity` limit. [SRC-0006, sections 6.2 and 7.2]
+For large $\Lambda$, the global problem is replaced by per-window local recursions. The supplement then reconstructs global quantities by solving an eigenvector problem for window probabilities, a convex or fixed-point problem for visit-control free-energy offsets, and a separate lower-noise reporting problem in the $\eta \to \infty$ limit. [SRC-0006, sections 6.2 and 7.2]
 
 ## Key equations
 
 Gibbs distribution and free energy definition: [SRC-0005, eq. 1]
 
-```math
+$$
 \rho_\lambda(x) = \frac{e^{-H_\lambda(x)}}{Z_\lambda^*}, \qquad
 Z_\lambda^* = \int_S e^{-H_\lambda(x)} dx, \qquad
 F_\lambda^* = -\log Z_\lambda^*.
-```
+$$
 
 Simulated-tempering target over configurations and rungs: [SRC-0005, eq. 2]
 
-```math
+$$
 p_{\gamma,F}(x,k)
 = \frac{\gamma_k e^{F_k-F_k^*}}{\sum_{\ell \in [K]} \gamma_\ell e^{F_\ell-F_\ell^*}}\rho_k(x).
-```
+$$
 
 Conditional rung probability used by the rung move and the estimator: [SRC-0005, eqs. 4 and 7]
 
-```math
+$$
 p_{\gamma,F}(k \mid x)
 = \frac{\gamma_k e^{F_k-H_k(x)}}{\sum_{\ell \in [K]} \gamma_\ell e^{F_\ell-H_\ell(x)}}.
-```
+$$
 
 Basic free energy stochastic approximation and mean field: [SRC-0005, eqs. 7-8]
 
-```math
+$$
 F_k^{t+1}=F_k^t + \frac{1}{t+1}\left(1 - \frac{p_{\gamma,F^t}(k \mid X^{t+1})}{\gamma_k}\right),
-```
+$$
 
-```math
+$$
 g_k^F(F)=1-\frac{e^{F_k-F_k^*}}{\sum_{\ell \in [K]}\gamma_\ell e^{F_\ell-F_\ell^*}}.
-```
+$$
 
 Visit-control tilts and rung distribution: [SRC-0005, eqs. 11 and 15-17]
 
-```math
+$$
 o_k^t = \frac{1}{t}\sum_{s=1}^t \frac{1\{K^s=k\}}{\gamma_k}, \qquad
 \pi_k^{TSS}(F,\gamma,o)=\frac{\gamma_k o_k^{-\eta}}{\sum_{\ell \in [K]}\gamma_\ell o_\ell^{-\eta}}.
-```
+$$
 
-```math
+$$
 \pi_k^{TSS} := (1-\epsilon_\pi)\pi_k^{TSS} + \epsilon_\pi \gamma_k.
-```
+$$
 
 Coordinate-invariant reference density based on an observable covariance metric: [SRC-0005, eq. 19]
 
-```math
+$$
 \gamma_k \propto \det\left(E_k\left[\frac{\partial H}{\partial \lambda_i}\frac{\partial H}{\partial \lambda_j}\right]
 - E_k\left[\frac{\partial H}{\partial \lambda_i}\right]E_k\left[\frac{\partial H}{\partial \lambda_j}\right]\right)^{1/2}.
-```
+$$
 
 Lyapunov function used for convergence and visit-control comparison: [SRC-0005, eq. 27]
 
-```math
+$$
 V_\gamma(F)=D_{KL}(\gamma\Vert r(F))=-\sum_k \gamma_k \log\frac{r_k(F)}{\gamma_k}.
-```
+$$
 
 Windowed invariant distribution and global visit-control condition: [SRC-0005, eqs. 32-33] [SRC-0006, eqs. 6.4 and 6.11]
 
-```math
+$$
 p_{\pi,F}(x,k,j)=\frac{1}{2}1_{W_j}(\lambda_k)p_{\pi,F}(x,k),
-```
+$$
 
-```math
+$$
 \sum_j p_j \frac{\gamma_{j;k}(\mu)o_{j;k}}{\sum_{\ell \in W_j}\gamma_{j;\ell}(\mu)o_{j;\ell}}
 =
 \sum_j p_j \frac{\pi_{j;k}e^{F_{j;k}-F_k^\circ}}{\sum_{\ell \in W_j}\pi_{j;\ell}e^{F_{j;\ell}-F_\ell^\circ}}.
-```
+$$
 
 ## Equation inventory
 
 | Equation / label | Source location | Wiki location | Purpose | Variables | Implementation relevance |
 | --- | --- | --- | --- | --- | --- |
-| Gibbs density and partition function, eq. (1) | SRC-0005 section 2.1 | This page, Key equations; [[concepts/free-energy-estimation]] | Defines the free energy target. | `H_\lambda`, `Z_\lambda^*`, `F_\lambda^*`, `S` | Required for any implementation or interpretation of estimated free energy differences. |
-| Simulated-tempering target, eq. (2) | SRC-0005 section 2.1 | This page; [[concepts/times-square-sampling]] | Defines the joint target over configurations and rungs. | `gamma`, `F`, `F^*`, `rho_k` | Drives rung probabilities and conditional sampling. |
-| Rung and state transition kernels, eqs. (4)-(5) | SRC-0005 section 2.1 | [[concepts/times-square-sampling]]; [[concepts/tss-implementation-patterns]] | Splits the Markov transition into rung and configuration moves. | `P^k`, `P^x`, `T_k`, `X`, `K` | Maps directly to sampler cycle design. |
-| Basic free-energy recursion and mean field, eqs. (7)-(8) | SRC-0005 section 2.1 | This page; [[concepts/free-energy-estimation]] | Frames free energy estimation as stochastic root finding. | `F_k^t`, `p(k \mid x)`, `gamma_k` | Core estimator before TSS-specific modifications. |
-| Tilt estimator and tilt mean field, eqs. (11), (13)-(14) | SRC-0005 section 2.2.1 | This page; [[concepts/adaptive-enhanced-sampling]] | Measures empirical rung visitation relative to target. | `o_k`, `K^s`, `gamma_k` | Basis for visit control and diagnostics. |
-| Visit-control density and regularization, eqs. (15)-(18) | SRC-0005 section 2.2.1 | This page; [[concepts/adaptive-enhanced-sampling]] | Biases sampling toward under-visited rungs while preserving positive probabilities. | `pi^{TSS}`, `eta`, `epsilon_pi`, `o` | Main convergence-acceleration mechanism. |
-| Fisher-information-style rung density, eq. (19) | SRC-0005 section 2.2.2 | This page; [[concepts/times-square-sampling]] | Makes the reference rung density coordinate-aware. | `gamma_k`, `mu`, `partial H / partial lambda` | Requires auxiliary observable estimation. |
-| Auxiliary observable recursion, eqs. (20)-(21), (25) | SRC-0005 sections 2.2.2 and 2.2.4 | This page; [[concepts/times-square-sampling]] | Estimates ensemble averages needed for adaptive rung allocation. | `mu_{km}`, `psi_m`, `pi_k` | Used to compute `gamma(mu)` and metrics. |
-| TSS stochastic approximation triple, eqs. (24)-(26) | SRC-0005 section 2.2.4 | This page, Algorithmic recursions; [[concepts/times-square-sampling]] | Defines the single-window estimator updates. | `F`, `mu`, `o`, `theta` | Direct algorithmic recurrence. |
-| Relative-entropy Lyapunov function, eq. (27) | SRC-0005 section 2.2.4 | This page; [[concepts/adaptive-enhanced-sampling]] | Proves convergence and compares visit-control strength. | `V_gamma`, `r(F)`, `gamma` | Theoretical validation boundary, not an implementation formula. |
-| Window transition and invariant distribution, eqs. (30)-(32) | SRC-0005 section 3.1 | This page; [[concepts/tss-implementation-patterns]] | Introduces `(X,K,J)` and local window dynamics. | `W_j`, `J`, `win(k)` | Enables scalable local energy evaluations. |
-| Global visit-control relation, eq. (33) | SRC-0005 section 3.1 | This page; [[concepts/tss-implementation-patterns]] | Stitches local tilts into global visit-control free energies. | `p_j`, `F_k^circ`, `gamma_{j;k}`, `o_{j;k}` | Used for sampling but too noisy for final reporting. |
-| Epoch and global programming recursions | SRC-0006 sections 7-8 | [[sources/SRC-0006-times-square-sampling-supplement]]; [[concepts/tss-implementation-patterns]] | Converts the mathematical estimator into stored epochs, global weights, offsets, and error bars. | `N_j`, `R_{j;k}`, `Q`, `q_k`, `f_j`, jackknife replicates | Necessary for close implementation use. |
-| Variance comparison with MBAR | SRC-0005 proposition 3; SRC-0006 section 4.5 | [[concepts/on-the-fly-estimation-versus-mbar]] | Formalizes the self-adjustment advantage under stated assumptions. | `Sigma_TSS`, `Sigma_MBAR`, overlap matrix `O`, `pi` | Supports the lower-variance claim but only under the paper's assumptions. |
+| Gibbs density and partition function, eq. (1) | SRC-0005 section 2.1 | This page, Key equations; [[concepts/free-energy-estimation]] | Defines the free energy target. | $H_\lambda$, $Z_\lambda^*$, $F_\lambda^*$, $S$ | Required for any implementation or interpretation of estimated free energy differences. |
+| Simulated-tempering target, eq. (2) | SRC-0005 section 2.1 | This page; [[concepts/times-square-sampling]] | Defines the joint target over configurations and rungs. | $\gamma$, $F$, $F^*$, $\rho_k$ | Drives rung probabilities and conditional sampling. |
+| Rung and state transition kernels, eqs. (4)-(5) | SRC-0005 section 2.1 | [[concepts/times-square-sampling]]; [[concepts/tss-implementation-patterns]] | Splits the Markov transition into rung and configuration moves. | $P^k$, $P^x$, $T_k$, $X$, $K$ | Maps directly to sampler cycle design. |
+| Basic free-energy recursion and mean field, eqs. (7)-(8) | SRC-0005 section 2.1 | This page; [[concepts/free-energy-estimation]] | Frames free energy estimation as stochastic root finding. | $F_k^t$, $p(k \mid x)$, $\gamma_k$ | Core estimator before TSS-specific modifications. |
+| Tilt estimator and tilt mean field, eqs. (11), (13)-(14) | SRC-0005 section 2.2.1 | This page; [[concepts/adaptive-enhanced-sampling]] | Measures empirical rung visitation relative to target. | $o_k$, $K^s$, $\gamma_k$ | Basis for visit control and diagnostics. |
+| Visit-control density and regularization, eqs. (15)-(18) | SRC-0005 section 2.2.1 | This page; [[concepts/adaptive-enhanced-sampling]] | Biases sampling toward under-visited rungs while preserving positive probabilities. | $\pi^{TSS}$, $\eta$, $\epsilon_\pi$, $o$ | Main convergence-acceleration mechanism. |
+| Fisher-information-style rung density, eq. (19) | SRC-0005 section 2.2.2 | This page; [[concepts/times-square-sampling]] | Makes the reference rung density coordinate-aware. | $\gamma_k$, $\mu$, $\partial H / \partial \lambda$ | Requires auxiliary observable estimation. |
+| Auxiliary observable recursion, eqs. (20)-(21), (25) | SRC-0005 sections 2.2.2 and 2.2.4 | This page; [[concepts/times-square-sampling]] | Estimates ensemble averages needed for adaptive rung allocation. | $\mu_{km}$, $\psi_m$, $\pi_k$ | Used to compute $\gamma(\mu)$ and metrics. |
+| TSS stochastic approximation triple, eqs. (24)-(26) | SRC-0005 section 2.2.4 | This page, Algorithmic recursions; [[concepts/times-square-sampling]] | Defines the single-window estimator updates. | $F$, $\mu$, $o$, $\theta$ | Direct algorithmic recurrence. |
+| Relative-entropy Lyapunov function, eq. (27) | SRC-0005 section 2.2.4 | This page; [[concepts/adaptive-enhanced-sampling]] | Proves convergence and compares visit-control strength. | $V_\gamma$, $r(F)$, $\gamma$ | Theoretical validation boundary, not an implementation formula. |
+| Window transition and invariant distribution, eqs. (30)-(32) | SRC-0005 section 3.1 | This page; [[concepts/tss-implementation-patterns]] | Introduces $(X,K,J)$ and local window dynamics. | $W_j$, $J$, $win(k)$ | Enables scalable local energy evaluations. |
+| Global visit-control relation, eq. (33) | SRC-0005 section 3.1 | This page; [[concepts/tss-implementation-patterns]] | Stitches local tilts into global visit-control free energies. | $p_j$, $F_k^\circ$, $\gamma_{j;k}$, $o_{j;k}$ | Used for sampling but too noisy for final reporting. |
+| Epoch and global programming recursions | SRC-0006 sections 7-8 | [[sources/SRC-0006-times-square-sampling-supplement]]; [[concepts/tss-implementation-patterns]] | Converts the mathematical estimator into stored epochs, global weights, offsets, and error bars. | $N_j$, $R_{j;k}$, $Q$, $q_k$, $f_j$, jackknife replicates | Necessary for close implementation use. |
+| Variance comparison with MBAR | SRC-0005 proposition 3; SRC-0006 section 4.5 | [[concepts/on-the-fly-estimation-versus-mbar]] | Formalizes the self-adjustment advantage under stated assumptions. | $\Sigma_{TSS}$, $\Sigma_{MBAR}$, overlap matrix $O$, $\pi$ | Supports the lower-variance claim but only under the paper's assumptions. |
 
 ## Algorithmic recursions
 
-For the single-window algorithm, each cycle samples a rung using the current parameter vector `theta^t`, samples a configuration conditional on that rung, and updates `theta=(F,mu,o)` with equations (24)-(26). [SRC-0005, algorithm 1]
+For the single-window algorithm, each cycle samples a rung using the current parameter vector $\theta^t$, samples a configuration conditional on that rung, and updates $\theta=(F,\mu,o)$ with equations (24)-(26). [SRC-0005, algorithm 1]
 
 The logarithmic free-energy update used by TSS can be read as an iterative-importance-sampling form of the stochastic approximation update: [SRC-0005, eq. 24] [SRC-0006, sections 1.2 and 2.1]
 
-```math
+$$
 F_k^{t+1}=F_k^t-\log\left(1+\frac{1}{t+1}\left(w_k^t(X^{t+1})-1\right)\right),
-```
+$$
 
 where
 
-```math
+$$
 w_k^t(x)=\frac{e^{F_k^t-H_k(x)}}{\sum_{\ell \in [K]}\pi_\ell(\theta^t)e^{F_\ell^t-H_\ell(x)}}.
-```
+$$
 
 The auxiliary observable update uses the same Rao-Blackwellized weight and a rescaling by the free-energy change: [SRC-0005, eq. 25]
 
-```math
+$$
 \mu_{km}^{t+1}=e^{F_k^{t+1}-F_k^t}\left(\mu_{km}^t+\frac{1}{t+1}w_k^t(X^{t+1})(\psi_m(X^{t+1})-\mu_{km}^t)\right).
-```
+$$
 
 The tilt recursion is a running visit-frequency estimator relative to the current reference density: [SRC-0005, eq. 26]
 
-```math
+$$
 o_k^{t+1}=o_k^t+\frac{1}{t+1}\left(\frac{1\{K^{t+1}=k\}}{\gamma_k(\mu^t)}-o_k^t\right).
-```
+$$
 
 For the windowed implementation, the supplement converts these recursions into epoch-based stored estimates, then combines them through global window weights and offset solves. The essential sequence is: update per-window epoch counts, update per-window free energies and observables with importance ratios, update tilts, solve window marginal probabilities, compute global rung probabilities, solve visit-control offsets, and compute lower-noise reported free energies. [SRC-0006, sections 7.1-7.2]
 
 ## Proof map
 
-- Proposition 1, optimal gain: the supplement changes variables from `(F,mu)` to `(Z,xi)`, computes the Jacobian of the mean field, and shows that the free-energy and observable recursions use the asymptotically optimal gain; if `pi=pi^circ`, adding the tilt recursion is also optimal. [SRC-0005, proposition 1] [SRC-0006, section 2.2]
+- Proposition 1, optimal gain: the supplement changes variables from $(F,\mu)$ to $(Z,\xi)$, computes the Jacobian of the mean field, and shows that the free-energy and observable recursions use the asymptotically optimal gain; if $\pi=\pi^\circ$, adding the tilt recursion is also optimal. [SRC-0005, proposition 1] [SRC-0006, section 2.2]
 - Proposition 2, visit-control acceleration: the proof analyzes the derivative of the relative-entropy Lyapunov function and shows stronger visit control decreases it faster, with equality only at the free-energy solution up to a constant shift. [SRC-0005, proposition 2] [SRC-0006, section 3.2]
 - Proposition 3 and Theorem 4.1, self-adjustment versus MBAR: the supplement derives TSS and MBAR covariance matrices using an overlap matrix and proves positive semidefiniteness of the MBAR-minus-TSS covariance form under irreducibility and independent-sample assumptions. [SRC-0005, proposition 3] [SRC-0006, section 4.5]
 - Convergence theorem: the supplement proves convergence by establishing stability, a global Lyapunov function, gain-sequence assumptions, and drift conditions for the adaptive Markov process. [SRC-0006, section 5]
@@ -205,9 +205,9 @@ For the windowed implementation, the supplement converts these recursions into e
 
 - The source code for TSS is reported as available from D. E. Shaw Research at `https://github.com/DEShawResearch/tss`. [SRC-0005, data availability statement]
 - Windowing is not just an optimization: the supplement's aqueous-solution example reports that one 400-rung window failed after a few rung moves because poor early free-energy estimates allowed physically infeasible rung selections. [SRC-0006, section 10.2.1]
-- In the supplement's parameter guidance, visit control should generally be turned on; `eta=2` worked well across the authors' tested systems, while very small or very large values can slow convergence or introduce noisy random bias. [SRC-0006, sections 9 and 10.2.2]
-- History forgetting stores recent epochs only; the supplement recommends `alpha=0.19`, at least 32 epochs, and `phi=alpha^{-1/n_epochs}` so jackknife pseudo-values can be treated as approximately independent. [SRC-0006, sections 8-9]
-- The supplement recommends small regularizers such as `epsilon_gamma=0.01` and `epsilon_pi=0.001` in its practical guidance, while noting that these are safeguards for visitation and not universal tuning laws. [SRC-0006, section 9]
+- In the supplement's parameter guidance, visit control should generally be turned on; $\eta=2$ worked well across the authors' tested systems, while very small or very large values can slow convergence or introduce noisy random bias. [SRC-0006, sections 9 and 10.2.2]
+- History forgetting stores recent epochs only; the supplement recommends $\alpha=0.19$, at least 32 epochs, and $\phi=\alpha^{-1/n_{epochs}}$ so jackknife pseudo-values can be treated as approximately independent. [SRC-0006, sections 8-9]
+- The supplement recommends small regularizers such as $\epsilon_\gamma=0.01$ and $\epsilon_\pi=0.001$ in its practical guidance, while noting that these are safeguards for visitation and not universal tuning laws. [SRC-0006, section 9]
 
 ## Evidence
 

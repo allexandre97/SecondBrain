@@ -46,38 +46,38 @@ Adaptive enhanced sampling uses information learned during a simulation to steer
 
 Tilt estimator for relative visitation: [SRC-0005, eq. 11]
 
-```math
+$$
 o_k^t=\frac{1}{t}\sum_{s=1}^t\frac{1\{K^s=k\}}{\gamma_k}.
-```
+$$
 
 Visit-control density: [SRC-0005, eqs. 15-17]
 
-```math
+$$
 \pi_k^{TSS}=\frac{\gamma_k o_k^{-\eta}}{\sum_\ell \gamma_\ell o_\ell^{-\eta}}, \qquad
 \pi_k^{TSS}:=(1-\epsilon_\pi)\pi_k^{TSS}+\epsilon_\pi\gamma_k.
-```
+$$
 
 Lyapunov comparison: [SRC-0005, proposition 2]
 
-```math
+$$
 \frac{d}{dt}V_\gamma(F)\bigg|_{\eta'} \le \frac{d}{dt}V_\gamma(F)\bigg|_{\eta} \le 0, \qquad \eta'>\eta\ge 0.
-```
+$$
 
 Windowed global rung probability: [SRC-0006, eq. 7.25]
 
-```math
+$$
 q_k^t=\sum_{j \in win(k)}p_j^t\frac{\gamma_{j;k}^t o_{j;k}^t}{\sum_{\ell \in W_j}\gamma_{j;\ell}^t o_{j;\ell}^t}.
-```
+$$
 
 ## Variable glossary
 
-- `gamma`: target asymptotic allocation across rungs. [SRC-0005, section 2.2.1]
-- `pi`: adaptive sampling allocation used transiently. [SRC-0005, section 2.2.1]
-- `o_k`: empirical visit ratio for rung `k`; values above or below 1 indicate over- or under-visitation relative to target. [SRC-0005, eq. 11]
-- `eta`: visit-control strength. [SRC-0005, eq. 15]
-- `epsilon_pi`, `epsilon_gamma`: regularization parameters that keep probabilities positive. [SRC-0005, eq. 17] [SRC-0006, eq. 7.18]
-- `W_j`: local window. [SRC-0005, section 3.1]
-- `q_k`: global probability of visiting rung `k` across windows. [SRC-0006, eq. 7.25]
+- $\gamma$: target asymptotic allocation across rungs. [SRC-0005, section 2.2.1]
+- $\pi$: adaptive sampling allocation used transiently. [SRC-0005, section 2.2.1]
+- $o_k$: empirical visit ratio for rung $k$; values above or below 1 indicate over- or under-visitation relative to target. [SRC-0005, eq. 11]
+- $\eta$: visit-control strength. [SRC-0005, eq. 15]
+- $\epsilon_\pi$, $\epsilon_\gamma$: regularization parameters that keep probabilities positive. [SRC-0005, eq. 17] [SRC-0006, eq. 7.18]
+- $W_j$: local window. [SRC-0005, section 3.1]
+- $q_k$: global probability of visiting rung $k$ across windows. [SRC-0006, eq. 7.25]
 
 ## Derivation sketch
 
@@ -87,13 +87,13 @@ Windowing is derived by introducing the active-window variable `J`, enforcing a 
 
 ## Implementation consequences
 
-- Turning visit control on is more important than precisely optimizing `eta`, according to the supplement's parameter guidance and numerical example. [SRC-0006, sections 9 and 10.2.2]
+- Turning visit control on is more important than precisely optimizing $\eta$, according to the supplement's parameter guidance and numerical example. [SRC-0006, sections 9 and 10.2.2]
 - Too small a window can make rung motion diffusive; too large a window can create unstable early rung jumps into physically infeasible states. [SRC-0006, sections 9 and 10.2.1]
 - Regularization prevents some windows or rungs from receiving too little probability in degenerate cases. [SRC-0006, section 9]
 
 ## Caveats
 
-- Stronger adaptation is not unconditionally better: large `eta` can amplify noisy tilt estimates, and window choices affect both stability and error bars. [SRC-0006, sections 9-10]
+- Stronger adaptation is not unconditionally better: large $\eta$ can amplify noisy tilt estimates, and window choices affect both stability and error bars. [SRC-0006, sections 9-10]
 - The convergence proof depends on the adaptation satisfying the source's assumptions. [SRC-0006, section 5]
 
 ## Links

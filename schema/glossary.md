@@ -14,7 +14,12 @@ Record shared terms, abbreviations, and definitions used across the wiki.
 - **Source-specific retrieval QA**: The ingestion-time check where Codex derives likely future retrieval questions from the source type and verifies that the source page and related wiki pages can answer them.
 - **Ingestion completion contract**: The checklist that must pass before an ingestion is reported complete, including stable source ID, source metadata, broad source coverage, concept extraction, limitations and open questions, index and log updates, validator success, and source-specific retrieval QA.
 - **Math-heavy source**: A source containing substantial equations, derivations, proofs, algorithms, or implementation recursions whose important mathematical structure must be represented in the wiki.
+- **Obsidian-compatible math**: Markdown math written in syntax that Obsidian can render through MathJax, using `$...$` for inline math and `$$...$$` display blocks for standalone equations.
+- **Inline math**: A short mathematical expression embedded in prose with single dollar delimiters, such as `$F_k = -\log Z_k$`.
+- **Display math**: A standalone mathematical expression or aligned equation block written between double dollar delimiters on their own lines.
+- **Equation label in Markdown**: Plain surrounding Markdown text that identifies an equation by name, source ID, and source equation number or section instead of relying on LaTeX `\label` and `\ref`.
 - **Equation inventory**: A source-page table that records important equations, their source locations, wiki locations, purpose, variables, and implementation relevance.
+- **Variable glossary**: A section that defines the symbols used in equations, including indices, parameters, estimated quantities, source-specific notation, and units where relevant.
 - **Proof map**: A concise outline of a long proof's structure, key lemmas or propositions, dependencies, and conclusion without reproducing the full proof.
 - **Source bundle**: A set of physical source files, such as a main paper and supplement, that must be understood together for ingestion completion.
 - **Bundle role**: Source-page metadata indicating whether a file is the `main` source or a `supplement` within a source bundle.

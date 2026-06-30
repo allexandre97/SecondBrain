@@ -44,47 +44,47 @@ Free energy estimation computes differences between free energies, often by esti
 
 Distribution, partition function, and free energy: [SRC-0005, eq. 1]
 
-```math
+$$
 \rho_\lambda(x)=\frac{e^{-H_\lambda(x)}}{Z_\lambda^*}, \qquad
 Z_\lambda^*=\int_S e^{-H_\lambda(x)}dx, \qquad
 F_\lambda^*=-\log Z_\lambda^*.
-```
+$$
 
 Free energy difference between two rungs: [SRC-0005, section 2.1]
 
-```math
+$$
 F_a^*-F_b^*=-\log\frac{Z_a^*}{Z_b^*}.
-```
+$$
 
 TSS's basic root-finding observable: [SRC-0005, eqs. 7-8]
 
-```math
+$$
 G_k^F(X;F)=1-\frac{p_{\gamma,F}(k \mid X)}{\gamma_k}, \qquad E_{\gamma,F^*}[G_k^F]=0.
-```
+$$
 
 Auxiliary observable estimator: [SRC-0005, eq. 20]
 
-```math
+$$
 G_{km}^{\mu}(x;F,\mu,o)=\frac{p_{\pi,F}(k \mid x)}{\pi_k}(\psi_m(x)-\mu_{km}).
-```
+$$
 
 Coordinate-invariant rung density from a metric: [SRC-0005, eq. 19] [SRC-0006, eqs. 7.10-7.18]
 
-```math
+$$
 \gamma_k \propto \sqrt{\det g(\lambda_k)}, \qquad
 g_{ij}(\lambda)=E\left[\frac{\partial H}{\partial \lambda_i}\frac{\partial H}{\partial \lambda_j}\right]
 -E\left[\frac{\partial H}{\partial \lambda_i}\right]E\left[\frac{\partial H}{\partial \lambda_j}\right].
-```
+$$
 
 ## Variable glossary
 
-- `\rho_\lambda`: probability density at parameter `lambda`. [SRC-0005, eq. 1]
-- `H_\lambda`: dimensionless Hamiltonian. [SRC-0005, eq. 1]
-- `Z_\lambda^*`: partition function, generally unknown. [SRC-0005, eq. 1]
-- `F_\lambda^*`: exact free energy, `-log Z_\lambda^*`. [SRC-0005, eq. 1]
-- `lambda_k`: discretized parameter value or rung. [SRC-0005, section 2.1]
-- `psi_m`: auxiliary observable whose ensemble average may inform the target rung density. [SRC-0005, section 2.2.2]
-- `mu_{km}`: estimated average of `psi_m` under rung `k`. [SRC-0005, eq. 20]
+- $\rho_\lambda$: probability density at parameter $\lambda$. [SRC-0005, eq. 1]
+- $H_\lambda$: dimensionless Hamiltonian. [SRC-0005, eq. 1]
+- $Z_\lambda^*$: partition function, generally unknown. [SRC-0005, eq. 1]
+- $F_\lambda^*$: exact free energy, $-\log Z_\lambda^*$. [SRC-0005, eq. 1]
+- $\lambda_k$: discretized parameter value or rung. [SRC-0005, section 2.1]
+- $\psi_m$: auxiliary observable whose ensemble average may inform the target rung density. [SRC-0005, section 2.2.2]
+- $\mu_{km}$: estimated average of $\psi_m$ under rung $k$. [SRC-0005, eq. 20]
 
 ## Derivation sketch
 

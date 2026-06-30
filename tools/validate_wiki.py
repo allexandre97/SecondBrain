@@ -27,6 +27,7 @@ FRONTMATTER_EXEMPT = {
 WIKILINK_RE = re.compile(r"!?\[\[([^\]]+)\]\]")
 SOURCE_QA_SECTION = "## Ingestion QA"
 EQUATION_INVENTORY_SECTION = "## Equation inventory"
+OBSIDIAN_DISCOURAGED_MATH_RE = re.compile(r"\\\[|\\\]")
 
 
 def has_frontmatter(path: Path) -> bool:
@@ -73,6 +74,7 @@ def target_exists(target: str, link_index: set[str]) -> bool:
 
 def main() -> int:
     errors: list[str] = []
+    warnings: list[str] = []
 
     for directory in REQUIRED_DIRS:
         if not (ROOT / directory).is_dir():
@@ -89,6 +91,11 @@ def main() -> int:
 
     for path in wiki_pages:
         text = path.read_text(encoding="utf-8")
+        if OBSIDIAN_DISCOURAGED_MATH_RE.search(text):
+            warnings.append(
+                "Obsidian math warning in "
+                f"{path.relative_to(ROOT)}: prefer $$ display math over \\[ ... \\]"
+            )
         if "ingestion_status: complete" in text and SOURCE_QA_SECTION not in text:
             errors.append(f"Complete source page missing ingestion QA section: {path.relative_to(ROOT)}")
         if (
@@ -114,6 +121,9 @@ def main() -> int:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
+
+    for warning in warnings:
+        print(f"WARN: {warning}", file=sys.stderr)
 
     print("Wiki validation passed.")
     return 0
