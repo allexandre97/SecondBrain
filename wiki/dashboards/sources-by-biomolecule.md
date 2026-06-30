@@ -15,6 +15,7 @@ related:
 sources: []
 sensitivity: public
 encryption: none
+graph_exclude: true
 generated: true
 dashboard: sources-by-biomolecule
 ---

@@ -16,6 +16,16 @@ Open the repository root, not `wiki/`, as the Obsidian vault.
 
 This keeps raw sources, wiki pages, schemas, and tools in one local-first workspace. Source pages link to files under `raw/sources/` without duplicating large PDFs under `wiki/`.
 
+## Obsidian Graph View
+
+Recommended graph filter:
+
+```text
+path:wiki/ -[graph_exclude:true]
+```
+
+Also turn off Attachments in Graph view to keep raw PDFs and other source files out of the graph.
+
 ## Basic Workflow
 
 1. Add one source file or source note under `raw/sources/`, or import a local file with `tools/import_source.py`.

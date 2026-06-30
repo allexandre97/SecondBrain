@@ -13,6 +13,7 @@ related:
 sources: []
 sensitivity: public
 encryption: none
+graph_exclude: true
 generated: true
 category_path: research/machine-learning/molecular-modeling
 ---

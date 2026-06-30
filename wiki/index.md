@@ -1,3 +1,19 @@
+---
+type: overview
+status: active
+created: 2026-06-30
+updated: 2026-06-30
+areas: []
+categories:
+  - admin/wiki-maintenance
+tags:
+  - navigation
+related: []
+sources: []
+sensitivity: public
+encryption: none
+graph_exclude: false
+---
 # Wiki Index
 
 Use this page as the main navigation point for reviewed wiki content.

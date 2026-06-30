@@ -17,8 +17,11 @@ related: []
 sources: []
 sensitivity: public
 encryption: none
+graph_exclude: true | false
 ---
 ```
+
+Use `graph_exclude: true` for navigation-heavy pages that should be filterable out of Obsidian Graph view, including generated category pages, dashboards, README index pages, `wiki/index.md`, and `wiki/log.md`. Omit the field or use `false` for normal content pages.
 
 Source pages should also include:
 

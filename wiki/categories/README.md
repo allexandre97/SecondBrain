@@ -13,6 +13,7 @@ sources:
   - SRC-0002
 sensitivity: public
 encryption: none
+graph_exclude: true
 ---
 
 # Categories

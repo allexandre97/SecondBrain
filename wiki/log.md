@@ -1,3 +1,19 @@
+---
+type: overview
+status: active
+created: 2026-06-30
+updated: 2026-06-30
+areas: []
+categories:
+  - admin/wiki-maintenance
+tags:
+  - navigation
+related: []
+sources: []
+sensitivity: public
+encryption: none
+graph_exclude: true
+---
 # Wiki Log
 
 - 2026-06-29: Initialized the LLM wiki scaffold.
@@ -27,3 +43,4 @@
 - 2026-06-30: Imported and ingested SRC-0057/SRC-0058 as the overlay-databank-NMRlipids main/supplement bundle, adding concept coverage for reusable biomolecular simulation databanks.
 - 2026-06-30: Hardened source-page navigation and raw-source links, added category registry and deterministic category index/audit tooling, and removed unused generic scaffold directories.
 - 2026-06-30: Adopted the repository root as the Obsidian vault, normalized repo-root wikilinks and raw-source links, added deterministic category suggestions, repaired obvious multi-facet categories, and generated dashboard indexes without ingesting sources.
+- 2026-06-30: Added `graph_exclude: true` metadata to navigation-heavy pages and documented the Obsidian Graph view filter.
