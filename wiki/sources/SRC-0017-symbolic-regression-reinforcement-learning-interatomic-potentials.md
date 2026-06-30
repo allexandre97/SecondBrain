@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0017
+display_title: "Physically Interpretable Interatomic Potentials via Symbolic Regression and Reinforcement Learning"
+short_title: "Symbolic-Regression Interatomic Potentials"
+aliases:
+  - "SRC-0017"
+  - "Symbolic-Regression Interatomic Potentials"
+  - "Physically Interpretable Interatomic Potentials via Symbolic Regression and Reinforcement Learning"
 source_path: raw/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials.pdf
 imported_path: raw/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/s41524-025-01952-4.pdf
+original_filename: "s41524-025-01952-4.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: fc16263d75e83dc38af91332156626b248d7684521ed3341832bb76baaed5a98
 areas:
   - research
@@ -29,7 +36,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0017: Physically Interpretable Interatomic Potentials via Symbolic Regression and Reinforcement Learning
+# Physically Interpretable Interatomic Potentials via Symbolic Regression and Reinforcement Learning
+
+Source ID: `SRC-0017`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials.pdf)
 
 ## Summary
 

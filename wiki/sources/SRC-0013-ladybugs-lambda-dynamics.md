@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0013
+display_title: "Fast Free Energy Estimates from Lambda-Dynamics with Bias-Updated Gibbs Sampling"
+short_title: "LaDyBUGS Lambda-Dynamics"
+aliases:
+  - "SRC-0013"
+  - "LaDyBUGS Lambda-Dynamics"
+  - "Fast Free Energy Estimates from Lambda-Dynamics with Bias-Updated Gibbs Sampling"
 source_path: raw/sources/SRC-0013-fast-free-energy-estimates-from-lambda-dynamics-with.pdf
 imported_path: raw/sources/SRC-0013-fast-free-energy-estimates-from-lambda-dynamics-with.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/EnhancedSampling/s41467-023-44208-9-1.pdf
+original_filename: "s41467-023-44208-9-1.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: af91ee22aada070287484dd19c2e890d799e68bc16aee3dcf8bb831dac1bc8c3
 areas:
   - research
@@ -34,7 +41,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0013: Fast Free Energy Estimates from Lambda-Dynamics with Bias-Updated Gibbs Sampling
+# Fast Free Energy Estimates from Lambda-Dynamics with Bias-Updated Gibbs Sampling
+
+Source ID: `SRC-0013`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0013-fast-free-energy-estimates-from-lambda-dynamics-with.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0013-fast-free-energy-estimates-from-lambda-dynamics-with.pdf)
 
 ## Summary
 

@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0026
+display_title: "Supporting Information for Building Force Fields"
+short_title: "ForceBalance Supporting Information"
+aliases:
+  - "SRC-0026"
+  - "ForceBalance Supporting Information"
+  - "Supporting Information for Building Force Fields"
 source_path: raw/sources/SRC-0026-building-force-fields-forcebalance-supporting-information.pdf
 imported_path: raw/sources/SRC-0026-building-force-fields-forcebalance-supporting-information.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/jz500737m_si_001.pdf
+original_filename: "jz500737m_si_001.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: ca3852db9cb4efd2a27e43ae4066cb0ea4b1d44c6dd61e108414b1656cb6df3b
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0026: Supporting Information for Building Force Fields
+# Supporting Information for Building Force Fields
+
+Source ID: `SRC-0026`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0026-building-force-fields-forcebalance-supporting-information.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0026-building-force-fields-forcebalance-supporting-information.pdf)
 
 ## Source bundle
 

@@ -2,11 +2,18 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-06-30
 source_id: SRC-0006
+display_title: "Supplemental Materials for Times Square Sampling"
+short_title: "Times Square Sampling Supplement"
+aliases:
+  - "SRC-0006"
+  - "Times Square Sampling Supplement"
+  - "Supplemental Materials for Times Square Sampling"
 source_path: raw/sources/SRC-0006-times-square-sampling-supplement.pdf
 imported_path: raw/sources/SRC-0006-times-square-sampling-supplement.pdf
-original_path: /home/xnadre/Documentos/ucgs_a_2291108_sm6913.pdf
+original_filename: "ucgs_a_2291108_sm6913.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: a0fb7d3c50d92ff03cc4b3a92968a389113d4e9ad1826dcb5c5c37ddb364fd4c
 areas:
   - research
@@ -42,7 +49,14 @@ ingestion_status: complete
 coverage_profile: math-deep
 ---
 
-# SRC-0006: Supplemental Materials for Times Square Sampling
+# Supplemental Materials for Times Square Sampling
+
+Source ID: `SRC-0006`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0006-times-square-sampling-supplement.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0006-times-square-sampling-supplement.pdf)
 
 ## Source bundle
 

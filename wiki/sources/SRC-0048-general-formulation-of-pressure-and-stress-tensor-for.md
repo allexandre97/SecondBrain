@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0048
+display_title: "General Formulation of Pressure and Stress Tensor for Arbitrary Many-body Interaction Potentials Under Periodic Boundary Conditions"
+short_title: "Many-Body Pressure and Stress Tensor"
+aliases:
+  - "SRC-0048"
+  - "Many-Body Pressure and Stress Tensor"
+  - "General Formulation of Pressure and Stress Tensor for Arbitrary Many-body Interaction Potentials Under Periodic Boundary Conditions"
 source_path: raw/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/MD/154107_1_online.pdf
+original_filename: "154107_1_online.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 591c1701ef7d2e4a951b46108b04a4b15380ab2f8d9bcef915fd30cee7efa8c8
 areas:
   - research
@@ -26,7 +33,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0048: General Formulation of Pressure and Stress Tensor for Arbitrary Many-body Interaction Potentials Under Periodic Boundary Conditions
+# General Formulation of Pressure and Stress Tensor for Arbitrary Many-body Interaction Potentials Under Periodic Boundary Conditions
+
+Source ID: `SRC-0048`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for.pdf)
 
 ## Summary
 

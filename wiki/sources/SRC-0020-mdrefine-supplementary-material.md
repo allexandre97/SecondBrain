@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0020
+display_title: "Supplementary Material for MDRefine"
+short_title: "MDRefine Supplement"
+aliases:
+  - "SRC-0020"
+  - "MDRefine Supplement"
+  - "Supplementary Material for MDRefine"
 source_path: raw/sources/SRC-0020-mdrefine-supplementary-material.pdf
 imported_path: raw/sources/SRC-0020-mdrefine-supplementary-material.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/mdrefine_supplementary.pdf
+original_filename: "mdrefine_supplementary.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 439168947f23e54b3dfe9cab2d5b565b431152e28d98f2a554a8788b3504a5e8
 areas:
   - research
@@ -29,7 +36,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0020: Supplementary Material for MDRefine
+# Supplementary Material for MDRefine
+
+Source ID: `SRC-0020`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0020-mdrefine-supplementary-material.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0020-mdrefine-supplementary-material.pdf)
 
 ## Source bundle
 

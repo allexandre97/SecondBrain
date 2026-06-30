@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0016
+display_title: "Fine-Tuning Molecular Mechanics Force Fields to Experimental Free Energy Measurements"
+short_title: "MM Force Field Free-Energy Fine-Tuning"
+aliases:
+  - "SRC-0016"
+  - "MM Force Field Free-Energy Fine-Tuning"
+  - "Fine-Tuning Molecular Mechanics Force Fields to Experimental Free Energy Measurements"
 source_path: raw/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free.pdf
 imported_path: raw/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/nihpp-2025.01.06.631610v1.pdf
+original_filename: "nihpp-2025.01.06.631610v1.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: d74e4edea0ce1453de278a1b119a0b5467307a19fde71c9670bd9fe0921a16f2
 areas:
   - research
@@ -31,7 +38,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0016: Fine-Tuning Molecular Mechanics Force Fields to Experimental Free Energy Measurements
+# Fine-Tuning Molecular Mechanics Force Fields to Experimental Free Energy Measurements
+
+Source ID: `SRC-0016`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free.pdf)
 
 ## Summary
 

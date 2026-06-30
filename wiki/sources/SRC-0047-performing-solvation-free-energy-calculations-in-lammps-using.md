@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0047
+display_title: "Performing Solvation Free Energy Calculations in LAMMPS Using the Decoupling Approach"
+short_title: "LAMMPS Solvation Free Energy"
+aliases:
+  - "SRC-0047"
+  - "LAMMPS Solvation Free Energy"
+  - "Performing Solvation Free Energy Calculations in LAMMPS Using the Decoupling Approach"
 source_path: raw/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/BFE/s10822-020-00303-3.pdf
+original_filename: "s10822-020-00303-3.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 09ec0c00f1e71123b58eefdeb3a0ebb71a9dfe37ba9ed8fddaf8aacc92f74bb3
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0047: Performing Solvation Free Energy Calculations in LAMMPS Using the Decoupling Approach
+# Performing Solvation Free Energy Calculations in LAMMPS Using the Decoupling Approach
+
+Source ID: `SRC-0047`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using.pdf)
 
 ## Summary
 

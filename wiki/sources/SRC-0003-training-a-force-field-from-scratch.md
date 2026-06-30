@@ -2,10 +2,17 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-06-30
 source_id: SRC-0003
+display_title: "Training a Force Field for Proteins and Small Molecules from Scratch"
+short_title: "Garnet Force Field"
+aliases:
+  - "SRC-0003"
+  - "Garnet Force Field"
+  - "Training a Force Field for Proteins and Small Molecules from Scratch"
 source_path: raw/sources/SRC-0003-training-a-force-field-from-scratch.pdf
-original_path: /home/xnadre/Descargas/2603.16770v1.pdf
+original_filename: "2603.16770v1.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: d84bc9589f33dc1c4c7011240b8bdb5d394154e2fa254857dc6dec461ca74262
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0003: Training a Force Field for Proteins and Small Molecules from Scratch
+# Training a Force Field for Proteins and Small Molecules from Scratch
+
+Source ID: `SRC-0003`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0003-training-a-force-field-from-scratch.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0003-training-a-force-field-from-scratch.pdf)
 
 ## Summary
 

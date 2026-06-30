@@ -2,8 +2,13 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-06-30
 source_id: SRC-0002
+display_title: "Project Design Note"
+short_title: "Project Design Note"
+aliases:
+  - "SRC-0002"
+  - "Project Design Note"
 source_path: raw/sources/SRC-0002-project-design-note.md
 areas:
   - research
@@ -23,7 +28,14 @@ sensitivity: public
 encryption: none
 ---
 
-# SRC-0002: Project Design Note
+# Project Design Note
+
+Source ID: `SRC-0002`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0002-project-design-note.md`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0002-project-design-note.md)
 
 ## Summary
 

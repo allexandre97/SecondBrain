@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0038
+display_title: "Practical and Theoretical Aspects of Mixture-of-Experts Modeling"
+short_title: "Mixture-of-Experts Overview"
+aliases:
+  - "SRC-0038"
+  - "Mixture-of-Experts Overview"
+  - "Practical and Theoretical Aspects of Mixture-of-Experts Modeling"
 source_path: raw/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/ML/WIREs Data Min Knowl - 2018 - Nguyen - Practical and theoretical aspects of mixture‐of‐experts modeling An overview.pdf
+original_filename: "WIREs Data Min Knowl - 2018 - Nguyen - Practical and theoretical aspects of mixture‐of‐experts modeling An overview.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 38ac0bf70eeb4252917db13a504f917e0282e2ae628bf2196b164e5e8c0da460
 areas:
   - research
@@ -26,7 +33,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0038: Practical and Theoretical Aspects of Mixture-of-Experts Modeling
+# Practical and Theoretical Aspects of Mixture-of-Experts Modeling
+
+Source ID: `SRC-0038`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts.pdf)
 
 ## Summary
 

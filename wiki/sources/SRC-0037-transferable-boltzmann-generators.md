@@ -4,8 +4,14 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0037
+display_title: "Transferable Boltzmann Generators"
+short_title: "Transferable Boltzmann Generators"
+aliases:
+  - "SRC-0037"
+  - "Transferable Boltzmann Generators"
 source_path: raw/sources/SRC-0037-transferable-boltzmann-generators.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/ML/NeurIPS-2024-transferable-boltzmann-generators-Paper-Conference.pdf
+original_filename: "NeurIPS-2024-transferable-boltzmann-generators-Paper-Conference.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 0fdd9336aad74c9a239b714fcbe0140da7dccca0639e346b6f2f7427b44a5491
 areas:
   - research
@@ -28,7 +34,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0037: Transferable Boltzmann Generators
+# Transferable Boltzmann Generators
+
+Source ID: `SRC-0037`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0037-transferable-boltzmann-generators.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0037-transferable-boltzmann-generators.pdf)
 
 ## Summary
 

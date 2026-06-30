@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0015
+display_title: "Supporting Information for Lipid Force Field SAXS Reparameterization"
+short_title: "Lipid SAXS Reparameterization Supplement"
+aliases:
+  - "SRC-0015"
+  - "Lipid SAXS Reparameterization Supplement"
+  - "Supporting Information for Lipid Force Field SAXS Reparameterization"
 source_path: raw/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information.pdf
 imported_path: raw/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/jp5c08658_si_001.pdf
+original_filename: "jp5c08658_si_001.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 103992aa4dc24c77805c79912b6fc36402702834fcf32e6158ebdf2fe5acd821
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0015: Supporting Information for Lipid Force Field SAXS Reparameterization
+# Supporting Information for Lipid Force Field SAXS Reparameterization
+
+Source ID: `SRC-0015`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information.pdf)
 
 ## Source bundle
 

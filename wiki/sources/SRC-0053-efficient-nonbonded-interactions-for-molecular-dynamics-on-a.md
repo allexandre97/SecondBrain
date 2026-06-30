@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0053
+display_title: "Efficient Nonbonded Interactions for Molecular Dynamics on a Graphics Processing Unit"
+short_title: "OpenMM GPU Nonbonded Interactions"
+aliases:
+  - "SRC-0053"
+  - "OpenMM GPU Nonbonded Interactions"
+  - "Efficient Nonbonded Interactions for Molecular Dynamics on a Graphics Processing Unit"
 source_path: raw/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/MD/J Comput Chem - 2009 - Eastman - Efficient nonbonded interactions for molecular dynamics on a graphics processing unit.pdf
+original_filename: "J Comput Chem - 2009 - Eastman - Efficient nonbonded interactions for molecular dynamics on a graphics processing unit.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: b2407640c91a3e3cd3da12f0dd4b6f812a634a7c3e927db1565fd42c18298169
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0053: Efficient Nonbonded Interactions for Molecular Dynamics on a Graphics Processing Unit
+# Efficient Nonbonded Interactions for Molecular Dynamics on a Graphics Processing Unit
+
+Source ID: `SRC-0053`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a.pdf)
 
 ## Summary
 

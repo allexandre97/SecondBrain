@@ -25,3 +25,4 @@
 - 2026-06-30: Imported and ingested SRC-0048 through SRC-0054 from the MD folder, covering pressure/stress tensor virials, smooth PME and prolate Ewald electrostatics, LINCS constraints, and GPU neighbor/nonbonded algorithms.
 - 2026-06-30: Imported and ingested SRC-0055 and SRC-0056 from the RNA folder, covering UUCG tetraloop force-field failures and a comprehensive review of RNA molecular simulations.
 - 2026-06-30: Imported and ingested SRC-0057/SRC-0058 as the overlay-databank-NMRlipids main/supplement bundle, adding concept coverage for reusable biomolecular simulation databanks.
+- 2026-06-30: Hardened source-page navigation and raw-source links, added category registry and deterministic category index/audit tooling, and removed unused generic scaffold directories.

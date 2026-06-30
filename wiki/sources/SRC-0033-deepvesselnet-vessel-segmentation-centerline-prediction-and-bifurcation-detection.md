@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0033
+display_title: "DeepVesselNet: Vessel Segmentation, Centerline Prediction, and Bifurcation Detection in 3-D Angiographic Volumes"
+short_title: "DeepVesselNet"
+aliases:
+  - "SRC-0033"
+  - "DeepVesselNet"
+  - "DeepVesselNet: Vessel Segmentation, Centerline Prediction, and Bifurcation Detection in 3-D Angiographic Volumes"
 source_path: raw/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Fibers/Tet18.pdf
+original_filename: "Tet18.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 1e1c4eb2ffb0b4e17130c417463eba22af1f312ff1eafe8b5537290b882c6607
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0033: DeepVesselNet: Vessel Segmentation, Centerline Prediction, and Bifurcation Detection in 3-D Angiographic Volumes
+# DeepVesselNet: Vessel Segmentation, Centerline Prediction, and Bifurcation Detection in 3-D Angiographic Volumes
+
+Source ID: `SRC-0033`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection.pdf)
 
 ## Summary
 

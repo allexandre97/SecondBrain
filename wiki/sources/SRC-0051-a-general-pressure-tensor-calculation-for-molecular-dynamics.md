@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0051
+display_title: "A General Pressure Tensor Calculation for Molecular Dynamics Simulations"
+short_title: "MD Pressure Tensor Calculation"
+aliases:
+  - "SRC-0051"
+  - "MD Pressure Tensor Calculation"
+  - "A General Pressure Tensor Calculation for Molecular Dynamics Simulations"
 source_path: raw/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/MD/A general pressure tensor calculation for molecular dynamics simulations.pdf
+original_filename: "A general pressure tensor calculation for molecular dynamics simulations.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 15e62b3027b6ef473226b0550222d81ffa733ac9d810900bca79aa4c9115516e
 areas:
   - research
@@ -26,7 +33,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0051: A General Pressure Tensor Calculation for Molecular Dynamics Simulations
+# A General Pressure Tensor Calculation for Molecular Dynamics Simulations
+
+Source ID: `SRC-0051`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics.pdf)
 
 ## Summary
 

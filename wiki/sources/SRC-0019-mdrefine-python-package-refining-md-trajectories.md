@@ -4,9 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0019
+display_title: "MDRefine"
+short_title: "MDRefine"
+aliases:
+  - "SRC-0019"
+  - "MDRefine"
 source_path: raw/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories.pdf
 imported_path: raw/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/192501_1_5.0256841.pdf
+original_filename: "192501_1_5.0256841.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 8304c8e6adcdb7d5ac0997de7ec768efacc7db2167dcdf672cdba26833b7d67b
 areas:
   - research
@@ -30,7 +36,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0019: MDRefine
+# MDRefine
+
+Source ID: `SRC-0019`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories.pdf)
 
 ## Source bundle
 

@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0052
+display_title: "LINCS: A Linear Constraint Solver for Molecular Simulations"
+short_title: "LINCS Constraint Solver"
+aliases:
+  - "SRC-0052"
+  - "LINCS Constraint Solver"
+  - "LINCS: A Linear Constraint Solver for Molecular Simulations"
 source_path: raw/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/MD/J Comput Chem - 1998 - Hess - LINCS A linear constraint solver for molecular simulations.pdf
+original_filename: "J Comput Chem - 1998 - Hess - LINCS A linear constraint solver for molecular simulations.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 6f0a0dffd46a0835fd880c8a198db1694758e3df6ed988a980643e56bd8be558
 areas:
   - research
@@ -26,7 +33,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0052: LINCS: A Linear Constraint Solver for Molecular Simulations
+# LINCS: A Linear Constraint Solver for Molecular Simulations
+
+Source ID: `SRC-0052`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations.pdf)
 
 ## Summary
 

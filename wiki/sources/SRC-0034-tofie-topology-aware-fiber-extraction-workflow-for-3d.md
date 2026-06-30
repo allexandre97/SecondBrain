@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0034
+display_title: "ToFiE, a Topology-Aware Fiber Extraction Workflow for 3D Biological Fiber Networks"
+short_title: "ToFiE Fiber Extraction"
+aliases:
+  - "SRC-0034"
+  - "ToFiE Fiber Extraction"
+  - "ToFiE, a Topology-Aware Fiber Extraction Workflow for 3D Biological Fiber Networks"
 source_path: raw/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Fibers/Togo26.pdf
+original_filename: "Togo26.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 79ed5da5189f88df87d75619efe167279392119e09e248aea2492cbb1e0a1803
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0034: ToFiE, a Topology-Aware Fiber Extraction Workflow for 3D Biological Fiber Networks
+# ToFiE, a Topology-Aware Fiber Extraction Workflow for 3D Biological Fiber Networks
+
+Source ID: `SRC-0034`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d.pdf)
 
 ## Summary
 

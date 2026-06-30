@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0054
+display_title: "Accelerating Molecular Dynamics Simulations Using Fast Ewald Summation with Prolates"
+short_title: "Fast Ewald Summation with Prolates"
+aliases:
+  - "SRC-0054"
+  - "Fast Ewald Summation with Prolates"
+  - "Accelerating Molecular Dynamics Simulations Using Fast Ewald Summation with Prolates"
 source_path: raw/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/MD/s41467-026-73232-8_reference.pdf
+original_filename: "s41467-026-73232-8_reference.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: fe6f5299ca0c0fca07c7b3fafe6a5bd0ee084be344f6cde89a9b45c0c6b135f9
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0054: Accelerating Molecular Dynamics Simulations Using Fast Ewald Summation with Prolates
+# Accelerating Molecular Dynamics Simulations Using Fast Ewald Summation with Prolates
+
+Source ID: `SRC-0054`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation.pdf)
 
 ## Summary
 

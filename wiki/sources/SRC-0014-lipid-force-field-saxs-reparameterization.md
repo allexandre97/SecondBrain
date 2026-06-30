@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0014
+display_title: "Reparameterizing a Lipid Force Field Using SAXS"
+short_title: "Lipid Force Field SAXS Reparameterization"
+aliases:
+  - "SRC-0014"
+  - "Lipid Force Field SAXS Reparameterization"
+  - "Reparameterizing a Lipid Force Field Using SAXS"
 source_path: raw/sources/SRC-0014-lipid-force-field-saxs-reparameterization.pdf
 imported_path: raw/sources/SRC-0014-lipid-force-field-saxs-reparameterization.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/reparameterizing-a-lipid-force-field-using-small-angle-x-ray-scattering-to-improve-predictions-of-multicomponent.pdf
+original_filename: "reparameterizing-a-lipid-force-field-using-small-angle-x-ray-scattering-to-improve-predictions-of-multicomponent.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 020e1bbd727d71df5e9e25c9ba1c8b1c0376980ed65a7bfed097493b298c11eb
 areas:
   - research
@@ -30,7 +37,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0014: Reparameterizing a Lipid Force Field Using SAXS
+# Reparameterizing a Lipid Force Field Using SAXS
+
+Source ID: `SRC-0014`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0014-lipid-force-field-saxs-reparameterization.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0014-lipid-force-field-saxs-reparameterization.pdf)
 
 ## Source bundle
 

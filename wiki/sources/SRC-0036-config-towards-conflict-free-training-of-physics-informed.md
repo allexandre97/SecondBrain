@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0036
+display_title: "ConFIG: Towards Conflict-Free Training of Physics-Informed Neural Networks"
+short_title: "ConFIG"
+aliases:
+  - "SRC-0036"
+  - "ConFIG"
+  - "ConFIG: Towards Conflict-Free Training of Physics-Informed Neural Networks"
 source_path: raw/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/ML/ICLR-2025-config-towards-conflict-free-training-of-physics-informed-neural-networks-Paper-Conference.pdf
+original_filename: "ICLR-2025-config-towards-conflict-free-training-of-physics-informed-neural-networks-Paper-Conference.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 19693055bc10cf5980c36c62990fbffc37a3585daaddf987441ebedae73625b9
 areas:
   - research
@@ -26,7 +33,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0036: ConFIG: Towards Conflict-Free Training of Physics-Informed Neural Networks
+# ConFIG: Towards Conflict-Free Training of Physics-Informed Neural Networks
+
+Source ID: `SRC-0036`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed.pdf)
 
 ## Summary
 

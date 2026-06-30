@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0045
+display_title: "Large-scale Collaborative Assessment of Binding Free Energy Calculations for Drug Discovery Using OpenFE"
+short_title: "OpenFE RBFE Benchmark"
+aliases:
+  - "SRC-0045"
+  - "OpenFE RBFE Benchmark"
+  - "Large-scale Collaborative Assessment of Binding Free Energy Calculations for Drug Discovery Using OpenFE"
 source_path: raw/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/BFE/chemrxiv-2025-7sthd_v2.pdf
+original_filename: "chemrxiv-2025-7sthd_v2.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 13b864deeb88b30b8c9fd482b7640bb7b6fdf8fa6977a3d79af034a8feb48563
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0045: Large-scale Collaborative Assessment of Binding Free Energy Calculations for Drug Discovery Using OpenFE
+# Large-scale Collaborative Assessment of Binding Free Energy Calculations for Drug Discovery Using OpenFE
+
+Source ID: `SRC-0045`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy.pdf)
 
 ## Summary
 

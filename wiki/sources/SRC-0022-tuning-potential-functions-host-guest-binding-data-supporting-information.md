@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0022
+display_title: "Supporting Information for Tuning Potential Functions to Host-Guest Binding Data"
+short_title: "Host-Guest Potential Tuning Supplement"
+aliases:
+  - "SRC-0022"
+  - "Host-Guest Potential Tuning Supplement"
+  - "Supporting Information for Tuning Potential Functions to Host-Guest Binding Data"
 source_path: raw/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting.pdf
 imported_path: raw/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/ct3c01050_si_001.pdf
+original_filename: "ct3c01050_si_001.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 67d0ff5c51327dd598abdf838c6d8a12e65edeb3529f2dd970dcebc177a9c822
 areas:
   - research
@@ -29,7 +36,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0022: Supporting Information for Tuning Potential Functions to Host-Guest Binding Data
+# Supporting Information for Tuning Potential Functions to Host-Guest Binding Data
+
+Source ID: `SRC-0022`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting.pdf)
 
 ## Source bundle
 

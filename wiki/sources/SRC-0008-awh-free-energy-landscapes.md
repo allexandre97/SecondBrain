@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0008
+display_title: "Accelerated Weight Histogram Method for Exploring Free Energy Landscapes"
+short_title: "AWH Free Energy Landscapes"
+aliases:
+  - "SRC-0008"
+  - "AWH Free Energy Landscapes"
+  - "Accelerated Weight Histogram Method for Exploring Free Energy Landscapes"
 source_path: raw/sources/SRC-0008-accelerated-weight-histogram-method-for-exploring-free-energy.pdf
 imported_path: raw/sources/SRC-0008-accelerated-weight-histogram-method-for-exploring-free-energy.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/AWH/044110_1_online.pdf
+original_filename: "044110_1_online.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: e3abfb199c09cb7f0763550a29490c3594607a05a5c4596dbbe6c54ff5c3931a
 areas:
   - research
@@ -38,7 +45,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0008: Accelerated Weight Histogram Method for Exploring Free Energy Landscapes
+# Accelerated Weight Histogram Method for Exploring Free Energy Landscapes
+
+Source ID: `SRC-0008`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0008-accelerated-weight-histogram-method-for-exploring-free-energy.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0008-accelerated-weight-histogram-method-for-exploring-free-energy.pdf)
 
 ## Summary
 

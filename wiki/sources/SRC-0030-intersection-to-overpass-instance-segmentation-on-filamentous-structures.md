@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0030
+display_title: "Intersection to Overpass: Instance Segmentation on Filamentous Structures"
+short_title: "Filament Instance Segmentation"
+aliases:
+  - "SRC-0030"
+  - "Filament Instance Segmentation"
+  - "Intersection to Overpass: Instance Segmentation on Filamentous Structures"
 source_path: raw/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Fibers/Liu19.pdf
+original_filename: "Liu19.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 9e958916e725212b130173b98588f20f742ccbeb358e19390be4907cb2b2c67a
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0030: Intersection to Overpass: Instance Segmentation on Filamentous Structures
+# Intersection to Overpass: Instance Segmentation on Filamentous Structures
+
+Source ID: `SRC-0030`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures.pdf)
 
 ## Summary
 

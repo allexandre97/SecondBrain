@@ -2,11 +2,18 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-06-30
 source_id: SRC-0005
+display_title: "Times Square Sampling: An Adaptive Algorithm for Free Energy Estimation"
+short_title: "Times Square Sampling"
+aliases:
+  - "SRC-0005"
+  - "Times Square Sampling"
+  - "Times Square Sampling: An Adaptive Algorithm for Free Energy Estimation"
 source_path: raw/sources/SRC-0005-times-square-sampling-free-energy.pdf
 imported_path: raw/sources/SRC-0005-times-square-sampling-free-energy.pdf
-original_path: /home/xnadre/Documentos/Times Square Sampling An Adaptive Algorithm for Free Energy Estimation.pdf
+original_filename: "Times Square Sampling An Adaptive Algorithm for Free Energy Estimation.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: c833172f2f852948c578d6209e881babb7023fa7893c1835fdccb64743e60dd5
 areas:
   - research
@@ -41,7 +48,14 @@ ingestion_status: complete
 coverage_profile: math-deep
 ---
 
-# SRC-0005: Times Square Sampling: An Adaptive Algorithm for Free Energy Estimation
+# Times Square Sampling: An Adaptive Algorithm for Free Energy Estimation
+
+Source ID: `SRC-0005`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0005-times-square-sampling-free-energy.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0005-times-square-sampling-free-energy.pdf)
 
 ## Source bundle
 

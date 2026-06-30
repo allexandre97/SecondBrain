@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0044
+display_title: "SPICE, a Dataset of Drug-like Molecules and Peptides for Training Machine Learning Potentials"
+short_title: "SPICE Dataset"
+aliases:
+  - "SRC-0044"
+  - "SPICE Dataset"
+  - "SPICE, a Dataset of Drug-like Molecules and Peptides for Training Machine Learning Potentials"
 source_path: raw/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Datasets/s41597-022-01882-6.pdf
+original_filename: "s41597-022-01882-6.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 838f07c41bc888ff5181f66719a5e9f5966c360d8d5913a7f672e1b9bdb8a4dd
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0044: SPICE, a Dataset of Drug-like Molecules and Peptides for Training Machine Learning Potentials
+# SPICE, a Dataset of Drug-like Molecules and Peptides for Training Machine Learning Potentials
+
+Source ID: `SRC-0044`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and.pdf)
 
 ## Summary
 

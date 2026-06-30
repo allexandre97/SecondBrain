@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0018
+display_title: "Force-Field Optimization via AWH, Frozen-Bias Replay, and Information Geometry"
+short_title: "AWH Replay Force-Field Optimization"
+aliases:
+  - "SRC-0018"
+  - "AWH Replay Force-Field Optimization"
+  - "Force-Field Optimization via AWH, Frozen-Bias Replay, and Information Geometry"
 source_path: raw/sources/SRC-0018-force-field-optimization-via-awh-gradients.pdf
 imported_path: raw/sources/SRC-0018-force-field-optimization-via-awh-gradients.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/AWH_Gradients.pdf
+original_filename: "AWH_Gradients.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 9c12541564089350a6fa68eb4bd5b67ec6c60f255b1d103227bc5980542168ee
 areas:
   - research
@@ -31,7 +38,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0018: Force-Field Optimization via AWH, Frozen-Bias Replay, and Information Geometry
+# Force-Field Optimization via AWH, Frozen-Bias Replay, and Information Geometry
+
+Source ID: `SRC-0018`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0018-force-field-optimization-via-awh-gradients.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0018-force-field-optimization-via-awh-gradients.pdf)
 
 ## Summary
 

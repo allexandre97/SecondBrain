@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0058
+display_title: "Supplementary Information for Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All"
+short_title: "Overlay Databank Supplement"
+aliases:
+  - "SRC-0058"
+  - "Overlay Databank Supplement"
+  - "Supplementary Information for Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All"
 source_path: raw/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/41467_2024_45189_MOESM1_ESM.pdf
+original_filename: "41467_2024_45189_MOESM1_ESM.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 5e4db5ea9ff14cb6ba9a659f75919e3a6ba4ce9fe395a4324d772f43304aa34b
 source_bundle: overlay-databank-nmrlipids
 bundle_role: supplement
@@ -32,7 +39,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0058: Supplementary Information for Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All
+# Supplementary Information for Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All
+
+Source ID: `SRC-0058`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven.pdf)
 
 ## Summary
 

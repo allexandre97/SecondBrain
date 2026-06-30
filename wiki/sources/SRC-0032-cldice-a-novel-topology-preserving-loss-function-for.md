@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0032
+display_title: "clDice - a Novel Topology-Preserving Loss Function for Tubular Structure Segmentation"
+short_title: "clDice Topology-Preserving Loss"
+aliases:
+  - "SRC-0032"
+  - "clDice Topology-Preserving Loss"
+  - "clDice - a Novel Topology-Preserving Loss Function for Tubular Structure Segmentation"
 source_path: raw/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Fibers/Shi20b.pdf
+original_filename: "Shi20b.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 2e952692e01cb534b8851712e27846ab5d0dc06dfd170c9c64daf4e70d7f3170
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0032: clDice - a Novel Topology-Preserving Loss Function for Tubular Structure Segmentation
+# clDice - a Novel Topology-Preserving Loss Function for Tubular Structure Segmentation
+
+Source ID: `SRC-0032`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for.pdf)
 
 ## Summary
 

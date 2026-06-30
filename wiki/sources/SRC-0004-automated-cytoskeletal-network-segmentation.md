@@ -2,10 +2,17 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-06-30
 source_id: SRC-0004
+display_title: "Automated and Semi-Automated Enhancement, Segmentation and Tracing of Cytoskeletal Networks in Microscopic Images"
+short_title: "Cytoskeletal Network Segmentation Review"
+aliases:
+  - "SRC-0004"
+  - "Cytoskeletal Network Segmentation Review"
+  - "Automated and Semi-Automated Enhancement, Segmentation and Tracing of Cytoskeletal Networks in Microscopic Images"
 source_path: raw/sources/SRC-0004-automated-cytoskeletal-network-segmentation.pdf
-original_path: /home/xnadre/Descargas/Ozd21.pdf
+original_filename: "Ozd21.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 56e711a130426e9de2f0945dd5a46438c69e0979f3e6c398118908f0ee7103bc
 areas:
   - research
@@ -29,7 +36,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0004: Automated and Semi-Automated Enhancement, Segmentation and Tracing of Cytoskeletal Networks in Microscopic Images
+# Automated and Semi-Automated Enhancement, Segmentation and Tracing of Cytoskeletal Networks in Microscopic Images
+
+Source ID: `SRC-0004`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0004-automated-cytoskeletal-network-segmentation.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0004-automated-cytoskeletal-network-segmentation.pdf)
 
 ## Summary
 

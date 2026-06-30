@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0011
+display_title: "Supporting Information for Rethinking Metadynamics"
+short_title: "OPES Supporting Information"
+aliases:
+  - "SRC-0011"
+  - "OPES Supporting Information"
+  - "Supporting Information for Rethinking Metadynamics"
 source_path: raw/sources/SRC-0011-supporting-information-for-rethinking-metadynamics-from-bias-potentials.pdf
 imported_path: raw/sources/SRC-0011-supporting-information-for-rethinking-metadynamics-from-bias-potentials.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/EnhancedSampling/jz0c00497_si_001.pdf
+original_filename: "jz0c00497_si_001.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 84c972bea49a526039f324e7b7da438cae152e0b05f0698f0c142cb7c4d6c052
 areas:
   - research
@@ -33,7 +40,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0011: Supporting Information for Rethinking Metadynamics
+# Supporting Information for Rethinking Metadynamics
+
+Source ID: `SRC-0011`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0011-supporting-information-for-rethinking-metadynamics-from-bias-potentials.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0011-supporting-information-for-rethinking-metadynamics-from-bias-potentials.pdf)
 
 ## Source bundle
 

@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0028
+display_title: "Supporting Information for Building Water Models"
+short_title: "OPC Supporting Information"
+aliases:
+  - "SRC-0028"
+  - "OPC Supporting Information"
+  - "Supporting Information for Building Water Models"
 source_path: raw/sources/SRC-0028-building-water-models-different-approach-supporting-information.pdf
 imported_path: raw/sources/SRC-0028-building-water-models-different-approach-supporting-information.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/jz501780a_si_001.pdf
+original_filename: "jz501780a_si_001.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: b6cd991886641131d6584aeff92f8fced09b922c39aad1a7a6d58e298975ceb0
 areas:
   - research
@@ -29,7 +36,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0028: Supporting Information for Building Water Models
+# Supporting Information for Building Water Models
+
+Source ID: `SRC-0028`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0028-building-water-models-different-approach-supporting-information.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0028-building-water-models-different-approach-supporting-information.pdf)
 
 ## Source bundle
 

@@ -96,8 +96,16 @@ status: active
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 source_id: SRC-0000
+display_title: "Source Title"
+short_title: "Short Source Title"
+aliases:
+  - "SRC-0000"
+  - "Short Source Title"
+  - "Source Title"
 source_path: raw/sources/example.md
-original_path: /original/path/or/filename.md
+imported_path: raw/sources/example.md
+original_filename: "example.md"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: optional-sha256-when-available
 areas: []
 categories: []
@@ -113,7 +121,14 @@ source_bundle: optional-bundle-slug
 bundle_role: main
 ---
 
-# SRC-0000: Source Title
+# Source Title
+
+Source ID: `SRC-0000`
+
+## Raw source
+
+- Repository path: `raw/sources/example.md`
+- Local relative link: [Open raw source](../../raw/sources/example.md)
 
 ## Summary
 

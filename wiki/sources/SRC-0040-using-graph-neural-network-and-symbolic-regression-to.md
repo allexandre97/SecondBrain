@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0040
+display_title: "Using Graph Neural Network and Symbolic Regression to Model Disordered Systems"
+short_title: "GNN to Symbolic-Regression Potentials"
+aliases:
+  - "SRC-0040"
+  - "GNN to Symbolic-Regression Potentials"
+  - "Using Graph Neural Network and Symbolic Regression to Model Disordered Systems"
 source_path: raw/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/ML/s41598-025-05205-8.pdf
+original_filename: "s41598-025-05205-8.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 70fd4354bfb7e8bebbf3f7b80c1b1f2cbbf87a506cab2ae6a4b41be1a795725d
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0040: Using Graph Neural Network and Symbolic Regression to Model Disordered Systems
+# Using Graph Neural Network and Symbolic Regression to Model Disordered Systems
+
+Source ID: `SRC-0040`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to.pdf)
 
 ## Summary
 

@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0039
+display_title: "Scalable Boltzmann Generators for Equilibrium Sampling of Large-Scale Materials"
+short_title: "Scalable Boltzmann Generators"
+aliases:
+  - "SRC-0039"
+  - "Scalable Boltzmann Generators"
+  - "Scalable Boltzmann Generators for Equilibrium Sampling of Large-Scale Materials"
 source_path: raw/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/ML/s41467-026-73900-9.pdf
+original_filename: "s41467-026-73900-9.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 16a9be2319ca1b07eb25eaa5b6bdd8d824dbe2e6034509e78755ef2cc463596e
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0039: Scalable Boltzmann Generators for Equilibrium Sampling of Large-Scale Materials
+# Scalable Boltzmann Generators for Equilibrium Sampling of Large-Scale Materials
+
+Source ID: `SRC-0039`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large.pdf)
 
 ## Summary
 

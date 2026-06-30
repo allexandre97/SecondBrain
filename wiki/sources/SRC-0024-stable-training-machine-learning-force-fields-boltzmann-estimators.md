@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0024
+display_title: "Stability-Aware Training of Machine Learning Force Fields with Differentiable Boltzmann Estimators"
+short_title: "StABlE MLFF Training"
+aliases:
+  - "SRC-0024"
+  - "StABlE MLFF Training"
+  - "Stability-Aware Training of Machine Learning Force Fields with Differentiable Boltzmann Estimators"
 source_path: raw/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators.pdf
 imported_path: raw/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/2402.13984v3.pdf
+original_filename: "2402.13984v3.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 7bfebbdab1ab649dc430b4d475f92959e16fc8f597e29a5bd8e4f8adf4f39b9c
 areas:
   - research
@@ -30,7 +37,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0024: Stability-Aware Training of Machine Learning Force Fields with Differentiable Boltzmann Estimators
+# Stability-Aware Training of Machine Learning Force Fields with Differentiable Boltzmann Estimators
+
+Source ID: `SRC-0024`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators.pdf)
 
 ## Summary
 

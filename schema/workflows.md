@@ -11,6 +11,8 @@ Apply this contract to wiki-related tasks unless the user explicitly overrides i
 - Preserve sensitivity and encryption metadata when editing pages.
 - Update `wiki/index.md` and `wiki/log.md` when changing wiki content.
 - Run `python3 tools/validate_wiki.py` before reporting completion.
+- Keep source pages readable in Obsidian: preserve `source_id`, use human-readable `display_title`, `short_title`, aliases, and H1 titles, and include raw-source links when the repository copy exists.
+- Prefer categories from `schema/category_registry.md`; record uncertain category candidates instead of silently inventing new taxonomy branches.
 
 ## Default Report Format
 
@@ -52,7 +54,7 @@ Supplement: /path/to/supplement.pdf
 Ingest this folder as one source bundle: /path/to/project_docs/
 ```
 
-When metadata is absent, infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile from filenames, document metadata, headings, source content, repository context, and user wording. Record meaningful uncertainty in the source page instead of forcing the user to specify everything upfront. Ask for clarification only when ambiguity blocks safe ingestion, such as unclear sensitivity for private material, unclear bundle boundaries, or conflicting source roles.
+When metadata is absent, infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile from filenames, document metadata, headings, source content, repository context, and user wording. Use the category registry before adding new category paths. Record meaningful uncertainty in the source page instead of forcing the user to specify everything upfront. Ask for clarification only when ambiguity blocks safe ingestion, such as unclear sensitivity for private material, unclear bundle boundaries, conflicting source roles, or a taxonomy decision that would create a new top-level branch.
 
 ## Answer-note workflow
 
@@ -61,3 +63,5 @@ Use `.agents/skills/wiki-answer-note/SKILL.md` for persistent answer notes, targ
 ## Maintenance workflow
 
 Use `.agents/skills/wiki-note-maintenance/SKILL.md` for validation, cleanup, duplicate detection, wiki linting, math-format repair, concept splitting or merging, index/log consistency, and wiki health checks.
+
+Category pages under `wiki/categories/` are generated from frontmatter with `python3 tools/build_category_indexes.py`; use `python3 tools/audit_categories.py` to inspect category drift before broad taxonomy cleanup.

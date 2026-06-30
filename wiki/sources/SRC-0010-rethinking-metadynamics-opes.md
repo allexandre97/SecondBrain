@@ -4,9 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0010
+display_title: "Rethinking Metadynamics"
+short_title: "Rethinking Metadynamics"
+aliases:
+  - "SRC-0010"
+  - "Rethinking Metadynamics"
 source_path: raw/sources/SRC-0010-rethinking-metadynamics-from-bias-potentials-to-probability-distributions.pdf
 imported_path: raw/sources/SRC-0010-rethinking-metadynamics-from-bias-potentials-to-probability-distributions.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/EnhancedSampling/rethinking-metadynamics-from-bias-potentials-to-probability-distributions.pdf
+original_filename: "rethinking-metadynamics-from-bias-potentials-to-probability-distributions.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 5b9e25b1e7e852d7a5ead4a6454b25c80b509f70b30c1b48d975447196b85062
 areas:
   - research
@@ -35,7 +41,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0010: Rethinking Metadynamics
+# Rethinking Metadynamics
+
+Source ID: `SRC-0010`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0010-rethinking-metadynamics-from-bias-potentials-to-probability-distributions.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0010-rethinking-metadynamics-from-bias-potentials-to-probability-distributions.pdf)
 
 ## Source bundle
 

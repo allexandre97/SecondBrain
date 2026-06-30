@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0042
+display_title: "The Open Molecules 2025 (OMol25) Dataset, Evaluations, and Models"
+short_title: "OMol25 Dataset"
+aliases:
+  - "SRC-0042"
+  - "OMol25 Dataset"
+  - "The Open Molecules 2025 (OMol25) Dataset, Evaluations, and Models"
 source_path: raw/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Datasets/2505.08762v2.pdf
+original_filename: "2505.08762v2.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 409286c94d38222c5893d9f34c4c346dd07b33806f5e4f0a22dd82f3382bf360
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0042: The Open Molecules 2025 (OMol25) Dataset, Evaluations, and Models
+# The Open Molecules 2025 (OMol25) Dataset, Evaluations, and Models
+
+Source ID: `SRC-0042`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and.pdf)
 
 ## Summary
 

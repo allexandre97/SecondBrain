@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0041
+display_title: "Boltzmann Generators: Sampling Equilibrium States of Many-Body Systems with Deep Learning"
+short_title: "Original Boltzmann Generators"
+aliases:
+  - "SRC-0041"
+  - "Original Boltzmann Generators"
+  - "Boltzmann Generators: Sampling Equilibrium States of Many-Body Systems with Deep Learning"
 source_path: raw/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/ML/science.aaw1147.pdf
+original_filename: "science.aaw1147.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: e80cf7d2bdbff262ed54c0321272edd7bffb404615383e8dda1ce29063c35ced
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0041: Boltzmann Generators: Sampling Equilibrium States of Many-Body Systems with Deep Learning
+# Boltzmann Generators: Sampling Equilibrium States of Many-Body Systems with Deep Learning
+
+Source ID: `SRC-0041`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body.pdf)
 
 ## Summary
 

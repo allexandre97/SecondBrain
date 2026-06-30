@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0025
+display_title: "Building Force Fields: An Automatic, Systematic, and Reproducible Approach"
+short_title: "ForceBalance Force-Field Fitting"
+aliases:
+  - "SRC-0025"
+  - "ForceBalance Force-Field Fitting"
+  - "Building Force Fields: An Automatic, Systematic, and Reproducible Approach"
 source_path: raw/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach.pdf
 imported_path: raw/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/building-force-fields-an-automatic-systematic-and-reproducible-approach.pdf
+original_filename: "building-force-fields-an-automatic-systematic-and-reproducible-approach.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: fe250a95712775e8f2943db8fa58cd2fdd9e472ee5c3d045d91c0008a742d340
 areas:
   - research
@@ -31,7 +38,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0025: Building Force Fields: An Automatic, Systematic, and Reproducible Approach
+# Building Force Fields: An Automatic, Systematic, and Reproducible Approach
+
+Source ID: `SRC-0025`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach.pdf)
 
 ## Source bundle
 

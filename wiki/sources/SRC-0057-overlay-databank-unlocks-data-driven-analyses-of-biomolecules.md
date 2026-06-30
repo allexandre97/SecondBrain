@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0057
+display_title: "Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All"
+short_title: "Overlay Databank"
+aliases:
+  - "SRC-0057"
+  - "Overlay Databank"
+  - "Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All"
 source_path: raw/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/s41467-024-45189-z.pdf
+original_filename: "s41467-024-45189-z.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 1ba5d0e9bbfb4ac8af58cf63952fcfff12320a1a929160ee688989d66496c5e6
 source_bundle: overlay-databank-nmrlipids
 bundle_role: main
@@ -33,7 +40,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0057: Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All
+# Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All
+
+Source ID: `SRC-0057`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules.pdf)
 
 ## Summary
 

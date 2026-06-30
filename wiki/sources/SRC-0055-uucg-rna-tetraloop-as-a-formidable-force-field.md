@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0055
+display_title: "UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations"
+short_title: "UUCG RNA Tetraloop Force-Field Challenge"
+aliases:
+  - "SRC-0055"
+  - "UUCG RNA Tetraloop Force-Field Challenge"
+  - "UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations"
 source_path: raw/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/RNA/10.1021@acs.jctc.0c00801.pdf
+original_filename: "10.1021@acs.jctc.0c00801.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 98f72c3b8069fac5d54fb8dc5c612686052724cb65886c3f93fff007fbfce764
 areas:
   - research
@@ -29,7 +36,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0055: UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations
+# UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations
+
+Source ID: `SRC-0055`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field.pdf)
 
 ## Summary
 

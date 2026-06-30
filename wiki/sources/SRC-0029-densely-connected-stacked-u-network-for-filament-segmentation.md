@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0029
+display_title: "Densely Connected Stacked U-network for Filament Segmentation in Microscopy Images"
+short_title: "Stacked U-Net Filament Segmentation"
+aliases:
+  - "SRC-0029"
+  - "Stacked U-Net Filament Segmentation"
+  - "Densely Connected Stacked U-network for Filament Segmentation in Microscopy Images"
 source_path: raw/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Fibers/Liu18.pdf
+original_filename: "Liu18.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: c0c2bfb54e9f9eec9a79757c3c5ad72b0166c6e350277136517e45697e4b300a
 areas:
   - research
@@ -29,7 +36,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0029: Densely Connected Stacked U-network for Filament Segmentation in Microscopy Images
+# Densely Connected Stacked U-network for Filament Segmentation in Microscopy Images
+
+Source ID: `SRC-0029`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation.pdf)
 
 ## Summary
 

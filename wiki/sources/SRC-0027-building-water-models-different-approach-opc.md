@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0027
+display_title: "Building Water Models: A Different Approach"
+short_title: "OPC Water Model"
+aliases:
+  - "SRC-0027"
+  - "OPC Water Model"
+  - "Building Water Models: A Different Approach"
 source_path: raw/sources/SRC-0027-building-water-models-different-approach-opc.pdf
 imported_path: raw/sources/SRC-0027-building-water-models-different-approach-opc.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/FF_train/building-water-models-a-different-approach.pdf
+original_filename: "building-water-models-a-different-approach.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 8ce61c6fa3337a8e8d03742f03081b257e5ce06856350d02d43dde32afc651a5
 areas:
   - research
@@ -30,7 +37,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0027: Building Water Models: A Different Approach
+# Building Water Models: A Different Approach
+
+Source ID: `SRC-0027`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0027-building-water-models-different-approach-opc.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0027-building-water-models-different-approach-opc.pdf)
 
 ## Source bundle
 

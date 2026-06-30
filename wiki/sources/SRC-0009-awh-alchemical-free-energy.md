@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0009
+display_title: "The Accelerated Weight Histogram Method for Alchemical Free Energy Calculations"
+short_title: "AWH Alchemical Free Energies"
+aliases:
+  - "SRC-0009"
+  - "AWH Alchemical Free Energies"
+  - "The Accelerated Weight Histogram Method for Alchemical Free Energy Calculations"
 source_path: raw/sources/SRC-0009-the-accelerated-weight-histogram-method-for-alchemical-free.pdf
 imported_path: raw/sources/SRC-0009-the-accelerated-weight-histogram-method-for-alchemical-free.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/AWH/204103_1_online.pdf
+original_filename: "204103_1_online.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 640355f685a36a26aa57ed273f2bf857afc8ace468d42d3a735b93f2e4ad8709
 areas:
   - research
@@ -41,7 +48,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0009: The Accelerated Weight Histogram Method for Alchemical Free Energy Calculations
+# The Accelerated Weight Histogram Method for Alchemical Free Energy Calculations
+
+Source ID: `SRC-0009`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0009-the-accelerated-weight-histogram-method-for-alchemical-free.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0009-the-accelerated-weight-histogram-method-for-alchemical-free.pdf)
 
 ## Summary
 

@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0046
+display_title: "The Maximal and Current Accuracy of Rigorous Protein-ligand Binding Free Energy Calculations"
+short_title: "FEP+ Binding Free-Energy Accuracy"
+aliases:
+  - "SRC-0046"
+  - "FEP+ Binding Free-Energy Accuracy"
+  - "The Maximal and Current Accuracy of Rigorous Protein-ligand Binding Free Energy Calculations"
 source_path: raw/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/BFE/s42004-023-01019-9.pdf
+original_filename: "s42004-023-01019-9.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 3d133ce3a745255c773ce0ec2c76d0d3474f22ee2aa36c7c9937a1bb660d0d5d
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0046: The Maximal and Current Accuracy of Rigorous Protein-ligand Binding Free Energy Calculations
+# The Maximal and Current Accuracy of Rigorous Protein-ligand Binding Free Energy Calculations
+
+Source ID: `SRC-0046`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein.pdf)
 
 ## Summary
 

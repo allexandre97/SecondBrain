@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0043
+display_title: "Structure-Based Experimental Datasets for Benchmarking Protein Simulation Force Fields"
+short_title: "Protein Force-Field Benchmark Datasets"
+aliases:
+  - "SRC-0043"
+  - "Protein Force-Field Benchmark Datasets"
+  - "Structure-Based Experimental Datasets for Benchmarking Protein Simulation Force Fields"
 source_path: raw/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Datasets/LiveCoMS_Article_v1.0.pdf
+original_filename: "LiveCoMS_Article_v1.0.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 95c85906eb59d36b73563e7b4c92f09255f368b94c4b806194a1f4f9e263649e
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0043: Structure-Based Experimental Datasets for Benchmarking Protein Simulation Force Fields
+# Structure-Based Experimental Datasets for Benchmarking Protein Simulation Force Fields
+
+Source ID: `SRC-0043`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation.pdf)
 
 ## Summary
 

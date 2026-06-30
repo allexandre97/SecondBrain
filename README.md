@@ -8,7 +8,7 @@ An LLM-assisted wiki workspace for turning raw source material into reviewed Mar
 - `wiki/` stores curated wiki pages.
 - `schema/` documents page templates, glossary terms, workflows, and lint rules.
 - `tools/` stores local maintenance scripts.
-- `src/`, `tests/`, `docs/`, and `assets/` are reserved for future project code, tests, documentation, and static assets.
+- `tests/` stores local smoke tests for wiki tooling.
 
 ## Basic Workflow
 
@@ -20,6 +20,8 @@ An LLM-assisted wiki workspace for turning raw source material into reviewed Mar
 
 Do not ingest multiple sources at once unless the review scope is intentionally broad.
 
+Source pages should keep stable `SRC-XXXX` IDs while using human-readable `display_title`, `short_title`, aliases, and H1 titles. When a source file is present in `raw/sources/`, include a visible raw-source link on the source page. Do not expose machine-specific absolute original paths in public wiki metadata; keep only the original filename and an omission note when useful.
+
 ## Validation
 
 Run the local smoke check from the repository root:
@@ -29,6 +31,22 @@ python3 tools/validate_wiki.py
 ```
 
 The validator checks required directories, core wiki entry files, wiki page frontmatter, and obvious broken Obsidian wikilinks.
+
+## Categories
+
+Category membership comes from page frontmatter. Prefer category paths listed in `schema/category_registry.md`; record uncertain category candidates in notes instead of silently inventing new branches.
+
+Regenerate category browsing pages from frontmatter with:
+
+```sh
+python3 tools/build_category_indexes.py
+```
+
+Audit category usage with:
+
+```sh
+python3 tools/audit_categories.py
+```
 
 ## Search
 

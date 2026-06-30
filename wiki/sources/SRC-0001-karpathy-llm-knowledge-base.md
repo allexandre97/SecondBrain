@@ -2,14 +2,26 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-06-30
 source_id: SRC-0001
+display_title: "LLM Wiki"
+short_title: "LLM Wiki"
+aliases:
+  - "SRC-0001"
+  - "LLM Wiki"
 source_path: raw/sources/SRC-0001-karpathy-llm-knowledge-base.md
 tags:
   - llm-wiki
 ---
 
-# SRC-0001: LLM Wiki
+# LLM Wiki
+
+Source ID: `SRC-0001`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0001-karpathy-llm-knowledge-base.md`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0001-karpathy-llm-knowledge-base.md)
 
 ## Summary
 

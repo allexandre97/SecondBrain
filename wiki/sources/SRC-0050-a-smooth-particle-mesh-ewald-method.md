@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0050
+display_title: "A Smooth Particle Mesh Ewald Method"
+short_title: "Smooth Particle Mesh Ewald"
+aliases:
+  - "SRC-0050"
+  - "Smooth Particle Mesh Ewald"
+  - "A Smooth Particle Mesh Ewald Method"
 source_path: raw/sources/SRC-0050-a-smooth-particle-mesh-ewald-method.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/MD/8577_1_online.pdf
+original_filename: "8577_1_online.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 95f9181cd3fd4ea0891729ba18b0d7bc868925b66189f3d08ab75752debac520
 areas:
   - research
@@ -26,7 +33,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0050: A Smooth Particle Mesh Ewald Method
+# A Smooth Particle Mesh Ewald Method
+
+Source ID: `SRC-0050`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0050-a-smooth-particle-mesh-ewald-method.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0050-a-smooth-particle-mesh-ewald-method.pdf)
 
 ## Summary
 

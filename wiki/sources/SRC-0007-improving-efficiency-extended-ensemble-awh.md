@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0007
+display_title: "Improving the Efficiency of Extended Ensemble Simulations"
+short_title: "Extended-Ensemble AWH"
+aliases:
+  - "SRC-0007"
+  - "Extended-Ensemble AWH"
+  - "Improving the Efficiency of Extended Ensemble Simulations"
 source_path: raw/sources/SRC-0007-improving-the-efficiency-of-extended-ensemble-simulations-the.pdf
 imported_path: raw/sources/SRC-0007-improving-the-efficiency-of-extended-ensemble-simulations-the.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/AWH/PhysRevE.85.056708.pdf
+original_filename: "PhysRevE.85.056708.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: bdef5a9d053652b3a13957e3c911390ae3f5f8ea761ae16054b173769a285e3e
 areas:
   - research
@@ -36,7 +43,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0007: Improving the Efficiency of Extended Ensemble Simulations
+# Improving the Efficiency of Extended Ensemble Simulations
+
+Source ID: `SRC-0007`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0007-improving-the-efficiency-of-extended-ensemble-simulations-the.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0007-improving-the-efficiency-of-extended-ensemble-simulations-the.pdf)
 
 ## Summary
 

@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0031
+display_title: "Quantifying Actin Filaments in Microscopic Images Using Keypoint Detection and Fast Marching"
+short_title: "Actin Filament Quantification"
+aliases:
+  - "SRC-0031"
+  - "Actin Filament Quantification"
+  - "Quantifying Actin Filaments in Microscopic Images Using Keypoint Detection and Fast Marching"
 source_path: raw/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Fibers/Liu20.pdf
+original_filename: "Liu20.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: bd5642d9e200725b68382d716dbf193c6cddf5de354006702e9cf05d33c6d683
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0031: Quantifying Actin Filaments in Microscopic Images Using Keypoint Detection and Fast Marching
+# Quantifying Actin Filaments in Microscopic Images Using Keypoint Detection and Fast Marching
+
+Source ID: `SRC-0031`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint.pdf)
 
 ## Summary
 

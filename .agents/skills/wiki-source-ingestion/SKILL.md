@@ -34,7 +34,7 @@ Supplement: /path/to/supplement.pdf
 Ingest this folder as one source bundle: /path/to/project_docs/
 ```
 
-When metadata is absent, infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile from filenames, document metadata, headings, source content, repository context, and user wording. Record meaningful uncertainty in the source page instead of forcing the user to specify everything upfront. Ask for clarification only when ambiguity blocks safe ingestion, such as unclear sensitivity for private material, unclear bundle boundaries, or conflicting source roles.
+When metadata is absent, infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile from filenames, document metadata, headings, source content, repository context, and user wording. Prefer category paths already documented in `schema/category_registry.md`; record uncertain category candidates instead of silently inventing new taxonomy branches. Record meaningful uncertainty in the source page instead of forcing the user to specify everything upfront. Ask for clarification only when ambiguity blocks safe ingestion, such as unclear sensitivity for private material, unclear bundle boundaries, conflicting source roles, or a taxonomy decision that would create a new top-level branch.
 
 ## Ingestion mode inference
 
@@ -60,7 +60,7 @@ Use this workflow when a source is provided from any local path, not only from `
 6. Keep the slug lowercase, ASCII where practical, hyphen-separated, and short.
 7. Do not modify the original file.
 8. Do not modify the imported raw source after copying.
-9. Record the original path or filename, imported path, source ID, and hash where practical.
+9. Record the original filename, imported path, source ID, and hash where practical. Do not expose machine-specific absolute local paths in public wiki metadata.
 10. Then continue with the normal one-source ingestion workflow.
 
 For simple imports, use `python3 tools/import_source.py /path/to/source.ext`, pass `--title` or `--slug` when a better name is known, or preview with `python3 tools/import_source.py --dry-run /path/to/source.ext`.
@@ -70,11 +70,13 @@ For simple imports, use `python3 tools/import_source.py /path/to/source.ext`, pa
 1. Place or import exactly one requested source into `raw/sources/`.
 2. Apply the source import workflow if the source is not already normalized in `raw/sources/`.
 3. Create or update the source summary page and relevant concept, entity, claim, tension, or question pages.
-4. Run source-specific retrieval QA and record the checked questions, coverage decision, and known gaps in the source page.
-5. Apply the ingestion completion contract before reporting the ingestion as complete.
-6. Review new or changed wiki pages.
-7. If the source is math-heavy, confirm the equation inventory, proof map, implementation notes, and mathematical gaps before marking the source complete.
-8. Run `python3 tools/validate_wiki.py`.
+4. Give the source page a human-readable H1, `display_title`, `short_title`, aliases, and a visible `Source ID: SRC-XXXX` line near the top.
+5. Add a `## Raw source` section with the repository path and local relative link when the raw source exists; record a gap if it is missing.
+6. Run source-specific retrieval QA and record the checked questions, coverage decision, and known gaps in the source page.
+7. Apply the ingestion completion contract before reporting the ingestion as complete.
+8. Review new or changed wiki pages.
+9. If the source is math-heavy, confirm the equation inventory, proof map, implementation notes, and mathematical gaps before marking the source complete.
+10. Run `python3 tools/validate_wiki.py`.
 
 Do not perform a broad refactor during ingestion unless requested.
 

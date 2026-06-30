@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0035
+display_title: "SOAX: A Software for Quantification of 3D Biopolymer Networks"
+short_title: "SOAX"
+aliases:
+  - "SRC-0035"
+  - "SOAX"
+  - "SOAX: A Software for Quantification of 3D Biopolymer Networks"
 source_path: raw/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/Fibers/Xu15.pdf
+original_filename: "Xu15.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: fa2ba6561f02ad8fc4f309dc30b3ed928af074364ea55fd96555de1f93fc6d49
 areas:
   - research
@@ -28,7 +35,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0035: SOAX: A Software for Quantification of 3D Biopolymer Networks
+# SOAX: A Software for Quantification of 3D Biopolymer Networks
+
+Source ID: `SRC-0035`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks.pdf)
 
 ## Summary
 

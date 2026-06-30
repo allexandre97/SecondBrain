@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0056
+display_title: "RNA Structural Dynamics As Captured by Molecular Simulations: A Comprehensive Overview"
+short_title: "RNA Molecular Simulations Review"
+aliases:
+  - "SRC-0056"
+  - "RNA Molecular Simulations Review"
+  - "RNA Structural Dynamics As Captured by Molecular Simulations: A Comprehensive Overview"
 source_path: raw/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/RNA/rna-structural-dynamics-as-captured-by-molecular-simulations-a-comprehensive-overview-1-128.pdf
+original_filename: "rna-structural-dynamics-as-captured-by-molecular-simulations-a-comprehensive-overview-1-128.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: c9ad68c1495c58dd02bd1354076653867d6c2dc63af268dc5c3303dfc8033d3e
 areas:
   - research
@@ -30,7 +37,14 @@ ingestion_status: complete
 coverage_profile: standard
 ---
 
-# SRC-0056: RNA Structural Dynamics As Captured by Molecular Simulations: A Comprehensive Overview
+# RNA Structural Dynamics As Captured by Molecular Simulations: A Comprehensive Overview
+
+Source ID: `SRC-0056`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations.pdf)
 
 ## Summary
 

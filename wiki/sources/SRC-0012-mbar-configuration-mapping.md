@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0012
+display_title: "Multistate Reweighting and Configuration Mapping"
+short_title: "MBAR with Configuration Mapping"
+aliases:
+  - "SRC-0012"
+  - "MBAR with Configuration Mapping"
+  - "Multistate Reweighting and Configuration Mapping"
 source_path: raw/sources/SRC-0012-multistate-reweighting-and-configuration-mapping-together-accelerate-thermodynamic.pdf
 imported_path: raw/sources/SRC-0012-multistate-reweighting-and-configuration-mapping-together-accelerate-thermodynamic.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/EnhancedSampling/154108_1_online.pdf
+original_filename: "154108_1_online.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 03ec626dc3dc092e1e7c155f69e36e10691ca8f9cc06ea8426ef86491a1b85e2
 areas:
   - research
@@ -31,7 +38,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0012: Multistate Reweighting and Configuration Mapping
+# Multistate Reweighting and Configuration Mapping
+
+Source ID: `SRC-0012`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0012-multistate-reweighting-and-configuration-mapping-together-accelerate-thermodynamic.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0012-multistate-reweighting-and-configuration-mapping-together-accelerate-thermodynamic.pdf)
 
 ## Summary
 

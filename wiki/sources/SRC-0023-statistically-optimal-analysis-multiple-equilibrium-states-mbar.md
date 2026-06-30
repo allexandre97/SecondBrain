@@ -4,9 +4,16 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0023
+display_title: "Statistically Optimal Analysis of Samples from Multiple Equilibrium States"
+short_title: "Original MBAR Paper"
+aliases:
+  - "SRC-0023"
+  - "Original MBAR Paper"
+  - "Statistically Optimal Analysis of Samples from Multiple Equilibrium States"
 source_path: raw/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.pdf
 imported_path: raw/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/124105_1_online.pdf
+original_filename: "124105_1_online.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: 6bea1d3c790a388b5ab728175fb6914d4e1fd64a4258983cad84a26531a18214
 areas:
   - research
@@ -31,7 +38,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0023: Statistically Optimal Analysis of Samples from Multiple Equilibrium States
+# Statistically Optimal Analysis of Samples from Multiple Equilibrium States
+
+Source ID: `SRC-0023`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.pdf)
 
 ## Summary
 

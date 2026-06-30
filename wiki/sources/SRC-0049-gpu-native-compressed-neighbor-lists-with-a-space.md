@@ -4,8 +4,15 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0049
+display_title: "GPU-Native Compressed Neighbor Lists with a Space-Filling-Curve Data Layout"
+short_title: "GPU Compressed Neighbor Lists"
+aliases:
+  - "SRC-0049"
+  - "GPU Compressed Neighbor Lists"
+  - "GPU-Native Compressed Neighbor Lists with a Space-Filling-Curve Data Layout"
 source_path: raw/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space.pdf
-original_path: /lmb/home/alexandrebg/Documents/Papers/MD/2602.19873v1.pdf
+original_filename: "2602.19873v1.pdf"
+original_path_note: "Original local path omitted from wiki metadata."
 sha256: c84aea4ce94c06fe3b8a44346e35390bd76b699184bc8d92f1ecfcc8a13c5294
 areas:
   - research
@@ -27,7 +34,14 @@ ingestion_status: complete
 coverage_profile: math-standard
 ---
 
-# SRC-0049: GPU-Native Compressed Neighbor Lists with a Space-Filling-Curve Data Layout
+# GPU-Native Compressed Neighbor Lists with a Space-Filling-Curve Data Layout
+
+Source ID: `SRC-0049`
+
+## Raw source
+
+- Repository path: `raw/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space.pdf`
+- Local relative link: [Open raw source](../../raw/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space.pdf)
 
 ## Summary
 
