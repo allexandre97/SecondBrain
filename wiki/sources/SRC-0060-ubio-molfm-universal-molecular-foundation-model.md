@@ -16,6 +16,14 @@ imported_path: raw/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-mo
 original_filename: "2602.17709v1.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 26d60ebb1b5151f0d756347e9952da5858e9a56a53450551d5e44b84ed25ae37
+authors:
+  - "UBio Team"
+author_entities: []
+year: 2026
+venue: "arXiv"
+doi:
+arxiv: "2602.17709"
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -40,6 +48,11 @@ related:
   - "[[wiki/concepts/stability-aware-mlff-training]]"
 sources:
   - SRC-0060
+cites_sources:
+  - SRC-0042
+  - SRC-0044
+citation_match_status: partial
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -157,6 +170,28 @@ The report does not present formal theorems. Its mathematical argument is constr
 - Stage 3 improves protein accuracy but reveals an observed DNA energy-difference regression, which the authors attribute to limited nucleic-acid top-down coverage. [SRC-0060, sections 2.1.2 and 3.2]
 - The current top-down biological sampling is protein-focused; nucleic acids and cross-modal interfaces need broader top-down sampling before treating the model as uniformly validated across biomolecular classes. [SRC-0060, section 4.1.1]
 - The 100K-atom benchmark still produces an out-of-memory result for UBio-MolFM with long-range interactions enabled. [SRC-0060, section 2.3]
+
+## Claims
+
+- UBio-MolFM separates static energy/force tests from downstream biomolecular MD checks, while its own limitations show why biomolecule-stratified validation remains necessary. [SRC-0060]
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]]
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+
+## Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+- [[wiki/questions/force-field-training-validation-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]
+
+## Citation Links
+
+- `SRC-0042`: The report cites OMol25 as a recent large molecular dataset and uses OMol25 in training/evaluation context, matching the ingested OMol25 source. [SRC-0060]
+- `SRC-0044`: The report cites SPICE as a small-molecule/drug-like molecular dataset, matching the ingested SPICE source. [SRC-0060]
+- Partial citation review: the reference section is broad and includes many model and dataset sources; this pass confirmed only clear links to already ingested cluster sources. [SRC-0060]
 
 ## Links
 

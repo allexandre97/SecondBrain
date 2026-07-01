@@ -24,6 +24,7 @@ year: 2026
 venue: "arXiv"
 doi:
 arxiv: "2603.16770v1"
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -44,6 +45,9 @@ related:
   - "[[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps]]"
 sources:
   - SRC-0003
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -95,6 +99,10 @@ This arXiv paper introduces Garnet, a graph-neural-network system that predicts 
 ## Tensions
 
 - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps]] - Garnet's broad automated-force-field framing coexists with validation gaps and reported failure modes. [SRC-0003]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested force-field fitting/refinement cluster sources.
 
 ## Open Questions
 

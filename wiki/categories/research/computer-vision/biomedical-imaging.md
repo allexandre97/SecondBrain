@@ -64,11 +64,16 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Questions
 
 - [[wiki/questions/QST-0001-cldice-biological-transfer-scope|clDice Biological Transfer Scope]]
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope|STED Tau Fiber Analysis Validation Scope]]
 
 ### Tensions
 
 - [[wiki/tensions/TEN-0003-cldice-topology-guarantee-vs-practical-transfer|clDice Topology Guarantee Versus Practical Transfer]]
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation|General Segmentation Frameworks Versus STED Fiber Domain Adaptation]]
 
 ### Claims
 
 - [[wiki/claims/CLM-0003-cldice-connectivity-aware-tubular-segmentation|clDice Captures Tubular Connectivity Better Than Overlap Alone]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks|Fiber Analysis Needs Graph Measurements, Not Only Masks]]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation|Instance Filament Tracing Is Harder Than Semantic Segmentation]]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures|Overlap Segmentation Metrics Can Miss Topology Failures]]

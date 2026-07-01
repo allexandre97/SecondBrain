@@ -18,6 +18,28 @@ imported_path: raw/sources/SRC-0069-segment-anything.pdf
 original_filename: "2304.02643v1.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: c6ca524e47200c3e542587ca76ac1dbc89cc67340f948c819250d16fdbd90cfb
+authors:
+  - "Alexander Kirillov"
+  - "Eric Mintun"
+  - "Nikhila Ravi"
+  - "Hanzi Mao"
+  - "Chloe Rolland"
+  - "Laura Gustafson"
+  - "Tete Xiao"
+  - "Spencer Whitehead"
+  - "Alexander C. Berg"
+  - "Wan-Yen Lo"
+  - "Piotr Dollar"
+  - "Ross Girshick"
+author_entities: []
+year: 2023
+venue: "arXiv"
+doi:
+arxiv: "2304.02643v1"
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -76,11 +98,30 @@ Kirillov et al. introduce the Segment Anything project: a promptable segmentatio
 - The paper states that domain-specific tools are expected to outperform SAM in their own domains, which is important for biological microscopy or fiber-network workflows. [SRC-0069, section 7.6]
 - The authors explicitly leave open whether SAM will ultimately be treated as a foundation model by the community. [SRC-0069, section 8]
 
+## Claims
+
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - SAM's reported fine-structure and small disconnected-component limitations are directly relevant to topology-sensitive fiber segmentation. [SRC-0069, section 7.6]
+
+## Questions
+
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - Promptable segmentation may aid STED/tau annotation or baselining, but morphology conclusions need fiber-specific validation. [SRC-0069]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - SAM's breadth makes it attractive, but the paper itself expects domain-specific tools to outperform it in their domains. [SRC-0069, section 7.6]
+
+## Citation Links
+
+- Targeted migration review did not confirm any ingested source that this broad segmentation-foundation paper should link through `cites_sources`; full bibliography extraction was intentionally deferred. [SRC-0069]
+
 ## Links
 
 - [[wiki/concepts/promptable-segmentation-foundation-models]]
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]]
 - [[wiki/concepts/self-configuring-u-net-medical-image-segmentation]]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]]
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]]
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]]
 
 ## Ingestion QA
 

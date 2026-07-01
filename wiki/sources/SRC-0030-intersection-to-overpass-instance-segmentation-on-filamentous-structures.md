@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0030
 display_title: "Intersection to Overpass: Instance Segmentation on Filamentous Structures"
 short_title: "Filament Instance Segmentation"
@@ -14,6 +14,22 @@ source_path: raw/sources/SRC-0030-intersection-to-overpass-instance-segmentation
 original_filename: "Liu19.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 9e958916e725212b130173b98588f20f742ccbeb358e19390be4907cb2b2c67a
+authors:
+  - "Yi Liu"
+  - "Abhishek Kolagunda"
+  - "Wayne Treible"
+  - "Alex Nedo"
+  - "Jeffrey Caplan"
+  - "Chandra Kambhamettu"
+author_entities: []
+year: 2019
+venue: "CVPR Workshops"
+doi: "10.1109/cvprw.2019.00021"
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -62,10 +78,21 @@ Liu et al. address instance segmentation of filamentous structures by replacing 
 - Failure modes include incomplete reconstruction from the six side outputs, incorrect terminus pairing, and dependence on segmentation accuracy. [SRC-0030, section 3.5]
 - The method is slower than the SIFNE regrouping step on the reported full images, although faster than SOAX end-to-end in the paper's comparison. [SRC-0030, section 3.2]
 
+## Claims
+
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - The paper motivates instance extraction by the need for per-filament counts, lengths, curvature, and motion. [SRC-0030]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - The orientation-aware decomposition exists because intersections make instance-level filament identity harder than semantic foreground labeling. [SRC-0030]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0030]
+
 ## Links
 
 - [[wiki/concepts/filament-instance-and-semantic-segmentation]]
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]]
 
 ## Ingestion QA
 

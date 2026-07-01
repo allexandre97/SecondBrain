@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0033
 display_title: "DeepVesselNet: Vessel Segmentation, Centerline Prediction, and Bifurcation Detection in 3-D Angiographic Volumes"
 short_title: "DeepVesselNet"
@@ -14,6 +14,25 @@ source_path: raw/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-p
 original_filename: "Tet18.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 1e1c4eb2ffb0b4e17130c417463eba22af1f312ff1eafe8b5537290b882c6607
+authors:
+  - "Giles Tetteh"
+  - "Velizar Efremov"
+  - "Nils D. Forkert"
+  - "Matthias Schneider"
+  - "Jan Kirschke"
+  - "Bruno Weber"
+  - "Claus Zimmer"
+  - "Marie Piraud"
+  - "Bjoern H. Menze"
+author_entities: []
+year: 2020
+venue: "Frontiers in Neuroscience"
+doi: "10.3389/fnins.2020.592352"
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -64,10 +83,19 @@ Tetteh et al. present DeepVesselNet, a neural architecture for extracting vascul
 - Centerline and bifurcation prediction remain difficult because target structures are voxel-sized and extremely sparse. [SRC-0033, sections 1 and 4]
 - The authors suggest future integrated hierarchical or multi-level approaches rather than treating vessel segmentation, centerline prediction, and bifurcation detection only as separate binary tasks. [SRC-0033, section 4]
 
+## Claims
+
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - DeepVesselNet treats segmentation, centerline prediction, and bifurcation detection as distinct outputs for sparse tubular structures. [SRC-0033]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0033]
+
 ## Links
 
 - [[wiki/concepts/topology-aware-tubular-structure-segmentation]]
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]]
 
 ## Ingestion QA
 

@@ -14,6 +14,27 @@ source_path: raw/sources/SRC-0043-structure-based-experimental-datasets-for-benc
 original_filename: "LiveCoMS_Article_v1.0.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 95c85906eb59d36b73563e7b4c92f09255f368b94c4b806194a1f4f9e263649e
+authors:
+  - "Chapin E. Cavender"
+  - "David A. Case"
+  - "Julian C.-H. Chen"
+  - "Lillian T. Chong"
+  - "Daniel A. Keedy"
+  - "Kresten Lindorff-Larsen"
+  - "David L. Mobley"
+  - "O. H. Samuli Ollila"
+  - "Chris Oostenbrink"
+  - "Paul Robustelli"
+  - "Vincent A. Voelz"
+  - "Michael E. Wall"
+  - "David C. Wych"
+  - "Michael K. Gilson"
+author_entities: []
+year: 2025
+venue: "Living Journal of Computational Molecular Science"
+doi: "10.33011/livecoms.6.1.3871"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -32,6 +53,9 @@ related:
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
 sources:
   - SRC-0043
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -71,6 +95,20 @@ This LiveCoMS perpetual review surveys structurally oriented experimental datase
 - The article is a review and recommendation document, not a single benchmark dataset release. [SRC-0043]
 - Several observables lack consensus best practices for comparison to simulations. [SRC-0043]
 - The review focuses on water-soluble proteins and peptides without ligands, cofactors, membranes, or noncanonical chemistry. [SRC-0043]
+
+## Claims
+
+- Protein force-field benchmarks should distinguish benchmark observables from training labels and should include setup, forward-model, convergence, and uncertainty considerations. [SRC-0043]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+
+## Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+- [[wiki/questions/force-field-training-validation-scope]]
+
+## Citation Links
+
+- Citation review status: reviewed for strong links to currently ingested dataset/biomolecule sources in this cluster; no strong source-to-source link was promoted. Full bibliography normalization of the perpetual review remains out of scope. [SRC-0043]
 
 ## Links
 

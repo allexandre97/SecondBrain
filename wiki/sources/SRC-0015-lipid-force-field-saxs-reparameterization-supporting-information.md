@@ -15,6 +15,18 @@ imported_path: raw/sources/SRC-0015-lipid-force-field-saxs-reparameterization-su
 original_filename: "jp5c08658_si_001.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 103992aa4dc24c77805c79912b6fc36402702834fcf32e6158ebdf2fe5acd821
+authors:
+  - "Omar N. A. Demerdash"
+  - "Micholas Dean Smith"
+  - "Lee-Ping Wang"
+  - "Sai Venkatesh Pingali"
+  - "Joshua O. Aggrey"
+author_entities: []
+year: 2026
+venue: "Journal of Physical Chemistry B"
+doi: "10.1021/acs.jpcb.5c08658"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -30,6 +42,9 @@ related:
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
 sources:
   - SRC-0015
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: source-local
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -68,6 +83,10 @@ The SI makes the transferability diagnosis in SRC-0014 auditable by showing whic
 - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
 - [[wiki/questions/force-field-training-validation-scope]]
+
+## Citation links
+
+- Source-local review only; no separate first-class citation links were added beyond the main-paper bundle relationship. [SRC-0015]
 
 ## Open Questions
 

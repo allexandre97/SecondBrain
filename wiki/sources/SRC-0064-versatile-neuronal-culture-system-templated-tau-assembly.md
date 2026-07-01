@@ -15,6 +15,17 @@ imported_path: raw/sources/SRC-0064-versatile-neuronal-culture-system-templated-
 original_filename: "neurons_ms_20260615.docx"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 0532d2faec756a6a19f404c5da1f86dedf62317a7c01c5b0a0b303f5a6c2cd84
+authors: []
+author_entities: []
+year: 2026
+venue: "Unpublished manuscript draft"
+doi:
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources:
+  - SRC-0063
 areas:
   - research
 categories:
@@ -83,16 +94,36 @@ The manuscript describes a mixed primary murine cortical culture system in which
 - AAV-mediated tau overexpression may introduce artifacts, although the draft reports using viral titres without overt toxicity and notes that lower titres or Mapt knock-out cells may be needed for some questions. [SRC-0064]
 - The primary neuron culture timeframe and relative immaturity limit observation of overt neurodegenerative phenotypes. [SRC-0064]
 
+## Claims
+
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - The draft's STED morphology comparisons need measurements beyond foreground masks, especially for filament bundle and network organization. [SRC-0064]
+
+## Questions
+
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - The draft's in-progress STED quantification needs validation of segmentation and graph/morphology measurements before strong biological comparison. [SRC-0064]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - General segmentation frameworks may help annotation or baselining, but tau-fiber morphology needs domain-specific validation. [SRC-0064]
+
+## Citation Links
+
+- `SRC-0063` is retained as a confirmed source link because the manuscript page and concept coverage connect the draft STED/tau-fiber analysis to the peer-reviewed STED tau-filament imaging source. [SRC-0064]
+
 ## Links
 
 - [[wiki/concepts/neuronal-templated-tau-assembly-systems]]
 - [[wiki/concepts/super-resolution-imaging-of-tau-pathology]]
 - [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]]
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]]
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]]
 
 ## Metadata notes
 
 - File type: DOCX manuscript draft.
 - The source was imported as a single physical source, not as a bundle.
+- Bibliographic authorship is not represented in the inspected source metadata; the wiki records a provisional 2026 manuscript year from the source metadata and does not create author entities from document metadata alone.
 - Category uncertainty: a future registry pass may warrant a reusable neurodegeneration or cell-culture model category; for now this page uses existing protein and biomedical-imaging facets.
 
 ## Ingestion QA

@@ -33,6 +33,10 @@ year: 2022
 venue: "arXiv"
 doi:
 arxiv: "2003.07311v7"
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -133,6 +137,7 @@ $$
 ## Claims
 
 - [[wiki/claims/CLM-0003-cldice-connectivity-aware-tubular-segmentation]] - clDice evaluates skeleton-mask agreement and is more sensitive than ordinary overlap metrics to missing or spurious centerline branches. [SRC-0032, section 2]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - The motivating example shows identical Dice scores can hide different tubular-network connectivity quality. [SRC-0032, section 1]
 
 ## Questions
 
@@ -141,6 +146,10 @@ $$
 ## Tensions
 
 - [[wiki/tensions/TEN-0003-cldice-topology-guarantee-vs-practical-transfer]] - The topology-preserving design has formal assumptions and does not by itself settle practical biological transfer. [SRC-0032, section 3]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0032]
 
 ## Metadata notes
 
@@ -152,6 +161,7 @@ $$
 - [[wiki/concepts/topology-aware-tubular-structure-segmentation]]
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]]
 - [[wiki/claims/CLM-0003-cldice-connectivity-aware-tubular-segmentation]]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]]
 - [[wiki/questions/QST-0001-cldice-biological-transfer-scope]]
 - [[wiki/tensions/TEN-0003-cldice-topology-guarantee-vs-practical-transfer]]
 

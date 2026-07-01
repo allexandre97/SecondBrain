@@ -6,6 +6,11 @@ updated: 2026-06-30
 source_id: SRC-0057
 display_title: "Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All"
 short_title: "Overlay Databank"
+authors:
+  - "Kiirikki, Anne M. et al."
+year: 2024
+venue: "Nature Communications"
+doi: "10.1038/s41467-024-45189-z"
 aliases:
   - "SRC-0057"
   - "Overlay Databank"
@@ -39,6 +44,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: standard
+metadata_review_status: partial
+citation_match_status: reviewed
+cqt_review_status: linked
 ---
 
 # Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All
@@ -81,6 +89,19 @@ This Nature Communications paper proposes the overlay databank pattern: leave ra
 - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven]]
 - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data]]
 - [[wiki/concepts/machine-learning-potential-datasets]]
+
+## Claims
+
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+- [[wiki/claims/CLM-0029-overlay-databanks-solve-access-and-standardization-not-simulation-quality]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0015-data-access-standardization-vs-simulation-quality]]
+
+## Citation Links
+
+- Citation review status: reviewed for strong local links in this bundle. SRC-0058 is treated as the supporting-information companion rather than as an independent bibliographic citation.
 
 ## Ingestion QA
 

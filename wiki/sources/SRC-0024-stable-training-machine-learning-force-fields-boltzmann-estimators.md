@@ -15,6 +15,17 @@ imported_path: raw/sources/SRC-0024-stable-training-machine-learning-force-field
 original_filename: "2402.13984v3.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 7bfebbdab1ab649dc430b4d475f92959e16fc8f597e29a5bd8e4f8adf4f39b9c
+authors:
+  - "Sanjeev Raja"
+  - "Ishan Amin"
+  - "Fabian Pedregosa"
+  - "Aditi Krishnapriyan"
+author_entities: []
+year: 2025
+venue: "Transactions on Machine Learning Research"
+doi:
+arxiv: "2402.13984v3"
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -33,6 +44,9 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
 sources:
   - SRC-0024
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -146,6 +160,19 @@ StABlE pretrains on energy/force data, launches parallel MD replicas from traini
 - [[wiki/concepts/stability-aware-mlff-training]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability]]
+
+## Claims
+
+- [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability]] - StABlE treats downstream MD stability and observable recovery as training targets. [SRC-0024]
+
+## Questions
+
+- [[wiki/questions/force-field-training-validation-scope]] - How should downstream MD stability be weighted against static energy and force errors? [SRC-0024]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested force-field fitting/refinement cluster sources.
 
 ## Open Questions
 

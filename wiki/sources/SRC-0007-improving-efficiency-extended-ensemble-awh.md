@@ -23,6 +23,7 @@ year: 2012
 venue: "Physical Review E"
 doi: "10.1103/PhysRevE.85.056708"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -43,6 +44,9 @@ related:
   - "[[wiki/questions/awh-validation-scope]]"
 sources:
   - SRC-0007
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 source_bundle: accelerated-weight-histogram
@@ -192,6 +196,7 @@ On an $8 \times 8 \times 8$ three-dimensional Ising spin glass, AWH improved acc
 
 - The title, source type, bundle role, public sensitivity, and `math-standard` coverage profile were inferred from the PDF title page and source contents.
 - This is one paper in the `accelerated-weight-histogram` source bundle, but it is not a supplement to the other two papers.
+- Targeted citation review found no confirmed citations from this source to currently ingested free-energy/adaptive-sampling cluster sources.
 
 ## Mathematical gaps
 

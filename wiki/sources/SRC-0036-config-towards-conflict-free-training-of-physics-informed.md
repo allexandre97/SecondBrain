@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0036
 display_title: "ConFIG: Towards Conflict-Free Training of Physics-Informed Neural Networks"
 short_title: "ConFIG"
@@ -14,6 +14,19 @@ source_path: raw/sources/SRC-0036-config-towards-conflict-free-training-of-physi
 original_filename: "ICLR-2025-config-towards-conflict-free-training-of-physics-informed-neural-networks-Paper-Conference.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 19693055bc10cf5980c36c62990fbffc37a3585daaddf987441ebedae73625b9
+authors:
+  - "Qiang Liu"
+  - "Mengyu Chu"
+  - "Nils Thuerey"
+author_entities: []
+year: 2025
+venue: "ICLR"
+doi:
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: source-local
+cites_sources: []
 areas:
   - research
 categories:
@@ -104,6 +117,14 @@ where $U(g)=g/(|g|+\epsilon)$ and $[\,]^{-\top}$ denotes a pseudoinverse of the 
 
 - The wiki does not reproduce the full non-convex proof or all appendix algorithms.
 - Experimental tables are summarized rather than copied.
+
+## Claims
+
+- Source-local note: ConFIG is in the requested migration scope but is not a bioimage/STED or filament-segmentation source, so no first-class fiber-analysis claim was promoted from it. [SRC-0036]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0036]
 
 ## Links
 

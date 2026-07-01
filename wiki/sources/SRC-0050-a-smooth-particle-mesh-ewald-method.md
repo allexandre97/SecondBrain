@@ -6,6 +6,16 @@ updated: 2026-06-30
 source_id: SRC-0050
 display_title: "A Smooth Particle Mesh Ewald Method"
 short_title: "Smooth Particle Mesh Ewald"
+authors:
+  - Ulrich Essmann
+  - Lalith Perera
+  - Max L. Berkowitz
+  - Tom Darden
+  - Hsing Lee
+  - Lee G. Pedersen
+year: 1995
+venue: "Journal of Chemical Physics"
+doi: "10.1063/1.470117"
 aliases:
   - "SRC-0050"
   - "Smooth Particle Mesh Ewald"
@@ -31,6 +41,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
 ---
 
 # A Smooth Particle Mesh Ewald Method
@@ -110,6 +123,22 @@ $$
 ## Links
 
 - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics]]
+
+## Claims
+
+- [[wiki/claims/CLM-0027-ewald-pme-family-choices-trade-accuracy-smoothness-and-cost]]
+
+## Questions
+
+- [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance]]
+
+## Citation links
+
+- Citation review status: partial. Bibliographic metadata was checked from the PDF first page; this page is a cited local target of SRC-0054.
 
 ## Ingestion QA
 

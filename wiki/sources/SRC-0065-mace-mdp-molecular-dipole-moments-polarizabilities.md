@@ -15,6 +15,17 @@ imported_path: raw/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabi
 original_filename: "chemrxiv.15000716_v1.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 7374fa7effc4df9c0dfd08239f0db423a58670e1c08fc93121ec26a35ae55757
+authors:
+  - "Nils Gonnheimer"
+  - "Karsten Reuter"
+  - "Venkat Kapil"
+  - "Johannes T. Margraf"
+author_entities: []
+year: 2026
+venue: "ChemRxiv"
+doi: "10.26434/chemrxiv.15000716/v1"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -36,6 +47,11 @@ related:
   - "[[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]"
 sources:
   - SRC-0065
+cites_sources:
+  - SRC-0042
+  - SRC-0044
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -80,6 +96,21 @@ Gonnheimer, Reuter, Kapil, and Margraf introduce MACE-MDP, a MACE-based foundati
 - Molecular-crystal performance is limited by the underlying potential-energy surface and by missing molecular-crystal response-property data in training. [SRC-0065]
 - Non-covalent trimer Raman spectra have lower match scores than isolated molecules because small force errors can shift soft intermolecular vibrational modes. [SRC-0065]
 - The paper argues the polarizability model transfers from monomers/dimers to trimers, but further weakly interacting-system data or fine-tuning may improve difficult cases. [SRC-0065]
+
+## Claims
+
+- Response-property foundation models need validation targets beyond potential-energy labels because spectroscopy depends on dipoles, polarizabilities, and the underlying force/potential model. [SRC-0065]
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+
+## Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+
+## Citation Links
+
+- `SRC-0042`: The paper discusses OMol/OMol25 as a large molecular dataset context and reference, matching the ingested OMol25 source. [SRC-0065]
+- `SRC-0044`: The paper builds SPICE-alpha from SPICE and references Eastman et al.'s SPICE dataset, matching the ingested SPICE source. [SRC-0065]
 
 ## Links
 

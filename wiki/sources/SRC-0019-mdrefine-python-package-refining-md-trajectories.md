@@ -14,6 +14,17 @@ imported_path: raw/sources/SRC-0019-mdrefine-python-package-refining-md-trajecto
 original_filename: "192501_1_5.0256841.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 8304c8e6adcdb7d5ac0997de7ec768efacc7db2167dcdf672cdba26833b7d67b
+authors:
+  - "Ivan Gilardoni"
+  - "Valerio Piomponi"
+  - "Thorben Frohlking"
+  - "Giovanni Bussi"
+author_entities: []
+year: 2025
+venue: "Journal of Chemical Physics"
+doi: "10.1063/5.0256841"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -32,6 +43,9 @@ related:
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
 sources:
   - SRC-0019
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -132,6 +146,19 @@ The paper demonstrates the package on examples that include ensemble reweighting
 - [[wiki/concepts/ensemble-and-force-field-refinement]]
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+
+## Claims
+
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]] - MDRefine-style refinement uses reweighting and regularization, so support and identifiability limits remain central. [SRC-0019]
+
+## Questions
+
+- [[wiki/questions/force-field-training-validation-scope]] - How should ensemble, force-field, and forward-model corrections be separated during validation? [SRC-0019]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested force-field fitting/refinement cluster sources.
 
 ## Open Questions
 

@@ -6,6 +6,16 @@ updated: 2026-06-30
 source_id: SRC-0054
 display_title: "Accelerating Molecular Dynamics Simulations Using Fast Ewald Summation with Prolates"
 short_title: "Fast Ewald Summation with Prolates"
+authors:
+  - Jiuyang Liang
+  - Libin Lu
+  - Alex Barnett
+  - Leslie Greengard
+  - Shidong Jiang
+year: 2026
+venue: "Nature Communications"
+doi: "10.1038/s41467-026-73232-8"
+publication_status: article-in-press
 aliases:
   - "SRC-0054"
   - "Fast Ewald Summation with Prolates"
@@ -27,12 +37,19 @@ tags:
   - GROMACS
 related:
   - "[[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics]]"
+cites_sources:
+  - SRC-0050
+  - SRC-0052
 sources:
   - SRC-0054
 sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: partial
+citation_match_status: reviewed
+cqt_review_status: linked
+references_text: "Essmann, U. et al. A smooth particle mesh Ewald method. J. Chem. Phys. 103, 8577-8593 (1995). Hess, B., Bekker, H., Berendsen, H. J. & Fraaije, J. G. LINCS: A linear constraint solver for molecular simulations. J. Comput. Chem. 18, 1463-1472 (1997)."
 ---
 
 # Accelerating Molecular Dynamics Simulations Using Fast Ewald Summation with Prolates
@@ -95,6 +112,24 @@ Its main mathematical change is the replacement of Gaussian localization by PSWF
 ## Links
 
 - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics]]
+
+## Claims
+
+- [[wiki/claims/CLM-0027-ewald-pme-family-choices-trade-accuracy-smoothness-and-cost]]
+
+## Questions
+
+- [[wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance]]
+
+## Citation links
+
+- Confirmed local citation match to [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method]] via the reference-list entry for Essmann et al. 1995. [SRC-0054, ref. 14]
+- Confirmed local citation match to [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations]] via the reference-list entry for Hess et al. 1997. [SRC-0054, ref. 70]
+- Citation review status: reviewed for local SRC-0047 through SRC-0054 matches visible in the checked reference text.
 
 ## Ingestion QA
 

@@ -14,6 +14,17 @@ source_path: raw/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-stat
 original_filename: "science.aaw1147.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: e80cf7d2bdbff262ed54c0321272edd7bffb404615383e8dda1ce29063c35ced
+authors:
+  - "Frank Noe"
+  - "Simon Olsson"
+  - "Jonas Kohler"
+  - "Hao Wu"
+author_entities: []
+year: 2019
+venue: "Science"
+doi: "10.1126/science.aaw1147"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -29,6 +40,9 @@ related:
   - "[[wiki/concepts/boltzmann-generators-equilibrium-sampling]]"
 sources:
   - SRC-0041
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -94,6 +108,19 @@ $$
 - Depending on training, Boltzmann generators may not be ergodic and may miss configurations; the paper suggests combining latent-space methods with configuration-space MD or MCMC moves to ensure ergodicity. [SRC-0041]
 - The original approach learns system-specific transformations and identifies transferability as a future direction. [SRC-0041]
 - Scaling to very large atomistic systems remains challenging because statistical efficiency can decline with dimension. [SRC-0041]
+
+## Claims
+
+- Boltzmann generators are reweightable proposal generators, not automatic guarantees of unbiased sampling; overlap and ergodicity remain central. [SRC-0041]
+- [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]]
+
+## Citation Links
+
+- No confirmed links from this original source to later scoped wiki sources are applicable. [SRC-0041]
 
 ## Links
 

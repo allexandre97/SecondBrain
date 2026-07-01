@@ -64,6 +64,24 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
 
+### Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope|RBFE Benchmark Prospective Use Scope]]
+
 ### Tensions
 
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation|Dataset Scale vs Downstream Validation]]
 - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]
+- [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use|RBFE Benchmark Success vs Prospective Use]]
+
+### Claims
+
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation|Dataset Scale Does Not Replace Coverage and Validation]]
+- [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]
+- [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses|Molecular Datasets Have Distinct Intended Uses]]
+- [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]
+- [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]

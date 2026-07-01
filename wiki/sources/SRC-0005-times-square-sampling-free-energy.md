@@ -27,6 +27,7 @@ year: 2024
 venue: "Journal of Computational and Graphical Statistics"
 doi: "10.1080/10618600.2023.2291108"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -58,7 +59,8 @@ cites_sources:
   - SRC-0007
   - SRC-0008
   - SRC-0023
-citation_match_status: partial
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 source_bundle: times-square-sampling-2024
@@ -298,6 +300,7 @@ For the windowed implementation, the supplement converts these recursions into e
 - `SRC-0023`: The references list Shirts and Chodera, "Statistically Optimal Analysis of Samples from Multiple Equilibrium States," Journal of Chemical Physics 129, 124105. This is an exact title match to the ingested MBAR source. [SRC-0005]
 - `SRC-0008`: The references list Lindahl, Lidmar, and Hess, "Accelerated Weight Histogram Method for Exploring Free Energy Landscapes," Journal of Chemical Physics 141, 044110. This is an exact title match to the ingested AWH free-energy-landscapes source. [SRC-0005]
 - `SRC-0007`: The references list Lidmar, "Improving the Efficiency of Extended Ensemble Simulations: the Accelerated Weight Histogram Method," Physical Review E 85, 056708. This is an exact title match to the ingested original AWH source. [SRC-0005]
+- Citation review is complete for the currently ingested free-energy/adaptive-sampling cluster; it is not a full bibliography extraction.
 
 ## Metadata notes
 

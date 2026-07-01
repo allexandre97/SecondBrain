@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-29
-updated: 2026-06-30
+updated: 2026-07-01
 areas:
   - research
 categories:
@@ -94,3 +94,9 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+- [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability]]
+- [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]]
+- [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]

@@ -23,6 +23,8 @@ related:
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
   - "[[wiki/concepts/ensemble-and-force-field-refinement]]"
   - "[[wiki/concepts/protein-energy-landscape-profiling]]"
+  - "[[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]"
+  - "[[wiki/questions/mlip-foundation-model-validation-scope]]"
 sensitivity: public
 encryption: none
 ---
@@ -49,6 +51,8 @@ Protein force-field benchmark datasets compare simulations against experimental 
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
 - [[wiki/concepts/ensemble-and-force-field-refinement]]
 - [[wiki/concepts/protein-energy-landscape-profiling]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
 
 ## Open Questions
 

@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0034
 display_title: "ToFiE, a Topology-Aware Fiber Extraction Workflow for 3D Biological Fiber Networks"
 short_title: "ToFiE Fiber Extraction"
@@ -14,6 +14,22 @@ source_path: raw/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow
 original_filename: "Togo26.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 79ed5da5189f88df87d75619efe167279392119e09e248aea2492cbb1e0a1803
+authors:
+  - "Risa Togo"
+  - "Sara Cardona"
+  - "Irene Nagle"
+  - "Gijsje H. Koenderink"
+  - "Behrooz Fereidoonnezhad"
+  - "Mathias Peirlinck"
+author_entities: []
+year: 2026
+venue: "arXiv"
+doi:
+arxiv: "2604.18230v1"
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -70,10 +86,21 @@ Togo et al. introduce ToFiE, an open-source semi-automated workflow for topology
 - The workflow does not yet include time-step tracking, which the authors identify as a useful extension for deformation and cell-mediated remodeling studies. [SRC-0034, section 4]
 - ToFiE depends on DisPerSe for topology-preserving skeletonization; DisPerSe is an independently licensed package. [SRC-0034, section 2.1]
 
+## Claims
+
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - ToFiE validates node recovery and edge geometry, reinforcing that fiber-network evaluation is not reducible to mask overlap. [SRC-0034]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - The workflow reconstructs fibers, junctions, and graph connectivity for dense 3D biological networks. [SRC-0034]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0034]
+
 ## Links
 
 - [[wiki/concepts/topology-aware-fiber-network-reconstruction]]
 - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]]
 
 ## Ingestion QA
 

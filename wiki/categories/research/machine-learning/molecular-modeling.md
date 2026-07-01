@@ -64,13 +64,23 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Answers
 
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
-- [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, and Reweighting Differences Across Free-Energy Methods]]
+- [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
 - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]
+
+### Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]
 
 ### Tensions
 
+- [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation|Dataset Scale vs Downstream Validation]]
 - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]
 
 ### Claims
 
+- [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation|Dataset Scale Does Not Replace Coverage and Validation]]
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]
 - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses|Molecular Datasets Have Distinct Intended Uses]]

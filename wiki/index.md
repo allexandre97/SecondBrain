@@ -212,7 +212,14 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators]] - Cross-method overlap and support diagnostics for free-energy estimates.
 - [[wiki/questions/windowed-local-free-energy-global-profile-reliability]] - Reliability of stitched global profiles from local/windowed free-energy estimates.
 - [[wiki/questions/force-field-training-validation-scope]] - Validation boundaries for force-field training and fine-tuning transferability claims.
+- [[wiki/questions/mlip-foundation-model-validation-scope]] - Validation boundaries for MLIP foundation-model reliability claims.
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope]] - Validation boundaries for RBFE benchmark transfer to prospective drug-discovery use.
 - [[wiki/questions/QST-0001-cldice-biological-transfer-scope]] - Validation boundary for clDice transfer to biological fiber reconstruction tasks.
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - Validation boundary for STED tau-fiber segmentation and morphology analysis.
+- [[wiki/questions/md-free-energy-decoupling-implementation-validation]] - Validation suite question for MD free-energy decoupling implementations.
+- [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]] - Virial and pressure API question for autodiff, many-body, constraint, and long-range terms.
+- [[wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme]] - GPU neighbor-list and nonbonded layout decision question for Molly/Enzyme/MD.
+- [[wiki/questions/rna-force-field-motif-validation-scope]] - RNA motif validation scope for transferable force-field changes.
 
 ## Claims
 
@@ -222,9 +229,34 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias]] - OPES derives bias from probability reconstruction.
 - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms]] - AWH updates bias from conditional weight histograms.
 - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates]] - LaDyBUGS couples Gibbs lambda sampling with FastMBAR bias updates.
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]] - Energy and force error are insufficient by themselves for downstream MD reliability.
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]] - Dataset scale does not replace coverage, fidelity, and downstream validation.
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]] - Molecular datasets differ by training-label, benchmark, response-property, and validation roles.
+- [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]] - Boltzmann generators require overlap and reweighting support for reliable estimates.
+- [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]] - Experimental reproducibility bounds how RBFE benchmark errors should be interpreted.
+- [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]] - Public RBFE benchmarks can be easier than private active-project datasets.
+- [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]] - Edgewise RBFE metrics can overstate arbitrary ligand-comparison quality.
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - Overlap segmentation metrics can miss topology and connectivity failures.
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - Fiber analysis often needs graph measurements rather than only masks.
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - Instance-level filament tracing is harder than semantic foreground segmentation.
+- [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms]] - Decoupling implementations must preserve intramolecular solute terms.
+- [[wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md]] - Force-based virials generalize pressure and stress to many-body MD implementations.
+- [[wiki/claims/CLM-0025-constraints-and-long-range-electrostatics-change-pressure-tensor-accounting]] - Constraints and long-range electrostatics change pressure tensor accounting.
+- [[wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited]] - GPU MD neighbor and nonbonded performance is data-layout limited.
+- [[wiki/claims/CLM-0027-ewald-pme-family-choices-trade-accuracy-smoothness-and-cost]] - Ewald/PME family choices trade accuracy, smoothness, and cost.
+- [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks]] - RNA force-field validation needs motif-level and coupled-error checks.
+- [[wiki/claims/CLM-0029-overlay-databanks-solve-access-and-standardization-not-simulation-quality]] - Overlay databanks solve access and standardization, not simulation quality.
 
 ## Tensions
 
 - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization]] - TSS adaptive variance advantage versus broad MBAR generalization.
 - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk]] - Mapped-overlap gains versus mapped-support risk.
 - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics]] - On-the-fly adaptation versus reproducible postprocessing diagnostics.
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]] - Dataset scale versus downstream validation requirements for MLIP foundation models.
+- [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]] - One-shot Boltzmann-generator sampling versus overlap and missed-state risk.
+- [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]] - Retrospective RBFE benchmark success versus prospective drug-discovery use.
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - General segmentation frameworks versus STED/fiber domain adaptation.
+- [[wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance]] - Exact electrostatics and neighbor accounting versus practical GPU performance.
+- [[wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients]] - Analytic constraint virials versus autodiff energy gradients.
+- [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer]] - RNA motif-specific fixes versus general force-field transfer.
+- [[wiki/tensions/TEN-0015-data-access-standardization-vs-simulation-quality]] - Data access standardization versus simulation quality.

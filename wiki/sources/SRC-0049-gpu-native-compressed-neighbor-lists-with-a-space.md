@@ -6,6 +6,13 @@ updated: 2026-06-30
 source_id: SRC-0049
 display_title: "GPU-Native Compressed Neighbor Lists with a Space-Filling-Curve Data Layout"
 short_title: "GPU Compressed Neighbor Lists"
+authors:
+  - Felix Thaler
+  - Sebastian Keller
+year: 2026
+venue: "arXiv"
+arxiv: "2602.19873v1"
+publication_status: preprint
 aliases:
   - "SRC-0049"
   - "GPU Compressed Neighbor Lists"
@@ -32,6 +39,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
 ---
 
 # GPU-Native Compressed Neighbor Lists with a Space-Filling-Curve Data Layout
@@ -92,6 +102,22 @@ where $r_i$ may vary by particle. [SRC-0049]
 ## Links
 
 - [[wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration]]
+
+## Claims
+
+- [[wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited]]
+
+## Questions
+
+- [[wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance]]
+
+## Citation links
+
+- Citation review status: partial. Local cluster checks found conceptual overlap with GPU nonbonded and long-range methods, but no promoted source-to-source citation link without direct bibliography evidence.
 
 ## Ingestion QA
 

@@ -15,6 +15,16 @@ imported_path: raw/sources/SRC-0026-building-force-fields-forcebalance-supportin
 original_filename: "jz500737m_si_001.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: ca3852db9cb4efd2a27e43ae4066cb0ea4b1d44c6dd61e108414b1656cb6df3b
+authors:
+  - "Lee-Ping Wang"
+  - "Todd J. Martinez"
+  - "Vijay S. Pande"
+author_entities: []
+year: 2014
+venue: "Journal of Physical Chemistry Letters"
+doi: "10.1021/jz500737m"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -28,6 +38,9 @@ related:
   - "[[wiki/concepts/forcebalance]]"
 sources:
   - SRC-0026
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: source-local
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -60,6 +73,10 @@ This supporting information provides additional water-model property comparisons
 
 - [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach]]
 - [[wiki/concepts/forcebalance]]
+
+## Citation links
+
+- Source-local review only; no separate first-class citation links were added beyond the main-paper bundle relationship. [SRC-0026]
 
 ## Open Questions
 

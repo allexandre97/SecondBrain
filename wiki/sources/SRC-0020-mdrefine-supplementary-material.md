@@ -15,6 +15,17 @@ imported_path: raw/sources/SRC-0020-mdrefine-supplementary-material.pdf
 original_filename: "mdrefine_supplementary.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 439168947f23e54b3dfe9cab2d5b565b431152e28d98f2a554a8788b3504a5e8
+authors:
+  - "Ivan Gilardoni"
+  - "Valerio Piomponi"
+  - "Thorben Frohlking"
+  - "Giovanni Bussi"
+author_entities: []
+year: 2025
+venue: "Journal of Chemical Physics"
+doi: "10.1063/5.0256841"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -31,6 +42,9 @@ related:
   - "[[wiki/concepts/ensemble-and-force-field-refinement]]"
 sources:
   - SRC-0020
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: source-local
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -136,6 +150,10 @@ The supplement shows additional plots where hyperparameter choices control overf
 - [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories]]
 - [[wiki/concepts/ensemble-and-force-field-refinement]]
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]
+
+## Citation links
+
+- Source-local review only; no separate first-class citation links were added beyond the main-paper bundle relationship. [SRC-0020]
 
 ## Open Questions
 

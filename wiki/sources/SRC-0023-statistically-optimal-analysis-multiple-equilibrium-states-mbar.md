@@ -25,6 +25,7 @@ year: 2008
 venue: "Journal of Chemical Physics"
 doi: "10.1063/1.2978177"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -42,6 +43,9 @@ related:
   - "[[wiki/concepts/mbar-with-configuration-mapping]]"
 sources:
   - SRC-0023
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -194,6 +198,10 @@ The paper demonstrates MBAR on DNA hairpin optical-tweezer data by combining con
 ## Open Questions
 
 - What overlap diagnostics should be treated as mandatory before accepting MBAR estimates in high-dimensional alchemical or umbrella-sampling problems? [SRC-0023]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested free-energy/adaptive-sampling cluster sources; newer cluster sources cite this source instead.
 
 ## Mathematical gaps
 

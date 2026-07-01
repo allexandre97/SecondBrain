@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 areas:
   - research
 categories:
@@ -95,3 +95,6 @@ Optimizing to one observable family can create tradeoffs with another; SRC-0021 
 - [[wiki/concepts/forcebalance]]
 - [[wiki/concepts/protein-force-field-benchmark-datasets]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
+- [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]]

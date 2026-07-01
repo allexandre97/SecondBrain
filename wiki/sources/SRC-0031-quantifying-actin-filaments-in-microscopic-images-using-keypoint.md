@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0031
 display_title: "Quantifying Actin Filaments in Microscopic Images Using Keypoint Detection and Fast Marching"
 short_title: "Actin Filament Quantification"
@@ -14,6 +14,21 @@ source_path: raw/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-ima
 original_filename: "Liu20.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: bd5642d9e200725b68382d716dbf193c6cddf5de354006702e9cf05d33c6d683
+authors:
+  - "Yi Liu"
+  - "Alexander Nedo"
+  - "Kody Seward"
+  - "Jeffrey Caplan"
+  - "Chandra Kambhamettu"
+author_entities: []
+year: 2020
+venue: "IEEE International Conference on Image Processing"
+doi: "10.1109/ICIP40778.2020.9191337"
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -62,10 +77,21 @@ Liu et al. propose a hybrid pipeline for estimating actin filament count and len
 - The method cannot yet quantify orientation angles or curvatures, which the authors identify as future work. [SRC-0031, section 5]
 - The pipeline depends on the quality of the prior binary segmentation and synthetic-to-real transfer for keypoint detection. [SRC-0031, sections 3.2-3.3]
 
+## Claims
+
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - The paper makes count and length the target measurements and therefore combines masks, keypoints, and fast marching. [SRC-0031]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - The method treats dense actin count and length estimation as a harder graph-like task downstream of binary segmentation. [SRC-0031]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0031]
+
 ## Links
 
 - [[wiki/concepts/filament-instance-and-semantic-segmentation]]
 - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]]
 
 ## Ingestion QA
 

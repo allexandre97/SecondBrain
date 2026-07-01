@@ -15,6 +15,16 @@ imported_path: raw/sources/SRC-0027-building-water-models-different-approach-opc
 original_filename: "building-water-models-a-different-approach.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 8ce61c6fa3337a8e8d03742f03081b257e5ce06856350d02d43dde32afc651a5
+authors:
+  - "Saeed Izadi"
+  - "Ramu Anandakrishnan"
+  - "Alexey V. Onufriev"
+author_entities: []
+year: 2014
+venue: "Journal of Physical Chemistry Letters"
+doi: "10.1021/jz501780a"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -31,6 +41,10 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
 sources:
   - SRC-0027
+cites_sources:
+  - SRC-0025
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -132,6 +146,19 @@ $$
 - [[wiki/concepts/opc-water-model]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]
+
+## Questions
+
+- [[wiki/questions/force-field-training-validation-scope]] - How broad must water-model validation be before treating physical construction criteria as transferable? [SRC-0027]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]] - OPC emphasizes physically motivated charge construction while still requiring empirical validation. [SRC-0027] [SRC-0028]
+
+## Citation links
+
+- `SRC-0025`: The references list Wang, Martinez, and Pande, "Building Force Fields," matching the ingested ForceBalance water-model fitting source. [SRC-0027]
 
 ## Open Questions
 

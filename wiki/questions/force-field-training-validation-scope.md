@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 areas:
   - research
 categories:
@@ -15,6 +15,13 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
+  - "[[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]"
+  - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
+  - "[[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability]]"
+  - "[[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]"
+  - "[[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]]"
+  - "[[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]"
+  - "[[wiki/questions/rbfe-benchmark-prospective-use-scope]]"
 sources:
   - SRC-0014
   - SRC-0016
@@ -26,6 +33,7 @@ sources:
   - SRC-0025
   - SRC-0027
   - SRC-0060
+  - SRC-0061
 sensitivity: public
 encryption: none
 ---
@@ -55,6 +63,7 @@ The recurring pattern is that improved training loss is not enough. The stronges
 - Reproducibility of optimization matters: SRC-0025 uses convergence from multiple initial parameter sets as evidence for robust fitting in the explored parameter region. [SRC-0025]
 - Physical construction criteria matter: SRC-0027 validates a multipole-first water model on liquid and hydration properties, but fixed-charge transfer remains limited by nonpolarizability. [SRC-0027]
 - Foundation-model MLFF validation should be stratified by biomolecular class and timescale: SRC-0060 reports strong protein-focused gains and short MD observable tests, but also identifies DNA regression, limited nucleic-acid top-down sampling, and longer/larger validation as future work. [SRC-0060, sections 2-3]
+- RBFE benchmark validation should distinguish retrospective public performance from prospective use, because experimental reproducibility, assay heterogeneity, private active-project difficulty, and metric choice affect the meaning of reported errors. [SRC-0061]
 
 ## Links
 
@@ -64,3 +73,10 @@ The recurring pattern is that improved training loss is not enough. The stronges
 - [[wiki/concepts/symbolic-regression-interatomic-potentials]]
 - [[wiki/concepts/ensemble-and-force-field-refinement]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
+- [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+- [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability]]
+- [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]]
+- [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope]]

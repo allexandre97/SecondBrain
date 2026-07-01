@@ -13,6 +13,15 @@ source_path: raw/sources/SRC-0037-transferable-boltzmann-generators.pdf
 original_filename: "NeurIPS-2024-transferable-boltzmann-generators-Paper-Conference.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 0fdd9336aad74c9a239b714fcbe0140da7dccca0639e346b6f2f7427b44a5491
+authors:
+  - "Leon Klein"
+  - "Frank Noe"
+author_entities: []
+year: 2024
+venue: "NeurIPS 2024"
+doi:
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -29,6 +38,10 @@ related:
   - "[[wiki/concepts/transferable-and-scalable-boltzmann-generators]]"
 sources:
   - SRC-0037
+cites_sources:
+  - SRC-0041
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -98,6 +111,19 @@ $$
 - For larger systems, coarse graining can remove the explicit energy function, turning the method into a Boltzmann emulator rather than a reweightable generator. [SRC-0037, section 7]
 - The paper notes no known convergence criterion that guarantees all configurations have been found, even with many generated samples. [SRC-0037, broader impact]
 - The study focuses on dipeptides and alanine dipeptide, so broader chemical-space claims require further validation. [SRC-0037]
+
+## Claims
+
+- Transferable Boltzmann generators remain useful for unbiased estimates only when generated samples overlap the target distribution well enough for reweighting. [SRC-0037]
+- [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]]
+
+## Citation Links
+
+- `SRC-0041`: The references list Noe, Olsson, Kohler, and Wu, "Boltzmann generators - sampling equilibrium states of many-body systems with deep learning," Science 365, eaaw1147, matching the ingested original Boltzmann generators source. [SRC-0037, reference 8]
 
 ## Links
 

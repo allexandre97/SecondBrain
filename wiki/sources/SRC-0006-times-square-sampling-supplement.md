@@ -27,6 +27,7 @@ year: 2024
 venue: "Journal of Computational and Graphical Statistics"
 doi: "10.1080/10618600.2023.2291108"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -55,7 +56,8 @@ sources:
   - SRC-0005
 cites_sources:
   - SRC-0023
-citation_match_status: partial
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 source_bundle: times-square-sampling-2024
@@ -258,6 +260,7 @@ The self-adjustment experiments compare different rung-update and estimator-upda
 ## Citation links
 
 - `SRC-0023`: The supplement references Michael Shirts and John Chodera, "Statistically optimal analysis of samples from multiple equilibrium states," Journal of Chemical Physics 129. This is an exact title match to the ingested MBAR source. [SRC-0006]
+- Citation review is complete for the currently ingested free-energy/adaptive-sampling cluster; it is not a full bibliography extraction.
 
 ## Metadata notes
 

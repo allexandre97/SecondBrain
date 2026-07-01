@@ -74,3 +74,14 @@ graph_exclude: true
 - 2026-07-01: Backfilled first-class claims, questions, and tensions for the free-energy/adaptive-sampling source cluster without re-ingesting sources.
 - 2026-07-01: Backfilled confirmed citation links for the OpenFE/FEP+/RBFE benchmark cluster using targeted reference checks without re-ingesting sources.
 - 2026-07-01: Backfilled author metadata for the free-energy/adaptive-sampling source cluster and added repeated-author entities for Jack Lidmar and Michael R. Shirts without re-ingesting sources.
+- 2026-07-01: Revised source-migration audit semantics to distinguish unchecked review, source-local semantic notes, no-needed first-class objects, linked first-class objects, and partial citation review without re-ingesting sources.
+- 2026-07-01: Marked SRC-0001 and SRC-0002 as source-local wiki-design/admin sources for migration review without re-ingesting or rewriting source summaries.
+- 2026-07-01: Completed semantic migration review statuses and cluster citation links for SRC-0005 through SRC-0013 and SRC-0023 without re-ingesting or rewriting source summaries.
+- 2026-07-01: Backfilled semantic migration for the force-field fitting and experimental-refinement cluster, adding focused reusable claims and tensions without re-ingesting sources or rewriting summaries.
+- 2026-07-01: Backfilled semantic migration for SRC-0047 through SRC-0054, adding focused MD implementation claims, questions, tensions, metadata, and local citation review without re-ingesting sources or rewriting summaries.
+- 2026-07-01: Backfilled semantic migration for remaining RNA and overlay-databank sources plus scoped dataset citation review, adding reusable RNA validation and data-infrastructure claims without re-ingesting sources or rewriting summaries.
+- 2026-07-02: Cleaned residual source-migration dashboard metadata debt by reviewing SRC-0018 local-draft metadata and preserving intentionally partial citation-review statuses without re-ingesting sources.
+- 2026-07-01: Backfilled semantic migration for the ML potential, molecular dataset, and foundation-model cluster, adding focused dataset/model/benchmark validation claims without re-ingesting sources or rewriting summaries.
+- 2026-07-01: Backfilled semantic migration for the RBFE, FEP+, OpenFE, and computational drug-discovery benchmark cluster, adding benchmark-specific validation claims without re-ingesting sources or rewriting summaries.
+- 2026-07-01: Backfilled semantic migration for the bioimage, STED, and filament-segmentation cluster, adding topology, fiber-measurement, and STED validation objects without re-ingesting sources or rewriting summaries.
+- 2026-07-02: Ran a graph-guided semantic-backfill acceptance answer on TSS, AWH, OPES, MBAR, LaDyBUGS, and Boltzmann generators, adding validation-diagnostic coverage without re-ingesting sources.

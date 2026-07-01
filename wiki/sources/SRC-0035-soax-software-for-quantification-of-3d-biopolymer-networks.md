@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0035
 display_title: "SOAX: A Software for Quantification of 3D Biopolymer Networks"
 short_title: "SOAX"
@@ -14,6 +14,25 @@ source_path: raw/sources/SRC-0035-soax-software-for-quantification-of-3d-biopoly
 original_filename: "Xu15.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: fa2ba6561f02ad8fc4f309dc30b3ed928af074364ea55fd96555de1f93fc6d49
+authors:
+  - "Ting Xu"
+  - "Dimitrios Vavylonis"
+  - "Feng-Ching Tsai"
+  - "Gijsje H. Koenderink"
+  - "Wei Nie"
+  - "Eddy Yusuf"
+  - "I-Ju Lee"
+  - "Jian-Qiu Wu"
+  - "Xiaolei Huang"
+author_entities: []
+year: 2015
+venue: "Scientific Reports"
+doi: "10.1038/srep09081"
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -63,10 +82,21 @@ Xu et al. present SOAX, an open-source software tool for extracting centerlines 
 - Anisotropic confocal resolution along the z-axis can produce artifacts unless analysis is configured carefully. [SRC-0035]
 - Pairwise contour-overlap checking can become a computational bottleneck for much larger images. [SRC-0035]
 
+## Claims
+
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - SOAX extracts centerlines and junctions to support quantitative biopolymer-network analysis. [SRC-0035]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - The active-contour workflow and connectivity repair illustrate why tracing is more than foreground thresholding. [SRC-0035]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0035]
+
 ## Links
 
 - [[wiki/concepts/stretching-open-active-contours]]
 - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]]
 
 ## Ingestion QA
 

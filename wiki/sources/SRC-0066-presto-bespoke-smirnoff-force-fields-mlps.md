@@ -15,6 +15,21 @@ imported_path: raw/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps.pd
 original_filename: "chemrxiv.15004169_v1.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 49f06717b000f07299d1c2c332b83b5987feeb3bd6ac2227b8cb86e2a6ca9ab3
+authors:
+  - "Finlay Clark"
+  - "Thomas Pope"
+  - "Sarah Maier"
+  - "Simon Boothroyd"
+  - "Joshua T. Horton"
+  - "Kevin Ryczko"
+  - "Andrea Bortolato"
+  - "Daniel J. Cole"
+author_entities: []
+year: 2026
+venue: "ChemRxiv"
+doi: "10.26434/chemrxiv.15004169/v1"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -36,6 +51,11 @@ related:
   - "[[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]"
 sources:
   - SRC-0066
+cites_sources:
+  - SRC-0042
+  - SRC-0044
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -81,6 +101,17 @@ Clark et al. introduce `presto`, an open-source Python package for quickly fitti
 - The default protocol is not exhaustively optimized and may trade speed for robustness; different molecule classes may need different settings. [SRC-0066]
 - Free-energy benchmarks show comparable average performance to Parsley on systems where Parsley already performs well, so broad RBFE superiority is not established. [SRC-0066]
 - Large molecules or systems with strong intramolecular nonbonded interactions may require fragmentation, filtering, or future method changes. [SRC-0066]
+
+## Claims
+
+- MLP-driven bespoke fitting can reduce reference-data cost while leaving downstream validation and failure-mode checks central to force-field usefulness. [SRC-0066]
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]]
+- [[wiki/questions/force-field-training-validation-scope]]
+
+## Citation Links
+
+- `SRC-0042`: The paper cites the Open Molecules 2025 dataset in its discussion of MLP/foundation-model training data, matching the ingested OMol25 source. [SRC-0066]
+- `SRC-0044`: The paper cites the SPICE dataset in its discussion of MLP/foundation-model training data, matching the ingested SPICE source. [SRC-0066]
 
 ## Links
 

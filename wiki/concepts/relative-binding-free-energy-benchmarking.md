@@ -16,6 +16,11 @@ tags:
 related:
   - "[[wiki/concepts/garnet-force-field]]"
   - "[[wiki/concepts/free-energy-estimation]]"
+  - "[[wiki/questions/rbfe-benchmark-prospective-use-scope]]"
+  - "[[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]"
+  - "[[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]]"
+  - "[[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]"
+  - "[[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]]"
 sources:
   - SRC-0003
   - SRC-0045
@@ -80,3 +85,8 @@ $$
 - [[wiki/concepts/garnet-force-field]]
 - [[wiki/concepts/free-energy-estimation]]
 - [[wiki/questions/garnet-validation-scope]]
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope]]
+- [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]
+- [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]]
+- [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]
+- [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]]

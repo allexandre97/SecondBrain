@@ -16,6 +16,27 @@ imported_path: raw/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net.pd
 original_filename: "1809.10486v1.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 2d26136d48ab9db83aac08a073ed4291d129e12bd93a4ca228305bf503d97dd4
+authors:
+  - "Fabian Isensee"
+  - "Jens Petersen"
+  - "Andre Klein"
+  - "David Zimmerer"
+  - "Paul F. Jaeger"
+  - "Simon Kohl"
+  - "Jakob Wasserthal"
+  - "Gregor Koehler"
+  - "Tobias Norajitra"
+  - "Sebastian Wirkert"
+  - "Klaus H. Maier-Hein"
+author_entities: []
+year: 2018
+venue: "arXiv"
+doi:
+arxiv: "1809.10486v1"
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -71,11 +92,25 @@ Isensee et al. introduce nnU-Net, a self-adapting framework built around simple 
 - BrainTumour test performance drops relative to validation, which the authors attribute to a common BRATS validation/test distribution shift. [SRC-0068, section 3]
 - This 2018 arXiv version reports challenge leaderboard status at manuscript submission time; later nnU-Net versions and later Medical Segmentation Decathlon results are outside this source's scope. [SRC-0068]
 
+## Questions
+
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - nnU-Net is a useful self-configuring biomedical segmentation baseline, but STED tau-fiber morphology still requires task-specific validation. [SRC-0068]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - The framework's strength as a generic biomedical baseline does not remove the need for STED/fiber-specific metrics. [SRC-0068]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0068]
+
 ## Links
 
 - [[wiki/concepts/self-configuring-u-net-medical-image-segmentation]]
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]]
 - [[wiki/concepts/topology-aware-tubular-structure-segmentation]]
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]]
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]]
 
 ## Ingestion QA
 

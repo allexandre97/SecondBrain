@@ -25,6 +25,7 @@ year: 2021
 venue: "Journal of Chemical Physics"
 doi: "10.1063/5.0044352"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -54,7 +55,8 @@ cites_sources:
   - SRC-0007
   - SRC-0008
   - SRC-0023
-citation_match_status: partial
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 source_bundle: accelerated-weight-histogram
@@ -225,6 +227,7 @@ Testosterone: after 4000 ns total AWH simulation time, AWH outputs were in the r
 - `SRC-0023`: The references list M. R. Shirts and J. D. Chodera, "Statistically optimal analysis of samples from multiple equilibrium states," Journal of Chemical Physics 129, 124105-124110. This is an exact title match to the ingested MBAR source. [SRC-0009]
 - `SRC-0007`: The references list J. Lidmar, "Improving the efficiency of extended ensemble simulations: The accelerated weight histogram method," Physical Review E 85, 056708. This is an exact title match to the ingested original AWH source. [SRC-0009]
 - `SRC-0008`: The references list V. Lindahl, J. Lidmar, and B. Hess, "Accelerated weight histogram method for exploring free energy landscapes," Journal of Chemical Physics 141, 044110. This is an exact title match to the ingested AWH free-energy-landscapes source. [SRC-0009]
+- Citation review is complete for the currently ingested free-energy/adaptive-sampling cluster; it is not a full bibliography extraction.
 
 ## Metadata notes
 

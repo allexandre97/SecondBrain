@@ -18,6 +18,8 @@ related:
   - "[[wiki/concepts/free-energy-estimation]]"
   - "[[wiki/concepts/adaptive-enhanced-sampling]]"
   - "[[wiki/concepts/transferable-and-scalable-boltzmann-generators]]"
+  - "[[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]]"
+  - "[[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]]"
 sources:
   - SRC-0041
   - SRC-0037
@@ -70,6 +72,8 @@ $$
 - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large]]
 - [[wiki/concepts/free-energy-estimation]]
 - [[wiki/concepts/transferable-and-scalable-boltzmann-generators]]
+- [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]]
+- [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]]
 
 ## Open Questions
 

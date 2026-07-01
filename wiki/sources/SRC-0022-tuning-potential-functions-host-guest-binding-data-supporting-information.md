@@ -15,6 +15,21 @@ imported_path: raw/sources/SRC-0022-tuning-potential-functions-host-guest-bindin
 original_filename: "ct3c01050_si_001.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 67d0ff5c51327dd598abdf838c6d8a12e65edeb3529f2dd970dcebc177a9c822
+authors:
+  - "Jeffry Setiadi"
+  - "Simon Boothroyd"
+  - "David R. Slochower"
+  - "David L. Dotson"
+  - "Matthew W. Thompson"
+  - "Jeffrey R. Wagner"
+  - "Lee-Ping Wang"
+  - "Michael K. Gilson"
+author_entities: []
+year: 2024
+venue: "Journal of Chemical Theory and Computation"
+doi: "10.1021/acs.jctc.3c01050"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -32,6 +47,9 @@ related:
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
 sources:
   - SRC-0022
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: source-local
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -74,6 +92,10 @@ The prior-width analysis reports that reducing the parameter prior width restrai
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
 - [[wiki/questions/force-field-training-validation-scope]]
+
+## Citation links
+
+- Source-local review only; no separate first-class citation links were added beyond the main-paper bundle relationship. [SRC-0022]
 
 ## Open Questions
 

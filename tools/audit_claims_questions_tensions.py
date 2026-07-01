@@ -14,6 +14,8 @@ WIKILINK_RE = re.compile(r"!?\[\[([^\]]+)\]\]")
 CLAIM_STATUSES = {"supported", "contested", "limited", "needs-review"}
 QUESTION_STATUSES = {"open", "partially-answered", "answered", "needs-review"}
 TENSION_STATUSES = {"active", "resolved", "needs-review"}
+CQT_REVIEW_STATUSES = {"unchecked", "none-needed", "source-local", "linked"}
+CQT_LINK_NOT_REQUIRED = {"none-needed", "source-local"}
 
 
 def unquote(value: str) -> str:
@@ -96,25 +98,45 @@ def report(title: str, items: list[str]) -> None:
     print()
 
 
+def source_ids_from_cqt_pages(pages: list[tuple[Path, dict[str, Any], list[str]]]) -> set[str]:
+    source_ids: set[str] = set()
+    for _path, frontmatter, _body in pages:
+        if str(frontmatter.get("type", "")).strip() not in {"claim", "question", "tension"}:
+            continue
+        for source_id in as_list(frontmatter.get("sources", [])):
+            source_ids.add(source_id)
+    return source_ids
+
+
 def main() -> int:
+    pages = [
+        (path, *parse_frontmatter(path.read_text(encoding="utf-8")))
+        for path in wiki_pages()
+    ]
+    cqt_source_ids = source_ids_from_cqt_pages(pages)
     source_without_sections: list[str] = []
+    invalid_source_review_statuses: list[str] = []
     single_source_claims: list[str] = []
     tensions_without_links: list[str] = []
     open_questions_without_links: list[str] = []
     invalid_statuses: list[str] = []
 
-    for path in wiki_pages():
-        frontmatter, body = parse_frontmatter(path.read_text(encoding="utf-8"))
+    for path, frontmatter, body in pages:
         page_type = str(frontmatter.get("type", "")).strip()
         rel = page_id(path)
 
         if page_type == "source":
+            cqt_review_status = str(frontmatter.get("cqt_review_status", "")).strip()
+            if cqt_review_status and cqt_review_status not in CQT_REVIEW_STATUSES:
+                invalid_source_review_statuses.append(f"{rel}: invalid cqt_review_status `{cqt_review_status}`")
             linked = (
                 section_links(body, "Claims")
                 + section_links(body, "Questions")
                 + section_links(body, "Tensions")
             )
-            if not linked:
+            source_id = str(frontmatter.get("source_id", "")).strip()
+            has_cqt_page = bool(source_id and source_id in cqt_source_ids)
+            if not linked and not has_cqt_page and cqt_review_status not in CQT_LINK_NOT_REQUIRED:
                 source_without_sections.append(rel)
 
         if page_type == "claim":
@@ -144,7 +166,8 @@ def main() -> int:
 
     print("# Claims, Questions, and Tensions Audit")
     print()
-    report("Source Pages With No Linked Claim/Question/Tension Sections", source_without_sections)
+    report("Source Pages Pending Claim/Question/Tension Link Review", source_without_sections)
+    report("Invalid Source C/Q/T Review Status Values", invalid_source_review_statuses)
     report("Claim Pages With Only One Source", single_source_claims)
     report("Tensions With No Linked Claims Or Questions", tensions_without_links)
     report("Open Questions With No Related Links", open_questions_without_links)

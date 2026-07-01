@@ -6,6 +6,12 @@ updated: 2026-06-30
 source_id: SRC-0051
 display_title: "A General Pressure Tensor Calculation for Molecular Dynamics Simulations"
 short_title: "MD Pressure Tensor Calculation"
+authors:
+  - David Brown
+  - Sylvie Neyertz
+year: 1995
+venue: "Molecular Physics"
+doi: "10.1080/00268979500100371"
 aliases:
   - "SRC-0051"
   - "MD Pressure Tensor Calculation"
@@ -31,6 +37,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
 ---
 
 # A General Pressure Tensor Calculation for Molecular Dynamics Simulations
@@ -92,6 +101,23 @@ $$
 ## Links
 
 - [[wiki/concepts/md-pressure-and-stress-tensor-calculation]]
+
+## Claims
+
+- [[wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md]]
+- [[wiki/claims/CLM-0025-constraints-and-long-range-electrostatics-change-pressure-tensor-accounting]]
+
+## Questions
+
+- [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients]]
+
+## Citation links
+
+- Citation review status: partial. Bibliographic metadata was checked from the PDF first page; no source-to-source citation link within SRC-0047 through SRC-0054 was promoted without direct bibliography evidence.
 
 ## Ingestion QA
 

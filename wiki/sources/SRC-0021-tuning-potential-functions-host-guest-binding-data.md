@@ -15,6 +15,21 @@ imported_path: raw/sources/SRC-0021-tuning-potential-functions-host-guest-bindin
 original_filename: "tuning-potential-functions-to-host-guest-binding-data.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 8cb7671c2b32e1eebe95ae82226b329bb451c6f173c9e1584edbb54a52606f57
+authors:
+  - "Jeffry Setiadi"
+  - "Simon Boothroyd"
+  - "David R. Slochower"
+  - "David L. Dotson"
+  - "Matthew W. Thompson"
+  - "Jeffrey R. Wagner"
+  - "Lee-Ping Wang"
+  - "Michael K. Gilson"
+author_entities: []
+year: 2024
+venue: "Journal of Chemical Theory and Computation"
+doi: "10.1021/acs.jctc.3c01050"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -36,6 +51,10 @@ related:
   - "[[wiki/concepts/relative-binding-free-energy-benchmarking]]"
 sources:
   - SRC-0021
+cites_sources:
+  - SRC-0025
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -157,6 +176,26 @@ The supporting information adds the train/test ABFE tables, protein-ligand bench
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
 - [[wiki/concepts/relative-binding-free-energy-benchmarking]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
+- [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]]
+
+## Claims
+
+- [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]] - Host-guest binding-data fitting needs held-out observables because binding gains can coexist with hydration-free-energy degradation. [SRC-0021]
+- [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]] - ForceBalance-Evaluator makes the optimization reproducible but cannot remove target-selection limits. [SRC-0021] [SRC-0025]
+
+## Questions
+
+- [[wiki/questions/force-field-training-validation-scope]] - What held-out systems and observables are enough for force-field transfer claims? [SRC-0021]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]] - Host-guest binding improvements trade off against hydration free energies in this fit. [SRC-0021]
+
+## Citation links
+
+- `SRC-0025`: The references list Wang, Martinez, and Pande, "Building Force Fields," as the ForceBalance method used in the optimization workflow. This matches the ingested ForceBalance source. [SRC-0021]
 
 ## Open Questions
 

@@ -15,6 +15,25 @@ imported_path: raw/sources/SRC-0017-symbolic-regression-reinforcement-learning-i
 original_filename: "s41524-025-01952-4.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: fc16263d75e83dc38af91332156626b248d7684521ed3341832bb76baaed5a98
+authors:
+  - "Bilvin Varughese"
+  - "Troy D. Loeffler"
+  - "Suvo Banik"
+  - "Aditya Koneru"
+  - "Sukriti Manna"
+  - "Karthik Balasubramanian"
+  - "Rohit Batra"
+  - "Mathew J. Cherukara"
+  - "Orcun Yildiz"
+  - "Tom Peterka"
+  - "Bobby G. Sumpter"
+  - "Subramanian K.R.S. Sankaranarayanan"
+author_entities: []
+year: 2025
+venue: "npj Computational Materials"
+doi: "10.1038/s41524-025-01952-4"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -30,6 +49,9 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
 sources:
   - SRC-0017
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -95,6 +117,14 @@ The paper emphasizes that several validation properties, including melting dynam
 - [[wiki/concepts/symbolic-regression-interatomic-potentials]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/questions/force-field-training-validation-scope]]
+
+## Questions
+
+- [[wiki/questions/force-field-training-validation-scope]] - Which out-of-training properties are enough to trust symbolic-regression potentials beyond the demonstrated material system? [SRC-0017]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested force-field fitting/refinement cluster sources.
 
 ## Open Questions
 

@@ -26,6 +26,7 @@ year: 2023
 venue: "Nature Communications"
 doi: "10.1038/s41467-023-44208-9"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -46,6 +47,11 @@ related:
   - "[[wiki/concepts/adaptive-enhanced-sampling]]"
 sources:
   - SRC-0013
+cites_sources:
+  - SRC-0008
+  - SRC-0023
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -166,6 +172,12 @@ The paper reports that λD required 609 ns of bias-identification sampling befor
 ## Open Questions
 
 - How well does LaDyBUGS scale to larger perturbation networks and ligand series with more substantial scaffold changes? [SRC-0013]
+
+## Citation links
+
+- `SRC-0023`: The references list Shirts and Chodera, "Statistically optimal analysis of samples from multiple equilibrium states," Journal of Chemical Physics 129, matching the ingested original MBAR source. [SRC-0013]
+- `SRC-0008`: The references list Lindahl, Lidmar, and Hess under "Accelerated weight histogram," matching the ingested AWH free-energy-landscapes source by author set and method title context. [SRC-0013]
+- Citation review is complete for the currently ingested free-energy/adaptive-sampling cluster; it is not a full bibliography extraction.
 
 ## Metadata notes
 

@@ -15,6 +15,16 @@ imported_path: raw/sources/SRC-0025-building-force-fields-automatic-systematic-r
 original_filename: "building-force-fields-an-automatic-systematic-and-reproducible-approach.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: fe250a95712775e8f2943db8fa58cd2fdd9e472ee5c3d045d91c0008a742d340
+authors:
+  - "Lee-Ping Wang"
+  - "Todd J. Martinez"
+  - "Vijay S. Pande"
+author_entities: []
+year: 2014
+venue: "Journal of Physical Chemistry Letters"
+doi: "10.1021/jz500737m"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -32,6 +42,9 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
 sources:
   - SRC-0025
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -117,6 +130,22 @@ TIP4P-FB reproduces the dielectric constant at ambient conditions while maintain
 - [[wiki/concepts/forcebalance]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
+- [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]]
+- [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]
+
+## Claims
+
+- [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]] - ForceBalance makes parameter fitting systematic and reproducible while still depending on chosen targets and regularization. [SRC-0025]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]] - Reproducible optimization can still overfit limited training targets. [SRC-0025]
+- [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]] - ForceBalance water-model fitting represents the empirical fitting side of the water-model construction tradeoff. [SRC-0025]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested force-field fitting/refinement cluster sources; later scoped sources cite this source instead.
 
 ## Open Questions
 

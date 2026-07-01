@@ -22,6 +22,7 @@ year: 2020
 venue: "Journal of Physical Chemistry Letters"
 doi: "10.1021/acs.jpclett.0c00497"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -41,6 +42,9 @@ related:
 sources:
   - SRC-0010
   - SRC-0011
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 source_bundle: opes-rethinking-metadynamics
@@ -168,6 +172,10 @@ The paper reports faster convergence and reduced bias oscillations relative to s
 ## Open Questions
 
 - Which target distributions beyond well-tempered and flat targets are most useful in practical biomolecular OPES applications? [SRC-0010]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested free-energy/adaptive-sampling cluster sources.
 
 ## Metadata notes
 

@@ -6,6 +6,13 @@ updated: 2026-06-30
 source_id: SRC-0048
 display_title: "General Formulation of Pressure and Stress Tensor for Arbitrary Many-body Interaction Potentials Under Periodic Boundary Conditions"
 short_title: "Many-Body Pressure and Stress Tensor"
+authors:
+  - Aidan P. Thompson
+  - Steven J. Plimpton
+  - William Mattson
+year: 2009
+venue: "Journal of Chemical Physics"
+doi: "10.1063/1.3245303"
 aliases:
   - "SRC-0048"
   - "Many-Body Pressure and Stress Tensor"
@@ -31,6 +38,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
 ---
 
 # General Formulation of Pressure and Stress Tensor for Arbitrary Many-body Interaction Potentials Under Periodic Boundary Conditions
@@ -97,6 +107,23 @@ $$
 ## Links
 
 - [[wiki/concepts/md-pressure-and-stress-tensor-calculation]]
+
+## Claims
+
+- [[wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md]]
+- [[wiki/claims/CLM-0025-constraints-and-long-range-electrostatics-change-pressure-tensor-accounting]]
+
+## Questions
+
+- [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients]]
+
+## Citation links
+
+- Citation review status: partial. Bibliographic metadata was checked from the PDF first page; no source-to-source citation link within SRC-0047 through SRC-0054 was promoted without direct bibliography evidence.
 
 ## Ingestion QA
 

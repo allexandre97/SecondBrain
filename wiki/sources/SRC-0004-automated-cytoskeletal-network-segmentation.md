@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0004
 display_title: "Automated and Semi-Automated Enhancement, Segmentation and Tracing of Cytoskeletal Networks in Microscopic Images"
 short_title: "Cytoskeletal Network Segmentation Review"
@@ -14,6 +14,18 @@ source_path: raw/sources/SRC-0004-automated-cytoskeletal-network-segmentation.pd
 original_filename: "Ozd21.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 56e711a130426e9de2f0945dd5a46438c69e0979f3e6c398118908f0ee7103bc
+authors:
+  - "Bugra Ozdemir"
+  - "Ralf Reski"
+author_entities: []
+year: 2021
+venue: "Computational and Structural Biotechnology Journal"
+doi: "10.1016/j.csbj.2021.04.019"
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -59,11 +71,32 @@ This 2021 review surveys automated and semi-automated methods for enhancing, seg
 - Deep-learning methods are increasingly used for segmentation, enhancement, sparse-super-resolution reconstruction, and time-series tracking, often building on U-Net-like architectures, weak supervision, image-to-image translation, or hybrid graph/optimization steps. [SRC-0004]
 - The review identifies annotation cost, continued reliance on semi-automated parameter tuning, limited two-dimensional or static scope, and the need for robust three-dimensional and four-dimensional instance-level tracking as major limitations and future directions. [SRC-0004]
 
+## Claims
+
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - The review separates masks, tracing, and tracking, supporting the lesson that topology/connectivity errors can matter beyond foreground overlap. [SRC-0004]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - Cytoskeletal-network analysis often needs geometry, topology, and tracking measurements rather than only binary masks. [SRC-0004]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - The review distinguishes instance segmentation and tracing as harder downstream tasks than foreground segmentation. [SRC-0004]
+
+## Questions
+
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - STED/tau-fiber analysis inherits the review's warning that microscopy modality and downstream measurement goals constrain segmentation workflow design. [SRC-0004]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - General segmentation frameworks remain useful, but cytoskeletal and STED-style workflows need domain-specific validation. [SRC-0004]
+
+## Citation Links
+
+- Targeted migration review did not confirm any ingested source that this broad review should link through `cites_sources`; full bibliography extraction was intentionally deferred because the review is citation-heavy. [SRC-0004]
+
 ## Links
 
 - [[wiki/concepts/cytoskeletal-network-image-analysis]]
 - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]]
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]]
 
 ## Open Questions
 

@@ -15,6 +15,28 @@ imported_path: raw/sources/SRC-0067-protein-energy-landscape-discovery-analysis-
 original_filename: "s41586-026-10465-z.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 1d9d568495e4a2e89eeb42df9b3b5f07a05b04ba0abf4c111a80baab7eb2c39f
+authors:
+  - "Allan J. R. Ferrari"
+  - "Sugyan M. Dixit"
+  - "Jane Thibeault"
+  - "Mario Garcia"
+  - "Scott Houliston"
+  - "Robert W. Ludwig"
+  - "Pascal Notin"
+  - "Claire M. Phoumyvong"
+  - "Cydney M. Martell"
+  - "Michelle D. Jung"
+  - "Kotaro Tsuboyama"
+  - "Lauren Carter"
+  - "Cheryl H. Arrowsmith"
+  - "Miklos Guttman"
+  - "Gabriel J. Rocklin"
+author_entities: []
+year: 2026
+venue: "Nature"
+doi: "10.1038/s41586-026-10465-z"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -34,6 +56,9 @@ related:
   - "[[wiki/concepts/protein-force-field-benchmark-datasets]]"
 sources:
   - SRC-0067
+cites_sources: []
+citation_match_status: partial
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -78,6 +103,19 @@ Ferrari et al. introduce multiplex intact-protein hydrogen-deuterium exchange ma
 - Automated processing, expression success, MS identification, and HDX data-quality filters reduce coverage from the initial designed library; the paper reports 3,590 measurably stable domains from the broader input set. [SRC-0067]
 - The study focuses on short domains of 28-64 amino acids from selected designed and natural families, so transfer to larger proteins and other experimental conditions remains a future extension. [SRC-0067]
 - The machine-learning models are useful for exploration but not quantitatively accurate enough to fully predict conformational fluctuation energy landscapes. [SRC-0067]
+
+## Claims
+
+- Protein energy-landscape measurements are benchmark-observable resources: they test conformational fluctuation behavior that native-structure prediction and global stability alone can miss. [SRC-0067]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+
+## Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+
+## Citation Links
+
+- Partial citation review: the source is a large experimental dataset and analysis paper; no strong links to currently ingested wiki sources were identified in the targeted cluster pass, and exhaustive bibliography normalization was left out of scope. [SRC-0067]
 
 ## Links
 

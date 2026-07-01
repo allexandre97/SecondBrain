@@ -38,6 +38,9 @@ related:
   - "[[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version]]"
   - "[[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using]]"
   - "[[wiki/concepts/relative-binding-free-energy-benchmarking]]"
+  - "[[wiki/questions/rbfe-benchmark-prospective-use-scope]]"
+  - "[[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]"
+  - "[[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]"
   - "[[wiki/concepts/solvation-free-energy-decoupling-in-lammps]]"
 sources:
   - SRC-0023
@@ -235,6 +238,9 @@ MBAR uses all cross-state reduced potentials to solve coupled normalization-cons
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling]]
 - [[wiki/concepts/transferable-and-scalable-boltzmann-generators]]
 - [[wiki/concepts/relative-binding-free-energy-benchmarking]]
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope]]
+- [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]
+- [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]
 - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps]]
 
 ## Open Questions

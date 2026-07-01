@@ -30,7 +30,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ## Subcategories
 
-- [[wiki/categories/research/bioimage-analysis/filament-segmentation|research/bioimage-analysis/filament-segmentation]] - 19 direct, 19 total pages in branch.
+- [[wiki/categories/research/bioimage-analysis/filament-segmentation|research/bioimage-analysis/filament-segmentation]] - 24 direct, 24 total pages in branch.
 
 ## Direct members
 

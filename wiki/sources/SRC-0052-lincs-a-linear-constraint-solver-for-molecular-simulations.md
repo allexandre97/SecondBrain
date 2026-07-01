@@ -6,6 +6,13 @@ updated: 2026-06-30
 source_id: SRC-0052
 display_title: "LINCS: A Linear Constraint Solver for Molecular Simulations"
 short_title: "LINCS Constraint Solver"
+authors:
+  - Berk Hess
+  - Henk Bekker
+  - Herman J. C. Berendsen
+  - Johannes G. E. M. Fraaije
+year: 1997
+venue: "Journal of Computational Chemistry"
 aliases:
   - "SRC-0052"
   - "LINCS Constraint Solver"
@@ -31,6 +38,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
 ---
 
 # LINCS: A Linear Constraint Solver for Molecular Simulations
@@ -102,6 +112,22 @@ $$
 ## Links
 
 - [[wiki/concepts/molecular-dynamics-constraint-solvers]]
+
+## Claims
+
+- [[wiki/claims/CLM-0025-constraints-and-long-range-electrostatics-change-pressure-tensor-accounting]]
+
+## Questions
+
+- [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients]]
+
+## Citation links
+
+- Citation review status: partial. Bibliographic metadata was checked from the PDF first page; this page is a cited local target of SRC-0054.
 
 ## Ingestion QA
 

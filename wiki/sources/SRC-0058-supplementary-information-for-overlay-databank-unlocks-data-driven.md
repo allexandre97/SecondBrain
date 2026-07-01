@@ -6,6 +6,11 @@ updated: 2026-06-30
 source_id: SRC-0058
 display_title: "Supplementary Information for Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All"
 short_title: "Overlay Databank Supplement"
+authors:
+  - "Kiirikki, Anne M. et al."
+year: 2024
+venue: "Nature Communications Supplementary Information"
+parent_doi: "10.1038/s41467-024-45189-z"
 aliases:
   - "SRC-0058"
   - "Overlay Databank Supplement"
@@ -31,6 +36,8 @@ tags:
 related:
   - "[[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules]]"
   - "[[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data]]"
+cites_sources:
+  - SRC-0057
 sources:
   - SRC-0057
   - SRC-0058
@@ -38,6 +45,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: standard
+metadata_review_status: partial
+citation_match_status: reviewed
+cqt_review_status: source-local
 ---
 
 # Supplementary Information for Overlay Databank Unlocks Data-driven Analyses of Biomolecules for All
@@ -76,6 +86,14 @@ This supporting information documents the NMRlipids Databank structure, metadata
 
 - [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules]]
 - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data]]
+
+## Claims
+
+- Source-local support for [[wiki/claims/CLM-0029-overlay-databanks-solve-access-and-standardization-not-simulation-quality]] through metadata-key tables, workflow diagrams, and application-layer code lists. [SRC-0058]
+
+## Citation Links
+
+- Citation review status: reviewed as source-local supporting information tied to [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules]].
 
 ## Ingestion QA
 

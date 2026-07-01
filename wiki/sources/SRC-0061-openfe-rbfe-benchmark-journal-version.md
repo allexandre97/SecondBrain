@@ -15,6 +15,56 @@ imported_path: raw/sources/SRC-0061-openfe-rbfe-benchmark-journal-version.pdf
 original_filename: "large-scale-collaborative-assessment-of-binding-free-energy-calculations-for-drug-discovery-using-openfe.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 89019fe6cdd853a058f6af326076a67554d0e501589e343bc7f688c03f1d909f
+authors:
+  - "Hannah M. Baumann"
+  - "Joshua T. Horton"
+  - "Michael M. Henry"
+  - "Alyssa Travitz"
+  - "Benjamin Ries"
+  - "Richard J. Gowers"
+  - "David W. H. Swenson"
+  - "Ivan Pulido"
+  - "Dominic Rufa"
+  - "David L. Dotson"
+  - "Nupur Bansal"
+  - "Joseph P. Bluck"
+  - "Howard Broughton"
+  - "Kira A. Campbell"
+  - "Lili Cao"
+  - "Benedikt Frieg"
+  - "Vytautas Gapsys"
+  - "Hendrik Goddeke"
+  - "Marco Klahn"
+  - "Sirish Kaushik Lakkaraju"
+  - "Stephanie M. Linker"
+  - "Thomas Lohr"
+  - "Aniket Magarkar"
+  - "Sergio Perez-Conesa"
+  - "Hans E. Purkey"
+  - "Hayk Saribekyan"
+  - "Jenke Scheen"
+  - "Christina E. M. Schindler"
+  - "Thomas Steinbrecher"
+  - "Chaya D. Stern"
+  - "Patricia Suriana"
+  - "William C. Swope"
+  - "Gary Tresadern"
+  - "Lev Tsidilkovski"
+  - "Binqing Wei"
+  - "Alexander H. Williams"
+  - "Yao Wu"
+  - "Ivy Zhang"
+  - "John D. Chodera"
+  - "James R. B. Eastwood"
+  - "David L. Mobley"
+  - "Irfan Alibay"
+author_entities:
+  - "[[wiki/entities/authors/john-d-chodera]]"
+year: 2026
+venue: "Journal of Chemical Information and Modeling"
+doi: "10.1021/acs.jcim.6c00089"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -39,6 +89,7 @@ cites_sources:
   - SRC-0023
   - SRC-0046
 citation_match_status: partial
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -156,6 +207,20 @@ The paper does not contain theorem proofs. Its argument is empirical: define a d
 - Charge-changing transformations, buried-water cases, partial fused-ring transformations, poor alignments, moving formal charges, and large private transformations remain important error modes. [SRC-0061, sections 3.1.2-3.2]
 - Public data and scripts are available, but private input structures are not distributed. [SRC-0061, section 5]
 
+## Claims
+
+- [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]
+- [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]]
+- [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]
+
+## Questions
+
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]]
+
 ## Links
 
 - Supporting information: [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information]]
@@ -174,6 +239,7 @@ The paper does not contain theorem proofs. Its argument is empirical: define a d
 
 - `SRC-0046`: The references list Ross, Lu, Scarabelli, Albanese, Houang, Abel, Harder, and Wang, "The maximal and current accuracy of rigorous protein-ligand binding free energy calculations," Communications Chemistry 2023, 6, 222. This is an exact title, first-author, and year match to the ingested FEP+ accuracy source. [SRC-0061, reference 42]
 - `SRC-0023`: The references list Shirts and Chodera, "Statistically optimal analysis of samples from multiple equilibrium states," Journal of Chemical Physics 2008, 129, 124105. This is an exact title, first-author, and year match to the ingested original MBAR source. [SRC-0061, reference 89]
+- Partial citation review: the targeted pass confirmed the cluster-relevant FEP+ and MBAR links. Full bibliography normalization is left partial because this benchmark cites many software, method, and benchmark sources not currently ingested. [SRC-0061]
 
 ## Mathematical gaps
 

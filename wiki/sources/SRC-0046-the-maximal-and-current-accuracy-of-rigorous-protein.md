@@ -14,6 +14,21 @@ source_path: raw/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-p
 original_filename: "s42004-023-01019-9.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 3d133ce3a745255c773ce0ec2c76d0d3474f22ee2aa36c7c9937a1bb660d0d5d
+authors:
+  - "Gregory A. Ross"
+  - "Chao Lu"
+  - "Guido Scarabelli"
+  - "Steven K. Albanese"
+  - "Evelyne Houang"
+  - "Robert Abel"
+  - "Edward D. Harder"
+  - "Lingle Wang"
+author_entities: []
+year: 2023
+venue: "Communications Chemistry"
+doi: "10.1038/s42004-023-01019-9"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -32,7 +47,8 @@ related:
 sources:
   - SRC-0046
 cites_sources: []
-citation_match_status: partial
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -116,6 +132,19 @@ The paper uses edge counts for edgewise RMSE weights and compound counts for pai
 - Some experimental affinity measurements differ substantially between assays, so FEP can appear inaccurate when the comparison experiment is itself poorly reproducible. [SRC-0046, discussion]
 - The benchmark still lacks some target and transformation coverage, including more membrane proteins and transition-metal complexes. [SRC-0046, discussion]
 
+## Claims
+
+- [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]
+- [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]]
+
+## Questions
+
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]]
+
 ## Links
 
 - [[wiki/concepts/relative-binding-free-energy-benchmarking]]
@@ -123,7 +152,7 @@ The paper uses edge counts for edgewise RMSE weights and compound counts for pai
 
 ## Citation Links
 
-- No confirmed links to already ingested wiki sources were added in this targeted pass. The checked reference candidates included the article's early best-practices and FEP-method references plus benchmark-related entries; none matched the scoped OpenFE source pages or another already ingested RBFE benchmark source by DOI, exact title, or title plus first author and year. [SRC-0046, references]
+- No confirmed links to currently ingested wiki sources were added. The checked reference candidates included early best-practices, FEP-method, and benchmark-related entries; none matched another ingested source by DOI, exact title, or title plus first author and year. [SRC-0046, references]
 
 ## Ingestion QA
 

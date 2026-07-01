@@ -14,6 +14,16 @@ source_path: raw/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-
 original_filename: "s41467-026-73900-9.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 16a9be2319ca1b07eb25eaa5b6bdd8d824dbe2e6034509e78755ef2cc463596e
+authors:
+  - "Maximilian Schebek"
+  - "Frank Noe"
+  - "Jutta Rogal"
+author_entities: []
+year: 2026
+venue: "Nature Communications"
+doi: "10.1038/s41467-026-73900-9"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -30,6 +40,10 @@ related:
   - "[[wiki/concepts/transferable-and-scalable-boltzmann-generators]]"
 sources:
   - SRC-0039
+cites_sources:
+  - SRC-0041
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -100,6 +114,19 @@ $$
 - The architecture is demonstrated mainly for crystalline materials; extending it to liquid phases and broad chemical-space generalization is listed as future work. [SRC-0039, Discussion]
 - The authors note different performance across potentials and structures, requiring further investigation. [SRC-0039, Discussion]
 - For inexpensive empirical potentials, training can still take longer wall-clock time than a single MD+MBAR estimate, although the BG approach is more attractive when energy evaluations are expensive or reused across many conditions. [SRC-0039, Free energy estimation]
+
+## Claims
+
+- Local Boltzmann-generator architectures can improve scaling, but the free-energy and sampling claims still depend on effective sample size and reweighting support. [SRC-0039]
+- [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]]
+
+## Citation Links
+
+- `SRC-0041`: The references list Noe, Olsson, Kohler, and Wu, "Boltzmann generators: sampling equilibrium states of many-body systems with deep learning," Science 365, eaaw1147, matching the ingested original Boltzmann generators source. [SRC-0039, reference 3]
 
 ## Links
 

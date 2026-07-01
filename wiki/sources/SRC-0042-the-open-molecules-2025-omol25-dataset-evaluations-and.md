@@ -14,6 +14,37 @@ source_path: raw/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluat
 original_filename: "2505.08762v2.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 409286c94d38222c5893d9f34c4c346dd07b33806f5e4f0a22dd82f3382bf360
+authors:
+  - "Daniel S. Levine"
+  - "Muhammed Shuaibi"
+  - "Michael G. Taylor"
+  - "Evan Walter Clark Spotte-Smith"
+  - "Muhammad R. Hasyim"
+  - "Kyle Michel"
+  - "Ilyes Batatia"
+  - "Gabor Csanyi"
+  - "Misko Dzamba"
+  - "Peter Eastman"
+  - "Nathan C. Frey"
+  - "Xiang Fu"
+  - "Vahe Gharakhanyan"
+  - "Aditi S. Krishnapriyan"
+  - "Nitesh Kumar"
+  - "Joshua A. Rackers"
+  - "Sanjeev Raja"
+  - "Ammar Rizvi"
+  - "Andrew S. Rosen"
+  - "Zachary Ulissi"
+  - "Santiago Vargas"
+  - "C. Lawrence Zitnick"
+  - "Samuel M. Blau"
+  - "Brandon M. Wood"
+author_entities: []
+year: 2026
+venue: "arXiv"
+doi:
+arxiv: "2505.08762"
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -32,6 +63,10 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
 sources:
   - SRC-0042
+cites_sources:
+  - SRC-0044
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -69,6 +104,26 @@ OMol25 is a large-scale quantum-chemistry dataset for training and evaluating ma
 - Baseline models need explicit charge and spin inputs; the paper uses a simple charge/spin embedding and notes that more complex schemes may be needed. [SRC-0042]
 - Energy/force MAE alone is insufficient for practical chemistry, motivating the task suite but not eliminating downstream validation needs. [SRC-0042]
 - OMol25 is broad but still defined by its generation protocols, DFT level, quality-control filters, and subdomain sampling choices. [SRC-0042]
+
+## Claims
+
+- OMol25 separates dataset scale from evaluation design by including out-of-distribution and chemistry-oriented tasks rather than relying only on random-split energy and force metrics. [SRC-0042]
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]]
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+
+## Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]
+
+## Citation Links
+
+- `SRC-0044`: The references list Eastman et al., "SPICE, A Dataset of Drug-like Molecules and Peptides for Training Machine Learning Potentials," matching the ingested SPICE source. [SRC-0042, reference 40]
+- Citation review status: reviewed for strong links to currently ingested dataset sources in this cluster. Broader bibliography normalization remains out of scope. [SRC-0042]
 
 ## Links
 

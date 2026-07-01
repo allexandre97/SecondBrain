@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0002
 display_title: "Project Design Note"
 short_title: "Project Design Note"
@@ -15,6 +15,9 @@ areas:
 categories:
   - research/llm-wiki/design
   - admin/wiki-governance
+metadata_review_status: not-applicable
+citation_match_status: reviewed
+cqt_review_status: source-local
 tags:
   - design-note
   - llm-wiki
@@ -58,6 +61,10 @@ This source specifies the current repository design: a local-first LLM knowledge
 - [[wiki/concepts/reusable-codex-task-contracts]]
 - [[wiki/concepts/raw-wiki-schema-layers]]
 - [[wiki/concepts/source-ingestion]]
+
+## Metadata notes
+
+This is an internal project-design source rather than an ordinary scientific paper. Paper-style author/year metadata is not central for migration status; semantic review is intentionally kept source-local.
 
 ## Open Questions
 

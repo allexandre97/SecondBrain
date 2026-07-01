@@ -23,6 +23,7 @@ year: 2020
 venue: "Journal of Physical Chemistry Letters"
 doi: "10.1021/acs.jpclett.0c00497"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -40,6 +41,9 @@ related:
 sources:
   - SRC-0011
   - SRC-0010
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 source_bundle: opes-rethinking-metadynamics
@@ -153,6 +157,10 @@ The supplement reports extended model-system and alanine-peptide results, includ
 ## Open Questions
 
 - How should compression threshold and bandwidth schedules be tuned for very high-dimensional CV spaces beyond the tested examples? [SRC-0011]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested free-energy/adaptive-sampling cluster sources.
 
 ## Metadata notes
 

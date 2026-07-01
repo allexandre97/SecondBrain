@@ -15,6 +15,16 @@ imported_path: raw/sources/SRC-0028-building-water-models-different-approach-sup
 original_filename: "jz501780a_si_001.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: b6cd991886641131d6584aeff92f8fced09b922c39aad1a7a6d58e298975ceb0
+authors:
+  - "Saeed Izadi"
+  - "Ramu Anandakrishnan"
+  - "Alexey V. Onufriev"
+author_entities: []
+year: 2014
+venue: "Journal of Physical Chemistry Letters"
+doi: "10.1021/jz501780a"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -30,6 +40,9 @@ related:
   - "[[wiki/concepts/opc-water-model]]"
 sources:
   - SRC-0028
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: source-local
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -94,6 +107,10 @@ $$
 
 - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc]]
 - [[wiki/concepts/opc-water-model]]
+
+## Citation links
+
+- Source-local review only; no separate first-class citation links were added beyond the main-paper bundle relationship. [SRC-0028]
 
 ## Open Questions
 

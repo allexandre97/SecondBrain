@@ -14,6 +14,15 @@ source_path: raw/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-o
 original_filename: "WIREs Data Min Knowl - 2018 - Nguyen - Practical and theoretical aspects of mixture‐of‐experts modeling An overview.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 38ac0bf70eeb4252917db13a504f917e0282e2ae628bf2196b164e5e8c0da460
+authors:
+  - "Hien D. Nguyen"
+  - "Faicel Chamroukhi"
+author_entities: []
+year: 2018
+venue: "WIREs Data Mining and Knowledge Discovery"
+doi: "10.1002/widm.1246"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -27,6 +36,9 @@ related:
   - "[[wiki/concepts/mixture-of-experts-modeling]]"
 sources:
   - SRC-0038
+cites_sources: []
+citation_match_status: partial
+cqt_review_status: source-local
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -91,6 +103,14 @@ $$
 - The overview is broad; individual MoE variants require separate assumptions for identifiability, optimization, and asymptotic results. [SRC-0038]
 - Model selection and estimation depend on regularity conditions that may be difficult to verify for complex or highly flexible expert/gating families. [SRC-0038, section 3]
 - Practical optimization can be sensitive to initialization and local optima, as with mixture models generally. [SRC-0038]
+
+## Claims
+
+- Source-local only: the useful migration content is the MoE modeling concept, not a cluster-wide claim for the current ML-potential dataset/foundation-model review. [SRC-0038]
+
+## Citation Links
+
+- Partial citation review: this is a broad statistical review, and no strong links to currently ingested wiki sources were identified in the targeted cluster pass. A full bibliography extraction was left out of scope. [SRC-0038]
 
 ## Links
 

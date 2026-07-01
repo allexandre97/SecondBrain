@@ -91,13 +91,17 @@ year:
 venue:
 doi:
 arxiv:
+metadata_review_status: unchecked | partial | reviewed | not-applicable
 cites_sources: []
 citation_match_status: unchecked | partial | reviewed
+cqt_review_status: unchecked | none-needed | source-local | linked
 ```
 
 Use `authors` for literal author names from the source. Extract author names, year, venue, DOI, and arXiv ID only when they are visible or reliably present in source metadata. Do not guess author names. If a field is uncertain, leave it empty or record the uncertainty under `## Metadata notes`.
 
 Use `author_entities` only when an optional durable author entity page exists under `wiki/entities/authors/`. Create author entity pages when an author appears in multiple ingested sources or is especially relevant; do not create one author page for every one-off paper author by default. Do not use ordinary `tags` for author names unless the tag already has a non-person semantic meaning.
+
+Set `metadata_review_status` during ingestion. Use `reviewed` when bibliographic metadata has been checked, `partial` when only some metadata was checked, `unchecked` when it was not reviewed, and `not-applicable` only for non-paper, admin, or project-design sources where paper-style authorship/year metadata would be misleading.
 
 ## Citation matching
 
@@ -142,6 +146,15 @@ Otherwise keep the claim local to the source page.
 Create about 1-3 question pages when the source raises open questions, validation boundaries, unresolved assumptions, or future-work questions that should be reusable. Existing question pages may be updated and linked instead of creating duplicates.
 
 Create tension pages only when there is a real contradiction, limitation, unresolved conflict, incompatible assumption, or disagreement with existing wiki content. Do not turn every caveat into a tension page.
+
+Set `cqt_review_status` during ingestion:
+
+- `unchecked` before claim, question, and tension extraction has been reviewed.
+- `none-needed` when no first-class semantic object would add durable retrieval value.
+- `source-local` when source-page notes are enough.
+- `linked` when one or more first-class claim, question, or tension pages are linked or cite the source.
+
+Do not force claim, question, or tension pages when they would add noise.
 
 Use stable IDs for new pages:
 

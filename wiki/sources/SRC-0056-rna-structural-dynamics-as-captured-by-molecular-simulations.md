@@ -6,6 +6,22 @@ updated: 2026-06-30
 source_id: SRC-0056
 display_title: "RNA Structural Dynamics As Captured by Molecular Simulations: A Comprehensive Overview"
 short_title: "RNA Molecular Simulations Review"
+authors:
+  - Jiri Sponer
+  - Giovanni Bussi
+  - Miroslav Krepl
+  - Pavel Banas
+  - Sandro Bottaro
+  - Richard A. Cunha
+  - Alejandro Gil-Ley
+  - Giovanni Pinamonti
+  - Simon Poblete
+  - Petr Jurecka
+  - Nils G. Walter
+  - Michal Otyepka
+year: 2018
+venue: "Chemical Reviews"
+doi: "10.1021/acs.chemrev.7b00427"
 aliases:
   - "SRC-0056"
   - "RNA Molecular Simulations Review"
@@ -36,6 +52,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: standard
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
 ---
 
 # RNA Structural Dynamics As Captured by Molecular Simulations: A Comprehensive Overview
@@ -78,6 +97,22 @@ This Chemical Reviews article surveys RNA structural dynamics as studied by mole
 - [[wiki/concepts/rna-molecular-dynamics-simulations]]
 - [[wiki/concepts/rna-force-field-limitations]]
 - [[wiki/concepts/adaptive-enhanced-sampling]]
+
+## Claims
+
+- [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks]]
+
+## Questions
+
+- [[wiki/questions/rna-force-field-motif-validation-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer]]
+
+## Citation Links
+
+- Citation review status: reviewed for strong local RNA-cluster links. No newer source-to-source citation from this 2018 review to SRC-0055 was possible by publication date.
 
 ## Ingestion QA
 

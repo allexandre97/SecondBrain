@@ -16,6 +16,37 @@ imported_path: raw/sources/SRC-0059-six-open-questions-in-machine-learned-intera
 original_filename: "2606.07327v2.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 50e76532cdc5617118160f72507ab646b025a3ab264d2287aebf645f2820c5a5
+authors:
+  - "Isabel Creed"
+  - "Tim Rein"
+  - "Ingvars Vitenburgs"
+  - "Wojciech G. Stark"
+  - "Viktor Ellingsson"
+  - "Ahmed Y. Ismail"
+  - "Guangyu Liu"
+  - "Yuchen Lou"
+  - "Bradley A. A. Martin"
+  - "Cyprien Bone"
+  - "Matthew A. H. Walker"
+  - "Mueen Taj"
+  - "Shirui Wang"
+  - "Kelvin Wong"
+  - "Ruiqi Wu"
+  - "Prakriti Kayastha"
+  - "Bingqing Cheng"
+  - "Aditi Krishnapriyan"
+  - "Michele Ceriotti"
+  - "Marcel F. Langer"
+  - "Jarvist Moore Frost"
+  - "Alex M. Ganose"
+  - "Venkat Kapil"
+  - "Keith T. Butler"
+author_entities: []
+year: 2026
+venue: "arXiv"
+doi:
+arxiv: "2606.07327"
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -40,6 +71,10 @@ related:
   - "[[wiki/concepts/stability-aware-mlff-training]]"
 sources:
   - SRC-0059
+cites_sources:
+  - SRC-0042
+citation_match_status: partial
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -159,6 +194,24 @@ The paper does not present formal theorem proofs. Its argument is organized as a
 - Several claims are intentionally framed as unsettled research questions, including whether physical inductive biases remain advantageous at extreme scale and whether a unified theory of long-range MLIPs will emerge. [SRC-0059, sections 2 and 3]
 - It cautions that present-day MLIP successes mostly reflect broad interpolation and access to new regimes, not proof that MLIPs autonomously discover fundamentally new physical laws. [SRC-0059, section 4]
 - It argues that no single benchmark should be overinterpreted because benchmark pressure can distort optimization targets and hide hard-to-measure failures. [SRC-0059, section 6]
+
+## Claims
+
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]]
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]
+
+## Questions
+
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]
+
+## Citation Links
+
+- `SRC-0042`: The paper discusses and cites the Open Molecules 2025 dataset as a large molecular MLIP dataset, matching the ingested OMol25 source. [SRC-0059]
+- Partial citation review: SRC-0059 is a broad perspective/review with many model, dataset, and benchmark references. The targeted pass recorded clear cluster-relevant links but did not attempt exhaustive bibliography normalization. [SRC-0059]
 
 ## Links
 

@@ -14,6 +14,19 @@ source_path: raw/sources/SRC-0040-using-graph-neural-network-and-symbolic-regres
 original_filename: "s41598-025-05205-8.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 70fd4354bfb7e8bebbf3f7b80c1b1f2cbbf87a506cab2ae6a4b41be1a795725d
+authors:
+  - "Ruoxia Chen"
+  - "Mathieu Bauchy"
+  - "Wei Wang"
+  - "Yizhou Sun"
+  - "Xiaojie Tao"
+  - "Jaime Marian"
+author_entities: []
+year: 2025
+venue: "Scientific Reports"
+doi: "10.1038/s41598-025-05205-8"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -30,6 +43,9 @@ related:
   - "[[wiki/concepts/symbolic-regression-interatomic-potentials]]"
 sources:
   - SRC-0040
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: source-local
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -62,6 +78,14 @@ Chen et al. propose a two-stage workflow that trains a graph neural network on s
 - The current setup assumes energy decomposes into two-body terms, which holds for Lennard-Jones but may fail for many-body systems. [SRC-0040]
 - The edge representation lacks rotational invariance and introduces cutoff discontinuities; the authors suggest distance/angular features and smooth cutoffs as future improvements. [SRC-0040]
 - Extending to many-body systems would likely increase symbolic complexity and development cost even if the final expression remains cheap at runtime. [SRC-0040]
+
+## Claims
+
+- Source-local only: the reusable content is already represented through the GNN-to-symbolic-regression and Garnet functional-form concepts; no separate first-class claim is needed for this cluster. [SRC-0040]
+
+## Citation Links
+
+- No confirmed links to currently ingested wiki sources were identified during the targeted cluster pass. [SRC-0040]
 
 ## Links
 

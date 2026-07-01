@@ -15,6 +15,14 @@ imported_path: raw/sources/SRC-0018-force-field-optimization-via-awh-gradients.p
 original_filename: "AWH_Gradients.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 9c12541564089350a6fa68eb4bd5b67ec6c60f255b1d103227bc5980542168ee
+authors:
+  - "Alexandre Blanco Gonzalez"
+author_entities: []
+year: 2026
+venue: "Local draft"
+doi:
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -33,6 +41,9 @@ related:
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
 sources:
   - SRC-0018
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -144,6 +155,19 @@ The macro-epoch pipeline is: run adaptive AWH until Stage A readiness passes, ru
 - [[wiki/concepts/accelerated-weight-histogram-method]]
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+
+## Claims
+
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]] - Frozen-bias replay optimization requires support diagnostics before trusting parameter updates. [SRC-0018]
+
+## Questions
+
+- [[wiki/questions/force-field-training-validation-scope]] - When do ESS, parity, and split-half diagnostics justify replay-based force-field updates? [SRC-0018]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested force-field fitting/refinement cluster sources.
 
 ## Open Questions
 
@@ -152,6 +176,7 @@ The macro-epoch pipeline is: run adaptive AWH until Stage A readiness passes, ru
 ## Mathematical gaps
 
 - The wiki records the central replay and Fisher geometry, but not every code-facing configuration option in the document.
+- Bibliographic metadata was reviewed from the local draft title page; ordinary DOI/arXiv metadata are not applicable. [SRC-0018]
 
 ## Ingestion QA
 

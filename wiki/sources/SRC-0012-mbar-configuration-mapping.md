@@ -24,6 +24,7 @@ year: 2013
 venue: "Journal of Chemical Physics"
 doi: "10.1063/1.4801332"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -41,6 +42,10 @@ related:
   - "[[wiki/concepts/relative-binding-free-energy-benchmarking]]"
 sources:
   - SRC-0012
+cites_sources:
+  - SRC-0023
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -153,6 +158,11 @@ For solvated dipoles with different equilibrium bond lengths, MBAR with mapping 
 ## Open Questions
 
 - Which chemically useful transformations admit simple invertible mappings that preserve enough Boltzmann overlap for mapped MBAR to be practical? [SRC-0012]
+
+## Citation links
+
+- `SRC-0023`: The references list M. Shirts and J. Chodera, Journal of Chemical Physics 129, 124105 (2008), which matches the ingested original MBAR source by author, venue, year, and article identifier. [SRC-0012]
+- Citation review is complete for the currently ingested free-energy/adaptive-sampling cluster; it is not a full bibliography extraction.
 
 ## Metadata notes
 

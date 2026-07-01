@@ -55,7 +55,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Answers
 
 - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]
-- [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, and Reweighting Differences Across Free-Energy Methods]]
+- [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
 - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]
 
 ### Questions

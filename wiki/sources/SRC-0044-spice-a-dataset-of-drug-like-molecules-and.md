@@ -14,6 +14,25 @@ source_path: raw/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and.pdf
 original_filename: "s41597-022-01882-6.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 838f07c41bc888ff5181f66719a5e9f5966c360d8d5913a7f672e1b9bdb8a4dd
+authors:
+  - "Peter Eastman"
+  - "Pavan Kumar Behara"
+  - "David L. Dotson"
+  - "Raimondas Galvelis"
+  - "John E. Herr"
+  - "Josh T. Horton"
+  - "Yuezhi Mao"
+  - "John D. Chodera"
+  - "Benjamin P. Pritchard"
+  - "Yuanqing Wang"
+  - "Gianni De Fabritiis"
+  - "Thomas E. Markland"
+author_entities: []
+year: 2023
+venue: "Scientific Data"
+doi: "10.1038/s41597-022-01882-6"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -33,6 +52,9 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
 sources:
   - SRC-0044
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -74,6 +96,20 @@ SPICE is a quantum-chemistry dataset for training machine-learning potentials re
 - The initial release does not target covalent bond formation/breaking or reactive potentials. [SRC-0044]
 - The proof-of-concept model uses a simple formal-charge atom typing scheme, and charge handling remains open. [SRC-0044]
 - Error outliers are associated with unusual chemistries, suggesting that additional data are needed for rare motifs. [SRC-0044]
+
+## Claims
+
+- SPICE is a training-label dataset for transferable molecular ML potentials, with intended use and limitations distinct from benchmark-observable datasets or downstream simulation validations. [SRC-0044]
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]
+
+## Citation Links
+
+- No confirmed links from this source to earlier ingested wiki sources were identified during the targeted cluster pass. [SRC-0044]
 
 ## Links
 

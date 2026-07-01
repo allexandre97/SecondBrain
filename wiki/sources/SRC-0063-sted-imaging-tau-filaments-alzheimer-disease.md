@@ -15,6 +15,21 @@ imported_path: raw/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease
 original_filename: "1-s2.0-S1047847716301447-main.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 0eb22f443d31069b44bea749bc6fa5e1113a4f05aa780cf8cb10cec8c46590b2
+authors:
+  - "Ales Benda"
+  - "Hayden Aitken"
+  - "Danielle S. Davies"
+  - "Renee Whan"
+  - "Claire Goldsbury"
+author_entities: []
+year: 2016
+venue: "Journal of Structural Biology"
+doi: "10.1016/j.jsb.2016.07.003"
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -66,10 +81,29 @@ Benda et al. evaluate stimulated emission depletion microscopy for imaging phosp
 - The work validates an imaging protocol and reports structural observations, but it does not by itself establish mechanisms of tau propagation or distinguish disease-specific tau strains. [SRC-0063]
 - Alexa Fluor 647 was limited by photoswitching and photobleaching in this STED setup, while Alexa Fluor 568 improved over confocal but did not match STAR 635P resolution. [SRC-0063]
 
+## Claims
+
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - STED resolves tau-positive filament structure at a scale where morphology-oriented downstream measurements become meaningful. [SRC-0063]
+
+## Questions
+
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - STED imaging enables fine tau morphology, but segmentation and graph-measurement workflows still require validation before biological comparison. [SRC-0063]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - General segmentation tools must be evaluated against STED-specific fine-structure requirements. [SRC-0063]
+
+## Citation Links
+
+- Targeted citation review found no new confirmed `cites_sources` links to add for currently ingested sources. [SRC-0063]
+
 ## Links
 
 - [[wiki/concepts/super-resolution-imaging-of-tau-pathology]]
 - [[wiki/concepts/topology-aware-tubular-structure-segmentation]]
+- [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]]
+- [[wiki/questions/sted-tau-fiber-analysis-validation-scope]]
+- [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]]
 
 ## Ingestion QA
 

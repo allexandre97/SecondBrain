@@ -36,11 +36,18 @@ year:
 venue:
 doi:
 arxiv:
+metadata_review_status: unchecked | partial | reviewed | not-applicable
+citation_match_status: unchecked | partial | reviewed
+cqt_review_status: unchecked | none-needed | source-local | linked
 ```
 
 For source pages, `coverage_profile` defaults to `standard` unless there is a reason to choose `minimal`, `deep`, `math-standard`, or `math-deep`.
 
 Use `authors` for literal author names from the source. Use `author_entities` only for optional durable author entity pages. Do not store author names only as ordinary tags.
+
+Use `metadata_review_status` to distinguish missing bibliographic review from sources where bibliographic paper metadata does not apply. Use `reviewed` when the page has been checked even if `authors` or `year` are unavailable from the source. Use `not-applicable` only for non-paper, admin, or project-design sources where paper-style authorship/year metadata would be misleading.
+
+Use `cqt_review_status` to distinguish unreviewed source pages from reviewed pages where first-class claim, question, or tension pages are unnecessary. Use `none-needed` when the source was reviewed and no durable semantic object is warranted, `source-local` when source-page notes are sufficient, and `linked` when first-class claim, question, or tension pages are linked.
 
 ## Concept Page
 
@@ -124,6 +131,7 @@ year:
 venue:
 doi:
 arxiv:
+metadata_review_status: unchecked | partial | reviewed | not-applicable
 areas: []
 categories: []
 tags: []
@@ -134,6 +142,7 @@ sources:
   - SRC-0000
 cites_sources: []
 citation_match_status: unchecked | partial | reviewed
+cqt_review_status: unchecked | none-needed | source-local | linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -167,6 +176,14 @@ Source ID: `SRC-0000`
 - Use `citation_match_status: partial` when some references were inspected and accepted citation links were added.
 - Use `citation_match_status: reviewed` only when the source's references were inspected thoroughly.
 - Do not add `cited_by_sources`; reverse citation links are generated information.
+
+## Semantic-object review
+
+- Use `cqt_review_status: unchecked` before source-local claims, questions, and tensions have been reviewed for durable extraction.
+- Use `cqt_review_status: none-needed` when no first-class claim, question, or tension page would add useful retrieval value.
+- Use `cqt_review_status: source-local` when the useful claim, question, or tension material is intentionally kept on the source page.
+- Use `cqt_review_status: linked` when dedicated claim, question, or tension pages are linked from the source page or cite this source in frontmatter.
+- Do not create first-class claim, question, or tension pages mechanically.
 
 ## Mathematical structure
 

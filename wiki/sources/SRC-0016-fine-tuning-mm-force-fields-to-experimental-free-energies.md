@@ -15,6 +15,17 @@ imported_path: raw/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-
 original_filename: "nihpp-2025.01.06.631610v1.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: d74e4edea0ce1453de278a1b119a0b5467307a19fde71c9670bd9fe0921a16f2
+authors:
+  - "Dominic Rufa"
+  - "Joshua Fass"
+  - "John D. Chodera"
+author_entities:
+  - "[[wiki/entities/authors/john-d-chodera]]"
+year: 2025
+venue: "bioRxiv"
+doi: "10.1101/2025.01.06.631610"
+arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -33,6 +44,9 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
 sources:
   - SRC-0016
+cites_sources: []
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -147,6 +161,19 @@ Fine-tuning with ESS regularization is reported to outperform unregularized rewe
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+
+## Claims
+
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]] - One-shot force-field fine-tuning depends on reference-ensemble support and ESS regularization. [SRC-0016]
+
+## Questions
+
+- [[wiki/questions/force-field-training-validation-scope]] - How should reweighted improvements be validated by resimulation or held-out tests? [SRC-0016]
+
+## Citation links
+
+- Targeted citation review found no confirmed citations from this source to currently ingested force-field fitting/refinement cluster sources.
 
 ## Open Questions
 

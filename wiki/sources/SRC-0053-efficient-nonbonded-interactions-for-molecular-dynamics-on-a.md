@@ -6,6 +6,12 @@ updated: 2026-06-30
 source_id: SRC-0053
 display_title: "Efficient Nonbonded Interactions for Molecular Dynamics on a Graphics Processing Unit"
 short_title: "OpenMM GPU Nonbonded Interactions"
+authors:
+  - Peter Eastman
+  - Vijay S. Pande
+year: 2010
+venue: "Journal of Computational Chemistry"
+doi: "10.1002/jcc.21413"
 aliases:
   - "SRC-0053"
   - "OpenMM GPU Nonbonded Interactions"
@@ -32,6 +38,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
 ---
 
 # Efficient Nonbonded Interactions for Molecular Dynamics on a Graphics Processing Unit
@@ -91,6 +100,22 @@ where $n_c$ is the average number of atoms within the cutoff and is approximatel
 ## Links
 
 - [[wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration]]
+
+## Claims
+
+- [[wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited]]
+
+## Questions
+
+- [[wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance]]
+
+## Citation links
+
+- Citation review status: partial. Bibliographic metadata was checked from the PDF first page; no source-to-source citation link within SRC-0047 through SRC-0054 was promoted without direct bibliography evidence.
 
 ## Ingestion QA
 

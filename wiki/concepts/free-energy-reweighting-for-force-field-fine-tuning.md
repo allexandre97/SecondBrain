@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 areas:
   - research
 categories:
@@ -86,3 +86,5 @@ ESS and KSR detect weight concentration, but high values do not guarantee that a
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories]]
 - [[wiki/concepts/free-energy-estimation]]
+- [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+- [[wiki/questions/force-field-training-validation-scope]]

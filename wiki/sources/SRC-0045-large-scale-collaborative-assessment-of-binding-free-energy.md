@@ -63,6 +63,7 @@ year: 2026
 venue: "ChemRxiv"
 doi: "10.26434/chemrxiv-2025-7sthd/v2"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -86,6 +87,7 @@ cites_sources:
   - SRC-0023
   - SRC-0046
 citation_match_status: partial
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 ingestion_status: complete
@@ -151,6 +153,20 @@ Here $w_i$ is the number of ligands in system $i$ for the all-to-all pairwise be
 - The FEP+ comparison is not a clean controlled-method comparison because sampling lengths, manual setup, force fields, enhanced water sampling, and protocol tuning differ. [SRC-0045, section 4.1]
 - Private datasets include assay-limit, stereochemical, tautomeric, pose, metal, water-sampling, and large-transformation complications that make benchmark interpretation harder. [SRC-0045, section 4.2]
 
+## Claims
+
+- [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]
+- [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]]
+- [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]
+
+## Questions
+
+- [[wiki/questions/rbfe-benchmark-prospective-use-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]]
+
 ## Links
 
 - [[wiki/concepts/relative-binding-free-energy-benchmarking]]
@@ -162,6 +178,7 @@ Here $w_i$ is the number of ligands in system $i$ for the all-to-all pairwise be
 
 - `SRC-0046`: The references list Ross, Lu, Scarabelli, Albanese, Houang, Abel, Harder, and Wang, "The maximal and current accuracy of rigorous protein-ligand binding free energy calculations," Communications Chemistry 2023, 6, 222. This is an exact title, first-author, and year match to the ingested FEP+ accuracy source. [SRC-0045, reference 42]
 - `SRC-0023`: The references list Shirts and Chodera, "Statistically optimal analysis of samples from multiple equilibrium states," Journal of Chemical Physics 2008, 129, 124105. This is an exact title, first-author, and year match to the ingested original MBAR source. [SRC-0045, reference 89]
+- Partial citation review: the targeted pass confirmed cluster-relevant links to FEP+ and MBAR, but did not exhaustively normalize every benchmark-method reference in this preprint because the journal version is the canonical OpenFE source in the wiki. [SRC-0045]
 
 ## Ingestion QA
 

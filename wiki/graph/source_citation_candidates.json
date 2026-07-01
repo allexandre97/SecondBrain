@@ -6,7 +6,7 @@
       "citing_source_id": "SRC-0005",
       "citing_source_page": "wiki/sources/SRC-0005-times-square-sampling-free-energy.md",
       "confidence": "strong",
-      "evidence": "energy-landscapes source. [SRC-0005] - `SRC-0007`: The references list Lidmar, \"Improving the Efficiency of Extended Ensemble Simulations: the Accelerated Weight Histogram Method,\" Physical Review E 85, 056708. This is an exact title match to the ingested original AWH source. [SRC-0005]",
+      "evidence": "energy-landscapes source. [SRC-0005] - `SRC-0007`: The references list Lidmar, \"Improving the Efficiency of Extended Ensemble Simulations: the Accelerated Weight Histogram Method,\" Physical Review E 85, 056708. This is an exact title match to the ingested original AWH source. [SRC-0005] - Citatio",
       "match_type": "title-exact"
     },
     {
@@ -33,8 +33,17 @@
       "citing_source_id": "SRC-0006",
       "citing_source_page": "wiki/sources/SRC-0006-times-square-sampling-supplement.md",
       "confidence": "strong",
-      "evidence": "- `SRC-0023`: The supplement references Michael Shirts and John Chodera, \"Statistically optimal analysis of samples from multiple equilibrium states,\" Journal of Chemical Physics 129. This is an exact title match to the ingested MBAR source. [SRC-0006]",
+      "evidence": "- `SRC-0023`: The supplement references Michael Shirts and John Chodera, \"Statistically optimal analysis of samples from multiple equilibrium states,\" Journal of Chemical Physics 129. This is an exact title match to the ingested MBAR source. [SRC-0006] - Citation review is complete for the currently ingeste",
       "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0007",
+      "cited_source_page": "wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh.md",
+      "citing_source_id": "SRC-0008",
+      "citing_source_page": "wiki/sources/SRC-0008-awh-free-energy-landscapes.md",
+      "confidence": "candidate",
+      "evidence": "lidmar and 2012 appear in reference text",
+      "match_type": "author-year"
     },
     {
       "cited_source_id": "SRC-0007",
@@ -51,7 +60,7 @@
       "citing_source_id": "SRC-0009",
       "citing_source_page": "wiki/sources/SRC-0009-awh-alchemical-free-energy.md",
       "confidence": "strong",
-      "evidence": "RC-0009] - `SRC-0008`: The references list V. Lindahl, J. Lidmar, and B. Hess, \"Accelerated weight histogram method for exploring free energy landscapes,\" Journal of Chemical Physics 141, 044110. This is an exact title match to the ingested AWH free-energy-landscapes source. [SRC-0009]",
+      "evidence": "RC-0009] - `SRC-0008`: The references list V. Lindahl, J. Lidmar, and B. Hess, \"Accelerated weight histogram method for exploring free energy landscapes,\" Journal of Chemical Physics 141, 044110. This is an exact title match to the ingested AWH free-energy-landscapes source. [SRC-0009] - Citation review is comp",
       "match_type": "title-exact"
     },
     {
@@ -61,6 +70,60 @@
       "citing_source_page": "wiki/sources/SRC-0009-awh-alchemical-free-energy.md",
       "confidence": "strong",
       "evidence": "- `SRC-0023`: The references list M. R. Shirts and J. D. Chodera, \"Statistically optimal analysis of samples from multiple equilibrium states,\" Journal of Chemical Physics 129, 124105-124110. This is an exact title match to the ingested MBAR source. [SRC-0009] - `SRC-0007`: The references list J. Lid",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0023",
+      "cited_source_page": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.md",
+      "citing_source_id": "SRC-0012",
+      "citing_source_page": "wiki/sources/SRC-0012-mbar-configuration-mapping.md",
+      "confidence": "candidate",
+      "evidence": "shirts and 2008 appear in reference text",
+      "match_type": "author-year"
+    },
+    {
+      "cited_source_id": "SRC-0008",
+      "cited_source_page": "wiki/sources/SRC-0008-awh-free-energy-landscapes.md",
+      "citing_source_id": "SRC-0013",
+      "citing_source_page": "wiki/sources/SRC-0013-ladybugs-lambda-dynamics.md",
+      "confidence": "strong",
+      "evidence": "AWH Free Energy Landscapes",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0023",
+      "cited_source_page": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.md",
+      "citing_source_id": "SRC-0013",
+      "citing_source_page": "wiki/sources/SRC-0013-ladybugs-lambda-dynamics.md",
+      "confidence": "strong",
+      "evidence": "- `SRC-0023`: The references list Shirts and Chodera, \"Statistically optimal analysis of samples from multiple equilibrium states,\" Journal of Chemical Physics 129, matching the ingested original MBAR source. [SRC-0013] - `SRC-0008`: The references list Lindahl, Lidmar, and Hess under \"Ac",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0041",
+      "cited_source_page": "wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body.md",
+      "citing_source_id": "SRC-0037",
+      "citing_source_page": "wiki/sources/SRC-0037-transferable-boltzmann-generators.md",
+      "confidence": "strong",
+      "evidence": "Boltzmann Generators: Sampling Equilibrium States of Many-Body Systems with Deep Learning",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0041",
+      "cited_source_page": "wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body.md",
+      "citing_source_id": "SRC-0039",
+      "citing_source_page": "wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large.md",
+      "confidence": "strong",
+      "evidence": "- `SRC-0041`: The references list Noe, Olsson, Kohler, and Wu, \"Boltzmann generators: sampling equilibrium states of many-body systems with deep learning,\" Science 365, eaaw1147, matching the ingested original Boltzmann generators source. [SRC-0039, reference 3]",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0044",
+      "cited_source_page": "wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and.md",
+      "citing_source_id": "SRC-0042",
+      "citing_source_page": "wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and.md",
+      "confidence": "strong",
+      "evidence": "- `SRC-0044`: The references list Eastman et al., \"SPICE, A Dataset of Drug-like Molecules and Peptides for Training Machine Learning Potentials,\" matching the ingested SPICE source. [SRC-0042, reference 40] - Citation review status: reviewed for strong links to currently ingested dataset sources in thi",
       "match_type": "title-exact"
     },
     {
@@ -82,13 +145,31 @@
       "match_type": "title-exact"
     },
     {
-      "cited_source_id": "SRC-0045",
-      "cited_source_page": "wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy.md",
-      "citing_source_id": "SRC-0046",
-      "citing_source_page": "wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein.md",
-      "confidence": "candidate",
-      "evidence": "- No confirmed links to already ingested wiki sources were added in this targeted pass. The checked reference candidates included the article's early best-practices and FEP-method references plus benchmark-related entries; none matched the scoped OpenFE source",
-      "match_type": "title-fuzzy"
+      "cited_source_id": "SRC-0050",
+      "cited_source_page": "wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method.md",
+      "citing_source_id": "SRC-0054",
+      "citing_source_page": "wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation.md",
+      "confidence": "strong",
+      "evidence": "Essmann, U. et al. A smooth particle mesh Ewald method. J. Chem. Phys. 103, 8577-8593 (1995). Hess, B., Bekker, H., Berendsen, H. J. & Fraaije, J. G. LINCS: A linear constraint solver for molecular simulations. J.",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0052",
+      "cited_source_page": "wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations.md",
+      "citing_source_id": "SRC-0054",
+      "citing_source_page": "wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation.md",
+      "confidence": "strong",
+      "evidence": "103, 8577-8593 (1995). Hess, B., Bekker, H., Berendsen, H. J. & Fraaije, J. G. LINCS: A linear constraint solver for molecular simulations. J. Comput. Chem. 18, 1463-1472 (1997). - Confirmed local citation match to [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method]] via the reference-li",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0056",
+      "cited_source_page": "wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations.md",
+      "citing_source_id": "SRC-0055",
+      "citing_source_page": "wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field.md",
+      "confidence": "strong",
+      "evidence": "Sponer, J. et al. RNA structural dynamics as captured by molecular simulations: A comprehensive overview. Chem. Rev. 2018, 118, 4177-4338. - Confirmed local citation match to [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations]] v",
+      "match_type": "title-exact"
     },
     {
       "cited_source_id": "SRC-0023",

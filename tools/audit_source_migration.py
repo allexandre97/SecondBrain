@@ -21,6 +21,9 @@ CLAIM_SECTIONS = {"claims", "claim links"}
 QUESTION_SECTIONS = {"questions", "open questions", "question links"}
 TENSION_SECTIONS = {"tensions", "contradictions / tensions", "tension links"}
 VALID_CITATION_STATUSES = {"unchecked", "partial", "reviewed"}
+VALID_METADATA_REVIEW_STATUSES = {"unchecked", "partial", "reviewed", "not-applicable"}
+VALID_CQT_REVIEW_STATUSES = {"unchecked", "none-needed", "source-local", "linked"}
+MIGRATED_CQT_REVIEW_STATUSES = {"none-needed", "source-local", "linked"}
 
 
 @dataclass(frozen=True)
@@ -42,7 +45,9 @@ class SourceAudit:
     raw_source_exists: str
     authors_status: str
     year_status: str
+    metadata_review_status: str
     citation_match_status: str
+    cqt_review_status: str
     cites_sources_count: int
     linked_claims_count: int
     linked_questions_count: int
@@ -53,6 +58,7 @@ class SourceAudit:
     graph_density_proxy: int
     metadata_backfill_reasons: tuple[str, ...]
     citation_review_reasons: tuple[str, ...]
+    partial_citation_review_reasons: tuple[str, ...]
     cqt_review_reasons: tuple[str, ...]
     raw_file_reasons: tuple[str, ...]
     manual_review_reasons: tuple[str, ...]
@@ -64,6 +70,10 @@ class SourceAudit:
     @property
     def needs_citation_review(self) -> bool:
         return bool(self.citation_review_reasons)
+
+    @property
+    def has_partial_citation_review(self) -> bool:
+        return bool(self.partial_citation_review_reasons)
 
     @property
     def needs_cqt_review(self) -> bool:
@@ -82,6 +92,7 @@ class SourceAudit:
         return not (
             self.needs_metadata_backfill
             or self.needs_citation_review
+            or self.has_partial_citation_review
             or self.needs_cqt_review
             or self.has_missing_raw_source_file
             or self.needs_manual_review
@@ -251,6 +262,16 @@ def citation_status(frontmatter: dict[str, Any]) -> str:
     return value if value else "missing"
 
 
+def metadata_review_status(frontmatter: dict[str, Any]) -> str:
+    value = str(frontmatter.get("metadata_review_status", "")).strip()
+    return value if value else "missing"
+
+
+def cqt_review_status(frontmatter: dict[str, Any]) -> str:
+    value = str(frontmatter.get("cqt_review_status", "")).strip()
+    return value if value else "missing"
+
+
 def bundle_status(frontmatter: dict[str, Any]) -> str:
     bundle = str(frontmatter.get("source_bundle", "")).strip()
     role = str(frontmatter.get("bundle_role", "")).strip()
@@ -281,7 +302,9 @@ def audit_sources() -> list[SourceAudit]:
         source_path_status, raw_exists = raw_source_exists(page.frontmatter)
         author_status = authors_status(page.frontmatter)
         year_status = "present" if str(page.frontmatter.get("year", "")).strip() else "missing"
+        metadata_status = metadata_review_status(page.frontmatter)
         citation_match_status = citation_status(page.frontmatter)
+        cqt_status = cqt_review_status(page.frontmatter)
         linked_claims = count_linked_items(page, source_id, backrefs, "claim", CLAIM_SECTIONS)
         linked_questions = count_linked_items(page, source_id, backrefs, "question", QUESTION_SECTIONS)
         linked_tensions = count_linked_items(page, source_id, backrefs, "tension", TENSION_SECTIONS)
@@ -293,28 +316,27 @@ def audit_sources() -> list[SourceAudit]:
             metadata_reasons.append("missing source_id")
         if source_path_status == "missing":
             metadata_reasons.append("missing source_path")
-        if author_status == "missing":
-            metadata_reasons.append("missing authors")
-        if year_status == "missing":
-            metadata_reasons.append("missing year")
-        if coverage_profile == "missing":
-            metadata_reasons.append("missing coverage_profile")
-        if ingestion_status == "missing":
-            metadata_reasons.append("missing ingestion_status")
+        if source_path_status == "present" and raw_exists == "no":
+            metadata_reasons.append("source_path file is missing")
+        metadata_review_satisfies = metadata_status in {"reviewed", "not-applicable"}
+        bibliographic_metadata_satisfies = author_status != "missing" and year_status == "present"
+        if not metadata_review_satisfies and not bibliographic_metadata_satisfies:
+            metadata_reasons.append("missing authors/year or metadata_review_status")
 
         citation_reasons: list[str] = []
+        partial_citation_reasons: list[str] = []
         if citation_match_status == "missing":
             citation_reasons.append("missing citation_match_status")
-        elif citation_match_status in {"unchecked", "partial"}:
+        elif citation_match_status == "unchecked":
             citation_reasons.append(f"citation_match_status is {citation_match_status}")
+        elif citation_match_status == "partial":
+            partial_citation_reasons.append("citation_match_status is partial")
 
         cqt_reasons: list[str] = []
-        if linked_claims == 0:
-            cqt_reasons.append("no linked claims")
-        if linked_questions == 0:
-            cqt_reasons.append("no linked questions")
-        if linked_tensions == 0:
-            cqt_reasons.append("no linked tensions")
+        if cqt_status == "missing":
+            cqt_reasons.append("missing cqt_review_status")
+        elif cqt_status == "unchecked":
+            cqt_reasons.append("cqt_review_status is unchecked")
 
         raw_reasons: list[str] = []
         if source_path_status == "present" and raw_exists == "no":
@@ -323,8 +345,14 @@ def audit_sources() -> list[SourceAudit]:
         manual_reasons: list[str] = []
         if not source_id:
             manual_reasons.append("cannot assign stable source identity")
+        if metadata_status not in VALID_METADATA_REVIEW_STATUSES and metadata_status != "missing":
+            manual_reasons.append(f"unknown metadata_review_status `{metadata_status}`")
         if citation_match_status not in VALID_CITATION_STATUSES and citation_match_status != "missing":
             manual_reasons.append(f"unknown citation_match_status `{citation_match_status}`")
+        if cqt_status not in VALID_CQT_REVIEW_STATUSES and cqt_status != "missing":
+            manual_reasons.append(f"unknown cqt_review_status `{cqt_status}`")
+        if cqt_status == "linked" and linked_claims + linked_questions + linked_tensions == 0:
+            manual_reasons.append("cqt_review_status is linked but no first-class claim/question/tension links were found")
         if bundle_status(page.frontmatter).startswith("role only") or "role missing" in bundle_status(page.frontmatter):
             manual_reasons.append("incomplete source_bundle metadata")
         if ingestion_status not in {"complete", "partial", "needs-review", "missing"}:
@@ -342,7 +370,9 @@ def audit_sources() -> list[SourceAudit]:
                 raw_source_exists=raw_exists,
                 authors_status=author_status,
                 year_status=year_status,
+                metadata_review_status=metadata_status,
                 citation_match_status=citation_match_status,
+                cqt_review_status=cqt_status,
                 cites_sources_count=len(as_list(page.frontmatter.get("cites_sources", []))),
                 linked_claims_count=linked_claims,
                 linked_questions_count=linked_questions,
@@ -353,6 +383,7 @@ def audit_sources() -> list[SourceAudit]:
                 graph_density_proxy=graph_density_proxy(page.frontmatter, page.text),
                 metadata_backfill_reasons=tuple(metadata_reasons),
                 citation_review_reasons=tuple(citation_reasons),
+                partial_citation_review_reasons=tuple(partial_citation_reasons),
                 cqt_review_reasons=tuple(cqt_reasons),
                 raw_file_reasons=tuple(raw_reasons),
                 manual_review_reasons=tuple(manual_reasons),
@@ -367,6 +398,8 @@ def status_tags(source: SourceAudit) -> str:
         tags.append("metadata")
     if source.needs_citation_review:
         tags.append("citation")
+    if source.has_partial_citation_review:
+        tags.append("partial-citation")
     if source.needs_cqt_review:
         tags.append("claims/questions/tensions")
     if source.has_missing_raw_source_file:
@@ -399,8 +432,8 @@ def render_inventory_table(sources: list[SourceAudit]) -> list[str]:
     lines = [
         "## Full Inventory",
         "",
-        "| Source | source_path | raw | authors | year | citation | cites | claims | questions | tensions | bundle | coverage | ingestion | graph proxy | status |",
-        "| --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- |",
+        "| Source | source_path | raw | authors | year | metadata review | citation | C/Q/T review | cites | claims | questions | tensions | bundle | coverage | ingestion | graph proxy | status |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- |",
     ]
     for source in sources:
         lines.append(
@@ -412,7 +445,9 @@ def render_inventory_table(sources: list[SourceAudit]) -> list[str]:
                     source.raw_source_exists,
                     source.authors_status,
                     source.year_status,
+                    source.metadata_review_status,
                     source.citation_match_status,
+                    source.cqt_review_status,
                     str(source.cites_sources_count),
                     str(source.linked_claims_count),
                     str(source.linked_questions_count),
@@ -434,6 +469,7 @@ def write_dashboard(sources: list[SourceAudit]) -> None:
     DASHBOARD_PATH.parent.mkdir(parents=True, exist_ok=True)
     metadata = [source for source in sources if source.needs_metadata_backfill]
     citation = [source for source in sources if source.needs_citation_review]
+    partial_citation = [source for source in sources if source.has_partial_citation_review]
     cqt = [source for source in sources if source.needs_cqt_review]
     current = [source for source in sources if source.appears_current]
     missing_raw = [source for source in sources if source.has_missing_raw_source_file]
@@ -474,6 +510,7 @@ def write_dashboard(sources: list[SourceAudit]) -> None:
         f"- Total source pages: {len(sources)}",
         f"- Needing metadata backfill: {len(metadata)}",
         f"- Needing citation review: {len(citation)}",
+        f"- Partial citation review: {len(partial_citation)}",
         f"- Needing claims/questions/tensions review: {len(cqt)}",
         f"- Appearing current: {len(current)}",
         f"- Missing raw source files: {len(missing_raw)}",
@@ -482,6 +519,13 @@ def write_dashboard(sources: list[SourceAudit]) -> None:
     ]
     lines.extend(render_group("Needs Metadata Backfill", metadata, lambda source: reason_text(source.metadata_backfill_reasons)))
     lines.extend(render_group("Needs Citation Review", citation, lambda source: reason_text(source.citation_review_reasons)))
+    lines.extend(
+        render_group(
+            "Partial Citation Review",
+            partial_citation,
+            lambda source: reason_text(source.partial_citation_review_reasons),
+        )
+    )
     lines.extend(
         render_group(
             "Needs Claims/Questions/Tensions Review",
@@ -499,6 +543,7 @@ def write_dashboard(sources: list[SourceAudit]) -> None:
 def print_report(sources: list[SourceAudit]) -> None:
     metadata = [source for source in sources if source.needs_metadata_backfill]
     citation = [source for source in sources if source.needs_citation_review]
+    partial_citation = [source for source in sources if source.has_partial_citation_review]
     cqt = [source for source in sources if source.needs_cqt_review]
     current = [source for source in sources if source.appears_current]
     missing_raw = [source for source in sources if source.has_missing_raw_source_file]
@@ -509,12 +554,13 @@ def print_report(sources: list[SourceAudit]) -> None:
     print(f"Total source pages: {len(sources)}")
     print(f"Needing metadata backfill: {len(metadata)}")
     print(f"Needing citation review: {len(citation)}")
+    print(f"Partial citation review: {len(partial_citation)}")
     print(f"Needing claims/questions/tensions review: {len(cqt)}")
     print(f"Appearing current: {len(current)}")
     print(f"Missing raw source files: {len(missing_raw)}")
     print()
-    print("| source_id | title | source_path | raw | authors | year | citation | cites | claims | questions | tensions | bundle | coverage | ingestion | graph proxy | status |")
-    print("| --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- |")
+    print("| source_id | title | source_path | raw | authors | year | metadata review | citation | C/Q/T review | cites | claims | questions | tensions | bundle | coverage | ingestion | graph proxy | status |")
+    print("| --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- |")
     for source in sources:
         print(
             "| "
@@ -526,7 +572,9 @@ def print_report(sources: list[SourceAudit]) -> None:
                     source.raw_source_exists,
                     source.authors_status,
                     source.year_status,
+                    source.metadata_review_status,
                     source.citation_match_status,
+                    source.cqt_review_status,
                     str(source.cites_sources_count),
                     str(source.linked_claims_count),
                     str(source.linked_questions_count),

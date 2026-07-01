@@ -29,6 +29,10 @@ related:
   - "[[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]"
   - "[[wiki/concepts/molecular-response-property-foundation-models]]"
   - "[[wiki/concepts/garnet-force-field]]"
+  - "[[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]]"
+  - "[[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]"
+  - "[[wiki/questions/mlip-foundation-model-validation-scope]]"
+  - "[[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]"
 sources:
   - SRC-0059
   - SRC-0060
@@ -110,6 +114,10 @@ SRC-0060 operationalizes several of these concerns for biomolecular simulation: 
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/concepts/stability-aware-mlff-training]]
 - [[wiki/concepts/garnet-force-field]]
+- [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]]
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]
 
 ## Open Questions
 

@@ -28,6 +28,10 @@ related:
   - "[[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]"
   - "[[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]"
   - "[[wiki/concepts/molecular-response-property-foundation-models]]"
+  - "[[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]"
+  - "[[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]"
+  - "[[wiki/questions/mlip-foundation-model-validation-scope]]"
+  - "[[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]"
 sensitivity: public
 encryption: none
 ---
@@ -73,6 +77,10 @@ Machine-learning potential datasets provide quantum-chemistry energies, forces, 
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
 - [[wiki/concepts/molecular-response-property-foundation-models]]
+- [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]
+- [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
+- [[wiki/questions/mlip-foundation-model-validation-scope]]
+- [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]]
 
 ## Open Questions
 

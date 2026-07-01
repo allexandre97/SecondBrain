@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0029
 display_title: "Densely Connected Stacked U-network for Filament Segmentation in Microscopy Images"
 short_title: "Stacked U-Net Filament Segmentation"
@@ -14,6 +14,23 @@ source_path: raw/sources/SRC-0029-densely-connected-stacked-u-network-for-filame
 original_filename: "Liu18.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: c0c2bfb54e9f9eec9a79757c3c5ad72b0166c6e350277136517e45697e4b300a
+authors:
+  - "Yi Liu"
+  - "Wayne Treible"
+  - "Abhishek Kolagunda"
+  - "Alex Nedo"
+  - "Philip Saponaro"
+  - "Jeffrey Caplan"
+  - "Chandra Kambhamettu"
+author_entities: []
+year: 2019
+venue: "ECCV 2018 Workshops"
+doi: "10.1007/978-3-030-11024-6_30"
+arxiv:
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+cites_sources: []
 areas:
   - research
 categories:
@@ -63,11 +80,22 @@ Liu et al. introduce a densely connected stacked U-Net architecture for semantic
 - It addresses semantic segmentation, not full instance reconstruction or time tracking; the authors list length, curvature, and motion tracking as future work. [SRC-0029, section 5]
 - The actin experiment applies a network trained on microtubules, so cross-domain performance should be interpreted as a limited transfer result rather than broad biological generalization. [SRC-0029, section 4.3]
 
+## Claims
+
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - The paper introduces SKIoU because ordinary pixel IoU can be a poor proxy for thin-filament usefulness. [SRC-0029, section 4.1]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - The paper improves semantic filament segmentation while leaving full instance reconstruction and time tracking as future work. [SRC-0029, section 5]
+
+## Citation Links
+
+- Targeted citation review found no confirmed links to currently ingested source pages; SOAX is discussed as a comparator but this page does not currently add a `cites_sources` edge without a source-local reference verification pass. [SRC-0029]
+
 ## Links
 
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]]
 - [[wiki/concepts/filament-instance-and-semantic-segmentation]]
 - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]]
+- [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]]
+- [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]]
 
 ## Ingestion QA
 

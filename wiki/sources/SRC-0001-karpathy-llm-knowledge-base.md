@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-29
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0001
 display_title: "LLM Wiki"
 short_title: "LLM Wiki"
@@ -14,6 +14,9 @@ categories:
   - research/llm-wiki/design
   - research/llm-wiki/architecture
   - research/llm-wiki/workflows
+metadata_review_status: not-applicable
+citation_match_status: reviewed
+cqt_review_status: source-local
 tags:
   - llm-wiki
 ---
@@ -46,6 +49,10 @@ This source proposes an LLM-maintained knowledge base where raw documents are co
 - [[wiki/concepts/source-ingestion]]
 - [[wiki/concepts/wiki-index-and-log]]
 - [[wiki/concepts/wiki-linting]]
+
+## Metadata notes
+
+This is a wiki-design source rather than an ordinary scientific paper. Paper-style author/year metadata is not central for migration status; semantic review is intentionally kept source-local.
 
 ## Open Questions
 

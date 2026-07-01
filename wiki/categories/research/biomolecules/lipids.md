@@ -40,3 +40,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Concepts
 
 - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data|Overlay Databanks for Biomolecular Simulation Data]]
+
+### Claims
+
+- [[wiki/claims/CLM-0029-overlay-databanks-solve-access-and-standardization-not-simulation-quality|Overlay Databanks Solve Access and Standardization, Not Simulation Quality]]

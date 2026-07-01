@@ -6,6 +6,14 @@ updated: 2026-06-30
 source_id: SRC-0047
 display_title: "Performing Solvation Free Energy Calculations in LAMMPS Using the Decoupling Approach"
 short_title: "LAMMPS Solvation Free Energy"
+authors:
+  - Vikram Khanna
+  - Jacob I. Monroe
+  - Michael F. Doherty
+  - Baron Peters
+year: 2020
+venue: "Journal of Computer-Aided Molecular Design"
+doi: "10.1007/s10822-020-00303-3"
 aliases:
   - "SRC-0047"
   - "LAMMPS Solvation Free Energy"
@@ -32,6 +40,9 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+metadata_review_status: reviewed
+citation_match_status: partial
+cqt_review_status: linked
 ---
 
 # Performing Solvation Free Energy Calculations in LAMMPS Using the Decoupling Approach
@@ -133,6 +144,18 @@ with $\lambda_{\mathrm{coul}}=(1-\lambda_q^2)/\lambda_q^2$ for the soft Coulomb 
 
 - [[wiki/concepts/free-energy-estimation]]
 - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps]]
+
+## Claims
+
+- [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms]]
+
+## Questions
+
+- [[wiki/questions/md-free-energy-decoupling-implementation-validation]]
+
+## Citation links
+
+- Citation review status: partial. Bibliographic metadata was checked from the PDF first page and metadata; local MD-implementation cluster citation links were not promoted without direct bibliography evidence.
 
 ## Ingestion QA
 

@@ -30,206 +30,100 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 ## Summary
 
 - Total source pages: 69
-- Needing metadata backfill: 56
-- Needing citation review: 68
-- Needing claims/questions/tensions review: 57
-- Appearing current: 0
+- Needing metadata backfill: 0
+- Needing citation review: 0
+- Partial citation review: 15
+- Needing claims/questions/tensions review: 0
+- Appearing current: 54
 - Missing raw source files: 0
 - Needing manual review: 0
 
 ## Needs Metadata Backfill
 
-- [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] (`SRC-0001`) - missing authors; missing year; missing coverage_profile; missing ingestion_status
-- [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] (`SRC-0002`) - missing authors; missing year; missing coverage_profile; missing ingestion_status
-- [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] (`SRC-0004`) - missing authors; missing year
-- [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] (`SRC-0014`) - missing authors; missing year
-- [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] (`SRC-0015`) - missing authors; missing year
-- [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] (`SRC-0016`) - missing authors; missing year
-- [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] (`SRC-0017`) - missing authors; missing year
-- [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] (`SRC-0018`) - missing authors; missing year
-- [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] (`SRC-0019`) - missing authors; missing year
-- [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] (`SRC-0020`) - missing authors; missing year
-- [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] (`SRC-0021`) - missing authors; missing year
-- [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] (`SRC-0022`) - missing authors; missing year
-- [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] (`SRC-0024`) - missing authors; missing year
-- [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] (`SRC-0025`) - missing authors; missing year
-- [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] (`SRC-0026`) - missing authors; missing year
-- [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] (`SRC-0027`) - missing authors; missing year
-- [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] (`SRC-0028`) - missing authors; missing year
-- [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] (`SRC-0029`) - missing authors; missing year
-- [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] (`SRC-0030`) - missing authors; missing year
-- [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] (`SRC-0031`) - missing authors; missing year
-- [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] (`SRC-0033`) - missing authors; missing year
-- [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] (`SRC-0034`) - missing authors; missing year
-- [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] (`SRC-0035`) - missing authors; missing year
-- [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] (`SRC-0036`) - missing authors; missing year
-- [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] (`SRC-0037`) - missing authors; missing year
-- [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]] (`SRC-0038`) - missing authors; missing year
-- [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] (`SRC-0039`) - missing authors; missing year
-- [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] (`SRC-0040`) - missing authors; missing year
-- [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] (`SRC-0041`) - missing authors; missing year
-- [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] (`SRC-0042`) - missing authors; missing year
-- [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] (`SRC-0043`) - missing authors; missing year
-- [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] (`SRC-0044`) - missing authors; missing year
-- [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] (`SRC-0046`) - missing authors; missing year
-- [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]] (`SRC-0047`) - missing authors; missing year
-- [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]] (`SRC-0048`) - missing authors; missing year
-- [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]] (`SRC-0049`) - missing authors; missing year
-- [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]] (`SRC-0050`) - missing authors; missing year
-- [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]] (`SRC-0051`) - missing authors; missing year
-- [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]] (`SRC-0052`) - missing authors; missing year
-- [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]] (`SRC-0053`) - missing authors; missing year
-- [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] (`SRC-0054`) - missing authors; missing year
-- [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] (`SRC-0055`) - missing authors; missing year
-- [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] (`SRC-0056`) - missing authors; missing year
-- [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] (`SRC-0057`) - missing authors; missing year
-- [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] (`SRC-0058`) - missing authors; missing year
-- [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] (`SRC-0059`) - missing authors; missing year
-- [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] (`SRC-0060`) - missing authors; missing year
-- [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] (`SRC-0061`) - missing authors; missing year
-- [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] (`SRC-0062`) - missing authors; missing year
-- [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] (`SRC-0063`) - missing authors; missing year
-- [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] (`SRC-0064`) - missing authors; missing year
-- [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] (`SRC-0065`) - missing authors; missing year
-- [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] (`SRC-0066`) - missing authors; missing year
-- [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] (`SRC-0067`) - missing authors; missing year
-- [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] (`SRC-0068`) - missing authors; missing year
-- [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] (`SRC-0069`) - missing authors; missing year
+- None
 
 ## Needs Citation Review
 
-- [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] (`SRC-0001`) - missing citation_match_status
-- [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] (`SRC-0002`) - missing citation_match_status
-- [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] (`SRC-0003`) - missing citation_match_status
-- [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] (`SRC-0004`) - missing citation_match_status
-- [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] (`SRC-0005`) - citation_match_status is partial
-- [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] (`SRC-0006`) - citation_match_status is partial
-- [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]] (`SRC-0007`) - missing citation_match_status
-- [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]] (`SRC-0008`) - citation_match_status is partial
-- [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] (`SRC-0009`) - citation_match_status is partial
-- [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]] (`SRC-0010`) - missing citation_match_status
-- [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]] (`SRC-0011`) - missing citation_match_status
-- [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] (`SRC-0012`) - missing citation_match_status
-- [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] (`SRC-0013`) - missing citation_match_status
-- [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] (`SRC-0014`) - missing citation_match_status
-- [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] (`SRC-0015`) - missing citation_match_status
-- [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] (`SRC-0016`) - missing citation_match_status
-- [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] (`SRC-0017`) - missing citation_match_status
-- [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] (`SRC-0018`) - missing citation_match_status
-- [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] (`SRC-0019`) - missing citation_match_status
-- [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] (`SRC-0020`) - missing citation_match_status
-- [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] (`SRC-0021`) - missing citation_match_status
-- [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] (`SRC-0022`) - missing citation_match_status
-- [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]] (`SRC-0023`) - missing citation_match_status
-- [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] (`SRC-0024`) - missing citation_match_status
-- [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] (`SRC-0025`) - missing citation_match_status
-- [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] (`SRC-0026`) - missing citation_match_status
-- [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] (`SRC-0027`) - missing citation_match_status
-- [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] (`SRC-0028`) - missing citation_match_status
-- [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] (`SRC-0029`) - missing citation_match_status
-- [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] (`SRC-0030`) - missing citation_match_status
-- [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] (`SRC-0031`) - missing citation_match_status
-- [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]] (`SRC-0032`) - missing citation_match_status
-- [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] (`SRC-0033`) - missing citation_match_status
-- [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] (`SRC-0034`) - missing citation_match_status
-- [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] (`SRC-0035`) - missing citation_match_status
-- [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] (`SRC-0036`) - missing citation_match_status
-- [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] (`SRC-0037`) - missing citation_match_status
-- [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]] (`SRC-0038`) - missing citation_match_status
-- [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] (`SRC-0039`) - missing citation_match_status
-- [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] (`SRC-0040`) - missing citation_match_status
-- [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] (`SRC-0041`) - missing citation_match_status
-- [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] (`SRC-0042`) - missing citation_match_status
-- [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] (`SRC-0043`) - missing citation_match_status
-- [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] (`SRC-0044`) - missing citation_match_status
+- None
+
+## Partial Citation Review
+
+- [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] (`SRC-0004`) - citation_match_status is partial
+- [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]] (`SRC-0038`) - citation_match_status is partial
 - [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]] (`SRC-0045`) - citation_match_status is partial
-- [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] (`SRC-0046`) - citation_match_status is partial
-- [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]] (`SRC-0047`) - missing citation_match_status
-- [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]] (`SRC-0048`) - missing citation_match_status
-- [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]] (`SRC-0049`) - missing citation_match_status
-- [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]] (`SRC-0050`) - missing citation_match_status
-- [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]] (`SRC-0051`) - missing citation_match_status
-- [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]] (`SRC-0052`) - missing citation_match_status
-- [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]] (`SRC-0053`) - missing citation_match_status
-- [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] (`SRC-0054`) - missing citation_match_status
-- [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] (`SRC-0055`) - missing citation_match_status
-- [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] (`SRC-0056`) - missing citation_match_status
-- [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] (`SRC-0057`) - missing citation_match_status
-- [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] (`SRC-0058`) - missing citation_match_status
-- [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] (`SRC-0059`) - missing citation_match_status
-- [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] (`SRC-0060`) - missing citation_match_status
+- [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]] (`SRC-0047`) - citation_match_status is partial
+- [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]] (`SRC-0048`) - citation_match_status is partial
+- [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]] (`SRC-0049`) - citation_match_status is partial
+- [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]] (`SRC-0050`) - citation_match_status is partial
+- [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]] (`SRC-0051`) - citation_match_status is partial
+- [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]] (`SRC-0052`) - citation_match_status is partial
+- [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]] (`SRC-0053`) - citation_match_status is partial
+- [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] (`SRC-0059`) - citation_match_status is partial
+- [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] (`SRC-0060`) - citation_match_status is partial
 - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] (`SRC-0061`) - citation_match_status is partial
-- [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] (`SRC-0063`) - missing citation_match_status
-- [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] (`SRC-0064`) - missing citation_match_status
-- [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] (`SRC-0065`) - missing citation_match_status
-- [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] (`SRC-0066`) - missing citation_match_status
-- [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] (`SRC-0067`) - missing citation_match_status
-- [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] (`SRC-0068`) - missing citation_match_status
-- [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] (`SRC-0069`) - missing citation_match_status
+- [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] (`SRC-0067`) - citation_match_status is partial
+- [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] (`SRC-0069`) - citation_match_status is partial
 
 ## Needs Claims/Questions/Tensions Review
 
-- [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] (`SRC-0001`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] (`SRC-0002`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] (`SRC-0004`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] (`SRC-0014`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] (`SRC-0015`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] (`SRC-0016`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] (`SRC-0017`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] (`SRC-0018`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] (`SRC-0019`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] (`SRC-0020`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] (`SRC-0021`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] (`SRC-0022`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] (`SRC-0024`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] (`SRC-0025`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] (`SRC-0026`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] (`SRC-0027`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] (`SRC-0028`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] (`SRC-0029`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] (`SRC-0030`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] (`SRC-0031`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] (`SRC-0033`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] (`SRC-0034`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] (`SRC-0035`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] (`SRC-0036`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] (`SRC-0037`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]] (`SRC-0038`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] (`SRC-0039`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] (`SRC-0040`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] (`SRC-0041`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] (`SRC-0042`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] (`SRC-0043`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] (`SRC-0044`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]] (`SRC-0045`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] (`SRC-0046`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]] (`SRC-0047`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]] (`SRC-0048`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]] (`SRC-0049`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]] (`SRC-0050`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]] (`SRC-0051`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]] (`SRC-0052`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]] (`SRC-0053`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] (`SRC-0054`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] (`SRC-0055`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] (`SRC-0056`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] (`SRC-0057`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] (`SRC-0058`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] (`SRC-0059`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] (`SRC-0060`) - no linked claims; no linked tensions
-- [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] (`SRC-0061`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] (`SRC-0062`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] (`SRC-0063`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] (`SRC-0064`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] (`SRC-0065`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] (`SRC-0066`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] (`SRC-0067`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] (`SRC-0068`) - no linked claims; no linked questions; no linked tensions
-- [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] (`SRC-0069`) - no linked claims; no linked questions; no linked tensions
+- None
 
 ## Appears Current
 
-- None
+- [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] (`SRC-0001`)
+- [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] (`SRC-0002`)
+- [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] (`SRC-0003`)
+- [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] (`SRC-0005`)
+- [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] (`SRC-0006`)
+- [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]] (`SRC-0007`)
+- [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]] (`SRC-0008`)
+- [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] (`SRC-0009`)
+- [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]] (`SRC-0010`)
+- [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]] (`SRC-0011`)
+- [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] (`SRC-0012`)
+- [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] (`SRC-0013`)
+- [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] (`SRC-0014`)
+- [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] (`SRC-0015`)
+- [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] (`SRC-0016`)
+- [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] (`SRC-0017`)
+- [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] (`SRC-0018`)
+- [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] (`SRC-0019`)
+- [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] (`SRC-0020`)
+- [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] (`SRC-0021`)
+- [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] (`SRC-0022`)
+- [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]] (`SRC-0023`)
+- [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] (`SRC-0024`)
+- [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] (`SRC-0025`)
+- [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] (`SRC-0026`)
+- [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] (`SRC-0027`)
+- [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] (`SRC-0028`)
+- [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] (`SRC-0029`)
+- [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] (`SRC-0030`)
+- [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] (`SRC-0031`)
+- [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]] (`SRC-0032`)
+- [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] (`SRC-0033`)
+- [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] (`SRC-0034`)
+- [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] (`SRC-0035`)
+- [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] (`SRC-0036`)
+- [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] (`SRC-0037`)
+- [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] (`SRC-0039`)
+- [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] (`SRC-0040`)
+- [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] (`SRC-0041`)
+- [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] (`SRC-0042`)
+- [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] (`SRC-0043`)
+- [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] (`SRC-0044`)
+- [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] (`SRC-0046`)
+- [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] (`SRC-0054`)
+- [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] (`SRC-0055`)
+- [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] (`SRC-0056`)
+- [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] (`SRC-0057`)
+- [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] (`SRC-0058`)
+- [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] (`SRC-0062`)
+- [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] (`SRC-0063`)
+- [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] (`SRC-0064`)
+- [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] (`SRC-0065`)
+- [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] (`SRC-0066`)
+- [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] (`SRC-0068`)
 
 ## Has Missing Raw Source File
 
@@ -241,74 +135,74 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 
 ## Full Inventory
 
-| Source | source_path | raw | authors | year | citation | cites | claims | questions | tensions | bundle | coverage | ingestion | graph proxy | status |
-| --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- |
-| [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]]<br>`SRC-0001` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | missing | missing | 20 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0002-project-design-note|Project Design Note]]<br>`SRC-0002` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | missing | missing | 28 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]]<br>`SRC-0003` | present | yes | present | present | missing | 0 | 1 | 1 | 1 | none | standard | complete | 43 | citation |
-| [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]]<br>`SRC-0004` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 28 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]]<br>`SRC-0005` | present | yes | present | present | partial | 3 | 1 | 4 | 2 | present (times-square-sampling-2024; main) | math-deep | complete | 172 | citation |
-| [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]]<br>`SRC-0006` | present | yes | present | present | partial | 1 | 1 | 4 | 2 | present (times-square-sampling-2024; supplement) | math-deep | complete | 145 | citation |
-| [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]]<br>`SRC-0007` | present | yes | entity-linked | present | missing | 0 | 1 | 2 | 1 | present (accelerated-weight-histogram; paper) | math-standard | complete | 72 | citation |
-| [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]]<br>`SRC-0008` | present | yes | entity-linked | present | partial | 1 | 1 | 3 | 1 | present (accelerated-weight-histogram; paper) | math-standard | complete | 87 | citation |
-| [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]]<br>`SRC-0009` | present | yes | entity-linked | present | partial | 3 | 2 | 3 | 1 | present (accelerated-weight-histogram; paper) | math-standard | complete | 105 | citation |
-| [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]]<br>`SRC-0010` | present | yes | present | present | missing | 0 | 1 | 1 | 1 | present (opes-rethinking-metadynamics; main) | math-standard | complete | 73 | citation |
-| [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]]<br>`SRC-0011` | present | yes | present | present | missing | 0 | 1 | 1 | 1 | present (opes-rethinking-metadynamics; supplement) | math-standard | complete | 55 | citation |
-| [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]]<br>`SRC-0012` | present | yes | entity-linked | present | missing | 0 | 2 | 1 | 1 | none | math-standard | complete | 58 | citation |
-| [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]]<br>`SRC-0013` | present | yes | present | present | missing | 0 | 1 | 2 | 1 | none | math-standard | complete | 60 | citation |
-| [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]]<br>`SRC-0014` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 46 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]]<br>`SRC-0015` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 31 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]]<br>`SRC-0016` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 44 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]]<br>`SRC-0017` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | standard | complete | 36 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]]<br>`SRC-0018` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 44 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]]<br>`SRC-0019` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 48 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]]<br>`SRC-0020` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 44 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]]<br>`SRC-0021` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 49 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]]<br>`SRC-0022` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 33 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]]<br>`SRC-0023` | present | yes | entity-linked | present | missing | 0 | 2 | 2 | 3 | none | math-standard | complete | 70 | citation |
-| [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]]<br>`SRC-0024` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 42 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]]<br>`SRC-0025` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 44 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]]<br>`SRC-0026` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 26 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]]<br>`SRC-0027` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 47 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]]<br>`SRC-0028` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 36 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]]<br>`SRC-0029` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 26 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]]<br>`SRC-0030` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 23 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]]<br>`SRC-0031` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 23 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]]<br>`SRC-0032` | present | yes | present | present | missing | 0 | 1 | 1 | 1 | none | math-standard | complete | 53 | citation |
-| [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]]<br>`SRC-0033` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 24 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]]<br>`SRC-0034` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 28 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]]<br>`SRC-0035` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 24 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]]<br>`SRC-0036` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 26 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]]<br>`SRC-0037` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 29 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]]<br>`SRC-0038` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 23 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]]<br>`SRC-0039` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 28 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]]<br>`SRC-0040` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 24 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]]<br>`SRC-0041` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 26 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]]<br>`SRC-0042` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 26 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]]<br>`SRC-0043` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 28 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]]<br>`SRC-0044` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 30 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]]<br>`SRC-0045` | present | yes | entity-linked | present | partial | 2 | 0 | 0 | 0 | none | math-standard | complete | 55 | citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]]<br>`SRC-0046` | present | yes | missing | missing | partial | 0 | 0 | 0 | 0 | none | math-standard | complete | 36 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]]<br>`SRC-0047` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 35 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]]<br>`SRC-0048` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 27 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]<br>`SRC-0049` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 25 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]]<br>`SRC-0050` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 27 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]]<br>`SRC-0051` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 23 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]]<br>`SRC-0052` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 25 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]]<br>`SRC-0053` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 24 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]]<br>`SRC-0054` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 26 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]]<br>`SRC-0055` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 28 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]]<br>`SRC-0056` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 31 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]]<br>`SRC-0057` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | present (overlay-databank-nmrlipids; main) | standard | complete | 36 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]]<br>`SRC-0058` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | present (overlay-databank-nmrlipids; supplement) | standard | complete | 32 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]]<br>`SRC-0059` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | math-standard | complete | 73 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]]<br>`SRC-0060` | present | yes | missing | missing | missing | 0 | 0 | 1 | 0 | none | math-standard | complete | 74 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]]<br>`SRC-0061` | present | yes | missing | missing | partial | 2 | 0 | 0 | 0 | present (openfe-rbfe-benchmark-2026; main) | math-standard | complete | 99 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]]<br>`SRC-0062` | present | yes | missing | missing | reviewed | 1 | 0 | 0 | 0 | present (openfe-rbfe-benchmark-2026; supplement) | standard | complete | 45 | metadata, claims/questions/tensions |
-| [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]]<br>`SRC-0063` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 26 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]]<br>`SRC-0064` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 35 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]]<br>`SRC-0065` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 37 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]]<br>`SRC-0066` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 41 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]<br>`SRC-0067` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 34 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]]<br>`SRC-0068` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 31 | metadata, citation, claims/questions/tensions |
-| [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]<br>`SRC-0069` | present | yes | missing | missing | missing | 0 | 0 | 0 | 0 | none | standard | complete | 33 | metadata, citation, claims/questions/tensions |
+| Source | source_path | raw | authors | year | metadata review | citation | C/Q/T review | cites | claims | questions | tensions | bundle | coverage | ingestion | graph proxy | status |
+| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- | --- | ---: | --- |
+| [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]]<br>`SRC-0001` | present | yes | missing | missing | not-applicable | reviewed | source-local | 0 | 0 | 1 | 0 | none | missing | missing | 20 | current |
+| [[wiki/sources/SRC-0002-project-design-note|Project Design Note]]<br>`SRC-0002` | present | yes | missing | missing | not-applicable | reviewed | source-local | 0 | 0 | 1 | 0 | none | missing | missing | 28 | current |
+| [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]]<br>`SRC-0003` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 1 | none | standard | complete | 43 | current |
+| [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]]<br>`SRC-0004` | present | yes | present | present | reviewed | partial | linked | 0 | 3 | 1 | 1 | none | standard | complete | 42 | partial-citation |
+| [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]]<br>`SRC-0005` | present | yes | present | present | reviewed | reviewed | linked | 3 | 1 | 4 | 2 | present (times-square-sampling-2024; main) | math-deep | complete | 172 | current |
+| [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]]<br>`SRC-0006` | present | yes | present | present | reviewed | reviewed | linked | 1 | 1 | 4 | 2 | present (times-square-sampling-2024; supplement) | math-deep | complete | 145 | current |
+| [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]]<br>`SRC-0007` | present | yes | entity-linked | present | reviewed | reviewed | linked | 0 | 1 | 2 | 1 | present (accelerated-weight-histogram; paper) | math-standard | complete | 72 | current |
+| [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]]<br>`SRC-0008` | present | yes | entity-linked | present | reviewed | reviewed | linked | 1 | 1 | 3 | 1 | present (accelerated-weight-histogram; paper) | math-standard | complete | 87 | current |
+| [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]]<br>`SRC-0009` | present | yes | entity-linked | present | reviewed | reviewed | linked | 3 | 2 | 3 | 1 | present (accelerated-weight-histogram; paper) | math-standard | complete | 105 | current |
+| [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]]<br>`SRC-0010` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 1 | present (opes-rethinking-metadynamics; main) | math-standard | complete | 73 | current |
+| [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]]<br>`SRC-0011` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 1 | present (opes-rethinking-metadynamics; supplement) | math-standard | complete | 55 | current |
+| [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]]<br>`SRC-0012` | present | yes | entity-linked | present | reviewed | reviewed | linked | 1 | 2 | 1 | 1 | none | math-standard | complete | 61 | current |
+| [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]]<br>`SRC-0013` | present | yes | present | present | reviewed | reviewed | linked | 2 | 1 | 2 | 1 | none | math-standard | complete | 66 | current |
+| [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]]<br>`SRC-0014` | present | yes | present | present | reviewed | reviewed | linked | 1 | 2 | 1 | 1 | none | math-standard | complete | 61 | current |
+| [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]]<br>`SRC-0015` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | none | standard | complete | 32 | current |
+| [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]]<br>`SRC-0016` | present | yes | entity-linked | present | reviewed | reviewed | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 50 | current |
+| [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]]<br>`SRC-0017` | present | yes | present | present | reviewed | reviewed | linked | 0 | 0 | 1 | 0 | none | standard | complete | 38 | current |
+| [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]]<br>`SRC-0018` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 50 | current |
+| [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]]<br>`SRC-0019` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 53 | current |
+| [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]]<br>`SRC-0020` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 1 | 0 | 0 | none | math-standard | complete | 45 | current |
+| [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]]<br>`SRC-0021` | present | yes | present | present | reviewed | reviewed | linked | 1 | 2 | 1 | 1 | none | math-standard | complete | 64 | current |
+| [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]]<br>`SRC-0022` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | none | standard | complete | 34 | current |
+| [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]]<br>`SRC-0023` | present | yes | entity-linked | present | reviewed | reviewed | linked | 0 | 2 | 2 | 3 | none | math-standard | complete | 70 | current |
+| [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]]<br>`SRC-0024` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 47 | current |
+| [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]]<br>`SRC-0025` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 2 | none | math-standard | complete | 53 | current |
+| [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]]<br>`SRC-0026` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | none | standard | complete | 27 | current |
+| [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]]<br>`SRC-0027` | present | yes | present | present | reviewed | reviewed | linked | 1 | 0 | 1 | 1 | none | math-standard | complete | 56 | current |
+| [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]]<br>`SRC-0028` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 1 | none | math-standard | complete | 37 | current |
+| [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]]<br>`SRC-0029` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 0 | 0 | none | standard | complete | 33 | current |
+| [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]]<br>`SRC-0030` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 0 | 0 | none | standard | complete | 30 | current |
+| [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]]<br>`SRC-0031` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 0 | 0 | none | standard | complete | 30 | current |
+| [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]]<br>`SRC-0032` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 1 | 1 | none | math-standard | complete | 57 | current |
+| [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]]<br>`SRC-0033` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 0 | 0 | none | standard | complete | 28 | current |
+| [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]]<br>`SRC-0034` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 0 | 0 | none | standard | complete | 35 | current |
+| [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]]<br>`SRC-0035` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 0 | 0 | none | standard | complete | 31 | current |
+| [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]]<br>`SRC-0036` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | none | math-standard | complete | 28 | current |
+| [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]]<br>`SRC-0037` | present | yes | present | present | reviewed | reviewed | linked | 1 | 1 | 0 | 1 | none | math-standard | complete | 35 | current |
+| [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]]<br>`SRC-0038` | present | yes | present | present | reviewed | partial | source-local | 0 | 0 | 0 | 0 | none | math-standard | complete | 25 | partial-citation |
+| [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]]<br>`SRC-0039` | present | yes | present | present | reviewed | reviewed | linked | 1 | 1 | 0 | 1 | none | math-standard | complete | 34 | current |
+| [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]]<br>`SRC-0040` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | none | standard | complete | 26 | current |
+| [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]]<br>`SRC-0041` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 0 | 1 | none | math-standard | complete | 30 | current |
+| [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]]<br>`SRC-0042` | present | yes | present | present | reviewed | reviewed | linked | 1 | 3 | 1 | 1 | none | standard | complete | 36 | current |
+| [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]]<br>`SRC-0043` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 2 | 0 | none | standard | complete | 33 | current |
+| [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]]<br>`SRC-0044` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 0 | 1 | none | standard | complete | 35 | current |
+| [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]]<br>`SRC-0045` | present | yes | entity-linked | present | reviewed | partial | linked | 2 | 3 | 1 | 1 | none | math-standard | complete | 61 | partial-citation |
+| [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]]<br>`SRC-0046` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 1 | 1 | none | math-standard | complete | 40 | current |
+| [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]]<br>`SRC-0047` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 37 | partial-citation |
+| [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]]<br>`SRC-0048` | present | yes | present | present | reviewed | partial | linked | 0 | 2 | 1 | 1 | none | math-standard | complete | 33 | partial-citation |
+| [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]<br>`SRC-0049` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 1 | none | math-standard | complete | 28 | partial-citation |
+| [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]]<br>`SRC-0050` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 1 | none | math-standard | complete | 31 | partial-citation |
+| [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]]<br>`SRC-0051` | present | yes | present | present | reviewed | partial | linked | 0 | 2 | 1 | 1 | none | math-standard | complete | 29 | partial-citation |
+| [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]]<br>`SRC-0052` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 1 | none | math-standard | complete | 29 | partial-citation |
+| [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]]<br>`SRC-0053` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 1 | none | math-standard | complete | 29 | partial-citation |
+| [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]]<br>`SRC-0054` | present | yes | present | present | partial | reviewed | linked | 2 | 1 | 1 | 1 | none | math-standard | complete | 39 | current |
+| [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]]<br>`SRC-0055` | present | yes | present | present | reviewed | reviewed | linked | 1 | 1 | 1 | 1 | none | standard | complete | 35 | current |
+| [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]]<br>`SRC-0056` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 1 | none | standard | complete | 35 | current |
+| [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]]<br>`SRC-0057` | present | yes | present | present | partial | reviewed | linked | 0 | 2 | 0 | 1 | present (overlay-databank-nmrlipids; main) | standard | complete | 40 | current |
+| [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]]<br>`SRC-0058` | present | yes | present | present | partial | reviewed | source-local | 1 | 2 | 0 | 1 | present (overlay-databank-nmrlipids; supplement) | standard | complete | 37 | current |
+| [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]]<br>`SRC-0059` | present | yes | present | present | reviewed | partial | linked | 1 | 2 | 1 | 1 | none | math-standard | complete | 82 | partial-citation |
+| [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]]<br>`SRC-0060` | present | yes | present | present | reviewed | partial | linked | 2 | 3 | 2 | 1 | none | math-standard | complete | 88 | partial-citation |
+| [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]]<br>`SRC-0061` | present | yes | entity-linked | present | reviewed | partial | linked | 2 | 3 | 2 | 1 | present (openfe-rbfe-benchmark-2026; main) | math-standard | complete | 106 | partial-citation |
+| [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]]<br>`SRC-0062` | present | yes | entity-linked | present | reviewed | reviewed | source-local | 1 | 2 | 1 | 1 | present (openfe-rbfe-benchmark-2026; supplement) | standard | complete | 47 | current |
+| [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]]<br>`SRC-0063` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 1 | none | standard | complete | 36 | current |
+| [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]]<br>`SRC-0064` | present | yes | missing | present | reviewed | reviewed | linked | 1 | 1 | 1 | 1 | none | standard | complete | 47 | current |
+| [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]]<br>`SRC-0065` | present | yes | present | present | reviewed | reviewed | linked | 2 | 2 | 1 | 0 | none | standard | complete | 47 | current |
+| [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]]<br>`SRC-0066` | present | yes | present | present | reviewed | reviewed | linked | 2 | 2 | 0 | 0 | none | standard | complete | 50 | current |
+| [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]<br>`SRC-0067` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 0 | none | standard | complete | 38 | partial-citation |
+| [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]]<br>`SRC-0068` | present | yes | present | present | reviewed | reviewed | linked | 0 | 0 | 1 | 1 | none | standard | complete | 38 | current |
+| [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]<br>`SRC-0069` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 1 | none | standard | complete | 43 | partial-citation |

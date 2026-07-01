@@ -25,6 +25,7 @@ year: 2014
 venue: "Journal of Chemical Physics"
 doi: "10.1063/1.4890371"
 arxiv:
+metadata_review_status: reviewed
 areas:
   - research
 categories:
@@ -49,7 +50,8 @@ sources:
   - SRC-0007
 cites_sources:
   - SRC-0007
-citation_match_status: partial
+citation_match_status: reviewed
+cqt_review_status: linked
 sensitivity: public
 encryption: none
 source_bundle: accelerated-weight-histogram
@@ -222,6 +224,7 @@ For chignolin, the paper used a two-dimensional reaction coordinate for native a
 ## Citation links
 
 - `SRC-0007`: The references list J. Lidmar, Physical Review E 85, 056708 (2012), and the paper discusses it as the earlier AWH method. This matches the ingested original AWH source by first author, year, venue, and method title context. [SRC-0008]
+- Citation review is complete for the currently ingested free-energy/adaptive-sampling cluster; it is not a full bibliography extraction.
 
 ## Metadata notes
 

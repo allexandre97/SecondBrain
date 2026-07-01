@@ -6,6 +6,19 @@ updated: 2026-06-30
 source_id: SRC-0055
 display_title: "UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations"
 short_title: "UUCG RNA Tetraloop Force-Field Challenge"
+authors:
+  - Klaudia Mrazikova
+  - Vojtech Mlynsky
+  - Petra Kuhrova
+  - Pavlina Pokorna
+  - Holger Kruse
+  - Miroslav Krepl
+  - Michal Otyepka
+  - Pavel Banas
+  - Jiri Sponer
+year: 2020
+venue: "Journal of Chemical Theory and Computation"
+doi: "10.1021/acs.jctc.0c00801"
 aliases:
   - "SRC-0055"
   - "UUCG RNA Tetraloop Force-Field Challenge"
@@ -29,12 +42,18 @@ tags:
 related:
   - "[[wiki/concepts/rna-molecular-dynamics-simulations]]"
   - "[[wiki/concepts/rna-force-field-limitations]]"
+cites_sources:
+  - SRC-0056
 sources:
   - SRC-0055
 sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: standard
+metadata_review_status: reviewed
+citation_match_status: reviewed
+cqt_review_status: linked
+references_text: "Sponer, J. et al. RNA structural dynamics as captured by molecular simulations: A comprehensive overview. Chem. Rev. 2018, 118, 4177-4338."
 ---
 
 # UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations
@@ -76,6 +95,23 @@ This JCTC paper analyzes why the UUCG RNA tetraloop is difficult for explicit-so
 
 - [[wiki/concepts/rna-molecular-dynamics-simulations]]
 - [[wiki/concepts/rna-force-field-limitations]]
+
+## Claims
+
+- [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks]]
+
+## Questions
+
+- [[wiki/questions/rna-force-field-motif-validation-scope]]
+
+## Tensions
+
+- [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer]]
+
+## Citation Links
+
+- Confirmed local citation match to [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations]] via the reference-list entry for Sponer et al., "RNA structural dynamics as captured by molecular simulations: A comprehensive overview." [SRC-0055]
+- Citation review status: reviewed for strong local RNA-cluster links.
 
 ## Ingestion QA
 

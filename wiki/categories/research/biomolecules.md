@@ -30,9 +30,9 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ## Subcategories
 
-- [[wiki/categories/research/biomolecules/lipids|research/biomolecules/lipids]] - 5 direct, 5 total pages in branch.
+- [[wiki/categories/research/biomolecules/lipids|research/biomolecules/lipids]] - 6 direct, 6 total pages in branch.
 - [[wiki/categories/research/biomolecules/proteins|research/biomolecules/proteins]] - 24 direct, 24 total pages in branch.
-- [[wiki/categories/research/biomolecules/rna|research/biomolecules/rna]] - 6 direct, 6 total pages in branch.
+- [[wiki/categories/research/biomolecules/rna|research/biomolecules/rna]] - 9 direct, 9 total pages in branch.
 
 ## Direct members
 
