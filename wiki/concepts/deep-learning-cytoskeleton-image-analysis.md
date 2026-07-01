@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-29
-updated: 2026-06-30
+updated: 2026-07-01
 areas:
   - research
 categories:
@@ -16,6 +16,8 @@ related:
   - "[[wiki/concepts/cytoskeletal-network-image-analysis]]"
   - "[[wiki/concepts/cytoskeleton-segmentation-and-tracing]]"
   - "[[wiki/concepts/filament-instance-and-semantic-segmentation]]"
+  - "[[wiki/concepts/promptable-segmentation-foundation-models]]"
+  - "[[wiki/concepts/self-configuring-u-net-medical-image-segmentation]]"
   - "[[wiki/concepts/topology-aware-tubular-structure-segmentation]]"
 sources:
   - SRC-0004
@@ -24,6 +26,8 @@ sources:
   - SRC-0031
   - SRC-0032
   - SRC-0033
+  - SRC-0068
+  - SRC-0069
 sensitivity: public
 encryption: none
 ---
@@ -45,6 +49,8 @@ Deep learning is used in cytoskeleton image analysis to improve segmentation, en
 - Stacked U-Net variants and orientation-aware branches can improve filament semantic and instance segmentation, but labels are often semi-automatic, synthetic, or manually corrected from model outputs. [SRC-0029] [SRC-0030]
 - CNN segmentation can be combined with ResNet-like keypoint detection and fast marching when the target output is actin filament count and length rather than just a mask. [SRC-0031]
 - Topology-aware losses such as soft-clDice and adjacent vessel architectures such as DeepVesselNet show how neural segmentation can encode connectivity, centerlines, and bifurcations, but they still require domain-specific validation for cytoskeletal use. [SRC-0032] [SRC-0033]
+- nnU-Net is not cytoskeleton-specific, but it is a useful biomedical segmentation baseline lesson: specialized filament architectures should be compared against a carefully self-configured U-Net pipeline, not only against under-tuned generic U-Nets. [SRC-0068]
+- Segment Anything is adjacent to cytoskeleton image analysis as a promptable mask generator and annotation assistant, but the paper itself warns that domain-specific tools may outperform SAM in their own domains and notes failures on fine structures and small disconnected components. [SRC-0069]
 
 ## Evidence
 
@@ -57,6 +63,8 @@ Deep learning is used in cytoskeleton image analysis to improve segmentation, en
 - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]]
 - [[wiki/concepts/filament-instance-and-semantic-segmentation]]
 - [[wiki/concepts/topology-aware-tubular-structure-segmentation]]
+- [[wiki/concepts/self-configuring-u-net-medical-image-segmentation]]
+- [[wiki/concepts/promptable-segmentation-foundation-models]]
 
 ## Open Questions
 

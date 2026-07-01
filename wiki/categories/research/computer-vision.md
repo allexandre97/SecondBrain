@@ -30,7 +30,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ## Subcategories
 
-- [[wiki/categories/research/computer-vision/biomedical-imaging|research/computer-vision/biomedical-imaging]] - 13 direct, 13 total pages in branch.
+- [[wiki/categories/research/computer-vision/biomedical-imaging|research/computer-vision/biomedical-imaging]] - 22 direct, 22 total pages in branch.
 
 ## Direct members
 

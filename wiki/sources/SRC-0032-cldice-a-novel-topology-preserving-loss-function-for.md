@@ -2,16 +2,20 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 source_id: SRC-0032
 display_title: "clDice - a Novel Topology-Preserving Loss Function for Tubular Structure Segmentation"
 short_title: "clDice Topology-Preserving Loss"
 aliases:
   - "SRC-0032"
+  - "arXiv:2003.07311v7"
   - "clDice Topology-Preserving Loss"
   - "clDice - a Novel Topology-Preserving Loss Function for Tubular Structure Segmentation"
 source_path: raw/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for.pdf
+imported_path: raw/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for.pdf
 original_filename: "Shi20b.pdf"
+additional_filenames:
+  - "2003.07311v7.pdf"
 original_path_note: "Original local path omitted from wiki metadata."
 sha256: 2e952692e01cb534b8851712e27846ab5d0dc06dfd170c9c64daf4e70d7f3170
 areas:
@@ -107,6 +111,11 @@ $$
 
 - The wiki does not reproduce the full soft-skeletonization algorithm line by line.
 - The supplementary digital-topology explanation is not ingested in detail.
+
+## Metadata notes
+
+- The requested file `2003.07311v7.pdf` is byte-identical to the already imported raw source for `SRC-0032`; no duplicate source ID was created. [SRC-0032]
+- The PDF identifies itself as arXiv:2003.07311v7, dated 15 July 2022. [SRC-0032]
 
 ## Links
 

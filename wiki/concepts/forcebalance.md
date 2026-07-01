@@ -16,9 +16,11 @@ sources:
   - SRC-0026
   - SRC-0014
   - SRC-0021
+  - SRC-0066
 related:
   - "[[wiki/concepts/automated-force-field-training]]"
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
+  - "[[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]"
 sensitivity: public
 encryption: none
 ---
@@ -35,6 +37,7 @@ ForceBalance is a force-field parameter optimization framework that fits simulat
 - It can combine experimental and theoretical reference data. [SRC-0025]
 - It uses simulation engine interfaces to evaluate properties and optimization routines to update force-field parameters. [SRC-0025]
 - Later ingested sources use ForceBalance variants for SAXS lipid fitting and host-guest binding-data fitting. [SRC-0014] [SRC-0021]
+- `presto` is a contrasting modern OpenFF-oriented fitting workflow: it optimizes SMIRNOFF valence parameters against MLP energy/force labels rather than ForceBalance-style simulated property targets. [SRC-0066]
 
 ## Core equation
 
@@ -61,3 +64,4 @@ ForceBalance improves the reproducibility of the fitting workflow, but the fitte
 - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization]]
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
+- [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]

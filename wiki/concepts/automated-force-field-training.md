@@ -21,6 +21,7 @@ related:
   - "[[wiki/concepts/forcebalance]]"
   - "[[wiki/concepts/opc-water-model]]"
   - "[[wiki/concepts/machine-learning-potential-datasets]]"
+  - "[[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]"
 sources:
   - SRC-0003
   - SRC-0014
@@ -36,6 +37,7 @@ sources:
   - SRC-0044
   - SRC-0059
   - SRC-0060
+  - SRC-0066
 sensitivity: public
 encryption: none
 ---
@@ -63,6 +65,7 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - Large quantum-chemistry datasets such as SPICE and OMol25 supply broad energy/force labels for training general-purpose molecular ML potentials, but downstream simulation reliability still requires validation beyond random-split energy and force errors. [SRC-0044] [SRC-0042]
 - Foundation-model MLIPs extend the automated-training question from parameter fitting to transferability, scale, long-range physics, simulation efficiency, and benchmark design. SRC-0059 argues that progress should not be reduced to only more data, only better architectures, or only larger models. [SRC-0059, sections 1-2]
 - UBio-MolFM is a biology-focused instance of this broader program, combining a domain-specific DFT dataset, energy-force-consistent training, long-short range equivariant architecture, and downstream MD observable checks. [SRC-0060]
+- `presto` uses transferable MLPs as fast reference models for fitting bespoke SMIRNOFF valence parameters, trading direct QM fitting cost for MLP evaluation speed while preserving a conventional MM functional form. [SRC-0066]
 
 ## Links
 
@@ -76,6 +79,7 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc]]
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential]]
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model]]
+- [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps]]
 - [[wiki/concepts/garnet-force-field]]
 - [[wiki/concepts/double-exponential-potential]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
@@ -87,5 +91,6 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - [[wiki/concepts/opc-water-model]]
 - [[wiki/concepts/machine-learning-potential-datasets]]
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]
+- [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
 - [[wiki/questions/force-field-training-validation-scope]]

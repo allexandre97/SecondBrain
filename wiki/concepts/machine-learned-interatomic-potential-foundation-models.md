@@ -27,10 +27,12 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
   - "[[wiki/concepts/stability-aware-mlff-training]]"
   - "[[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]"
+  - "[[wiki/concepts/molecular-response-property-foundation-models]]"
   - "[[wiki/concepts/garnet-force-field]]"
 sources:
   - SRC-0059
   - SRC-0060
+  - SRC-0065
 sensitivity: public
 encryption: none
 ---
@@ -51,6 +53,7 @@ Machine-learned interatomic potential foundation models are pretrained, transfer
 - Useful simulation scale depends on inference efficiency, distillation, hardware-specific kernels, memory use, training scalability, and reporting of performance metrics, not only benchmark accuracy. [SRC-0059, section 5]
 - Model quality should be assessed with both representational diagnostics and pragmatic downstream tasks; single-metric benchmark dominance risks Goodhart's Law and the McNamara fallacy. [SRC-0059, section 6]
 - UBio-MolFM is an example of a domain-focused molecular foundation-model strategy: it pairs a biology-specific dataset, long-short range equivariant architecture, and hardware-aware kernels with downstream MD observable tests. [SRC-0060]
+- MACE-MDP illustrates a complementary direction: foundation-style models for molecular response properties such as dipole moments and polarizability tensors, which can be coupled to MLIPs for IR and Raman spectroscopy rather than replacing the potential-energy model itself. [SRC-0065]
 
 ## Core equations
 
@@ -100,8 +103,10 @@ SRC-0060 operationalizes several of these concerns for biomolecular simulation: 
 
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential]]
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model]]
+- [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities]]
 - [[wiki/concepts/machine-learning-potential-datasets]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
+- [[wiki/concepts/molecular-response-property-foundation-models]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/concepts/stability-aware-mlff-training]]
 - [[wiki/concepts/garnet-force-field]]

@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-01
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -40,6 +40,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 - [[wiki/answers/tss-window-free-energy-surface-stitching]] - Mathematical explanation of how TSS stitches per-window free-energy estimates into a global surface.
 - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison]] - Comparison of TSS with AWH and OPES as adaptive free-energy methods.
+- [[wiki/answers/sted-tau-filament-topology-model-architecture]] - Quantification and model-architecture recommendation for topology-aware STED tau morphology comparisons across tauopathy seeds and DIV.
 
 ## Sources
 
@@ -105,6 +106,13 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] - Biology-focused molecular foundation model combining UBio-Mol26, E2Former-V2, curriculum training, and short downstream MD validations.
 - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] - Journal version of the large-scale public/private OpenFE relative binding free-energy benchmark.
 - [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] - Supplement with protocol differences, diagnostic figures, outlier analyses, and convergence/edge-metric checks.
+- [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] - STED microscopy protocol and validation for resolving tau filaments and puncta in autopsied Alzheimer's disease cortical grey matter.
+- [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] - Private unpublished DOCX manuscript draft on AAV-mediated neuronal tau expression, disease-derived seeding, cryo-EM, and STED morphology.
+- [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] - ChemRxiv preprint introducing a MACE-based foundation model and SPICE-alpha dataset for molecular dipoles, polarizabilities, and spectroscopy workflows.
+- [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] - ChemRxiv preprint introducing fast MLP-driven bespoke SMIRNOFF valence parameter fitting for molecules and congeneric series.
+- [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] - Nature article introducing large-scale mHDX-MS profiling of opening-energy distributions across thousands of protein domains.
+- [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] - arXiv paper introducing a self-adapting U-Net framework for medical image segmentation across Medical Segmentation Decathlon tasks.
+- [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] - arXiv paper introducing promptable segmentation, SAM, and the SA-1B dataset of over 1 billion masks.
 
 ## Concepts
 
@@ -126,6 +134,8 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]] - Methods for extracting masks, centrelines, graphs, and tracked filament instances from cytoskeleton images.
 - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]] - Deep-learning-assisted segmentation, enhancement, reconstruction, and tracking for cytoskeletal microscopy.
 - [[wiki/concepts/filament-instance-and-semantic-segmentation]] - Semantic, instance-level, and measurement-oriented filament segmentation workflows.
+- [[wiki/concepts/promptable-segmentation-foundation-models]] - SAM-style promptable segmentation as a reusable mask-generation interface and annotation-assistance strategy.
+- [[wiki/concepts/self-configuring-u-net-medical-image-segmentation]] - nnU-Net-style automatic configuration of U-Net preprocessing, training, inference, ensembling, and postprocessing for biomedical segmentation.
 - [[wiki/concepts/stretching-open-active-contours]] - SOAX/SOAC model-based tracing of biopolymer filament centerlines and junctions.
 - [[wiki/concepts/topology-aware-tubular-structure-segmentation]] - Connectivity-aware metrics, losses, and neural architectures for tubular networks.
 - [[wiki/concepts/topology-aware-fiber-network-reconstruction]] - Graph-oriented reconstruction of biological fiber networks with preserved connectivity.
@@ -164,6 +174,11 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/concepts/rna-molecular-dynamics-simulations]] - MD, enhanced sampling, and coarse-grained simulation of RNA structure and dynamics.
 - [[wiki/concepts/rna-force-field-limitations]] - RNA force-field reliability issues, motif benchmarks, and validation caveats.
 - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data]] - Metadata/API overlay pattern for reusable biomolecular simulation datasets.
+- [[wiki/concepts/super-resolution-imaging-of-tau-pathology]] - STED-based nanoscale imaging of tau filaments, tangles, and puncta in human Alzheimer's disease tissue.
+- [[wiki/concepts/neuronal-templated-tau-assembly-systems]] - Private draft-derived concept for neuronal culture systems that template tau assembly from disease-derived seeds.
+- [[wiki/concepts/molecular-response-property-foundation-models]] - Foundation-style models for molecular dipoles, polarizabilities, and spectroscopy-relevant response properties.
+- [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]] - Fitting molecule-specific SMIRNOFF valence parameters using MLP reference energies and forces.
+- [[wiki/concepts/protein-energy-landscape-profiling]] - Large-scale measurement and analysis of protein conformational fluctuation energy landscapes.
 
 ## Questions
 
