@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-02
 areas:
   - research
 categories:
@@ -22,12 +22,15 @@ sources:
   - SRC-0059
   - SRC-0060
   - SRC-0065
+  - SRC-0072
+  - SRC-0073
 related:
   - "[[wiki/concepts/automated-force-field-training]]"
   - "[[wiki/concepts/stability-aware-mlff-training]]"
   - "[[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]"
   - "[[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]"
   - "[[wiki/concepts/molecular-response-property-foundation-models]]"
+  - "[[wiki/concepts/espaloma-machine-learned-mm-force-fields]]"
   - "[[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]"
   - "[[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]"
   - "[[wiki/questions/mlip-foundation-model-validation-scope]]"
@@ -54,6 +57,7 @@ Machine-learning potential datasets provide quantum-chemistry energies, forces, 
 - High-throughput DFT datasets can contain systematic and unsystematic noise, near-equilibrium bias, and inconsistent settings; these issues can limit transferability even when the dataset is large. [SRC-0059, section 2.3]
 - UBio-Mol26 is a biology-focused dataset intended to complement OMol25 by covering larger solvated biological systems up to about 1,200 atoms; its current top-down component is protein-focused, leaving nucleic-acid diversity as an identified gap. [SRC-0060, sections 4.1 and 4.1.1]
 - SPICE-alpha is a response-property extension of SPICE that adds first-principles polarizabilities for training and evaluating dipole/polarizability models rather than only potential-energy models. [SRC-0065]
+- Espaloma-0.3 reuses and extends QCArchive/OpenFF/SPICE-style quantum-chemical datasets to train a conventional MM parameter-assignment model, illustrating how dataset composition affects downstream force-field behavior. [SRC-0072] [SRC-0073]
 
 ## Evidence
 
@@ -62,6 +66,7 @@ Machine-learning potential datasets provide quantum-chemistry energies, forces, 
 - SRC-0059 compares large datasets and benchmarks such as OMat24, OMol25, MatPES, and Matbench Discovery to argue that useful evaluation needs downstream and physics-informed tests, not only aggregate energy/force errors. [SRC-0059, sections 2 and 6]
 - SRC-0060 reports UBio-Mol26 as 17 million configurations across proteins, drug-like molecules, DNA/RNA fragments, lipid bilayers, explicit solvent, trace ions, and mixed basis-set fidelity levels. [SRC-0060, section 4.1]
 - SRC-0065 reports SPICE-alpha as a large neutral-organic training set for MACE-MDP, with dipole moments and full polarizability tensors used for spectroscopy-oriented response-property prediction.
+- SRC-0072 reports 1,188,317 conformations from 17,427 unique molecules for espaloma-0.3 training and evaluation.
 
 ## Links
 
@@ -70,6 +75,8 @@ Machine-learning potential datasets provide quantum-chemistry energies, forces, 
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential]]
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model]]
 - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities]]
+- [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large]]
+- [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force]]
 - [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules]]
 - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data]]
 - [[wiki/concepts/automated-force-field-training]]
@@ -77,6 +84,7 @@ Machine-learning potential datasets provide quantum-chemistry energies, forces, 
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
 - [[wiki/concepts/molecular-response-property-foundation-models]]
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields]]
 - [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]]
 - [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
 - [[wiki/questions/mlip-foundation-model-validation-scope]]

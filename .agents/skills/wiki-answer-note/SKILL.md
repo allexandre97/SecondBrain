@@ -20,7 +20,7 @@ Use this skill for prompts such as `Answer in the wiki: <question>` or `Write a 
 1. Start from `wiki/index.md`.
 2. Search relevant wiki pages.
 3. Identify likely starting pages from search results, index entries, categories, and source IDs.
-4. For non-trivial questions, run or consult graph-neighborhood information where useful, for example `python3 tools/query_graph.py --start <page> --depth 1` or `python3 tools/query_graph.py --source-id <SRC-XXXX>`.
+4. For non-trivial questions, run or consult graph-neighborhood information where useful, for example `python3 tools/query_graph.py --start <page> --depth <depth>`. Decide the depth of the search based on the complexity of the question.
 5. Use the graph neighborhood to choose which related sources, concepts, claims, questions, tensions, categories, authors, and source bundles to read before asking the LLM to synthesize.
 6. Do not require graph traversal for trivial questions where the starting page and answer are already obvious.
 7. Identify whether the wiki already answers the question.
@@ -34,7 +34,9 @@ Use this skill for prompts such as `Answer in the wiki: <question>` or `Write a 
 15. Record which wiki pages were updated.
 16. Mark remaining gaps clearly.
 17. Run `python3 tools/validate_wiki.py`.
-18. Report the answer note path and any durable pages updated.
+18. Run `python3 tools/build_category_indexes.py`
+19. Run `python3 tools/build_knowledge_graph.py`
+20. Report the answer note path and any durable pages updated.
 
 Answer notes belong under `wiki/answers/` and should use the answer-page template in `schema/page_templates.md`. They are readable generated responses, not replacements for durable source, concept, question, claim, or tension pages.
 

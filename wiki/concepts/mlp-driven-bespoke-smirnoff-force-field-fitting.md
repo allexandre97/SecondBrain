@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-07-02
 areas:
   - research
 categories:
@@ -19,8 +19,10 @@ related:
   - "[[wiki/concepts/automated-force-field-training]]"
   - "[[wiki/concepts/forcebalance]]"
   - "[[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]"
+  - "[[wiki/concepts/espaloma-machine-learned-mm-force-fields]]"
 sources:
   - SRC-0066
+  - SRC-0072
 sensitivity: public
 encryption: none
 ---
@@ -38,6 +40,7 @@ MLP-driven bespoke SMIRNOFF force-field fitting uses transferable machine-learni
 - `presto` fits bonds, angles, proper torsions, and improper torsions rather than only rotatable-bond torsions. [SRC-0066]
 - High-temperature MD and well-tempered metadynamics are used to sample conformations and torsion barriers without explicit relaxed torsion scans. [SRC-0066]
 - Congeneric-series fitting can share parameters across common substructures, which is important for relative free-energy calculations where inconsistent shared parameters can add noise. [SRC-0066]
+- Espaloma-0.3 is a complementary route: it learns transferable graph-based parameter assignment for conventional MM parameters rather than fitting molecule-specific bespoke valence parameters. [SRC-0072]
 
 ## Evidence
 
@@ -51,6 +54,7 @@ MLP-driven bespoke SMIRNOFF force-field fitting uses transferable machine-learni
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/concepts/forcebalance]]
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields]]
 
 ## Caveats
 

@@ -32,6 +32,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Sources
 
+- [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]]
+- [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]]
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]]
 - [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]]
 - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]]
@@ -49,6 +51,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]]
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]]
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]]
 - [[wiki/concepts/garnet-force-field|Garnet Force Field]]
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]]
 - [[wiki/concepts/gnn-to-symbolic-regression-potentials|GNN to Symbolic Regression Potentials]]
@@ -83,4 +86,5 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation|Dataset Scale Does Not Replace Coverage and Validation]]
 - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]
 - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]
+- [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]
 - [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses|Molecular Datasets Have Distinct Intended Uses]]

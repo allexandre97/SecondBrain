@@ -54,9 +54,11 @@ tags:
 related:
   - "[[wiki/concepts/protein-energy-landscape-profiling]]"
   - "[[wiki/concepts/protein-force-field-benchmark-datasets]]"
+  - "[[wiki/concepts/cdna-display-proteolysis-stability-measurements]]"
 sources:
   - SRC-0067
-cites_sources: []
+cites_sources:
+  - SRC-0070
 citation_match_status: partial
 cqt_review_status: linked
 sensitivity: public
@@ -115,12 +117,13 @@ Ferrari et al. introduce multiplex intact-protein hydrogen-deuterium exchange ma
 
 ## Citation Links
 
-- Partial citation review: the source is a large experimental dataset and analysis paper; no strong links to currently ingested wiki sources were identified in the targeted cluster pass, and exhaustive bibliography normalization was left out of scope. [SRC-0067]
+- Partial citation review: the source is a large experimental dataset and analysis paper. After SRC-0070 was ingested, its cDNA-display proteolysis paper was linked as a confirmed cited source; exhaustive bibliography normalization remains out of scope. [SRC-0067]
 
 ## Links
 
 - [[wiki/concepts/protein-energy-landscape-profiling]]
 - [[wiki/concepts/protein-force-field-benchmark-datasets]]
+- [[wiki/concepts/cdna-display-proteolysis-stability-measurements]]
 
 ## Metadata notes
 

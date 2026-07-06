@@ -4,8 +4,8 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 source_id: SRC-0055
-display_title: "UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations"
-short_title: "UUCG RNA Tetraloop Force-Field Challenge"
+display_title: UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations
+short_title: UUCG RNA Tetraloop Force-Field Challenge
 authors:
   - Klaudia Mrazikova
   - Vojtech Mlynsky
@@ -17,15 +17,15 @@ authors:
   - Pavel Banas
   - Jiri Sponer
 year: 2020
-venue: "Journal of Chemical Theory and Computation"
-doi: "10.1021/acs.jctc.0c00801"
+venue: Journal of Chemical Theory and Computation
+doi: 10.1021/acs.jctc.0c00801
 aliases:
-  - "SRC-0055"
-  - "UUCG RNA Tetraloop Force-Field Challenge"
-  - "UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations"
+  - SRC-0055
+  - UUCG RNA Tetraloop Force-Field Challenge
+  - UUCG RNA Tetraloop as a Formidable Force-Field Challenge for MD Simulations
 source_path: raw/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field.pdf
-original_filename: "10.1021@acs.jctc.0c00801.pdf"
-original_path_note: "Original local path omitted from wiki metadata."
+original_filename: 10.1021@acs.jctc.0c00801.pdf
+original_path_note: Original local path omitted from wiki metadata.
 sha256: 98f72c3b8069fac5d54fb8dc5c612686052724cb65886c3f93fff007fbfce764
 areas:
   - research

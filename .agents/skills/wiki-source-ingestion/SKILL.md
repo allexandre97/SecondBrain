@@ -77,6 +77,9 @@ For simple imports, use `python3 tools/import_source.py /path/to/source.ext`, pa
 8. Review new or changed wiki pages.
 9. If the source is math-heavy, confirm the equation inventory, proof map, implementation notes, and mathematical gaps before marking the source complete.
 10. Run `python3 tools/validate_wiki.py`.
+11. Run `python3 tools/build_category_indexes.py`
+12. Run `python3 tools/build_concept_indexes.py`
+13. Run `python3 tools/build_knowledge_graph.py`
 
 Do not perform a broad refactor during ingestion unless requested.
 
@@ -105,7 +108,7 @@ Set `metadata_review_status` during ingestion. Use `reviewed` when bibliographic
 
 ## Citation matching
 
-During future ingestion, inspect the bibliography or references section enough to identify whether the source cites already-ingested sources. This is a conservative review aid, not a mandate to fully extract every reference.
+During ingestion, inspect the bibliography or references section enough to identify whether the source cites already-ingested sources. This is a conservative review aid, not a mandate to fully extract every reference.
 
 Use source-page metadata from existing ingested sources when matching:
 

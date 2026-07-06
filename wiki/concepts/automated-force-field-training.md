@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-29
-updated: 2026-07-01
+updated: 2026-07-02
 areas:
   - research
 categories:
@@ -22,6 +22,7 @@ related:
   - "[[wiki/concepts/opc-water-model]]"
   - "[[wiki/concepts/machine-learning-potential-datasets]]"
   - "[[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]"
+  - "[[wiki/concepts/espaloma-machine-learned-mm-force-fields]]"
 sources:
   - SRC-0003
   - SRC-0014
@@ -38,6 +39,8 @@ sources:
   - SRC-0059
   - SRC-0060
   - SRC-0066
+  - SRC-0072
+  - SRC-0073
 sensitivity: public
 encryption: none
 ---
@@ -66,6 +69,7 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - Foundation-model MLIPs extend the automated-training question from parameter fitting to transferability, scale, long-range physics, simulation efficiency, and benchmark design. SRC-0059 argues that progress should not be reduced to only more data, only better architectures, or only larger models. [SRC-0059, sections 1-2]
 - UBio-MolFM is a biology-focused instance of this broader program, combining a domain-specific DFT dataset, energy-force-consistent training, long-short range equivariant architecture, and downstream MD observable checks. [SRC-0060]
 - `presto` uses transferable MLPs as fast reference models for fitting bespoke SMIRNOFF valence parameters, trading direct QM fitting cost for MLP evaluation speed while preserving a conventional MM functional form. [SRC-0066]
+- Espaloma-0.3 uses graph neural networks to assign parameters for a conventional Class I MM functional form across small molecules, peptides, proteins, and RNA, with downstream checks on geometries, NMR observables, and protein-ligand binding free energies. [SRC-0072] [SRC-0073]
 
 ## Links
 
@@ -80,6 +84,8 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential]]
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model]]
 - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps]]
+- [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large]]
+- [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force]]
 - [[wiki/concepts/garnet-force-field]]
 - [[wiki/concepts/double-exponential-potential]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
@@ -92,11 +98,13 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - [[wiki/concepts/machine-learning-potential-datasets]]
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
 - [[wiki/questions/force-field-training-validation-scope]]
 - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability]]
 - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]
+- [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation]]
 - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff]]
 - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]

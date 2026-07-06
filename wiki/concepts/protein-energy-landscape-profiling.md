@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-07-02
 areas:
   - research
 categories:
@@ -18,8 +18,10 @@ tags:
   - conformational-fluctuations
 related:
   - "[[wiki/concepts/protein-force-field-benchmark-datasets]]"
+  - "[[wiki/concepts/cdna-display-proteolysis-stability-measurements]]"
 sources:
   - SRC-0067
+  - SRC-0070
 sensitivity: public
 encryption: none
 ---
@@ -37,23 +39,28 @@ Protein energy landscape profiling measures not only whether a protein domain is
 - Opening cooperativity summarizes whether a domain has many residues with high opening energies relative to other domains with similar global stability and simple structural covariates. [SRC-0067]
 - Low opening cooperativity can correspond to entire unstable secondary-structure elements, which matters for interpreting dynamics, design, aggregation risk, immunogenicity, and simulation benchmarks. [SRC-0067]
 - Large energy-landscape datasets can support feature analysis and machine-learning-guided design, but SRC-0067 found that cooperativity remained much harder to predict than global stability. [SRC-0067]
+- cDNA display proteolysis provides a complementary global-stability measurement at much larger variant scale; SRC-0070 uses it to map sequence-to-stability effects across natural and designed small domains. [SRC-0070]
 
 ## Evidence
 
 - SRC-0067 analyzed 5,778 protein domains and identified 3,590 measurably stable domains by mHDX-MS.
 - SRC-0067 reports agreement between mHDX-MS and HDX NMR for 13 domains, and correlation between mHDX-MS and cDNA-display global-stability measurements across thousands of domains.
 - SRC-0067 experimentally tested designed double-mutant libraries and found multiple designed variants that improved both opening cooperativity and global stability.
+- SRC-0070 reports a curated dataset of 776,298 high-quality folding stabilities measured by cDNA display proteolysis.
 
 ## Links
 
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design]]
+- [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability]]
 - [[wiki/concepts/protein-force-field-benchmark-datasets]]
+- [[wiki/concepts/cdna-display-proteolysis-stability-measurements]]
 
 ## Caveats
 
 - Intact-protein mHDX-MS provides opening-energy distributions but does not by itself map each inferred rate to a residue position. [SRC-0067]
 - The inferred energies depend on HDX model assumptions and require careful quality filtering. [SRC-0067]
 - Current models trained on these data explain only a limited fraction of opening-cooperativity variance, so this remains a measurement-led rather than prediction-solved problem. [SRC-0067]
+- Global stability from cDNA display proteolysis should not be treated as a full local energy landscape; SRC-0070 focuses on cooperative unfolding stability and has assay-specific failure modes. [SRC-0070]
 
 ## Open Questions
 

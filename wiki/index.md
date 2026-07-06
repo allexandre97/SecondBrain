@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-07-01
+updated: 2026-07-02
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -56,6 +56,7 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/answers/sted-tau-filament-topology-model-architecture]] - Quantification and model-architecture recommendation for topology-aware STED tau morphology comparisons across tauopathy seeds and DIV.
 - [[wiki/answers/garnet-symbolic-regression-functional-search]] - Assessment of symbolic regression, pipeline placement, and differentiable functional-form search for a future Garnet force field.
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy]] - Synthesis of recurring validation problems across force-field fitting, machine-learning potentials, and free-energy estimators.
+- [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]] - Implementation route plan for testing AWH-style replay force-field optimization with TSS and MBAR reference archives.
 
 ## Author Entities
 
@@ -133,6 +134,10 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] - Nature article introducing large-scale mHDX-MS profiling of opening-energy distributions across thousands of protein domains.
 - [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] - arXiv paper introducing a self-adapting U-Net framework for medical image segmentation across Medical Segmentation Decathlon tasks.
 - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] - arXiv paper introducing promptable segmentation, SAM, and the SA-1B dataset of over 1 billion masks.
+- [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|Mega-scale Protein Folding Stability]] - Nature article introducing cDNA display proteolysis for mega-scale measurement of protein folding stability.
+- [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] - Nature article reporting site-saturation mutagenesis and abundance-based stability mapping across 500 human protein domains.
+- [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]] - Chemical Science article on graph-neural-network assignment of molecular-mechanics force-field parameters from large quantum-chemical datasets.
+- [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]] - Supplement with implementation, dataset, training, and benchmark details for SRC-0072.
 
 ## Concepts
 
@@ -200,6 +205,9 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/concepts/molecular-response-property-foundation-models]] - Foundation-style models for molecular dipoles, polarizabilities, and spectroscopy-relevant response properties.
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]] - Fitting molecule-specific SMIRNOFF valence parameters using MLP reference energies and forces.
 - [[wiki/concepts/protein-energy-landscape-profiling]] - Large-scale measurement and analysis of protein conformational fluctuation energy landscapes.
+- [[wiki/concepts/cdna-display-proteolysis-stability-measurements]] - Sequencing-based pooled proteolysis assay for high-throughput protein folding-stability measurement.
+- [[wiki/concepts/human-domainome-variant-stability-mapping]] - High-throughput human domain mutagenesis for stability-aware missense variant interpretation.
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields]] - Graph-neural-network assignment of conventional molecular-mechanics force-field parameters.
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation]] - Recurring validation failure modes across force-field fitting, machine-learning potentials, and free-energy estimators.
 
 ## Questions
