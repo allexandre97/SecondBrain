@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-07-02
+updated: 2026-07-07
 areas:
   - research
 categories:
@@ -74,6 +74,8 @@ $$
 Training can mix free-energy-cycle targets and observable targets because the loss is assembled after replay and normalized by target tolerances. [SRC-0018]
 
 For a generalized implementation, the common interface should export stored frames, visited states or windows, reference reduced potentials, a log reference-mixture denominator, target-state energy evaluations, target-state gradients, candidate-ensemble weights for ESS, and split or parity diagnostics. The method-specific part is how that reference denominator is obtained: frozen AWH uses a frozen Gibbs mixture, TSS needs the exact frozen simulated-tempering or windowed denominator, and MBAR uses the sampled-state mixture implied by cross-evaluated reduced potentials and state counts. [SRC-0018] [SRC-0005] [SRC-0006] [SRC-0023]
+
+For windowed TSS specifically, replay should preserve the local-window structure through estimation. A 2026-07-07 FFRefine scaffold test found that treating all windowed frames as one global replay pool with an active-window offset produced multi-$k_BT$ replay/TSS disagreement. Computing local replay weights and local free-energy or observable estimates per active window, then stitching those local estimates with the reported TSS window probabilities, offsets, and global rung density, restored replay/TSS agreement to sub-$k_BT$ scale for the ethanol-solvation scaffold. This is an implementation lesson grounded in SRC-0006's window-stitching equations, not a new literature claim. [SRC-0006]
 
 ## Caveats
 

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-07
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -234,6 +234,8 @@ where the exact $\pi_{\mathrm{ref}}$ and $F_{\mathrm{ref}}$ must be whatever fix
 
 For windowed TSS, the adapter must not hand-wave the denominator. It needs to store the active window $J$, the local rung set $W_J$, local free-energy estimates, window weights or selection probabilities, and the exact fixed window/rung sampling rule used during production. The global reporting free energies are stitched from local estimates, but replay weights for parameter optimization should be based on the exact frozen production density, not only on a displayed stitched profile. [SRC-0006]
 
+A 2026-07-07 FFRefine ethanol-solvation implementation test sharpened this requirement. The nonwindowed replay formula should not be generalized to windowed TSS by summing over all frames and adding an active-window offset. In a frozen windowed TSS archive, replay should first be local to the active window: for frames with $J_n=j$ and target rungs $k \in W_j$, compute local weights from the local reduced potential and the archived local log denominator, then estimate local replay surfaces $F^{rep}_{j;k}$. Those local replay surfaces must then be passed through the same reported-window stitching equations as ordinary TSS local estimates. General observables follow the same order: estimate local $\hat O_{j;k}$ with local replay weights, then mix them with $p_j\gamma_{j;k}/\gamma_k^{TSS}$ over windows containing $k$. This is project evidence aligned with SRC-0006's reported-surface construction: the global-offset implementation gave about $6\,k_BT$ replay/TSS disagreement in the windowed scaffold, while local replay plus reported stitching reduced the maximum discrepancy to about $0.37\,k_BT$, within the largest jackknife endpoint uncertainty. [SRC-0006]
+
 TSS-specific readiness should include:
 
 - epoch-based stability after history forgetting,
@@ -343,8 +345,10 @@ Only after this nonwindowed path works should the implementation add windowed TS
 
 1. Store active window labels and local rung sets.
 2. Export local window denominators for every retained frame.
-3. Preserve enough metadata to reconstruct the global fixed reference density.
-4. Add window stitching diagnostics from SRC-0006 as readiness checks, but keep replay weights tied to the actual frozen production density. [SRC-0006]
+3. Compute replay free energies and observable averages locally inside each active window.
+4. Stitch local replay free-energy surfaces with the same reported TSS equations used for ordinary local estimates.
+5. Stitch local observable averages with the reported window probabilities and global rung density.
+6. Add window stitching diagnostics from SRC-0006 as readiness checks, but keep replay weights tied to the actual frozen production density. [SRC-0006]
 
 Success criteria:
 

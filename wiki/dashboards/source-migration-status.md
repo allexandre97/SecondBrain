@@ -29,10 +29,10 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 
 ## Summary
 
-- Total source pages: 69
+- Total source pages: 73
 - Needing metadata backfill: 0
 - Needing citation review: 0
-- Partial citation review: 15
+- Partial citation review: 19
 - Needing claims/questions/tensions review: 0
 - Appearing current: 54
 - Missing raw source files: 0
@@ -63,6 +63,10 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] (`SRC-0061`) - citation_match_status is partial
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] (`SRC-0067`) - citation_match_status is partial
 - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] (`SRC-0069`) - citation_match_status is partial
+- [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|Mega-scale Protein Folding Stability]] (`SRC-0070`) - citation_match_status is partial
+- [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] (`SRC-0071`) - citation_match_status is partial
+- [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]] (`SRC-0072`) - citation_match_status is partial
+- [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]] (`SRC-0073`) - citation_match_status is partial
 
 ## Needs Claims/Questions/Tensions Review
 
@@ -203,6 +207,10 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 | [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]]<br>`SRC-0064` | present | yes | missing | present | reviewed | reviewed | linked | 1 | 1 | 1 | 1 | none | standard | complete | 47 | current |
 | [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]]<br>`SRC-0065` | present | yes | present | present | reviewed | reviewed | linked | 2 | 2 | 1 | 0 | none | standard | complete | 47 | current |
 | [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]]<br>`SRC-0066` | present | yes | present | present | reviewed | reviewed | linked | 2 | 2 | 0 | 0 | none | standard | complete | 50 | current |
-| [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]<br>`SRC-0067` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 0 | none | standard | complete | 38 | partial-citation |
+| [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]<br>`SRC-0067` | present | yes | present | present | reviewed | partial | linked | 1 | 1 | 1 | 0 | none | standard | complete | 43 | partial-citation |
 | [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]]<br>`SRC-0068` | present | yes | present | present | reviewed | reviewed | linked | 0 | 0 | 1 | 1 | none | standard | complete | 38 | current |
 | [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]<br>`SRC-0069` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 1 | none | standard | complete | 43 | partial-citation |
+| [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|Mega-scale Protein Folding Stability]]<br>`SRC-0070` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 0 | 0 | none | standard | complete | 50 | partial-citation |
+| [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]]<br>`SRC-0071` | present | yes | present | present | reviewed | partial | linked | 1 | 1 | 0 | 0 | none | standard | complete | 52 | partial-citation |
+| [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]]<br>`SRC-0072` | present | yes | entity-linked | present | reviewed | partial | linked | 2 | 1 | 0 | 0 | present (espaloma-0-3-ml-mm-force-fields; main) | math-standard | complete | 80 | partial-citation |
+| [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]]<br>`SRC-0073` | present | yes | entity-linked | present | reviewed | partial | source-local | 2 | 1 | 0 | 0 | present (espaloma-0-3-ml-mm-force-fields; supplement) | standard | complete | 34 | partial-citation |

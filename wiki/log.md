@@ -89,3 +89,5 @@ graph_exclude: true
 - 2026-07-02: Imported and ingested SRC-0070, the Nature paper introducing cDNA display proteolysis for mega-scale protein folding-stability measurements, adding concept and claim coverage plus a citation link from SRC-0067.
 - 2026-07-02: Imported and ingested SRC-0071, the Nature Human Domainome 1 paper on site-saturation mutagenesis of 500 human protein domains, adding concept and claim coverage plus a citation link to SRC-0070.
 - 2026-07-02: Imported and ingested SRC-0072/SRC-0073 as the espaloma-0.3 main/supplement bundle on graph-neural-network molecular-mechanics force-field parameter assignment from quantum-chemical data.
+
+- 2026-07-07: Recorded the FFRefine implementation lesson that windowed TSS replay must compute local-window replay estimates before applying reported TSS stitching; a global active-window-offset replay denominator failed the ethanol-solvation scaffold.
