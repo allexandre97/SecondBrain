@@ -197,6 +197,33 @@
       "confidence": "strong",
       "evidence": "ins one entry: Ross, Lu, Scarabelli, Albanese, Houang, Abel, Harder, and Wang, \"The maximal and current accuracy of rigorous protein-ligand binding free energy calculations,\" Communications Chemistry 2023, 6, 222. This is an exact title, first-author, and year match to the ingested FEP+ accuracy source. [SRC-0062, reference 1]",
       "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0070",
+      "cited_source_page": "wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability.md",
+      "citing_source_id": "SRC-0067",
+      "citing_source_page": "wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design.md",
+      "confidence": "strong",
+      "evidence": "cDNA display proteolysis",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0070",
+      "cited_source_page": "wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability.md",
+      "citing_source_id": "SRC-0071",
+      "citing_source_page": "wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains.md",
+      "confidence": "strong",
+      "evidence": "- Confirmed cited source: SRC-0071 cites SRC-0070 as the mega-scale protein folding stability study and uses high-throughput proteolysis measurements as external comparison data. [SRC-0071] [SRC-0070] - Partial citation review: broader bibliography matc",
+      "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0023",
+      "cited_source_page": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.md",
+      "citing_source_id": "SRC-0072",
+      "citing_source_page": "wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large.md",
+      "confidence": "strong",
+      "evidence": "- Confirmed cited source: SRC-0072 cites the original MBAR paper, already ingested as SRC-0023, through its alchemical free-energy analysis machinery. [SRC-0072] [SRC-0023] - Confirmed cited source: SRC-0072 uses SPICE-deriv",
+      "match_type": "title-exact"
     }
   ]
 }

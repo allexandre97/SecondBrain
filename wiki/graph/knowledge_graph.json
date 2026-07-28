@@ -2,6 +2,120 @@
   "edges": [
     {
       "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "category:research/adaptive-sampling",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "category:research/molecular-simulation/force-fields",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "category:research/molecular-simulation/free-energy",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "category:research/scientific-computing",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "source_id:SRC-0018",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "related"
+    },
+    {
+      "evidence": "line 56: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
+      "type": "related"
+    },
+    {
+      "evidence": "line 60: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "related"
+    },
+    {
+      "evidence": "line 57: - [[wiki/concepts/awh-replay-force-field-optimization]]",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
+      "type": "related"
+    },
+    {
+      "evidence": "line 59: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "type": "related"
+    },
+    {
+      "evidence": "line 58: - [[wiki/concepts/tolerance-normalized-multi-observable-losses]]",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/questions/force-field-training-validation-scope",
+      "type": "related"
+    },
+    {
+      "evidence": "line 61: - [[wiki/questions/force-field-training-validation-scope]]",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/questions/force-field-training-validation-scope",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
+      "type": "related"
+    },
+    {
+      "evidence": "line 62: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "source": "wiki/answers/ffrefine-current-implementation-status",
+      "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:categories",
       "source": "wiki/answers/garnet-symbolic-regression-functional-search",
       "target": "category:research/machine-learning/molecular-modeling",
       "type": "category"
@@ -1088,6 +1202,132 @@
     },
     {
       "evidence": "frontmatter:categories",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "category:research/molecular-simulation/force-fields",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "category:research/molecular-simulation/free-energy",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "category:research/scientific-computing",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "source_id:SRC-0016",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "source_id:SRC-0018",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "source_id:SRC-0025",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "source_id:SRC-0027",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "related"
+    },
+    {
+      "evidence": "line 148: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
+      "type": "related"
+    },
+    {
+      "evidence": "line 122: Activating a formerly absent repulsive or attractive site changes the Hamiltonian and may introduce energy barriers in configurations that were harmless under the original force field. A small initial perturbation does not guarantee that a frozen reference archive supports the candidate model. Replay-based optimization should therefore retain ESS, parity, split-sample, and resimulation checks as acceptance conditions rather than treating activation as a purely local gradient problem. [SRC-0016] [SRC-0018] [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "related"
+    },
+    {
+      "evidence": "line 146: - [[wiki/concepts/awh-replay-force-field-optimization]]",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
+      "type": "related"
+    },
+    {
+      "evidence": "line 147: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/questions/force-field-training-validation-scope",
+      "type": "related"
+    },
+    {
+      "evidence": "line 124: For water hydrogens, a zero-epsilon site is usually an intentional part of the water-model functional form rather than missing numerical data. Allowing hydrogen Lennard-Jones interactions expands the model class and can introduce compensating changes between hydrogen and oxygen parameters. It should be regularized and tested on held-out thermodynamic and structural properties. [SRC-0025] [SRC-0027] [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]] [[wiki/questions/force-field-training-validation-scope]]",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/questions/force-field-training-validation-scope",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
+      "type": "related"
+    },
+    {
+      "evidence": "line 152: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting",
+      "type": "related"
+    },
+    {
+      "evidence": "line 124: For water hydrogens, a zero-epsilon site is usually an intentional part of the water-model functional form rather than missing numerical data. Allowing hydrogen Lennard-Jones interactions expands the model class and can introduce compensating changes between hydrogen and oxygen parameters. It should be regularized and tested on held-out thermodynamic and structural properties. [SRC-0025] [SRC-0027] [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]] [[wiki/questions/force-field-training-validation-scope]]",
+      "source": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "target": "wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:categories",
       "source": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "target": "category:research/adaptive-sampling",
       "type": "category"
@@ -1297,7 +1537,19 @@
       "type": "source_ref"
     },
     {
-      "evidence": "line 389: - [[wiki/answers/sample-bias-reweighting-method-comparison]]",
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "related"
+    },
+    {
+      "evidence": "line 263: A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]].",
+      "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 435: - [[wiki/answers/sample-bias-reweighting-method-comparison]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
@@ -1315,7 +1567,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 381: - [[wiki/concepts/accelerated-weight-histogram-method]]",
+      "evidence": "line 427: - [[wiki/concepts/accelerated-weight-histogram-method]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/accelerated-weight-histogram-method",
       "type": "wikilink"
@@ -1327,7 +1579,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 380: - [[wiki/concepts/awh-replay-force-field-optimization]]",
+      "evidence": "line 426: - [[wiki/concepts/awh-replay-force-field-optimization]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/awh-replay-force-field-optimization",
       "type": "wikilink"
@@ -1339,7 +1591,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 386: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
+      "evidence": "line 432: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
       "type": "wikilink"
@@ -1351,13 +1603,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 384: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
+      "evidence": "line 430: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
     },
     {
-      "evidence": "line 385: - [[wiki/concepts/on-the-fly-estimation-versus-mbar]]",
+      "evidence": "line 431: - [[wiki/concepts/on-the-fly-estimation-versus-mbar]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/on-the-fly-estimation-versus-mbar",
       "type": "wikilink"
@@ -1369,9 +1621,21 @@
       "type": "related"
     },
     {
-      "evidence": "line 382: - [[wiki/concepts/times-square-sampling]]",
+      "evidence": "line 428: - [[wiki/concepts/times-square-sampling]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/times-square-sampling",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "type": "related"
+    },
+    {
+      "evidence": "line 36: When one objective contains target families with very different counts, such as a temperature-dependent density curve and hundreds of RDF bins, normalize within each family before applying configurable between-family coefficients. This preserves unit invariance and prevents the family with more bins from dominating by cardinality alone. Within-family weights can still emphasize scientifically important regions such as RDF peaks. See [[wiki/concepts/tolerance-normalized-multi-observable-losses]].",
+      "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
       "type": "wikilink"
     },
     {
@@ -1381,7 +1645,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 383: - [[wiki/concepts/tss-implementation-patterns]]",
+      "evidence": "line 429: - [[wiki/concepts/tss-implementation-patterns]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/tss-implementation-patterns",
       "type": "wikilink"
@@ -1393,7 +1657,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 322: Do not rank methods by final training loss alone. The relevant question is which method produces reference archives that support reliable parameter updates under the same validation standard. [SRC-0018] [[wiki/questions/force-field-training-validation-scope]]",
+      "evidence": "line 368: Do not rank methods by final training loss alone. The relevant question is which method produces reference archives that support reliable parameter updates under the same validation standard. [SRC-0018] [[wiki/questions/force-field-training-validation-scope]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/questions/force-field-training-validation-scope",
       "type": "wikilink"
@@ -1405,7 +1669,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 379: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "evidence": "line 425: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
@@ -1663,13 +1927,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 154 total pages in branch.",
+      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 156 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/molecular-simulation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 21: - [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 4 direct, 4 total pages in branch.",
+      "evidence": "line 21: - [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 6 direct, 6 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/scientific-computing",
       "type": "wikilink"
@@ -4069,13 +4333,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 68 direct, 68 total pages in branch.",
+      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 70 direct, 70 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/force-fields",
       "type": "wikilink"
     },
     {
-      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 71 direct, 71 total pages in branch.",
+      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 72 direct, 72 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/free-energy",
       "type": "wikilink"
@@ -4225,19 +4489,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
+      "evidence": "line 73: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/garnet-symbolic-regression-functional-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 71: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
+      "evidence": "line 72: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 73: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 75: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
+      "source": "wiki/categories/research/molecular-simulation/force-fields",
+      "target": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 74: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -4255,49 +4525,49 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]",
+      "evidence": "line 95: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0002-garnet-automates-parameter-assignment",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]",
+      "evidence": "line 97: - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 96: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
+      "evidence": "line 98: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 98: - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]",
+      "evidence": "line 100: - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 92: - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]",
+      "evidence": "line 94: - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise",
       "type": "wikilink"
     },
     {
-      "evidence": "line 91: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]",
+      "evidence": "line 93: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks|RNA Force-Field Validation Needs Motif-Level and Coupled-Error Checks]]",
+      "evidence": "line 99: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks|RNA Force-Field Validation Needs Motif-Level and Coupled-Error Checks]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]",
+      "evidence": "line 96: - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation",
       "type": "wikilink"
@@ -4429,31 +4699,37 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]]",
+      "evidence": "line 67: - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]]",
+      "source": "wiki/categories/research/molecular-simulation/force-fields",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 68: - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/concepts/ubio-molfm-biological-molecular-foundation-model",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]",
+      "evidence": "line 79: - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/force-field-training-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 78: - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]",
+      "evidence": "line 80: - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/garnet-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 79: - [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]",
+      "evidence": "line 81: - [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/mlip-foundation-model-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 80: - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]",
+      "evidence": "line 82: - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/rna-force-field-motif-validation-scope",
       "type": "wikilink"
@@ -4621,25 +4897,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]",
+      "evidence": "line 86: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]",
+      "evidence": "line 87: - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff",
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]",
+      "evidence": "line 88: - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting",
       "type": "wikilink"
     },
     {
-      "evidence": "line 87: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer|RNA Motif-Specific Fixes vs General Force-Field Transfer]]",
+      "evidence": "line 89: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer|RNA Motif-Specific Fixes vs General Force-Field Transfer]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer",
       "type": "wikilink"
@@ -4663,7 +4939,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 68: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
+      "evidence": "line 68: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
+      "source": "wiki/categories/research/molecular-simulation/free-energy",
+      "target": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 69: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "type": "wikilink"
@@ -4693,73 +4975,73 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 101: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 102: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
+      "evidence": "line 98: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited",
       "type": "wikilink"
     },
     {
-      "evidence": "line 92: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
+      "evidence": "line 93: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0005-configuration-mapping-extends-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 98: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
+      "evidence": "line 99: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias",
       "type": "wikilink"
     },
     {
-      "evidence": "line 90: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
+      "evidence": "line 91: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 96: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
+      "evidence": "line 97: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates",
       "type": "wikilink"
     },
     {
-      "evidence": "line 100: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
+      "evidence": "line 101: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 91: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]",
+      "evidence": "line 92: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]",
+      "evidence": "line 96: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 99: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]",
+      "evidence": "line 100: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]",
+      "evidence": "line 95: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality",
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms|Decoupling Implementations Must Preserve Intramolecular Solute Terms]]",
+      "evidence": "line 94: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms|Decoupling Implementations Must Preserve Intramolecular Solute Terms]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms",
       "type": "wikilink"
@@ -4867,43 +5149,43 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
+      "evidence": "line 73: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 73: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
+      "evidence": "line 74: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/awh-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 74: - [[wiki/questions/md-free-energy-decoupling-implementation-validation|MD Free-Energy Decoupling Implementation Validation]]",
+      "evidence": "line 75: - [[wiki/questions/md-free-energy-decoupling-implementation-validation|MD Free-Energy Decoupling Implementation Validation]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/md-free-energy-decoupling-implementation-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 75: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
+      "evidence": "line 76: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 76: - [[wiki/questions/rbfe-benchmark-prospective-use-scope|RBFE Benchmark Prospective Use Scope]]",
+      "evidence": "line 77: - [[wiki/questions/rbfe-benchmark-prospective-use-scope|RBFE Benchmark Prospective Use Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/rbfe-benchmark-prospective-use-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
+      "evidence": "line 78: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/tss-generalization-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 78: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
+      "evidence": "line 79: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
@@ -5053,31 +5335,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
+      "evidence": "line 87: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
+      "evidence": "line 84: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
+      "evidence": "line 85: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 82: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]",
+      "evidence": "line 83: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use|RBFE Benchmark Success vs Prospective Use]]",
+      "evidence": "line 86: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use|RBFE Benchmark Success vs Prospective Use]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use",
       "type": "wikilink"
@@ -5269,13 +5551,19 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 21: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
+      "evidence": "line 22: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/scientific-computing",
       "target": "wiki/answers/garnet-symbolic-regression-functional-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 22: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 24: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
+      "source": "wiki/categories/research/scientific-computing",
+      "target": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 23: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/scientific-computing",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -5296,6 +5584,12 @@
       "evidence": "line 16: - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/scientific-computing",
       "target": "wiki/concepts/garnet-functional-form-search",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 18: - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]]",
+      "source": "wiki/categories/research/scientific-computing",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
       "type": "wikilink"
     },
     {
@@ -8791,7 +9085,19 @@
       "type": "source_ref"
     },
     {
-      "evidence": "line 64: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
+      "evidence": "frontmatter:related",
+      "source": "wiki/concepts/awh-replay-force-field-optimization",
+      "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "related"
+    },
+    {
+      "evidence": "line 65: A 2026-07-28 FFRefine code audit added an eighth implementation lesson: the current implementation is best described as a project-local replay-optimization framework, not as a production-validated force-field fitting package. The code now has a sampler-agnostic backend that consumes completed named TSS simulations, a local TSS replay parity path, a window-mixture MBAR optimization path, QEq and bounded latent parameter maps, multi-leg target assembly, split validation, ESS/Fisher gates, and history/reporting. Its concrete experiment surfaces are ethanol solvation and water-temperature fitting. Ethanol trains solvation free energy by default, with density defined but disabled; water trains density, RDF, and dielectric targets, while dielectric split validation is currently disabled. Focused tests support implementation details, but full production improvement and transferability claims remain unvalidated. See [[wiki/answers/ffrefine-current-implementation-status]].",
+      "source": "wiki/concepts/awh-replay-force-field-optimization",
+      "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 81: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -8803,7 +9109,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 60: - [[wiki/concepts/accelerated-weight-histogram-method]]",
+      "evidence": "line 76: - [[wiki/concepts/accelerated-weight-histogram-method]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/accelerated-weight-histogram-method",
       "type": "wikilink"
@@ -8815,7 +9121,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 61: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
+      "evidence": "line 77: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
       "type": "wikilink"
@@ -8827,7 +9133,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 63: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
+      "evidence": "line 79: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
@@ -8839,13 +9145,25 @@
       "type": "related"
     },
     {
-      "evidence": "line 62: - [[wiki/concepts/times-square-sampling]]",
+      "evidence": "line 78: - [[wiki/concepts/times-square-sampling]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/times-square-sampling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 59: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "evidence": "frontmatter:related",
+      "source": "wiki/concepts/awh-replay-force-field-optimization",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "type": "related"
+    },
+    {
+      "evidence": "line 47: For target families with different cardinalities, tolerance normalization should be paired with a family-level weighted mean so the number of scalar bins does not silently determine scientific priority. Within-family weights and between-family coefficients have distinct meanings; see [[wiki/concepts/tolerance-normalized-multi-observable-losses]].",
+      "source": "wiki/concepts/awh-replay-force-field-optimization",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 75: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
@@ -13754,6 +14072,66 @@
     },
     {
       "evidence": "frontmatter:categories",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "category:research/molecular-simulation/force-fields",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "category:research/scientific-computing",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "source_id:SRC-0018",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "related"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "related"
+    },
+    {
+      "evidence": "line 55: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
+      "type": "related"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "related"
+    },
+    {
+      "evidence": "line 54: - [[wiki/concepts/awh-replay-force-field-optimization]]",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 56: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "source": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:categories",
       "source": "wiki/concepts/topology-aware-fiber-network-reconstruction",
       "target": "category:research/bioimage-analysis/filament-segmentation",
       "type": "category"
@@ -14719,7 +15097,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 225: - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs",
+      "evidence": "line 226: - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/free-energy-estimation",
       "type": "wikilink"
@@ -14785,13 +15163,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 228: - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - tags: `mbar`, `configuration-mapping`, `reweighting`, `phase-space-overlap`, `math-heavy`; 2 source IDs",
+      "evidence": "line 229: - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - tags: `mbar`, `configuration-mapping`, `reweighting`, `phase-space-overlap`, `math-heavy`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/mbar-with-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 242: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]] - tags: `pressure-tensor`, `stress-tensor`, `virial`, `periodic-boundary-conditions`; 2 source IDs",
+      "evidence": "line 243: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]] - tags: `pressure-tensor`, `stress-tensor`, `virial`, `periodic-boundary-conditions`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/md-pressure-and-stress-tensor-calculation",
       "type": "wikilink"
@@ -14809,7 +15187,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 243: - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - tags: `constraints`, `LINCS`, `SHAKE`, `molecular-dynamics`; 1 source IDs",
+      "evidence": "line 244: - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - tags: `constraints`, `LINCS`, `SHAKE`, `molecular-dynamics`; 1 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/molecular-dynamics-constraint-solvers",
       "type": "wikilink"
@@ -14827,7 +15205,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 229: - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - tags: `mbar`, `free-energy-estimation`, `reweighting`, `bridge-sampling`, `math-heavy`; 1 source IDs",
+      "evidence": "line 230: - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - tags: `mbar`, `free-energy-estimation`, `reweighting`, `bridge-sampling`, `math-heavy`; 1 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
@@ -14839,7 +15217,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 230: - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs",
+      "evidence": "line 231: - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/on-the-fly-estimation-versus-mbar",
       "type": "wikilink"
@@ -14869,7 +15247,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 244: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - tags: `PME`, `Ewald-summation`, `electrostatics`, `PSWF`; 2 source IDs",
+      "evidence": "line 245: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - tags: `PME`, `Ewald-summation`, `electrostatics`, `PSWF`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics",
       "type": "wikilink"
@@ -14935,7 +15313,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 233: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - tags: `solvation-free-energy`, `LAMMPS`, `thermodynamic-integration`, `decoupling`; 1 source IDs",
+      "evidence": "line 234: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - tags: `solvation-free-energy`, `LAMMPS`, `thermodynamic-integration`, `decoupling`; 1 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/solvation-free-energy-decoupling-in-lammps",
       "type": "wikilink"
@@ -14974,6 +15352,12 @@
       "evidence": "line 25: - [[wiki/concepts/times-square-sampling|Times Square Sampling]] - tags: `times-square-sampling`, `free-energy-estimation`, `stochastic-approximation`, `math-heavy`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-category",
       "target": "wiki/concepts/times-square-sampling",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 216: - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]] - tags: `force-field-optimization`, `multi-objective-optimization`, `loss-functions`, `observable-targets`; 1 source IDs",
+      "source": "wiki/dashboards/concepts-by-category",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
       "type": "wikilink"
     },
     {
@@ -15139,7 +15523,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 149: - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs",
+      "evidence": "line 150: - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/free-energy-estimation",
       "type": "wikilink"
@@ -15199,13 +15583,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 152: - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `configuration-mapping`, `reweighting`, `phase-space-overlap`, `math-heavy`; 2 source IDs",
+      "evidence": "line 153: - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `configuration-mapping`, `reweighting`, `phase-space-overlap`, `math-heavy`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/mbar-with-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 166: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]] - categories: `research/molecular-simulation/molecular-dynamics`; tags: `pressure-tensor`, `stress-tensor`, `virial`, `periodic-boundary-conditions`; 2 source IDs",
+      "evidence": "line 167: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]] - categories: `research/molecular-simulation/molecular-dynamics`; tags: `pressure-tensor`, `stress-tensor`, `virial`, `periodic-boundary-conditions`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/md-pressure-and-stress-tensor-calculation",
       "type": "wikilink"
@@ -15223,7 +15607,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 167: - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - categories: `research/molecular-simulation/molecular-dynamics`; tags: `constraints`, `LINCS`, `SHAKE`, `molecular-dynamics`; 1 source IDs",
+      "evidence": "line 168: - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - categories: `research/molecular-simulation/molecular-dynamics`; tags: `constraints`, `LINCS`, `SHAKE`, `molecular-dynamics`; 1 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/molecular-dynamics-constraint-solvers",
       "type": "wikilink"
@@ -15235,7 +15619,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 153: - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `free-energy-estimation`, `reweighting`, `bridge-sampling`, `math-heavy`; 1 source IDs",
+      "evidence": "line 154: - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `free-energy-estimation`, `reweighting`, `bridge-sampling`, `math-heavy`; 1 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
@@ -15247,7 +15631,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 154: - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`; tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs",
+      "evidence": "line 155: - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`; tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/on-the-fly-estimation-versus-mbar",
       "type": "wikilink"
@@ -15271,7 +15655,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 168: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - categories: `research/molecular-simulation/molecular-dynamics`; tags: `PME`, `Ewald-summation`, `electrostatics`, `PSWF`; 2 source IDs",
+      "evidence": "line 169: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - categories: `research/molecular-simulation/molecular-dynamics`; tags: `PME`, `Ewald-summation`, `electrostatics`, `PSWF`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics",
       "type": "wikilink"
@@ -15307,7 +15691,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 169: - [[wiki/concepts/rna-molecular-dynamics-simulations|RNA Molecular Dynamics Simulations]] - categories: `research/molecular-simulation/molecular-dynamics`, `research/biomolecules/rna`; tags: `RNA`, `molecular-dynamics`, `enhanced-sampling`, `coarse-graining`; 2 source IDs",
+      "evidence": "line 170: - [[wiki/concepts/rna-molecular-dynamics-simulations|RNA Molecular Dynamics Simulations]] - categories: `research/molecular-simulation/molecular-dynamics`, `research/biomolecules/rna`; tags: `RNA`, `molecular-dynamics`, `enhanced-sampling`, `coarse-graining`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/rna-molecular-dynamics-simulations",
       "type": "wikilink"
@@ -15319,7 +15703,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 157: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - categories: `research/molecular-simulation/free-energy`; tags: `solvation-free-energy`, `LAMMPS`, `thermodynamic-integration`, `decoupling`; 1 source IDs",
+      "evidence": "line 158: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - categories: `research/molecular-simulation/free-energy`; tags: `solvation-free-energy`, `LAMMPS`, `thermodynamic-integration`, `decoupling`; 1 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/solvation-free-energy-decoupling-in-lammps",
       "type": "wikilink"
@@ -15352,6 +15736,12 @@
       "evidence": "line 13: - [[wiki/concepts/times-square-sampling|Times Square Sampling]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`, `research/adaptive-sampling`; tags: `times-square-sampling`, `free-energy-estimation`, `stochastic-approximation`, `math-heavy`; 2 source IDs",
       "source": "wiki/dashboards/concepts-by-method",
       "target": "wiki/concepts/times-square-sampling",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 140: - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]] - categories: `research/molecular-simulation/force-fields`, `research/scientific-computing`; tags: `force-field-optimization`, `multi-objective-optimization`, `loss-functions`, `observable-targets`; 1 source IDs",
+      "source": "wiki/dashboards/concepts-by-method",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
       "type": "wikilink"
     },
     {
@@ -15409,133 +15799,133 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 106: - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - 17 source IDs; top source categories: `research/molecular-simulation/force-fields` (17), `research/machine-learning/molecular-modeling` (9), `research/machine-learning/scientific-modeling` (7)",
+      "evidence": "line 107: - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - 17 source IDs; top source categories: `research/molecular-simulation/force-fields` (17), `research/machine-learning/molecular-modeling` (9), `research/machine-learning/scientific-modeling` (7)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/automated-force-field-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 116: - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - 4 source IDs; top source categories: `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (3), `research/statistics/monte-carlo` (3)",
+      "evidence": "line 117: - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - 4 source IDs; top source categories: `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (3), `research/statistics/monte-carlo` (3)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/awh-replay-force-field-optimization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 89: - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - 3 source IDs; top source categories: `research/machine-learning/molecular-modeling` (3), `research/machine-learning/scientific-modeling` (3), `research/molecular-simulation/free-energy` (3)",
+      "evidence": "line 90: - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - 3 source IDs; top source categories: `research/machine-learning/molecular-modeling` (3), `research/machine-learning/scientific-modeling` (3), `research/molecular-simulation/free-energy` (3)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/boltzmann-generators-equilibrium-sampling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 43: - [[wiki/concepts/cdna-display-proteolysis-stability-measurements|cDNA Display Proteolysis Stability Measurements]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)",
+      "evidence": "line 44: - [[wiki/concepts/cdna-display-proteolysis-stability-measurements|cDNA Display Proteolysis Stability Measurements]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/cdna-display-proteolysis-stability-measurements",
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: - [[wiki/concepts/conflict-free-pinn-training|Conflict-Free PINN Training]] - 1 source IDs; top source categories: `research/machine-learning/scientific-modeling` (1)",
+      "evidence": "line 98: - [[wiki/concepts/conflict-free-pinn-training|Conflict-Free PINN Training]] - 1 source IDs; top source categories: `research/machine-learning/scientific-modeling` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/conflict-free-pinn-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 117: - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - 21 source IDs; top source categories: `research/molecular-simulation/free-energy` (14), `research/molecular-simulation/force-fields` (12), `research/computational-drug-discovery` (8)",
+      "evidence": "line 118: - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - 21 source IDs; top source categories: `research/molecular-simulation/free-energy` (14), `research/molecular-simulation/force-fields` (12), `research/computational-drug-discovery` (8)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/cross-domain-validation-problems-in-molecular-simulation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 30: - [[wiki/concepts/cytoskeletal-network-image-analysis|Cytoskeletal Network Image Analysis]] - 6 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (6), `research/computer-vision/biomedical-imaging` (6)",
+      "evidence": "line 31: - [[wiki/concepts/cytoskeletal-network-image-analysis|Cytoskeletal Network Image Analysis]] - 6 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (6), `research/computer-vision/biomedical-imaging` (6)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/cytoskeletal-network-image-analysis",
       "type": "wikilink"
     },
     {
-      "evidence": "line 31: - [[wiki/concepts/cytoskeleton-segmentation-and-tracing|Cytoskeleton Segmentation and Tracing]] - 6 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (6), `research/computer-vision/biomedical-imaging` (6)",
+      "evidence": "line 32: - [[wiki/concepts/cytoskeleton-segmentation-and-tracing|Cytoskeleton Segmentation and Tracing]] - 6 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (6), `research/computer-vision/biomedical-imaging` (6)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/cytoskeleton-segmentation-and-tracing",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis|Deep Learning for Cytoskeleton Image Analysis]] - 8 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (8), `research/bioimage-analysis/filament-segmentation` (6), `research/machine-learning/scientific-modeling` (4)",
+      "evidence": "line 66: - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis|Deep Learning for Cytoskeleton Image Analysis]] - 8 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (8), `research/bioimage-analysis/filament-segmentation` (6), `research/machine-learning/scientific-modeling` (4)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/deep-learning-cytoskeleton-image-analysis",
       "type": "wikilink"
     },
     {
-      "evidence": "line 44: - [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1)",
+      "evidence": "line 45: - [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/double-exponential-potential",
       "type": "wikilink"
     },
     {
-      "evidence": "line 107: - [[wiki/concepts/ensemble-and-force-field-refinement|Ensemble and Force Field Refinement]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/free-energy` (2), `research/molecular-simulation/molecular-dynamics` (1)",
+      "evidence": "line 108: - [[wiki/concepts/ensemble-and-force-field-refinement|Ensemble and Force Field Refinement]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/free-energy` (2), `research/molecular-simulation/molecular-dynamics` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/ensemble-and-force-field-refinement",
       "type": "wikilink"
     },
     {
-      "evidence": "line 60: - [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - 2 source IDs; top source categories: `research/computational-drug-discovery` (2), `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/datasets` (2)",
+      "evidence": "line 61: - [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - 2 source IDs; top source categories: `research/computational-drug-discovery` (2), `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/datasets` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/espaloma-machine-learned-mm-force-fields",
       "type": "wikilink"
     },
     {
-      "evidence": "line 32: - [[wiki/concepts/filament-instance-and-semantic-segmentation|Filament Instance and Semantic Segmentation]] - 3 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (3), `research/computer-vision/biomedical-imaging` (3)",
+      "evidence": "line 33: - [[wiki/concepts/filament-instance-and-semantic-segmentation|Filament Instance and Semantic Segmentation]] - 3 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (3), `research/computer-vision/biomedical-imaging` (3)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/filament-instance-and-semantic-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 108: - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - 6 source IDs; top source categories: `research/molecular-simulation/force-fields` (6), `research/biomolecules/proteins` (3), `research/biomolecules/lipids` (2)",
+      "evidence": "line 109: - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - 6 source IDs; top source categories: `research/molecular-simulation/force-fields` (6), `research/biomolecules/proteins` (3), `research/biomolecules/lipids` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/force-field-training-from-experimental-observables",
       "type": "wikilink"
     },
     {
-      "evidence": "line 109: - [[wiki/concepts/forcebalance|ForceBalance]] - 5 source IDs; top source categories: `research/molecular-simulation/force-fields` (5), `research/computational-drug-discovery` (2), `research/experimental-benchmarking` (2)",
+      "evidence": "line 110: - [[wiki/concepts/forcebalance|ForceBalance]] - 5 source IDs; top source categories: `research/molecular-simulation/force-fields` (5), `research/computational-drug-discovery` (2), `research/experimental-benchmarking` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/forcebalance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 118: - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - 16 source IDs; top source categories: `research/molecular-simulation/free-energy` (16), `research/adaptive-sampling` (7), `research/computational-drug-discovery` (7)",
+      "evidence": "line 119: - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - 16 source IDs; top source categories: `research/molecular-simulation/free-energy` (16), `research/adaptive-sampling` (7), `research/computational-drug-discovery` (7)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/free-energy-estimation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 110: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - 4 source IDs; top source categories: `research/molecular-simulation/force-fields` (4), `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (1)",
+      "evidence": "line 111: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - 4 source IDs; top source categories: `research/molecular-simulation/force-fields` (4), `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
       "type": "wikilink"
     },
     {
-      "evidence": "line 45: - [[wiki/concepts/garnet-force-field|Garnet Force Field]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1)",
+      "evidence": "line 46: - [[wiki/concepts/garnet-force-field|Garnet Force Field]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/garnet-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 111: - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - 6 source IDs; top source categories: `research/molecular-simulation/force-fields` (6), `research/machine-learning/scientific-modeling` (4), `research/machine-learning/molecular-modeling` (3)",
+      "evidence": "line 112: - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - 6 source IDs; top source categories: `research/molecular-simulation/force-fields` (6), `research/machine-learning/scientific-modeling` (4), `research/machine-learning/molecular-modeling` (3)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/garnet-functional-form-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 90: - [[wiki/concepts/gnn-to-symbolic-regression-potentials|GNN to Symbolic Regression Potentials]] - 1 source IDs; top source categories: `research/machine-learning/molecular-modeling` (1), `research/machine-learning/scientific-modeling` (1), `research/molecular-simulation/force-fields` (1)",
+      "evidence": "line 91: - [[wiki/concepts/gnn-to-symbolic-regression-potentials|GNN to Symbolic Regression Potentials]] - 1 source IDs; top source categories: `research/machine-learning/molecular-modeling` (1), `research/machine-learning/scientific-modeling` (1), `research/molecular-simulation/force-fields` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/gnn-to-symbolic-regression-potentials",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration|GPU MD Neighbor and Nonbonded Acceleration]] - 2 source IDs; top source categories: `research/high-performance-computing` (2), `research/molecular-simulation/molecular-dynamics` (2)",
+      "evidence": "line 78: - [[wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration|GPU MD Neighbor and Nonbonded Acceleration]] - 2 source IDs; top source categories: `research/high-performance-computing` (2), `research/molecular-simulation/molecular-dynamics` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration",
       "type": "wikilink"
     },
     {
-      "evidence": "line 46: - [[wiki/concepts/human-domainome-variant-stability-mapping|Human Domainome Variant-Stability Mapping]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/data-management` (1), `research/experimental-benchmarking` (1)",
+      "evidence": "line 47: - [[wiki/concepts/human-domainome-variant-stability-mapping|Human Domainome Variant-Stability Mapping]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/data-management` (1), `research/experimental-benchmarking` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/human-domainome-variant-stability-mapping",
       "type": "wikilink"
@@ -15553,49 +15943,49 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]] - 3 source IDs; top source categories: `research/experimental-benchmarking` (3), `research/machine-learning/molecular-modeling` (3), `research/molecular-simulation/datasets` (3)",
+      "evidence": "line 73: - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]] - 3 source IDs; top source categories: `research/experimental-benchmarking` (3), `research/machine-learning/molecular-modeling` (3), `research/molecular-simulation/datasets` (3)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/machine-learned-interatomic-potential-foundation-models",
       "type": "wikilink"
     },
     {
-      "evidence": "line 91: - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - 7 source IDs; top source categories: `research/machine-learning/molecular-modeling` (7), `research/molecular-simulation/datasets` (7), `research/molecular-simulation/force-fields` (7)",
+      "evidence": "line 92: - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - 7 source IDs; top source categories: `research/machine-learning/molecular-modeling` (7), `research/molecular-simulation/datasets` (7), `research/molecular-simulation/force-fields` (7)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/machine-learning-potential-datasets",
       "type": "wikilink"
     },
     {
-      "evidence": "line 119: - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - 2 source IDs; top source categories: `research/molecular-simulation/free-energy` (2), `research/statistics/monte-carlo` (2)",
+      "evidence": "line 120: - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - 2 source IDs; top source categories: `research/molecular-simulation/free-energy` (2), `research/statistics/monte-carlo` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/mbar-with-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 125: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2)",
+      "evidence": "line 126: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/md-pressure-and-stress-tensor-calculation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 102: - [[wiki/concepts/mixture-of-experts-modeling|Mixture-of-Experts Modeling]] - 1 source IDs; top source categories: `research/machine-learning/statistical-modeling` (1)",
+      "evidence": "line 103: - [[wiki/concepts/mixture-of-experts-modeling|Mixture-of-Experts Modeling]] - 1 source IDs; top source categories: `research/machine-learning/statistical-modeling` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/mixture-of-experts-modeling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 61: - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]] - 2 source IDs; top source categories: `research/computational-drug-discovery` (2), `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2)",
+      "evidence": "line 62: - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]] - 2 source IDs; top source categories: `research/computational-drug-discovery` (2), `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting",
       "type": "wikilink"
     },
     {
-      "evidence": "line 126: - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - 1 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (1)",
+      "evidence": "line 127: - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - 1 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/molecular-dynamics-constraint-solvers",
       "type": "wikilink"
     },
     {
-      "evidence": "line 73: - [[wiki/concepts/molecular-response-property-foundation-models|Molecular Response-Property Foundation Models]] - 1 source IDs; top source categories: `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1), `research/molecular-simulation/datasets` (1)",
+      "evidence": "line 74: - [[wiki/concepts/molecular-response-property-foundation-models|Molecular Response-Property Foundation Models]] - 1 source IDs; top source categories: `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1), `research/molecular-simulation/datasets` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/molecular-response-property-foundation-models",
       "type": "wikilink"
@@ -15607,13 +15997,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 120: - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - 1 source IDs; top source categories: `research/molecular-simulation/free-energy` (1), `research/statistics/monte-carlo` (1)",
+      "evidence": "line 121: - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - 1 source IDs; top source categories: `research/molecular-simulation/free-energy` (1), `research/statistics/monte-carlo` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
     },
     {
-      "evidence": "line 66: - [[wiki/concepts/neuronal-templated-tau-assembly-systems|Neuronal Templated Tau Assembly Systems]] - 6 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (6), `research/bioimage-analysis/filament-segmentation` (5), `research/biomolecules/proteins` (1)",
+      "evidence": "line 67: - [[wiki/concepts/neuronal-templated-tau-assembly-systems|Neuronal Templated Tau Assembly Systems]] - 6 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (6), `research/bioimage-analysis/filament-segmentation` (5), `research/biomolecules/proteins` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/neuronal-templated-tau-assembly-systems",
       "type": "wikilink"
@@ -15631,7 +16021,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 112: - [[wiki/concepts/opc-water-model|OPC Water Model]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2)",
+      "evidence": "line 113: - [[wiki/concepts/opc-water-model|OPC Water Model]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/opc-water-model",
       "type": "wikilink"
@@ -15643,49 +16033,49 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 39: - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data|Overlay Databanks for Biomolecular Simulation Data]] - 2 source IDs; top source categories: `research/biomolecules/lipids` (2), `research/data-management` (2), `research/molecular-simulation/datasets` (2)",
+      "evidence": "line 40: - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data|Overlay Databanks for Biomolecular Simulation Data]] - 2 source IDs; top source categories: `research/biomolecules/lipids` (2), `research/data-management` (2), `research/molecular-simulation/datasets` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/overlay-databanks-for-biomolecular-simulation-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 127: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2), `research/high-performance-computing` (1)",
+      "evidence": "line 128: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2), `research/high-performance-computing` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 81: - [[wiki/concepts/persistent-llm-wiki|Persistent LLM Wiki]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
+      "evidence": "line 82: - [[wiki/concepts/persistent-llm-wiki|Persistent LLM Wiki]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/persistent-llm-wiki",
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/concepts/promptable-segmentation-foundation-models|Promptable Segmentation Foundation Models]] - 1 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (1), `research/data-management` (1), `research/experimental-benchmarking` (1)",
+      "evidence": "line 68: - [[wiki/concepts/promptable-segmentation-foundation-models|Promptable Segmentation Foundation Models]] - 1 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (1), `research/data-management` (1), `research/experimental-benchmarking` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/promptable-segmentation-foundation-models",
       "type": "wikilink"
     },
     {
-      "evidence": "line 47: - [[wiki/concepts/protein-energy-landscape-profiling|Protein Energy Landscape Profiling]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)",
+      "evidence": "line 48: - [[wiki/concepts/protein-energy-landscape-profiling|Protein Energy Landscape Profiling]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/protein-energy-landscape-profiling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 48: - [[wiki/concepts/protein-force-field-benchmark-datasets|Protein Force Field Benchmark Datasets]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)",
+      "evidence": "line 49: - [[wiki/concepts/protein-force-field-benchmark-datasets|Protein Force Field Benchmark Datasets]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/protein-force-field-benchmark-datasets",
       "type": "wikilink"
     },
     {
-      "evidence": "line 82: - [[wiki/concepts/raw-wiki-schema-layers|Raw, Wiki, and Schema Layers]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
+      "evidence": "line 83: - [[wiki/concepts/raw-wiki-schema-layers|Raw, Wiki, and Schema Layers]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/raw-wiki-schema-layers",
       "type": "wikilink"
     },
     {
-      "evidence": "line 49: - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - 5 source IDs; top source categories: `research/biomolecules/proteins` (5), `research/experimental-benchmarking` (5), `research/computational-drug-discovery` (4)",
+      "evidence": "line 50: - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - 5 source IDs; top source categories: `research/biomolecules/proteins` (5), `research/experimental-benchmarking` (5), `research/computational-drug-discovery` (4)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/relative-binding-free-energy-benchmarking",
       "type": "wikilink"
@@ -15697,55 +16087,55 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 55: - [[wiki/concepts/rna-force-field-limitations|RNA Force Field Limitations]] - 2 source IDs; top source categories: `research/biomolecules/rna` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)",
+      "evidence": "line 56: - [[wiki/concepts/rna-force-field-limitations|RNA Force Field Limitations]] - 2 source IDs; top source categories: `research/biomolecules/rna` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/rna-force-field-limitations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 56: - [[wiki/concepts/rna-molecular-dynamics-simulations|RNA Molecular Dynamics Simulations]] - 2 source IDs; top source categories: `research/biomolecules/rna` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)",
+      "evidence": "line 57: - [[wiki/concepts/rna-molecular-dynamics-simulations|RNA Molecular Dynamics Simulations]] - 2 source IDs; top source categories: `research/biomolecules/rna` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/rna-molecular-dynamics-simulations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 68: - [[wiki/concepts/self-configuring-u-net-medical-image-segmentation|Self-Configuring U-Net Medical Image Segmentation]] - 1 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (1), `research/experimental-benchmarking` (1), `research/machine-learning/scientific-modeling` (1)",
+      "evidence": "line 69: - [[wiki/concepts/self-configuring-u-net-medical-image-segmentation|Self-Configuring U-Net Medical Image Segmentation]] - 1 source IDs; top source categories: `research/computer-vision/biomedical-imaging` (1), `research/experimental-benchmarking` (1), `research/machine-learning/scientific-modeling` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/self-configuring-u-net-medical-image-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 121: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - 1 source IDs; top source categories: `research/molecular-simulation/free-energy` (1)",
+      "evidence": "line 122: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - 1 source IDs; top source categories: `research/molecular-simulation/free-energy` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/solvation-free-energy-decoupling-in-lammps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/concepts/source-ingestion|Source Ingestion]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
+      "evidence": "line 84: - [[wiki/concepts/source-ingestion|Source Ingestion]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/source-ingestion",
       "type": "wikilink"
     },
     {
-      "evidence": "line 92: - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]] - 2 source IDs; top source categories: `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)",
+      "evidence": "line 93: - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]] - 2 source IDs; top source categories: `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/stability-aware-mlff-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 33: - [[wiki/concepts/stretching-open-active-contours|Stretching Open Active Contours]] - 3 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (3), `research/computer-vision/biomedical-imaging` (3)",
+      "evidence": "line 34: - [[wiki/concepts/stretching-open-active-contours|Stretching Open Active Contours]] - 3 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (3), `research/computer-vision/biomedical-imaging` (3)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/stretching-open-active-contours",
       "type": "wikilink"
     },
     {
-      "evidence": "line 50: - [[wiki/concepts/super-resolution-imaging-of-tau-pathology|Super-Resolution Imaging of Tau Pathology]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/computer-vision/biomedical-imaging` (2)",
+      "evidence": "line 51: - [[wiki/concepts/super-resolution-imaging-of-tau-pathology|Super-Resolution Imaging of Tau Pathology]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/computer-vision/biomedical-imaging` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/super-resolution-imaging-of-tau-pathology",
       "type": "wikilink"
     },
     {
-      "evidence": "line 98: - [[wiki/concepts/symbolic-regression-interatomic-potentials|Symbolic Regression Interatomic Potentials]] - 2 source IDs; top source categories: `research/machine-learning/scientific-modeling` (2), `research/molecular-simulation/force-fields` (2), `research/machine-learning/molecular-modeling` (1)",
+      "evidence": "line 99: - [[wiki/concepts/symbolic-regression-interatomic-potentials|Symbolic Regression Interatomic Potentials]] - 2 source IDs; top source categories: `research/machine-learning/scientific-modeling` (2), `research/molecular-simulation/force-fields` (2), `research/machine-learning/molecular-modeling` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/symbolic-regression-interatomic-potentials",
       "type": "wikilink"
@@ -15757,19 +16147,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 34: - [[wiki/concepts/topology-aware-fiber-network-reconstruction|Topology-Aware Fiber Network Reconstruction]] - 2 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (2), `research/computer-vision/biomedical-imaging` (2)",
+      "evidence": "line 27: - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]] - 1 source IDs; top source categories: `research/adaptive-sampling` (1), `research/molecular-simulation/force-fields` (1), `research/molecular-simulation/free-energy` (1)",
+      "source": "wiki/dashboards/concepts-by-source-cluster",
+      "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 35: - [[wiki/concepts/topology-aware-fiber-network-reconstruction|Topology-Aware Fiber Network Reconstruction]] - 2 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (2), `research/computer-vision/biomedical-imaging` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/topology-aware-fiber-network-reconstruction",
       "type": "wikilink"
     },
     {
-      "evidence": "line 35: - [[wiki/concepts/topology-aware-tubular-structure-segmentation|Topology-Aware Tubular Structure Segmentation]] - 2 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (2), `research/computer-vision/biomedical-imaging` (2), `research/machine-learning/scientific-modeling` (2)",
+      "evidence": "line 36: - [[wiki/concepts/topology-aware-tubular-structure-segmentation|Topology-Aware Tubular Structure Segmentation]] - 2 source IDs; top source categories: `research/bioimage-analysis/filament-segmentation` (2), `research/computer-vision/biomedical-imaging` (2), `research/machine-learning/scientific-modeling` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/topology-aware-tubular-structure-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/concepts/transferable-and-scalable-boltzmann-generators|Transferable and Scalable Boltzmann Generators]] - 2 source IDs; top source categories: `research/machine-learning/molecular-modeling` (2), `research/machine-learning/scientific-modeling` (2), `research/molecular-simulation/free-energy` (2)",
+      "evidence": "line 94: - [[wiki/concepts/transferable-and-scalable-boltzmann-generators|Transferable and Scalable Boltzmann Generators]] - 2 source IDs; top source categories: `research/machine-learning/molecular-modeling` (2), `research/machine-learning/scientific-modeling` (2), `research/molecular-simulation/free-energy` (2)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/transferable-and-scalable-boltzmann-generators",
       "type": "wikilink"
@@ -15781,19 +16177,19 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 51: - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/biomolecules/rna` (1), `research/experimental-benchmarking` (1)",
+      "evidence": "line 52: - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/biomolecules/rna` (1), `research/experimental-benchmarking` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/ubio-molfm-biological-molecular-foundation-model",
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/concepts/wiki-index-and-log|Wiki Index and Log]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
+      "evidence": "line 85: - [[wiki/concepts/wiki-index-and-log|Wiki Index and Log]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/wiki-index-and-log",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/concepts/wiki-linting|Wiki Linting]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
+      "evidence": "line 86: - [[wiki/concepts/wiki-linting|Wiki Linting]] - 2 source IDs; top source categories: `research/llm-wiki/design` (2), `admin/wiki-governance` (1), `research/llm-wiki/architecture` (1)",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/concepts/wiki-linting",
       "type": "wikilink"
@@ -15811,343 +16207,343 @@
       "type": "related"
     },
     {
-      "evidence": "line 131: ### [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|SRC-0001]]",
+      "evidence": "line 132: ### [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|SRC-0001]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0001-karpathy-llm-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 139: ### [[wiki/sources/SRC-0002-project-design-note|SRC-0002]]",
+      "evidence": "line 140: ### [[wiki/sources/SRC-0002-project-design-note|SRC-0002]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0002-project-design-note",
       "type": "wikilink"
     },
     {
-      "evidence": "line 152: ### [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|SRC-0003]]",
+      "evidence": "line 153: ### [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|SRC-0003]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "type": "wikilink"
     },
     {
-      "evidence": "line 160: ### [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|SRC-0004]]",
+      "evidence": "line 161: ### [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|SRC-0004]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 167: ### [[wiki/sources/SRC-0005-times-square-sampling-free-energy|SRC-0005]]",
+      "evidence": "line 168: ### [[wiki/sources/SRC-0005-times-square-sampling-free-energy|SRC-0005]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0005-times-square-sampling-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 177: ### [[wiki/sources/SRC-0006-times-square-sampling-supplement|SRC-0006]]",
+      "evidence": "line 178: ### [[wiki/sources/SRC-0006-times-square-sampling-supplement|SRC-0006]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0006-times-square-sampling-supplement",
       "type": "wikilink"
     },
     {
-      "evidence": "line 187: ### [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|SRC-0007]]",
+      "evidence": "line 188: ### [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|SRC-0007]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh",
       "type": "wikilink"
     },
     {
-      "evidence": "line 194: ### [[wiki/sources/SRC-0008-awh-free-energy-landscapes|SRC-0008]]",
+      "evidence": "line 195: ### [[wiki/sources/SRC-0008-awh-free-energy-landscapes|SRC-0008]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0008-awh-free-energy-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 201: ### [[wiki/sources/SRC-0009-awh-alchemical-free-energy|SRC-0009]]",
+      "evidence": "line 202: ### [[wiki/sources/SRC-0009-awh-alchemical-free-energy|SRC-0009]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0009-awh-alchemical-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 208: ### [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|SRC-0010]]",
+      "evidence": "line 209: ### [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|SRC-0010]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0010-rethinking-metadynamics-opes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 214: ### [[wiki/sources/SRC-0011-opes-supporting-information|SRC-0011]]",
+      "evidence": "line 215: ### [[wiki/sources/SRC-0011-opes-supporting-information|SRC-0011]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0011-opes-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 219: ### [[wiki/sources/SRC-0012-mbar-configuration-mapping|SRC-0012]]",
+      "evidence": "line 220: ### [[wiki/sources/SRC-0012-mbar-configuration-mapping|SRC-0012]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0012-mbar-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 224: ### [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|SRC-0013]]",
+      "evidence": "line 225: ### [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|SRC-0013]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0013-ladybugs-lambda-dynamics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 230: ### [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|SRC-0014]]",
+      "evidence": "line 231: ### [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|SRC-0014]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 238: ### [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|SRC-0016]]",
+      "evidence": "line 239: ### [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|SRC-0016]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies",
       "type": "wikilink"
     },
     {
-      "evidence": "line 244: ### [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|SRC-0017]]",
+      "evidence": "line 245: ### [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|SRC-0017]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials",
       "type": "wikilink"
     },
     {
-      "evidence": "line 250: ### [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|SRC-0018]]",
+      "evidence": "line 251: ### [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|SRC-0018]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
     },
     {
-      "evidence": "line 257: ### [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|SRC-0019]]",
+      "evidence": "line 259: ### [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|SRC-0019]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories",
       "type": "wikilink"
     },
     {
-      "evidence": "line 264: ### [[wiki/sources/SRC-0020-mdrefine-supplementary-material|SRC-0020]]",
+      "evidence": "line 266: ### [[wiki/sources/SRC-0020-mdrefine-supplementary-material|SRC-0020]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0020-mdrefine-supplementary-material",
       "type": "wikilink"
     },
     {
-      "evidence": "line 270: ### [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|SRC-0021]]",
+      "evidence": "line 272: ### [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|SRC-0021]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 278: ### [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
+      "evidence": "line 280: ### [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 286: ### [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|SRC-0024]]",
+      "evidence": "line 288: ### [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|SRC-0024]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 293: ### [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
+      "evidence": "line 295: ### [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach",
       "type": "wikilink"
     },
     {
-      "evidence": "line 300: ### [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|SRC-0027]]",
+      "evidence": "line 302: ### [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|SRC-0027]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0027-building-water-models-different-approach-opc",
       "type": "wikilink"
     },
     {
-      "evidence": "line 305: ### [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|SRC-0029]]",
+      "evidence": "line 307: ### [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|SRC-0029]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 314: ### [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|SRC-0030]]",
+      "evidence": "line 316: ### [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|SRC-0030]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures",
       "type": "wikilink"
     },
     {
-      "evidence": "line 323: ### [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|SRC-0031]]",
+      "evidence": "line 325: ### [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|SRC-0031]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint",
       "type": "wikilink"
     },
     {
-      "evidence": "line 330: ### [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|SRC-0032]]",
+      "evidence": "line 332: ### [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|SRC-0032]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for",
       "type": "wikilink"
     },
     {
-      "evidence": "line 336: ### [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|SRC-0033]]",
+      "evidence": "line 338: ### [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|SRC-0033]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection",
       "type": "wikilink"
     },
     {
-      "evidence": "line 341: ### [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|SRC-0034]]",
+      "evidence": "line 343: ### [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|SRC-0034]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d",
       "type": "wikilink"
     },
     {
-      "evidence": "line 348: ### [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SRC-0035]]",
+      "evidence": "line 350: ### [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SRC-0035]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 355: ### [[wiki/sources/SRC-0037-transferable-boltzmann-generators|SRC-0037]]",
+      "evidence": "line 357: ### [[wiki/sources/SRC-0037-transferable-boltzmann-generators|SRC-0037]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0037-transferable-boltzmann-generators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 361: ### [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|SRC-0039]]",
+      "evidence": "line 363: ### [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|SRC-0039]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large",
       "type": "wikilink"
     },
     {
-      "evidence": "line 367: ### [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|SRC-0040]]",
+      "evidence": "line 369: ### [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|SRC-0040]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to",
       "type": "wikilink"
     },
     {
-      "evidence": "line 373: ### [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
+      "evidence": "line 375: ### [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body",
       "type": "wikilink"
     },
     {
-      "evidence": "line 378: ### [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
+      "evidence": "line 380: ### [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and",
       "type": "wikilink"
     },
     {
-      "evidence": "line 384: ### [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|SRC-0043]]",
+      "evidence": "line 386: ### [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|SRC-0043]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 389: ### [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SRC-0044]]",
+      "evidence": "line 391: ### [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SRC-0044]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and",
       "type": "wikilink"
     },
     {
-      "evidence": "line 395: ### [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|SRC-0045]]",
+      "evidence": "line 397: ### [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|SRC-0045]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 400: ### [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]",
+      "evidence": "line 402: ### [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein",
       "type": "wikilink"
     },
     {
-      "evidence": "line 406: ### [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|SRC-0047]]",
+      "evidence": "line 408: ### [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|SRC-0047]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using",
       "type": "wikilink"
     },
     {
-      "evidence": "line 411: ### [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|SRC-0055]]",
+      "evidence": "line 413: ### [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|SRC-0055]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 416: ### [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|SRC-0056]]",
+      "evidence": "line 418: ### [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|SRC-0056]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 421: ### [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|SRC-0059]]",
+      "evidence": "line 423: ### [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|SRC-0059]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential",
       "type": "wikilink"
     },
     {
-      "evidence": "line 428: ### [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|SRC-0060]]",
+      "evidence": "line 430: ### [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|SRC-0060]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model",
       "type": "wikilink"
     },
     {
-      "evidence": "line 437: ### [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|SRC-0061]]",
+      "evidence": "line 439: ### [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|SRC-0061]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version",
       "type": "wikilink"
     },
     {
-      "evidence": "line 443: ### [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|SRC-0062]]",
+      "evidence": "line 445: ### [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|SRC-0062]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 448: ### [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|SRC-0064]]",
+      "evidence": "line 450: ### [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|SRC-0064]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly",
       "type": "wikilink"
     },
     {
-      "evidence": "line 453: ### [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|SRC-0065]]",
+      "evidence": "line 455: ### [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|SRC-0065]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities",
       "type": "wikilink"
     },
     {
-      "evidence": "line 459: ### [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|SRC-0066]]",
+      "evidence": "line 461: ### [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|SRC-0066]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 465: ### [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|SRC-0067]]",
+      "evidence": "line 467: ### [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|SRC-0067]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design",
       "type": "wikilink"
     },
     {
-      "evidence": "line 470: ### [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|SRC-0068]]",
+      "evidence": "line 472: ### [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|SRC-0068]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net",
       "type": "wikilink"
     },
     {
-      "evidence": "line 475: ### [[wiki/sources/SRC-0069-segment-anything|SRC-0069]]",
+      "evidence": "line 477: ### [[wiki/sources/SRC-0069-segment-anything|SRC-0069]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0069-segment-anything",
       "type": "wikilink"
     },
     {
-      "evidence": "line 480: ### [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
+      "evidence": "line 482: ### [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 485: ### [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|SRC-0071]]",
+      "evidence": "line 487: ### [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|SRC-0071]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains",
       "type": "wikilink"
     },
     {
-      "evidence": "line 490: ### [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]",
+      "evidence": "line 492: ### [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large",
       "type": "wikilink"
     },
     {
-      "evidence": "line 497: ### [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|SRC-0073]]",
+      "evidence": "line 499: ### [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|SRC-0073]]",
       "source": "wiki/dashboards/concepts-by-source-cluster",
       "target": "wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force",
       "type": "wikilink"
@@ -16177,7 +16573,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 21: - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - score `8`; related links `4`; source IDs `4`",
+      "evidence": "line 21: - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - score `9`; related links `5`; source IDs `4`",
       "source": "wiki/dashboards/high-connectivity-concepts",
       "target": "wiki/concepts/awh-replay-force-field-optimization",
       "type": "wikilink"
@@ -17083,19 +17479,19 @@
       "type": "related"
     },
     {
-      "evidence": "line 51: - [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] (`SRC-0001`)",
+      "evidence": "line 55: - [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] (`SRC-0001`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0001-karpathy-llm-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 52: - [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] (`SRC-0002`)",
+      "evidence": "line 56: - [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] (`SRC-0002`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0002-project-design-note",
       "type": "wikilink"
     },
     {
-      "evidence": "line 53: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] (`SRC-0003`)",
+      "evidence": "line 57: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] (`SRC-0003`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "type": "wikilink"
@@ -17107,199 +17503,199 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 54: - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] (`SRC-0005`)",
+      "evidence": "line 58: - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] (`SRC-0005`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0005-times-square-sampling-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 55: - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] (`SRC-0006`)",
+      "evidence": "line 59: - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] (`SRC-0006`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0006-times-square-sampling-supplement",
       "type": "wikilink"
     },
     {
-      "evidence": "line 56: - [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]] (`SRC-0007`)",
+      "evidence": "line 60: - [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]] (`SRC-0007`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh",
       "type": "wikilink"
     },
     {
-      "evidence": "line 57: - [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]] (`SRC-0008`)",
+      "evidence": "line 61: - [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]] (`SRC-0008`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0008-awh-free-energy-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 58: - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] (`SRC-0009`)",
+      "evidence": "line 62: - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] (`SRC-0009`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0009-awh-alchemical-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 59: - [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]] (`SRC-0010`)",
+      "evidence": "line 63: - [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]] (`SRC-0010`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0010-rethinking-metadynamics-opes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 60: - [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]] (`SRC-0011`)",
+      "evidence": "line 64: - [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]] (`SRC-0011`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0011-opes-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 61: - [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] (`SRC-0012`)",
+      "evidence": "line 65: - [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] (`SRC-0012`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0012-mbar-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 62: - [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] (`SRC-0013`)",
+      "evidence": "line 66: - [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] (`SRC-0013`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0013-ladybugs-lambda-dynamics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 63: - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] (`SRC-0014`)",
+      "evidence": "line 67: - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] (`SRC-0014`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 64: - [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] (`SRC-0015`)",
+      "evidence": "line 68: - [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] (`SRC-0015`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] (`SRC-0016`)",
+      "evidence": "line 69: - [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] (`SRC-0016`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies",
       "type": "wikilink"
     },
     {
-      "evidence": "line 66: - [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] (`SRC-0017`)",
+      "evidence": "line 70: - [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] (`SRC-0017`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials",
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] (`SRC-0018`)",
+      "evidence": "line 71: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] (`SRC-0018`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
     },
     {
-      "evidence": "line 68: - [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] (`SRC-0019`)",
+      "evidence": "line 72: - [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] (`SRC-0019`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories",
       "type": "wikilink"
     },
     {
-      "evidence": "line 69: - [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] (`SRC-0020`)",
+      "evidence": "line 73: - [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] (`SRC-0020`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0020-mdrefine-supplementary-material",
       "type": "wikilink"
     },
     {
-      "evidence": "line 70: - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] (`SRC-0021`)",
+      "evidence": "line 74: - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] (`SRC-0021`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 71: - [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] (`SRC-0022`)",
+      "evidence": "line 75: - [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] (`SRC-0022`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]] (`SRC-0023`)",
+      "evidence": "line 76: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]] (`SRC-0023`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 73: - [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] (`SRC-0024`)",
+      "evidence": "line 77: - [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] (`SRC-0024`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 74: - [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] (`SRC-0025`)",
+      "evidence": "line 78: - [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] (`SRC-0025`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach",
       "type": "wikilink"
     },
     {
-      "evidence": "line 75: - [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] (`SRC-0026`)",
+      "evidence": "line 79: - [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] (`SRC-0026`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 76: - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] (`SRC-0027`)",
+      "evidence": "line 80: - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] (`SRC-0027`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0027-building-water-models-different-approach-opc",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] (`SRC-0028`)",
+      "evidence": "line 81: - [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] (`SRC-0028`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 78: - [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] (`SRC-0029`)",
+      "evidence": "line 82: - [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] (`SRC-0029`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 79: - [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] (`SRC-0030`)",
+      "evidence": "line 83: - [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] (`SRC-0030`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures",
       "type": "wikilink"
     },
     {
-      "evidence": "line 80: - [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] (`SRC-0031`)",
+      "evidence": "line 84: - [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] (`SRC-0031`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint",
       "type": "wikilink"
     },
     {
-      "evidence": "line 81: - [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]] (`SRC-0032`)",
+      "evidence": "line 85: - [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]] (`SRC-0032`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for",
       "type": "wikilink"
     },
     {
-      "evidence": "line 82: - [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] (`SRC-0033`)",
+      "evidence": "line 86: - [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] (`SRC-0033`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] (`SRC-0034`)",
+      "evidence": "line 87: - [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] (`SRC-0034`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d",
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] (`SRC-0035`)",
+      "evidence": "line 88: - [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] (`SRC-0035`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] (`SRC-0036`)",
+      "evidence": "line 89: - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] (`SRC-0036`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed",
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] (`SRC-0037`)",
+      "evidence": "line 90: - [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] (`SRC-0037`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0037-transferable-boltzmann-generators",
       "type": "wikilink"
@@ -17311,37 +17707,37 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 87: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] (`SRC-0039`)",
+      "evidence": "line 91: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] (`SRC-0039`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large",
       "type": "wikilink"
     },
     {
-      "evidence": "line 88: - [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] (`SRC-0040`)",
+      "evidence": "line 92: - [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] (`SRC-0040`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to",
       "type": "wikilink"
     },
     {
-      "evidence": "line 89: - [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] (`SRC-0041`)",
+      "evidence": "line 93: - [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] (`SRC-0041`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body",
       "type": "wikilink"
     },
     {
-      "evidence": "line 90: - [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] (`SRC-0042`)",
+      "evidence": "line 94: - [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] (`SRC-0042`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and",
       "type": "wikilink"
     },
     {
-      "evidence": "line 91: - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] (`SRC-0043`)",
+      "evidence": "line 95: - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] (`SRC-0043`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 92: - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] (`SRC-0044`)",
+      "evidence": "line 96: - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] (`SRC-0044`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and",
       "type": "wikilink"
@@ -17353,7 +17749,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] (`SRC-0046`)",
+      "evidence": "line 97: - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] (`SRC-0046`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein",
       "type": "wikilink"
@@ -17401,31 +17797,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] (`SRC-0054`)",
+      "evidence": "line 98: - [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] (`SRC-0054`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] (`SRC-0055`)",
+      "evidence": "line 99: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] (`SRC-0055`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 96: - [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] (`SRC-0056`)",
+      "evidence": "line 100: - [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] (`SRC-0056`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: - [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] (`SRC-0057`)",
+      "evidence": "line 101: - [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] (`SRC-0057`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules",
       "type": "wikilink"
     },
     {
-      "evidence": "line 98: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] (`SRC-0058`)",
+      "evidence": "line 102: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] (`SRC-0058`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven",
       "type": "wikilink"
@@ -17449,31 +17845,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 99: - [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] (`SRC-0062`)",
+      "evidence": "line 103: - [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] (`SRC-0062`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 100: - [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] (`SRC-0063`)",
+      "evidence": "line 104: - [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] (`SRC-0063`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease",
       "type": "wikilink"
     },
     {
-      "evidence": "line 101: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] (`SRC-0064`)",
+      "evidence": "line 105: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] (`SRC-0064`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly",
       "type": "wikilink"
     },
     {
-      "evidence": "line 102: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] (`SRC-0065`)",
+      "evidence": "line 106: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] (`SRC-0065`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities",
       "type": "wikilink"
     },
     {
-      "evidence": "line 103: - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] (`SRC-0066`)",
+      "evidence": "line 107: - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] (`SRC-0066`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps",
       "type": "wikilink"
@@ -17485,7 +17881,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 104: - [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] (`SRC-0068`)",
+      "evidence": "line 108: - [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] (`SRC-0068`)",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net",
       "type": "wikilink"
@@ -17494,6 +17890,30 @@
       "evidence": "line 43: - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] (`SRC-0069`) - citation_match_status is partial",
       "source": "wiki/dashboards/source-migration-status",
       "target": "wiki/sources/SRC-0069-segment-anything",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 44: - [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|Mega-scale Protein Folding Stability]] (`SRC-0070`) - citation_match_status is partial",
+      "source": "wiki/dashboards/source-migration-status",
+      "target": "wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 45: - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] (`SRC-0071`) - citation_match_status is partial",
+      "source": "wiki/dashboards/source-migration-status",
+      "target": "wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 46: - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]] (`SRC-0072`) - citation_match_status is partial",
+      "source": "wiki/dashboards/source-migration-status",
+      "target": "wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 47: - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]] (`SRC-0073`) - citation_match_status is partial",
+      "source": "wiki/dashboards/source-migration-status",
+      "target": "wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force",
       "type": "wikilink"
     },
     {
@@ -35767,6 +36187,21 @@
     },
     {
       "categories": [
+        "research/adaptive-sampling",
+        "research/molecular-simulation/force-fields",
+        "research/molecular-simulation/free-energy",
+        "research/scientific-computing"
+      ],
+      "id": "wiki/answers/ffrefine-current-implementation-status",
+      "label": "What does the FFRefine codebase currently implement, and what remains unvalidated?",
+      "path": "wiki/answers/ffrefine-current-implementation-status.md",
+      "sources": [
+        "SRC-0018"
+      ],
+      "type": "answer"
+    },
+    {
+      "categories": [
         "research/machine-learning/molecular-modeling",
         "research/machine-learning/scientific-modeling",
         "research/molecular-simulation/force-fields",
@@ -35873,6 +36308,23 @@
         "SRC-0064",
         "SRC-0068",
         "SRC-0069"
+      ],
+      "type": "answer"
+    },
+    {
+      "categories": [
+        "research/molecular-simulation/force-fields",
+        "research/molecular-simulation/free-energy",
+        "research/scientific-computing"
+      ],
+      "id": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
+      "label": "How should force-field optimization make initially disabled Lennard-Jones parameters trainable, and are exactly zero atomic charges affected in the same way?",
+      "path": "wiki/answers/training-initially-disabled-lennard-jones-parameters.md",
+      "sources": [
+        "SRC-0016",
+        "SRC-0018",
+        "SRC-0025",
+        "SRC-0027"
       ],
       "type": "answer"
     },
@@ -37696,6 +38148,19 @@
       "sources": [
         "SRC-0005",
         "SRC-0006"
+      ],
+      "type": "concept"
+    },
+    {
+      "categories": [
+        "research/molecular-simulation/force-fields",
+        "research/scientific-computing"
+      ],
+      "id": "wiki/concepts/tolerance-normalized-multi-observable-losses",
+      "label": "Tolerance-Normalized Multi-Observable Losses",
+      "path": "wiki/concepts/tolerance-normalized-multi-observable-losses.md",
+      "sources": [
+        "SRC-0018"
       ],
       "type": "concept"
     },

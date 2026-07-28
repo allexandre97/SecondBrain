@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-07-07
+updated: 2026-07-28
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -27,6 +27,8 @@ related:
   - "[[wiki/concepts/tss-implementation-patterns]]"
   - "[[wiki/concepts/multistate-bennett-acceptance-ratio]]"
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
+  - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
+  - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
 sources:
@@ -51,10 +53,12 @@ wiki_pages_used:
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
   - "[[wiki/answers/sample-bias-reweighting-method-comparison]]"
+  - "[[wiki/answers/ffrefine-current-implementation-status]]"
 raw_sources_consulted:
   - raw/sources/SRC-0018-force-field-optimization-via-awh-gradients.pdf
 wiki_pages_updated:
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
+  - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients.md --depth 1"
 ---
@@ -92,6 +96,8 @@ All three routes should share the following internal layers.
 ### 1. Target and loss layer
 
 Represent each training objective as a target object with a prediction, reference value, tolerance, and priority weight. SRC-0018 already supports thermodynamic-cycle targets and state-observable targets, then combines them through tolerance-normalized Huber losses rather than raw-unit residuals. [SRC-0018]
+
+When one objective contains target families with very different counts, such as a temperature-dependent density curve and hundreds of RDF bins, normalize within each family before applying configurable between-family coefficients. This preserves unit invariance and prevents the family with more bins from dominating by cardinality alone. Within-family weights can still emphasize scientifically important regions such as RDF peaks. See [[wiki/concepts/tolerance-normalized-multi-observable-losses]].
 
 This layer should not know whether the samples came from AWH, TSS, or MBAR. It should ask for:
 
@@ -246,6 +252,8 @@ TSS-specific readiness should include:
 - stitching residuals or offset instability,
 - per-window and per-state ESS under candidate parameters. [SRC-0006]
 
+A 2026-07-13 FFRefine production failure refined this readiness policy. The procedure should not treat every threshold miss as a terminal reason to stop the whole epoch. When replay/TSS parity is close to the tolerance, the diagnostic should carry an uncertainty interval, for example from contiguous delete-block jackknife or split-half replicates over the frozen archive. Accept only when the upper interval bound is within the replay/TSS tolerance, reject only when the lower interval bound exceeds it, and otherwise classify the result as inconclusive. An inconclusive leg-local parity result should extend only the affected frozen-production leg while retaining any other leg that already passed; a clear leg-local parity failure, or an inconclusive result after exhausting frozen extensions, should retry adaptive TSS for that leg rather than discarding unrelated production data. Joint diagnostics such as chronological split-half disagreement can still require extending both legs when both have remaining capacity. This is a project validation lesson grounded in the SRC-0018 frozen-reference separation and in TSS's need for method-specific readiness checks. [SRC-0018] [SRC-0005] [SRC-0006]
+
 The expected benefit to test is not that TSS gives a new optimizer. The optimizer is the same. The test is whether TSS's self-adjustment, visit control, and windowing create a better supported replay archive per unit simulation cost than AWH or fixed MBAR sampling for the same parameter update. [SRC-0005] [SRC-0006]
 
 ### MBAR adapter
@@ -279,6 +287,48 @@ MBAR-specific diagnostics should include:
 - comparison against resimulation after accepted parameter moves. [SRC-0023]
 
 The MBAR route will likely be the easiest baseline to implement, because it avoids adaptive-bias readiness. It will also be the least forgiving: if the initial state grid or windows do not cover the candidate force-field distributions, MBAR cannot adaptively repair that support problem. [SRC-0023] [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+
+### FFRefine window-mixture MBAR implementation status
+
+A 2026-07-24 FFRefine implementation uses the frozen TSS windows themselves as the sampled MBAR states. For window $j$ with local rung set $W_j$, frozen local free-energy estimates $f_{jk}$, and frozen local log densities $\log \gamma_{jk}$, its unnormalized conditional configuration density is represented by the reduced potential
+
+$$
+u_j^{\mathrm{mix}}(x)
+=
+-\log\sum_{k\in W_j}
+\exp[f_{jk}+\log\gamma_{jk}-u_k(x)].
+$$
+
+The archive's active-window labels provide the sampled-state assignments and counts $N_j$. Cross-evaluating every retained frame under every frozen window mixture allows MBAR to solve the window normalization constants and form one fixed reference denominator
+
+$$
+D_n
+=
+\sum_j N_j
+\exp[\hat f_j-u_j^{\mathrm{mix}}(x_n)].
+$$
+
+Any physical rung or candidate force-field state $m$ is then treated as an unsampled target with weights
+
+$$
+W_{nm}
+\propto
+\frac{\exp[-u_m(x_n)]}{D_n}.
+$$
+
+Consequently, every archived frame is considered for every thermodynamic target and every optimized observable, rather than restricting a target to frames whose active windows contain that rung. A frame's actual contribution can still be negligible when phase-space overlap is poor; MBAR changes estimator connectivity, not the underlying sampling support. Per-target ESS, influence concentration, source-window weight mass, and sampled-window overlap therefore remain acceptance diagnostics. This is an implementation inference combining the frozen conditional TSS window density from SRC-0006 with the sampled-state mixture estimator from SRC-0023. [SRC-0006] [SRC-0023]
+
+This global MBAR estimator does not replace local-window replay as a TSS readiness check. Local replay followed by the ordinary TSS stitching equations remains the appropriate parity diagnostic against the TSS-reported free-energy surface. The MBAR denominator is instead used consistently for optimization free energies, all optimized observables, their gradients, candidate ESS, and empirical Fisher estimates. During candidate replay, the sampled-window normalization constants and reference denominator are held fixed while candidate target reduced potentials change, preserving the frozen-reference separation required by SRC-0018. [SRC-0018]
+
+The implementation reuses Molly's lower-level MBAR machinery for the sampled-window solve and target weights, and Molly's partitioned cross-state energy assembly for reduced potentials. Focused synthetic tests verify normalization, observable and free-energy finite-difference gradients, overlap rejection, and source-window contributions. Molecular smoke tests and a reduced water-temperature test verify that the 25 degrees Celsius RDF target receives weight from frames belonging to every TSS window in the test archive. This has **not yet been validated in a complete production optimization run**. In particular, no empirical claim should yet be made that it improves RDF convergence, density/RDF balance, accepted-step quality, or resimulation agreement. Those remain production validation questions.
+
+## Current FFRefine implementation snapshot
+
+A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]].
+
+The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` is a one-leg water temperature-ladder workflow using PME by default; it trains density, RDF, and dielectric targets, while split validation currently checks density and RDF and leaves dielectric split checks disabled. These are implementation facts from the FFRefine repository audit, not literature claims.
+
+The route plan should therefore be read as a design envelope plus accumulated implementation lessons. It should not be read as evidence that full production optimization has already improved ethanol solvation, water density/RDF/dielectric agreement, or transferability. Focused tests and reduced smoke checks exist, but production validation remains open.
 
 ## Implementation route plan
 

@@ -45,6 +45,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/on-the-fly-probability-enhanced-sampling|On-the-Fly Probability-Enhanced Sampling]] - 2 source IDs; top source categories: `research/adaptive-sampling` (2), `research/molecular-simulation/free-energy` (2)
 - [[wiki/concepts/times-square-sampling|Times Square Sampling]] - 2 source IDs; top source categories: `research/adaptive-sampling` (2), `research/computational-drug-discovery` (2), `research/molecular-simulation/free-energy` (2)
 - [[wiki/concepts/tss-implementation-patterns|Times Square Sampling Implementation Patterns]] - 2 source IDs; top source categories: `research/adaptive-sampling` (2), `research/computational-drug-discovery` (2), `research/molecular-simulation/free-energy` (2)
+- [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]] - 1 source IDs; top source categories: `research/adaptive-sampling` (1), `research/molecular-simulation/force-fields` (1), `research/molecular-simulation/free-energy` (1)
 
 ### research/bioimage-analysis/filament-segmentation
 
@@ -274,6 +275,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 4 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 4 source IDs
+- [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]] - categories: `research/molecular-simulation/force-fields`, `research/scientific-computing`; tags: `force-field-optimization`, `multi-objective-optimization`, `loss-functions`, `observable-targets`; 1 source IDs
 
 ### [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|SRC-0019]]
 
