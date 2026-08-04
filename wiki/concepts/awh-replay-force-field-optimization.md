@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-07-28
+updated: 2026-07-29
 areas:
   - research
 categories:
@@ -21,6 +21,7 @@ related:
   - "[[wiki/concepts/multistate-bennett-acceptance-ratio]]"
   - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
+  - "[[wiki/answers/ffrefine-paper-methods-knowledge-base]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -93,7 +94,9 @@ A 2026-07-22 FFRefine parameter-bounds update added a sixth implementation lesso
 
 A 2026-07-24 FFRefine QEq validation update added a seventh implementation lesson: when chemically equivalent sites are compressed into one shared charge descriptor, charge-equilibration solves and Jacobians must still preserve physical site multiplicity. The molecular net-charge constraint counts repeated sites, but the quadratic QEq objective also counts them; otherwise the compressed model gives the constraint the right multiplicity while giving the electronegativity and hardness terms the wrong weight. For water with shared H and O descriptors, the per-site diagonal QEq solve gives $q_H=(\chi_O-\chi_H+\eta_O Q)/(2\eta_O+\eta_H)$, not the unweighted compressed expression with $\eta_H+4\eta_O$ in the denominator. The practical validation pattern is to compare the compressed implementation against an expanded-site KKT oracle that includes equality constraints for shared descriptors, then check the latent Jacobian against finite differences. This is a project implementation lesson about topology-aware compressed parameterization for SRC-0018-style replay optimization, not a new literature claim. [SRC-0018]
 
-A 2026-07-28 FFRefine code audit added an eighth implementation lesson: the current implementation is best described as a project-local replay-optimization framework, not as a production-validated force-field fitting package. The code now has a sampler-agnostic backend that consumes completed named TSS simulations, a local TSS replay parity path, a window-mixture MBAR optimization path, QEq and bounded latent parameter maps, multi-leg target assembly, split validation, ESS/Fisher gates, and history/reporting. Its concrete experiment surfaces are ethanol solvation and water-temperature fitting. Ethanol trains solvation free energy by default, with density defined but disabled; water trains density, RDF, and dielectric targets, while dielectric split validation is currently disabled. Focused tests support implementation details, but full production improvement and transferability claims remain unvalidated. See [[wiki/answers/ffrefine-current-implementation-status]].
+A 2026-07-29 FFRefine code audit updated the implementation lesson: the current implementation is best described as a project-local replay-optimization framework, not as a production-validated force-field fitting package. The code has a sampler-agnostic backend that consumes completed named TSS simulations, a local TSS replay parity path, a window-mixture MBAR optimization path, QEq and bounded latent parameter maps, multi-leg target assembly, split validation, ESS/Fisher gates, ConFIG aggregation, post-Fisher momentum, and history/reporting. Its concrete experiment surfaces are ethanol solvation and water-temperature fitting. Ethanol trains solvation free energy by default, with density defined but disabled; water currently trains density and RDF targets, while dielectric support code exists but is disabled in the active target set and split validation. Focused tests support implementation details, but full production improvement and transferability claims remain unvalidated. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].
+
+A 2026-07-29 FFRefine water-temperature memory update added an eighth implementation lesson: in a Julia replay-optimization loop, ordinary object reuse and explicit garbage collection may reduce per-epoch allocation without returning the resident set to the operating system after a large optimization phase. For memory-heavy macro epochs that combine PME workspaces, threaded replay, automatic differentiation, FFT/native library state, and candidate optimization, the robust reclamation boundary is a disposable worker process per macro epoch. The supervisor should pass only compact serialized epoch requests and responses, wait for worker exit before deserializing the result or starting resimulation, and record both child memory telemetry and supervisor RSS after exit. This is a project operational lesson for long SRC-0018-style replay/resimulation loops, not a new scientific claim. [SRC-0018]
 
 ## Caveats
 
@@ -110,3 +113,4 @@ TSS and MBAR variants need their own readiness and support diagnostics. TSS read
 - [[wiki/concepts/multistate-bennett-acceptance-ratio]]
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]
+- [[wiki/answers/ffrefine-paper-methods-knowledge-base]]

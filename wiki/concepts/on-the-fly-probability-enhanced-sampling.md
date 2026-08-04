@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-31
 areas:
   - research
 categories:
@@ -19,9 +19,12 @@ related:
   - "[[wiki/sources/SRC-0011-opes-supporting-information]]"
   - "[[wiki/concepts/adaptive-enhanced-sampling]]"
   - "[[wiki/concepts/free-energy-estimation]]"
+  - "[[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of]]"
+  - "[[wiki/concepts/enhanced-sampling-validation]]"
 sources:
   - SRC-0010
   - SRC-0011
+  - SRC-0074
 sensitivity: public
 encryption: none
 ---
@@ -81,6 +84,7 @@ $$
 
 - OPES still depends on the choice of collective variables. [SRC-0010]
 - The source bundle focuses on well-tempered and flat targets, leaving other target designs for future work. [SRC-0010]
+- In a five-system biomolecular benchmark, suitable OPES barrier settings were competitive, but some unsuitable settings produced internally stable landscapes that disagreed with other methods. Barrier sensitivity and external validation are therefore necessary for new systems. [SRC-0074, pp. 9-10]
 
 ## Links
 
@@ -88,6 +92,8 @@ $$
 - [[wiki/sources/SRC-0011-opes-supporting-information]]
 - [[wiki/concepts/adaptive-enhanced-sampling]]
 - [[wiki/concepts/free-energy-estimation]]
+- [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of]]
+- [[wiki/concepts/enhanced-sampling-validation]]
 
 ## Open Questions
 

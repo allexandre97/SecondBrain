@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-07-28
+updated: 2026-07-29
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -29,6 +29,7 @@ related:
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
   - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
+  - "[[wiki/answers/ffrefine-paper-methods-knowledge-base]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
 sources:
@@ -324,9 +325,9 @@ The implementation reuses Molly's lower-level MBAR machinery for the sampled-win
 
 ## Current FFRefine implementation snapshot
 
-A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]].
+A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].
 
-The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` is a one-leg water temperature-ladder workflow using PME by default; it trains density, RDF, and dielectric targets, while split validation currently checks density and RDF and leaves dielectric split checks disabled. These are implementation facts from the FFRefine repository audit, not literature claims.
+The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` is a one-leg water temperature-ladder workflow using PME by default; it currently trains density and RDF targets. Dielectric prediction and target code exists, but dielectric is commented out of the active target set and split validation. These are implementation facts from the FFRefine repository audit, not literature claims.
 
 The route plan should therefore be read as a design envelope plus accumulated implementation lessons. It should not be read as evidence that full production optimization has already improved ethanol solvation, water density/RDF/dielectric agreement, or transferability. Focused tests and reduced smoke checks exist, but production validation remains open.
 

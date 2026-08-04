@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-07-02
+updated: 2026-07-31
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -91,3 +91,10 @@ graph_exclude: true
 - 2026-07-02: Imported and ingested SRC-0072/SRC-0073 as the espaloma-0.3 main/supplement bundle on graph-neural-network molecular-mechanics force-field parameter assignment from quantum-chemical data.
 
 - 2026-07-07: Recorded the FFRefine implementation lesson that windowed TSS replay must compute local-window replay estimates before applying reported TSS stitching; a global active-window-offset replay denominator failed the ethanol-solvation scaffold.
+- 2026-07-28: Added an answer note proposing family-level, Fisher-whitened ConFIG aggregation for FFRefine, with finite-step family guards, replay-support preservation, diagnostics, and a focused validation plan.
+- 2026-07-29: Added an answer note explaining why Adam-style second momentum is not a direct extension of FFRefine's post-Fisher first-moment ConFIG momentum.
+- 2026-07-29: Expanded the FFRefine paper-methods answer with a multiplicity-aware QEq derivation, the meaning of family coefficient alpha, fluctuation-derived dielectric loss and gradients, and the complete Fisher/replay optimization loop.
+- 2026-07-29: Recorded the FFRefine water-temperature memory lesson that Julia/native allocator RSS may not fall after replay optimization, so memory-heavy macro epochs need disposable worker-process boundaries and supervisor-side RSS diagnostics.
+- 2026-07-30: Deduplicated the requested ForceBalance water-model main/SI bundle against existing SRC-0025/SRC-0026, added explicit bundle roles and deeper equation, parameter, protocol, validation, and retrieval-QA coverage, and created a focused TIP3P-FB/TIP4P-FB concept page.
+- 2026-07-31: Imported and ingested SRC-0074, a five-system benchmark of REUS, WT-MtD, WTM-eABF, and OPES, adding enhanced-sampling validation, self-convergence, context-dependent selection, reference-design, and validation-cost semantic coverage.
+- 2026-08-04: Deduplicated the requested JCTC host-guest potential-tuning paper and byte-identical supporting information against existing SRC-0021/SRC-0022, adding explicit bundle roles, requested-file hash provenance, deeper equation/protocol coverage, quantitative cross-observable validation, and expanded retrieval QA.

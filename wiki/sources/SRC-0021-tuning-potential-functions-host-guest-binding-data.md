@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-08-04
 source_id: SRC-0021
 display_title: "Tuning Potential Functions to Host-Guest Binding Data"
 short_title: "Host-Guest Potential Tuning"
@@ -59,6 +59,8 @@ sensitivity: public
 encryption: none
 ingestion_status: complete
 coverage_profile: math-standard
+source_bundle: tuning-potential-functions-host-guest-binding-2024
+bundle_role: main
 ---
 
 # Tuning Potential Functions to Host-Guest Binding Data
@@ -71,7 +73,12 @@ Source ID: `SRC-0021`
 - Open raw source: [raw/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data.pdf](../../raw/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data.pdf)
 ## Source bundle
 
-Main paper for SRC-0022, the supporting information. [SRC-0021] [SRC-0022]
+Main paper in the `tuning-potential-functions-host-guest-binding-2024` bundle. [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|SRC-0022]] supplies the complete benchmark tables, restraint definitions, parameter trajectories, timing comparison, and prior-width analysis. [SRC-0021] [SRC-0022]
+
+## Metadata notes
+
+- The requested `ct3c01050.pdf` has DOI `10.1021/acs.jctc.3c01050` and the same article content as the existing repository copy, but a different SHA256 because the requested copy includes later download-time modifications. It was therefore deduplicated to `SRC-0021` rather than imported as a new source. [SRC-0021]
+- Requested-file SHA256 checked on 2026-08-04: `3fdaaf072c38d7f1df863b4455d6b0363e19d4ed3e08881f65cac4fa92c469e2`.
 
 ## Summary
 
@@ -87,35 +94,44 @@ As a proof of principle, the authors optimize OBC2 generalized Born cavity radii
 - Refitting improves both training and host-guest test performance and shows encouraging transfer to protein-ligand ABFEs. [SRC-0021]
 - The optimized radii are smaller than baseline radii and lead to excessively favorable hydration free energies, exposing a binding/HFE tradeoff. [SRC-0021]
 - OBC2 implicit solvent in OpenMM gives about a 10-fold speedup relative to corresponding explicit-solvent ABFE calculations in this study. [SRC-0021]
+- The fitted H and N radii become physically suspect: H falls from 1.20 to 0.707 Angstrom and N from 1.55 to 0.533 Angstrom, while O rises from 1.50 to 1.632 Angstrom. [SRC-0021, Table 1]
 
 ## Key equations
 
-OBC/GB electrostatic solvation form:
+OBC/GB electrostatic self energy, source Eq. (1A):
 
 $$
-G_{\mathrm{GB}}
+G_{\mathrm{GB}}^{\mathrm{self}}
+=\frac{1}{2}
+\left(\frac{1}{\epsilon_{\mathrm{solute}}}-\frac{1}{\epsilon_{\mathrm{solvent}}}\right)
+\sum_i \frac{q_i^2}{R_i}.
+$$
+
+[SRC-0021, Eq. 1A]
+
+Binding-free-energy parameter gradient, source Eq. (5):
+
+$$
+\frac{\partial \Delta G_b}{\partial \theta}
 =
--\frac{1}{2}
-\left(1-\frac{1}{\epsilon}\right)
-\sum_{i,j}
-\frac{q_iq_j}{f_{\mathrm{GB}}(d_{ij},R_i,R_j)}.
+\left\langle\frac{\partial U}{\partial\theta}\right\rangle_{\mathrm{bound}}
+-
+\left\langle\frac{\partial U}{\partial\theta}\right\rangle_{\mathrm{free}}.
 $$
 
-[SRC-0021]
+[SRC-0021, Eq. 5]
 
-Pose-combined binding free energy:
+Central finite-difference energy derivative, source Eq. (6):
 
 $$
-\Delta G_b
-=
--\beta^{-1}
-\log\sum_{k=1}^{N_b}
-\exp[-\beta\Delta G_{b,k}].
+\frac{\partial U}{\partial\theta}
+\approx
+\frac{U(\theta+h)-U(\theta-h)}{2h}.
 $$
 
-[SRC-0021]
+The implementation uses $h=10^{-4}\theta$ for the fitted cavity radius. [SRC-0021, Eq. 6]
 
-Gradient for multiple poses:
+Gradient for multiple poses, source Eq. (7):
 
 $$
 \frac{\partial \Delta G_b}{\partial \theta}
@@ -129,7 +145,7 @@ p_k=
 {\sum_l\exp[-\beta\Delta G_{b,l}]}.
 $$
 
-[SRC-0021]
+[SRC-0021, Eq. 7]
 
 ForceBalance objective:
 
@@ -147,28 +163,64 @@ $$
 \right]^2.
 $$
 
-[SRC-0021]
+[SRC-0021, Eq. 8]
+
+Two-pose cyclodextrin binding free energy, source Eq. (9):
+
+$$
+\Delta G_b
+=-RT\ln\left[
+e^{-\Delta G_p/(RT)}+e^{-\Delta G_s/(RT)}
+\right].
+$$
+
+[SRC-0021, Eq. 9]
 
 ## Equation inventory
 
 | Equation / label | Source location | Wiki location | Purpose | Variables | Implementation relevance |
 | --- | --- | --- | --- | --- | --- |
-| GB solvation energy | SRC-0021 Methods | This page | Defines optimized implicit-solvent energy component. | $q_i$, $R_i$, $f_{\mathrm{GB}}$ | Parameter target. |
-| Pose-combined $\Delta G_b$ | SRC-0021 Methods | This page | Combines asymmetric binding poses. | $\Delta G_{b,k}$, $N_b$ | ABFE prediction. |
-| Pose-gradient mixture | SRC-0021 Methods | This page | Computes parameter gradient over poses. | $p_k$, $\theta$ | ForceBalance gradients. |
-| ForceBalance least squares | SRC-0021 Methods | This page; [[wiki/concepts/force-field-training-from-experimental-observables]] | Fits properties with priors. | $y_i$, $\theta_j$, $\sigma_i$ | Optimization objective. |
+| GB self energy, Eq. (1A) | SRC-0021, Eq. (1A), p. 241 | This page | Defines one optimized implicit-solvent energy component. | $q_i$, $R_i$, $\epsilon$ | Shows direct dependence on fitted radii. |
+| ABFE gradient, Eq. (5) | SRC-0021, Eq. (5), p. 241 | This page | Expresses the property gradient as bound/free ensemble averages. | $U$, $\theta$ | Connects ABFE estimates to ForceBalance. |
+| Central difference, Eq. (6) | SRC-0021, Eq. (6), p. 242 | This page | Estimates energy derivatives after parameter perturbation. | $U$, $\theta$, $h$ | Defines the implemented numerical gradient. |
+| Multi-pose gradient, Eq. (7) | SRC-0021, Eq. (7), p. 242 | This page | Boltzmann-weights gradients over binding poses. | $p_k$, $\Delta G_{b,k}$, $\theta$ | Required for asymmetric cyclodextrin hosts. |
+| ForceBalance objective, Eq. (8) | SRC-0021, Eq. (8), p. 242 | This page; [[wiki/concepts/force-field-training-from-experimental-observables]] | Fits physical properties with parameter priors. | $y_m$, $\theta_i$, $\sigma_i$ | Core regularized optimization objective. |
+| Two-pose free energy, Eq. (9) | SRC-0021, Eq. (9), p. 242 | This page | Combines primary- and secondary-face cyclodextrin poses. | $\Delta G_p$, $\Delta G_s$, $R$, $T$ | Prevents selecting only one pose. |
+
+## Variable glossary
+
+- $U$: total potential energy used in the endpoint-gradient construction.
+- $\theta$: optimized force-field parameter; here, an OBC2 GB cavity radius.
+- $\Delta G_b$: standard absolute binding free energy.
+- $p_k$: Boltzmann probability assigned to binding pose $k$.
+- $R_i$ and $q_i$: effective Born radius and partial charge of atom $i$.
+- $\sigma_i$: prior width controlling the L2 penalty on parameter displacement; the production fit uses 0.5 Angstrom.
+- $d_n$: property residual scale; the binding target uses 1 kcal/mol.
+
+## Algorithm and protocol map
+
+1. Curate 126 aqueous cyclodextrin, cucurbituril, and octa-acid complexes; select six complexes per host for a balanced 36-system training set and reserve 90 systems for testing. [SRC-0021, section 2.5]
+2. Compute host-guest ABFEs with attach-pull-release, Boresch-style restraints, thermodynamic integration, and two binding poses for cyclodextrins. [SRC-0021, section 2.2]
+3. Re-evaluate endpoint energies at perturbed radii, combine pose gradients, and pass predictions and gradients through OpenFF Evaluator to ForceBalance. [SRC-0021, Eqs. 5-8]
+4. Optimize five radii with a Gauss-Newton approximation and L2 prior, then independently recalculate the held-out host-guest set. [SRC-0021, sections 2.1 and 3.2]
+5. Test cross-system transfer on 59 protein-ligand ABFEs, 100 neutral-molecule hydration free energies, and 100 ns unrestrained simulations of four apo proteins. [SRC-0021, sections 2.3-2.5 and 3.3-3.4]
 
 ## Evidence
 
 The dataset includes 126 host-guest complexes, with 36 selected for training and 90 held out for host-guest testing. [SRC-0021]
 
-The supporting information adds the train/test ABFE tables, protein-ligand benchmark tables, hydration free energy benchmarks, and prior-width sensitivity analysis. [SRC-0022]
+- Training-set RMSE falls from 21.0 to 2.9 kcal/mol, although $R^2$ decreases from 0.7 to 0.6; test-set RMSE falls from 19.5 to 2.1 kcal/mol while $R^2$ rises from 0.5 to 0.8. [SRC-0021, section 3.2] [SRC-0022, Tables S4-S5]
+- Across 59 protein-ligand systems, RMSE falls from 7.4 to 2.4 kcal/mol with ff14SB/Sage and from 6.4 to 2.0 kcal/mol with ff14SB/GAFF2, but correlation is roughly halved. [SRC-0021, section 3.3] [SRC-0022, Table S10]
+- On 100 neutral FreeSolv molecules, hydration RMSE worsens from 2.11 to 19.12 kcal/mol and $R^2$ from 0.79 to 0.35; rank correlation remains similar, showing a large calibration failure rather than total loss of ordering. [SRC-0021, section 3.4] [SRC-0022, Table S13]
+- The supporting information adds complete ABFE and HFE tables, per-host and per-protein statistics, timing comparisons, parameter trajectories, and prior-width sensitivity. [SRC-0022]
 
 ## Limitations and Caveats
 
 - The proof-of-principle fit improves binding but worsens hydration free energies, indicating that refitting one parameter class against one observable class can create property tradeoffs. [SRC-0021]
 - The optimized radii are specific to OBC2 GBSA and should not be treated as generally transferable classical force-field parameters. [SRC-0021]
 - Host-guest complexes reduce but do not eliminate modeling ambiguities such as restraints, protonation, and host flexibility. [SRC-0021]
+- The protein-ligand calculations use a separate double-decoupling workflow outside OpenFF Evaluator, so they validate the fitted radii but not an end-to-end Evaluator protein-ligand implementation. [SRC-0021, section 2.3]
+- The 100 ns apo-protein checks preserve tertiary folds but show greater 2-4 Angstrom RMSD and helix flexibility with the fitted radii; this is not evidence of general protein-dynamics fidelity. [SRC-0021, section 3.3]
 
 ## Links
 
@@ -203,7 +255,8 @@ The supporting information adds the train/test ABFE tables, protein-ligand bench
 
 ## Mathematical gaps
 
-- The wiki records the optimization structure, but not every alchemical window and restraint schedule.
+- The cross term, surface-area term, effective-distance kernel, OBC radius transform, and soft-core alchemical attenuation equations remain in the raw paper; the inventory captures the equations most central to optimization and implementation flow. [SRC-0021, Eqs. 1B-4 and 10A-10E]
+- No theorem or long proof is presented. The appendix derivation of the two-pose combination is summarized by source Eq. (9), not reproduced step by step. [SRC-0021, Appendix]
 
 ## Ingestion QA
 
@@ -214,11 +267,14 @@ The supporting information adds the train/test ABFE tables, protein-ligand bench
 - Which parameters were optimized?
 - How are binding free-energy gradients passed to ForceBalance?
 - What transfer and failure modes were reported?
+- How large are the held-out host-guest, protein-ligand, and hydration effects?
+- Why do the optimized nitrogen and hydrogen radii improve binding while harming hydration and protein flexibility?
 
 ### Coverage decision
 
-Complete at `coverage_profile: math-standard`. [SRC-0021]
+Complete at `coverage_profile: math-standard` for the deduplicated main/SI bundle. The page preserves the main optimization equations, parameter meanings, algorithm flow, quantitative validation, and the functional-form limitation. [SRC-0021] [SRC-0022]
 
 ### Known gaps
 
-- Full benchmark tables remain in SRC-0022.
+- Full benchmark rows and every restraint/window parameter remain in SRC-0022 rather than being duplicated here.
+- External repositories, benchmark structures, and raw simulation trajectories referenced by the paper were not part of the requested bundle and were not ingested.

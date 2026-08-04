@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-07-21
-updated: 2026-07-28
+updated: 2026-07-29
 areas:
   - research
 categories:
@@ -18,6 +18,7 @@ related:
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
+  - "[[wiki/answers/ffrefine-paper-methods-knowledge-base]]"
 sources:
   - SRC-0018
 sensitivity: public
@@ -70,7 +71,7 @@ Consequently, rescaling an observable, its reference, its tolerance, and its obs
 
 An optimizer-facing target should retain the prediction, reference, tolerance, family, within-family weight, and family coefficient. History should record raw errors and normalized residuals as well as base and effective weights, because only the normalized quantities are comparable across target types.
 
-For water-temperature fitting, the current FFRefine implementation uses density, RDF, and dielectric target families. RDF peak weights are assigned by first shell, second shell, and tail regions within each pair type, then family coefficients control density-versus-RDF-versus-dielectric influence. Equal family coefficients therefore mean equal family influence, not equal influence per scalar bin; the current water script gives RDF a larger family coefficient than density or dielectric. Split validation is a separate policy: density and RDF split checks are enabled, while dielectric split checks are present in the source but commented out as of the 2026-07-28 audit.
+For water-temperature fitting, the current FFRefine implementation actively uses density and RDF target families. Dielectric target construction exists in the script, but dielectric is commented out of the active target set and split validation as of the 2026-07-29 audit. RDF peak weights are assigned by first shell, second shell, and tail regions within each pair type, then family coefficients control density-versus-RDF influence. Equal family coefficients mean equal family influence, not equal influence per scalar bin. Split validation is a separate policy: density and RDF split checks are enabled, with a looser split tolerance than the training tolerance.
 
 Tolerance-normalized losses should not automatically be called chi-squared objectives. That probabilistic interpretation requires tolerances to be justified as observation standard deviations; engineering accuracy tolerances provide scale and priority but do not by themselves define a likelihood.
 
@@ -78,5 +79,6 @@ Tolerance-normalized losses should not automatically be called chi-squared objec
 
 - [[wiki/concepts/awh-replay-force-field-optimization]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]
+- [[wiki/answers/ffrefine-paper-methods-knowledge-base]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 

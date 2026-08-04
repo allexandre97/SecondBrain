@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-30
 areas:
   - research
 categories:
@@ -20,6 +20,7 @@ sources:
 related:
   - "[[wiki/concepts/automated-force-field-training]]"
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
+  - "[[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models]]"
   - "[[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]"
 sensitivity: public
 encryption: none
@@ -36,6 +37,7 @@ ForceBalance is a force-field parameter optimization framework that fits simulat
 - ForceBalance was introduced to make force-field construction more automatic, systematic, and reproducible. [SRC-0025]
 - It can combine experimental and theoretical reference data. [SRC-0025]
 - It uses simulation engine interfaces to evaluate properties and optimization routines to update force-field parameters. [SRC-0025]
+- In the TIP3P-FB/TIP4P-FB study, ensemble-fluctuation derivatives, Gauss-Newton curvature, Levenberg-Marquardt trust-region steps, and adaptive trajectory extension address expensive noisy targets. [SRC-0025] [SRC-0026]
 - Later ingested sources use ForceBalance variants for SAXS lipid fitting and host-guest binding-data fitting. [SRC-0014] [SRC-0021]
 - `presto` is a contrasting modern OpenFF-oriented fitting workflow: it optimizes SMIRNOFF valence parameters against MLP energy/force labels rather than ForceBalance-style simulated property targets. [SRC-0066]
 
@@ -61,6 +63,8 @@ ForceBalance improves the reproducibility of the fitting workflow, but the fitte
 ## Links
 
 - [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach]]
+- [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information]]
+- [[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models]]
 - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization]]
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]

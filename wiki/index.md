@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-07-02
+updated: 2026-07-31
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -57,6 +57,9 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/answers/garnet-symbolic-regression-functional-search]] - Assessment of symbolic regression, pipeline placement, and differentiable functional-form search for a future Garnet force field.
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy]] - Synthesis of recurring validation problems across force-field fitting, machine-learning potentials, and free-energy estimators.
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]] - Implementation route plan for testing AWH-style replay force-field optimization with TSS and MBAR reference archives.
+- [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible, family-level ConFIG integration plan for FFRefine's replay natural-gradient optimizer.
+- [[wiki/answers/ffrefine-config-fisher-second-momentum]] - Why Adam-style second momentum is less obvious than first-moment smoothing for FFRefine's Fisher-preconditioned ConFIG optimizer.
+- [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Detailed mathematical account of FFRefine's QEq map, replay observables, multi-family loss, Fisher optimizer, and macro-epoch loop.
 
 ## Author Entities
 
@@ -138,8 +141,11 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] - Nature article reporting site-saturation mutagenesis and abundance-based stability mapping across 500 human protein domains.
 - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]] - Chemical Science article on graph-neural-network assignment of molecular-mechanics force-field parameters from large quantum-chemical datasets.
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]] - Supplement with implementation, dataset, training, and benchmark details for SRC-0072.
+- [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] - Five-system benchmark separating self-convergence from cross-method correctness for REUS, WT-MtD, WTM-eABF, and OPES.
 
 ## Concepts
+
+- [[wiki/concepts/enhanced-sampling-validation]] - Layered validation of enhanced-sampling free-energy landscapes using internal stability, sensitivity tests, cross-method agreement, and independent references.
 
 - [[wiki/concepts/persistent-llm-wiki]] - A durable, interlinked Markdown wiki maintained by an LLM.
 - [[wiki/concepts/local-first-personal-work-knowledge-base]] - Local Markdown knowledge base for personal and work contexts.
@@ -182,6 +188,7 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/concepts/multistate-bennett-acceptance-ratio]] - MBAR estimator for multistate free energy differences, expectations, and uncertainties.
 - [[wiki/concepts/stability-aware-mlff-training]] - Training MLFFs for downstream MD stability using observable losses.
 - [[wiki/concepts/forcebalance]] - Force-field parameter optimization framework for fitting simulated properties to reference data.
+- [[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models]] - ForceBalance-fitted rigid water models, their parameters, evidence, and functional-form limits.
 - [[wiki/concepts/opc-water-model]] - Rigid water model built from optimized multipole-matching charge geometry.
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling]] - Normalizing-flow generators for equilibrium samples with statistical reweighting.
 - [[wiki/concepts/transferable-and-scalable-boltzmann-generators]] - Amortizing Boltzmann-generator training across molecules, system sizes, and material conditions.
@@ -212,6 +219,8 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Questions
 
+- [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.
+
 - [[wiki/questions/optional-tooling-for-llm-wiki]] - Whether to adopt optional tools or formats from SRC-0001 or SRC-0002 later.
 - [[wiki/questions/garnet-validation-scope]] - Validation gaps before treating Garnet as broadly transferable.
 - [[wiki/questions/tss-generalization-scope]] - Validation boundaries for Times Square Sampling claims beyond analyzed settings.
@@ -230,6 +239,9 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/questions/rna-force-field-motif-validation-scope]] - RNA motif validation scope for transferable force-field changes.
 
 ## Claims
+
+- [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness]] - Internal stability of a free-energy landscape does not by itself establish thermodynamic correctness.
+- [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent]] - Enhanced-sampling performance changes with landscape, initialization, and parameter context.
 
 - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance]] - TSS self-adjustment variance claim under stated assumptions.
 - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited]] - MBAR statistical efficiency with overlap/support limits.
@@ -268,3 +280,4 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients]] - Analytic constraint virials versus autodiff energy gradients.
 - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer]] - RNA motif-specific fixes versus general force-field transfer.
 - [[wiki/tensions/TEN-0015-data-access-standardization-vs-simulation-quality]] - Data access standardization versus simulation quality.
+- [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness]] - Cheap internal stability checks versus stronger but costlier external validation.

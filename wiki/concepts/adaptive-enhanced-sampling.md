@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-29
-updated: 2026-06-30
+updated: 2026-07-31
 areas:
   - research
 categories:
@@ -29,6 +29,8 @@ related:
   - "[[wiki/concepts/times-square-sampling]]"
   - "[[wiki/concepts/free-energy-estimation]]"
   - "[[wiki/concepts/tss-implementation-patterns]]"
+  - "[[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of]]"
+  - "[[wiki/concepts/enhanced-sampling-validation]]"
 sources:
   - SRC-0010
   - SRC-0011
@@ -38,6 +40,7 @@ sources:
   - SRC-0009
   - SRC-0005
   - SRC-0006
+  - SRC-0074
 sensitivity: public
 encryption: none
 ---
@@ -59,6 +62,7 @@ Adaptive enhanced sampling uses information learned during a simulation to steer
 - Visit control is a transient adaptive mechanism that pushes sampling toward under-visited rungs and mitigates slow convergence caused by poor initial free energy guesses. [SRC-0005, section 2.2.1]
 - Windowing is a locality mechanism: it restricts updates to overlapping parameter-space neighborhoods where distributions are expected to have useful overlap. [SRC-0005, section 3.1]
 - Adaptive sampling must preserve convergence guarantees; SRC-0005 and SRC-0006 state assumptions and proof structure for convergence despite adaptation. [SRC-0005, section 2.2.4] [SRC-0006, section 5]
+- In realistic free-energy landscapes, internal stability can fail to detect parameter- or initialization-dependent bias. A five-system comparison therefore recommends separating self-convergence from cross-method or extended-reference validation. [SRC-0074]
 
 ## TSS, AWH, and OPES comparison
 
@@ -148,6 +152,8 @@ Windowing is derived by introducing the active-window variable `J`, enforcing a 
 - [[wiki/concepts/free-energy-estimation]]
 - [[wiki/concepts/tss-implementation-patterns]]
 - [[wiki/questions/tss-generalization-scope]]
+- [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of]]
+- [[wiki/concepts/enhanced-sampling-validation]]
 
 ## Open Questions
 

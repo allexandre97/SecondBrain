@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-07-01
+updated: 2026-08-04
 areas:
   - research
 categories:
@@ -42,6 +42,7 @@ Force-field parameters can be trained directly against experimental observables 
 - In both cases, the property target is an experimental condensed-phase observable, not a direct QM energy label. [SRC-0014] [SRC-0021]
 - Regularization or prior widths are essential because observable fitting can otherwise exploit parameter directions that improve one property while harming transferability. [SRC-0014] [SRC-0021] [SRC-0022]
 - Validation must include observables not used in training: solvent-stressed membranes and pure-lipid properties for SRC-0014; host-guest test systems, protein-ligand ABFEs, and hydration free energies for SRC-0021. [SRC-0014] [SRC-0021]
+- In the host-guest case, held-out systems alone are insufficient: test-set binding RMSE improves from 19.5 to 2.1 kcal/mol, yet neutral-molecule hydration RMSE worsens from 2.11 to 19.12 kcal/mol. Cross-observable validation reveals a functional-form or target-balance failure that same-observable validation misses. [SRC-0021] [SRC-0022]
 - ForceBalance is the shared optimization framework behind several examples in this wiki, including water-model fitting, SAXS lipid fitting, and host-guest binding-data fitting. [SRC-0025] [SRC-0014] [SRC-0021]
 - Protein force-field benchmark datasets should include multiple protein classes and observables, because no single structural observable gives a complete view of ensemble accuracy. [SRC-0043]
 
