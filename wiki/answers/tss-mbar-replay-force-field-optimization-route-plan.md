@@ -30,6 +30,7 @@ related:
   - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/answers/ffrefine-paper-methods-knowledge-base]]"
+  - "[[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
 sources:

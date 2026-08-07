@@ -92,6 +92,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### research/experimental-benchmarking
 
+- [[wiki/concepts/conservative-reaction-field-cutoff-schemes|Conservative Reaction-Field Cutoff Schemes]] - 1 source IDs; top source categories: `research/experimental-benchmarking` (1), `research/molecular-simulation/force-fields` (1), `research/molecular-simulation/molecular-dynamics` (1)
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]] - 3 source IDs; top source categories: `research/experimental-benchmarking` (3), `research/machine-learning/molecular-modeling` (3), `research/molecular-simulation/datasets` (3)
 - [[wiki/concepts/molecular-response-property-foundation-models|Molecular Response-Property Foundation Models]] - 1 source IDs; top source categories: `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1), `research/molecular-simulation/datasets` (1)
 
@@ -146,6 +147,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### research/molecular-simulation/molecular-dynamics
 
+- [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant|Dipole-Moment Fluctuations and Dielectric Constants in Polar MD]] - 3 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (3), `research/experimental-benchmarking` (1), `research/molecular-simulation/force-fields` (1)
 - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2)
 - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - 1 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (1)
 - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2), `research/high-performance-computing` (1)
@@ -536,3 +538,8 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
 - [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/experimental-benchmarking`; tags: `enhanced-sampling`, `convergence-diagnostics`, `cross-method-validation`, `free-energy-landscapes`; 1 source IDs
 - [[wiki/concepts/on-the-fly-probability-enhanced-sampling|On-the-Fly Probability-Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `opes`, `metadynamics`, `probability-reconstruction`, `collective-variables`, `math-heavy`; 3 source IDs
+
+### [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|SRC-0077]]
+
+- [[wiki/concepts/conservative-reaction-field-cutoff-schemes|Conservative Reaction-Field Cutoff Schemes]] - categories: `research/molecular-simulation/molecular-dynamics`, `research/molecular-simulation/force-fields`; tags: `concept`, `reaction-field`, `atomic-cutoff`, `energy-conservation`, `force-smoothing`, `molecular-dynamics`; 1 source IDs
+- [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant|Dipole-Moment Fluctuations and Dielectric Constants in Polar MD]] - categories: `research/molecular-simulation/molecular-dynamics`; tags: `concept`, `dipole-moment`, `dielectric-constant`, `reaction-field`, `Ewald-summation`, `polar-systems`; 3 source IDs

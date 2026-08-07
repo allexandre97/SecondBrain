@@ -78,8 +78,10 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 
 ## Sources With Citation Match Status: partial
 
+- [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]]
 - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]]
+- [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]]
 - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]]
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]]
 - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]
@@ -94,6 +96,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]]
 - [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]]
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]
+- [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]
 - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]]
 - [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]]

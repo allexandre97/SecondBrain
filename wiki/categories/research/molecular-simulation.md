@@ -31,9 +31,9 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ## Subcategories
 
 - [[wiki/categories/research/molecular-simulation/datasets|research/molecular-simulation/datasets]] - 21 direct, 21 total pages in branch.
-- [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 75 direct, 75 total pages in branch.
-- [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 80 direct, 80 total pages in branch.
-- [[wiki/categories/research/molecular-simulation/molecular-dynamics|research/molecular-simulation/molecular-dynamics]] - 30 direct, 30 total pages in branch.
+- [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 80 direct, 80 total pages in branch.
+- [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 81 direct, 81 total pages in branch.
+- [[wiki/categories/research/molecular-simulation/molecular-dynamics|research/molecular-simulation/molecular-dynamics]] - 42 direct, 42 total pages in branch.
 
 ## Direct members
 

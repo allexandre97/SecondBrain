@@ -68,6 +68,12 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Sources
 
+- [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]] - Conservative RF/AT shifting and switching schemes validated for organic liquids.
+
+- [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]] - Site-site and molecular reaction-field treatments for finite interaction-site polar molecules.
+
+- [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]] - Geometry-specific dipole-fluctuation formulas for dielectric constants in polar-system simulations.
+
 - [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] - Source note introducing the LLM-maintained wiki pattern.
 - [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] - Project design note for local-first personal/work wiki organization, metadata, and privacy controls.
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Paper on Garnet, a graph-neural-network force field trained from scratch.
@@ -144,6 +150,10 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] - Five-system benchmark separating self-convergence from cross-method correctness for REUS, WT-MtD, WTM-eABF, and OPES.
 
 ## Concepts
+
+- [[wiki/concepts/conservative-reaction-field-cutoff-schemes]] - Conservative reaction-field shifting/switching schemes for atomic cutoffs and energy-conserving MD.
+
+- [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]] - Geometry-dependent dipole-fluctuation formulas, reaction fields, and full-sample volume conventions.
 
 - [[wiki/concepts/enhanced-sampling-validation]] - Layered validation of enhanced-sampling free-energy landscapes using internal stability, sensitivity tests, cross-method agreement, and independent references.
 

@@ -224,6 +224,15 @@
       "confidence": "strong",
       "evidence": "- Confirmed cited source: SRC-0072 cites the original MBAR paper, already ingested as SRC-0023, through its alchemical free-energy analysis machinery. [SRC-0072] [SRC-0023] - Confirmed cited source: SRC-0072 uses SPICE-deriv",
       "match_type": "title-exact"
+    },
+    {
+      "cited_source_id": "SRC-0023",
+      "cited_source_page": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar.md",
+      "citing_source_id": "SRC-0074",
+      "citing_source_page": "wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of.md",
+      "confidence": "strong",
+      "evidence": "23`: reference 42 is an exact title, authorship, year, and journal match to the original MBAR paper. [SRC-0074, reference 42] - Citation review is partial: the two exact matches to already-ingested method sources were confirmed, but the full 86-reference bibl",
+      "match_type": "title-exact"
     }
   ]
 }

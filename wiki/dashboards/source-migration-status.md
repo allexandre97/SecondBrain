@@ -29,10 +29,10 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 
 ## Summary
 
-- Total source pages: 73
+- Total source pages: 77
 - Needing metadata backfill: 0
 - Needing citation review: 0
-- Partial citation review: 19
+- Partial citation review: 23
 - Needing claims/questions/tensions review: 0
 - Appearing current: 54
 - Missing raw source files: 0
@@ -67,6 +67,10 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] (`SRC-0071`) - citation_match_status is partial
 - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]] (`SRC-0072`) - citation_match_status is partial
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]] (`SRC-0073`) - citation_match_status is partial
+- [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] (`SRC-0074`) - citation_match_status is partial
+- [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]] (`SRC-0075`) - citation_match_status is partial
+- [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]] (`SRC-0076`) - citation_match_status is partial
+- [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]] (`SRC-0077`) - citation_match_status is partial
 
 ## Needs Claims/Questions/Tensions Review
 
@@ -161,12 +165,12 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 | [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]]<br>`SRC-0018` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 50 | current |
 | [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]]<br>`SRC-0019` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 53 | current |
 | [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]]<br>`SRC-0020` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 1 | 0 | 0 | none | math-standard | complete | 45 | current |
-| [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]]<br>`SRC-0021` | present | yes | present | present | reviewed | reviewed | linked | 1 | 2 | 1 | 1 | none | math-standard | complete | 64 | current |
-| [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]]<br>`SRC-0022` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | none | standard | complete | 34 | current |
+| [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]]<br>`SRC-0021` | present | yes | present | present | reviewed | reviewed | linked | 1 | 2 | 1 | 1 | present (tuning-potential-functions-host-guest-binding-2024; main) | math-standard | complete | 89 | current |
+| [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]]<br>`SRC-0022` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | present (tuning-potential-functions-host-guest-binding-2024; supplement) | standard | complete | 42 | current |
 | [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]]<br>`SRC-0023` | present | yes | entity-linked | present | reviewed | reviewed | linked | 0 | 2 | 2 | 3 | none | math-standard | complete | 70 | current |
 | [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]]<br>`SRC-0024` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 47 | current |
-| [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]]<br>`SRC-0025` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 1 | 2 | none | math-standard | complete | 53 | current |
-| [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]]<br>`SRC-0026` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 0 | none | standard | complete | 27 | current |
+| [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]]<br>`SRC-0025` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 1 | 2 | present (building-force-fields-water-models-2014; main) | math-standard | complete | 98 | current |
+| [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]]<br>`SRC-0026` | present | yes | present | present | reviewed | reviewed | linked | 0 | 1 | 0 | 0 | present (building-force-fields-water-models-2014; supplement) | deep | complete | 56 | current |
 | [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]]<br>`SRC-0027` | present | yes | present | present | reviewed | reviewed | linked | 1 | 0 | 1 | 1 | none | math-standard | complete | 56 | current |
 | [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]]<br>`SRC-0028` | present | yes | present | present | reviewed | reviewed | source-local | 0 | 0 | 0 | 1 | none | math-standard | complete | 37 | current |
 | [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]]<br>`SRC-0029` | present | yes | present | present | reviewed | reviewed | linked | 0 | 2 | 0 | 0 | none | standard | complete | 33 | current |
@@ -214,3 +218,7 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 | [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]]<br>`SRC-0071` | present | yes | present | present | reviewed | partial | linked | 1 | 1 | 0 | 0 | none | standard | complete | 52 | partial-citation |
 | [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]]<br>`SRC-0072` | present | yes | entity-linked | present | reviewed | partial | linked | 2 | 1 | 0 | 0 | present (espaloma-0-3-ml-mm-force-fields; main) | math-standard | complete | 80 | partial-citation |
 | [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]]<br>`SRC-0073` | present | yes | entity-linked | present | reviewed | partial | source-local | 2 | 1 | 0 | 0 | present (espaloma-0-3-ml-mm-force-fields; supplement) | standard | complete | 34 | partial-citation |
+| [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]]<br>`SRC-0074` | present | yes | present | present | reviewed | partial | linked | 2 | 2 | 1 | 1 | none | math-standard | complete | 94 | partial-citation |
+| [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]]<br>`SRC-0075` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 1 | none | math-standard | complete | 50 | partial-citation |
+| [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]<br>`SRC-0076` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 48 | partial-citation |
+| [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]<br>`SRC-0077` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 53 | partial-citation |

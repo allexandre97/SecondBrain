@@ -83,6 +83,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]
+- [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
 - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
 - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
