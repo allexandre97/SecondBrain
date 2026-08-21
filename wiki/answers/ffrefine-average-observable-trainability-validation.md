@@ -64,6 +64,7 @@ project_evidence:
   - "FFRefine focused water-temperature, mathematics, and trainability tests on 2026-08-20"
   - "FFRefine reaction-field dielectric full-gradient campaign 20260821-124443"
   - "FFRefine cross-fitted reaction-field dielectric campaign revision on 2026-08-21"
+  - "FFRefine cross-fitted reaction-field dielectric direction run 20260821-151000"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap --depth 2"
 ---
@@ -78,7 +79,7 @@ First, the implemented enthalpy and conducting-boundary PME dielectric estimator
 
 Second, fresh 10 ns and 20 ns TSS production archives did **not** contain any tested single-parameter perturbation that simultaneously produced a five-standard-error target signal, passed replay support, and stayed within the configured cumulative KL limit. Therefore the current workflow has not established closed-loop trainability of either property. It established a sensitivity/support limitation under the tested archive lengths, parameter basis, positive coordinate perturbations, and trust-region thresholds.
 
-The correct conclusion is neither “the mathematics is broken” nor “enthalpy and permittivity are fundamentally untrainable.” The controlled mathematics works, while the fresh archives do not yet identify a statistically supported and independently reproducible training direction. A later reaction-field test of the whole QEq-plus-bounded-parameter gradient found an archive-local supported loss decrease, but the paired confidence test was inconclusive and the result did not reproduce as an accepted direction across independent archives.
+The correct conclusion is neither “the mathematics is broken” nor “enthalpy and permittivity are fundamentally untrainable.” The controlled mathematics works. A cross-fitted reaction-field test now shows that the whole QEq-plus-bounded-parameter gradient produces the same approximately 2.7% replay-loss decrease on independent development and held-out archives, with strongly agreeing Fisher-projected directions. The run nevertheless remained formally `inconclusive` because one empirical KL exceeded its hard ceiling by 2.15% and the conservative intervals did not establish a loss decrease of at least 1%. This establishes a reproducible replay direction, not fresh-simulation or closed-loop trainability.
 
 ## Exact experiment scope
 
@@ -215,6 +216,27 @@ The revised direction experiment therefore uses four independent 10 ns archives:
 
 Every archive-level replay, ESS, Fisher, split, half-gradient, paired-loss, line-search, and empirical-KL diagnostic is now persisted. The direction stage does not sequentially extend archives; an inconclusive result points to additional independent replicas or more information per replica rather than silently reusing the same trajectory.
 
+### Cross-fitted result
+
+Run `20260821-151000` completed that four-archive protocol. Its formal classification was `inconclusive`, but the evidence was qualitatively different from the earlier failures.
+
+| Diagnostic | Development archives | Held-out archives |
+| --- | ---: | ---: |
+| Pooled point loss decrease | 2.722% | 2.718% |
+| Conservative lower bound on loss decrease | 0.815% | 0.236% |
+| Empirical KL values | 0.010215, 0.009683 | 0.009879, 0.009769 |
+| Paired classification under the at-least-1% confidence gate | inconclusive | inconclusive |
+
+All four individual archive point estimates favored the fixed candidate, with loss decreases of 2.36%, 3.12%, 2.37%, and 2.99%. The development and held-out pooled point responses differed by less than 0.2% relative to each other. Both pooled candidate-minus-baseline confidence intervals lay below zero, so the sign of the replay improvement was resolved; they failed only the stronger requirement that the entire interval establish at least a 1% decrease.
+
+The independently estimated development and held-out natural-gradient directions had Fisher-metric cosine 0.9325 and norm ratio 0.9975, passing the predefined thresholds of 0.8 and 0.5–2.0. Each retained five of ten Fisher modes. Their ordinary Euclidean step cosine was 0.9821. In contrast, chronological half-archive gradient cosines for the four individual 10 ns archives were 0.085, 0.505, 0.292, and 0.262. This combination is evidence that individual half archives are too noisy, while pooling independent archives and Fisher projection can expose a reproducible direction.
+
+Replay support was strong on all four archives. Candidate minimum target-state ESS values were at least 391.8, minimum ESS retention was at least 0.9438, candidate ESS was at least 1918.6, and candidate ESS retention was at least 0.9811. The candidate changed charge magnitudes by about 0.075% and each bounded nonbonded parameter by less than 0.8%; it was not a large extrapolative perturbation.
+
+The first development archive had empirical KL 0.010215 for estimated KL 0.009, exceeding the predefined 0.01 ceiling by 2.15%; the other three archives passed. The implementation applied this hard empirical check after line search, so it classified the proposal as `empirical_kl_exceeded` instead of shrinking and reevaluating it. This is a control-flow limitation exposed by the run, not evidence that overlap was poor.
+
+The result supports the narrower claim that a reproducible, support-preserving reaction-field dielectric replay direction exists in the tested full-parameter basis. It does not establish that fresh simulations at the candidate parameters reproduce the dielectric or loss response. The held-out archives were independently simulated at baseline parameters and evaluated the frozen candidate by replay. Candidate dielectric values by temperature were not persisted, so the saved result cannot determine whether all six temperature targets moved favorably or whether the aggregate improvement was concentrated in a subset.
+
 ## Dielectric-estimator scope
 
 FFRefine uses $\varepsilon_r=1+A$ for conducting PME and for Molly's current atom/site-pair reaction-field convention. The configured reaction-field dielectric changes the Hamiltonian but does not automatically require a second finite-boundary inversion in post-processing. [SRC-0075] [SRC-0076] [SRC-0077] [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]
@@ -234,19 +256,20 @@ The completed fresh-archive dielectric trainability scan used PME. It therefore 
 
 The next scientifically useful step is not an unconstrained experimental macro run. It is to establish a supported teacher direction:
 
-1. Generate independent baseline archives at the same checkpoint to measure between-run variation in target values, jackknife errors, and candidate SNR.
-2. Run the four-archive cross-fitted whole-gradient reaction-field experiment described above without weakening its paired-confidence, support, gradient-reproducibility, or KL gates.
-3. If it is inconclusive, compare more independent replicas with longer replicas at matched total cost; dielectric fluctuations may have long correlation times, so frame count alone is not an effective-sample-size guarantee.
-4. Once a candidate passes the cross-fitted replay screen, simulate at least two independent teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
-5. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas.
-6. Treat experimental training as a later test. A synthetic recovery failure must be resolved before experimental mismatch is interpreted as a force-field limitation.
+1. Make the hard empirical-KL ceiling part of proposal line search, so a near-boundary proposal is shrunk and reevaluated rather than rejected only after line search.
+2. Persist candidate dielectric values and changes at every experimental target temperature.
+3. Predeclare whether the direction gate requires a confidence interval below zero plus a point improvement of at least 1%, or instead requires the entire interval to exceed 1%. The completed run passes the former but not the latter; this distinction must not be changed silently after observing the result.
+4. Repeat the cross-fitted direction test under that corrected, predeclared protocol. If it remains inconclusive, compare more independent replicas with longer replicas at matched total cost.
+5. Once a candidate passes, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
+6. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
 
 ## Remaining gaps
 
 - The sampling length or replica count required to make either average observable identifiable is unknown.
-- The full QEq-plus-bounded-parameter basis produced one supported archive-local response, but its paired confidence and independent reproducibility remain unestablished.
+- The full QEq-plus-bounded-parameter direction and replay-loss response reproduced across independent pooled archives, but the predefined empirical-KL and at-least-1% confidence gates did not both pass.
 - The enthalpy fresh scan used cutoff/reaction-field electrostatics, while the dielectric scan used PME; the results do not isolate Hamiltonian dependence.
-- Reaction-field dielectric whole-gradient trainability remains unresolved; the completed campaign stopped at the direction stage.
+- Reaction-field dielectric fresh-simulation and closed-loop trainability remain unresolved; the completed campaign stopped at the replay-direction stage.
+- Candidate dielectric changes by temperature were not persisted in run `20260821-151000`.
 - No eligible direction reached the independent-teacher or macro-recovery stages.
 - No full experimental enthalpy or dielectric optimization has been validated.
 
