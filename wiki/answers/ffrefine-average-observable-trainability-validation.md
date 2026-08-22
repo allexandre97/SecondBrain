@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-20
-updated: 2026-08-21
+updated: 2026-08-22
 question: "Do FFRefine's validated replay mathematics establish that water enthalpy and dielectric permittivity can be trained from fresh TSS archives?"
 answer_status: partially-answered
 areas:
@@ -65,6 +65,7 @@ project_evidence:
   - "FFRefine reaction-field dielectric full-gradient campaign 20260821-124443"
   - "FFRefine cross-fitted reaction-field dielectric campaign revision on 2026-08-21"
   - "FFRefine cross-fitted reaction-field dielectric direction run 20260821-151000"
+  - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap --depth 2"
 ---
@@ -79,7 +80,7 @@ First, the implemented enthalpy and conducting-boundary PME dielectric estimator
 
 Second, fresh 10 ns and 20 ns TSS production archives did **not** contain any tested single-parameter perturbation that simultaneously produced a five-standard-error target signal, passed replay support, and stayed within the configured cumulative KL limit. Therefore the current workflow has not established closed-loop trainability of either property. It established a sensitivity/support limitation under the tested archive lengths, parameter basis, positive coordinate perturbations, and trust-region thresholds.
 
-The correct conclusion is neither “the mathematics is broken” nor “enthalpy and permittivity are fundamentally untrainable.” The controlled mathematics works. A cross-fitted reaction-field test now shows that the whole QEq-plus-bounded-parameter gradient produces the same approximately 2.7% replay-loss decrease on independent development and held-out archives, with strongly agreeing Fisher-projected directions. The run nevertheless remained formally `inconclusive` because one empirical KL exceeded its hard ceiling by 2.15% and the conservative intervals did not establish a loss decrease of at least 1%. This establishes a reproducible replay direction, not fresh-simulation or closed-loop trainability.
+The correct conclusion is neither “the mathematics is broken” nor “enthalpy and permittivity are fundamentally untrainable.” The controlled mathematics works. One cross-fitted reaction-field run found the same approximately 2.7% replay-loss decrease on independent development and held-out archives, with strongly agreeing Fisher-projected directions. A subsequent replica comparison did not reproduce that directional agreement at either matched or doubled aggregate production cost. The present evidence therefore establishes that coherent replay directions can occur, but not that the direction is reproducible enough for fresh-simulation or closed-loop training.
 
 ## Exact experiment scope
 
@@ -237,6 +238,32 @@ The first development archive had empirical KL 0.010215 for estimated KL 0.009, 
 
 The result supports the narrower claim that a reproducible, support-preserving reaction-field dielectric replay direction exists in the tested full-parameter basis. It does not establish that fresh simulations at the candidate parameters reproduce the dielectric or loss response. The held-out archives were independently simulated at baseline parameters and evaluated the frozen candidate by replay. Candidate dielectric values by temperature were not persisted, so the saved result cannot determine whether all six temperature targets moved favorably or whether the aggregate improvement was concentrated in a subset.
 
+### Replica comparison result
+
+Run `20260821-190105` prospectively applied the corrected empirical-KL line-search constraint, the direction-stage policy requiring a point improvement of at least 1% plus a confidence interval below zero, and temperature-resolved candidate logging. It compared two replicas in every TSS phase under two budgets while retaining two independently prepared development archives and two independently prepared held-out archives:
+
+- cost matched: 5 ns per replica, 10 ns aggregate production per archive;
+- higher power: 10 ns per replica, 20 ns aggregate production per archive.
+
+Both variants were `inconclusive` at the replay-direction stage.
+
+| Diagnostic | Two by 5 ns | Two by 10 ns |
+| --- | ---: | ---: |
+| Development point loss improvement | 1.84% | 1.21% |
+| Held-out point loss improvement | -0.29% | 0.52% |
+| Development/held-out Fisher direction cosine | -0.072 | 0.287 |
+| Mean within-archive replica direction cosine | -0.277 | 0.090 |
+| Archives passing chronological gradient stability | 1 of 4 | 3 of 4 |
+| Empirical-KL outcome | One held-out value at 0.01064 failed | All values passed |
+
+Replay, ESS, Fisher, chronological target split, and complete ladder/window coverage passed for every archive. Increasing from 5 to 10 ns per replica roughly doubled local ESS and reduced within-archive loss uncertainty by about 18% in development and 36% held out. It did not resolve the direction: similarly sized Fisher-metric steps had different orientations, individual replica directions remained inconsistent, and one held-out archive improved while the other worsened in each variant.
+
+The difference between chronological and replica splits is scientifically important. In the higher-power variant, three archives had chronological half-gradient cosines near 0.97 or above, yet their two constituent replicas did not agree on the direction. A pooled trajectory can therefore appear temporally stable while retaining persistent replica-specific dielectric or gradient behavior. Complete TSS ladder coverage is not evidence that the slower dipole-fluctuation modes determining permittivity and its parameter gradient have equilibrated.
+
+Temperature-resolved replay showed that the higher-power development candidate lowered permittivity at all six target temperatures. On held-out data it lowered five of six values, but the pooled loss decrease was only 0.52%, below the prospective 1% point threshold and statistically unresolved. Thus the failure was not a missing physical response; it was insufficiently reproducible magnitude and direction.
+
+Compared with run `20260821-151000`, which obtained direction cosine 0.9325 and approximately 2.7% point improvements in both development and held out, the replica run shows that the earlier coherence was not robust to the tested replica setups. The two replica variants used the same campaign seed and are not independent repetitions, so they do not establish a frequency of success or prove that more sampling worsens the direction. They do establish that neither tested replica allocation is sufficient evidence for trainability.
+
 ## Dielectric-estimator scope
 
 FFRefine uses $\varepsilon_r=1+A$ for conducting PME and for Molly's current atom/site-pair reaction-field convention. The configured reaction-field dielectric changes the Hamiltonian but does not automatically require a second finite-boundary inversion in post-processing. [SRC-0075] [SRC-0076] [SRC-0077] [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]
@@ -259,9 +286,10 @@ The next scientifically useful step is not an unconstrained experimental macro r
 1. Make the hard empirical-KL ceiling part of proposal line search, so a near-boundary proposal is shrunk and reevaluated rather than rejected only after line search.
 2. Persist candidate dielectric values and changes at every experimental target temperature.
 3. Predeclare whether the direction gate requires a confidence interval below zero plus a point improvement of at least 1%, or instead requires the entire interval to exceed 1%. The completed run passes the former but not the latter; this distinction must not be changed silently after observing the result.
-4. Repeat the cross-fitted direction test under that corrected, predeclared protocol. If it remains inconclusive, compare more independent replicas with longer replicas at matched total cost.
-5. Once a candidate passes, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
-6. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
+4. Treat the corrected replica comparison as evidence that matched-cost splitting and doubled aggregate replica sampling are insufficient under the tested setup; do not advance either candidate to fresh simulation.
+5. Quantify direction uncertainty across independently prepared archives or repeat the corrected campaign with new independent campaign seeds before treating the high-cosine result from `20260821-151000` as robust.
+6. Once a candidate passes, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
+7. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
 
 ## Remaining gaps
 
@@ -269,7 +297,8 @@ The next scientifically useful step is not an unconstrained experimental macro r
 - The full QEq-plus-bounded-parameter direction and replay-loss response reproduced across independent pooled archives, but the predefined empirical-KL and at-least-1% confidence gates did not both pass.
 - The enthalpy fresh scan used cutoff/reaction-field electrostatics, while the dielectric scan used PME; the results do not isolate Hamiltonian dependence.
 - Reaction-field dielectric fresh-simulation and closed-loop trainability remain unresolved; the completed campaign stopped at the replay-direction stage.
-- Candidate dielectric changes by temperature were not persisted in run `20260821-151000`.
+- Candidate dielectric changes by temperature were not persisted in run `20260821-151000`; run `20260821-190105` corrected this reporting gap.
+- The number and length of independently prepared archives needed to stabilize the full dielectric direction remain unknown. Two replicas sharing one TSS preparation did not substitute for independent directional evidence.
 - No eligible direction reached the independent-teacher or macro-recovery stages.
 - No full experimental enthalpy or dielectric optimization has been validated.
 

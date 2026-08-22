@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-08-20
-updated: 2026-08-21
+updated: 2026-08-22
 question_status: open
 areas:
   - research
@@ -31,6 +31,7 @@ project_evidence:
   - "FFRefine fresh-archive enthalpy/cutoff and dielectric/PME trainability runs completed 2026-08-20"
   - "FFRefine reaction-field dielectric full-gradient campaign 20260821-124443"
   - "FFRefine cross-fitted reaction-field dielectric direction run 20260821-151000"
+  - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
 ---
 
 # Average-Observable Trainability Sampling Budget
@@ -53,7 +54,11 @@ The completed cross-fitted run `20260821-151000` then used two independent 10 ns
 
 The formal result remained `inconclusive`. One development empirical KL was 0.010215, 2.15% above the hard 0.01 ceiling, while the other three passed. The conservative lower bounds established only 0.815% and 0.236% loss improvement, below the protocol's requirement to establish at least 1%. The remaining sampling-budget question has therefore moved: the existence and sign of a pooled full-gradient replay response are supported, but the budget needed for a predefined minimum effect size and for fresh candidate simulation remains unknown.
 
-Before repeating the experiment, empirical KL should gate line search directly, candidate target values should be persisted by temperature, and the statistical role of the 1% threshold should be declared prospectively. After that correction, compare additional replicas with longer replicas only if the cross-fitted direction remains inconclusive.
+Run `20260821-190105` implemented those corrections and compared two replicas in every TSS phase. The cost-matched variant used 5 ns per replica, or 10 ns aggregate production per archive; the higher-power variant used 10 ns per replica, or 20 ns aggregate. Both retained two independently prepared development and two independently prepared held-out archives.
+
+Both variants remained `inconclusive`. Development/held-out Fisher direction cosines were -0.072 and 0.287, while mean within-archive replica cosines were -0.277 and 0.090. The higher-power variant improved ESS, within-archive loss uncertainty, and chronological gradient stability, but one held-out archive improved while the other worsened. Its held-out point improvement was only 0.52%, below the prospective 1% threshold, and its confidence interval crossed zero. All of its empirical KL values passed.
+
+The sampling-budget question has therefore narrowed again. More production within shared-preparation replicas improves conventional diagnostics but has not established directional reproducibility. The next evidence should quantify variation across independently prepared archives or independent campaign repetitions, rather than treating replica count alone as an effective independent sample size.
 
 ## Validation boundaries
 
@@ -65,6 +70,8 @@ Before repeating the experiment, empirical KL should gate line search directly, 
 - A hard empirical-KL ceiling should be enforced while selecting the line-search scale, not only after a proposal has otherwise been selected.
 - PME dielectric and cutoff/reaction-field enthalpy results do not isolate electrostatics dependence.
 - A candidate that passes the replay prescreen still requires independent teacher archives and fresh macro-recovery validation. [SRC-0018]
+- Replicas sharing one TSS state and bias are not interchangeable with independently prepared archives when assessing direction uncertainty.
+- Chronological split stability can coexist with replica-direction disagreement; both axes must be reported for slowly mixing average observables.
 
 ## Links
 
