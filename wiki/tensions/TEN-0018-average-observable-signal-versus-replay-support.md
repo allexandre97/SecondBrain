@@ -56,11 +56,13 @@ The corrected replica comparison run `20260821-190105` did not reproduce that co
 
 This adds a second tension: conventional support and time-split diagnostics can improve while the force-field direction remains replica dependent. Every replica covered the complete thermodynamic ladder, so thermodynamic-state coverage did not guarantee equilibration of the dipole-fluctuation modes controlling dielectric response.
 
+The leading failure hypothesis is therefore not that differentiation is algebraically wrong, but that an archive-local gradient can be internally coherent without being a reproducible estimate of the equilibrium gradient. If archive-specific gradient error is of the same order as the equilibrium gradient, resimulation between macro epochs can rotate or reverse the apparent descent direction and make fresh loss rise even after a successful replay step.
+
 This is not a choice between “use a detectable step” and “use a conservative step.” A detectable but unsupported reweighting estimate is not a valid teacher signal, while a supported but unresolved estimate cannot establish a stable optimization direction.
 
 ## Interpretation
 
-The tension should be managed by increasing genuinely independent information or changing the tested parameter basis while keeping the support criterion fixed. One run showed that pooling independent archives and Fisher projection can expose a coherent direction even when individual chronological halves are unstable; the replica comparison showed that this coherence is not yet reproducible. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives for direction uncertainty. Near-boundary empirical KL should cause controlled line-search shrinkage, while confidence in the sign of improvement remains distinct from confidence that a minimum effect size was exceeded. SRC-0018's frozen-reference workflow makes support and resimulation part of optimization validity, not optional diagnostics. [SRC-0018]
+The tension should be managed by increasing genuinely independent information or changing the tested parameter basis while keeping the support criterion fixed. One run showed that pooling independent archives and Fisher projection can expose a coherent direction even when individual chronological halves are unstable; the replica comparison showed that this coherence is not yet reproducible. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives for direction uncertainty, and chronological self-consistency must not be treated as proof of equilibrium convergence. Near-boundary empirical KL should cause controlled line-search shrinkage, while confidence in the sign of improvement remains distinct from confidence that a minimum effect size was exceeded. SRC-0018's frozen-reference workflow makes support and resimulation part of optimization validity, not optional diagnostics. [SRC-0018]
 
 ## Links
 

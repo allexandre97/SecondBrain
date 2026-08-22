@@ -264,6 +264,26 @@ Temperature-resolved replay showed that the higher-power development candidate l
 
 Compared with run `20260821-151000`, which obtained direction cosine 0.9325 and approximately 2.7% point improvements in both development and held out, the replica run shows that the earlier coherence was not robust to the tested replica setups. The two replica variants used the same campaign seed and are not independent repetitions, so they do not establish a frequency of success or prove that more sampling worsens the direction. They do establish that neither tested replica allocation is sufficient evidence for trainability.
 
+### Main working hypothesis for dielectric training failure
+
+The leading interpretation is now archive-specific gradient error. For archive $i$, the computed gradient can be represented schematically as
+
+$$
+\widehat{\nabla L}_i
+=
+\nabla L_{\mathrm{equilibrium}}
++
+\eta_i,
+$$
+
+where $\eta_i$ is the error caused by the finite realization of the slowly mixing dielectric fluctuations and their covariance with parameter-energy derivatives. The mathematics can therefore produce a correct gradient for the sampled archive while two independently sampled archives produce materially different directions whenever $\eta_i$ is comparable to or larger than the equilibrium gradient.
+
+This hypothesis directly explains a macro-epoch failure mode. A proposal selected on archive $D_e$ can decrease replay loss on $D_e$, but after resimulation the next archive $D_{e+1}$ can expose a differently oriented gradient and a higher fresh loss. The optimizer is then following an archive-specific descent direction rather than a sufficiently precise estimate of the population descent direction.
+
+Chronological self-consistency is not sufficient evidence against this explanation. In the higher-power replica run, three of four pooled archives passed their chronological half-gradient check while the constituent replicas and the independently pooled development and held-out archives disagreed. A trajectory confined to one slowly evolving polarization regime can have consistent halves without representing equilibrium variation across regimes.
+
+This is a working hypothesis, not a proof that every historical dielectric failure had the same cause or that no feasible sampling budget can recover the equilibrium gradient. It is the explanation most consistent with the current combination of validated fixed-archive derivatives, acceptable replay support and KL, improved within-archive uncertainty, and failed cross-archive direction reproducibility.
+
 ## Dielectric-estimator scope
 
 FFRefine uses $\varepsilon_r=1+A$ for conducting PME and for Molly's current atom/site-pair reaction-field convention. The configured reaction-field dielectric changes the Hamiltonian but does not automatically require a second finite-boundary inversion in post-processing. [SRC-0075] [SRC-0076] [SRC-0077] [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]

@@ -60,6 +60,8 @@ Both variants remained `inconclusive`. Development/held-out Fisher direction cos
 
 The sampling-budget question has therefore narrowed again. More production within shared-preparation replicas improves conventional diagnostics but has not established directional reproducibility. The next evidence should quantify variation across independently prepared archives or independent campaign repetitions, rather than treating replica count alone as an effective independent sample size.
 
+The main working hypothesis is that each finite archive yields a mathematically valid but archive-specific estimate of the dielectric gradient, and that the between-archive error is currently comparable to or larger than the equilibrium gradient. This would make a direction selected in one macro epoch unreliable after fresh resimulation. The hypothesis is supported by the coexistence of chronological stability in three of four higher-power archives with poor replica and development/held-out direction agreement. It remains provisional because one earlier four-archive run did produce a coherent direction.
+
 ## Validation boundaries
 
 - Do not weaken SNR or support thresholds merely to produce an eligible candidate.
@@ -72,6 +74,7 @@ The sampling-budget question has therefore narrowed again. More production withi
 - A candidate that passes the replay prescreen still requires independent teacher archives and fresh macro-recovery validation. [SRC-0018]
 - Replicas sharing one TSS state and bias are not interchangeable with independently prepared archives when assessing direction uncertainty.
 - Chronological split stability can coexist with replica-direction disagreement; both axes must be reported for slowly mixing average observables.
+- Archive-local gradient validity must not be reported as population-gradient reproducibility; macro training requires the latter.
 
 ## Links
 
