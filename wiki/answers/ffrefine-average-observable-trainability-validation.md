@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-20
-updated: 2026-08-22
+updated: 2026-08-23
 question: "Do FFRefine's validated replay mathematics establish that water enthalpy and dielectric permittivity can be trained from fresh TSS archives?"
 answer_status: partially-answered
 areas:
@@ -66,6 +66,7 @@ project_evidence:
   - "FFRefine cross-fitted reaction-field dielectric campaign revision on 2026-08-21"
   - "FFRefine cross-fitted reaction-field dielectric direction run 20260821-151000"
   - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
+  - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap --depth 2"
 ---
@@ -80,7 +81,11 @@ First, the implemented enthalpy and conducting-boundary PME dielectric estimator
 
 Second, fresh 10 ns and 20 ns TSS production archives did **not** contain any tested single-parameter perturbation that simultaneously produced a five-standard-error target signal, passed replay support, and stayed within the configured cumulative KL limit. Therefore the current workflow has not established closed-loop trainability of either property. It established a sensitivity/support limitation under the tested archive lengths, parameter basis, positive coordinate perturbations, and trust-region thresholds.
 
-The correct conclusion is neither “the mathematics is broken” nor “enthalpy and permittivity are fundamentally untrainable.” The controlled mathematics works. One cross-fitted reaction-field run found the same approximately 2.7% replay-loss decrease on independent development and held-out archives, with strongly agreeing Fisher-projected directions. A subsequent replica comparison did not reproduce that directional agreement at either matched or doubled aggregate production cost. The present evidence therefore establishes that coherent replay directions can occur, but not that the direction is reproducible enough for fresh-simulation or closed-loop training.
+The correct conclusion is neither “the mathematics is broken” nor “enthalpy and permittivity are fundamentally untrainable.” The controlled mathematics works. One cross-fitted reaction-field run found the same approximately 2.7% replay-loss decrease on independent development and held-out archives, with strongly agreeing Fisher-projected directions. A subsequent replica comparison did not reproduce that directional agreement at either matched or doubled aggregate production cost.
+
+The cross-observable run `20260822-204246` now isolates the failure more sharply. Under the same reaction-field Hamiltonian, sampling budget, thermodynamic ladder, parameter basis, and optimizer, density and RDF gradients were reproducible while enthalpy and dielectric gradients were not. The retained Fisher subspace was essentially identical across archives. Holding the gradient fixed while changing the Fisher estimate preserved the direction, whereas holding the Fisher fixed while changing the archive gradient preserved the enthalpy/dielectric disagreement. The leading problem is therefore observable-specific gradient estimation, with Fisher inversion amplifying that disagreement, rather than a generally defective Fisher information matrix.
+
+The present evidence establishes that coherent replay directions can occur, especially after pooling independent information, but not that enthalpy or dielectric directions are reproducible enough for fresh-simulation or closed-loop training.
 
 ## Exact experiment scope
 
@@ -264,6 +269,110 @@ Temperature-resolved replay showed that the higher-power development candidate l
 
 Compared with run `20260821-151000`, which obtained direction cosine 0.9325 and approximately 2.7% point improvements in both development and held out, the replica run shows that the earlier coherence was not robust to the tested replica setups. The two replica variants used the same campaign seed and are not independent repetitions, so they do not establish a frequency of success or prove that more sampling worsens the direction. They do establish that neither tested replica allocation is sufficient evidence for trainability.
 
+### Cross-observable Fisher reproducibility result
+
+Run `20260822-204246` directly tested whether Fisher estimation could explain why density and RDF train while enthalpy and dielectric fail. It used reaction-field electrostatics, the operational $1+A$ dielectric estimator, the complete QEq-plus-bounded-water-parameter basis, and the unchanged 14 through 41 degrees Celsius, 28-state TSS ladder. At matched aggregate production cost it compared:
+
+- one shared TSS archive containing two 10 ns replicas;
+- two independently prepared TSS archives containing one 10 ns replica each;
+- the pooled shared arm, with 20 ns aggregate production, against the pooled independent arm, also with 20 ns aggregate production.
+
+This is one campaign seed and one pair of pooled arms. It diagnoses this realization; it does not estimate a probability of success over campaign repetitions.
+
+#### Sampling and Fisher validity
+
+All three archive-level replay checks passed. Every requested path had complete TSS-window coverage, sufficient ESS, and an accepted Fisher estimate. Across the four individual 10 ns trajectories, minimum local ESS ranged from 242.5 to 403.3 and candidate ESS ranged from 1874.2 to 1988.4. The shared pooled path had minimum local ESS 686.9 and candidate ESS 3920.4.
+
+Every endpoint retained modes 6 through 10 of the ten-dimensional Fisher decomposition at the default eigenvalue floor of 0.001. The Fisher subspaces were nearly identical:
+
+| Comparison | Retained modes per endpoint | Minimum principal cosine | Normalized projector overlap |
+| --- | ---: | ---: | ---: |
+| Shared replicas | 5, 5 | 0.999996 | 0.999999 |
+| Independent archives | 5, 5 | 0.999945 | 0.999977 |
+| Pooled arms | 5, 5 | 0.999994 | 0.999997 |
+| Chronological halves, range over four paths | 5, 5 | 0.999912–0.999977 | 0.999958–0.999990 |
+
+The large physical-coordinate condition estimates, about $6.2\times10^7$ to $6.9\times10^7$, therefore did not correspond to an archive-dependent retained subspace. Jacobi scaling and eigenmode truncation selected the same effective geometry in every path.
+
+#### Direction reproducibility separates the observable families
+
+Using the common-Fisher metric, the default natural-gradient directions gave:
+
+| Comparison | Density cosine | RDF cosine | Enthalpy cosine | Dielectric cosine |
+| --- | ---: | ---: | ---: | ---: |
+| Shared replicas | 0.999 | 0.996 | 0.170 | 0.265 |
+| Independent archives | 1.000 | 0.999 | -0.545 | -0.089 |
+| Pooled shared arm versus pooled independent arm | 0.999 | 0.999 | 0.589 | 0.764 |
+
+The prospective acceptance threshold was 0.8, with a Fisher-metric norm ratio between 0.5 and 2. Density and RDF passed every comparison. Enthalpy and dielectric failed every default full-path comparison even though their norm ratios were near one after KL scaling.
+
+Chronological halves showed the same target-family separation rather than falsely reassuring internal consistency:
+
+- density cosines were 0.996–0.999;
+- RDF cosines were 0.990–0.998;
+- enthalpy cosines were -0.469 to 0.484;
+- dielectric cosines were -0.254 to 0.107.
+
+Thus this campaign does **not** show gradients that are stable inside each 10 ns trajectory but unstable only between independent archives. The difficult observables were already directionally unresolved between chronological halves.
+
+Target-value split checks did not substitute for gradient checks. RDF passed all four individual target splits and enthalpy passed one of four, which was consistent with their direction results. Dielectric nevertheless passed all four target-value splits while failing every chronological gradient comparison. Density passed only two of four target-value splits while retaining nearly perfect direction transfer. Under these strict thresholds, target-mean convergence was therefore neither sufficient for gradient convergence nor necessary for the observed density direction reproducibility.
+
+#### Gradient variation, not Fisher variation, is dominant
+
+The campaign recomputed directions under two counterfactuals:
+
+1. each endpoint kept its own gradient but both used a common averaged Fisher;
+2. both endpoints used the same averaged gradient but kept their own Fisher estimates.
+
+The first counterfactual preserved the enthalpy and dielectric failure. For independent archives, common-Fisher cosines were -0.557 for enthalpy and -0.091 for dielectric. The second counterfactual produced cosines of 0.997 and 0.998, respectively. Across all target families and comparisons, changing the Fisher while holding the gradient fixed gave cosines of 0.989–1.000.
+
+The retained-mode projections explain how the same Fisher treatment can affect target families differently. Density placed most Fisher-whitened gradient weight consistently in modes 7 and 8, while RDF placed about three quarters in mode 9. Enthalpy and dielectric redistributed weight between retained modes across archives and often reversed projection signs. Between independent archives, enthalpy reversed signs in modes 7 through 10, including its dominant mode-9 contribution; dielectric reversed mode 8 and changed the relative mode weights substantially. Fisher inversion amplified these observable-specific gradient differences, but did not create them through archive-to-archive Fisher variation.
+
+#### Replay transfer directly exposes archive-specific updates
+
+Each archive's default proposal was replayed on itself and on the other archive. Percentage loss changes were:
+
+| Target | Archive 1 proposal on archive 1 | Archive 1 proposal on archive 2 | Archive 2 proposal on archive 1 | Archive 2 proposal on archive 2 |
+| --- | ---: | ---: | ---: | ---: |
+| Density | -15.37% | -16.73% | -14.95% | -16.27% |
+| RDF | -0.80% | -0.79% | -0.84% | -0.83% |
+| Enthalpy | -7.69% | +6.54% | +5.26% | -11.81% |
+| Dielectric | -2.08% | +0.47% | +0.17% | -2.23% |
+
+Density and RDF proposals transferred almost unchanged. Enthalpy and dielectric proposals improved the archive that generated them but increased loss on the other independently prepared archive. This is direct evidence of archive-specific optimization in this realization.
+
+Shared-preparation replicas were more mutually favorable but still failed directional reproducibility. Their enthalpy cross-replay improvements were only 0.71% and 2.15%, compared with source-replica improvements of 10.53% and 5.41%. Their dielectric cross-replay improvements were 1.02% and 0.80%, compared with local improvements of 2.67% and 3.21%. Shared TSS preparation may induce useful correlation, but these replicas cannot be counted as independent evidence for the equilibrium direction.
+
+#### Pooling is promising for dielectric but not yet validation
+
+Pooling raised the shared-versus-independent dielectric direction cosine to 0.764. The shared-pool proposal reduced pooled independent loss by 1.21%; at member level it reduced the two independent losses by 1.94% and 0.37%. The independent-pool proposal reduced shared-pool loss by 1.99%. Nine of twelve dielectric temperature-level residuals improved under the shared-to-independent replay, while all six improved under the independent-to-shared replay.
+
+Enthalpy pooling was weaker. The pooled-arm cosine was 0.589. The shared-pool proposal increased loss on independent archive 1 by 0.75% and reduced loss on independent archive 2 by 7.17%, while the independent-pool proposal reduced shared-pool loss by 3.19%.
+
+The predeclared Fisher-floor sweep showed sensitivity in pooled dielectric only. Its pooled-arm cosine was 0.835 at floor 0.0001, 0.764 at the default 0.001, and 0.842 at floor 0.01. Neither alternative floor repaired the individual shared-replica or independent-archive comparisons, and enthalpy remained below threshold at every floor. The non-monotonic pooled dielectric result is evidence that mode regularization may matter; selecting a floor from this single observed realization would be post-selection rather than validation.
+
+#### Replay support passed, but the KL target had no safety margin
+
+All 56 member-level replay probes passed support. Minimum local ESS retention was at least 0.9004 and candidate ESS retention was at least 0.9781. Cross-archive loss failures therefore cannot be attributed to replay-support collapse under the recorded diagnostics.
+
+The estimated KL target and hard empirical ceiling were both 0.01. Empirical KL ranged from 0.00921 to 0.01287, so only 3 of 56 member-level probes passed the hard ceiling. The systematic near-boundary overshoot is a control-setting limitation: future proposals need an estimated-KL margin below 0.01 or empirical-KL backtracking. It is orthogonal to the target-family separation because density and RDF transferred despite the same overshoot, whereas enthalpy and dielectric did not.
+
+#### Updated interpretation
+
+For this matched reaction-field experiment, a generally unstable Fisher matrix is not a viable explanation for why only enthalpy and dielectric fail. The retained Fisher geometry was reproducible, and density/RDF supplied positive controls under exactly the same geometry. The evidence instead supports target-dependent error in the covariance-derived objective gradients. A schematic archive estimate remains
+
+$$
+\widehat{\nabla L}_i
+=
+\nabla L_{\mathrm{equilibrium}}
++
+\eta_i,
+$$
+
+but this run adds two qualifications. First, $\eta_i$ was visible between chronological halves as well as between independent archives for enthalpy and dielectric. Second, natural-gradient preconditioning can magnify $\eta_i$ when noisy observable-gradient components project into retained low-information modes. Density and RDF are protected not because they use a different Fisher estimate, but because their gradients occupy the retained Fisher modes reproducibly.
+
+The result does not establish closed-loop trainability, an adequate final sampling budget, or a fresh-simulation response. It does establish a matched-control diagnosis: under one common pipeline, the difficult average-observable gradients are unstable while density and RDF gradients are reproducible.
+
 ### Main working hypothesis for dielectric training failure
 
 The leading interpretation is now archive-specific gradient error. For archive $i$, the computed gradient can be represented schematically as
@@ -280,7 +389,7 @@ where $\eta_i$ is the error caused by the finite realization of the slowly mixin
 
 This hypothesis directly explains a macro-epoch failure mode. A proposal selected on archive $D_e$ can decrease replay loss on $D_e$, but after resimulation the next archive $D_{e+1}$ can expose a differently oriented gradient and a higher fresh loss. The optimizer is then following an archive-specific descent direction rather than a sufficiently precise estimate of the population descent direction.
 
-Chronological self-consistency is not sufficient evidence against this explanation. In the higher-power replica run, three of four pooled archives passed their chronological half-gradient check while the constituent replicas and the independently pooled development and held-out archives disagreed. A trajectory confined to one slowly evolving polarization regime can have consistent halves without representing equilibrium variation across regimes.
+Chronological self-consistency is not sufficient evidence against this explanation. In the higher-power replica run, three of four pooled archives passed their chronological half-gradient check while the constituent replicas and the independently pooled development and held-out archives disagreed. A trajectory confined to one slowly evolving polarization regime can have consistent halves without representing equilibrium variation across regimes. Conversely, run `20260822-204246` found that all four 10 ns trajectories already had inconsistent enthalpy and dielectric half-directions. Chronological stability must therefore be measured rather than presumed; when it passes, it still does not replace independent-archive validation.
 
 This is a working hypothesis, not a proof that every historical dielectric failure had the same cause or that no feasible sampling budget can recover the equilibrium gradient. It is the explanation most consistent with the current combination of validated fixed-archive derivatives, acceptable replay support and KL, improved within-archive uncertainty, and failed cross-archive direction reproducibility.
 
@@ -306,10 +415,12 @@ The next scientifically useful step is not an unconstrained experimental macro r
 1. Make the hard empirical-KL ceiling part of proposal line search, so a near-boundary proposal is shrunk and reevaluated rather than rejected only after line search.
 2. Persist candidate dielectric values and changes at every experimental target temperature.
 3. Predeclare whether the direction gate requires a confidence interval below zero plus a point improvement of at least 1%, or instead requires the entire interval to exceed 1%. The completed run passes the former but not the latter; this distinction must not be changed silently after observing the result.
-4. Treat the corrected replica comparison as evidence that matched-cost splitting and doubled aggregate replica sampling are insufficient under the tested setup; do not advance either candidate to fresh simulation.
-5. Quantify direction uncertainty across independently prepared archives or repeat the corrected campaign with new independent campaign seeds before treating the high-cosine result from `20260821-151000` as robust.
-6. Once a candidate passes, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
-7. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
+4. Leave safety margin between estimated KL and the 0.01 empirical ceiling, or backtrack on empirical KL; using 0.01 for both caused 53 of 56 member-level probes to fail the hard ceiling despite strong ESS retention.
+5. Treat the corrected replica comparison and cross-observable run as evidence that 10 ns individual trajectories and the tested shared-replica allocations are insufficient for enthalpy or dielectric direction estimation; do not advance their individual proposals to fresh simulation.
+6. Repeat the pooled shared-versus-independent comparison prospectively with new campaign seeds. Predeclare the Fisher floor, because pooled dielectric crossed the 0.8 cosine threshold at floors 0.0001 and 0.01 but not at the default 0.001.
+7. Quantify paired replay-loss uncertainty for the pooled proposals; the cross-observable run persisted point responses but not confidence intervals for candidate-minus-baseline loss.
+8. Once a candidate passes direction, empirical-KL, support, and paired-loss gates, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
+9. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
 
 ## Remaining gaps
 
@@ -319,6 +430,8 @@ The next scientifically useful step is not an unconstrained experimental macro r
 - Reaction-field dielectric fresh-simulation and closed-loop trainability remain unresolved; the completed campaign stopped at the replay-direction stage.
 - Candidate dielectric changes by temperature were not persisted in run `20260821-151000`; run `20260821-190105` corrected this reporting gap.
 - The number and length of independently prepared archives needed to stabilize the full dielectric direction remain unknown. Two replicas sharing one TSS preparation did not substitute for independent directional evidence.
+- The cross-observable run used one campaign seed. Its near-threshold pooled dielectric direction and favorable pooled cross-replay require prospective repetition before a Fisher floor or sampling allocation is selected.
+- The replay probes report point loss changes but not paired candidate-minus-baseline confidence intervals, so the statistical significance of the pooled improvements is unknown.
 - No eligible direction reached the independent-teacher or macro-recovery stages.
 - No full experimental enthalpy or dielectric optimization has been validated.
 

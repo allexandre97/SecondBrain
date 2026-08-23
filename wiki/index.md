@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-07-31
+updated: 2026-08-23
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -50,6 +50,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Answers
 
+- [[wiki/answers/ffrefine-average-observable-trainability-validation]] - Why fixed-archive mathematics pass while matched density/RDF controls reproduce and enthalpy/dielectric gradients remain archive dependent.
 - [[wiki/answers/tss-window-free-energy-surface-stitching]] - Mathematical explanation of how TSS stitches per-window free-energy estimates into a global surface.
 - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison]] - Comparison of TSS with AWH and OPES as adaptive free-energy methods.
 - [[wiki/answers/sample-bias-reweighting-method-comparison]] - Comparison of TSS, AWH, OPES, MBAR, LaDyBUGS, and Boltzmann generators by sample use, biasing, and reweighting.
@@ -229,6 +230,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Questions
 
+- [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]] - Sampling length, replica count, uncertainty, and direction-basis requirements for resolving enthalpy or dielectric teacher signals.
 - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.
 
 - [[wiki/questions/optional-tooling-for-llm-wiki]] - Whether to adopt optional tools or formats from SRC-0001 or SRC-0002 later.
@@ -250,6 +252,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Claims
 
+- [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] - Fixed-archive mathematical validation does not establish a statistically resolvable direction on fresh production data.
 - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness]] - Internal stability of a free-energy landscape does not by itself establish thermodynamic correctness.
 - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent]] - Enhanced-sampling performance changes with landscape, initialization, and parameter context.
 
@@ -279,6 +282,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Tensions
 
+- [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] - Larger observable signals versus loss of replay support and KL validity.
 - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization]] - TSS adaptive variance advantage versus broad MBAR generalization.
 - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk]] - Mapped-overlap gains versus mapped-support risk.
 - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics]] - On-the-fly adaptation versus reproducible postprocessing diagnostics.

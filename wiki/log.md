@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-07-31
+updated: 2026-08-23
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -101,3 +101,5 @@ graph_exclude: true
 2026-08-05: Imported and ingested SRC-0075, Martin Neumann’s paper on geometry-dependent dipole-moment fluctuation formulas, reaction-field dielectric extraction, full-sample volume conventions, and the unresolved reaction-field/Ewald finite-size discrepancy.
 2026-08-05: Imported and ingested SRC-0076, Igor P. Omelyan’s arXiv paper on site-site and molecular reaction fields for interaction-site polar models, adding ISRF/MRF equation coverage and an open molecular-cutoff fluctuation-formula question.
 2026-08-05: Imported and ingested SRC-0077, the Kubincová–Riniker–Hünenberger PCCP study of conservative atomic-cutoff reaction-field electrostatics, adding RF/AT shifting and switching equations, energy-bookkeeping guidance, and 57-liquid validation coverage.
+- 2026-08-20: Recorded the complete FFRefine water enthalpy and dielectric validation result: fixed-archive mathematics and recovery pass, fresh 10 ns and 20 ns sensitivity screens find no replay-supported five-standard-error direction, the exact 28-state TSS ladder remains invariant, and independent teacher/macro validation remains pending. Added an answer, claim, question, and signal-versus-support tension and updated the linked implementation, replay-gap, dielectric, and validation-scope pages without re-ingesting raw sources.
+- 2026-08-23: Recorded FFRefine run `20260822-204246`, which used matched reaction-field density, RDF, enthalpy, and dielectric controls to localize the trainability pathology to observable-gradient reproducibility rather than archive-dependent Fisher estimation; documented chronological and independent direction failures, cross-replay transfer, pooling and eigenfloor sensitivity, KL calibration, and the prospective repeated-pooling experiment.
