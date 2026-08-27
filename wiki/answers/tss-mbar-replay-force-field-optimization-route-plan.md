@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-07-29
+updated: 2026-08-20
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -21,6 +21,7 @@ tags:
   - awh
   - implementation-route
 related:
+  - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/concepts/times-square-sampling]]"
@@ -33,6 +34,9 @@ related:
   - "[[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
+  - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
+  - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -328,9 +332,15 @@ The implementation reuses Molly's lower-level MBAR machinery for the sampled-win
 
 A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].
 
-The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` is a one-leg water temperature-ladder workflow using PME by default; it currently trains density and RDF targets. Dielectric prediction and target code exists, but dielectric is commented out of the active target set and split validation. These are implementation facts from the FFRefine repository audit, not literature claims.
+The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` supports density, RDF, relative enthalpy, and dielectric families through target-family configuration; its current default is an enthalpy-only diagnostic using cutoff/reaction-field electrostatics and rigid water. All families retain the exact 14 through 41 degrees Celsius TSS ladder, 28 states, original lambda schedule, window size 4, and 15 overlapping windows even when experimental targets exist at only a subset of temperatures. These are implementation facts from the FFRefine repository audit, not literature claims.
 
 The route plan should therefore be read as a design envelope plus accumulated implementation lessons. It should not be read as evidence that full production optimization has already improved ethanol solvation, water density/RDF/dielectric agreement, or transferability. Focused tests and reduced smoke checks exist, but production validation remains open.
+
+### Average-observable validation update
+
+The August 2026 enthalpy and PME dielectric checks add a validation stage between mathematical correctness and macro optimization. Fixed-archive values, finite-difference gradients, loss gradients, and 0.1% one-parameter recovery passed. Fresh 10 ns and 20 ns scans then found no tested direction meeting SNR 5, replay support, and empirical KL at most 0.02. At 20 ns the best valid SNR was 0.1121 for cutoff/reaction-field enthalpy and 0.08847 for PME dielectric, whereas much larger raw responses were outside replay support. [[wiki/answers/ffrefine-average-observable-trainability-validation]]
+
+The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. Passing fixed-archive differentiation proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 
 ## Implementation route plan
 

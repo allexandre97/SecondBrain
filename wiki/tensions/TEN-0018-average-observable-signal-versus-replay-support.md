@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-08-20
-updated: 2026-08-23
+updated: 2026-08-26
 tension_status: active
 areas:
   - research
@@ -19,6 +19,7 @@ tags:
   - gradient-reproducibility
   - fisher-information
 related:
+  - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
@@ -39,6 +40,7 @@ project_evidence:
   - "FFRefine cross-fitted reaction-field dielectric direction run 20260821-151000"
   - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
+  - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
 ---
 
 # Average-Observable Signal vs Replay Support
@@ -71,9 +73,13 @@ The leading failure hypothesis is therefore not that differentiation is algebrai
 
 This is not a choice between “use a detectable step” and “use a conservative step.” A detectable but unsupported reweighting estimate is not a valid teacher signal, while a supported but unresolved estimate cannot establish a stable optimization direction.
 
+The two-independent-100 ns reaction-field comparison shows that this tension can resolve differently by target family under the same sampling and Fisher geometry. Dielectric's cumulative natural direction became continuously reproducible from 60 through 100 ns and reached cosine 0.9743 at 100 ns. Enthalpy's raw-gradient cosine reached 0.9691, yet full Fisher preconditioning reduced natural-direction agreement to 0.6288. A common gradient with the two archive Fishers gave unit agreement, whereas a common Fisher did not repair the enthalpy result. The Fisher is therefore a target-dependent error amplifier rather than an archive-dependent global failure in this experiment. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
+
+This adds a third tension: cumulative independent-archive agreement versus within-archive time stability. The two 100 ns dielectric directions agreed, but their chronological-half cosines were only 0.451 and 0.269. A cumulative estimate can average toward a common direction without each half being individually precise. More archive length and more independent archives answer related but noninterchangeable questions.
+
 ## Interpretation
 
-The tension should be managed by increasing genuinely independent information or changing the tested parameter basis while keeping the support criterion fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. Pooling independent archives and Fisher-mode regularization may expose a dielectric direction, but sampling allocation and eigenvalue floor must be predeclared and repeated across campaign seeds. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives for direction uncertainty, and neither chronological target stability nor chronological gradient stability replaces independent-archive validation. Near-boundary empirical KL should cause controlled line-search shrinkage, while confidence in the sign of improvement remains distinct from confidence that a minimum effect size was exceeded. SRC-0018's frozen-reference workflow makes support and resimulation part of optimization validity, not optional diagnostics. [SRC-0018]
+The tension should be managed by increasing genuinely independent information or changing the tested parameter basis while keeping the support criterion fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. The long-archive result makes a repeated, predeclared 60–100 ns dielectric comparison the leading sampling experiment, but the observed first crossing must not be treated as a validated minimum. Enthalpy now requires a prospective comparison of sampling and optimizer geometry because its raw gradient and natural direction have different convergence behavior. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives for direction uncertainty, and neither chronological target stability nor cumulative two-archive agreement replaces broader independent validation. Near-boundary empirical KL should cause controlled line-search shrinkage, while confidence in the sign of improvement remains distinct from confidence that a minimum effect size was exceeded. SRC-0018's frozen-reference workflow makes support and resimulation part of optimization validity, not optional diagnostics. [SRC-0018]
 
 ## Links
 

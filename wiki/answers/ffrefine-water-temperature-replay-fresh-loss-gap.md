@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-07
-updated: 2026-08-07
+updated: 2026-08-20
 question: "Why can FFRefine water-temperature replay optimization show monotone intra-epoch loss but upward loss jumps between macro epochs?"
 answer_status: answered
 areas:
@@ -20,6 +20,7 @@ tags:
   - validation
   - force-field-optimization
 related:
+  - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
@@ -27,6 +28,9 @@ related:
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
+  - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
+  - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
   - "[[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]"
 sources:
@@ -47,6 +51,7 @@ raw_sources_consulted: []
 project_evidence:
   - "FFRefine water_temperature.jl audit on 2026-08-07"
   - "FFRefine artifact audit: /ssd/outputs/water-temperature/20260806-210949"
+  - "FFRefine fixed-archive and fresh-archive water average-observable validation through 2026-08-20"
 ---
 
 # FFRefine Water-Temperature Replay Fresh Loss Gap
@@ -102,6 +107,12 @@ The durable lesson is that replay monotonicity is an in-archive property. It is 
 
 The 2026-08-06 run did not show a support-collapse failure under the configured thresholds. It showed adaptive reuse of a finite replay archive: monotone in-sample loss, systematic replay optimism, and continued but smaller fresh resimulation improvement. Disentangling finite-sample MBAR variance, adaptive selection bias, serial correlation, and residual equilibration effects would require held-out replay blocks or fixed-checkpoint replicate resimulations.
 
+## Later average-observable validation
+
+The August 2026 enthalpy and PME dielectric checks isolate a second, earlier failure mode. Fixed-archive finite-difference gradients, loss gradients, and one-parameter synthetic recovery passed for both properties, but fresh 10 ns and 20 ns archives contained no tested direction that simultaneously reached SNR 5, passed replay support, and stayed below empirical KL 0.02. The best valid 20 ns SNRs were 0.1121 for enthalpy and 0.08847 for dielectric. [[wiki/answers/ffrefine-average-observable-trainability-validation]]
+
+This is distinct from the density sawtooth above. The density run had a resolvable direction and made fresh progress, but replay overestimated the improvement selected on each old archive. The average-observable prescreens did not reach macro optimization: their supported local response was already smaller than archive uncertainty. A mathematically correct replay gradient can therefore fail to give stable fresh progress either because candidate selection overfits a finite archive or because the archive does not resolve the local observable response in the first place. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
+
 ## Implementation implications
 
 Future FFRefine diagnostics should separate these curves visually: replay proposal loss within a macro epoch, fresh initial loss at the next macro epoch, and held-out or replicate validation loss if available. Line plots should not connect proposal losses across archive boundaries without marking that the estimator changed.
@@ -110,6 +121,7 @@ Candidate-level validation should also be considered. A cheap version is to rese
 
 ## Links
 
+- [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]
 - [[wiki/answers/ffrefine-current-implementation-status]]
 - [[wiki/concepts/awh-replay-force-field-optimization]]
@@ -117,5 +129,8 @@ Candidate-level validation should also be considered. A cheap version is to rese
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
+- [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
+- [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]

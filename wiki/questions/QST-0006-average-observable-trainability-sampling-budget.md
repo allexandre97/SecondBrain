@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-08-20
-updated: 2026-08-23
+updated: 2026-08-26
 question_status: open
 areas:
   - research
@@ -18,6 +18,7 @@ tags:
   - sampling-budget
   - trainability
 related:
+  - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
@@ -33,6 +34,7 @@ project_evidence:
   - "FFRefine cross-fitted reaction-field dielectric direction run 20260821-151000"
   - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
+  - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
 ---
 
 # Average-Observable Trainability Sampling Budget
@@ -71,6 +73,10 @@ Pooling 20 ns of shared-replica production and 20 ns from two independent archiv
 
 The next budget experiment should therefore repeat independently pooled arms across new seeds, predeclare the Fisher floor, retain density and RDF controls, leave empirical-KL margin, and report paired replay-loss uncertainty. Only a direction that repeats under those conditions should advance to fresh candidate simulations.
 
+That long-budget diagnostic has now been run for one new archive pair. Two independently prepared one-replica reaction-field archives were extended to 100 ns and analysed every 10 ns. Density and RDF passed throughout. Dielectric passed at 40 ns, failed at 50 ns, then passed continuously from 60 through 100 ns; its 100 ns natural-direction cosine was 0.9743. Enthalpy never passed the full-Fisher direction gate even though its raw-gradient cosine reached 0.9691 at 100 ns. Its natural-direction cosine was 0.6288. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
+
+The sampling-budget question has therefore split in two. For dielectric, 60–100 ns cumulative archives are now a plausible budget for prospective repetition, not a validated minimum. For enthalpy, archive length alone is not the only unresolved variable: the raw gradient is much more reproducible than the full natural direction, so full-Fisher coupling and the residual gradient covariance must be treated together. Additional independent archive pairs are still required because both 100 ns dielectric trajectories failed their chronological-half direction gate even though the cumulative archives agreed.
+
 ## Validation boundaries
 
 - Do not weaken SNR or support thresholds merely to produce an eligible candidate.
@@ -87,6 +93,8 @@ The next budget experiment should therefore repeat independently pooled arms acr
 - Mean-observable split agreement must not be used as a proxy for gradient convergence; dielectric target splits passed while its chronological and independent gradients failed.
 - Fisher regularization choices must be predeclared or validated on separate campaign repetitions; pooled dielectric crossed the cosine threshold only under alternative floors in one observed run.
 - Density and RDF should remain matched controls when changing the sampling budget or Fisher treatment.
+- A first sustained cumulative-prefix crossing must not be reported as a universal minimum budget when it was selected from the observed trajectory.
+- Agreement between two complete archives does not erase failed chronological-half checks; report both and obtain additional independent archive pairs.
 
 ## Links
 

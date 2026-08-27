@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-08-05
-updated: 2026-08-05
+updated: 2026-08-20
 areas:
   - research
 categories:
@@ -16,6 +16,10 @@ tags:
   - polar-systems
 related:
   - "[[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics]]"
+  - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
+  - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
+  - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
 sources:
   - SRC-0075
   - SRC-0076
@@ -149,6 +153,14 @@ The derivation assumes a sufficiently large system that behaves as a macroscopic
 - Report finite-size dependence and local orientational correlations. The Stockmayer test found reaction-field estimates near 65–66 for $N=256$, but left the reaction-field/Ewald discrepancy unresolved. [SRC-0075, pp. 852–856]
 - For interaction-site models, retain site-level charge geometry when applying reaction fields; finite molecular size can produce order-$d/R$ errors and nonphysical wavevector-dependent dielectric oscillations under standard PDRF. [SRC-0076]
 
+## FFRefine validation status
+
+A fixed-archive PME synthetic-teacher check validates the current implementation's conducting-boundary $arepsilon_r=1+A$ value, replay gradient, loss gradient, and one-parameter recovery path. Prediction- and loss-gradient relative errors were $2.80\times10^{-5}$ and $4.96\times10^{-4}$, the final normalized RMSE was 0.02686, and the teacher-shift recovery error was 0.002574.
+
+That controlled result does not establish fresh-archive trainability. A PME scan of 36 parameter shifts on a 10 ns archive and the same 36 shifts after extension to 20 ns found no proposal that simultaneously reached SNR 5, passed support, and stayed below empirical KL 0.02. The best valid SNRs were 0.1120 and 0.08847. Larger raw dielectric responses came from unsupported proposals with KL above 14. [[wiki/answers/ffrefine-average-observable-trainability-validation]]
+
+This finding does not indicate a dielectric-formula failure: the fixed-archive formula and gradients passed, while the fresh archive lacked a resolvable supported response under the tested coordinate directions. The completed fresh scan used PME only. It does not establish trainability under Molly's atom/site-pair reaction-field Hamiltonian, even though both paths use the same operational $1+A$ post-processing estimator.
+
 ## Caveats
 
 - The FFRefine rule is scoped to Molly's current atom/site-pair RF implementation. A future charge-group, molecule-center, or multipole RF implementation requires a fresh derivation check.
@@ -158,6 +170,10 @@ The derivation assumes a sufficiently large system that behaves as a macroscopic
 
 ## Links
 
+- [[wiki/answers/ffrefine-average-observable-trainability-validation]]
+- [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
+- [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
+- [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of]]
 - [[wiki/claims/CLM-0035-dielectric-fluctuation-formulas-are-geometry-dependent]]
 - [[wiki/questions/QST-0003-reaction-field-versus-ewald-dielectric-limit]]

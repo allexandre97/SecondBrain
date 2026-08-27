@@ -39,10 +39,16 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Answers
 
 - [[wiki/answers/adding-config-optimiser-to-ffrefine|Adding ConFIG to FFRefine]]
+- [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
 - [[wiki/answers/ffrefine-config-fisher-second-momentum|FFRefine ConFIG Fisher Second Momentum]]
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
+- [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
 - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]
 - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]
+
+### Claims
+
+- [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]

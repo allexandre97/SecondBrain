@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-20
-updated: 2026-08-23
+updated: 2026-08-26
 question: "Do FFRefine's validated replay mathematics establish that water enthalpy and dielectric permittivity can be trained from fresh TSS archives?"
 answer_status: partially-answered
 areas:
@@ -21,6 +21,7 @@ tags:
   - trainability
   - validation
 related:
+  - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
@@ -67,6 +68,7 @@ project_evidence:
   - "FFRefine cross-fitted reaction-field dielectric direction run 20260821-151000"
   - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
+  - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap --depth 2"
 ---
@@ -85,7 +87,9 @@ The correct conclusion is neither “the mathematics is broken” nor “enthalp
 
 The cross-observable run `20260822-204246` now isolates the failure more sharply. Under the same reaction-field Hamiltonian, sampling budget, thermodynamic ladder, parameter basis, and optimizer, density and RDF gradients were reproducible while enthalpy and dielectric gradients were not. The retained Fisher subspace was essentially identical across archives. Holding the gradient fixed while changing the Fisher estimate preserved the direction, whereas holding the Fisher fixed while changing the archive gradient preserved the enthalpy/dielectric disagreement. The leading problem is therefore observable-specific gradient estimation, with Fisher inversion amplifying that disagreement, rather than a generally defective Fisher information matrix.
 
-The present evidence establishes that coherent replay directions can occur, especially after pooling independent information, but not that enthalpy or dielectric directions are reproducible enough for fresh-simulation or closed-loop training.
+The present evidence establishes that coherent replay directions can occur, especially after pooling independent information, but not yet that enthalpy or dielectric directions are reproducible enough for closed-loop training.
+
+The later two-independent-100 ns reaction-field comparison refines that conclusion. Density and RDF remained reproducible at every cumulative prefix. Dielectric became continuously accepted from 60 through 100 ns and reached natural-direction cosine 0.9743 at 100 ns. Enthalpy's raw-gradient cosine reached 0.9691, but its full-Fisher natural direction remained at 0.6288. The retained Fisher subspaces were effectively identical. This makes a long-archive dielectric direction a prospective validation candidate while localizing the enthalpy failure to residual target-gradient variation amplified by full Fisher coupling. Two archives and unstable chronological halves are not sufficient to establish equilibrium convergence or fresh-simulation trainability. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
 
 ## Exact experiment scope
 
@@ -371,7 +375,15 @@ $$
 
 but this run adds two qualifications. First, $\eta_i$ was visible between chronological halves as well as between independent archives for enthalpy and dielectric. Second, natural-gradient preconditioning can magnify $\eta_i$ when noisy observable-gradient components project into retained low-information modes. Density and RDF are protected not because they use a different Fisher estimate, but because their gradients occupy the retained Fisher modes reproducibly.
 
-The result does not establish closed-loop trainability, an adequate final sampling budget, or a fresh-simulation response. It does establish a matched-control diagnosis: under one common pipeline, the difficult average-observable gradients are unstable while density and RDF gradients are reproducible.
+The result does not establish closed-loop trainability, an adequate final sampling budget, or a fresh-simulation response. It does establish a matched-control diagnosis: under one common pipeline and at the original short budgets, the difficult average-observable gradients are unstable while density and RDF gradients are reproducible.
+
+The later two-independent-100 ns reaction-field comparison refined this diagnosis. At 100 ns, enthalpy's independent-archive raw-gradient cosine and Euclidean norm ratio reached 0.9691 and 0.9655, but its full-Fisher natural-direction cosine was only 0.6288 despite a Fisher-metric norm ratio of 0.9989. Dielectric passed at the same endpoint both before Fisher conditioning, with cosine 0.9777 and norm ratio 0.8204, and after it, with cosine 0.9743 and norm ratio 1.0028. Therefore, it is no longer accurate to summarize both difficult targets as having equally unresolved cumulative raw gradients at the longest tested budget. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
+
+The distinction is target-specific:
+
+- dielectric increasingly looks sampling-limited; longer independent cumulative archives recovered a reproducible raw and full-Fisher direction in one archive pair, although disjoint halves and local blocks still prevent claiming equilibrium;
+- enthalpy retains temporal raw-gradient instability, but the 100 ns independent endpoint indicates that full Fisher inversion is the proximate transformation that destroys otherwise strong cross-archive directional agreement;
+- the Fisher estimate is common geometry rather than a universally bad estimator: density and RDF remain positive controls, and changing Fisher matrices while holding the gradient fixed produced almost identical directions.
 
 ### Main working hypothesis for dielectric training failure
 
@@ -393,11 +405,50 @@ Chronological self-consistency is not sufficient evidence against this explanati
 
 This is a working hypothesis, not a proof that every historical dielectric failure had the same cause or that no feasible sampling budget can recover the equilibrium gradient. It is the explanation most consistent with the current combination of validated fixed-archive derivatives, acceptable replay support and KL, improved within-archive uncertainty, and failed cross-archive direction reproducibility.
 
+The 100 ns result is compatible with this hypothesis rather than contradicting it: increasing independent information eventually produced cumulative dielectric agreement. It does not show that 60 ns is a universal threshold or that recent chronological blocks have equilibrated.
+
+### Optimizer-geometry implication
+
+An implementation audit confirmed that the production operator is not a direct inverse of the raw physical Fisher. It applies the physical-to-latent chain rule, a $10^{-8}$ ridge, Jacobi normalization, hard truncation of normalized modes below $10^{-3}$, the retained-mode pseudoinverse, and scalar KL rescaling. This construction is algebraically consistent. At 100 ns both archives retained the same five-dimensional subspace, but its normalized condition number was still about 2,100. The regularization removed near-null modes without eliminating strong inverse reweighting within the retained space. The observed enthalpy failure is therefore an interaction between residual target-gradient error and the retained full off-diagonal metric, not evidence of an incorrectly coded or archive-dependent Fisher estimate. The detailed spectrum, mode projections, floor sweep, and configuration implications are recorded in [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]].
+
+The same setting currently serves two conceptually different roles: validating negative eigenvalues of the raw physical Fisher and truncating positive modes of the Jacobi-normalized latent Fisher. These tolerances should be separated. The hard floor is also target-independent and cannot distinguish stable density/RDF projections from noisy enthalpy projections; continuous damping or uncertainty-aware modal filtering should be tested prospectively rather than chosen after inspecting this archive pair.
+
+The long-archive enthalpy result motivates a prospective comparison between the existing full-Fisher direction,
+
+$$
+\boldsymbol\Delta_{\mathrm{full}}
+=
+-\alpha F^{+}\mathbf g,
+$$
+
+and latent-space steepest descent,
+
+$$
+\boldsymbol\Delta_{\mathrm{SD}}
+=
+-\eta\mathbf g.
+$$
+
+The second direction avoids amplifying noisy gradient components through inverse low-information Fisher modes. The Fisher can still be used without inversion to enforce the same scalar trust region,
+
+$$
+\frac12
+\boldsymbol\Delta_{\mathrm{SD}}^\mathsf T
+F
+\boldsymbol\Delta_{\mathrm{SD}}
+\leq
+D_{\mathrm{KL}}^{\mathrm{target}}.
+$$
+
+A diagonal-Fisher arm is a useful intermediate comparison. All arms must use the same complete pooled gradient, dimensionless latent coordinates, bounds, regularization, and empirical-KL budget. The existing identity and diagonal counterfactuals are retrospective fixed-archive diagnostics; they establish neither held-out replay improvement nor fresh-simulation trainability.
+
+This optimizer hypothesis is stronger for enthalpy than dielectric. At 100 ns full Fisher conditioning specifically reduced enthalpy reproducibility, whereas dielectric passed both raw and full-Fisher comparisons. Steepest descent cannot replace the longer or more independent sampling still required by either target.
+
 ## Dielectric-estimator scope
 
 FFRefine uses $\varepsilon_r=1+A$ for conducting PME and for Molly's current atom/site-pair reaction-field convention. The configured reaction-field dielectric changes the Hamiltonian but does not automatically require a second finite-boundary inversion in post-processing. [SRC-0075] [SRC-0076] [SRC-0077] [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]
 
-The completed fresh-archive dielectric trainability scan used PME. It therefore does not establish trainability under the atom/site-pair reaction-field Hamiltonian. A reaction-field trainability claim would require a separate fresh-archive experiment with its Hamiltonian and provenance reported, even though the same operational $1+A$ estimator is used.
+The completed 10 and 20 ns fresh-archive dielectric trainability scan used PME. The later matched two-independent-100 ns convergence experiment used the atom/site-pair reaction-field Hamiltonian and found a reproducible cumulative dielectric direction in that archive pair. It stopped at direction diagnosis and therefore still does not establish reaction-field replay improvement, fresh-simulation response, or closed-loop trainability, even though both electrostatics paths use the same operational $1+A$ estimator. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
 
 ## Audit and reporting lessons
 
@@ -416,27 +467,30 @@ The next scientifically useful step is not an unconstrained experimental macro r
 2. Persist candidate dielectric values and changes at every experimental target temperature.
 3. Predeclare whether the direction gate requires a confidence interval below zero plus a point improvement of at least 1%, or instead requires the entire interval to exceed 1%. The completed run passes the former but not the latter; this distinction must not be changed silently after observing the result.
 4. Leave safety margin between estimated KL and the 0.01 empirical ceiling, or backtrack on empirical KL; using 0.01 for both caused 53 of 56 member-level probes to fail the hard ceiling despite strong ESS retention.
-5. Treat the corrected replica comparison and cross-observable run as evidence that 10 ns individual trajectories and the tested shared-replica allocations are insufficient for enthalpy or dielectric direction estimation; do not advance their individual proposals to fresh simulation.
-6. Repeat the pooled shared-versus-independent comparison prospectively with new campaign seeds. Predeclare the Fisher floor, because pooled dielectric crossed the 0.8 cosine threshold at floors 0.0001 and 0.01 but not at the default 0.001.
-7. Quantify paired replay-loss uncertainty for the pooled proposals; the cross-observable run persisted point responses but not confidence intervals for candidate-minus-baseline loss.
-8. Once a candidate passes direction, empirical-KL, support, and paired-loss gates, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
-9. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
+5. Treat 10 ns individual trajectories and the tested shared-replica allocations as insufficient for enthalpy or dielectric direction estimation; do not advance their individual proposals to fresh simulation.
+6. Repeat the two-independent-long-archive comparison prospectively with new seeds. Keep the production full-Fisher direction as the predeclared baseline, and compare full Fisher, diagonal Fisher, and identity directions from the same complete pooled gradient under identical latent bounds and empirical-KL control. The observed dielectric crossing from 60 through 100 ns is a candidate allocation, not a validated minimum.
+7. Require raw-gradient cosine, absolute norms, and norm ratio as well as Fisher-conditioned cosine and norm ratio. A near-unit KL-scaled natural-step norm ratio is not evidence that the raw gradient magnitude has equilibrated.
+8. Evaluate each frozen optimizer arm on independent held-out long archives. If the long-archive dielectric direction repeats, quantify paired replay-loss uncertainty while enforcing empirical-KL margin and support.
+9. Once a candidate passes direction, empirical-KL, support, and paired-loss gates, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
+10. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
 
 ## Remaining gaps
 
-- The sampling length or replica count required to make either average observable identifiable is unknown.
+- One independent archive pair produced a continuously accepted dielectric direction from 60 through 100 ns, but the minimum reproducible budget and campaign-to-campaign success rate remain unknown. Enthalpy did not converge under the production full-Fisher geometry by 100 ns, although its 100 ns raw independent-archive cosine and norm ratio passed.
 - The full QEq-plus-bounded-parameter direction and replay-loss response reproduced across independent pooled archives, but the predefined empirical-KL and at-least-1% confidence gates did not both pass.
-- The enthalpy fresh scan used cutoff/reaction-field electrostatics, while the dielectric scan used PME; the results do not isolate Hamiltonian dependence.
+- The original fresh scans used different electrostatics, but the matched 100 ns reaction-field comparison removes that Hamiltonian difference from the density/RDF/enthalpy/dielectric direction diagnosis.
 - Reaction-field dielectric fresh-simulation and closed-loop trainability remain unresolved; the completed campaign stopped at the replay-direction stage.
 - Candidate dielectric changes by temperature were not persisted in run `20260821-151000`; run `20260821-190105` corrected this reporting gap.
-- The number and length of independently prepared archives needed to stabilize the full dielectric direction remain unknown. Two replicas sharing one TSS preparation did not substitute for independent directional evidence.
-- The cross-observable run used one campaign seed. Its near-threshold pooled dielectric direction and favorable pooled cross-replay require prospective repetition before a Fisher floor or sampling allocation is selected.
+- The number and length of independently prepared archives needed to validate the full dielectric direction remain unknown. Two replicas sharing one TSS preparation did not substitute for independent directional evidence, and one 100 ns archive pair does not characterize between-campaign variability.
+- The cross-observable run used one campaign seed and the long-archive run used one independent pair. Their dielectric directions require prospective repetition before a sampling allocation is selected.
 - The replay probes report point loss changes but not paired candidate-minus-baseline confidence intervals, so the statistical significance of the pooled improvements is unknown.
-- No eligible direction reached the independent-teacher or macro-recovery stages.
+- The long-archive dielectric direction passed the direction gate in one pair but has not yet passed frozen-proposal paired replay, independent-teacher, or macro-recovery stages.
 - No full experimental enthalpy or dielectric optimization has been validated.
+- No prospective identity- or diagonal-conditioned enthalpy optimization has passed held-out replay and fresh-simulation validation.
 
 ## Links
 
+- [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]
 - [[wiki/answers/ffrefine-current-implementation-status]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]

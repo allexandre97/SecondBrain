@@ -92,8 +92,10 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Answers
 
 - [[wiki/answers/adding-config-optimiser-to-ffrefine|Adding ConFIG to FFRefine]]
+- [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
 - [[wiki/answers/ffrefine-config-fisher-second-momentum|FFRefine ConFIG Fisher Second Momentum]]
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
+- [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
@@ -103,6 +105,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Questions
 
+- [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]
 - [[wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs|Corrected Energy and Virial Policy for Modified Cutoffs]]
 - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]
 - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]
@@ -111,6 +114,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Tensions
 
+- [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]
 - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]
 - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]
 - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]
@@ -120,6 +124,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md|Conservative Atomic Reaction-Field Cutoffs Improve High-Permittivity MD]]
 - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]
+- [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]
 - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]
 - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]
 - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]

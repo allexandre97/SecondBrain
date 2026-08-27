@@ -43,6 +43,7 @@ Connectivity score is `related link count + source ID count`. This dashboard lis
 - [[wiki/concepts/forcebalance|ForceBalance]] - score `9`; related links `4`; source IDs `5`
 - [[wiki/concepts/on-the-fly-probability-enhanced-sampling|On-the-Fly Probability-Enhanced Sampling]] - score `9`; related links `6`; source IDs `3`
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - score `8`; related links `5`; source IDs `3`
+- [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant|Dipole-Moment Fluctuations and Dielectric Constants in Polar MD]] - score `8`; related links `5`; source IDs `3`
 - [[wiki/concepts/neuronal-templated-tau-assembly-systems|Neuronal Templated Tau Assembly Systems]] - score `8`; related links `2`; source IDs `6`
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - score `8`; related links `6`; source IDs `2`
 - [[wiki/concepts/times-square-sampling|Times Square Sampling]] - score `8`; related links `6`; source IDs `2`

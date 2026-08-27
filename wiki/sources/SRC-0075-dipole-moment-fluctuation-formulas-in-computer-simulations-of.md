@@ -95,9 +95,9 @@ $$
 \begin{cases}
 \displaystyle
 \frac{\varepsilon-1}{\varepsilon+2}
-\left[1-\frac{\varepsilon-1}{\varepsilon+2}\frac{2(\varepsilon_{\mathrm{RF}}-1)}{2\varepsilon_{\mathrm{RF}}+1}\right]^{-1}, & \mathrm{RF},\\[1em]
-\displaystyle\frac{\varepsilon-1}{\varepsilon+2}, & \mathrm{MI/SC},\\[0.5em]
-\displaystyle\frac{(2\varepsilon+1)(\varepsilon-1)}{9\varepsilon}, & \varepsilon_{\mathrm{RF}}=\varepsilon,\\[0.5em]
+\left[1-\frac{\varepsilon-1}{\varepsilon+2}\frac{2(\varepsilon_{\mathrm{RF}}-1)}{2\varepsilon_{\mathrm{RF}}+1}\right]^{-1}, & \mathrm{RF},\\
+\displaystyle\frac{\varepsilon-1}{\varepsilon+2}, & \mathrm{MI/SC},\\
+\displaystyle\frac{(2\varepsilon+1)(\varepsilon-1)}{9\varepsilon}, & \varepsilon_{\mathrm{RF}}=\varepsilon,\\
 \displaystyle\frac{\varepsilon-1}{3}, & \varepsilon_{\mathrm{RF}}\to\infty.
 \end{cases}
 $$

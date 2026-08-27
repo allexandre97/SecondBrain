@@ -52,6 +52,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Answers
 
+- [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
+- [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
 - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
@@ -61,12 +63,14 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Questions
 
 - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]
+- [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]
 - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]
 - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]
 - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]
 
 ### Tensions
 
+- [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]
 - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]
 - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]
 - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]

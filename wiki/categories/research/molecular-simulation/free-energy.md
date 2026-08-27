@@ -81,7 +81,9 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Answers
 
+- [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
+- [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
 - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]
@@ -95,6 +97,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Questions
 
 - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]
+- [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]
 - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]
 - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]
 - [[wiki/questions/md-free-energy-decoupling-implementation-validation|MD Free-Energy Decoupling Implementation Validation]]
@@ -105,6 +108,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Tensions
 
+- [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]
 - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]
 - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]
 - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]
@@ -121,6 +125,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]
 - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]
 - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]
+- [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]
 - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]
 - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]
 - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]

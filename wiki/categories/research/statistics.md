@@ -30,7 +30,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ## Subcategories
 
-- [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 30 direct, 30 total pages in branch.
+- [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 34 direct, 34 total pages in branch.
 
 ## Direct members
 
