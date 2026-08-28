@@ -50,6 +50,8 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Answers
 
+- [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]] - Retrospective comparison of hard, diagonal, identity, damped, and modal-SNR Fisher treatments on two independent 100 ns reaction-field archives.
+- [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]] - Convergence of water target values, raw gradients, and Fisher-conditioned directions across two independent 100 ns reaction-field archives.
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]] - Why fixed-archive mathematics pass while matched density/RDF controls reproduce and enthalpy/dielectric gradients remain archive dependent.
 - [[wiki/answers/tss-window-free-energy-surface-stitching]] - Mathematical explanation of how TSS stitches per-window free-energy estimates into a global surface.
 - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison]] - Comparison of TSS with AWH and OPES as adaptive free-energy methods.

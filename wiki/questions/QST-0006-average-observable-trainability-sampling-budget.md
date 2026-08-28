@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-08-20
-updated: 2026-08-26
+updated: 2026-08-28
 question_status: open
 areas:
   - research
@@ -18,6 +18,7 @@ tags:
   - sampling-budget
   - trainability
 related:
+  - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
@@ -35,6 +36,7 @@ project_evidence:
   - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
+  - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
 ---
 
 # Average-Observable Trainability Sampling Budget
@@ -77,6 +79,10 @@ That long-budget diagnostic has now been run for one new archive pair. Two indep
 
 The sampling-budget question has therefore split in two. For dielectric, 60–100 ns cumulative archives are now a plausible budget for prospective repetition, not a validated minimum. For enthalpy, archive length alone is not the only unresolved variable: the raw gradient is much more reproducible than the full natural direction, so full-Fisher coupling and the residual gradient covariance must be treated together. Additional independent archive pairs are still required because both 100 ns dielectric trajectories failed their chronological-half direction gate even though the cumulative archives agreed.
 
+Retrospective treatment development on the same pair then converted the direction diagnosis into finite-step replay evidence. The production hard-Fisher dielectric proposal reduced loss in both cross-archive directions by about 1.11%, with paired intervals below zero and all six temperatures improving. Damping with $\gamma=10^{-4}$ increased those reductions to 1.70--1.81%. For enthalpy, identity and diagonal scaling restored direction reproducibility but used much smaller realised empirical KL and gave mostly inconclusive paired effects. Small-$\gamma$ damping gave paired-resolved cross reductions of 1.78% and 2.40% despite failing the exact-direction gate. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
+
+The open question has therefore narrowed again. For dielectric, the next uncertainty is no longer whether this archive pair contains a supported finite-step direction; it does. The unresolved quantity is the probability that a predeclared hard or damped treatment repeats on a new archive pair and then survives fresh simulation. For enthalpy, the unresolved quantity is whether the observed damped shared descent cone repeats independently, and whether identity or diagonal directions become statistically resolved when scaled to comparable empirical KL.
+
 ## Validation boundaries
 
 - Do not weaken SNR or support thresholds merely to produce an eligible candidate.
@@ -95,9 +101,14 @@ The sampling-budget question has therefore split in two. For dielectric, 60–10
 - Density and RDF should remain matched controls when changing the sampling budget or Fisher treatment.
 - A first sustained cumulative-prefix crossing must not be reported as a universal minimum budget when it was selected from the observed trajectory.
 - Agreement between two complete archives does not erase failed chronological-half checks; report both and obtain additional independent archive pairs.
+- A retrospective treatment selected and replayed on the same archive pair is development evidence, even when each archive-specific proposal is evaluated on the other archive.
+- Paired delete-block intervals quantify finite-step uncertainty conditional on one archive; they do not estimate treatment-selection or between-campaign uncertainty.
+- Match realised empirical replay KL before interpreting identity, diagonal, hard, and damped loss-effect sizes.
+- Small-$\gamma$ damping reintroduces modes below the production hard floor; freeze the damping value and monitor modal uncertainty rather than retuning it on prospective data.
 
 ## Links
 
+- [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-20
-updated: 2026-08-26
+updated: 2026-08-28
 question: "Do FFRefine's validated replay mathematics establish that water enthalpy and dielectric permittivity can be trained from fresh TSS archives?"
 answer_status: partially-answered
 areas:
@@ -21,6 +21,7 @@ tags:
   - trainability
   - validation
 related:
+  - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
@@ -69,6 +70,7 @@ project_evidence:
   - "FFRefine reaction-field dielectric replica comparison run 20260821-190105"
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
+  - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap --depth 2"
 ---
@@ -90,6 +92,8 @@ The cross-observable run `20260822-204246` now isolates the failure more sharply
 The present evidence establishes that coherent replay directions can occur, especially after pooling independent information, but not yet that enthalpy or dielectric directions are reproducible enough for closed-loop training.
 
 The later two-independent-100 ns reaction-field comparison refines that conclusion. Density and RDF remained reproducible at every cumulative prefix. Dielectric became continuously accepted from 60 through 100 ns and reached natural-direction cosine 0.9743 at 100 ns. Enthalpy's raw-gradient cosine reached 0.9691, but its full-Fisher natural direction remained at 0.6288. The retained Fisher subspaces were effectively identical. This makes a long-archive dielectric direction a prospective validation candidate while localizing the enthalpy failure to residual target-gradient variation amplified by full Fisher coupling. Two archives and unstable chronological halves are not sufficient to establish equilibrium convergence or fresh-simulation trainability. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
+
+Retrospective finite-step replay on those same two archives adds an important layer. The production hard-Fisher dielectric proposal reduced loss bidirectionally on the opposite archive by about 1.11%, with both paired intervals below zero; damping with $\gamma=10^{-4}$ increased the reductions to about 1.70--1.81%. All six dielectric target temperatures improved. For enthalpy, identity and diagonal directions were highly reproducible but realised much smaller empirical KL and mostly inconclusive loss changes. Small-$\gamma$ damping instead reduced enthalpy loss significantly in both cross directions despite failing the exact-direction cosine gate. These are strong fixed-archive development results, not held-out method validation or fresh-simulation trainability. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 
 ## Exact experiment scope
 
@@ -440,7 +444,11 @@ F
 D_{\mathrm{KL}}^{\mathrm{target}}.
 $$
 
-A diagonal-Fisher arm is a useful intermediate comparison. All arms must use the same complete pooled gradient, dimensionless latent coordinates, bounds, regularization, and empirical-KL budget. The existing identity and diagonal counterfactuals are retrospective fixed-archive diagnostics; they establish neither held-out replay improvement nor fresh-simulation trainability.
+A diagonal-Fisher arm is a useful intermediate comparison. All arms must use the same complete pooled gradient, dimensionless latent coordinates, bounds, regularization, and empirical-KL budget.
+
+The retrospective treatment campaign has now tested these operators more directly. Identity and diagonal enthalpy directions preserved independent-archive agreement, with minimum 60--100 ns cosines 0.9974 and 0.9415. Their realised empirical KL values were only about 0.00073 and 0.00089, compared with about 0.0052--0.0055 for the hard and damped directions, and their paired loss intervals were mostly inconclusive. They therefore establish orientation reproducibility, not finite-step superiority.
+
+Continuous damping with $\gamma=10^{-4}$ produced bidirectional paired-resolved enthalpy replay descent despite a poor direction cosine. It did so partly by restoring two normalized Fisher modes below the production hard floor. This reveals a shared descent cone but also creates a low-information-mode risk. The damping value was selected on the same archive pair and must be frozen before any new comparison. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 
 This optimizer hypothesis is stronger for enthalpy than dielectric. At 100 ns full Fisher conditioning specifically reduced enthalpy reproducibility, whereas dielectric passed both raw and full-Fisher comparisons. Steepest descent cannot replace the longer or more independent sampling still required by either target.
 
@@ -468,9 +476,9 @@ The next scientifically useful step is not an unconstrained experimental macro r
 3. Predeclare whether the direction gate requires a confidence interval below zero plus a point improvement of at least 1%, or instead requires the entire interval to exceed 1%. The completed run passes the former but not the latter; this distinction must not be changed silently after observing the result.
 4. Leave safety margin between estimated KL and the 0.01 empirical ceiling, or backtrack on empirical KL; using 0.01 for both caused 53 of 56 member-level probes to fail the hard ceiling despite strong ESS retention.
 5. Treat 10 ns individual trajectories and the tested shared-replica allocations as insufficient for enthalpy or dielectric direction estimation; do not advance their individual proposals to fresh simulation.
-6. Repeat the two-independent-long-archive comparison prospectively with new seeds. Keep the production full-Fisher direction as the predeclared baseline, and compare full Fisher, diagonal Fisher, and identity directions from the same complete pooled gradient under identical latent bounds and empirical-KL control. The observed dielectric crossing from 60 through 100 ns is a candidate allocation, not a validated minimum.
+6. Repeat the two-independent-long-archive comparison prospectively with new seeds. Keep the production hard-Fisher direction as the predeclared baseline and freeze $\gamma=10^{-4}$ damping as the retrospective finalist. Compare these with diagonal and identity directions from the same complete pooled gradient under identical latent bounds and empirically matched replay KL. The observed dielectric crossing from 60 through 100 ns is a candidate allocation, not a validated minimum.
 7. Require raw-gradient cosine, absolute norms, and norm ratio as well as Fisher-conditioned cosine and norm ratio. A near-unit KL-scaled natural-step norm ratio is not evidence that the raw gradient magnitude has equilibrated.
-8. Evaluate each frozen optimizer arm on independent held-out long archives. If the long-archive dielectric direction repeats, quantify paired replay-loss uncertainty while enforcing empirical-KL margin and support.
+8. Evaluate each frozen optimiser arm on independent held-out long archives. Require paired replay-loss uncertainty, component-wise target response, and collateral-family guards while enforcing empirical-KL margin and support.
 9. Once a candidate passes direction, empirical-KL, support, and paired-loss gates, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
 10. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
 
@@ -483,13 +491,14 @@ The next scientifically useful step is not an unconstrained experimental macro r
 - Candidate dielectric changes by temperature were not persisted in run `20260821-151000`; run `20260821-190105` corrected this reporting gap.
 - The number and length of independently prepared archives needed to validate the full dielectric direction remain unknown. Two replicas sharing one TSS preparation did not substitute for independent directional evidence, and one 100 ns archive pair does not characterize between-campaign variability.
 - The cross-observable run used one campaign seed and the long-archive run used one independent pair. Their dielectric directions require prospective repetition before a sampling allocation is selected.
-- The replay probes report point loss changes but not paired candidate-minus-baseline confidence intervals, so the statistical significance of the pooled improvements is unknown.
-- The long-archive dielectric direction passed the direction gate in one pair but has not yet passed frozen-proposal paired replay, independent-teacher, or macro-recovery stages.
+- The retrospective treatment campaign added paired candidate-minus-baseline intervals. The production hard-Fisher and small-$\gamma$ dielectric proposals passed bidirectional cross-archive replay on the observed pair, but treatment selection and evaluation reused the same archives.
+- The long-archive dielectric direction has passed paired replay on one archive pair but has not passed a prospectively frozen new-pair comparison, independent-teacher simulation, or macro-recovery.
 - No full experimental enthalpy or dielectric optimization has been validated.
-- No prospective identity- or diagonal-conditioned enthalpy optimization has passed held-out replay and fresh-simulation validation.
+- No prospective hard-, damped-, identity-, or diagonal-conditioned enthalpy optimisation has passed held-out replay and fresh-simulation validation.
 
 ## Links
 
+- [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]
 - [[wiki/answers/ffrefine-current-implementation-status]]

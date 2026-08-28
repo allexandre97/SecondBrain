@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-08-28
 question: "What did two independent 100 ns reaction-field TSS archives establish about convergence of FFRefine water target values, gradients, and natural-gradient directions?"
 answer_status: partially-answered
 areas:
@@ -24,6 +24,7 @@ tags:
   - dielectric-constant
   - independent-archives
 related:
+  - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
@@ -42,6 +43,7 @@ project_evidence:
   - "FFRefine cumulative/local half and consecutive-prefix reanalysis completed 2026-08-26"
   - "FFRefine raw-versus-Fisher-conditioned optimizer interpretation completed 2026-08-26"
   - "FFRefine Jacobi-scaled truncated-Fisher implementation audit completed 2026-08-26"
+  - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
 ---
 
 # FFRefine Long-Archive Target-Gradient Convergence
@@ -60,7 +62,7 @@ The direct target values looked converged much earlier than this distinction bec
 
 A finer temporal decomposition strengthens that warning. In archive 2, extending the cumulative enthalpy estimate from 70 to 80 ns left its raw-gradient cosine apparently high at 0.8876, but reduced the raw-gradient norm from 239.3 to 85.7, a ratio of 0.3582. The corresponding KL-scaled natural-step norm ratio remained 0.9975. Thus a nearly fixed optimizer step length can conceal a large change in the underlying estimated gradient.
 
-The result supports a prospective long-archive dielectric validation campaign. It does **not** establish that 60 ns is a universal minimum, that the 100 ns dielectric direction will repeat across additional archive pairs, that chronological halves are equilibrated, or that a replay improvement will survive fresh simulation.
+The subsequent retrospective Fisher-treatment campaign replayed finite proposals in both directions between these archives. The production hard-Fisher dielectric proposals reduced the opposite archive's loss by 1.116% and 1.110%, with both paired intervals below zero, while damping with $\gamma=10^{-4}$ increased the reductions to 1.812% and 1.701%. Thus the cumulative dielectric agreement corresponds to supported finite-step descent on this archive pair, not only angular agreement. The campaign still does **not** establish that 60 ns is a universal minimum, that the result will repeat across additional archive pairs, that chronological halves are equilibrated, or that the replay improvement will survive fresh simulation. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 
 ## Experiment and provenance
 
@@ -395,6 +397,22 @@ The main hypothesis is therefore no longer simply “the direct quantities equil
 6. avoiding Fisher inversion may preserve a reproducible enthalpy endpoint direction, but this remains an optimizer hypothesis until it transfers to held-out archives and fresh simulation;
 7. cumulative agreement between two archives can coexist with poor chronological-half and local-block agreement and therefore requires prospective repetition.
 
+## Retrospective Fisher-treatment follow-up
+
+The same two archives were subsequently reused for a development-only comparison of the production hard inverse, identity, diagonal scaling, continuous damping, and block-derived modal-SNR filtering. All 168 proposal/archive replay evaluations passed support and the 0.01 empirical-KL ceiling. This removes replay overlap as the explanation for the treatment differences.
+
+For dielectric, the production hard-Fisher direction passed every recorded retrospective gate: the minimum independent-archive cosine from 60 through 100 ns was 0.9297, both cross-archive paired loss intervals were below zero, pooled proposals improved both archives, and all six target temperatures improved. Damping with $\gamma=10^{-4}$ ranked first, with cross reductions of 1.812% and 1.701%.
+
+For enthalpy, identity and diagonal directions had minimum 60--100 ns cosines of 0.9974 and 0.9415, confirming that avoiding full spectral inversion preserves complete-archive direction agreement. Their realised empirical KL values were only about 0.0007--0.0009, however, and their paired loss intervals were mostly inconclusive. They were not tested at a comparable empirical perturbation.
+
+Small-$\gamma$ enthalpy damping produced a more surprising result. Its exact direction cosine remained poor, but both cross-archive replay reductions were paired-resolved: 1.779% and 2.405% for $\gamma=10^{-4}$. This means the two archive directions can occupy a shared descent cone without being mutually aligned enough to pass the conservative cosine gate. It does not justify weakening the gate after observing the data because the damping strength was selected on this same archive pair.
+
+Mechanistically, $\gamma=10^{-4}$ damping restored two positive normalized Fisher modes near $8.2\times10^{-5}$ and $2.5\times10^{-4}$ that the production $10^{-3}$ hard floor removes. Their gains were approximately 4,902 and 3,438. The improvement is therefore associated with a changed effective subspace, not merely gentler inversion of the existing five retained modes. The modal-SNR filter only reweighted modes above the hard floor and consequently could not test this mechanism.
+
+Nominal quadratic KL also failed to equalise treatments. Although every proposal was scaled to estimated KL 0.005, identity and diagonal proposals realised much smaller empirical KL than hard, damped, and SNR proposals. Future comparisons must match empirical replay KL before interpreting loss-effect size.
+
+The detailed screen, paired intervals, component responses, spectral gains, collateral-family effects, and limitations are recorded in [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]].
+
 ## What this establishes
 
 - The complete reaction-field pipeline can produce a reproducible dielectric natural direction when cumulative independent archives reach 60–100 ns in this realization.
@@ -404,14 +422,16 @@ The main hypothesis is therefore no longer simply “the direct quantities equil
 - Archive-2 enthalpy remains temporally unstable before Fisher preconditioning: adding 10 ns to the 70 ns cumulative prefix reduced the raw-gradient norm by about 64% and rotated the vector despite substantial sample overlap.
 - Full Fisher coupling can amplify difficult-target instability, but it is not its sole origin; the raw-gradient estimator itself can remain unstable after direct means appear converged.
 - Direct target values, raw gradients, and natural directions have different convergence times and must be monitored separately.
+- The production hard-Fisher dielectric proposal gives supported, bidirectional, paired-resolved replay descent on this 100 ns archive pair.
+- Exact direction reproducibility is a conservative criterion but is not mathematically necessary for cross-archive replay descent; the damped enthalpy proposals demonstrate that distinction on this observed pair.
 
 ## What this does not establish
 
 - that 60 ns is a universal or unbiased dielectric budget estimate;
 - that two archives characterize the population distribution of directions;
-- that the dielectric direction will reduce paired replay loss under a strict empirical-KL ceiling;
+- that the observed dielectric paired replay reduction will repeat on a new archive pair or survive fresh simulation;
 - that the direction will survive fresh candidate simulation or macro-epoch resimulation;
-- that diagonal or identity preconditioning is a validated enthalpy optimizer;
+- that diagonal or identity preconditioning is a validated enthalpy optimiser at matched empirical KL;
 - that enthalpy would not converge with more independent information or a prospectively specified geometry;
 - that a smooth pooled nested-prefix curve, a high gradient cosine without a compatible norm, or a near-unit KL-scaled natural-step norm ratio establishes gradient equilibrium;
 - that identity or diagonal conditioning trains enthalpy or dielectric; the current comparisons are retrospective direction diagnostics only.
@@ -421,17 +441,18 @@ The main hypothesis is therefore no longer simply “the direct quantities equil
 1. Repeat the independent long-archive comparison with new seeds and the same predeclared full-Fisher settings. Do not select the minimum archive length retrospectively from the observed 60 ns crossing.
 2. Require agreement across more than one archive pair and report, for every target, independent-archive agreement, cumulative disjoint halves, local adjacent blocks, and consecutive cumulative-prefix updates.
 3. For every comparison, report raw-gradient cosine, both absolute norms, and their norm ratio before reporting the KL-scaled natural direction. Do not use pooled nested self-convergence or a near-unit natural-step norm ratio as equilibrium evidence.
-4. If dielectric repeats, freeze a pooled long-archive direction before validation, leave margin below the empirical-KL ceiling, and report paired replay-loss uncertainty on held-out long archives.
+4. Freeze the production hard-Fisher dielectric treatment and the retrospective $\gamma=10^{-4}$ damping finalist before generating new data; evaluate both on new independent long archives with paired loss uncertainty and empirical-KL calibration.
 5. Only after replay, support, KL, and direction gates pass should the dielectric candidate advance to independent fresh simulation.
-6. For enthalpy, distinguish “more sampling” from “different optimizer geometry” with a prospective comparison of full Fisher, diagonal Fisher, and identity directions computed from the same complete pooled gradient.
+6. For enthalpy, distinguish “more sampling” from “different optimiser geometry” with a prospective comparison of hard Fisher, predeclared $\gamma=10^{-4}$ damping, diagonal Fisher, and identity directions computed from the same complete pooled gradient.
 7. Apply identical latent-parameter bounds and an identical empirical-KL budget to all optimizer arms. In the identity arm, use the Fisher only to scale or backtrack the step, not to rotate it.
 8. Evaluate every frozen arm on independent held-out long archives before fresh simulation. A raw-direction cosine and norm-ratio pass is a prerequisite, not evidence that a finite step reduces population loss.
 9. Separate the raw-physical-Fisher validity tolerance from the Jacobi-normalized optimizer eigenvalue floor; report both explicitly.
 10. Report the retained normalized spectrum, retained condition number, and each target gradient's signed retained-mode coefficients with block uncertainty. Rank and subspace overlap alone do not quantify inverse amplification.
-11. Compare the hard truncated inverse with a prospectively specified continuously damped or uncertainty-aware spectral filter. Do not select its damping strength from the observed archive pair.
+11. Treat $\gamma=10^{-4}$ as a retrospective finalist, not a validated constant. Do not retune it on the prospective archive pair.
 
 ## Links
 
+- [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
