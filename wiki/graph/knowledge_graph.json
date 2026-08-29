@@ -602,6 +602,150 @@
     },
     {
       "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "category:research/adaptive-sampling",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "category:research/molecular-simulation/force-fields",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "category:research/molecular-simulation/free-energy",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "category:research/statistics/monte-carlo",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "source_id:SRC-0005",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "source_id:SRC-0006",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "source_id:SRC-0007",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "source_id:SRC-0009",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "source_id:SRC-0018",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "source_id:SRC-0023",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
+      "type": "related"
+    },
+    {
+      "evidence": "line 294: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "related"
+    },
+    {
+      "evidence": "line 292: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
+      "type": "related"
+    },
+    {
+      "evidence": "line 87: This direction penalizes candidate probability mass in regions that have little reference probability and is therefore aligned with asking whether a frozen reference archive can represent the candidate. The two KL directions have the same Fisher curvature to second order, but they differ at finite step size. Empirical KL cannot reveal completely unsampled candidate regions, so it must remain paired with ESS, coverage diagnostics, and fresh simulation. [SRC-0018] [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "type": "related"
+    },
+    {
+      "evidence": "line 280: This does not imply that FFRefine's extended-ensemble strategy or earlier results are invalid. The present mixture Fisher measures a legitimate frozen-bias joint perturbation. The problem is that this quantity was used to scale proposals that were then judged by a state-conditional empirical KL, making equal nominal budgets unequal in the validation metric. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "related"
+    },
+    {
+      "evidence": "line 293: - [[wiki/concepts/awh-replay-force-field-optimization]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/concepts/awh-replay-force-field-optimization",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 298: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 299: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
+      "type": "related"
+    },
+    {
+      "evidence": "line 297: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
+      "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:categories",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "category:research/molecular-simulation/force-fields",
       "type": "category"
@@ -2641,7 +2785,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 271: The August 2026 enthalpy and PME dielectric checks add a validation stage between mathematical correctness and macro optimization. Fixed-archive values, finite-difference gradients, loss gradients, and 0.1% one-parameter recovery passed. Fresh 10 ns and 20 ns scans then found no tested direction meeting SNR 5, replay support, and empirical KL at most 0.02. At 20 ns the best valid SNR was 0.1121 for cutoff/reaction-field enthalpy and 0.08847 for PME dielectric, whereas much larger raw responses were outside replay support. [[wiki/answers/ffrefine-average-observable-trainability-validation]]",
+      "evidence": "line 282: The August 2026 enthalpy and PME dielectric checks add a validation stage between mathematical correctness and macro optimization. Fixed-archive values, finite-difference gradients, loss gradients, and 0.1% one-parameter recovery passed. Fresh 10 ns and 20 ns scans then found no tested direction meeting SNR 5, replay support, and empirical KL at most 0.02. At 20 ns the best valid SNR was 0.1121 for cutoff/reaction-field enthalpy and 0.08847 for PME dielectric, whereas much larger raw responses were outside replay support. [[wiki/answers/ffrefine-average-observable-trainability-validation]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/answers/ffrefine-average-observable-trainability-validation",
       "type": "wikilink"
@@ -2653,9 +2797,21 @@
       "type": "related"
     },
     {
-      "evidence": "line 263: A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
+      "evidence": "line 274: A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "related"
+    },
+    {
+      "evidence": "line 134: This should define proposal orientation, while the maximum state-conditional candidate-to-reference KL and state-wise ESS should control finite replay steps. By contrast, the covariance over the state-labelled frozen-bias mixture also contains the between-state covariance of mean scores. It measures the change in joint state occupancy if the old bias remains frozen. That remains a useful bias-portability diagnostic, but it should not be treated as equivalent to state-normalized replay KL. This is a project design recommendation supported by the 2026-08-29 conditioning analysis and has not yet been prospectively validated. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]] and [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]].",
+      "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
@@ -2665,7 +2821,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 263: A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
+      "evidence": "line 274: A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/answers/ffrefine-paper-methods-knowledge-base",
       "type": "wikilink"
@@ -2677,7 +2833,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 441: - [[wiki/answers/sample-bias-reweighting-method-comparison]]",
+      "evidence": "line 452: - [[wiki/answers/sample-bias-reweighting-method-comparison]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
@@ -2701,13 +2857,19 @@
       "type": "related"
     },
     {
-      "evidence": "line 273: The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. Passing fixed-archive differentiation proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
+      "evidence": "line 284: The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. Passing fixed-archive differentiation proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 433: - [[wiki/concepts/accelerated-weight-histogram-method]]",
+      "evidence": "line 134: This should define proposal orientation, while the maximum state-conditional candidate-to-reference KL and state-wise ESS should control finite replay steps. By contrast, the covariance over the state-labelled frozen-bias mixture also contains the between-state covariance of mean scores. It measures the change in joint state occupancy if the old bias remains frozen. That remains a useful bias-portability diagnostic, but it should not be treated as equivalent to state-normalized replay KL. This is a project design recommendation supported by the 2026-08-29 conditioning analysis and has not yet been prospectively validated. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]] and [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]].",
+      "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 444: - [[wiki/concepts/accelerated-weight-histogram-method]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/accelerated-weight-histogram-method",
       "type": "wikilink"
@@ -2719,7 +2881,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 432: - [[wiki/concepts/awh-replay-force-field-optimization]]",
+      "evidence": "line 443: - [[wiki/concepts/awh-replay-force-field-optimization]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/awh-replay-force-field-optimization",
       "type": "wikilink"
@@ -2731,7 +2893,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 438: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
+      "evidence": "line 449: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
       "type": "wikilink"
@@ -2743,13 +2905,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 436: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
+      "evidence": "line 447: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
     },
     {
-      "evidence": "line 437: - [[wiki/concepts/on-the-fly-estimation-versus-mbar]]",
+      "evidence": "line 448: - [[wiki/concepts/on-the-fly-estimation-versus-mbar]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/on-the-fly-estimation-versus-mbar",
       "type": "wikilink"
@@ -2761,7 +2923,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 434: - [[wiki/concepts/times-square-sampling]]",
+      "evidence": "line 445: - [[wiki/concepts/times-square-sampling]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/times-square-sampling",
       "type": "wikilink"
@@ -2785,7 +2947,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 435: - [[wiki/concepts/tss-implementation-patterns]]",
+      "evidence": "line 446: - [[wiki/concepts/tss-implementation-patterns]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/concepts/tss-implementation-patterns",
       "type": "wikilink"
@@ -2803,7 +2965,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 374: Do not rank methods by final training loss alone. The relevant question is which method produces reference archives that support reliable parameter updates under the same validation standard. [SRC-0018] [[wiki/questions/force-field-training-validation-scope]]",
+      "evidence": "line 385: Do not rank methods by final training loss alone. The relevant question is which method produces reference archives that support reliable parameter updates under the same validation standard. [SRC-0018] [[wiki/questions/force-field-training-validation-scope]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/questions/force-field-training-validation-scope",
       "type": "wikilink"
@@ -2815,7 +2977,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 431: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "evidence": "line 442: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
@@ -2827,7 +2989,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 273: The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. Passing fixed-archive differentiation proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
+      "evidence": "line 284: The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. Passing fixed-archive differentiation proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
       "source": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -3085,19 +3247,19 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 186 total pages in branch.",
+      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 187 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/molecular-simulation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 21: - [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 15 direct, 15 total pages in branch.",
+      "evidence": "line 21: - [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 16 direct, 16 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/scientific-computing",
       "type": "wikilink"
     },
     {
-      "evidence": "line 22: - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 35 total pages in branch.",
+      "evidence": "line 22: - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 36 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/statistics",
       "type": "wikilink"
@@ -5605,13 +5767,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 86 direct, 86 total pages in branch.",
+      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 87 direct, 87 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/force-fields",
       "type": "wikilink"
     },
     {
-      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 87 direct, 87 total pages in branch.",
+      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 88 direct, 88 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/free-energy",
       "type": "wikilink"
@@ -5902,6 +6064,12 @@
       "evidence": "line 109: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 117: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "source": "wiki/categories/research/molecular-simulation/force-fields",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
     },
     {
@@ -6379,7 +6547,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 117: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 118: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
@@ -6466,6 +6634,12 @@
       "evidence": "line 110: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 117: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "source": "wiki/categories/research/molecular-simulation/free-energy",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
     },
     {
@@ -7171,6 +7345,12 @@
       "type": "wikilink"
     },
     {
+      "evidence": "line 37: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "source": "wiki/categories/research/scientific-computing",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "type": "wikilink"
+    },
+    {
       "evidence": "line 16: - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/scientific-computing",
       "target": "wiki/concepts/garnet-functional-form-search",
@@ -7201,7 +7381,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 14: - [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 35 direct, 35 total pages in branch.",
+      "evidence": "line 14: - [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 36 direct, 36 total pages in branch.",
       "source": "wiki/categories/research/statistics",
       "target": "wiki/categories/research/statistics/monte-carlo",
       "type": "wikilink"
@@ -7267,7 +7447,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 66: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
@@ -7288,6 +7468,12 @@
       "evidence": "line 62: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 65: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "source": "wiki/categories/research/statistics/monte-carlo",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
     },
     {
@@ -10341,11 +10527,23 @@
     {
       "evidence": "frontmatter:related",
       "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "related"
+    },
+    {
+      "evidence": "line 59: This is a project design recommendation rather than a prospective result. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]].",
+      "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "related"
     },
     {
-      "evidence": "line 57: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
+      "evidence": "line 63: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
       "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "wikilink"
@@ -10357,7 +10555,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 60: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]",
+      "evidence": "line 67: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]",
       "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
@@ -10369,19 +10567,19 @@
       "type": "related"
     },
     {
-      "evidence": "line 58: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]",
+      "evidence": "line 65: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]",
       "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 61: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "evidence": "line 68: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
       "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
     },
     {
-      "evidence": "line 62: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]",
+      "evidence": "line 69: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]",
       "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
       "type": "wikilink"
@@ -10393,7 +10591,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 59: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
+      "evidence": "line 66: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
       "source": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -11221,9 +11419,21 @@
       "type": "related"
     },
     {
-      "evidence": "line 65: A 2026-07-29 FFRefine code audit updated the implementation lesson: the current implementation is best described as a project-local replay-optimization framework, not as a production-validated force-field fitting package. The code has a sampler-agnostic backend that consumes completed named TSS simulations, a local TSS replay parity path, a window-mixture MBAR optimization path, QEq and bounded latent parameter maps, multi-leg target assembly, split validation, ESS/Fisher gates, ConFIG aggregation, post-Fisher momentum, and history/reporting. Its concrete experiment surfaces are ethanol solvation and water-temperature fitting. Ethanol trains solvation free energy by default, with density defined but disabled; water currently trains density and RDF targets, while dielectric support code exists but is disabled in the active target set and split validation. Focused tests support implementation details, but full production improvement and transferability claims remain unvalidated. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
+      "evidence": "line 66: A 2026-07-29 FFRefine code audit updated the implementation lesson: the current implementation is best described as a project-local replay-optimization framework, not as a production-validated force-field fitting package. The code has a sampler-agnostic backend that consumes completed named TSS simulations, a local TSS replay parity path, a window-mixture MBAR optimization path, QEq and bounded latent parameter maps, multi-leg target assembly, split validation, ESS/Fisher gates, ConFIG aggregation, post-Fisher momentum, and history/reporting. Its concrete experiment surfaces are ethanol solvation and water-temperature fitting. Ethanol trains solvation free energy by default, with density defined but disabled; water currently trains density and RDF targets, while dielectric support code exists but is disabled in the active target set and split validation. Focused tests support implementation details, but full production improvement and transferability claims remain unvalidated. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/concepts/awh-replay-force-field-optimization",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "related"
+    },
+    {
+      "evidence": "line 17: - When the enhanced-sampling state marginal is prescribed and expected to readapt, proposal geometry should use state-wise centered conditional Fishers; the frozen-bias joint Fisher should be retained separately as a state-occupancy and bias-portability diagnostic. This is an FFRefine design recommendation that remains to be prospectively tested. [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]",
+      "source": "wiki/concepts/awh-replay-force-field-optimization",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
@@ -11233,13 +11443,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 65: A 2026-07-29 FFRefine code audit updated the implementation lesson: the current implementation is best described as a project-local replay-optimization framework, not as a production-validated force-field fitting package. The code has a sampler-agnostic backend that consumes completed named TSS simulations, a local TSS replay parity path, a window-mixture MBAR optimization path, QEq and bounded latent parameter maps, multi-leg target assembly, split validation, ESS/Fisher gates, ConFIG aggregation, post-Fisher momentum, and history/reporting. Its concrete experiment surfaces are ethanol solvation and water-temperature fitting. Ethanol trains solvation free energy by default, with density defined but disabled; water currently trains density and RDF targets, while dielectric support code exists but is disabled in the active target set and split validation. Focused tests support implementation details, but full production improvement and transferability claims remain unvalidated. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
+      "evidence": "line 66: A 2026-07-29 FFRefine code audit updated the implementation lesson: the current implementation is best described as a project-local replay-optimization framework, not as a production-validated force-field fitting package. The code has a sampler-agnostic backend that consumes completed named TSS simulations, a local TSS replay parity path, a window-mixture MBAR optimization path, QEq and bounded latent parameter maps, multi-leg target assembly, split validation, ESS/Fisher gates, ConFIG aggregation, post-Fisher momentum, and history/reporting. Its concrete experiment surfaces are ethanol solvation and water-temperature fitting. Ethanol trains solvation free energy by default, with density defined but disabled; water currently trains density and RDF targets, while dielectric support code exists but is disabled in the active target set and split validation. Focused tests support implementation details, but full production improvement and transferability claims remain unvalidated. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/answers/ffrefine-paper-methods-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
+      "evidence": "line 84: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -11251,7 +11461,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 78: - [[wiki/concepts/accelerated-weight-histogram-method]]",
+      "evidence": "line 79: - [[wiki/concepts/accelerated-weight-histogram-method]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/accelerated-weight-histogram-method",
       "type": "wikilink"
@@ -11263,7 +11473,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 79: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
+      "evidence": "line 80: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
       "type": "wikilink"
@@ -11275,7 +11485,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 81: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
+      "evidence": "line 82: - [[wiki/concepts/multistate-bennett-acceptance-ratio]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
@@ -11287,7 +11497,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 80: - [[wiki/concepts/times-square-sampling]]",
+      "evidence": "line 81: - [[wiki/concepts/times-square-sampling]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/times-square-sampling",
       "type": "wikilink"
@@ -11299,13 +11509,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 47: For target families with different cardinalities, tolerance normalization should be paired with a family-level weighted mean so the number of scalar bins does not silently determine scientific priority. Within-family weights and between-family coefficients have distinct meanings; see [[wiki/concepts/tolerance-normalized-multi-observable-losses]].",
+      "evidence": "line 48: For target families with different cardinalities, tolerance normalization should be paired with a family-level weighted mean so the number of scalar bins does not silently determine scientific priority. Within-family weights and between-family coefficients have distinct meanings; see [[wiki/concepts/tolerance-normalized-multi-observable-losses]].",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/concepts/tolerance-normalized-multi-observable-losses",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "evidence": "line 78: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
       "source": "wiki/concepts/awh-replay-force-field-optimization",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
@@ -17323,7 +17533,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 43: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]] - `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`, `research/adaptive-sampling`",
+      "evidence": "line 44: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]] - `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`, `research/adaptive-sampling`",
       "source": "wiki/dashboards/claims",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
@@ -17548,6 +17758,12 @@
       "evidence": "line 22: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]] - `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/scientific-computing`",
       "source": "wiki/dashboards/claims",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 43: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]] - `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`, `research/scientific-computing`",
+      "source": "wiki/dashboards/claims",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
     },
     {
@@ -40667,6 +40883,26 @@
       "sources": [
         "SRC-0018",
         "SRC-0036"
+      ],
+      "type": "answer"
+    },
+    {
+      "categories": [
+        "research/adaptive-sampling",
+        "research/molecular-simulation/force-fields",
+        "research/molecular-simulation/free-energy",
+        "research/statistics/monte-carlo"
+      ],
+      "id": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "label": "Which KL divergence should FFRefine use when extended-ensemble simulations train force-field parameters across temperature or alchemical ladders?",
+      "path": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training.md",
+      "sources": [
+        "SRC-0005",
+        "SRC-0006",
+        "SRC-0007",
+        "SRC-0009",
+        "SRC-0018",
+        "SRC-0023"
       ],
       "type": "answer"
     },

@@ -59,6 +59,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]
 - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]
+- [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]
 - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]
 - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]

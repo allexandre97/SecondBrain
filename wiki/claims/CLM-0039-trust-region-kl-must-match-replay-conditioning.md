@@ -22,6 +22,7 @@ tags:
   - state-mixture
 related:
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
+  - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
@@ -88,9 +89,16 @@ Recomputing with the unregularised Fisher preserved the nominal 0.005 values; th
 - Finite-step KL also contains higher-order terms beyond the local Fisher quadratic.
 - No prospective run has yet compared conditional-Fisher and joint-state-Fisher trust regions.
 
+## FFRefine design recommendation
+
+For FFRefine's usual goal, the state density is prescribed by the enhanced-sampling design and can readapt after a force-field update. The weighted state-conditional Fisher should therefore orient proposals, while the maximum state-conditional KL should limit finite replay steps. The current mixture Fisher remains meaningful as a frozen-bias portability diagnostic because its between-state component predicts state-occupancy changes before the bias readapts.
+
+This is a project design recommendation rather than a prospective result. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]].
+
 ## Links
 
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
+- [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]

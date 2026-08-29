@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-08-20
+updated: 2026-08-29
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -37,6 +37,7 @@ related:
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
+  - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -191,6 +192,17 @@ For every retained frame, compute an importance ratio from the fixed reference a
 The Fisher matrix remains the local KL metric because SRC-0018 derives it as the covariance of reduced-potential gradients under the candidate ensemble. [SRC-0018]
 
 ### 6. Optimizer and resimulation policy
+
+A 2026-08-29 FFRefine design analysis distinguishes two KL geometries that should no longer be conflated. When the thermodynamic-state density $\gamma_s$ is prescribed by the enhanced-sampling design and is expected to be restored after a force-field update, the scientific ensemble is $\pi_\theta(s,x)=\gamma_s p_\theta(x\mid s)$. Its Fisher is the weighted state-conditional covariance
+
+$$
+F_{\mathrm{cond}}
+=
+\sum_s\gamma_s\operatorname{Cov}_{p_\theta(x\mid s)}
+[\nabla_\phi u_{\theta,s}(x)].
+$$
+
+This should define proposal orientation, while the maximum state-conditional candidate-to-reference KL and state-wise ESS should control finite replay steps. By contrast, the covariance over the state-labelled frozen-bias mixture also contains the between-state covariance of mean scores. It measures the change in joint state occupancy if the old bias remains frozen. That remains a useful bias-portability diagnostic, but it should not be treated as equivalent to state-normalized replay KL. This is a project design recommendation supported by the 2026-08-29 conditioning analysis and has not yet been prospectively validated. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]] and [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]].
 
 Keep the SRC-0018 update logic as the common optimizer:
 

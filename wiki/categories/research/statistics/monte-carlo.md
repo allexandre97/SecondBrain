@@ -56,6 +56,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
+- [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
 - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]

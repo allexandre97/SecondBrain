@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-07-29
+updated: 2026-08-29
 areas:
   - research
 categories:
@@ -22,6 +22,7 @@ related:
   - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/answers/ffrefine-paper-methods-knowledge-base]]"
+  - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -46,6 +47,7 @@ The reusable idea is broader than AWH: the optimizer needs a fixed, supported re
 - The same replay machinery can estimate general state observables and their gradients. [SRC-0018]
 - A latent-space empirical Fisher matrix provides the local metric for natural-gradient-like steps. [SRC-0018]
 - KL-target scaling and ESS checks limit proposed updates to regions still supported by the frozen reference ensemble. [SRC-0018]
+- When the enhanced-sampling state marginal is prescribed and expected to readapt, proposal geometry should use state-wise centered conditional Fishers; the frozen-bias joint Fisher should be retained separately as a state-occupancy and bias-portability diagnostic. This is an FFRefine design recommendation that remains to be prospectively tested. [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]
 - A sampler-agnostic implementation should isolate the reference-ensemble adapter from the replay estimator and optimizer, so AWH, TSS, or MBAR-style archives can be compared under the same target losses and support gates. [SRC-0018] [SRC-0005] [SRC-0006] [SRC-0023]
 
 ## Core equations
