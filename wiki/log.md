@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-08-23
+updated: 2026-08-29
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -105,3 +105,4 @@ graph_exclude: true
 - 2026-08-23: Recorded FFRefine run `20260822-204246`, which used matched reaction-field density, RDF, enthalpy, and dielectric controls to localize the trainability pathology to observable-gradient reproducibility rather than archive-dependent Fisher estimation; documented chronological and independent direction failures, cross-replay transfer, pooling and eigenfloor sensitivity, KL calibration, and the prospective repeated-pooling experiment.
 - 2026-08-26: Recorded two independent 100 ns reaction-field TSS archives, separating convergence of direct targets, raw gradients, and Fisher-conditioned directions; documented sustained dielectric agreement, enthalpy Fisher amplification, cumulative versus disjoint temporal diagnostics, and the audited Jacobi-scaled hard-truncated Fisher operator.
 - 2026-08-28: Recorded retrospective Fisher-treatment development on the two 100 ns archives, including hard, diagonal, identity, continuously damped, and modal-SNR operators; documented support-valid bidirectional dielectric replay descent, the damped enthalpy shared-descent result, empirical-KL mismatch between geometries, low-Fisher-mode restoration, collateral-family effects, and prospective validation limits.
+- 2026-08-29: Explained the Fisher-treatment KL mismatch by decomposing the TSS mixture Fisher into within-temperature and between-temperature score covariance; recorded that identity and diagonal steps spend about 80--84% of nominal KL in a component absent from state-conditioned replay KL, and added the requirement that trust-region and empirical KL definitions use consistent thermodynamic-state conditioning.

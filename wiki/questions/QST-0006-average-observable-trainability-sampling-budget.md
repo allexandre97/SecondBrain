@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-08-20
-updated: 2026-08-28
+updated: 2026-08-29
 question_status: open
 areas:
   - research
@@ -17,12 +17,15 @@ tags:
   - dielectric-constant
   - sampling-budget
   - trainability
+  - trust-region
+  - kl-conditioning
 related:
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
 sources:
   - SRC-0018
@@ -37,6 +40,7 @@ project_evidence:
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
+  - "FFRefine post hoc within-state/between-state Fisher decomposition completed 2026-08-29"
 ---
 
 # Average-Observable Trainability Sampling Budget
@@ -81,6 +85,8 @@ The sampling-budget question has therefore split in two. For dielectric, 60–10
 
 Retrospective treatment development on the same pair then converted the direction diagnosis into finite-step replay evidence. The production hard-Fisher dielectric proposal reduced loss in both cross-archive directions by about 1.11%, with paired intervals below zero and all six temperatures improving. Damping with $\gamma=10^{-4}$ increased those reductions to 1.70--1.81%. For enthalpy, identity and diagonal scaling restored direction reproducibility but used much smaller realised empirical KL and gave mostly inconclusive paired effects. Small-$\gamma$ damping gave paired-resolved cross reductions of 1.78% and 2.40% despite failing the exact-direction gate. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 
+The low identity/diagonal KL has now been explained. Their scale factors correctly enforced mixed-Fisher KL 0.005, but about 80--84% of that nominal budget came from covariance of mean scores between thermodynamic states. The empirical replay KL normalizes each state's weights separately and sees only within-state configurational change. Hard and mildly damped full-Fisher directions spent about 98--99% of their nominal budget within states, explaining why their empirical KL remained near 0.005. This result splits the open budget question again: archive length and gradient uncertainty remain unresolved, but the trust-region metric must also be matched to the conditioning of the replay diagnostic. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
+
 The open question has therefore narrowed again. For dielectric, the next uncertainty is no longer whether this archive pair contains a supported finite-step direction; it does. The unresolved quantity is the probability that a predeclared hard or damped treatment repeats on a new archive pair and then survives fresh simulation. For enthalpy, the unresolved quantity is whether the observed damped shared descent cone repeats independently, and whether identity or diagonal directions become statistically resolved when scaled to comparable empirical KL.
 
 ## Validation boundaries
@@ -104,6 +110,7 @@ The open question has therefore narrowed again. For dielectric, the next uncerta
 - A retrospective treatment selected and replayed on the same archive pair is development evidence, even when each archive-specific proposal is evaluated on the other archive.
 - Paired delete-block intervals quantify finite-step uncertainty conditional on one archive; they do not estimate treatment-selection or between-campaign uncertainty.
 - Match realised empirical replay KL before interpreting identity, diagonal, hard, and damped loss-effect sizes.
+- Before matching KL numerically, predeclare whether it represents state-conditional canonical reweighting or the joint extended ensemble; log within-state and between-state Fisher contributions and use a matching empirical diagnostic.
 - Small-$\gamma$ damping reintroduces modes below the production hard floor; freeze the damping value and monitor modal uncertainty rather than retuning it on prospective data.
 
 ## Links

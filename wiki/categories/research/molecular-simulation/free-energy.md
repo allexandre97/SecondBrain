@@ -133,4 +133,5 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]
 - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]
+- [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]
 - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]

@@ -133,3 +133,4 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]
 - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks|RNA Force-Field Validation Needs Motif-Level and Coupled-Error Checks]]
 - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]
+- [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]

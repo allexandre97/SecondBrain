@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-28
-updated: 2026-08-28
+updated: 2026-08-29
 question: "What did retrospective Fisher-treatment development on two independent 100 ns reaction-field TSS archives establish about density, RDF, enthalpy, and dielectric optimisation?"
 answer_status: partially-answered
 areas:
@@ -22,6 +22,8 @@ tags:
   - diagonal-preconditioning
   - spectral-damping
   - modal-uncertainty
+  - kl-conditioning
+  - state-mixture
   - replay-validation
   - enthalpy
   - dielectric-constant
@@ -32,6 +34,7 @@ related:
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
 sources:
   - SRC-0018
   - SRC-0023
@@ -51,11 +54,13 @@ wiki_pages_updated:
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
 project_evidence:
   - "FFRefine reaction-field TSS archive 31a6aa53-d503-4e60-84f6-042d4f811a6d"
   - "FFRefine reaction-field TSS archive fc504114-995d-4556-b1da-bdbe0042e5d0"
   - "FFRefine retrospective Fisher-treatment screen completed 2026-08-26, protocol fingerprint 533305656758db33454d19af400e39972e1ae94ad2c52ff60c5b0b788d8373f8"
   - "FFRefine retrospective Fisher-treatment replay completed 2026-08-28, replay hash f9f6161280882e4ee4ffc8bccfd02bfb9a54a0c2477cb88a4be7fcef05d45eea"
+  - "FFRefine post hoc within-state/between-state Fisher decomposition of the 100 ns treatment proposals completed 2026-08-29"
 ---
 
 # FFRefine Retrospective Fisher-Treatment Development
@@ -201,7 +206,78 @@ All candidates passed replay support, and all empirical KL values were below 0.0
 | Enthalpy | 0.000731 | 0.000887 | 0.005234 | 0.005473 |
 | Dielectric | 0.000711 | 0.000253 | 0.005107 | 0.005444 |
 
-The smaller identity and diagonal loss changes therefore cannot be interpreted as a fair equal-perturbation demonstration that those geometries are ineffective. The nominal Fisher quadratic did not equalise the realised replay perturbation. An empirical-KL-matched replay line search is required before making an efficiency comparison.
+The smaller identity and diagonal loss changes therefore cannot be interpreted as a fair equal-perturbation demonstration that those geometries are ineffective. A post hoc decomposition on Archive A identified why the nominal Fisher quadratic did not equalise the realised replay perturbation.
+
+### Why identity and diagonal steps realise less empirical KL
+
+The discrepancy is not a scaling failure. Every treatment, including identity and diagonal, satisfied
+
+$$
+\frac12\Delta\phi^\mathsf{T}F_{\mathrm{mix}}\Delta\phi=0.005.
+$$
+
+Recomputing the quadratic with the unregularised Fisher also gave 0.005 to the reported precision. The ridge contribution was negligible, so Fisher ridge regularisation does not explain the low replay KL.
+
+The relevant distinction is thermodynamic-state conditioning. FFRefine's TSS candidate Fisher is the covariance of the reduced-potential score over the reported mixture of thermodynamic states. Let
+
+$$
+h_s(x)=\nabla_\phi u_s(x),
+\qquad
+\mu_s=\mathbb E_{p_s}[h_s(x)],
+$$
+
+where $s$ indexes temperature-ladder states and $\gamma_s$ is the reported TSS state probability. The law of total covariance gives
+
+$$
+F_{\mathrm{mix}}
+=
+\operatorname{Cov}_{s\sim\gamma,\,x\sim p_s}[h_s(x)]
+=
+\underbrace{\sum_s\gamma_s\operatorname{Cov}_{p_s}[h_s(x)]}_{F_{\mathrm{within}}}
++
+\underbrace{\operatorname{Cov}_{s\sim\gamma}(\mu_s)}_{F_{\mathrm{between}}}.
+$$
+
+The empirical replay diagnostic is different. MBAR weights are normalized independently for every target state, and the campaign reports the maximum candidate-to-reference KL over states:
+
+$$
+D_{\mathrm{replay}}
+=
+\max_s D_{\mathrm{KL}}(q_s\Vert p_s).
+$$
+
+Its local curvature is therefore governed by the state-conditional covariances, not by the between-state covariance of score means:
+
+$$
+D_{\mathrm{KL}}(q_s\Vert p_s)
+=
+\frac12\Delta\phi^\mathsf{T}
+\operatorname{Cov}_{p_s}[h_s(x)]
+\Delta\phi
++O(\lVert\Delta\phi\rVert^3).
+$$
+
+A parameter displacement can consequently spend most of its nominal mixed-Fisher budget changing state-dependent mean reduced energies. Those changes contribute to $F_{\mathrm{between}}$ but cancel from weights normalized within each state. The proposal then reaches estimated mixed KL 0.005 while producing much less within-state configurational reweighting.
+
+The Archive A decomposition confirmed this mechanism:
+
+| Treatment | Within-state contribution | Between-state contribution | Within-state share | Mean local empirical KL |
+| --- | ---: | ---: | ---: | ---: |
+| Identity | 0.000813 | 0.004187 | 16.3% | 0.000883 |
+| Diagonal | 0.000977 | 0.004023 | 19.5% | 0.001063 |
+| Hard full Fisher | 0.004910 | 0.000090 | 98.2% | 0.005325 |
+| Damped $\gamma=10^{-4}$ | 0.004958 | 0.000042 | 99.2% | 0.005378 |
+
+The empirical diagnostic is a maximum over states whereas the within-state table entry is a TSS-weighted average, and the finite replay step contains higher-order effects. Exact equality is therefore not expected. The scale and ordering nevertheless agree: identity and diagonal spend about 80--84% of their nominal budget in the between-state term, while hard and mildly damped full-Fisher steps spend about 98--99% in within-state configurational curvature.
+
+The optimiser geometry explains the treatment dependence. Identity follows the raw objective gradient, and diagonal scaling changes coordinate magnitudes without representing parameter correlations. In these archives those directions align strongly with score-mean differences across temperatures. Full-Fisher inversion or damping uses the correlated geometry and suppresses high-curvature between-state directions, allocating much more of the final fixed-KL step to within-state variation.
+
+This changes the required follow-up. Blindly enlarging identity or diagonal steps until the current empirical KL reaches 0.005 would make a replay comparison more equal in realised perturbation, but it would not resolve which trust-region object is scientifically intended. Two internally consistent choices are:
+
+1. if the trust region is meant to control canonical configurational reweighting at every temperature, construct and log state-conditional Fisher quadratics and scale against a conservative aggregation such as their maximum;
+2. if changes in the joint extended-ensemble state distribution and relative state free energies are intended to consume budget, retain the mixture Fisher but validate it against a matching joint-state empirical KL.
+
+Until that choice is made, both the mixed quadratic and the conditional empirical KL should be reported. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
 
 ![[wiki/assets/ffrefine-retrospective-fisher-treatment-development/replay-validity.png]]
 
@@ -319,7 +395,7 @@ No treatment can therefore be called universally best from its primary-family sc
 2. **Enthalpy:** the raw-versus-natural separation is confirmed. Identity and diagonal directions preserve archive agreement, while full spectral treatment amplifies target-specific residual error.
 3. **Direction gate:** low exact-direction cosine does not necessarily preclude cross-archive replay descent. The enthalpy damped directions occupy a shared descent region despite poor mutual alignment.
 4. **Damping:** the most promising retrospective treatment works partly by restoring two positive modes below the production hard floor. This is both a mechanism and a risk, not a generic endorsement of weaker regularisation.
-5. **Steepest descent:** the campaign confirms reproducible direction orientation but does not fairly test its finite-step effectiveness because its realised empirical KL is seven to eight times smaller than the hard/damped enthalpy proposals. Diagonal dielectric scaling is even more conservative.
+5. **Steepest descent and diagonal scaling:** the campaign confirms reproducible direction orientation but does not fairly test finite-step effectiveness at matched conditional perturbation. Their low empirical KL is now explained by spending most of the mixed-Fisher budget in between-temperature score-mean covariance, not by a scaling or ridge-regularisation bug.
 6. **Temporal convergence:** complete-archive agreement remains compatible with unstable disjoint blocks. The new replay evidence does not turn the observed 60 ns dielectric crossing into a universal equilibrium time.
 
 ![[wiki/assets/ffrefine-retrospective-fisher-treatment-development/treatment-ranking.png]]
@@ -334,7 +410,7 @@ No treatment can therefore be called universally best from its primary-family sc
 - Small-$\gamma$ damping gives the strongest retrospective dielectric replay result and improves all dielectric target temperatures.
 - Enthalpy identity and diagonal directions are much more reproducible than full spectral directions.
 - Small-$\gamma$ enthalpy damping gives bidirectional paired-resolved replay descent even though the exact directions are not reproducible under the 0.8 cosine gate.
-- Nominal Fisher-estimated KL does not equalise realised empirical KL across optimiser geometries.
+- Nominal Fisher-estimated KL does not equalise realised empirical KL across optimiser geometries because the current Fisher and replay KL condition differently on thermodynamic state.
 
 ## What this does not establish
 
@@ -343,6 +419,7 @@ No treatment can therefore be called universally best from its primary-family sc
 - that the two low-Fisher modes admitted by small-$\gamma$ damping are population-stable;
 - that the direction-cosine gate should be weakened or removed;
 - that identity or diagonal scaling is ineffective at matched empirical KL;
+- that a within-state maximum-Fisher trust region is superior to a joint-state trust region before the intended optimisation geometry is specified and prospectively tested;
 - that delete-block paired intervals capture between-archive or method-selection uncertainty;
 - that 60 or 100 ns is a universal archive requirement;
 - that chronological blocks have equilibrated;
@@ -357,11 +434,11 @@ The clean prospective dielectric comparison is now:
 1. freeze the production hard-Fisher treatment as the baseline;
 2. freeze damping at $\gamma=10^{-4}$ before generating new data;
 3. use new independent long archives and identical latent bounds;
-4. calibrate steps by empirical replay KL rather than assuming nominal quadratic KL equalises treatments;
+4. predeclare whether the trust region controls state-conditional configurational change or the joint extended ensemble, then use matched quadratic and empirical KL definitions;
 5. require support, paired cross-archive loss reduction, individual-temperature response, temporal diagnostics, and collateral-family guards;
 6. only then advance a frozen candidate to independent fresh simulation.
 
-For enthalpy, damping $\gamma=10^{-4}$ is a promising retrospective lead but should not bypass the failed direction-reproducibility gate. A new archive pair or a genuinely held-out archive set must determine whether its observed shared descent cone repeats. Identity and diagonal arms remain scientifically useful only after empirical-KL-matched scaling.
+For enthalpy, damping $\gamma=10^{-4}$ is a promising retrospective lead but should not bypass the failed direction-reproducibility gate. A new archive pair or a genuinely held-out archive set must determine whether its observed shared descent cone repeats. Identity and diagonal arms remain scientifically useful, but any matched-KL comparison must first choose whether matching refers to conditional replay KL or a joint-state KL. Both definitions and the within/between Fisher decomposition should be logged.
 
 ## Sources used
 
@@ -390,5 +467,6 @@ No raw sources were consulted. The numerical results are FFRefine project eviden
 - There is no independent archive pair reserved from treatment selection.
 - There is no fresh-candidate simulation for any treatment.
 - Empirical-KL-matched identity and diagonal steps have not been replayed.
+- Per-state Fisher matrices and a matching joint-state empirical KL have not yet been compared prospectively.
 - Between-campaign variability of the low-Fisher modes is unknown.
 - The archive length needed for repeatable dielectric prospective success remains unknown.

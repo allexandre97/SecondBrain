@@ -53,3 +53,4 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Claims
 
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]
+- [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]

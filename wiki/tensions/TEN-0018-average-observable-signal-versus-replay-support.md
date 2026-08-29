@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-08-20
-updated: 2026-08-28
+updated: 2026-08-29
 tension_status: active
 areas:
   - research
@@ -18,16 +18,19 @@ tags:
   - trust-region
   - gradient-reproducibility
   - fisher-information
+  - kl-conditioning
 related:
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
 related_claims:
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
 related_questions:
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
 sources:
@@ -43,6 +46,7 @@ project_evidence:
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
+  - "FFRefine post hoc within-state/between-state Fisher decomposition completed 2026-08-29"
 ---
 
 # Average-Observable Signal vs Replay Support
@@ -83,11 +87,13 @@ The retrospective Fisher-treatment campaign adds two further tensions. First, ex
 
 Second, regularisation strength and replay signal are not ordered by a single notion of conservatism. The production hard floor removed two positive normalized modes near $8.2\times10^{-5}$ and $2.5\times10^{-4}$. Damping with $\gamma=10^{-4}$ restored them with large gains and produced the strongest dielectric and enthalpy replay responses. It also exposed the optimisation to low-Fisher modes whose population stability is unknown. Modal-SNR filtering did not address this tradeoff because it only downweighted already retained modes.
 
-Nominal and empirical trust regions also separated. Identity and diagonal directions were scaled to the same estimated KL 0.005 as the other treatments but realised empirical KL around 0.00025--0.00089 for the difficult targets. Their smaller and often inconclusive loss changes therefore mix optimiser geometry with a much smaller realised perturbation. A fair prospective comparison must preserve support while matching empirical replay KL.
+Nominal and empirical trust regions also separated. Identity and diagonal directions were scaled to the same estimated KL 0.005 as the other treatments but realised empirical KL around 0.00025--0.00089 for the difficult targets. Post hoc decomposition showed that this is a conditioning mismatch, not a failed scale factor. On Archive A, identity spent 0.004187 of its 0.005 mixed-Fisher budget in covariance of mean scores between temperatures and only 0.000813 in within-temperature covariance. Diagonal scaling spent 0.004023 between states and 0.000977 within states. Hard full-Fisher and damped $10^{-4}$ steps instead spent 0.004910 and 0.004958 within states. The empirical replay KL normalizes weights separately within each temperature and cannot see the between-state score-mean term. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
+
+This adds a fourth tension: an apparently common KL number can refer to different statistical objects. Matching the current empirical KL would equalise conditional configurational perturbation, but retaining the mixed Fisher may be justified if relative state free energies and the joint extended ensemble are intended to consume trust-region budget. The pipeline must choose and report one matched pair of quadratic and empirical definitions rather than treating mixed-Fisher KL and conditional replay KL as interchangeable.
 
 ## Interpretation
 
-The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. The long-archive result and its paired replay follow-up justify a prospective dielectric comparison with the production hard Fisher and predeclared $\gamma=10^{-4}$ damping; neither the 60 ns crossing nor the damping value may be retuned on the new pair. Enthalpy requires the same separation of sampling from optimiser geometry, with the damped shared-descent result treated as a lead rather than an eligibility pass. Identity and diagonal arms require empirical-KL-matched scaling before their weaker response is interpreted. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
+The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. The long-archive result and its paired replay follow-up justify a prospective dielectric comparison with the production hard Fisher and predeclared $\gamma=10^{-4}$ damping; neither the 60 ns crossing nor the damping value may be retuned on the new pair. Enthalpy requires the same separation of sampling from optimiser geometry, with the damped shared-descent result treated as a lead rather than an eligibility pass. Identity and diagonal arms require a predeclared, conditioning-consistent KL scale before their weaker response is interpreted. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
 
 ## Links
 
@@ -95,6 +101,7 @@ The tension should be managed by increasing genuinely independent information wh
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
+- [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
