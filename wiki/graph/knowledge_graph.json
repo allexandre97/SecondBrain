@@ -746,6 +746,114 @@
     },
     {
       "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "category:research/adaptive-sampling",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "category:research/molecular-simulation/force-fields",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "category:research/molecular-simulation/free-energy",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:categories",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "category:research/statistics/monte-carlo",
+      "type": "category"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "source_id:SRC-0018",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:sources",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "source_id:SRC-0023",
+      "type": "source_ref"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "related"
+    },
+    {
+      "evidence": "line 52: [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
+      "type": "related"
+    },
+    {
+      "evidence": "line 62: The correction does not change what is sampled or estimated \u2014 archived targets and raw gradients were unchanged \u2014 only the geometry and KL scaling applied to those quantities. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/answers/ffrefine-paper-methods-knowledge-base",
+      "type": "related"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
+      "type": "related"
+    },
+    {
+      "evidence": "line 60: The mechanism was quantified on Archive A of the two 100 ns reaction-field archives: identity and diagonal steps spent about 80--84% of their nominal 0.005 budget in the between-state term, whereas hard full-Fisher and damped steps spent 98--99% in within-state curvature. This explained why identity and diagonal steps realised empirical KL around 0.0007--0.0011 despite the shared nominal target. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "type": "related"
+    },
+    {
+      "evidence": "line 34: [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 137: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:related",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
+      "type": "related"
+    },
+    {
+      "evidence": "line 97: The change does not repair the underlying archive-local gradient irreproducibility for enthalpy, does not establish fresh-simulation trainability, and leaves both conditional KL and ESS unable to detect candidate regions absent from the reference archive. The frozen-bias joint KL remains a legitimate bias-portability diagnostic, just not the primary trust-region geometry. [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]",
+      "source": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:categories",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "category:research/molecular-simulation/force-fields",
       "type": "category"
@@ -3187,7 +3295,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 10: - [[wiki/categories/research/adaptive-sampling|research/adaptive-sampling]] - 39 direct, 39 total pages in branch.",
+      "evidence": "line 10: - [[wiki/categories/research/adaptive-sampling|research/adaptive-sampling]] - 40 direct, 40 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/adaptive-sampling",
       "type": "wikilink"
@@ -3247,7 +3355,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 188 total pages in branch.",
+      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 189 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/molecular-simulation",
       "type": "wikilink"
@@ -3259,7 +3367,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 22: - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 37 total pages in branch.",
+      "evidence": "line 22: - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 38 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/statistics",
       "type": "wikilink"
@@ -3271,37 +3379,43 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 43: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "evidence": "line 44: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 41: - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]",
+      "evidence": "line 41: - [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]",
+      "source": "wiki/categories/research/adaptive-sampling",
+      "target": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 42: - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/ffrefine-paper-methods-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 44: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
+      "evidence": "line 45: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 46: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
+      "evidence": "line 47: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 45: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 46: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
     },
     {
-      "evidence": "line 42: - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]",
+      "evidence": "line 43: - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/tss-window-free-energy-surface-stitching",
       "type": "wikilink"
@@ -3319,37 +3433,37 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 69: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 70: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
+      "evidence": "line 68: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias",
       "type": "wikilink"
     },
     {
-      "evidence": "line 64: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
+      "evidence": "line 65: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 66: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
+      "evidence": "line 67: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates",
       "type": "wikilink"
     },
     {
-      "evidence": "line 68: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
+      "evidence": "line 69: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
+      "evidence": "line 66: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent",
       "type": "wikilink"
@@ -3403,31 +3517,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 52: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
+      "evidence": "line 53: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 50: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
+      "evidence": "line 51: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 51: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
+      "evidence": "line 52: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/awh-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 53: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
+      "evidence": "line 54: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 54: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
+      "evidence": "line 55: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
@@ -3493,19 +3607,19 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 60: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
+      "evidence": "line 61: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 59: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
+      "evidence": "line 60: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 58: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
+      "evidence": "line 59: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness",
       "type": "wikilink"
@@ -5773,13 +5887,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 88 direct, 88 total pages in branch.",
+      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 89 direct, 89 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/force-fields",
       "type": "wikilink"
     },
     {
-      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 89 direct, 89 total pages in branch.",
+      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 90 direct, 90 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/free-energy",
       "type": "wikilink"
@@ -5953,55 +6067,61 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "evidence": "line 84: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 79: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]",
+      "evidence": "line 79: - [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]",
+      "source": "wiki/categories/research/molecular-simulation/force-fields",
+      "target": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 80: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "type": "wikilink"
     },
     {
-      "evidence": "line 80: - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]",
+      "evidence": "line 81: - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/ffrefine-paper-methods-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 81: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]",
+      "evidence": "line 82: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "wikilink"
     },
     {
-      "evidence": "line 82: - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]",
+      "evidence": "line 83: - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
+      "evidence": "line 86: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/garnet-symbolic-regression-functional-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
+      "evidence": "line 85: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 87: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
+      "evidence": "line 88: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 87: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -6019,67 +6139,67 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 112: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]",
+      "evidence": "line 113: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0002-garnet-automates-parameter-assignment",
       "type": "wikilink"
     },
     {
-      "evidence": "line 114: - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]",
+      "evidence": "line 115: - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 115: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
+      "evidence": "line 116: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 117: - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]",
+      "evidence": "line 118: - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 111: - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]",
+      "evidence": "line 112: - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise",
       "type": "wikilink"
     },
     {
-      "evidence": "line 109: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]",
+      "evidence": "line 110: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 116: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks|RNA Force-Field Validation Needs Motif-Level and Coupled-Error Checks]]",
+      "evidence": "line 117: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks|RNA Force-Field Validation Needs Motif-Level and Coupled-Error Checks]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 113: - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]",
+      "evidence": "line 114: - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 108: - [[wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md|Conservative Atomic Reaction-Field Cutoffs Improve High-Permittivity MD]]",
+      "evidence": "line 109: - [[wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md|Conservative Atomic Reaction-Field Cutoffs Improve High-Permittivity MD]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md",
       "type": "wikilink"
     },
     {
-      "evidence": "line 110: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
+      "evidence": "line 111: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 118: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "evidence": "line 119: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -6235,37 +6355,37 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 92: - [[wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs|Corrected Energy and Virial Policy for Modified Cutoffs]]",
+      "evidence": "line 93: - [[wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs|Corrected Energy and Virial Policy for Modified Cutoffs]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs",
       "type": "wikilink"
     },
     {
-      "evidence": "line 91: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
+      "evidence": "line 92: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]",
+      "evidence": "line 94: - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/force-field-training-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]",
+      "evidence": "line 95: - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/garnet-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]",
+      "evidence": "line 96: - [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/mlip-foundation-model-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 96: - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]",
+      "evidence": "line 97: - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/rna-force-field-motif-validation-scope",
       "type": "wikilink"
@@ -6439,31 +6559,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 101: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]",
+      "evidence": "line 102: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 102: - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]",
+      "evidence": "line 103: - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff",
       "type": "wikilink"
     },
     {
-      "evidence": "line 103: - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]",
+      "evidence": "line 104: - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting",
       "type": "wikilink"
     },
     {
-      "evidence": "line 104: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer|RNA Motif-Specific Fixes vs General Force-Field Transfer]]",
+      "evidence": "line 105: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer|RNA Motif-Specific Fixes vs General Force-Field Transfer]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer",
       "type": "wikilink"
     },
     {
-      "evidence": "line 100: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
+      "evidence": "line 101: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -6481,73 +6601,79 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "evidence": "line 73: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]",
+      "evidence": "line 67: - [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]",
+      "source": "wiki/categories/research/molecular-simulation/free-energy",
+      "target": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 68: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "type": "wikilink"
     },
     {
-      "evidence": "line 68: - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]",
+      "evidence": "line 69: - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/ffrefine-paper-methods-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 69: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]",
+      "evidence": "line 70: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "wikilink"
     },
     {
-      "evidence": "line 70: - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]",
+      "evidence": "line 71: - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap",
       "type": "wikilink"
     },
     {
-      "evidence": "line 75: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
+      "evidence": "line 76: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/garnet-symbolic-regression-functional-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 73: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
+      "evidence": "line 74: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 74: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
+      "evidence": "line 75: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
+      "evidence": "line 78: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
       "type": "wikilink"
     },
     {
-      "evidence": "line 78: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
+      "evidence": "line 79: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 76: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 77: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
     },
     {
-      "evidence": "line 71: - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]",
+      "evidence": "line 72: - [[wiki/answers/tss-window-free-energy-surface-stitching|How TSS Stitches Window Free-Energy Surfaces]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/tss-window-free-energy-surface-stitching",
       "type": "wikilink"
@@ -6565,97 +6691,97 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 119: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 120: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 113: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
+      "evidence": "line 114: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited",
       "type": "wikilink"
     },
     {
-      "evidence": "line 106: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
+      "evidence": "line 107: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0005-configuration-mapping-extends-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 114: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
+      "evidence": "line 115: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias",
       "type": "wikilink"
     },
     {
-      "evidence": "line 104: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
+      "evidence": "line 105: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 112: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
+      "evidence": "line 113: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates",
       "type": "wikilink"
     },
     {
-      "evidence": "line 116: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
+      "evidence": "line 117: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 105: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]",
+      "evidence": "line 106: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 110: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]",
+      "evidence": "line 111: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 115: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]",
+      "evidence": "line 116: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 108: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]",
+      "evidence": "line 109: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality",
       "type": "wikilink"
     },
     {
-      "evidence": "line 107: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms|Decoupling Implementations Must Preserve Intramolecular Solute Terms]]",
+      "evidence": "line 108: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms|Decoupling Implementations Must Preserve Intramolecular Solute Terms]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 117: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
+      "evidence": "line 118: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 109: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
+      "evidence": "line 110: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent",
       "type": "wikilink"
     },
     {
-      "evidence": "line 111: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
+      "evidence": "line 112: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 118: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "evidence": "line 119: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -6769,55 +6895,55 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
+      "evidence": "line 86: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
+      "evidence": "line 84: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 82: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
+      "evidence": "line 83: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
+      "evidence": "line 85: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/awh-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/questions/md-free-energy-decoupling-implementation-validation|MD Free-Energy Decoupling Implementation Validation]]",
+      "evidence": "line 87: - [[wiki/questions/md-free-energy-decoupling-implementation-validation|MD Free-Energy Decoupling Implementation Validation]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/md-free-energy-decoupling-implementation-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 87: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
+      "evidence": "line 88: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 88: - [[wiki/questions/rbfe-benchmark-prospective-use-scope|RBFE Benchmark Prospective Use Scope]]",
+      "evidence": "line 89: - [[wiki/questions/rbfe-benchmark-prospective-use-scope|RBFE Benchmark Prospective Use Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/rbfe-benchmark-prospective-use-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 89: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
+      "evidence": "line 90: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/tss-generalization-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 90: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
+      "evidence": "line 91: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
@@ -6973,43 +7099,43 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 100: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
+      "evidence": "line 101: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 96: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
+      "evidence": "line 97: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 98: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
+      "evidence": "line 99: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]",
+      "evidence": "line 96: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 99: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use|RBFE Benchmark Success vs Prospective Use]]",
+      "evidence": "line 100: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use|RBFE Benchmark Success vs Prospective Use]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use",
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
+      "evidence": "line 98: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
+      "evidence": "line 95: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -7399,7 +7525,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 14: - [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 37 direct, 37 total pages in branch.",
+      "evidence": "line 14: - [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 38 direct, 38 total pages in branch.",
       "source": "wiki/categories/research/statistics",
       "target": "wiki/categories/research/statistics/monte-carlo",
       "type": "wikilink"
@@ -7411,49 +7537,55 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 40: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "evidence": "line 41: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 37: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]",
+      "evidence": "line 37: - [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]",
+      "source": "wiki/categories/research/statistics/monte-carlo",
+      "target": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 38: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "type": "wikilink"
     },
     {
-      "evidence": "line 38: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]",
+      "evidence": "line 39: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "wikilink"
     },
     {
-      "evidence": "line 39: - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]",
+      "evidence": "line 40: - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap",
       "type": "wikilink"
     },
     {
-      "evidence": "line 41: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
+      "evidence": "line 42: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 42: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
+      "evidence": "line 43: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 44: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
+      "evidence": "line 45: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 43: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 44: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -7471,31 +7603,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 68: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
+      "evidence": "line 66: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited",
       "type": "wikilink"
     },
     {
-      "evidence": "line 64: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
+      "evidence": "line 65: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0005-configuration-mapping-extends-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 63: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
+      "evidence": "line 64: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 66: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "evidence": "line 67: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -7549,31 +7681,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 49: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
+      "evidence": "line 50: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 48: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
+      "evidence": "line 49: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 50: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
+      "evidence": "line 51: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 51: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
+      "evidence": "line 52: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/tss-generalization-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 52: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
+      "evidence": "line 53: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
@@ -7615,25 +7747,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 59: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
+      "evidence": "line 60: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 57: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
+      "evidence": "line 58: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 58: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
+      "evidence": "line 59: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 56: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
+      "evidence": "line 57: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -22483,6 +22615,12 @@
       "type": "wikilink"
     },
     {
+      "evidence": "line 50: - [[wiki/answers/ffrefine-kl-divergence-definition-change]] - How and why FFRefine's KL trust region moved from a frozen-bias joint Fisher to a state-conditional KL, and its downstream effects on Fisher rank, condition, and natural directions.",
+      "source": "wiki/index",
+      "target": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "type": "wikilink"
+    },
+    {
       "evidence": "line 38: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]] - Convergence of water target values, raw gradients, and Fisher-conditioned directions across two independent 100 ns reaction-field archives.",
       "source": "wiki/index",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
@@ -22549,163 +22687,163 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 246: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance]] - TSS self-adjustment variance claim under stated assumptions.",
+      "evidence": "line 247: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance]] - TSS self-adjustment variance claim under stated assumptions.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 247: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited]] - MBAR statistical efficiency with overlap/support limits.",
+      "evidence": "line 248: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited]] - MBAR statistical efficiency with overlap/support limits.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited",
       "type": "wikilink"
     },
     {
-      "evidence": "line 248: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar]] - Configuration mapping extends MBAR through warped reduced potentials.",
+      "evidence": "line 249: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar]] - Configuration mapping extends MBAR through warped reduced potentials.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0005-configuration-mapping-extends-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 249: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias]] - OPES derives bias from probability reconstruction.",
+      "evidence": "line 250: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias]] - OPES derives bias from probability reconstruction.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias",
       "type": "wikilink"
     },
     {
-      "evidence": "line 250: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms]] - AWH updates bias from conditional weight histograms.",
+      "evidence": "line 251: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms]] - AWH updates bias from conditional weight histograms.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 251: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates]] - LaDyBUGS couples Gibbs lambda sampling with FastMBAR bias updates.",
+      "evidence": "line 252: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates]] - LaDyBUGS couples Gibbs lambda sampling with FastMBAR bias updates.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates",
       "type": "wikilink"
     },
     {
-      "evidence": "line 252: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]] - Energy and force error are insufficient by themselves for downstream MD reliability.",
+      "evidence": "line 253: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability]] - Energy and force error are insufficient by themselves for downstream MD reliability.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 253: - [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]] - Dataset scale does not replace coverage, fidelity, and downstream validation.",
+      "evidence": "line 254: - [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation]] - Dataset scale does not replace coverage, fidelity, and downstream validation.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 254: - [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]] - Molecular datasets differ by training-label, benchmark, response-property, and validation roles.",
+      "evidence": "line 255: - [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]] - Molecular datasets differ by training-label, benchmark, response-property, and validation roles.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses",
       "type": "wikilink"
     },
     {
-      "evidence": "line 255: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]] - Boltzmann generators require overlap and reweighting support for reliable estimates.",
+      "evidence": "line 256: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]] - Boltzmann generators require overlap and reweighting support for reliable estimates.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 256: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]] - Experimental reproducibility bounds how RBFE benchmark errors should be interpreted.",
+      "evidence": "line 257: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]] - Experimental reproducibility bounds how RBFE benchmark errors should be interpreted.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 257: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]] - Public RBFE benchmarks can be easier than private active-project datasets.",
+      "evidence": "line 258: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data]] - Public RBFE benchmarks can be easier than private active-project datasets.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 258: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]] - Edgewise RBFE metrics can overstate arbitrary ligand-comparison quality.",
+      "evidence": "line 259: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]] - Edgewise RBFE metrics can overstate arbitrary ligand-comparison quality.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality",
       "type": "wikilink"
     },
     {
-      "evidence": "line 259: - [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - Overlap segmentation metrics can miss topology and connectivity failures.",
+      "evidence": "line 260: - [[wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures]] - Overlap segmentation metrics can miss topology and connectivity failures.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0020-overlap-segmentation-metrics-can-miss-topology-failures",
       "type": "wikilink"
     },
     {
-      "evidence": "line 260: - [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - Fiber analysis often needs graph measurements rather than only masks.",
+      "evidence": "line 261: - [[wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks]] - Fiber analysis often needs graph measurements rather than only masks.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0021-fiber-analysis-needs-graph-measurements-not-only-masks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 261: - [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - Instance-level filament tracing is harder than semantic foreground segmentation.",
+      "evidence": "line 262: - [[wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation]] - Instance-level filament tracing is harder than semantic foreground segmentation.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0022-instance-filament-tracing-is-harder-than-semantic-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 262: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms]] - Decoupling implementations must preserve intramolecular solute terms.",
+      "evidence": "line 263: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms]] - Decoupling implementations must preserve intramolecular solute terms.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 263: - [[wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md]] - Force-based virials generalize pressure and stress to many-body MD implementations.",
+      "evidence": "line 264: - [[wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md]] - Force-based virials generalize pressure and stress to many-body MD implementations.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md",
       "type": "wikilink"
     },
     {
-      "evidence": "line 264: - [[wiki/claims/CLM-0025-constraints-and-long-range-electrostatics-change-pressure-tensor-accounting]] - Constraints and long-range electrostatics change pressure tensor accounting.",
+      "evidence": "line 265: - [[wiki/claims/CLM-0025-constraints-and-long-range-electrostatics-change-pressure-tensor-accounting]] - Constraints and long-range electrostatics change pressure tensor accounting.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0025-constraints-and-long-range-electrostatics-change-pressure-tensor-accounting",
       "type": "wikilink"
     },
     {
-      "evidence": "line 265: - [[wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited]] - GPU MD neighbor and nonbonded performance is data-layout limited.",
+      "evidence": "line 266: - [[wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited]] - GPU MD neighbor and nonbonded performance is data-layout limited.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited",
       "type": "wikilink"
     },
     {
-      "evidence": "line 266: - [[wiki/claims/CLM-0027-ewald-pme-family-choices-trade-accuracy-smoothness-and-cost]] - Ewald/PME family choices trade accuracy, smoothness, and cost.",
+      "evidence": "line 267: - [[wiki/claims/CLM-0027-ewald-pme-family-choices-trade-accuracy-smoothness-and-cost]] - Ewald/PME family choices trade accuracy, smoothness, and cost.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0027-ewald-pme-family-choices-trade-accuracy-smoothness-and-cost",
       "type": "wikilink"
     },
     {
-      "evidence": "line 267: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks]] - RNA force-field validation needs motif-level and coupled-error checks.",
+      "evidence": "line 268: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks]] - RNA force-field validation needs motif-level and coupled-error checks.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 268: - [[wiki/claims/CLM-0029-overlay-databanks-solve-access-and-standardization-not-simulation-quality]] - Overlay databanks solve access and standardization, not simulation quality.",
+      "evidence": "line 269: - [[wiki/claims/CLM-0029-overlay-databanks-solve-access-and-standardization-not-simulation-quality]] - Overlay databanks solve access and standardization, not simulation quality.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0029-overlay-databanks-solve-access-and-standardization-not-simulation-quality",
       "type": "wikilink"
     },
     {
-      "evidence": "line 243: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness]] - Internal stability of a free-energy landscape does not by itself establish thermodynamic correctness.",
+      "evidence": "line 244: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness]] - Internal stability of a free-energy landscape does not by itself establish thermodynamic correctness.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 244: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent]] - Enhanced-sampling performance changes with landscape, initialization, and parameter context.",
+      "evidence": "line 245: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent]] - Enhanced-sampling performance changes with landscape, initialization, and parameter context.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent",
       "type": "wikilink"
     },
     {
-      "evidence": "line 242: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] - Fixed-archive mathematical validation does not establish a statistically resolvable direction on fresh production data.",
+      "evidence": "line 243: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] - Fixed-archive mathematical validation does not establish a statistically resolvable direction on fresh production data.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 241: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]] - A Fisher KL trust region and its empirical replay KL must condition on thermodynamic state consistently.",
+      "evidence": "line 242: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]] - A Fisher KL trust region and its empirical replay KL must condition on thermodynamic state consistently.",
       "source": "wiki/index",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -22717,433 +22855,433 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 176: - [[wiki/concepts/accelerated-weight-histogram-method]] - Adaptive extended-ensemble method based on conditional weight histograms.",
+      "evidence": "line 177: - [[wiki/concepts/accelerated-weight-histogram-method]] - Adaptive extended-ensemble method based on conditional weight histograms.",
       "source": "wiki/index",
       "target": "wiki/concepts/accelerated-weight-histogram-method",
       "type": "wikilink"
     },
     {
-      "evidence": "line 173: - [[wiki/concepts/adaptive-enhanced-sampling]] - Sampling methods that use on-the-fly estimates to allocate computational effort.",
+      "evidence": "line 174: - [[wiki/concepts/adaptive-enhanced-sampling]] - Sampling methods that use on-the-fly estimates to allocate computational effort.",
       "source": "wiki/index",
       "target": "wiki/concepts/adaptive-enhanced-sampling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 158: - [[wiki/concepts/automated-force-field-training]] - Data-driven training of molecular mechanics force fields.",
+      "evidence": "line 159: - [[wiki/concepts/automated-force-field-training]] - Data-driven training of molecular mechanics force fields.",
       "source": "wiki/index",
       "target": "wiki/concepts/automated-force-field-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 184: - [[wiki/concepts/awh-replay-force-field-optimization]] - AWH frozen-bias replay workflow for force-field optimization.",
+      "evidence": "line 185: - [[wiki/concepts/awh-replay-force-field-optimization]] - AWH frozen-bias replay workflow for force-field optimization.",
       "source": "wiki/index",
       "target": "wiki/concepts/awh-replay-force-field-optimization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 190: - [[wiki/concepts/boltzmann-generators-equilibrium-sampling]] - Normalizing-flow generators for equilibrium samples with statistical reweighting.",
+      "evidence": "line 191: - [[wiki/concepts/boltzmann-generators-equilibrium-sampling]] - Normalizing-flow generators for equilibrium samples with statistical reweighting.",
       "source": "wiki/index",
       "target": "wiki/concepts/boltzmann-generators-equilibrium-sampling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 212: - [[wiki/concepts/cdna-display-proteolysis-stability-measurements]] - Sequencing-based pooled proteolysis assay for high-throughput protein folding-stability measurement.",
+      "evidence": "line 213: - [[wiki/concepts/cdna-display-proteolysis-stability-measurements]] - Sequencing-based pooled proteolysis assay for high-throughput protein folding-stability measurement.",
       "source": "wiki/index",
       "target": "wiki/concepts/cdna-display-proteolysis-stability-measurements",
       "type": "wikilink"
     },
     {
-      "evidence": "line 193: - [[wiki/concepts/conflict-free-pinn-training]] - Gradient aggregation for multi-loss PINN training without loss-direction conflicts.",
+      "evidence": "line 194: - [[wiki/concepts/conflict-free-pinn-training]] - Gradient aggregation for multi-loss PINN training without loss-direction conflicts.",
       "source": "wiki/index",
       "target": "wiki/concepts/conflict-free-pinn-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 141: - [[wiki/concepts/conservative-reaction-field-cutoff-schemes]] - Conservative reaction-field shifting/switching schemes for atomic cutoffs and energy-conserving MD.",
+      "evidence": "line 142: - [[wiki/concepts/conservative-reaction-field-cutoff-schemes]] - Conservative reaction-field shifting/switching schemes for atomic cutoffs and energy-conserving MD.",
       "source": "wiki/index",
       "target": "wiki/concepts/conservative-reaction-field-cutoff-schemes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 215: - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation]] - Recurring validation failure modes across force-field fitting, machine-learning potentials, and free-energy estimators.",
+      "evidence": "line 216: - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation]] - Recurring validation failure modes across force-field fitting, machine-learning potentials, and free-energy estimators.",
       "source": "wiki/index",
       "target": "wiki/concepts/cross-domain-validation-problems-in-molecular-simulation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 162: - [[wiki/concepts/cytoskeletal-network-image-analysis]] - Microscopy-based analysis of cytoskeletal filament network geometry, topology, and dynamics.",
+      "evidence": "line 163: - [[wiki/concepts/cytoskeletal-network-image-analysis]] - Microscopy-based analysis of cytoskeletal filament network geometry, topology, and dynamics.",
       "source": "wiki/index",
       "target": "wiki/concepts/cytoskeletal-network-image-analysis",
       "type": "wikilink"
     },
     {
-      "evidence": "line 163: - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]] - Methods for extracting masks, centrelines, graphs, and tracked filament instances from cytoskeleton images.",
+      "evidence": "line 164: - [[wiki/concepts/cytoskeleton-segmentation-and-tracing]] - Methods for extracting masks, centrelines, graphs, and tracked filament instances from cytoskeleton images.",
       "source": "wiki/index",
       "target": "wiki/concepts/cytoskeleton-segmentation-and-tracing",
       "type": "wikilink"
     },
     {
-      "evidence": "line 164: - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]] - Deep-learning-assisted segmentation, enhancement, reconstruction, and tracking for cytoskeletal microscopy.",
+      "evidence": "line 165: - [[wiki/concepts/deep-learning-cytoskeleton-image-analysis]] - Deep-learning-assisted segmentation, enhancement, reconstruction, and tracking for cytoskeletal microscopy.",
       "source": "wiki/index",
       "target": "wiki/concepts/deep-learning-cytoskeleton-image-analysis",
       "type": "wikilink"
     },
     {
-      "evidence": "line 143: - [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]] - Geometry-dependent dipole-fluctuation formulas, reaction fields, and full-sample volume conventions.",
+      "evidence": "line 144: - [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]] - Geometry-dependent dipole-fluctuation formulas, reaction fields, and full-sample volume conventions.",
       "source": "wiki/index",
       "target": "wiki/concepts/dipole-moment-fluctuation-dielectric-constant",
       "type": "wikilink"
     },
     {
-      "evidence": "line 159: - [[wiki/concepts/double-exponential-potential]] - Non-bonded potential used by Garnet instead of Lennard-Jones.",
+      "evidence": "line 160: - [[wiki/concepts/double-exponential-potential]] - Non-bonded potential used by Garnet instead of Lennard-Jones.",
       "source": "wiki/index",
       "target": "wiki/concepts/double-exponential-potential",
       "type": "wikilink"
     },
     {
-      "evidence": "line 145: - [[wiki/concepts/enhanced-sampling-validation]] - Layered validation of enhanced-sampling free-energy landscapes using internal stability, sensitivity tests, cross-method agreement, and independent references.",
+      "evidence": "line 146: - [[wiki/concepts/enhanced-sampling-validation]] - Layered validation of enhanced-sampling free-energy landscapes using internal stability, sensitivity tests, cross-method agreement, and independent references.",
       "source": "wiki/index",
       "target": "wiki/concepts/enhanced-sampling-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 182: - [[wiki/concepts/ensemble-and-force-field-refinement]] - Maximum-entropy ensemble, force-field, and forward-model refinement.",
+      "evidence": "line 183: - [[wiki/concepts/ensemble-and-force-field-refinement]] - Maximum-entropy ensemble, force-field, and forward-model refinement.",
       "source": "wiki/index",
       "target": "wiki/concepts/ensemble-and-force-field-refinement",
       "type": "wikilink"
     },
     {
-      "evidence": "line 214: - [[wiki/concepts/espaloma-machine-learned-mm-force-fields]] - Graph-neural-network assignment of conventional molecular-mechanics force-field parameters.",
+      "evidence": "line 215: - [[wiki/concepts/espaloma-machine-learned-mm-force-fields]] - Graph-neural-network assignment of conventional molecular-mechanics force-field parameters.",
       "source": "wiki/index",
       "target": "wiki/concepts/espaloma-machine-learned-mm-force-fields",
       "type": "wikilink"
     },
     {
-      "evidence": "line 165: - [[wiki/concepts/filament-instance-and-semantic-segmentation]] - Semantic, instance-level, and measurement-oriented filament segmentation workflows.",
+      "evidence": "line 166: - [[wiki/concepts/filament-instance-and-semantic-segmentation]] - Semantic, instance-level, and measurement-oriented filament segmentation workflows.",
       "source": "wiki/index",
       "target": "wiki/concepts/filament-instance-and-semantic-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 180: - [[wiki/concepts/force-field-training-from-experimental-observables]] - Force-field fitting directly to experimental condensed-phase observables.",
+      "evidence": "line 181: - [[wiki/concepts/force-field-training-from-experimental-observables]] - Force-field fitting directly to experimental condensed-phase observables.",
       "source": "wiki/index",
       "target": "wiki/concepts/force-field-training-from-experimental-observables",
       "type": "wikilink"
     },
     {
-      "evidence": "line 187: - [[wiki/concepts/forcebalance]] - Force-field parameter optimization framework for fitting simulated properties to reference data.",
+      "evidence": "line 188: - [[wiki/concepts/forcebalance]] - Force-field parameter optimization framework for fitting simulated properties to reference data.",
       "source": "wiki/index",
       "target": "wiki/concepts/forcebalance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 172: - [[wiki/concepts/free-energy-estimation]] - Estimating free energy differences as ratios of partition functions or normalizing constants.",
+      "evidence": "line 173: - [[wiki/concepts/free-energy-estimation]] - Estimating free energy differences as ratios of partition functions or normalizing constants.",
       "source": "wiki/index",
       "target": "wiki/concepts/free-energy-estimation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 181: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]] - Reweighting-based force-field fine-tuning with support diagnostics.",
+      "evidence": "line 182: - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]] - Reweighting-based force-field fine-tuning with support diagnostics.",
       "source": "wiki/index",
       "target": "wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning",
       "type": "wikilink"
     },
     {
-      "evidence": "line 157: - [[wiki/concepts/garnet-force-field]] - GNN-based force field for proteins and small molecules.",
+      "evidence": "line 158: - [[wiki/concepts/garnet-force-field]] - GNN-based force field for proteins and small molecules.",
       "source": "wiki/index",
       "target": "wiki/concepts/garnet-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 160: - [[wiki/concepts/garnet-functional-form-search]] - Bilevel and differentiable strategies for choosing interaction functionals in Garnet.",
+      "evidence": "line 161: - [[wiki/concepts/garnet-functional-form-search]] - Bilevel and differentiable strategies for choosing interaction functionals in Garnet.",
       "source": "wiki/index",
       "target": "wiki/concepts/garnet-functional-form-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 194: - [[wiki/concepts/gnn-to-symbolic-regression-potentials]] - Recovering interpretable analytical potentials from GNN-derived interaction outputs.",
+      "evidence": "line 195: - [[wiki/concepts/gnn-to-symbolic-regression-potentials]] - Recovering interpretable analytical potentials from GNN-derived interaction outputs.",
       "source": "wiki/index",
       "target": "wiki/concepts/gnn-to-symbolic-regression-potentials",
       "type": "wikilink"
     },
     {
-      "evidence": "line 202: - [[wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration]] - GPU-oriented neighbor-list and short-range nonbonded interaction algorithms.",
+      "evidence": "line 203: - [[wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration]] - GPU-oriented neighbor-list and short-range nonbonded interaction algorithms.",
       "source": "wiki/index",
       "target": "wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration",
       "type": "wikilink"
     },
     {
-      "evidence": "line 213: - [[wiki/concepts/human-domainome-variant-stability-mapping]] - High-throughput human domain mutagenesis for stability-aware missense variant interpretation.",
+      "evidence": "line 214: - [[wiki/concepts/human-domainome-variant-stability-mapping]] - High-throughput human domain mutagenesis for stability-aware missense variant interpretation.",
       "source": "wiki/index",
       "target": "wiki/concepts/human-domainome-variant-stability-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 179: - [[wiki/concepts/lambda-dynamics-with-bias-updated-gibbs-sampling]] - LaDyBUGS adaptive lambda-dynamics method for relative binding free energies.",
+      "evidence": "line 180: - [[wiki/concepts/lambda-dynamics-with-bias-updated-gibbs-sampling]] - LaDyBUGS adaptive lambda-dynamics method for relative binding free energies.",
       "source": "wiki/index",
       "target": "wiki/concepts/lambda-dynamics-with-bias-updated-gibbs-sampling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 148: - [[wiki/concepts/local-first-personal-work-knowledge-base]] - Local Markdown knowledge base for personal and work contexts.",
+      "evidence": "line 149: - [[wiki/concepts/local-first-personal-work-knowledge-base]] - Local Markdown knowledge base for personal and work contexts.",
       "source": "wiki/index",
       "target": "wiki/concepts/local-first-personal-work-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 196: - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]] - Open questions and evaluation criteria for transferable foundation-model MLIPs.",
+      "evidence": "line 197: - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]] - Open questions and evaluation criteria for transferable foundation-model MLIPs.",
       "source": "wiki/index",
       "target": "wiki/concepts/machine-learned-interatomic-potential-foundation-models",
       "type": "wikilink"
     },
     {
-      "evidence": "line 195: - [[wiki/concepts/machine-learning-potential-datasets]] - Quantum-chemistry datasets for training and evaluating molecular ML potentials.",
+      "evidence": "line 196: - [[wiki/concepts/machine-learning-potential-datasets]] - Quantum-chemistry datasets for training and evaluating molecular ML potentials.",
       "source": "wiki/index",
       "target": "wiki/concepts/machine-learning-potential-datasets",
       "type": "wikilink"
     },
     {
-      "evidence": "line 178: - [[wiki/concepts/mbar-with-configuration-mapping]] - Reweighting with invertible phase-space mappings and Jacobian corrections.",
+      "evidence": "line 179: - [[wiki/concepts/mbar-with-configuration-mapping]] - Reweighting with invertible phase-space mappings and Jacobian corrections.",
       "source": "wiki/index",
       "target": "wiki/concepts/mbar-with-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 200: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation]] - Virial and hybrid pressure/stress tensor calculations in periodic MD.",
+      "evidence": "line 201: - [[wiki/concepts/md-pressure-and-stress-tensor-calculation]] - Virial and hybrid pressure/stress tensor calculations in periodic MD.",
       "source": "wiki/index",
       "target": "wiki/concepts/md-pressure-and-stress-tensor-calculation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 192: - [[wiki/concepts/mixture-of-experts-modeling]] - Probabilistic gating-and-expert models for heterogeneous conditional relationships.",
+      "evidence": "line 193: - [[wiki/concepts/mixture-of-experts-modeling]] - Probabilistic gating-and-expert models for heterogeneous conditional relationships.",
       "source": "wiki/index",
       "target": "wiki/concepts/mixture-of-experts-modeling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 210: - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]] - Fitting molecule-specific SMIRNOFF valence parameters using MLP reference energies and forces.",
+      "evidence": "line 211: - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]] - Fitting molecule-specific SMIRNOFF valence parameters using MLP reference energies and forces.",
       "source": "wiki/index",
       "target": "wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting",
       "type": "wikilink"
     },
     {
-      "evidence": "line 203: - [[wiki/concepts/molecular-dynamics-constraint-solvers]] - Constraint algorithms such as LINCS and their MD role.",
+      "evidence": "line 204: - [[wiki/concepts/molecular-dynamics-constraint-solvers]] - Constraint algorithms such as LINCS and their MD role.",
       "source": "wiki/index",
       "target": "wiki/concepts/molecular-dynamics-constraint-solvers",
       "type": "wikilink"
     },
     {
-      "evidence": "line 209: - [[wiki/concepts/molecular-response-property-foundation-models]] - Foundation-style models for molecular dipoles, polarizabilities, and spectroscopy-relevant response properties.",
+      "evidence": "line 210: - [[wiki/concepts/molecular-response-property-foundation-models]] - Foundation-style models for molecular dipoles, polarizabilities, and spectroscopy-relevant response properties.",
       "source": "wiki/index",
       "target": "wiki/concepts/molecular-response-property-foundation-models",
       "type": "wikilink"
     },
     {
-      "evidence": "line 153: - [[wiki/concepts/multi-category-wiki-organization]] - Frontmatter-driven organization across multiple categories.",
+      "evidence": "line 154: - [[wiki/concepts/multi-category-wiki-organization]] - Frontmatter-driven organization across multiple categories.",
       "source": "wiki/index",
       "target": "wiki/concepts/multi-category-wiki-organization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 185: - [[wiki/concepts/multistate-bennett-acceptance-ratio]] - MBAR estimator for multistate free energy differences, expectations, and uncertainties.",
+      "evidence": "line 186: - [[wiki/concepts/multistate-bennett-acceptance-ratio]] - MBAR estimator for multistate free energy differences, expectations, and uncertainties.",
       "source": "wiki/index",
       "target": "wiki/concepts/multistate-bennett-acceptance-ratio",
       "type": "wikilink"
     },
     {
-      "evidence": "line 208: - [[wiki/concepts/neuronal-templated-tau-assembly-systems]] - Private draft-derived concept for neuronal culture systems that template tau assembly from disease-derived seeds.",
+      "evidence": "line 209: - [[wiki/concepts/neuronal-templated-tau-assembly-systems]] - Private draft-derived concept for neuronal culture systems that template tau assembly from disease-derived seeds.",
       "source": "wiki/index",
       "target": "wiki/concepts/neuronal-templated-tau-assembly-systems",
       "type": "wikilink"
     },
     {
-      "evidence": "line 174: - [[wiki/concepts/on-the-fly-estimation-versus-mbar]] - Comparison between adaptive on-the-fly estimation and the multistate Bennett acceptance ratio estimator.",
+      "evidence": "line 175: - [[wiki/concepts/on-the-fly-estimation-versus-mbar]] - Comparison between adaptive on-the-fly estimation and the multistate Bennett acceptance ratio estimator.",
       "source": "wiki/index",
       "target": "wiki/concepts/on-the-fly-estimation-versus-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 177: - [[wiki/concepts/on-the-fly-probability-enhanced-sampling]] - OPES probability-reconstruction approach to enhanced sampling.",
+      "evidence": "line 178: - [[wiki/concepts/on-the-fly-probability-enhanced-sampling]] - OPES probability-reconstruction approach to enhanced sampling.",
       "source": "wiki/index",
       "target": "wiki/concepts/on-the-fly-probability-enhanced-sampling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 189: - [[wiki/concepts/opc-water-model]] - Rigid water model built from optimized multipole-matching charge geometry.",
+      "evidence": "line 190: - [[wiki/concepts/opc-water-model]] - Rigid water model built from optimized multipole-matching charge geometry.",
       "source": "wiki/index",
       "target": "wiki/concepts/opc-water-model",
       "type": "wikilink"
     },
     {
-      "evidence": "line 155: - [[wiki/concepts/optional-encryption-and-sensitivity-metadata]] - Selective privacy controls without mandatory repository-wide encryption.",
+      "evidence": "line 156: - [[wiki/concepts/optional-encryption-and-sensitivity-metadata]] - Selective privacy controls without mandatory repository-wide encryption.",
       "source": "wiki/index",
       "target": "wiki/concepts/optional-encryption-and-sensitivity-metadata",
       "type": "wikilink"
     },
     {
-      "evidence": "line 206: - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data]] - Metadata/API overlay pattern for reusable biomolecular simulation datasets.",
+      "evidence": "line 207: - [[wiki/concepts/overlay-databanks-for-biomolecular-simulation-data]] - Metadata/API overlay pattern for reusable biomolecular simulation datasets.",
       "source": "wiki/index",
       "target": "wiki/concepts/overlay-databanks-for-biomolecular-simulation-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 201: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics]] - PME, SPME, and ESP approaches for periodic long-range electrostatics.",
+      "evidence": "line 202: - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics]] - PME, SPME, and ESP approaches for periodic long-range electrostatics.",
       "source": "wiki/index",
       "target": "wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 147: - [[wiki/concepts/persistent-llm-wiki]] - A durable, interlinked Markdown wiki maintained by an LLM.",
+      "evidence": "line 148: - [[wiki/concepts/persistent-llm-wiki]] - A durable, interlinked Markdown wiki maintained by an LLM.",
       "source": "wiki/index",
       "target": "wiki/concepts/persistent-llm-wiki",
       "type": "wikilink"
     },
     {
-      "evidence": "line 166: - [[wiki/concepts/promptable-segmentation-foundation-models]] - SAM-style promptable segmentation as a reusable mask-generation interface and annotation-assistance strategy.",
+      "evidence": "line 167: - [[wiki/concepts/promptable-segmentation-foundation-models]] - SAM-style promptable segmentation as a reusable mask-generation interface and annotation-assistance strategy.",
       "source": "wiki/index",
       "target": "wiki/concepts/promptable-segmentation-foundation-models",
       "type": "wikilink"
     },
     {
-      "evidence": "line 211: - [[wiki/concepts/protein-energy-landscape-profiling]] - Large-scale measurement and analysis of protein conformational fluctuation energy landscapes.",
+      "evidence": "line 212: - [[wiki/concepts/protein-energy-landscape-profiling]] - Large-scale measurement and analysis of protein conformational fluctuation energy landscapes.",
       "source": "wiki/index",
       "target": "wiki/concepts/protein-energy-landscape-profiling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 198: - [[wiki/concepts/protein-force-field-benchmark-datasets]] - Experimental observable datasets for benchmarking protein force fields and ensemble generators.",
+      "evidence": "line 199: - [[wiki/concepts/protein-force-field-benchmark-datasets]] - Experimental observable datasets for benchmarking protein force fields and ensemble generators.",
       "source": "wiki/index",
       "target": "wiki/concepts/protein-force-field-benchmark-datasets",
       "type": "wikilink"
     },
     {
-      "evidence": "line 149: - [[wiki/concepts/raw-wiki-schema-layers]] - The `raw/`, `wiki/`, and `schema/` architecture.",
+      "evidence": "line 150: - [[wiki/concepts/raw-wiki-schema-layers]] - The `raw/`, `wiki/`, and `schema/` architecture.",
       "source": "wiki/index",
       "target": "wiki/concepts/raw-wiki-schema-layers",
       "type": "wikilink"
     },
     {
-      "evidence": "line 161: - [[wiki/concepts/relative-binding-free-energy-benchmarking]] - Benchmarking ligand binding predictions against experimental data.",
+      "evidence": "line 162: - [[wiki/concepts/relative-binding-free-energy-benchmarking]] - Benchmarking ligand binding predictions against experimental data.",
       "source": "wiki/index",
       "target": "wiki/concepts/relative-binding-free-energy-benchmarking",
       "type": "wikilink"
     },
     {
-      "evidence": "line 156: - [[wiki/concepts/reusable-codex-task-contracts]] - Shared Codex task constraints and report formats.",
+      "evidence": "line 157: - [[wiki/concepts/reusable-codex-task-contracts]] - Shared Codex task constraints and report formats.",
       "source": "wiki/index",
       "target": "wiki/concepts/reusable-codex-task-contracts",
       "type": "wikilink"
     },
     {
-      "evidence": "line 205: - [[wiki/concepts/rna-force-field-limitations]] - RNA force-field reliability issues, motif benchmarks, and validation caveats.",
+      "evidence": "line 206: - [[wiki/concepts/rna-force-field-limitations]] - RNA force-field reliability issues, motif benchmarks, and validation caveats.",
       "source": "wiki/index",
       "target": "wiki/concepts/rna-force-field-limitations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 204: - [[wiki/concepts/rna-molecular-dynamics-simulations]] - MD, enhanced sampling, and coarse-grained simulation of RNA structure and dynamics.",
+      "evidence": "line 205: - [[wiki/concepts/rna-molecular-dynamics-simulations]] - MD, enhanced sampling, and coarse-grained simulation of RNA structure and dynamics.",
       "source": "wiki/index",
       "target": "wiki/concepts/rna-molecular-dynamics-simulations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 167: - [[wiki/concepts/self-configuring-u-net-medical-image-segmentation]] - nnU-Net-style automatic configuration of U-Net preprocessing, training, inference, ensembling, and postprocessing for biomedical segmentation.",
+      "evidence": "line 168: - [[wiki/concepts/self-configuring-u-net-medical-image-segmentation]] - nnU-Net-style automatic configuration of U-Net preprocessing, training, inference, ensembling, and postprocessing for biomedical segmentation.",
       "source": "wiki/index",
       "target": "wiki/concepts/self-configuring-u-net-medical-image-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 199: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps]] - Overlay-corrected LAMMPS decoupling workflow for solvation free energy calculations.",
+      "evidence": "line 200: - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps]] - Overlay-corrected LAMMPS decoupling workflow for solvation free energy calculations.",
       "source": "wiki/index",
       "target": "wiki/concepts/solvation-free-energy-decoupling-in-lammps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 150: - [[wiki/concepts/source-ingestion]] - Workflow for compiling one source into wiki updates.",
+      "evidence": "line 151: - [[wiki/concepts/source-ingestion]] - Workflow for compiling one source into wiki updates.",
       "source": "wiki/index",
       "target": "wiki/concepts/source-ingestion",
       "type": "wikilink"
     },
     {
-      "evidence": "line 186: - [[wiki/concepts/stability-aware-mlff-training]] - Training MLFFs for downstream MD stability using observable losses.",
+      "evidence": "line 187: - [[wiki/concepts/stability-aware-mlff-training]] - Training MLFFs for downstream MD stability using observable losses.",
       "source": "wiki/index",
       "target": "wiki/concepts/stability-aware-mlff-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 168: - [[wiki/concepts/stretching-open-active-contours]] - SOAX/SOAC model-based tracing of biopolymer filament centerlines and junctions.",
+      "evidence": "line 169: - [[wiki/concepts/stretching-open-active-contours]] - SOAX/SOAC model-based tracing of biopolymer filament centerlines and junctions.",
       "source": "wiki/index",
       "target": "wiki/concepts/stretching-open-active-contours",
       "type": "wikilink"
     },
     {
-      "evidence": "line 207: - [[wiki/concepts/super-resolution-imaging-of-tau-pathology]] - STED-based nanoscale imaging of tau filaments, tangles, and puncta in human Alzheimer's disease tissue.",
+      "evidence": "line 208: - [[wiki/concepts/super-resolution-imaging-of-tau-pathology]] - STED-based nanoscale imaging of tau filaments, tangles, and puncta in human Alzheimer's disease tissue.",
       "source": "wiki/index",
       "target": "wiki/concepts/super-resolution-imaging-of-tau-pathology",
       "type": "wikilink"
     },
     {
-      "evidence": "line 183: - [[wiki/concepts/symbolic-regression-interatomic-potentials]] - Interpretable interatomic potentials discovered by symbolic regression.",
+      "evidence": "line 184: - [[wiki/concepts/symbolic-regression-interatomic-potentials]] - Interpretable interatomic potentials discovered by symbolic regression.",
       "source": "wiki/index",
       "target": "wiki/concepts/symbolic-regression-interatomic-potentials",
       "type": "wikilink"
     },
     {
-      "evidence": "line 171: - [[wiki/concepts/times-square-sampling]] - Adaptive on-the-fly algorithm for free energy estimation.",
+      "evidence": "line 172: - [[wiki/concepts/times-square-sampling]] - Adaptive on-the-fly algorithm for free energy estimation.",
       "source": "wiki/index",
       "target": "wiki/concepts/times-square-sampling",
       "type": "wikilink"
     },
     {
-      "evidence": "line 188: - [[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models]] - ForceBalance-fitted rigid water models, their parameters, evidence, and functional-form limits.",
+      "evidence": "line 189: - [[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models]] - ForceBalance-fitted rigid water models, their parameters, evidence, and functional-form limits.",
       "source": "wiki/index",
       "target": "wiki/concepts/tip3p-fb-and-tip4p-fb-water-models",
       "type": "wikilink"
     },
     {
-      "evidence": "line 170: - [[wiki/concepts/topology-aware-fiber-network-reconstruction]] - Graph-oriented reconstruction of biological fiber networks with preserved connectivity.",
+      "evidence": "line 171: - [[wiki/concepts/topology-aware-fiber-network-reconstruction]] - Graph-oriented reconstruction of biological fiber networks with preserved connectivity.",
       "source": "wiki/index",
       "target": "wiki/concepts/topology-aware-fiber-network-reconstruction",
       "type": "wikilink"
     },
     {
-      "evidence": "line 169: - [[wiki/concepts/topology-aware-tubular-structure-segmentation]] - Connectivity-aware metrics, losses, and neural architectures for tubular networks.",
+      "evidence": "line 170: - [[wiki/concepts/topology-aware-tubular-structure-segmentation]] - Connectivity-aware metrics, losses, and neural architectures for tubular networks.",
       "source": "wiki/index",
       "target": "wiki/concepts/topology-aware-tubular-structure-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 191: - [[wiki/concepts/transferable-and-scalable-boltzmann-generators]] - Amortizing Boltzmann-generator training across molecules, system sizes, and material conditions.",
+      "evidence": "line 192: - [[wiki/concepts/transferable-and-scalable-boltzmann-generators]] - Amortizing Boltzmann-generator training across molecules, system sizes, and material conditions.",
       "source": "wiki/index",
       "target": "wiki/concepts/transferable-and-scalable-boltzmann-generators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 175: - [[wiki/concepts/tss-implementation-patterns]] - Practical implementation patterns for Times Square Sampling.",
+      "evidence": "line 176: - [[wiki/concepts/tss-implementation-patterns]] - Practical implementation patterns for Times Square Sampling.",
       "source": "wiki/index",
       "target": "wiki/concepts/tss-implementation-patterns",
       "type": "wikilink"
     },
     {
-      "evidence": "line 197: - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]] - Biology-focused molecular foundation model for scalable quantum-chemistry-like biomolecular simulation.",
+      "evidence": "line 198: - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]] - Biology-focused molecular foundation model for scalable quantum-chemistry-like biomolecular simulation.",
       "source": "wiki/index",
       "target": "wiki/concepts/ubio-molfm-biological-molecular-foundation-model",
       "type": "wikilink"
     },
     {
-      "evidence": "line 151: - [[wiki/concepts/wiki-index-and-log]] - Roles of the content index and chronological log.",
+      "evidence": "line 152: - [[wiki/concepts/wiki-index-and-log]] - Roles of the content index and chronological log.",
       "source": "wiki/index",
       "target": "wiki/concepts/wiki-index-and-log",
       "type": "wikilink"
     },
     {
-      "evidence": "line 152: - [[wiki/concepts/wiki-linting]] - Structural and content health checks for the wiki.",
+      "evidence": "line 153: - [[wiki/concepts/wiki-linting]] - Structural and content health checks for the wiki.",
       "source": "wiki/index",
       "target": "wiki/concepts/wiki-linting",
       "type": "wikilink"
     },
     {
-      "evidence": "line 154: - [[wiki/concepts/wiki-page-metadata]] - Metadata fields for areas, categories, tags, related pages, sources, sensitivity, and encryption.",
+      "evidence": "line 155: - [[wiki/concepts/wiki-page-metadata]] - Metadata fields for areas, categories, tags, related pages, sources, sensitivity, and encryption.",
       "source": "wiki/index",
       "target": "wiki/concepts/wiki-page-metadata",
       "type": "wikilink"
@@ -23251,13 +23389,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 53: - [[wiki/entities/authors/jack-lidmar]] - Repeated author entity for the accelerated-weight-histogram source cluster.",
+      "evidence": "line 54: - [[wiki/entities/authors/jack-lidmar]] - Repeated author entity for the accelerated-weight-histogram source cluster.",
       "source": "wiki/index",
       "target": "wiki/entities/authors/jack-lidmar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 54: - [[wiki/entities/authors/michael-r-shirts]] - Repeated author entity for MBAR and configuration-mapping free-energy sources.",
+      "evidence": "line 55: - [[wiki/entities/authors/michael-r-shirts]] - Repeated author entity for MBAR and configuration-mapping free-energy sources.",
       "source": "wiki/index",
       "target": "wiki/entities/authors/michael-r-shirts",
       "type": "wikilink"
@@ -23275,571 +23413,571 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 232: - [[wiki/questions/QST-0001-cldice-biological-transfer-scope]] - Validation boundary for clDice transfer to biological fiber reconstruction tasks.",
+      "evidence": "line 233: - [[wiki/questions/QST-0001-cldice-biological-transfer-scope]] - Validation boundary for clDice transfer to biological fiber reconstruction tasks.",
       "source": "wiki/index",
       "target": "wiki/questions/QST-0001-cldice-biological-transfer-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 220: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.",
+      "evidence": "line 221: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.",
       "source": "wiki/index",
       "target": "wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 219: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]] - Sampling length, replica count, uncertainty, and direction-basis requirements for resolving enthalpy or dielectric teacher signals.",
+      "evidence": "line 220: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]] - Sampling length, replica count, uncertainty, and direction-basis requirements for resolving enthalpy or dielectric teacher signals.",
       "source": "wiki/index",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 226: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators]] - Validation boundary for adaptive sampling-time estimators versus fixed-sample estimators.",
+      "evidence": "line 227: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators]] - Validation boundary for adaptive sampling-time estimators versus fixed-sample estimators.",
       "source": "wiki/index",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 225: - [[wiki/questions/awh-validation-scope]] - Validation boundaries for AWH efficiency and robustness claims.",
+      "evidence": "line 226: - [[wiki/questions/awh-validation-scope]] - Validation boundaries for AWH efficiency and robustness claims.",
       "source": "wiki/index",
       "target": "wiki/questions/awh-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 229: - [[wiki/questions/force-field-training-validation-scope]] - Validation boundaries for force-field training and fine-tuning transferability claims.",
+      "evidence": "line 230: - [[wiki/questions/force-field-training-validation-scope]] - Validation boundaries for force-field training and fine-tuning transferability claims.",
       "source": "wiki/index",
       "target": "wiki/questions/force-field-training-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 223: - [[wiki/questions/garnet-validation-scope]] - Validation gaps before treating Garnet as broadly transferable.",
+      "evidence": "line 224: - [[wiki/questions/garnet-validation-scope]] - Validation gaps before treating Garnet as broadly transferable.",
       "source": "wiki/index",
       "target": "wiki/questions/garnet-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 236: - [[wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme]] - GPU neighbor-list and nonbonded layout decision question for Molly/Enzyme/MD.",
+      "evidence": "line 237: - [[wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme]] - GPU neighbor-list and nonbonded layout decision question for Molly/Enzyme/MD.",
       "source": "wiki/index",
       "target": "wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme",
       "type": "wikilink"
     },
     {
-      "evidence": "line 234: - [[wiki/questions/md-free-energy-decoupling-implementation-validation]] - Validation suite question for MD free-energy decoupling implementations.",
+      "evidence": "line 235: - [[wiki/questions/md-free-energy-decoupling-implementation-validation]] - Validation suite question for MD free-energy decoupling implementations.",
       "source": "wiki/index",
       "target": "wiki/questions/md-free-energy-decoupling-implementation-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 235: - [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]] - Virial and pressure API question for autodiff, many-body, constraint, and long-range terms.",
+      "evidence": "line 236: - [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]] - Virial and pressure API question for autodiff, many-body, constraint, and long-range terms.",
       "source": "wiki/index",
       "target": "wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials",
       "type": "wikilink"
     },
     {
-      "evidence": "line 230: - [[wiki/questions/mlip-foundation-model-validation-scope]] - Validation boundaries for MLIP foundation-model reliability claims.",
+      "evidence": "line 231: - [[wiki/questions/mlip-foundation-model-validation-scope]] - Validation boundaries for MLIP foundation-model reliability claims.",
       "source": "wiki/index",
       "target": "wiki/questions/mlip-foundation-model-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 222: - [[wiki/questions/optional-tooling-for-llm-wiki]] - Whether to adopt optional tools or formats from SRC-0001 or SRC-0002 later.",
+      "evidence": "line 223: - [[wiki/questions/optional-tooling-for-llm-wiki]] - Whether to adopt optional tools or formats from SRC-0001 or SRC-0002 later.",
       "source": "wiki/index",
       "target": "wiki/questions/optional-tooling-for-llm-wiki",
       "type": "wikilink"
     },
     {
-      "evidence": "line 227: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators]] - Cross-method overlap and support diagnostics for free-energy estimates.",
+      "evidence": "line 228: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators]] - Cross-method overlap and support diagnostics for free-energy estimates.",
       "source": "wiki/index",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 231: - [[wiki/questions/rbfe-benchmark-prospective-use-scope]] - Validation boundaries for RBFE benchmark transfer to prospective drug-discovery use.",
+      "evidence": "line 232: - [[wiki/questions/rbfe-benchmark-prospective-use-scope]] - Validation boundaries for RBFE benchmark transfer to prospective drug-discovery use.",
       "source": "wiki/index",
       "target": "wiki/questions/rbfe-benchmark-prospective-use-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 237: - [[wiki/questions/rna-force-field-motif-validation-scope]] - RNA motif validation scope for transferable force-field changes.",
+      "evidence": "line 238: - [[wiki/questions/rna-force-field-motif-validation-scope]] - RNA motif validation scope for transferable force-field changes.",
       "source": "wiki/index",
       "target": "wiki/questions/rna-force-field-motif-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 233: - [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - Validation boundary for STED tau-fiber segmentation and morphology analysis.",
+      "evidence": "line 234: - [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - Validation boundary for STED tau-fiber segmentation and morphology analysis.",
       "source": "wiki/index",
       "target": "wiki/questions/sted-tau-fiber-analysis-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 224: - [[wiki/questions/tss-generalization-scope]] - Validation boundaries for Times Square Sampling claims beyond analyzed settings.",
+      "evidence": "line 225: - [[wiki/questions/tss-generalization-scope]] - Validation boundaries for Times Square Sampling claims beyond analyzed settings.",
       "source": "wiki/index",
       "target": "wiki/questions/tss-generalization-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 228: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability]] - Reliability of stitched global profiles from local/windowed free-energy estimates.",
+      "evidence": "line 229: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability]] - Reliability of stitched global profiles from local/windowed free-energy estimates.",
       "source": "wiki/index",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 64: - [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] - Source note introducing the LLM-maintained wiki pattern.",
+      "evidence": "line 65: - [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] - Source note introducing the LLM-maintained wiki pattern.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0001-karpathy-llm-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] - Project design note for local-first personal/work wiki organization, metadata, and privacy controls.",
+      "evidence": "line 66: - [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] - Project design note for local-first personal/work wiki organization, metadata, and privacy controls.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0002-project-design-note",
       "type": "wikilink"
     },
     {
-      "evidence": "line 66: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Paper on Garnet, a graph-neural-network force field trained from scratch.",
+      "evidence": "line 67: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Paper on Garnet, a graph-neural-network force field trained from scratch.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] - Review of automated and semi-automated cytoskeletal network image segmentation and tracing.",
+      "evidence": "line 68: - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] - Review of automated and semi-automated cytoskeletal network image segmentation and tracing.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 68: - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] - Main paper introducing Times Square Sampling for adaptive on-the-fly free energy estimation.",
+      "evidence": "line 69: - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] - Main paper introducing Times Square Sampling for adaptive on-the-fly free energy estimation.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0005-times-square-sampling-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 69: - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] - Supplement with TSS derivations, proofs, implementation recursions, and molecular-dynamics numerics.",
+      "evidence": "line 70: - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] - Supplement with TSS derivations, proofs, implementation recursions, and molecular-dynamics numerics.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0006-times-square-sampling-supplement",
       "type": "wikilink"
     },
     {
-      "evidence": "line 70: - [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]] - Original AWH paper for efficient extended-ensemble simulations.",
+      "evidence": "line 71: - [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]] - Original AWH paper for efficient extended-ensemble simulations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh",
       "type": "wikilink"
     },
     {
-      "evidence": "line 71: - [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]] - AWH paper extending the method to molecular free-energy landscapes and PMFs.",
+      "evidence": "line 72: - [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]] - AWH paper extending the method to molecular free-energy landscapes and PMFs.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0008-awh-free-energy-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] - AWH paper applying the method to alchemical hydration free-energy calculations.",
+      "evidence": "line 73: - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] - AWH paper applying the method to alchemical hydration free-energy calculations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0009-awh-alchemical-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 73: - [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]] - Main OPES paper reframing metadynamics as probability-distribution reconstruction.",
+      "evidence": "line 74: - [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|Rethinking Metadynamics]] - Main OPES paper reframing metadynamics as probability-distribution reconstruction.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0010-rethinking-metadynamics-opes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 74: - [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]] - Supporting information for the OPES paper, including kernel compression and implementation details.",
+      "evidence": "line 75: - [[wiki/sources/SRC-0011-opes-supporting-information|OPES Supporting Information]] - Supporting information for the OPES paper, including kernel compression and implementation details.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0011-opes-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 75: - [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] - MBAR with configuration mapping for states with poor or zero phase-space overlap.",
+      "evidence": "line 76: - [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] - MBAR with configuration mapping for states with poor or zero phase-space overlap.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0012-mbar-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 76: - [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] - LaDyBUGS paper on lambda-dynamics with bias-updated Gibbs sampling.",
+      "evidence": "line 77: - [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] - LaDyBUGS paper on lambda-dynamics with bias-updated Gibbs sampling.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0013-ladybugs-lambda-dynamics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] - Main paper on CHARMM36 lipid reparameterization against SAXS with ForceBalance-SAS.",
+      "evidence": "line 78: - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] - Main paper on CHARMM36 lipid reparameterization against SAXS with ForceBalance-SAS.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 78: - [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] - Supporting information for lipid SAXS force-field reparameterization.",
+      "evidence": "line 79: - [[wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information|Lipid SAXS Reparameterization Supplement]] - Supporting information for lipid SAXS force-field reparameterization.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0015-lipid-force-field-saxs-reparameterization-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 79: - [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] - Preprint on one-shot espaloma charge fine-tuning to hydration free energies with Zwanzig reweighting and ESS regularization.",
+      "evidence": "line 80: - [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|MM Force Field Free-Energy Fine-Tuning]] - Preprint on one-shot espaloma charge fine-tuning to hydration free energies with Zwanzig reweighting and ESS regularization.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies",
       "type": "wikilink"
     },
     {
-      "evidence": "line 80: - [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] - Symbolic-regression and reinforcement-learning approach for interpretable interatomic potentials.",
+      "evidence": "line 81: - [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|Symbolic-Regression Interatomic Potentials]] - Symbolic-regression and reinforcement-learning approach for interpretable interatomic potentials.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials",
       "type": "wikilink"
     },
     {
-      "evidence": "line 81: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] - AWH frozen-bias replay and Fisher/KL theory document for force-field optimization.",
+      "evidence": "line 82: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|AWH Replay Force-Field Optimization]] - AWH frozen-bias replay and Fisher/KL theory document for force-field optimization.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
     },
     {
-      "evidence": "line 82: - [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] - MDRefine main paper on ensemble, force-field, and forward-model refinement against experiment.",
+      "evidence": "line 83: - [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]] - MDRefine main paper on ensemble, force-field, and forward-model refinement against experiment.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] - Supplementary derivative and hyperparameter material for MDRefine.",
+      "evidence": "line 84: - [[wiki/sources/SRC-0020-mdrefine-supplementary-material|MDRefine Supplement]] - Supplementary derivative and hyperparameter material for MDRefine.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0020-mdrefine-supplementary-material",
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] - Main paper on training OBC2 GB cavity radii to host-guest binding data.",
+      "evidence": "line 85: - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] - Main paper on training OBC2 GB cavity radii to host-guest binding data.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] - Supporting information for host-guest binding-data potential tuning.",
+      "evidence": "line 86: - [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]] - Supporting information for host-guest binding-data potential tuning.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]] - Original MBAR paper on statistically optimal analysis of samples from multiple equilibrium states.",
+      "evidence": "line 87: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]] - Original MBAR paper on statistically optimal analysis of samples from multiple equilibrium states.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 87: - [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] - StABlE training paper for stable MLFFs using differentiable Boltzmann estimators.",
+      "evidence": "line 88: - [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]] - StABlE training paper for stable MLFFs using differentiable Boltzmann estimators.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 88: - [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] - ForceBalance paper on automatic, systematic, reproducible force-field fitting.",
+      "evidence": "line 89: - [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|ForceBalance Force-Field Fitting]] - ForceBalance paper on automatic, systematic, reproducible force-field fitting.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach",
       "type": "wikilink"
     },
     {
-      "evidence": "line 89: - [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] - Supporting information for the ForceBalance water-model paper.",
+      "evidence": "line 90: - [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|ForceBalance Supporting Information]] - Supporting information for the ForceBalance water-model paper.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 90: - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] - OPC water-model paper using a multipole-first point-charge construction.",
+      "evidence": "line 91: - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] - OPC water-model paper using a multipole-first point-charge construction.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0027-building-water-models-different-approach-opc",
       "type": "wikilink"
     },
     {
-      "evidence": "line 91: - [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] - Supporting information for the OPC water-model paper.",
+      "evidence": "line 92: - [[wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information|OPC Supporting Information]] - Supporting information for the OPC water-model paper.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0028-building-water-models-different-approach-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 92: - [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] - Stacked U-Net paper for semantic filament segmentation in microscopy images.",
+      "evidence": "line 93: - [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|Stacked U-Net Filament Segmentation]] - Stacked U-Net paper for semantic filament segmentation in microscopy images.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] - Orientation-aware neural network and terminus-pairing method for filament instance segmentation.",
+      "evidence": "line 94: - [[wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures|Filament Instance Segmentation]] - Orientation-aware neural network and terminus-pairing method for filament instance segmentation.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0030-intersection-to-overpass-instance-segmentation-on-filamentous-structures",
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] - Actin filament count and length estimation using CNN segmentation, keypoint detection, and fast marching.",
+      "evidence": "line 95: - [[wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint|Actin Filament Quantification]] - Actin filament count and length estimation using CNN segmentation, keypoint detection, and fast marching.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0031-quantifying-actin-filaments-in-microscopic-images-using-keypoint",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]] - clDice topology-preserving metric and soft-clDice loss for tubular structure segmentation.",
+      "evidence": "line 96: - [[wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for|clDice Topology-Preserving Loss]] - clDice topology-preserving metric and soft-clDice loss for tubular structure segmentation.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0032-cldice-a-novel-topology-preserving-loss-function-for",
       "type": "wikilink"
     },
     {
-      "evidence": "line 96: - [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] - DeepVesselNet architecture for 3D vessel segmentation, centerline prediction, and bifurcation detection.",
+      "evidence": "line 97: - [[wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection|DeepVesselNet]] - DeepVesselNet architecture for 3D vessel segmentation, centerline prediction, and bifurcation detection.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0033-deepvesselnet-vessel-segmentation-centerline-prediction-and-bifurcation-detection",
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: - [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] - ToFiE topology-aware workflow for 3D reconstruction of dense biological fiber networks.",
+      "evidence": "line 98: - [[wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d|ToFiE Fiber Extraction]] - ToFiE topology-aware workflow for 3D reconstruction of dense biological fiber networks.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0034-tofie-topology-aware-fiber-extraction-workflow-for-3d",
       "type": "wikilink"
     },
     {
-      "evidence": "line 98: - [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] - SOAX software paper for 2D/3D biopolymer centerline and junction extraction.",
+      "evidence": "line 99: - [[wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks|SOAX]] - SOAX software paper for 2D/3D biopolymer centerline and junction extraction.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0035-soax-software-for-quantification-of-3d-biopolymer-networks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 99: - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] - ConFIG gradient-aggregation method for conflict-free PINN and multi-task training.",
+      "evidence": "line 100: - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|ConFIG]] - ConFIG gradient-aggregation method for conflict-free PINN and multi-task training.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed",
       "type": "wikilink"
     },
     {
-      "evidence": "line 100: - [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] - Flow-matching framework for Boltzmann generators transferable across dipeptides.",
+      "evidence": "line 101: - [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] - Flow-matching framework for Boltzmann generators transferable across dipeptides.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0037-transferable-boltzmann-generators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 101: - [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]] - Overview of mixture-of-experts modeling, theory, estimation, and applications.",
+      "evidence": "line 102: - [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]] - Overview of mixture-of-experts modeling, theory, estimation, and applications.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts",
       "type": "wikilink"
     },
     {
-      "evidence": "line 102: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] - Local flow architecture for scalable Boltzmann generators in large crystalline materials.",
+      "evidence": "line 103: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] - Local flow architecture for scalable Boltzmann generators in large crystalline materials.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large",
       "type": "wikilink"
     },
     {
-      "evidence": "line 103: - [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] - GNN plus symbolic-regression workflow for interpretable potentials in disordered systems.",
+      "evidence": "line 104: - [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]] - GNN plus symbolic-regression workflow for interpretable potentials in disordered systems.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to",
       "type": "wikilink"
     },
     {
-      "evidence": "line 104: - [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] - Original Boltzmann generator paper for one-shot equilibrium sampling and reweighting.",
+      "evidence": "line 105: - [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]] - Original Boltzmann generator paper for one-shot equilibrium sampling and reweighting.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body",
       "type": "wikilink"
     },
     {
-      "evidence": "line 105: - [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] - OMol25 large-scale molecular DFT dataset, task evaluations, and baseline models for ML potentials.",
+      "evidence": "line 106: - [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]] - OMol25 large-scale molecular DFT dataset, task evaluations, and baseline models for ML potentials.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and",
       "type": "wikilink"
     },
     {
-      "evidence": "line 106: - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] - LiveCoMS review of experimental datasets for protein force-field benchmarking.",
+      "evidence": "line 107: - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]] - LiveCoMS review of experimental datasets for protein force-field benchmarking.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 107: - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] - SPICE quantum-chemistry dataset for drug-like molecules, peptides, and protein-relevant ML potentials.",
+      "evidence": "line 108: - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]] - SPICE quantum-chemistry dataset for drug-like molecules, peptides, and protein-relevant ML potentials.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and",
       "type": "wikilink"
     },
     {
-      "evidence": "line 108: - [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]] - OpenFE collaborative benchmark of public and private relative binding free-energy calculations.",
+      "evidence": "line 109: - [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]] - OpenFE collaborative benchmark of public and private relative binding free-energy calculations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 109: - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] - FEP+ benchmark and experimental reproducibility survey for protein-ligand binding free energies.",
+      "evidence": "line 110: - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]] - FEP+ benchmark and experimental reproducibility survey for protein-ligand binding free energies.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein",
       "type": "wikilink"
     },
     {
-      "evidence": "line 110: - [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]] - LAMMPS decoupling method for solvation free energies using an overlay correction.",
+      "evidence": "line 111: - [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]] - LAMMPS decoupling method for solvation free energies using an overlay correction.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using",
       "type": "wikilink"
     },
     {
-      "evidence": "line 111: - [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]] - Force-based pressure/stress tensor virial forms for arbitrary many-body potentials under PBC.",
+      "evidence": "line 112: - [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]] - Force-based pressure/stress tensor virial forms for arbitrary many-body potentials under PBC.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for",
       "type": "wikilink"
     },
     {
-      "evidence": "line 112: - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]] - GPU-native compressed neighbor lists using space-filling-curve layout.",
+      "evidence": "line 113: - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]] - GPU-native compressed neighbor lists using space-filling-curve layout.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space",
       "type": "wikilink"
     },
     {
-      "evidence": "line 113: - [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]] - Smooth PME method using B-spline interpolation for long-range electrostatics.",
+      "evidence": "line 114: - [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]] - Smooth PME method using B-spline interpolation for long-range electrostatics.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method",
       "type": "wikilink"
     },
     {
-      "evidence": "line 114: - [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]] - Hybrid pressure tensor calculation for constrained periodic MD with Ewald electrostatics.",
+      "evidence": "line 115: - [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]] - Hybrid pressure tensor calculation for constrained periodic MD with Ewald electrostatics.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 115: - [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]] - LINCS linear constraint solver for molecular simulations.",
+      "evidence": "line 116: - [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]] - LINCS linear constraint solver for molecular simulations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 116: - [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]] - GPU block/tile algorithm for cutoff nonbonded interactions in OpenMM.",
+      "evidence": "line 117: - [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]] - GPU block/tile algorithm for cutoff nonbonded interactions in OpenMM.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a",
       "type": "wikilink"
     },
     {
-      "evidence": "line 117: - [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] - ESP/prolate Ewald method for accelerating long-range Coulomb calculations.",
+      "evidence": "line 118: - [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]] - ESP/prolate Ewald method for accelerating long-range Coulomb calculations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 118: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] - UUCG RNA tetraloop as a coupled force-field challenge for MD simulations.",
+      "evidence": "line 119: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] - UUCG RNA tetraloop as a coupled force-field challenge for MD simulations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 119: - [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] - Comprehensive review of RNA structural dynamics from molecular simulations.",
+      "evidence": "line 120: - [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]] - Comprehensive review of RNA structural dynamics from molecular simulations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 120: - [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] - Main paper introducing overlay databanks through the NMRlipids Databank.",
+      "evidence": "line 121: - [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|Overlay Databank]] - Main paper introducing overlay databanks through the NMRlipids Databank.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules",
       "type": "wikilink"
     },
     {
-      "evidence": "line 121: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] - Supporting information for the overlay databank/NMRlipids paper.",
+      "evidence": "line 122: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] - Supporting information for the overlay databank/NMRlipids paper.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven",
       "type": "wikilink"
     },
     {
-      "evidence": "line 122: - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] - Perspective on definitions, data/model scaling, long-range interactions, discovery, simulation scale, and benchmarking for foundation-model MLIPs.",
+      "evidence": "line 123: - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] - Perspective on definitions, data/model scaling, long-range interactions, discovery, simulation scale, and benchmarking for foundation-model MLIPs.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential",
       "type": "wikilink"
     },
     {
-      "evidence": "line 123: - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] - Biology-focused molecular foundation model combining UBio-Mol26, E2Former-V2, curriculum training, and short downstream MD validations.",
+      "evidence": "line 124: - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] - Biology-focused molecular foundation model combining UBio-Mol26, E2Former-V2, curriculum training, and short downstream MD validations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model",
       "type": "wikilink"
     },
     {
-      "evidence": "line 124: - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] - Journal version of the large-scale public/private OpenFE relative binding free-energy benchmark.",
+      "evidence": "line 125: - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] - Journal version of the large-scale public/private OpenFE relative binding free-energy benchmark.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version",
       "type": "wikilink"
     },
     {
-      "evidence": "line 125: - [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] - Supplement with protocol differences, diagnostic figures, outlier analyses, and convergence/edge-metric checks.",
+      "evidence": "line 126: - [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] - Supplement with protocol differences, diagnostic figures, outlier analyses, and convergence/edge-metric checks.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 126: - [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] - STED microscopy protocol and validation for resolving tau filaments and puncta in autopsied Alzheimer's disease cortical grey matter.",
+      "evidence": "line 127: - [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]] - STED microscopy protocol and validation for resolving tau filaments and puncta in autopsied Alzheimer's disease cortical grey matter.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease",
       "type": "wikilink"
     },
     {
-      "evidence": "line 127: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] - Private unpublished DOCX manuscript draft on AAV-mediated neuronal tau expression, disease-derived seeding, cryo-EM, and STED morphology.",
+      "evidence": "line 128: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] - Private unpublished DOCX manuscript draft on AAV-mediated neuronal tau expression, disease-derived seeding, cryo-EM, and STED morphology.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly",
       "type": "wikilink"
     },
     {
-      "evidence": "line 128: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] - ChemRxiv preprint introducing a MACE-based foundation model and SPICE-alpha dataset for molecular dipoles, polarizabilities, and spectroscopy workflows.",
+      "evidence": "line 129: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] - ChemRxiv preprint introducing a MACE-based foundation model and SPICE-alpha dataset for molecular dipoles, polarizabilities, and spectroscopy workflows.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities",
       "type": "wikilink"
     },
     {
-      "evidence": "line 129: - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] - ChemRxiv preprint introducing fast MLP-driven bespoke SMIRNOFF valence parameter fitting for molecules and congeneric series.",
+      "evidence": "line 130: - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] - ChemRxiv preprint introducing fast MLP-driven bespoke SMIRNOFF valence parameter fitting for molecules and congeneric series.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 130: - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] - Nature article introducing large-scale mHDX-MS profiling of opening-energy distributions across thousands of protein domains.",
+      "evidence": "line 131: - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] - Nature article introducing large-scale mHDX-MS profiling of opening-energy distributions across thousands of protein domains.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design",
       "type": "wikilink"
     },
     {
-      "evidence": "line 131: - [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] - arXiv paper introducing a self-adapting U-Net framework for medical image segmentation across Medical Segmentation Decathlon tasks.",
+      "evidence": "line 132: - [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] - arXiv paper introducing a self-adapting U-Net framework for medical image segmentation across Medical Segmentation Decathlon tasks.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net",
       "type": "wikilink"
     },
     {
-      "evidence": "line 132: - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] - arXiv paper introducing promptable segmentation, SAM, and the SA-1B dataset of over 1 billion masks.",
+      "evidence": "line 133: - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]] - arXiv paper introducing promptable segmentation, SAM, and the SA-1B dataset of over 1 billion masks.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0069-segment-anything",
       "type": "wikilink"
     },
     {
-      "evidence": "line 133: - [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|Mega-scale Protein Folding Stability]] - Nature article introducing cDNA display proteolysis for mega-scale measurement of protein folding stability.",
+      "evidence": "line 134: - [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|Mega-scale Protein Folding Stability]] - Nature article introducing cDNA display proteolysis for mega-scale measurement of protein folding stability.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 134: - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] - Nature article reporting site-saturation mutagenesis and abundance-based stability mapping across 500 human protein domains.",
+      "evidence": "line 135: - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] - Nature article reporting site-saturation mutagenesis and abundance-based stability mapping across 500 human protein domains.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains",
       "type": "wikilink"
     },
     {
-      "evidence": "line 135: - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]] - Chemical Science article on graph-neural-network assignment of molecular-mechanics force-field parameters from large quantum-chemical datasets.",
+      "evidence": "line 136: - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]] - Chemical Science article on graph-neural-network assignment of molecular-mechanics force-field parameters from large quantum-chemical datasets.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large",
       "type": "wikilink"
     },
     {
-      "evidence": "line 136: - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]] - Supplement with implementation, dataset, training, and benchmark details for SRC-0072.",
+      "evidence": "line 137: - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]] - Supplement with implementation, dataset, training, and benchmark details for SRC-0072.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force",
       "type": "wikilink"
     },
     {
-      "evidence": "line 137: - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] - Five-system benchmark separating self-convergence from cross-method correctness for REUS, WT-MtD, WTM-eABF, and OPES.",
+      "evidence": "line 138: - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] - Five-system benchmark separating self-convergence from cross-method correctness for REUS, WT-MtD, WTM-eABF, and OPES.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of",
       "type": "wikilink"
     },
     {
-      "evidence": "line 62: - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]] - Geometry-specific dipole-fluctuation formulas for dielectric constants in polar-system simulations.",
+      "evidence": "line 63: - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]] - Geometry-specific dipole-fluctuation formulas for dielectric constants in polar-system simulations.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of",
       "type": "wikilink"
     },
     {
-      "evidence": "line 60: - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]] - Site-site and molecular reaction-field treatments for finite interaction-site polar molecules.",
+      "evidence": "line 61: - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]] - Site-site and molecular reaction-field treatments for finite interaction-site polar molecules.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0076-9901032v1",
       "type": "wikilink"
     },
     {
-      "evidence": "line 58: - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]] - Conservative RF/AT shifting and switching schemes validated for organic liquids.",
+      "evidence": "line 59: - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]] - Conservative RF/AT shifting and switching schemes validated for organic liquids.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development",
       "type": "wikilink"
@@ -23851,79 +23989,79 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 273: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization]] - TSS adaptive variance advantage versus broad MBAR generalization.",
+      "evidence": "line 274: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization]] - TSS adaptive variance advantage versus broad MBAR generalization.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 274: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk]] - Mapped-overlap gains versus mapped-support risk.",
+      "evidence": "line 275: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk]] - Mapped-overlap gains versus mapped-support risk.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 275: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics]] - On-the-fly adaptation versus reproducible postprocessing diagnostics.",
+      "evidence": "line 276: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics]] - On-the-fly adaptation versus reproducible postprocessing diagnostics.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 276: - [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]] - Dataset scale versus downstream validation requirements for MLIP foundation models.",
+      "evidence": "line 277: - [[wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation]] - Dataset scale versus downstream validation requirements for MLIP foundation models.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0008-dataset-scale-vs-downstream-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 277: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]] - One-shot Boltzmann-generator sampling versus overlap and missed-state risk.",
+      "evidence": "line 278: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]] - One-shot Boltzmann-generator sampling versus overlap and missed-state risk.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 278: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]] - Retrospective RBFE benchmark success versus prospective drug-discovery use.",
+      "evidence": "line 279: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use]] - Retrospective RBFE benchmark success versus prospective drug-discovery use.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use",
       "type": "wikilink"
     },
     {
-      "evidence": "line 279: - [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - General segmentation frameworks versus STED/fiber domain adaptation.",
+      "evidence": "line 280: - [[wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation]] - General segmentation frameworks versus STED/fiber domain adaptation.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0011-general-segmentation-frameworks-vs-sted-fiber-domain-adaptation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 280: - [[wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance]] - Exact electrostatics and neighbor accounting versus practical GPU performance.",
+      "evidence": "line 281: - [[wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance]] - Exact electrostatics and neighbor accounting versus practical GPU performance.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0012-exact-electrostatics-and-neighbor-accounting-vs-practical-gpu-performance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 281: - [[wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients]] - Analytic constraint virials versus autodiff energy gradients.",
+      "evidence": "line 282: - [[wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients]] - Analytic constraint virials versus autodiff energy gradients.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0013-analytic-constraint-virials-vs-autodiff-energy-gradients",
       "type": "wikilink"
     },
     {
-      "evidence": "line 282: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer]] - RNA motif-specific fixes versus general force-field transfer.",
+      "evidence": "line 283: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer]] - RNA motif-specific fixes versus general force-field transfer.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer",
       "type": "wikilink"
     },
     {
-      "evidence": "line 283: - [[wiki/tensions/TEN-0015-data-access-standardization-vs-simulation-quality]] - Data access standardization versus simulation quality.",
+      "evidence": "line 284: - [[wiki/tensions/TEN-0015-data-access-standardization-vs-simulation-quality]] - Data access standardization versus simulation quality.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0015-data-access-standardization-vs-simulation-quality",
       "type": "wikilink"
     },
     {
-      "evidence": "line 284: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness]] - Cheap internal stability checks versus stronger but costlier external validation.",
+      "evidence": "line 285: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness]] - Cheap internal stability checks versus stronger but costlier external validation.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 272: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] - Larger observable signals versus loss of replay support and KL validity.",
+      "evidence": "line 273: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] - Larger observable signals versus loss of replay support and KL validity.",
       "source": "wiki/index",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -40925,6 +41063,22 @@
         "SRC-0006",
         "SRC-0007",
         "SRC-0009",
+        "SRC-0018",
+        "SRC-0023"
+      ],
+      "type": "answer"
+    },
+    {
+      "categories": [
+        "research/adaptive-sampling",
+        "research/molecular-simulation/force-fields",
+        "research/molecular-simulation/free-energy",
+        "research/statistics/monte-carlo"
+      ],
+      "id": "wiki/answers/ffrefine-kl-divergence-definition-change",
+      "label": "In FFRefine, how did the definition of the KL divergence change? Why was that change needed? What implications does that change have downstream for other calculated quantities?",
+      "path": "wiki/answers/ffrefine-kl-divergence-definition-change.md",
+      "sources": [
         "SRC-0018",
         "SRC-0023"
       ],

@@ -63,6 +63,7 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible, family-level ConFIG integration plan for FFRefine's replay natural-gradient optimizer.
 - [[wiki/answers/ffrefine-config-fisher-second-momentum]] - Why Adam-style second momentum is less obvious than first-moment smoothing for FFRefine's Fisher-preconditioned ConFIG optimizer.
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Detailed mathematical account of FFRefine's QEq map, replay observables, multi-family loss, Fisher optimizer, and macro-epoch loop.
+- [[wiki/answers/ffrefine-kl-divergence-definition-change]] - How and why FFRefine's KL trust region moved from a frozen-bias joint Fisher to a state-conditional KL, and its downstream effects on Fisher rank, condition, and natural directions.
 
 ## Author Entities
 

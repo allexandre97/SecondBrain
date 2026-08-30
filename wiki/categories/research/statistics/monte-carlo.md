@@ -53,6 +53,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Answers
 
 - [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
+- [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
