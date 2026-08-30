@@ -60,18 +60,22 @@ project_evidence:
   - "FFRefine reaction-field TSS archive fc504114-995d-4556-b1da-bdbe0042e5d0"
   - "FFRefine retrospective Fisher-treatment screen completed 2026-08-26, protocol fingerprint 533305656758db33454d19af400e39972e1ae94ad2c52ff60c5b0b788d8373f8"
   - "FFRefine retrospective Fisher-treatment replay completed 2026-08-28, replay hash f9f6161280882e4ee4ffc8bccfd02bfb9a54a0c2477cb88a4be7fcef05d45eea"
+  - "FFRefine state-conditional Fisher/KL reanalysis of the source archives completed 2026-08-30"
   - "FFRefine post hoc within-state/between-state Fisher decomposition of the 100 ns treatment proposals completed 2026-08-29"
 ---
 
 # FFRefine Retrospective Fisher-Treatment Development
 
-## Short answer
+## Historical result and current status
 
-The retrospective campaign strengthens the case that dielectric can supply a supported optimisation direction when two independent reaction-field archives each reach 100 ns. The production hard-truncated Fisher direction transferred bidirectionally between the two archives, its paired loss intervals excluded zero, and every dielectric target temperature improved. Continuously damped Fisher treatment with $\gamma=10^{-4}$ produced an even larger cross-archive replay decrease and was the recorded retrospective dielectric recommendation.
+> [!IMPORTANT]
+> This page records a completed historical campaign whose proposals were constructed with the frozen-bias joint Fisher but evaluated with state-normalized conditional empirical KL. The finite-step replay measurements remain valid for those exact proposals. The equal-KL treatment comparison and recorded ranking are not transferable to FFRefine's corrected state-conditional Fisher backend. A conditional rerun is in progress; until it finishes, no hard, damped, diagonal, identity, or SNR treatment from this page is the current prospective recommendation.
+
+The historical retrospective campaign strengthens the case that the two archives contained transferable dielectric descent directions under the old geometry. The production hard-truncated Fisher direction transferred bidirectionally between the two archives, its paired loss intervals excluded zero, and every dielectric target temperature improved. Continuously damped Fisher treatment with $\gamma=10^{-4}$ produced an even larger cross-archive replay decrease and was the historical retrospective dielectric recommendation.
 
 Enthalpy remains unresolved but the diagnosis changed. Identity and diagonal directions were highly reproducible across the complete archives, confirming that Fisher conditioning amplifies residual enthalpy-gradient error. Nevertheless, small-$\gamma$ damped proposals reduced enthalpy loss significantly in both cross-archive directions despite failing the exact-direction cosine gate. A low cosine therefore did not imply that the two proposals lacked a shared descent cone.
 
-The run does **not** establish closed-loop trainability. Treatment selection and replay evaluation used the same two archives, delete-block intervals quantify within-archive rather than between-campaign uncertainty, temporal disjoint blocks remained unstable, and no candidate was tested by fresh simulation. The appropriate conclusion is that long-archive dielectric replay descent is now strongly supported, while enthalpy has a promising but unvalidated damped-Fisher lead.
+The run does **not** establish closed-loop trainability or validate the corrected conditional-Fisher proposals. Treatment selection and replay evaluation used the same two archives, delete-block intervals quantify within-archive rather than between-campaign uncertainty, temporal disjoint blocks remained unstable, and no candidate was tested by fresh simulation. The appropriate conclusion is that the old proposals demonstrated archive-pair-specific descent mechanisms that must be retested under matched conditional geometry and KL.
 
 ## Question and scope
 

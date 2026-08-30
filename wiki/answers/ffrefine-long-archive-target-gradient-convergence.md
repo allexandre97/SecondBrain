@@ -44,6 +44,7 @@ project_evidence:
   - "FFRefine raw-versus-Fisher-conditioned optimizer interpretation completed 2026-08-26"
   - "FFRefine Jacobi-scaled truncated-Fisher implementation audit completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
+  - "FFRefine state-conditional Fisher/KL reanalysis of the same two 100 ns archives completed 2026-08-30"
 ---
 
 # FFRefine Long-Archive Target-Gradient Convergence
@@ -52,17 +53,19 @@ project_evidence:
 
 Two independently prepared 100 ns reaction-field TSS archives substantially changed the diagnosis, but did not establish closed-loop trainability.
 
-Density and RDF remained positive controls: their objective gradients and natural-gradient directions agreed across independent archives at every cumulative prefix from 10 through 100 ns. Dielectric was initially unstable but its cumulative independent-archive natural direction passed the predeclared cosine and norm-ratio gate continuously from 60 through 100 ns. At 100 ns its Fisher-metric cosine was 0.9743 and its norm ratio was 1.0028.
+The same archived configurations, target estimates, and raw gradients were reanalysed after FFRefine's trust-region geometry was corrected on 2026-08-30. The old analysis used a frozen-bias joint Fisher that included covariance between thermodynamic-state score means, while replay acceptance used state-normalized conditional KL. The corrected analysis uses the design-weighted state-conditional Fisher for direction geometry and the maximum state-conditional KL for step scaling. This is the current interpretation; the earlier joint-Fisher numbers remain historical diagnostics only.
 
-Enthalpy behaved differently. Its raw objective-gradient cosine rose to 0.9691 at 100 ns, but the production natural-gradient cosine remained only 0.6288. The retained Fisher subspaces were effectively identical, and imposing a common gradient while keeping each archive's Fisher gave unit agreement. The Fisher estimate was therefore not varying materially between archives; rather, full Fisher preconditioning amplified the remaining target-specific enthalpy-gradient difference.
+Density and RDF remain positive controls: their raw gradients and conditional-Fisher directions agree across independent archives at every cumulative prefix from 10 through 100 ns. Dielectric is stronger under the corrected geometry: its direction passes continuously from 40 through 100 ns and reaches cosine 0.9955 with norm ratio 0.9812 at 100 ns.
 
-The accompanying norm ratios sharpen this result. At 100 ns, enthalpy's independent-archive raw cosine and norm ratio were 0.9691 and 0.9655, whereas its Fisher-conditioned cosine and norm ratio were 0.6288 and 0.9989. Dielectric passed both representations: raw 0.9777 and 0.8204; Fisher-conditioned 0.9743 and 1.0028. This makes latent-space steepest descent or diagonal conditioning a justified **prospective hypothesis for enthalpy**, but not a validated replacement optimizer. For dielectric, the same endpoint does not implicate full Fisher conditioning; longer sampling is the clearer change.
+Enthalpy changes materially. Its raw-gradient cosine remains 0.9691 because the raw estimators are unchanged, but its conditional-Fisher direction reaches cosine 0.8143 with norm ratio 1.0079 at 100 ns and therefore crosses the predeclared gate. It does not pass at 90 ns, and both 100 ns chronological-half comparisons remain below threshold, so “sustained from 100 ns” is only an endpoint crossing rather than evidence of stable equilibration or trainability.
+
+The corrected result narrows the old diagnosis. Fisher conditioning still reduces enthalpy agreement relative to the raw gradient, but the inappropriate between-state term was a material contributor to the previous 0.6288 failure. Residual gradient variability remains, while the corrected geometry maps the same two gradients into a barely reproducible endpoint direction.
 
 The direct target values looked converged much earlier than this distinction became visible. At 100 ns, the root-mean-square independent-archive target differences were only 0.159, 0.171, 0.305, and 0.082 target-tolerance units for density, RDF, enthalpy, and dielectric respectively. Stable observable means were therefore neither sufficient to establish a stable natural direction nor diagnostic of which target family would pass.
 
 A finer temporal decomposition strengthens that warning. In archive 2, extending the cumulative enthalpy estimate from 70 to 80 ns left its raw-gradient cosine apparently high at 0.8876, but reduced the raw-gradient norm from 239.3 to 85.7, a ratio of 0.3582. The corresponding KL-scaled natural-step norm ratio remained 0.9975. Thus a nearly fixed optimizer step length can conceal a large change in the underlying estimated gradient.
 
-The subsequent retrospective Fisher-treatment campaign replayed finite proposals in both directions between these archives. The production hard-Fisher dielectric proposals reduced the opposite archive's loss by 1.116% and 1.110%, with both paired intervals below zero, while damping with $\gamma=10^{-4}$ increased the reductions to 1.812% and 1.701%. Thus the cumulative dielectric agreement corresponds to supported finite-step descent on this archive pair, not only angular agreement. The campaign still does **not** establish that 60 ns is a universal minimum, that the result will repeat across additional archive pairs, that chronological halves are equilibrated, or that the replay improvement will survive fresh simulation. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
+The earlier retrospective Fisher-treatment campaign replayed proposals constructed with the old joint-Fisher geometry and a mismatched conditional empirical-KL check. Its finite-step observations remain evidence about those historical proposals, but its treatment ranking and effect sizes do not validate the corrected conditional-Fisher proposals. A conditional rerun is required before carrying any hard-Fisher or damping recommendation forward. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 
 ## Experiment and provenance
 
@@ -83,7 +86,7 @@ The comparison is deliberately cost- and protocol-matched across target families
 
 Every cumulative prefix in both archives passed the recorded sampling and Fisher-validity gates. Every thermodynamic state and TSS window was represented. Candidate ESS increased from about 1,920–1,997 frames at 10 ns to 18,744–19,910 frames at 100 ns. Minimum local ESS ratios remained about 0.135–0.206 across the series, and maximum frame weights decreased with archive length.
 
-The physical-coordinate Fisher condition estimate remained large, approximately $6.6\times10^7$ to $6.9\times10^7$, but every endpoint retained the same five modes. This experiment therefore does not support incomplete ladder coverage, rejected replay support, or archive-dependent retained Fisher rank as explanations for the target-family separation.
+Under the corrected conditional geometry, the physical-coordinate Fisher condition estimate remains large but falls to approximately $1.45\times10^7$ to $1.48\times10^7$, and both 100 ns endpoints retain the same six normalized modes. This experiment therefore does not support incomplete ladder coverage, rejected replay support, or archive-dependent retained Fisher rank as explanations for the remaining target-family separation.
 
 ![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/sampling-diagnostics.png]]
 
@@ -112,25 +115,25 @@ The 100 ns comparison was:
 
 | Family | Raw-gradient cosine | Raw norm ratio | Natural-direction cosine | Natural norm ratio | Natural direction accepted |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Density | 0.999997 | 1.0258 | 0.999930 | 0.9979 | yes |
-| RDF | 0.999998 | 0.9839 | 0.999793 | 1.0080 | yes |
-| Enthalpy | 0.969050 | 0.9655 | 0.628810 | 0.9989 | no |
-| Dielectric | 0.977708 | 0.8204 | 0.974299 | 1.0028 | yes |
+| Density | 0.999997 | 1.0258 | 0.999970 | 1.0106 | yes |
+| RDF | 0.999998 | 0.9839 | 0.999795 | 1.0104 | yes |
+| Enthalpy | 0.969050 | 0.9655 | 0.814334 | 1.0079 | yes |
+| Dielectric | 0.977708 | 0.8204 | 0.995525 | 0.9812 | yes |
 
 The cumulative time series adds important context:
 
 - density and RDF passed at every prefix from 10 through 100 ns;
-- dielectric passed at 40 ns, failed again at 50 ns, and then passed at every prefix from 60 through 100 ns;
-- enthalpy did not pass the production natural-direction gate at any prefix;
+- dielectric passed at every prefix from 40 through 100 ns;
+- enthalpy passed only at the 100 ns endpoint; its 90 ns cosine was 0.7368;
 - norm ratios remained close to one, so the difficult-family failures were predominantly angular rather than step-length failures.
 
 ![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/independent-archive-direction-convergence.png]]
 
-*Figure 3. Independent-archive cosine and norm ratio before and after Fisher conditioning. The raw-gradient norm uses the Euclidean latent-space metric; the natural-step norm uses the averaged Fisher metric. Fisher preconditioning separates enthalpy from the other families.*
+*Figure 3. Independent-archive cosine and norm ratio before and after corrected state-conditional Fisher conditioning. The raw-gradient norm uses the Euclidean latent-space metric; the natural-step norm uses the averaged conditional Fisher metric.*
 
 ![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/direction-acceptance-heatmap.png]]
 
-*Figure 4. Prospective natural-direction gate over cumulative archive length. “Sustained from 60 ns” describes this one dielectric archive pair; it is not a universal sampling threshold.*
+*Figure 4. Prospective natural-direction gate over cumulative archive length. Dielectric's 40 ns crossing and enthalpy's isolated 100 ns crossing describe this one archive pair; neither is a universal sampling threshold.*
 
 ## Nested endpoint self-convergence is descriptive, not independent evidence
 
@@ -162,10 +165,10 @@ Independent cumulative agreement did not imply that each archive had internally 
 | --- | ---: | ---: |
 | Density | approximately 1.000 | 0.999 |
 | RDF | approximately 1.000 | approximately 1.000 |
-| Enthalpy | 0.950 | 0.168 |
-| Dielectric | 0.451 | 0.269 |
+| Enthalpy | 0.752 | 0.548 |
+| Dielectric | 0.802 | 0.794 |
 
-Thus the two cumulative dielectric directions can agree while 50 ns halves within each archive remain noisy. This does not invalidate the cumulative result, but it prevents treating two-archive agreement as proof of equilibration. Conversely, enthalpy can look stable in one archive and fail in the other. Both chronological and independent axes must remain visible.
+The corrected geometry brings both dielectric half comparisons close to the 0.8 threshold but leaves one just below it. Both enthalpy half comparisons fail. This does not invalidate cumulative independent-archive agreement, but it prevents treating it as proof of equilibration. Both chronological and independent axes must remain visible.
 
 Archive 2 enthalpy illustrates why both orientation and magnitude are required:
 
@@ -176,7 +179,7 @@ Archive 2 enthalpy illustrates why both orientation and magnitude are required:
 
 At 70 ns, the high raw-gradient cosine alone is misleading because the two half-gradient norms differ by almost a factor of four. At 80 ns, the two cumulative halves point in nearly opposite raw-gradient directions. The near-unit natural-step norm ratios do not rescue these comparisons because KL scaling deliberately normalizes the final step magnitude.
 
-The local diagnostic is stricter and noisier. All local enthalpy pairs failed the target-family split-validity check, so their plotted crosses are diagnostic values rather than accepted estimates. At 100 ns, even the valid dielectric local natural directions remained incompatible: their cosines were -0.459 and 0.190 in archives 1 and 2, with norm ratios 0.996 and 1.032. Similar final step lengths therefore coexisted with different recent-block directions.
+The local diagnostic is stricter and noisier. All local enthalpy pairs failed the target-family split-validity check, so their plotted crosses are diagnostic values rather than accepted estimates. At 100 ns, dielectric local natural-direction cosines improve to 0.242 and 0.448 in archives 1 and 2 but remain far below the gate. The corresponding enthalpy values are 0.327 and 0.678 and are split-invalid. Similar final step lengths therefore continue to coexist with different recent-block directions.
 
 ![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/cumulative-and-local-half-agreement.png]]
 
@@ -219,7 +222,13 @@ and every factor can change when the prefix is extended. For cancellation-sensit
 
 ### What the production Fisher operator actually is
 
-FFRefine does not invert the physical-coordinate Fisher matrix directly. The implementation first applies the parameterization chain rule,
+FFRefine first centers score derivatives independently within every thermodynamic state and forms
+
+$$
+F_{\theta,\mathrm{cond}}=\sum_s\gamma_s\operatorname{Cov}_{p_\theta(x\mid s)}[h_s(x)].
+$$
+
+It does not invert this physical-coordinate matrix directly. The implementation applies the parameterization chain rule,
 
 $$
 g_\phi=J^\mathsf{T}g_\theta,
@@ -255,56 +264,60 @@ $$
 =-PV_K\Lambda_K^{-1}V_K^\mathsf{T}Pg_\phi.
 $$
 
-A final scalar enforces the Fisher-estimated KL budget. It changes step length but cannot change the direction cosine. With one active target family and disabled parameter regularization, the ConFIG path reduces algebraically to this same truncated natural step. Momentum was disabled in the reproducibility campaigns. ConFIG and momentum therefore did not cause the observed single-family archive disagreement, although both can matter later in multi-target or multi-epoch production.
+A final scalar enforces the maximum state-conditional Fisher-estimated KL budget. It changes step length but cannot change the direction cosine. With one active target family and disabled parameter regularization, the ConFIG path reduces algebraically to this same truncated natural step. Momentum was disabled in the reproducibility campaigns. ConFIG and momentum therefore did not cause the observed single-family archive disagreement, although both can matter later in multi-target or multi-epoch production.
 
 An implementation audit found this sequence algebraically consistent: the physical-to-latent chain rule, Jacobi transformation, retained-mode inverse, and KL rescaling match their intended definitions. The result should therefore be described as a **Jacobi-scaled, hard-truncated, ridge-regularized natural metric**, not as an unqualified inverse of the raw Fisher matrix.
 
-### What the regularization removes and what it leaves
+### What the corrected geometry removes and what it leaves
 
-At 100 ns the two archives had nearly identical normalized spectra. Representative eigenvalues were
+The former frozen-bias joint Fisher decomposes as
 
 $$
-(10^{-12},10^{-12},10^{-12},
-8\times10^{-5},2.5\times10^{-4},
-0.0043,0.0195,0.075,0.61,9.29).
+F_{\mathrm{joint}}=F_{\mathrm{cond}}+\operatorname{Cov}_{\gamma}(\mu_s).
 $$
 
-The $10^{-3}$ floor removed the first five modes and retained modes 6 through 10 in both archives. Their retained subspaces were essentially identical, so threshold crossings, archive-dependent rank, and unstable retained eigenvectors are not supported explanations for this experiment.
+The second term measures changes in thermodynamic-state score means and therefore predicts immediate state-occupancy or bias-portability changes under a frozen old bias. It is not the curvature of the normalized canonical distribution within each state. Using it to orient and scale proposals while validating replay with state-normalized empirical KL made the quadratic and empirical trust regions refer to different probability distributions.
 
-The retained geometry nevertheless remained strongly anisotropic. Its condition number was about 2,100, corresponding to an inverse-weight spread of about 2,100 and a whitening-weight spread of about 46. Jacobi scaling was useful because the latent Fisher diagonal itself spanned a factor of about 2,584; without it, parameter units and marginal scale would dominate the eigendecomposition. Jacobi scaling is therefore not identified as an error. Once truncation is applied, however, it defines the normalized modes on which regularization acts and is consequently part of the optimizer design rather than a neutral numerical rearrangement.
+At 100 ns the corrected Jacobi-normalized spectra are nearly identical between archives. Representative eigenvalues are
 
-The $10^{-8}$ ridge prevents numerical singularity but is too small to provide meaningful statistical damping of retained modes beginning near $0.0043$. The hard eigenvalue floor removes the near-null space but does not prevent appreciable amplification within the retained space.
+$$
+(2.2\times10^{-11},5.6\times10^{-11},8.9\times10^{-11},
+3.0\times10^{-4},1.0\times10^{-3},1.5\times10^{-2},
+5.0\times10^{-2},2.5\times10^{-1},5.5\times10^{-1},9.1).
+$$
 
-The target-specific mode projections explain why the same operator affects families differently. Density and RDF placed reproducible proportions of their gradients into the same retained modes in both archives. For 100 ns enthalpy, mode 6 near eigenvalue 0.0043 was aligned; the disagreement instead came mainly from redistribution and a sign change in modes 7 and 8, near eigenvalues 0.0195 and 0.075. Full cross-parameter coupling made those residual differences decisive. It is therefore too crude to say that the single smallest retained mode caused the failure.
+The $10^{-3}$ floor retains six modes in both archives; the newly retained boundary mode is only just above the threshold. The minimum principal cosine is 0.999941 and normalized projector overlap is 0.999980, so archive-dependent Fisher subspaces remain unsupported as the explanation. The physical-coordinate condition estimate falls from about $6.7\times10^7$ under the joint Fisher to about $1.46\times10^7$ under the conditional Fisher.
 
-The predefined floor sweep also did not provide a simple repair. Enthalpy's independent-archive cosine was 0.711 at floor $10^{-4}$, 0.629 at the production floor $10^{-3}$, and 0.225 at floor $10^{-2}$. Raising the floor removed the well-aligned mode 6 and worsened agreement. This proves sensitivity to spectral regularization but does not justify selecting a floor retrospectively from this realization. Dielectric remained accepted at 100 ns across the tested floors.
+The enthalpy improvement is not solely a threshold-crossing artifact. Its 100 ns independent-archive cosine is 0.811, 0.814, and 0.804 at floors $10^{-4}$, $10^{-3}$, and $10^{-2}$ respectively. The conditional geometry changes the complete retained operator, not merely its rank.
 
-One configuration issue should be corrected independently of the scientific conclusion: the same numerical setting, `fisher_min_eigenvalue_tolerance`, is currently used both as an absolute negative-eigenvalue tolerance for validating the raw physical Fisher and as a positive-mode truncation floor for the Jacobi-normalized latent Fisher. These are distinct decisions in different coordinate systems and should have separate names and settings.
-
-The durable interpretation is therefore not that the Fisher implementation is mathematically broken. Residual target-gradient sampling error is the source signal, while the retained full off-diagonal Fisher geometry and its present spectral filter can amplify that error. A target-independent eigenvalue cutoff cannot distinguish stable density/RDF modal coefficients from noisy enthalpy coefficients. Prospective comparisons should therefore include continuous spectral damping or uncertainty-aware modal filtering, in addition to full, diagonal, and identity geometry, under identical latent coordinates and empirical-KL control.
-
-At 100 ns both archives retained five Fisher modes, with minimum principal cosine and normalized projector overlap numerically indistinguishable from one at the reported precision. Counterfactual directions localize the enthalpy failure:
+The 100 ns counterfactuals are now:
 
 | Enthalpy variant at 100 ns | Metric cosine |
 | --- | ---: |
 | Raw objective gradient | 0.9691 |
-| Each gradient with its own full Fisher | 0.6288 |
-| Each gradient with the common averaged Fisher | 0.6240 |
-| Common averaged gradient with each archive Fisher | approximately 1.0000 |
+| Each gradient with its own conditional Fisher | 0.8143 |
+| Each gradient with the common conditional Fisher | 0.8118 |
+| Common averaged gradient with each archive Fisher | 0.9999 |
 | Own diagonal Fisher | 0.9995 |
-| Identity geometry | 0.9998 |
+| Identity geometry | 0.9991 |
 
-Using the same Fisher does not repair enthalpy, whereas using the same gradient does. The archive-specific Fisher matrices are not producing different geometries. Instead, small residual differences in the target-dependent gradient are projected differently through the same ill-conditioned retained geometry. The diagonal and identity counterfactuals show that the pathology is specific to full Fisher coupling, but they are diagnostic alternatives, not retrospectively validated replacement optimizers.
+Using a common Fisher still leaves the enthalpy result close to its own-Fisher result, whereas using a common gradient gives essentially unit agreement. Residual target-gradient variation therefore remains the source signal. The corrected result adds that the between-state covariance in the old joint Fisher materially amplified that signal enough to turn the 100 ns endpoint from a pass into a fail.
 
-Dielectric shows the complementary outcome: by 100 ns its raw gradient and full-Fisher direction both agree, and its result is stable across the predefined eigenvalue floors. Longer sampling appears to have reduced its gradient error enough that Fisher preconditioning no longer rotates the two archive directions apart.
+The conditional proposals spend their intended budget coherently. At 100 ns the design-weighted conditional KL is about 0.0091--0.0096 and the maximum conditional KL is 0.01 for every family. Evaluating those same steps with the historical frozen-bias joint metric gives approximately 0.156 for density, 0.010--0.011 for RDF, 0.207--0.314 for enthalpy, and 0.353--0.359 for dielectric. The between-state term contributes about 94% for density, 10--14% for RDF, 96--97% for enthalpy, and 97% for dielectric. This target-direction dependence explains why removing the term changes some directions much more than others.
+
+![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/state-conditional-kl-diagnostics.png]]
+
+*Figure 8. Design-weighted average and maximum state-conditional quadratic KL for each archive, family, and cumulative prefix. The maximum is fixed at the 0.01 safety ceiling; the apparent zero-centered offset in the lower panels is a plotting presentation effect around 0.01.*
+
+The correction is not cosmetic. At 100 ns the Euclidean angle between the old and corrected proposals is large and is even negative for RDF and dielectric, although both proposals remain descent constructions in their respective metrics. Historical finite-step replay results therefore do not validate the new proposal vectors.
 
 ![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/fisher-counterfactuals.png]]
 
-*Figure 8. Full-Fisher and counterfactual direction agreement for enthalpy and dielectric.*
+*Figure 9. Conditional-Fisher and counterfactual direction agreement for enthalpy and dielectric.*
 
 ![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/retained-mode-disagreement.png]]
 
-*Figure 9. Difference between archives in signed Fisher-whitened mode fractions. Persistent enthalpy redistribution across retained modes explains why a nearly aligned raw gradient can yield a poorly aligned natural direction.*
+*Figure 10. Difference between archives in signed Fisher-whitened mode fractions. Persistent enthalpy redistribution across retained modes explains why a nearly aligned raw gradient can yield a less aligned natural direction.*
 
 ## Optimizer implication: steepest descent is plausible, not validated
 
@@ -337,9 +350,9 @@ $$
 
 This distinction matters because ordinary steepest descent depends on coordinates. Any test must operate in FFRefine's dimensionless latent parameterization, retain the existing physical bounds and regularization, and use the Fisher only for matched KL control. A diagonal-Fisher direction is a useful intermediate arm because it preserves parameter-wise scale information without full cross-parameter mode mixing.
 
-For enthalpy, the 100 ns independent-archive endpoint supports this experiment: the raw direction passes the cosine and norm-ratio gate, while the full-Fisher direction fails. The common-Fisher and common-gradient counterfactuals further localize the loss of reproducibility to full preconditioning of residual gradient differences. However, enthalpy's cumulative halves, local blocks, and the archive-2 70–80 ns update show that the raw estimator itself is not stationary enough to declare trainability.
+For enthalpy, the corrected 100 ns conditional-Fisher direction now passes, but only 0.014 above the cosine threshold after failing at every earlier prefix. The common-Fisher and common-gradient counterfactuals still show that conditioning amplifies residual gradient differences. Enthalpy's cumulative halves, local blocks, and the archive-2 70–80 ns update show that neither the raw estimator nor the conditional direction is stationary enough to declare trainability.
 
-For dielectric, both raw and full-Fisher directions pass at 100 ns. The evidence therefore does not identify full preconditioning as its long-budget obstacle. Its earlier failures are more consistent with insufficient independent information about slowly mixing dipole fluctuations. Identity or diagonal conditioning may still be useful controls, but they cannot substitute for sampling.
+For dielectric, both raw and conditional-Fisher directions pass at 100 ns, and the conditional direction passes continuously from 40 ns. Its cumulative chronological halves improve markedly but local adjacent blocks remain unstable. The corrected result strengthens the case for a long-budget direction without replacing prospective replay and fresh simulation.
 
 A more reproducible direction is necessary but not sufficient. The current counterfactuals are retrospective fixed-archive diagnostics; they do not show that a finite steepest-descent or diagonal step reduces held-out replay loss, survives empirical-KL backtracking, or improves a fresh candidate simulation.
 
@@ -349,16 +362,16 @@ At 100 ns the relative independent-archive vector differences were:
 
 | Family | Objective-gradient relative difference | Natural-direction relative difference |
 | --- | ---: | ---: |
-| Density | 0.0256 | 0.0212 |
-| RDF | 0.0164 | 0.0158 |
-| Enthalpy | 0.2512 | 1.0802 |
-| Dielectric | 0.2883 | 0.0802 |
+| Density | 0.0256 | 0.0288 |
+| RDF | 0.0164 | 0.0123 |
+| Enthalpy | 0.2512 | 0.3526 |
+| Dielectric | 0.2883 | 0.0336 |
 
-Fisher preconditioning reduces the dielectric discrepancy but amplifies the enthalpy discrepancy by more than fourfold. Ten-nanosecond-block jackknife estimates remain substantial for difficult-observable vector components, especially archive-2 enthalpy. These componentwise diagonal uncertainty summaries are diagnostic; they are not a full multivariate covariance estimate and do not turn two archives into a population-level uncertainty estimate.
+Conditional-Fisher preconditioning strongly reduces the dielectric discrepancy and still increases the enthalpy discrepancy, but no longer by more than fourfold. Ten-nanosecond-block jackknife estimates remain substantial for difficult-observable vector components, especially archive-2 enthalpy. These componentwise diagonal uncertainty summaries are diagnostic; they are not a full multivariate covariance estimate and do not turn two archives into a population-level uncertainty estimate.
 
 ![[wiki/assets/ffrefine-long-archive-target-gradient-convergence/within-vs-between-uncertainty.png]]
 
-*Figure 10. Within-archive delete-block uncertainty versus independent-archive difference for targets, objective gradients, and natural directions.*
+*Figure 11. Within-archive delete-block uncertainty versus independent-archive difference for targets, objective gradients, and natural directions.*
 
 ## Updated interpretation
 
@@ -383,7 +396,7 @@ $$
 
 where $\widehat{F}_i^{+}$ is the regularized pseudoinverse in the retained Fisher subspace. The two Fisher estimates can span almost exactly the same subspace while that transformation still magnifies a small component of $\eta_i$ for one target family and suppresses it for another.
 
-This resolves the apparent contradiction that a “bad Fisher” should affect density and RDF too. The Fisher is common geometry, not common signal. Density and RDF gradients occupy that geometry reproducibly. Dielectric eventually does so at the longer tested budget. Enthalpy retains enough archive-specific projection in sensitive modes that the same geometry amplifies rather than repairs it.
+This resolves the apparent contradiction that a “bad Fisher” should affect density and RDF too. The Fisher is common geometry, not common signal. Density and RDF gradients occupy that geometry reproducibly. Dielectric does so at the longer tested budget. Enthalpy retains enough archive-specific projection in sensitive modes that even the corrected geometry reduces its agreement, although not enough to fail the final endpoint.
 
 The results also reject a categorical explanation based only on “frame observables” versus “average observables.” Density and RDF are themselves estimated from ensembles and were subjected to the same split diagnostics. What separates the families empirically is the convergence of their complete parameter-sensitivity vectors. Slow collective dipole fluctuations provide a plausible mechanism for dielectric, and cancellation-sensitive energetic covariance terms provide a plausible mechanism for enthalpy, but the completed experiment does not isolate individual covariance or autocorrelation contributions well enough to claim either mechanism as uniquely proven.
 
@@ -394,12 +407,13 @@ The main hypothesis is therefore no longer simply “the direct quantities equil
 3. nested consecutive prefixes, disjoint chronological halves, local adjacent blocks, and independent archives test different questions and are not interchangeable;
 4. KL normalization can keep natural-step norm ratios near one while the unscaled gradient norm remains unstable;
 5. the same stable Fisher geometry can selectively amplify residual target-gradient error because each target family projects differently into its retained modes;
-6. avoiding Fisher inversion may preserve a reproducible enthalpy endpoint direction, but this remains an optimizer hypothesis until it transfers to held-out archives and fresh simulation;
-7. cumulative agreement between two archives can coexist with poor chronological-half and local-block agreement and therefore requires prospective repetition.
+6. including between-state score-mean covariance in a trust region intended to control state-conditional replay can materially rotate and overconstrain target-dependent proposals;
+7. a conditional-Fisher endpoint pass remains an optimizer hypothesis until it transfers through held-out replay and fresh simulation;
+8. cumulative agreement between two archives can coexist with poor chronological-half and local-block agreement and therefore requires prospective repetition.
 
-## Retrospective Fisher-treatment follow-up
+## Historical retrospective Fisher-treatment follow-up
 
-The same two archives were subsequently reused for a development-only comparison of the production hard inverse, identity, diagonal scaling, continuous damping, and block-derived modal-SNR filtering. All 168 proposal/archive replay evaluations passed support and the 0.01 empirical-KL ceiling. This removes replay overlap as the explanation for the treatment differences.
+The same two archives were previously reused for a development-only comparison of the production hard inverse, identity, diagonal scaling, continuous damping, and block-derived modal-SNR filtering. That campaign used the old joint-Fisher quadratic while applying state-conditional empirical replay KL. Its observations remain valid for those exact historical proposals, but comparisons advertised as equal-KL treatment comparisons were not conditioning-consistent.
 
 For dielectric, the production hard-Fisher direction passed every recorded retrospective gate: the minimum independent-archive cosine from 60 through 100 ns was 0.9297, both cross-archive paired loss intervals were below zero, pooled proposals improved both archives, and all six target temperatures improved. Damping with $\gamma=10^{-4}$ ranked first, with cross reductions of 1.812% and 1.701%.
 
@@ -411,39 +425,38 @@ Mechanistically, $\gamma=10^{-4}$ damping restored two positive normalized Fishe
 
 Nominal quadratic KL also failed to equalise treatments. Although every proposal was scaled to estimated KL 0.005, identity and diagonal proposals realised much smaller empirical KL than hard, damped, and SNR proposals. Future comparisons must match empirical replay KL before interpreting loss-effect size.
 
-The detailed screen, paired intervals, component responses, spectral gains, collateral-family effects, and limitations are recorded in [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]].
+The detailed historical screen, paired intervals, component responses, spectral gains, collateral-family effects, and limitations are recorded in [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]. Its treatment ranking must be re-established with the corrected conditional backend before prospective selection.
 
 ## What this establishes
 
-- The complete reaction-field pipeline can produce a reproducible dielectric natural direction when cumulative independent archives reach 60–100 ns in this realization.
+- The corrected reaction-field pipeline produces a reproducible dielectric conditional-Fisher direction from 40–100 ns in this realization.
 - The 10 ns budget was genuinely insufficient for dielectric under this matched setup; its failure was not evidence of a formula error.
-- Enthalpy's remaining 100 ns failure is localized to the interaction between residual target-gradient variation and full Fisher preconditioning, not archive-dependent Fisher rank or subspace.
-- At the 100 ns independent-archive endpoint, enthalpy passes the raw cosine and norm-ratio gate but fails after full Fisher preconditioning; dielectric passes both raw and full-Fisher comparisons.
+- At the 100 ns independent-archive endpoint, enthalpy passes both the raw and corrected conditional-Fisher gates, but the conditional cosine is only 0.814 and every earlier endpoint fails.
+- The historical 0.629 enthalpy failure was materially worsened by the mismatched between-state covariance term; residual target-gradient variation remains the source signal.
 - Archive-2 enthalpy remains temporally unstable before Fisher preconditioning: adding 10 ns to the 70 ns cumulative prefix reduced the raw-gradient norm by about 64% and rotated the vector despite substantial sample overlap.
 - Full Fisher coupling can amplify difficult-target instability, but it is not its sole origin; the raw-gradient estimator itself can remain unstable after direct means appear converged.
 - Direct target values, raw gradients, and natural directions have different convergence times and must be monitored separately.
-- The production hard-Fisher dielectric proposal gives supported, bidirectional, paired-resolved replay descent on this 100 ns archive pair.
-- Exact direction reproducibility is a conservative criterion but is not mathematically necessary for cross-archive replay descent; the damped enthalpy proposals demonstrate that distinction on this observed pair.
+- Historical joint-Fisher dielectric and damped-enthalpy proposals gave supported cross-archive replay descent on this archive pair, but those effects do not validate the corrected conditional proposals.
 
 ## What this does not establish
 
-- that 60 ns is a universal or unbiased dielectric budget estimate;
+- that 40 ns is a universal or unbiased dielectric budget estimate;
 - that two archives characterize the population distribution of directions;
 - that the observed dielectric paired replay reduction will repeat on a new archive pair or survive fresh simulation;
 - that the direction will survive fresh candidate simulation or macro-epoch resimulation;
-- that diagonal or identity preconditioning is a validated enthalpy optimiser at matched empirical KL;
+- that any conditional-Fisher treatment is a validated enthalpy optimiser under held-out replay or fresh simulation;
 - that enthalpy would not converge with more independent information or a prospectively specified geometry;
 - that a smooth pooled nested-prefix curve, a high gradient cosine without a compatible norm, or a near-unit KL-scaled natural-step norm ratio establishes gradient equilibrium;
 - that identity or diagonal conditioning trains enthalpy or dielectric; the current comparisons are retrospective direction diagnostics only.
 
 ## Required next evidence
 
-1. Repeat the independent long-archive comparison with new seeds and the same predeclared full-Fisher settings. Do not select the minimum archive length retrospectively from the observed 60 ns crossing.
+1. Repeat the independent long-archive comparison with new seeds and the same predeclared conditional-Fisher settings. Do not select a minimum archive length retrospectively from the observed 40 ns dielectric or 100 ns enthalpy crossings.
 2. Require agreement across more than one archive pair and report, for every target, independent-archive agreement, cumulative disjoint halves, local adjacent blocks, and consecutive cumulative-prefix updates.
 3. For every comparison, report raw-gradient cosine, both absolute norms, and their norm ratio before reporting the KL-scaled natural direction. Do not use pooled nested self-convergence or a near-unit natural-step norm ratio as equilibrium evidence.
-4. Freeze the production hard-Fisher dielectric treatment and the retrospective $\gamma=10^{-4}$ damping finalist before generating new data; evaluate both on new independent long archives with paired loss uncertainty and empirical-KL calibration.
+4. Complete the retrospective conditional-Fisher replay campaign before freezing any treatment for new data; the historical hard-Fisher and $\gamma=10^{-4}$ rankings are not conditioning-matched recommendations.
 5. Only after replay, support, KL, and direction gates pass should the dielectric candidate advance to independent fresh simulation.
-6. For enthalpy, distinguish “more sampling” from “different optimiser geometry” with a prospective comparison of hard Fisher, predeclared $\gamma=10^{-4}$ damping, diagonal Fisher, and identity directions computed from the same complete pooled gradient.
+6. For enthalpy, distinguish an isolated endpoint crossing from repeatable trainability using new archive pairs and predeclared conditional-Fisher treatment arms.
 7. Apply identical latent-parameter bounds and an identical empirical-KL budget to all optimizer arms. In the identity arm, use the Fisher only to scale or backtrack the step, not to rotate it.
 8. Evaluate every frozen arm on independent held-out long archives before fresh simulation. A raw-direction cosine and norm-ratio pass is a prerequisite, not evidence that a finite step reduces population loss.
 9. Separate the raw-physical-Fisher validity tolerance from the Jacobi-normalized optimizer eigenvalue floor; report both explicitly.

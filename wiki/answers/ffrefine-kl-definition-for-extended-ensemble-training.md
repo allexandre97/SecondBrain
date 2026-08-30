@@ -334,9 +334,20 @@ The recommended implementation should:
 
 This does not imply that FFRefine's extended-ensemble strategy or earlier results are invalid. The present mixture Fisher measures a legitimate frozen-bias joint perturbation. The problem is that this quantity was used to scale proposals that were then judged by a state-conditional empirical KL, making equal nominal budgets unequal in the validation metric. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
 
+## Retrospective evidence from the corrected backend
+
+The two independent 100 ns reaction-field water archives were reanalysed without regenerating configurations. Observable estimates, target values, and raw gradients were identical to the historical analysis, isolating the change to Fisher geometry and KL scaling.
+
+At 100 ns, the maximum state-conditional quadratic KL was 0.01 for every family and the design-weighted average was 0.0091--0.0096. For those same corrected steps, the frozen-bias joint quadratic was approximately 0.156 for density, 0.010--0.011 for RDF, 0.207--0.314 for enthalpy, and 0.353--0.359 for dielectric. The between-state score-mean term contributed about 94% of the joint value for density, 10--14% for RDF, 96--97% for enthalpy, and 97% for dielectric.
+
+This confirms that the conditioning mismatch was scientifically consequential and target-direction dependent. The corrected Fisher retained six modes instead of five, lowered the physical-coordinate condition estimate from about $6.7\times10^7$ to $1.46\times10^7$, moved enthalpy's 100 ns independent-archive natural-direction cosine from 0.6288 to 0.8143, and moved dielectric from 0.9743 to 0.9955. Density and RDF remained essentially unchanged as reproducibility controls.
+
+The corrected result does not show that the gradients acquired more equilibrium information: the raw gradients are exactly the same. It shows that the conditional geometry maps those gradients into directions that better match the probability distribution controlled by replay. Historical finite-step treatment results remain properties of the old proposals and must not be used as validation of the corrected proposal vectors.
+
 ## What remains unresolved
 
 - No prospective campaign has yet established that conditional-Fisher proposals improve enthalpy or dielectric training.
+- The enthalpy conditional-Fisher direction passes only at the 100 ns endpoint and fails both 100 ns chronological-half comparisons; the probability that this endpoint crossing repeats is unknown.
 - The best aggregation of state-wise ceilings may depend on whether strict maximum control is too sensitive to noisy low-support states.
 - A practical policy may need both a hard maximum and a robust high-quantile diagnostic when the ladder is very large or continuous.
 - Conditional KL and ESS diagnose represented support; neither can detect candidate regions absent from the reference archive.

@@ -667,7 +667,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 294: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
+      "evidence": "line 305: - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
       "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "wikilink"
@@ -679,7 +679,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 292: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
+      "evidence": "line 303: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]",
       "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -715,19 +715,19 @@
       "type": "related"
     },
     {
-      "evidence": "line 293: - [[wiki/concepts/awh-replay-force-field-optimization]]",
+      "evidence": "line 304: - [[wiki/concepts/awh-replay-force-field-optimization]]",
       "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "target": "wiki/concepts/awh-replay-force-field-optimization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 298: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "evidence": "line 309: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
       "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
     },
     {
-      "evidence": "line 299: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]",
+      "evidence": "line 310: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]",
       "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
       "type": "wikilink"
@@ -739,7 +739,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 297: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
+      "evidence": "line 308: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
       "source": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -787,7 +787,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 409: - [[wiki/answers/ffrefine-average-observable-trainability-validation]]",
+      "evidence": "line 421: - [[wiki/answers/ffrefine-average-observable-trainability-validation]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/answers/ffrefine-average-observable-trainability-validation",
       "type": "wikilink"
@@ -799,13 +799,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 18: The subsequent retrospective Fisher-treatment campaign replayed finite proposals in both directions between these archives. The production hard-Fisher dielectric proposals reduced the opposite archive's loss by 1.116% and 1.110%, with both paired intervals below zero, while damping with $\\gamma=10^{-4}$ increased the reductions to 1.812% and 1.701%. Thus the cumulative dielectric agreement corresponds to supported finite-step descent on this archive pair, not only angular agreement. The campaign still does **not** establish that 60 ns is a universal minimum, that the result will repeat across additional archive pairs, that chronological halves are equilibrated, or that the replay improvement will survive fresh simulation. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
+      "evidence": "line 20: The earlier retrospective Fisher-treatment campaign replayed proposals constructed with the old joint-Fisher geometry and a mismatched conditional empirical-KL check. Its finite-step observations remain evidence about those historical proposals, but its treatment ranking and effect sizes do not validate the corrected conditional-Fisher proposals. A conditional rerun is required before carrying any hard-Fisher or damping recommendation forward. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "wikilink"
     },
     {
-      "evidence": "line 414: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]",
+      "evidence": "line 426: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
@@ -817,7 +817,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 410: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]",
+      "evidence": "line 422: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
@@ -829,7 +829,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 413: - [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]",
+      "evidence": "line 425: - [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/concepts/dipole-moment-fluctuation-dielectric-constant",
       "type": "wikilink"
@@ -841,19 +841,19 @@
       "type": "related"
     },
     {
-      "evidence": "line 411: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]",
+      "evidence": "line 423: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 415: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
+      "evidence": "line 427: - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients",
       "type": "wikilink"
     },
     {
-      "evidence": "line 416: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]",
+      "evidence": "line 428: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
       "type": "wikilink"
@@ -865,7 +865,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 412: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
+      "evidence": "line 424: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
       "source": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -1075,7 +1075,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 389: - [[wiki/answers/ffrefine-average-observable-trainability-validation]]",
+      "evidence": "line 392: - [[wiki/answers/ffrefine-average-observable-trainability-validation]]",
       "source": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "target": "wiki/answers/ffrefine-average-observable-trainability-validation",
       "type": "wikilink"
@@ -1087,7 +1087,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 19: - the Fisher subspaces were essentially identical, localising the enthalpy separation to target-gradient projections transformed by the common optimiser geometry. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]",
+      "evidence": "line 22: - the Fisher subspaces were essentially identical, localising the enthalpy separation to target-gradient projections transformed by the common optimiser geometry. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]",
       "source": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "type": "wikilink"
@@ -1105,7 +1105,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 364: These boundaries follow the broader validation principle that fixed-archive gradient and replay success do not establish fresh-archive trainability. [SRC-0018] [SRC-0023] [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]",
+      "evidence": "line 367: These boundaries follow the broader validation principle that fixed-archive gradient and replay success do not establish fresh-archive trainability. [SRC-0018] [SRC-0023] [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]",
       "source": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
@@ -1117,7 +1117,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 216: Until that choice is made, both the mixed quadratic and the conditional empirical KL should be reported. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]",
+      "evidence": "line 219: Until that choice is made, both the mixed quadratic and the conditional empirical KL should be reported. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]",
       "source": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -1129,7 +1129,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 391: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]",
+      "evidence": "line 394: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]",
       "source": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
@@ -1141,7 +1141,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 392: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
+      "evidence": "line 395: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]",
       "source": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -3187,7 +3187,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 10: - [[wiki/categories/research/adaptive-sampling|research/adaptive-sampling]] - 38 direct, 38 total pages in branch.",
+      "evidence": "line 10: - [[wiki/categories/research/adaptive-sampling|research/adaptive-sampling]] - 39 direct, 39 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/adaptive-sampling",
       "type": "wikilink"
@@ -3247,7 +3247,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 187 total pages in branch.",
+      "evidence": "line 20: - [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 188 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/molecular-simulation",
       "type": "wikilink"
@@ -3259,7 +3259,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 22: - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 36 total pages in branch.",
+      "evidence": "line 22: - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 37 total pages in branch.",
       "source": "wiki/categories/research",
       "target": "wiki/categories/research/statistics",
       "type": "wikilink"
@@ -3271,25 +3271,31 @@
       "type": "wikilink"
     },
     {
+      "evidence": "line 43: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "source": "wiki/categories/research/adaptive-sampling",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "wikilink"
+    },
+    {
       "evidence": "line 41: - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/ffrefine-paper-methods-knowledge-base",
       "type": "wikilink"
     },
     {
-      "evidence": "line 43: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
+      "evidence": "line 44: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 45: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
+      "evidence": "line 46: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 44: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 45: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -3313,37 +3319,37 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 68: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 69: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 66: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
+      "evidence": "line 67: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias",
       "type": "wikilink"
     },
     {
-      "evidence": "line 63: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
+      "evidence": "line 64: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
+      "evidence": "line 66: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates",
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
+      "evidence": "line 68: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 64: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
+      "evidence": "line 65: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent",
       "type": "wikilink"
@@ -3397,31 +3403,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 51: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
+      "evidence": "line 52: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 49: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
+      "evidence": "line 50: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 50: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
+      "evidence": "line 51: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/awh-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 52: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
+      "evidence": "line 53: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 53: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
+      "evidence": "line 54: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
@@ -3487,19 +3493,19 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 59: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
+      "evidence": "line 60: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 58: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
+      "evidence": "line 59: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 57: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
+      "evidence": "line 58: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
       "source": "wiki/categories/research/adaptive-sampling",
       "target": "wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness",
       "type": "wikilink"
@@ -5767,13 +5773,13 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 87 direct, 87 total pages in branch.",
+      "evidence": "line 15: - [[wiki/categories/research/molecular-simulation/force-fields|research/molecular-simulation/force-fields]] - 88 direct, 88 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/force-fields",
       "type": "wikilink"
     },
     {
-      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 88 direct, 88 total pages in branch.",
+      "evidence": "line 16: - [[wiki/categories/research/molecular-simulation/free-energy|research/molecular-simulation/free-energy]] - 89 direct, 89 total pages in branch.",
       "source": "wiki/categories/research/molecular-simulation",
       "target": "wiki/categories/research/molecular-simulation/free-energy",
       "type": "wikilink"
@@ -5947,6 +5953,12 @@
       "type": "wikilink"
     },
     {
+      "evidence": "line 83: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "source": "wiki/categories/research/molecular-simulation/force-fields",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
+      "type": "wikilink"
+    },
+    {
       "evidence": "line 79: - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
@@ -5971,25 +5983,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
+      "evidence": "line 85: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/garnet-symbolic-regression-functional-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
+      "evidence": "line 84: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
+      "evidence": "line 87: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 86: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -6007,67 +6019,67 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 111: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]",
+      "evidence": "line 112: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0002-garnet-automates-parameter-assignment",
       "type": "wikilink"
     },
     {
-      "evidence": "line 113: - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]",
+      "evidence": "line 114: - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 114: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
+      "evidence": "line 115: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 116: - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]",
+      "evidence": "line 117: - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 110: - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]",
+      "evidence": "line 111: - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise",
       "type": "wikilink"
     },
     {
-      "evidence": "line 108: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]",
+      "evidence": "line 109: - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 115: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks|RNA Force-Field Validation Needs Motif-Level and Coupled-Error Checks]]",
+      "evidence": "line 116: - [[wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks|RNA Force-Field Validation Needs Motif-Level and Coupled-Error Checks]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0028-rna-force-field-validation-needs-motif-level-and-coupled-error-checks",
       "type": "wikilink"
     },
     {
-      "evidence": "line 112: - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]",
+      "evidence": "line 113: - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 107: - [[wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md|Conservative Atomic Reaction-Field Cutoffs Improve High-Permittivity MD]]",
+      "evidence": "line 108: - [[wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md|Conservative Atomic Reaction-Field Cutoffs Improve High-Permittivity MD]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md",
       "type": "wikilink"
     },
     {
-      "evidence": "line 109: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
+      "evidence": "line 110: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 117: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "evidence": "line 118: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -6223,37 +6235,37 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 91: - [[wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs|Corrected Energy and Virial Policy for Modified Cutoffs]]",
+      "evidence": "line 92: - [[wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs|Corrected Energy and Virial Policy for Modified Cutoffs]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs",
       "type": "wikilink"
     },
     {
-      "evidence": "line 90: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
+      "evidence": "line 91: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 92: - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]",
+      "evidence": "line 93: - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/force-field-training-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]",
+      "evidence": "line 94: - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/garnet-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]",
+      "evidence": "line 95: - [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/mlip-foundation-model-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]",
+      "evidence": "line 96: - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/questions/rna-force-field-motif-validation-scope",
       "type": "wikilink"
@@ -6427,31 +6439,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 100: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]",
+      "evidence": "line 101: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 101: - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]",
+      "evidence": "line 102: - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff",
       "type": "wikilink"
     },
     {
-      "evidence": "line 102: - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]",
+      "evidence": "line 103: - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting",
       "type": "wikilink"
     },
     {
-      "evidence": "line 103: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer|RNA Motif-Specific Fixes vs General Force-Field Transfer]]",
+      "evidence": "line 104: - [[wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer|RNA Motif-Specific Fixes vs General Force-Field Transfer]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0014-rna-motif-specific-fixes-vs-general-force-field-transfer",
       "type": "wikilink"
     },
     {
-      "evidence": "line 99: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
+      "evidence": "line 100: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
       "source": "wiki/categories/research/molecular-simulation/force-fields",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -6466,6 +6478,12 @@
       "evidence": "line 66: - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/ffrefine-current-implementation-status",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 72: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "source": "wiki/categories/research/molecular-simulation/free-energy",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
@@ -6493,37 +6511,37 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 74: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
+      "evidence": "line 75: - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/garnet-symbolic-regression-functional-search",
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
+      "evidence": "line 73: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 73: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
+      "evidence": "line 74: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 76: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
+      "evidence": "line 77: - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/training-initially-disabled-lennard-jones-parameters",
       "type": "wikilink"
     },
     {
-      "evidence": "line 77: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
+      "evidence": "line 78: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 75: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 76: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -6547,97 +6565,97 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 118: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 119: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 112: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
+      "evidence": "line 113: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited",
       "type": "wikilink"
     },
     {
-      "evidence": "line 105: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
+      "evidence": "line 106: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0005-configuration-mapping-extends-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 113: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
+      "evidence": "line 114: - [[wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias|OPES Derives Bias From Probability Reconstruction]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0006-opes-reconstructs-probability-to-derive-bias",
       "type": "wikilink"
     },
     {
-      "evidence": "line 103: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
+      "evidence": "line 104: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 111: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
+      "evidence": "line 112: - [[wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates|LaDyBUGS Couples Gibbs Sampling With FastMBAR Bias Updates]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0008-ladybugs-couples-gibbs-sampling-with-fastmbar-bias-updates",
       "type": "wikilink"
     },
     {
-      "evidence": "line 115: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
+      "evidence": "line 116: - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support|Reweighting Fine-Tuning Depends on Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 104: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]",
+      "evidence": "line 105: - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support",
       "type": "wikilink"
     },
     {
-      "evidence": "line 109: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]",
+      "evidence": "line 110: - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 114: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]",
+      "evidence": "line 115: - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data",
       "type": "wikilink"
     },
     {
-      "evidence": "line 107: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]",
+      "evidence": "line 108: - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality",
       "type": "wikilink"
     },
     {
-      "evidence": "line 106: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms|Decoupling Implementations Must Preserve Intramolecular Solute Terms]]",
+      "evidence": "line 107: - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms|Decoupling Implementations Must Preserve Intramolecular Solute Terms]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 116: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
+      "evidence": "line 117: - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 108: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
+      "evidence": "line 109: - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent",
       "type": "wikilink"
     },
     {
-      "evidence": "line 110: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
+      "evidence": "line 111: - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 117: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "evidence": "line 118: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -6751,55 +6769,55 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 84: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
+      "evidence": "line 85: - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes|Independent Validation for Enhanced-Sampling Landscapes]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes",
       "type": "wikilink"
     },
     {
-      "evidence": "line 82: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
+      "evidence": "line 83: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 81: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
+      "evidence": "line 82: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 83: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
+      "evidence": "line 84: - [[wiki/questions/awh-validation-scope|AWH Validation Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/awh-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 85: - [[wiki/questions/md-free-energy-decoupling-implementation-validation|MD Free-Energy Decoupling Implementation Validation]]",
+      "evidence": "line 86: - [[wiki/questions/md-free-energy-decoupling-implementation-validation|MD Free-Energy Decoupling Implementation Validation]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/md-free-energy-decoupling-implementation-validation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 86: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
+      "evidence": "line 87: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 87: - [[wiki/questions/rbfe-benchmark-prospective-use-scope|RBFE Benchmark Prospective Use Scope]]",
+      "evidence": "line 88: - [[wiki/questions/rbfe-benchmark-prospective-use-scope|RBFE Benchmark Prospective Use Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/rbfe-benchmark-prospective-use-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 88: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
+      "evidence": "line 89: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/tss-generalization-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 89: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
+      "evidence": "line 90: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
@@ -6955,43 +6973,43 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 99: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
+      "evidence": "line 100: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 95: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
+      "evidence": "line 96: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
+      "evidence": "line 98: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 94: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]",
+      "evidence": "line 95: - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk|Boltzmann Generator One-Shot Sampling vs Overlap Risk]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 98: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use|RBFE Benchmark Success vs Prospective Use]]",
+      "evidence": "line 99: - [[wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use|RBFE Benchmark Success vs Prospective Use]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0010-rbfe-benchmark-success-vs-prospective-use",
       "type": "wikilink"
     },
     {
-      "evidence": "line 96: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
+      "evidence": "line 97: - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness|Internal Convergence vs External Free-Energy Correctness]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness",
       "type": "wikilink"
     },
     {
-      "evidence": "line 93: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
+      "evidence": "line 94: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
       "source": "wiki/categories/research/molecular-simulation/free-energy",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -7381,7 +7399,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 14: - [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 36 direct, 36 total pages in branch.",
+      "evidence": "line 14: - [[wiki/categories/research/statistics/monte-carlo|research/statistics/monte-carlo]] - 37 direct, 37 total pages in branch.",
       "source": "wiki/categories/research/statistics",
       "target": "wiki/categories/research/statistics/monte-carlo",
       "type": "wikilink"
@@ -7390,6 +7408,12 @@
       "evidence": "line 36: - [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/ffrefine-average-observable-trainability-validation",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 40: - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]",
+      "source": "wiki/categories/research/statistics/monte-carlo",
+      "target": "wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training",
       "type": "wikilink"
     },
     {
@@ -7411,25 +7435,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 40: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
+      "evidence": "line 41: - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 41: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
+      "evidence": "line 42: - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/sample-bias-reweighting-method-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 43: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
+      "evidence": "line 44: - [[wiki/answers/tss-awh-opes-adaptive-free-energy-comparison|TSS, AWH, and OPES as Adaptive Free-Energy Methods]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/tss-awh-opes-adaptive-free-energy-comparison",
       "type": "wikilink"
     },
     {
-      "evidence": "line 42: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
+      "evidence": "line 43: - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/answers/tss-mbar-replay-force-field-optimization-route-plan",
       "type": "wikilink"
@@ -7447,31 +7471,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 66: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
+      "evidence": "line 67: - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance",
       "type": "wikilink"
     },
     {
-      "evidence": "line 64: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
+      "evidence": "line 65: - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited",
       "type": "wikilink"
     },
     {
-      "evidence": "line 63: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
+      "evidence": "line 64: - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0005-configuration-mapping-extends-mbar",
       "type": "wikilink"
     },
     {
-      "evidence": "line 62: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
+      "evidence": "line 63: - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
+      "evidence": "line 66: - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning",
       "type": "wikilink"
@@ -7525,31 +7549,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 48: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
+      "evidence": "line 49: - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget|Average-Observable Trainability Sampling Budget]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "type": "wikilink"
     },
     {
-      "evidence": "line 47: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
+      "evidence": "line 48: - [[wiki/questions/adaptive-estimators-vs-fixed-sample-estimators|Adaptive Estimators Versus Fixed-Sample Estimators]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/adaptive-estimators-vs-fixed-sample-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 49: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
+      "evidence": "line 50: - [[wiki/questions/overlap-support-diagnostics-for-free-energy-estimators|Overlap and Support Diagnostics for Free Energy Estimators]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/overlap-support-diagnostics-for-free-energy-estimators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 50: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
+      "evidence": "line 51: - [[wiki/questions/tss-generalization-scope|Times Square Sampling Generalization Scope]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/tss-generalization-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 51: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
+      "evidence": "line 52: - [[wiki/questions/windowed-local-free-energy-global-profile-reliability|Windowed Local Free Energy and Global Profile Reliability]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/questions/windowed-local-free-energy-global-profile-reliability",
       "type": "wikilink"
@@ -7591,25 +7615,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 58: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
+      "evidence": "line 59: - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization|TSS Variance Advantage Versus MBAR Generalization]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 56: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
+      "evidence": "line 57: - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk|Configuration Mapping Overlap Gain Versus Support Risk]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk",
       "type": "wikilink"
     },
     {
-      "evidence": "line 57: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
+      "evidence": "line 58: - [[wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics|On-the-Fly Bias Adaptation Versus Postprocessing Diagnostics]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0005-on-the-fly-bias-adaptation-vs-postprocessing-diagnostics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 55: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
+      "evidence": "line 56: - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]",
       "source": "wiki/categories/research/statistics/monte-carlo",
       "target": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "type": "wikilink"
@@ -19543,7 +19567,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 17: - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - score `11`; related links `7`; source IDs `4`",
+      "evidence": "line 15: - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - score `12`; related links `8`; source IDs `4`",
       "source": "wiki/dashboards/high-connectivity-concepts",
       "target": "wiki/concepts/awh-replay-force-field-optimization",
       "type": "wikilink"
@@ -19603,7 +19627,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 15: - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - score `12`; related links `6`; source IDs `6`",
+      "evidence": "line 16: - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - score `12`; related links `6`; source IDs `6`",
       "source": "wiki/dashboards/high-connectivity-concepts",
       "target": "wiki/concepts/garnet-functional-form-search",
       "type": "wikilink"
@@ -19639,7 +19663,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 16: - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - score `12`; related links `7`; source IDs `5`",
+      "evidence": "line 17: - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - score `12`; related links `7`; source IDs `5`",
       "source": "wiki/dashboards/high-connectivity-concepts",
       "target": "wiki/concepts/relative-binding-free-energy-benchmarking",
       "type": "wikilink"
@@ -24241,7 +24265,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 38: That long-budget diagnostic has now been run for one new archive pair. Two independently prepared one-replica reaction-field archives were extended to 100 ns and analysed every 10 ns. Density and RDF passed throughout. Dielectric passed at 40 ns, failed at 50 ns, then passed continuously from 60 through 100 ns; its 100 ns natural-direction cosine was 0.9743. Enthalpy never passed the full-Fisher direction gate even though its raw-gradient cosine reached 0.9691 at 100 ns. Its natural-direction cosine was 0.6288. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]",
+      "evidence": "line 38: That long-budget diagnostic has now been reanalysed with the corrected state-conditional Fisher and maximum conditional-KL constraint. The configurations, targets, and raw gradients are unchanged. Density and RDF still pass throughout. Dielectric now passes continuously from 40 through 100 ns and reaches cosine 0.9955 at 100 ns. Enthalpy reaches cosine 0.8143 with norm ratio 1.0079 at 100 ns and therefore passes only the final tested endpoint; its 90 ns cosine is 0.7368. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]",
       "source": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "type": "wikilink"
@@ -24253,7 +24277,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 42: Retrospective treatment development on the same pair then converted the direction diagnosis into finite-step replay evidence. The production hard-Fisher dielectric proposal reduced loss in both cross-archive directions by about 1.11%, with paired intervals below zero and all six temperatures improving. Damping with $\\gamma=10^{-4}$ increased those reductions to 1.70--1.81%. For enthalpy, identity and diagonal scaling restored direction reproducibility but used much smaller realised empirical KL and gave mostly inconclusive paired effects. Small-$\\gamma$ damping gave paired-resolved cross reductions of 1.78% and 2.40% despite failing the exact-direction gate. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
+      "evidence": "line 42: Historical retrospective treatment development on the same pair produced finite-step replay evidence for proposals constructed with the old joint-Fisher geometry. Those exact proposals remain valid observations: hard-Fisher dielectric and small-$\\gamma$ enthalpy directions transferred across this archive pair. They are not, however, validation of the corrected conditional-Fisher proposals, and their treatment ranking was not performed at a conditioning-matched KL. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]",
       "source": "wiki/questions/QST-0006-average-observable-trainability-sampling-budget",
       "target": "wiki/answers/ffrefine-retrospective-fisher-treatment-development",
       "type": "wikilink"
@@ -37057,7 +37081,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 32: The two-independent-100 ns reaction-field comparison shows that this tension can resolve differently by target family under the same sampling and Fisher geometry. Dielectric's cumulative natural direction became continuously reproducible from 60 through 100 ns and reached cosine 0.9743 at 100 ns. Enthalpy's raw-gradient cosine reached 0.9691, yet full Fisher preconditioning reduced natural-direction agreement to 0.6288. A common gradient with the two archive Fishers gave unit agreement, whereas a common Fisher did not repair the enthalpy result. The Fisher is therefore a target-dependent error amplifier rather than an archive-dependent global failure in this experiment. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]",
+      "evidence": "line 32: The two-independent-100 ns reaction-field comparison has now been reanalysed with a state-conditional Fisher. The archived targets and raw gradients are unchanged. Dielectric becomes continuously reproducible from 40 through 100 ns and reaches cosine 0.9955 at 100 ns. Enthalpy's raw-gradient cosine remains 0.9691, while its corrected natural-direction cosine rises from the historical joint-Fisher value 0.6288 to 0.8143 and crosses the gate only at 100 ns. A common gradient with the two corrected Fishers still gives essentially unit agreement. Residual target-gradient variation therefore remains the source signal, but the mismatched between-state covariance was a material amplifier rather than a neutral part of the geometry. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]",
       "source": "wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support",
       "target": "wiki/answers/ffrefine-long-archive-target-gradient-convergence",
       "type": "wikilink"
