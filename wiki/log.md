@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-08-29
+updated: 2026-09-01
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -107,3 +107,4 @@ graph_exclude: true
 - 2026-08-28: Recorded retrospective Fisher-treatment development on the two 100 ns archives, including hard, diagonal, identity, continuously damped, and modal-SNR operators; documented support-valid bidirectional dielectric replay descent, the damped enthalpy shared-descent result, empirical-KL mismatch between geometries, low-Fisher-mode restoration, collateral-family effects, and prospective validation limits.
 - 2026-08-29: Explained the Fisher-treatment KL mismatch by decomposing the TSS mixture Fisher into within-temperature and between-temperature score covariance; recorded that identity and diagonal steps spend about 80--84% of nominal KL in a component absent from state-conditioned replay KL, and added the requirement that trust-region and empirical KL definitions use consistent thermodynamic-state conditioning.
 - 2026-08-30: Added an answer note explaining how FFRefine's KL definition changed from the frozen-bias joint Fisher to a state-conditional KL, why the conditioning mismatch required it, and the downstream changes to retained Fisher rank, condition estimate, and enthalpy/dielectric natural directions.
+- 2026-09-01: Added a detailed answer deriving and motivating FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators, including state-conditional Fisher construction, Jacobi scaling, block-jackknife modal uncertainty, equal-KL rescaling, and diagnostic boundaries.

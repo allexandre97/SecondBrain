@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-28
-updated: 2026-08-29
+updated: 2026-09-01
 question: "What did retrospective Fisher-treatment development on two independent 100 ns reaction-field TSS archives establish about density, RDF, enthalpy, and dielectric optimisation?"
 answer_status: partially-answered
 areas:
@@ -28,6 +28,7 @@ tags:
   - enthalpy
   - dielectric-constant
 related:
+  - "[[wiki/answers/ffrefine-fisher-treatment-operators]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
@@ -445,6 +446,8 @@ The clean prospective dielectric comparison is now:
 For enthalpy, damping $\gamma=10^{-4}$ is a promising retrospective lead but should not bypass the failed direction-reproducibility gate. A new archive pair or a genuinely held-out archive set must determine whether its observed shared descent cone repeats. Identity and diagonal arms remain scientifically useful, but any matched-KL comparison must first choose whether matching refers to conditional replay KL or a joint-state KL. Both definitions and the within/between Fisher decomposition should be logged.
 
 ## Sources used
+
+For a self-contained derivation and motivation of the hard, diagonal, identity, continuously damped, and modal-SNR operators used by this campaign, see [[wiki/answers/ffrefine-fisher-treatment-operators]].
 
 - SRC-0018 for the replay/frozen-reference optimisation route and the requirement that accepted replay updates survive resimulation.
 - SRC-0023 for the scope and overlap limitations of MBAR-based reuse of sampled configurations.

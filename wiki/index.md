@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-08-29
+updated: 2026-09-01
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -50,6 +50,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Answers
 
+- [[wiki/answers/ffrefine-fisher-treatment-operators]] - Mathematical and implementation explanation of FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators.
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]] - Retrospective comparison of Fisher treatments on two independent 100 ns reaction-field archives, including the mixed-versus-conditional KL decomposition.
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]] - Convergence of water target values, raw gradients, and Fisher-conditioned directions across two independent 100 ns reaction-field archives.
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]] - Why fixed-archive mathematics pass while matched density/RDF controls reproduce and enthalpy/dielectric gradients remain archive dependent.
