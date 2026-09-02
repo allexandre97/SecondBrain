@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-01
+updated: 2026-09-02
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -108,3 +108,4 @@ graph_exclude: true
 - 2026-08-29: Explained the Fisher-treatment KL mismatch by decomposing the TSS mixture Fisher into within-temperature and between-temperature score covariance; recorded that identity and diagonal steps spend about 80--84% of nominal KL in a component absent from state-conditioned replay KL, and added the requirement that trust-region and empirical KL definitions use consistent thermodynamic-state conditioning.
 - 2026-08-30: Added an answer note explaining how FFRefine's KL definition changed from the frozen-bias joint Fisher to a state-conditional KL, why the conditioning mismatch required it, and the downstream changes to retained Fisher rank, condition estimate, and enthalpy/dielectric natural directions.
 - 2026-09-01: Added a detailed answer deriving and motivating FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators, including state-conditional Fisher construction, Jacobi scaling, block-jackknife modal uncertainty, equal-KL rescaling, and diagnostic boundaries.
+- 2026-09-02: Recorded FFRefine prospective dielectric-only reaction-field run `20260901-171027`: damped conditional-Fisher optimization at $\gamma=0.1$ produced two consecutive paired-confirmed fresh loss reductions and reproducible final-validation loss, then stopped on a later treated-direction failure despite accepted direct dielectric splitting. Updated the conditional-treatment handoff, KL, convergence, trainability, claim, sampling-budget, and tension notes, and added the open design question separating checkpoint assessment from next-direction readiness.

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-26
-updated: 2026-08-28
+updated: 2026-09-02
 question: "What did two independent 100 ns reaction-field TSS archives establish about convergence of FFRefine water target values, gradients, and natural-gradient directions?"
 answer_status: partially-answered
 areas:
@@ -24,6 +24,7 @@ tags:
   - dielectric-constant
   - independent-archives
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
@@ -425,7 +426,15 @@ Mechanistically, $\gamma=10^{-4}$ damping restored two positive normalized Fishe
 
 Nominal quadratic KL also failed to equalise treatments. Although every proposal was scaled to estimated KL 0.005, identity and diagonal proposals realised much smaller empirical KL than hard, damped, and SNR proposals. Future comparisons must match empirical replay KL before interpreting loss-effect size.
 
-The detailed historical screen, paired intervals, component responses, spectral gains, collateral-family effects, and limitations are recorded in [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]. Its treatment ranking must be re-established with the corrected conditional backend before prospective selection.
+The detailed historical screen, paired intervals, component responses, spectral gains, collateral-family effects, and limitations are recorded in [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]. Its old-geometry ranking was subsequently replaced by a state-conditional rerun before prospective selection.
+
+## Prospective dielectric follow-up
+
+The completed state-conditional treatment campaign found hard full Fisher, damped $\gamma=0.03$ and $0.1$, diagonal, and selected modal-SNR dielectric proposals eligible on the reused archive pair. Hard full Fisher ranked first by fixed-archive replay loss, whereas $\gamma=0.1$ gave stronger direction robustness and was selected prospectively as a smooth full-correlation treatment with lower implementation complexity than modal SNR.
+
+Reaction-field run `20260901-171027` then tested $\gamma=0.1$ in the complete macro pipeline. Two consecutive updates reduced dielectric loss on the next fresh archive with paired intervals below zero, and two final-validation replicas reproduced the best confirmed checkpoint. This validates the long-archive study's central prospective lead: the corrected long-budget dielectric direction can produce real fresh-simulation descent. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+The run also confirmed the temporal warning. A fourth macro archive passed direct dielectric splitting but failed damped half-direction agreement with cosine 0.657. The long-archive cumulative result therefore predicted a viable treatment without establishing a universal per-epoch sampling time.
 
 ## What this establishes
 
@@ -437,13 +446,14 @@ The detailed historical screen, paired intervals, component responses, spectral 
 - Full Fisher coupling can amplify difficult-target instability, but it is not its sole origin; the raw-gradient estimator itself can remain unstable after direct means appear converged.
 - Direct target values, raw gradients, and natural directions have different convergence times and must be monitored separately.
 - Historical joint-Fisher dielectric and damped-enthalpy proposals gave supported cross-archive replay descent on this archive pair, but those effects do not validate the corrected conditional proposals.
+- A corrected conditional-Fisher damped dielectric treatment has now produced two paired-confirmed fresh macro updates and reproducible final-validation loss in one prospective campaign.
 
 ## What this does not establish
 
 - that 40 ns is a universal or unbiased dielectric budget estimate;
 - that two archives characterize the population distribution of directions;
-- that the observed dielectric paired replay reduction will repeat on a new archive pair or survive fresh simulation;
-- that the direction will survive fresh candidate simulation or macro-epoch resimulation;
+- that the observed dielectric success rate will repeat across new campaign seeds;
+- that every fresh archive at the tested 60 ns budget will produce an optimization-ready direction;
 - that any conditional-Fisher treatment is a validated enthalpy optimiser under held-out replay or fresh simulation;
 - that enthalpy would not converge with more independent information or a prospectively specified geometry;
 - that a smooth pooled nested-prefix curve, a high gradient cosine without a compatible norm, or a near-unit KL-scaled natural-step norm ratio establishes gradient equilibrium;
@@ -454,8 +464,8 @@ The detailed historical screen, paired intervals, component responses, spectral 
 1. Repeat the independent long-archive comparison with new seeds and the same predeclared conditional-Fisher settings. Do not select a minimum archive length retrospectively from the observed 40 ns dielectric or 100 ns enthalpy crossings.
 2. Require agreement across more than one archive pair and report, for every target, independent-archive agreement, cumulative disjoint halves, local adjacent blocks, and consecutive cumulative-prefix updates.
 3. For every comparison, report raw-gradient cosine, both absolute norms, and their norm ratio before reporting the KL-scaled natural direction. Do not use pooled nested self-convergence or a near-unit natural-step norm ratio as equilibrium evidence.
-4. Complete the retrospective conditional-Fisher replay campaign before freezing any treatment for new data; the historical hard-Fisher and $\gamma=10^{-4}$ rankings are not conditioning-matched recommendations.
-5. Only after replay, support, KL, and direction gates pass should the dielectric candidate advance to independent fresh simulation.
+4. Retain the completed conditional-Fisher treatment campaign as development evidence; do not retune the prospectively selected $\gamma=0.1$ on run `20260901-171027`.
+5. Separate fresh checkpoint assessment from readiness to construct the next direction, so a direction failure cannot erase an otherwise valid paired candidate evaluation. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 6. For enthalpy, distinguish an isolated endpoint crossing from repeatable trainability using new archive pairs and predeclared conditional-Fisher treatment arms.
 7. Apply identical latent-parameter bounds and an identical empirical-KL budget to all optimizer arms. In the identity arm, use the Fisher only to scale or backtrack the step, not to rotate it.
 8. Evaluate every frozen arm on independent held-out long archives before fresh simulation. A raw-direction cosine and norm-ratio pass is a prerequisite, not evidence that a finite step reduces population loss.
@@ -465,6 +475,7 @@ The detailed historical screen, paired intervals, component responses, spectral 
 
 ## Links
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]

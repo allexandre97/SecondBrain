@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-28
-updated: 2026-09-01
+updated: 2026-09-02
 question: "What did retrospective Fisher-treatment development on two independent 100 ns reaction-field TSS archives establish about density, RDF, enthalpy, and dielectric optimisation?"
 answer_status: partially-answered
 areas:
@@ -28,6 +28,7 @@ tags:
   - enthalpy
   - dielectric-constant
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-fisher-treatment-operators]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
@@ -63,6 +64,8 @@ project_evidence:
   - "FFRefine retrospective Fisher-treatment replay completed 2026-08-28, replay hash f9f6161280882e4ee4ffc8bccfd02bfb9a54a0c2477cb88a4be7fcef05d45eea"
   - "FFRefine state-conditional Fisher/KL reanalysis of the source archives completed 2026-08-30"
   - "FFRefine post hoc within-state/between-state Fisher decomposition of the 100 ns treatment proposals completed 2026-08-29"
+  - "FFRefine state-conditional Fisher-treatment screen completed 2026-08-30 and replay completed 2026-08-31"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
 # FFRefine Retrospective Fisher-Treatment Development
@@ -70,13 +73,25 @@ project_evidence:
 ## Historical result and current status
 
 > [!IMPORTANT]
-> This page records a completed historical campaign whose proposals were constructed with the frozen-bias joint Fisher but evaluated with state-normalized conditional empirical KL. The finite-step replay measurements remain valid for those exact proposals. The equal-KL treatment comparison and recorded ranking are not transferable to FFRefine's corrected state-conditional Fisher backend. A conditional rerun is in progress; until it finishes, no hard, damped, diagonal, identity, or SNR treatment from this page is the current prospective recommendation.
+> This page records a completed historical campaign whose proposals were constructed with the frozen-bias joint Fisher but evaluated with state-normalized conditional empirical KL. The finite-step replay measurements remain valid for those exact proposals. The equal-KL treatment comparison and recorded ranking are not transferable to FFRefine's corrected state-conditional Fisher backend. The conditional rerun has now finished and is summarized below; its eligible $\gamma=0.1$ dielectric treatment has also completed a first prospective macro-optimization run.
 
 The historical retrospective campaign strengthens the case that the two archives contained transferable dielectric descent directions under the old geometry. The production hard-truncated Fisher direction transferred bidirectionally between the two archives, its paired loss intervals excluded zero, and every dielectric target temperature improved. Continuously damped Fisher treatment with $\gamma=10^{-4}$ produced an even larger cross-archive replay decrease and was the historical retrospective dielectric recommendation.
 
 Enthalpy remains unresolved but the diagnosis changed. Identity and diagonal directions were highly reproducible across the complete archives, confirming that Fisher conditioning amplifies residual enthalpy-gradient error. Nevertheless, small-$\gamma$ damped proposals reduced enthalpy loss significantly in both cross-archive directions despite failing the exact-direction cosine gate. A low cosine therefore did not imply that the two proposals lacked a shared descent cone.
 
 The run does **not** establish closed-loop trainability or validate the corrected conditional-Fisher proposals. Treatment selection and replay evaluation used the same two archives, delete-block intervals quantify within-archive rather than between-campaign uncertainty, temporal disjoint blocks remained unstable, and no candidate was tested by fresh simulation. The appropriate conclusion is that the old proposals demonstrated archive-pair-specific descent mechanisms that must be retested under matched conditional geometry and KL.
+
+## State-conditional rerun and prospective handoff
+
+The matched state-conditional campaign subsequently completed with the same 100 ns archive pair. It used the design-weighted state-conditional Fisher for direction geometry, the maximum state-conditional quadratic KL for proposal scaling, and state-normalized empirical replay KL for acceptance. This removed the historical conditioning mismatch while preserving the same configurations and raw target gradients.
+
+For dielectric, hard full Fisher, damping at $\gamma=0.03$ and $0.1$, diagonal scaling, and the selected modal-SNR treatments were eligible under the complete direction, support, conditional-KL, paired cross-replay, and pooled-replay rules. The hard full-Fisher proposal ranked first by the predefined worst cross-archive relative loss score. Its score was -2.440%, compared with -2.225% for damping at $\gamma=0.03$ and -2.126% for damping at $\gamma=0.1$.
+
+The screen nevertheless gave $\gamma=0.1$ a stronger minimum 60--100 ns direction score than hard cutting, 0.9853 versus 0.9599. It also retained the full correlation geometry with a continuous spectral filter and avoided both a discontinuous cutoff and the additional block-SNR estimator. The later choice of $\gamma=0.1$ for the prospective run was therefore a simplicity and smoothness judgment among eligible treatments, not the numerical winner of the retrospective replay ranking.
+
+The prospective dielectric-only reaction-field run `20260901-171027` then generated three updated checkpoints under the corrected conditional backend. Checkpoints 1 and 2 both reduced loss on the next freshly simulated macro archive, with paired candidate-minus-parent intervals [-0.7831, -0.4505] and [-0.6849, -0.3685]. Two independent final validations of checkpoint 2 gave losses 5.9654 and 5.9312, consistent with its first fresh loss 5.9600. This crosses the fresh-simulation boundary that the historical campaign explicitly did not cross. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+The run stopped at the fourth macro archive because its damped chronological-half cosine was 0.657. This limits the result to local multi-update trainability and shows that an eligible retrospective treatment does not guarantee a reproducible direction at every new parameter state.
 
 ## Question and scope
 
@@ -434,16 +449,11 @@ These boundaries follow the broader validation principle that fixed-archive grad
 
 ## Prospective implication
 
-The clean prospective dielectric comparison is now:
+The original prospective implication has now partly been executed under the corrected conditional backend. A predeclared damped dielectric treatment at $\gamma=0.1$ survived two consecutive fresh macro-epoch comparisons and two final-validation replicas. This is evidence for the selected treatment and setup, not a matched prospective proof that it is superior to hard cutting.
 
-1. freeze the production hard-Fisher treatment as the baseline;
-2. freeze damping at $\gamma=10^{-4}$ before generating new data;
-3. use new independent long archives and identical latent bounds;
-4. predeclare whether the trust region controls state-conditional configurational change or the joint extended ensemble, then use matched quadratic and empirical KL definitions;
-5. require support, paired cross-archive loss reduction, individual-temperature response, temporal diagnostics, and collateral-family guards;
-6. only then advance a frozen candidate to independent fresh simulation.
+The next dielectric repetition should keep $\gamma=0.1$, the conditional-KL policy, parameter map, ladder, and sampling protocol fixed. It should separate acceptance of the current checkpoint from readiness to generate another direction, predeclare how a failed direction acquires more independent information, and retain hard and raw reporters without allowing them to veto the selected treatment. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 
-For enthalpy, damping $\gamma=10^{-4}$ is a promising retrospective lead but should not bypass the failed direction-reproducibility gate. A new archive pair or a genuinely held-out archive set must determine whether its observed shared descent cone repeats. Identity and diagonal arms remain scientifically useful, but any matched-KL comparison must first choose whether matching refers to conditional replay KL or a joint-state KL. Both definitions and the within/between Fisher decomposition should be logged.
+For enthalpy, no analogous fresh result exists. The state-conditional retrospective campaign left every tested enthalpy treatment ineligible: hard, damped $\gamma=0.1$, and SNR variants failed direction robustness, whereas identity and diagonal variants had unresolved cross-replay intervals. Entropy-specific treatment selection and new prospective data remain required.
 
 ## Sources used
 
@@ -456,6 +466,7 @@ No raw sources were consulted. The numerical results are FFRefine project eviden
 
 ## Wiki pages used
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
@@ -464,12 +475,14 @@ No raw sources were consulted. The numerical results are FFRefine project eviden
 
 ## Wiki updates made
 
+- Updated this page with the completed state-conditional rerun and prospective handoff.
 - Updated the long-archive answer with the retrospective replay consequence.
 - Updated the average-observable validation synthesis with the new optimiser-treatment evidence.
 - Updated the sampling-budget question, signal-versus-support tension, and fixed-archive validation claim.
 
 ## Remaining gaps
 
+- The prospective $\gamma=0.1$ run established two fresh dielectric improvements but did not compare treatments prospectively or reach convergence.
 - The treatment comparison is retrospective and uses only one archive pair.
 - There is no independent archive pair reserved from treatment selection.
 - There is no fresh-candidate simulation for any treatment.

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-02
 question: "Which KL divergence should FFRefine use when extended-ensemble simulations train force-field parameters across temperature or alchemical ladders?"
 answer_status: answered
 areas:
@@ -25,6 +25,7 @@ tags:
   - alchemical-transformation
   - replay-support
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
@@ -52,6 +53,7 @@ raw_sources_consulted: []
 project_evidence:
   - "FFRefine retrospective Fisher-treatment campaign completed 2026-08-28"
   - "FFRefine within-state/between-state Fisher decomposition completed 2026-08-29"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
 # KL Definition for Extended-Ensemble Force-Field Training
@@ -344,9 +346,15 @@ This confirms that the conditioning mismatch was scientifically consequential an
 
 The corrected result does not show that the gradients acquired more equilibrium information: the raw gradients are exactly the same. It shows that the conditional geometry maps those gradients into directions that better match the probability distribution controlled by replay. Historical finite-step treatment results remain properties of the old proposals and must not be used as validation of the corrected proposal vectors.
 
+## Prospective evidence from the corrected backend
+
+Dielectric-only reaction-field run `20260901-171027` used the recommended design-weighted conditional Fisher for direction geometry, maximum state-conditional quadratic and empirical KL for step safety, and exact state-normalized replay diagnostics. With damped treatment $\gamma=0.1$, two consecutive full-parameter updates reduced loss on the next fresh macro archives with paired intervals below zero. Two independent final-validation replicas reproduced the best confirmed loss. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+The proposal chain also exercised the cumulative constraint correctly. Individual accepted steps used maximum empirical conditional KL near 0.005. Four aligned steps produced archive-to-candidate KL near 0.077--0.080, while a fifth would have produced 0.111--0.113 and was rejected against the 0.1 ceiling. This is direct evidence that the corrected KL can function as an operational trust region during closed-loop temperature-ladder training.
+
 ## What remains unresolved
 
-- No prospective campaign has yet established that conditional-Fisher proposals improve enthalpy or dielectric training.
+- Conditional-Fisher damping has now produced two fresh-confirmed dielectric improvements in one prospective campaign; enthalpy and campaign-to-campaign reproducibility remain unresolved.
 - The enthalpy conditional-Fisher direction passes only at the 100 ns endpoint and fails both 100 ns chronological-half comparisons; the probability that this endpoint crossing repeats is unknown.
 - The best aggregation of state-wise ceilings may depend on whether strict maximum control is too sensitive to noisy low-support states.
 - A practical policy may need both a hard maximum and a robust high-quantile diagnostic when the ladder is very large or continuous.
@@ -355,6 +363,7 @@ The corrected result does not show that the gradients acquired more equilibrium 
 
 ## Links
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]
 - [[wiki/concepts/awh-replay-force-field-optimization]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]

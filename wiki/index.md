@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-01
+updated: 2026-09-02
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -50,6 +50,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Answers
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - First prospective dielectric-only damped-Fisher macro-optimization, including two fresh-confirmed updates, final validation, the later direction failure, and the checkpoint-assessment control-flow lesson.
 - [[wiki/answers/ffrefine-fisher-treatment-operators]] - Mathematical and implementation explanation of FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators.
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]] - Retrospective comparison of Fisher treatments on two independent 100 ns reaction-field archives, including the mixed-versus-conditional KL decomposition.
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]] - Convergence of water target values, raw gradients, and Fisher-conditioned directions across two independent 100 ns reaction-field archives.
@@ -234,6 +235,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Questions
 
+- [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]] - Whether fresh checkpoint assessment and statistical readiness for the next optimization direction should be separate pipeline states.
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]] - Sampling length, replica count, uncertainty, and direction-basis requirements for resolving enthalpy or dielectric teacher signals.
 - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.
 

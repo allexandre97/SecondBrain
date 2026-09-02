@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-08-20
-updated: 2026-08-29
+updated: 2026-09-02
 tension_status: active
 areas:
   - research
@@ -20,6 +20,8 @@ tags:
   - fisher-information
   - kl-conditioning
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
+  - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
@@ -33,6 +35,7 @@ related_claims:
   - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
 related_questions:
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
+  - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
 sources:
   - SRC-0018
   - SRC-0023
@@ -47,6 +50,8 @@ project_evidence:
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
   - "FFRefine post hoc within-state/between-state Fisher decomposition completed 2026-08-29"
+  - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
 # Average-Observable Signal vs Replay Support
@@ -91,17 +96,23 @@ Nominal and empirical trust regions also separated. Identity and diagonal direct
 
 This adds a fourth tension: an apparently common KL number can refer to different statistical objects. The corrected pipeline now uses the design-weighted conditional Fisher for direction geometry, maximum state-conditional KL for safety scaling, and state-normalized empirical KL for replay acceptance. The frozen-bias joint KL remains a useful bias-portability diagnostic. On the 100 ns archives, corrected steps with maximum conditional KL 0.01 have frozen-bias joint KL up to 0.359 because between-state covariance contributes about 94--97% for density, enthalpy, and dielectric but only 10--14% for RDF. The distinction is therefore target-direction dependent and operational, not semantic.
 
+The first prospective damped-Fisher dielectric run resolves one side of the tension without eliminating it. Four support-valid microsteps per macro epoch accumulated empirical archive KL near 0.077--0.080 and produced two consecutive paired-confirmed fresh loss reductions. Two final-validation replicas reproduced the best checkpoint. Thus a supported and statistically useful dielectric signal can exist under the corrected conditional trust region. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+The fourth macro archive then passed the direct dielectric split but failed damped direction agreement at cosine 0.657. This adds a fifth tension: **checkpoint evaluation versus next-direction readiness**. The current checkpoint's observable can be evaluated reliably enough even when the archive cannot certify another sensitivity direction. The present pipeline combines those states and consequently skipped the paired parent comparison for checkpoint 3. Preserving conservative gradient gating should not require discarding a valid assessment of an already simulated checkpoint. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
+
 ## Interpretation
 
-The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. Neither dielectric's 40 ns crossing nor enthalpy's isolated 100 ns crossing may be promoted to a sampling threshold from this one pair. Historical hard-Fisher and $\gamma=10^{-4}$ replay rankings must be treated as old-geometry evidence until the conditional campaign finishes. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
+The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. Neither dielectric's 40 ns retrospective crossing nor enthalpy's isolated 100 ns crossing may be promoted to a universal sampling threshold. The completed conditional campaign and first prospective run support $\gamma=0.1$ as a viable dielectric treatment, but one seed and one later direction failure do not establish its campaign-level reliability. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
 
 ## Links
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
 - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
+- [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]

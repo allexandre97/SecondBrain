@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-20
-updated: 2026-08-28
+updated: 2026-09-02
 question: "Do FFRefine's validated replay mathematics establish that water enthalpy and dielectric permittivity can be trained from fresh TSS archives?"
 answer_status: partially-answered
 areas:
@@ -21,6 +21,7 @@ tags:
   - trainability
   - validation
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]"
@@ -71,6 +72,8 @@ project_evidence:
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
+  - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap --depth 2"
 ---
@@ -79,7 +82,11 @@ graph_neighborhoods_used:
 
 ## Short answer
 
-No. The August 2026 checks establish two narrower results.
+Partially. The August 2026 checks did not establish fresh trainability, but the later dielectric-only prospective run `20260901-171027` has now crossed that boundary locally: two consecutive full-parameter updates reduced dielectric loss on newly simulated archives with paired intervals entirely below zero, and two independent final-validation replicas reproduced the best confirmed checkpoint. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+This does not establish convergence, a universal sampling budget, or enthalpy trainability. The run stopped when a fourth fresh archive's two damped half-directions had Fisher-metric cosine 0.657 despite accepted direct dielectric splitting. The updated conclusion is therefore that dielectric is demonstrably trainable for multiple local macro updates under the corrected conditional-KL and damped-Fisher setup, while reliable continuation at every parameter state remains sampling limited.
+
+The earlier checks established two necessary precursor results.
 
 First, the implemented enthalpy and conducting-boundary PME dielectric estimators, replay gradients, loss gradients, and fixed-archive recovery mathematics pass controlled synthetic checks. This substantially weakens the hypothesis that the earlier training failures were caused by an algebraic error in how ensemble-average targets were differentiated.
 
@@ -452,6 +459,27 @@ Continuous damping with $\gamma=10^{-4}$ produced bidirectional paired-resolved 
 
 This optimizer hypothesis is stronger for enthalpy than dielectric. At 100 ns full Fisher conditioning specifically reduced enthalpy reproducibility, whereas dielectric passed both raw and full-Fisher comparisons. Steepest descent cannot replace the longer or more independent sampling still required by either target.
 
+## Prospective damped-Fisher dielectric result
+
+The state-conditional Fisher-treatment rerun completed before the prospective experiment. Under matched maximum conditional-KL geometry, hard full Fisher, damping at $\gamma=0.03$ and $0.1$, diagonal scaling, and modal-SNR treatments all produced eligible dielectric replay proposals on the reused 100 ns archive pair. Hard full Fisher ranked first by the retrospective replay score. Damping at $\gamma=0.1$ was selected prospectively because it preserved the full correlation geometry, gave a stronger direction-robustness score than hard cutting on that pair, avoided a discontinuous eigenvalue floor, and was simpler than estimating modal SNR. This was a bias-variance and implementation choice, not a claim that damping had the largest retrospective loss effect.
+
+Run `20260901-171027` then used the complete reaction-field macro pipeline with $\gamma=0.1$, state-conditional Fisher geometry, maximum conditional-KL control, 20 ns adaptive sampling, and 60 ns one-replica production per epoch. It generated three replay-updated checkpoints. The first two were evaluated in subsequent fresh macro epochs:
+
+| Evaluated checkpoint | Fresh candidate loss | Parent loss on same fresh archive | Paired loss change | Recorded interval |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 6.7783 | 7.3951 | -0.6168 | [-0.7831, -0.4505] |
+| 2 | 5.9600 | 6.4867 | -0.5267 | [-0.6849, -0.3685] |
+
+Two final-validation replicas of checkpoint 2 gave losses 5.9654 and 5.9312. Their mean, 5.9483, was 17.79% below the initial archive loss 7.2354. The validation-mean dielectric prediction moved toward experiment at every one of the six target temperatures.
+
+The selected damped half-direction passed in epochs 1--3, failed in epoch 4, and passed in both validation replicas. Across all six archives it passed five times, compared with three hard-cut reporter passes and two raw-gradient reporter passes. A raw-gradient gate would have stopped epoch 1 and prevented both confirmed improvements.
+
+Epoch 4 preserved the central sampling lesson. Direct dielectric splitting passed, with family score 0.161 against threshold 1, while the damped direction cosine was only 0.657 against threshold 0.8. Direct target convergence therefore remained insufficient to guarantee parameter-sensitivity convergence. The run establishes local multi-epoch dielectric trainability, not a universal 60 ns direction budget.
+
+The run also exposed a control-flow problem. The backend currently computes fresh loss and paired parent comparison only after the next-direction gate passes. Checkpoint 3 entered a fresh epoch and had direct point loss 5.6950, but its paired comparison with checkpoint 2 was skipped because the new direction failed. It was therefore unassessed rather than rejected. Checkpoint evaluation and readiness to take another step should be separated. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
+
+The full numerical chronology, KL behavior, parameter changes, interpretation, and limitations are recorded in [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]].
+
 ## Dielectric-estimator scope
 
 FFRefine uses $\varepsilon_r=1+A$ for conducting PME and for Molly's current atom/site-pair reaction-field convention. The configured reaction-field dielectric changes the Hamiltonian but does not automatically require a second finite-boundary inversion in post-processing. [SRC-0075] [SRC-0076] [SRC-0077] [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]
@@ -469,35 +497,36 @@ The completed 10 and 20 ns fresh-archive dielectric trainability scan used PME. 
 
 ## Required next evidence
 
-The next scientifically useful step is not an unconstrained experimental macro run. It is to establish a supported teacher direction:
+The next dielectric evidence should extend the successful prospective sequence without changing the selected geometry after observing the run:
 
-1. Make the hard empirical-KL ceiling part of proposal line search, so a near-boundary proposal is shrunk and reevaluated rather than rejected only after line search.
-2. Persist candidate dielectric values and changes at every experimental target temperature.
-3. Predeclare whether the direction gate requires a confidence interval below zero plus a point improvement of at least 1%, or instead requires the entire interval to exceed 1%. The completed run passes the former but not the latter; this distinction must not be changed silently after observing the result.
-4. Leave safety margin between estimated KL and the 0.01 empirical ceiling, or backtrack on empirical KL; using 0.01 for both caused 53 of 56 member-level probes to fail the hard ceiling despite strong ESS retention.
-5. Treat 10 ns individual trajectories and the tested shared-replica allocations as insufficient for enthalpy or dielectric direction estimation; do not advance their individual proposals to fresh simulation.
-6. Repeat the two-independent-long-archive comparison prospectively with new seeds. Keep the production hard-Fisher direction as the predeclared baseline and freeze $\gamma=10^{-4}$ damping as the retrospective finalist. Compare these with diagonal and identity directions from the same complete pooled gradient under identical latent bounds and empirically matched replay KL. The observed dielectric crossing from 60 through 100 ns is a candidate allocation, not a validated minimum.
-7. Require raw-gradient cosine, absolute norms, and norm ratio as well as Fisher-conditioned cosine and norm ratio. A near-unit KL-scaled natural-step norm ratio is not evidence that the raw gradient magnitude has equilibrated.
-8. Evaluate each frozen optimiser arm on independent held-out long archives. Require paired replay-loss uncertainty, component-wise target response, and collateral-family guards while enforcing empirical-KL margin and support.
-9. Once a candidate passes direction, empirical-KL, support, and paired-loss gates, simulate at least two independent candidate/teacher archives, combine within- and between-archive uncertainty, and require independent SNR of at least 5.
-10. Only then run whole-parameter synthetic macro recovery with two fresh final-validation replicas, followed later by experimental training.
+1. Separate fresh checkpoint evaluation from readiness to construct the next direction. Compute the paired parent comparison whenever base observable/replay validity passes. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
+2. Allow an improved checkpoint to become the best checkpoint even when its archive cannot certify another update.
+3. During final validation, retain direction diagnostics as reporters rather than objective-validity gates.
+4. Freeze $\gamma=0.1$, the corrected conditional-KL policy, complete ladder, target definition, and parameter basis for the next repetition; do not retune them on run `20260901-171027`.
+5. Predeclare whether a failed treated direction triggers longer continuation, another independent replica/archive, or termination.
+6. Repeat the campaign with a new seed before estimating a success probability or claiming that 60 ns is sufficient.
+7. Retain raw-gradient and hard-cut reporters so damping can be compared without allowing those reporters to veto the selected production treatment.
+8. Add collateral density and RDF evaluation before interpreting the optimized parameters as an improved water model.
+9. Continue treating enthalpy as unresolved; the dielectric result does not validate the same sampling budget or treatment for an energy-covariance target.
 
 ## Remaining gaps
 
 - One independent archive pair produced a continuously accepted dielectric direction from 60 through 100 ns, but the minimum reproducible budget and campaign-to-campaign success rate remain unknown. Enthalpy did not converge under the production full-Fisher geometry by 100 ns, although its 100 ns raw independent-archive cosine and norm ratio passed.
 - The full QEq-plus-bounded-parameter direction and replay-loss response reproduced across independent pooled archives, but the predefined empirical-KL and at-least-1% confidence gates did not both pass.
 - The original fresh scans used different electrostatics, but the matched 100 ns reaction-field comparison removes that Hamiltonian difference from the density/RDF/enthalpy/dielectric direction diagnosis.
-- Reaction-field dielectric fresh-simulation and closed-loop trainability remain unresolved; the completed campaign stopped at the replay-direction stage.
+- Reaction-field dielectric has now shown two consecutive paired-confirmed fresh macro updates, but reliable continuation beyond them and convergence of the experimental curve remain unresolved.
 - Candidate dielectric changes by temperature were not persisted in run `20260821-151000`; run `20260821-190105` corrected this reporting gap.
 - The number and length of independently prepared archives needed to validate the full dielectric direction remain unknown. Two replicas sharing one TSS preparation did not substitute for independent directional evidence, and one 100 ns archive pair does not characterize between-campaign variability.
 - The cross-observable run used one campaign seed and the long-archive run used one independent pair. Their dielectric directions require prospective repetition before a sampling allocation is selected.
 - The retrospective treatment campaign added paired candidate-minus-baseline intervals. The production hard-Fisher and small-$\gamma$ dielectric proposals passed bidirectional cross-archive replay on the observed pair, but treatment selection and evaluation reused the same archives.
-- The long-archive dielectric direction has passed paired replay on one archive pair but has not passed a prospectively frozen new-pair comparison, independent-teacher simulation, or macro-recovery.
-- No full experimental enthalpy or dielectric optimization has been validated.
+- The prospectively selected $\gamma=0.1$ treatment has passed fresh simulation, but it has not been compared against hard cutting in matched prospective arms.
+- Checkpoint 3 from run `20260901-171027` lacks a paired parent comparison because the pipeline conflated checkpoint assessment with next-direction readiness.
+- No converged experimental dielectric optimization and no fresh-validated experimental enthalpy optimization have been established.
 - No prospective hard-, damped-, identity-, or diagonal-conditioned enthalpy optimisation has passed held-out replay and fresh-simulation validation.
 
 ## Links
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap]]
@@ -507,6 +536,7 @@ The next scientifically useful step is not an unconstrained experimental macro r
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
+- [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/questions/force-field-training-validation-scope]]

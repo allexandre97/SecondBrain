@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-01
-updated: 2026-09-01
+updated: 2026-09-02
 question: "How does FFRefine construct the unscaled hard-cut, diagonal, identity, continuously damped, and modal-SNR parameter steps, and what motivates each treatment?"
 answer_status: answered
 areas:
@@ -25,6 +25,7 @@ tags:
   - block-jackknife
   - kl-trust-region
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-paper-methods-knowledge-base]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
@@ -55,6 +56,8 @@ project_evidence:
   - "FFRefine optimiser.jl, backend.jl, gradients.jl, and parameterization.jl, implementation inspected 2026-09-01"
   - "FFRefine water_target_fisher_treatment_development.jl, state-conditional campaign schema version 2, implementation inspected 2026-09-01"
   - "State-conditional treatment protocol fingerprint 533305656758db33454d19af400e39972e1ae94ad2c52ff60c5b0b788d8373f8"
+  - "FFRefine state-conditional Fisher-treatment replay completed 2026-08-31"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
 # FFRefine Fisher-Treatment Operators
@@ -735,6 +738,14 @@ There is no universally best finite-sample inverse:
 
 They represent different finite-sample bias-variance choices. Comparing them on identical archives and identical conditional-KL budgets is useful precisely because density/RDF controls and enthalpy/dielectric targets can project very differently onto the same Fisher eigensystem.
 
+## Prospective status of continuous damping
+
+The completed state-conditional retrospective campaign found both $\gamma=0.03$ and $\gamma=0.1$ eligible for dielectric. Hard full Fisher produced the strongest fixed-archive cross-replay score, while $\gamma=0.1$ produced the stronger minimum direction-robustness score. The prospective choice of $\gamma=0.1$ therefore prioritized a smooth full-correlation operator and implementation simplicity rather than the largest retrospective effect size.
+
+Run `20260901-171027` supplied the first fresh test. The $\gamma=0.1$ direction passed three consecutive optimization archives; the first two generated updates were then confirmed by paired loss reductions on the next fresh archives. The best checkpoint reproduced in two final-validation simulations. A fourth archive failed the damped half-direction cosine gate, so the result establishes local multi-update utility rather than universal stability. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+The reporters demonstrate why treatment-specific gating matters. Across the six run archives, damping passed five times, hard cutting three times, and the raw gradient twice. A raw-gradient gate would have stopped the run before either fresh-confirmed update. Damping also failed when the fourth archive's sensitivity signal was broadly inconsistent, showing that the operator did not simply force every archive through the gate.
+
 ## Validation boundary
 
 An operator can produce a mathematically valid and replay-supported step while still failing in a new simulation. The treatment campaign reuses fixed archives to compare directions and finite replay responses. It does not by itself establish that:
@@ -776,5 +787,4 @@ No raw sources were consulted. Exact operator filters, thresholds, jackknife for
 
 - The modal-SNR shrinkage function is pragmatic; no claim of statistical optimality has been established.
 - The tested SNR treatment does not quantify Fisher-eigenvector uncertainty.
-- No prospective campaign has yet isolated hard cutting, continuous damping, diagonal scaling, and identity under independently regenerated candidate trajectories.
-
+- Continuous damping at $\gamma=0.1$ has now produced two fresh-confirmed dielectric updates, but no prospective campaign has isolated it against hard cutting, diagonal scaling, or identity under matched independently regenerated trajectories.

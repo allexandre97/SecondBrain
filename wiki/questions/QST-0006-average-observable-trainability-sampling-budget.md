@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-08-20
-updated: 2026-08-29
+updated: 2026-09-02
 question_status: open
 areas:
   - research
@@ -20,6 +20,8 @@ tags:
   - trust-region
   - kl-conditioning
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
+  - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
@@ -41,6 +43,8 @@ project_evidence:
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
   - "FFRefine post hoc within-state/between-state Fisher decomposition completed 2026-08-29"
+  - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
 # Average-Observable Trainability Sampling Budget
@@ -87,7 +91,13 @@ Historical retrospective treatment development on the same pair produced finite-
 
 The low identity/diagonal KL has now been explained. Their scale factors correctly enforced mixed-Fisher KL 0.005, but about 80--84% of that nominal budget came from covariance of mean scores between thermodynamic states. The empirical replay KL normalizes each state's weights separately and sees only within-state configurational change. Hard and mildly damped full-Fisher directions spent about 98--99% of their nominal budget within states, explaining why their empirical KL remained near 0.005. This result splits the open budget question again: archive length and gradient uncertainty remain unresolved, but the trust-region metric must also be matched to the conditioning of the replay diagnostic. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
 
-The open question has therefore narrowed again. For dielectric, the corrected cumulative direction is highly reproducible on this pair, but its finite-step replay and fresh-simulation performance under the corrected backend remain unknown. For enthalpy, the unresolved quantity is whether the marginal 100 ns endpoint pass repeats across independent archive pairs and whether a corrected conditional proposal produces held-out and fresh-simulation descent. The conditional retrospective replay campaign must finish before selecting hard, damped, diagonal, or identity treatments for prospective validation.
+At that stage, dielectric's corrected cumulative direction was highly reproducible on one archive pair, but its finite-step replay and fresh-simulation performance under the corrected backend remained unknown. For enthalpy, the unresolved quantity was whether the marginal 100 ns endpoint pass would repeat and produce held-out or fresh descent. The subsequent conditional campaign addressed the first dielectric gap without resolving enthalpy.
+
+The conditional retrospective campaign and first prospective dielectric run have now finished. The corrected campaign made hard full Fisher, damped $\gamma=0.03$ and $0.1$, diagonal, and selected modal-SNR dielectric proposals eligible. Damped $\gamma=0.1$ was frozen for the prospective run as a smooth full-correlation treatment. It passed three consecutive optimization-archive direction gates. The first two resulting checkpoints then produced paired fresh loss changes of -0.6168 and -0.5267 with intervals below zero, and two final-validation replicas reproduced the best checkpoint.
+
+The fourth macro archive passed direct dielectric splitting but failed the damped direction cosine gate at 0.657. Consequently, 60 ns in one replica is demonstrably sufficient in some parameter states and insufficient in another realization/state of the same campaign. The dielectric budget question has shifted from “can a fresh update ever work?” to “what adaptive allocation reliably restores an optimization-ready direction when a later macro archive fails?” [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+The run cannot answer whether longer continuation, multiple independent replicas, or an independently prepared archive is most cost effective because no production extension was allowed. It also cannot characterize campaign-to-campaign success probability from one seed. Checkpoint 3 was not paired against its parent after the direction failure, exposing a separate pipeline question that must be fixed before sampling strategies are compared. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 
 ## Validation boundaries
 
@@ -112,9 +122,13 @@ The open question has therefore narrowed again. For dielectric, the corrected cu
 - Match realised empirical replay KL before interpreting identity, diagonal, hard, and damped loss-effect sizes.
 - Before matching KL numerically, predeclare whether it represents state-conditional canonical reweighting or the joint extended ensemble; log within-state and between-state Fisher contributions and use a matching empirical diagnostic.
 - Small-$\gamma$ damping reintroduces modes below the production hard floor; freeze the damping value and monitor modal uncertainty rather than retuning it on prospective data.
+- A per-epoch budget that succeeds several times and fails once is not a universal threshold; predeclare the extension/replica rule before rerunning.
+- A failed next-direction gate must not prevent paired evaluation of the already simulated checkpoint.
 
 ## Links
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+- [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]

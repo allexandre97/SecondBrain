@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-30
-updated: 2026-08-30
+updated: 2026-09-02
 question: "In FFRefine, how did the definition of the KL divergence change? Why was that change needed? What implications does that change have downstream for other calculated quantities?"
 answer_status: answered
 areas:
@@ -21,6 +21,7 @@ tags:
   - state-conditioning
   - replay-support
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
@@ -138,7 +139,11 @@ The historical Fisher-treatment replay campaign constructed proposals with the m
 
 ### What did not change
 
-The change does not repair the underlying archive-local gradient irreproducibility for enthalpy, does not establish fresh-simulation trainability, and leaves both conditional KL and ESS unable to detect candidate regions absent from the reference archive. The frozen-bias joint KL remains a legitimate bias-portability diagnostic, just not the primary trust-region geometry. [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]
+The change alone did not repair archive-local gradient irreproducibility for enthalpy or establish fresh-simulation trainability, and it leaves both conditional KL and ESS unable to detect candidate regions absent from the reference archive. The frozen-bias joint KL remains a legitimate bias-portability diagnostic, just not the primary trust-region geometry. [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]
+
+### Subsequent prospective result
+
+The statement that fresh trainability was unestablished was correct at the time of the backend change but is no longer complete for dielectric. Reaction-field run `20260901-171027` used the corrected conditional geometry with damped $\gamma=0.1$. Two consecutive updates passed paired comparison on the next fresh macro archive, and two final-validation replicas reproduced the best checkpoint's loss. The fourth macro archive still failed treated-direction agreement despite stable direct dielectric values. The correction therefore enabled a successful local optimization sequence without eliminating target-gradient sampling limits. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 
 ## Key equations
 
@@ -186,7 +191,7 @@ None; the required reusable knowledge was already represented in the existing KL
 
 ## Remaining gaps
 
-- No prospective campaign has yet compared conditional-Fisher and joint-state-Fisher trust regions or established that the corrected proposals improve enthalpy or dielectric training.
+- No prospective campaign has directly compared conditional-Fisher and joint-state-Fisher trust regions. Corrected conditional-Fisher damping has improved dielectric training in one prospective run; enthalpy remains untested prospectively.
 - The corrected enthalpy endpoint crossing (0.8143) is only 0.014 above the 0.8 gate and has not been reproduced on a new archive pair.
 - Per-state Fisher matrices have only been reported for one archive endpoint; Archive B and future prospective archives remain to be decomposed.
 - The best aggregation of per-state ceilings (strict maximum versus robust quantile) for large or continuous ladders is unresolved.

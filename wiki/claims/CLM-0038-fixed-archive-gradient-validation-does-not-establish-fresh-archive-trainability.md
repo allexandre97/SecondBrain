@@ -2,8 +2,8 @@
 type: claim
 status: active
 created: 2026-08-20
-updated: 2026-08-28
-claim_status: limited
+updated: 2026-09-02
+claim_status: supported
 claim_scope: local
 areas:
   - research
@@ -18,6 +18,8 @@ tags:
   - fresh-archive-validation
   - trainability
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
+  - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
@@ -34,6 +36,8 @@ project_evidence:
   - "FFRefine cross-observable reaction-field target/Fisher reproducibility run 20260822-204246"
   - "FFRefine two-independent-100ns reaction-field target-gradient convergence comparison completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
+  - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
 # Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability
@@ -57,6 +61,8 @@ This is a local FFRefine validation claim supported by the August 2026 water ent
 - Dielectric target-value splits passed in all four individual trajectories while dielectric half-gradients failed in all four. Mean-observable stability therefore did not establish gradient stability in this realization.
 - In two later independent 100 ns reaction-field archives, direct target disagreement was small for every family, yet direction convergence remained target dependent. Dielectric became continuously reproducible from 60 through 100 ns, whereas enthalpy's raw-gradient cosine reached 0.9691 but its full-Fisher natural-direction cosine remained 0.6288. Fixed-archive correctness therefore did not predict either the sampling time required for dielectric or the preconditioned enthalpy failure. [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
 - Retrospective finite-step replay on those same archives found supported bidirectional dielectric descent for the production hard Fisher and small-$\gamma$ damping, with paired intervals below zero. Small-$\gamma$ enthalpy damping also gave paired-resolved bidirectional cross-archive descent despite failing the exact-direction gate. This strengthens fixed-archive evidence without testing a prospectively frozen treatment on new archives or by fresh candidate simulation. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
+- The later prospective dielectric run supplies the positive complement to the claim. Once $\gamma=0.1$ damping and the conditional-KL policy were frozen, two consecutive updates reduced loss on the next fresh macro archive and the best checkpoint reproduced in two final-validation simulations. This establishes trainability only because the fixed-archive proposal was followed by fresh evidence. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+- The same prospective run's fourth archive passed direct dielectric splitting but failed treated-direction agreement. A successful earlier update and a stable current mean did not guarantee that the next fresh archive contained a reproducible direction.
 
 ## Caveats
 
@@ -68,13 +74,16 @@ This is a local FFRefine validation claim supported by the August 2026 water ent
 - Longer sampling can recover an independently reproducible direction for a particular target and archive pair. That observation narrows the budget question but does not retrospectively turn fixed-archive validation into evidence of fresh-archive trainability.
 - Cross-replaying archive-A and archive-B proposals is stronger than source-archive replay, but treatment selection on the same pair leaves method-selection uncertainty unmeasured.
 - Paired delete-block intervals below zero establish conditional replay descent, not between-campaign repeatability or recovery after resimulation.
+- Fresh confirmation of two dielectric updates does not invalidate the claim; it demonstrates the additional evidence needed to move from fixed-archive plausibility to local trainability.
 
 ## Links
 
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
+- [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
