@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-08-20
-updated: 2026-09-02
+updated: 2026-09-03
 tension_status: active
 areas:
   - research
@@ -33,6 +33,7 @@ related_claims:
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
+  - "[[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]"
 related_questions:
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
@@ -52,6 +53,7 @@ project_evidence:
   - "FFRefine post hoc within-state/between-state Fisher decomposition completed 2026-08-29"
   - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 ---
 
 # Average-Observable Signal vs Replay Support
@@ -100,9 +102,13 @@ The first prospective damped-Fisher dielectric run resolves one side of the tens
 
 The fourth macro archive then passed the direct dielectric split but failed damped direction agreement at cosine 0.657. This adds a fifth tension: **checkpoint evaluation versus next-direction readiness**. The current checkpoint's observable can be evaluated reliably enough even when the archive cannot certify another sensitivity direction. The present pipeline combines those states and consequently skipped the paired parent comparison for checkpoint 3. Preserving conservative gradient gating should not require discarding a valid assessment of an already simulated checkpoint. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 
+The higher-KL run `20260902-115818` demonstrates a sustained region where detectable signal and replay support coexist. Twenty-one microproposals passed support and conditional-KL gates, seven consecutive completed archives passed the damped direction gate, and the first six updated checkpoints all reduced paired fresh loss. Minimum target-state ESS remained 1182.7, but minimum retention reached 0.5098 against the 0.5 threshold. The tension was therefore managed, not abolished: the exact empirical-KL ceiling rejected every fourth proposal, and the largest accepted epoch approached its retention boundary.
+
+This adds a sixth tension: **faster local progress versus support margin**. The higher 0.02 proposal target and 0.2 archive ceiling produced a much longer successful sequence than the earlier run, but the two trajectories are not matched arms and cannot identify the larger KL budget as the cause. Larger supported steps can improve signal and reduce the number of macro epochs needed, while also consuming overlap margin more quickly. Exact empirical archive KL, state-wise ESS retention, and fresh paired validation must remain independent vetoes.
+
 ## Interpretation
 
-The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. Neither dielectric's 40 ns retrospective crossing nor enthalpy's isolated 100 ns crossing may be promoted to a universal sampling threshold. The completed conditional campaign and first prospective run support $\gamma=0.1$ as a viable dielectric treatment, but one seed and one later direction failure do not establish its campaign-level reliability. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
+The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. Neither dielectric's retrospective budget crossing nor enthalpy's isolated 100 ns crossing may be promoted to a universal sampling threshold. The two prospective runs support $\gamma=0.1$ as a viable dielectric treatment, and the higher-KL run establishes sustained local continuation, but they do not establish campaign-level reliability across independent seeds. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
 
 ## Links
 

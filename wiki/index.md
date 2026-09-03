@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-02
+updated: 2026-09-03
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -50,7 +50,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Answers
 
-- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - First prospective dielectric-only damped-Fisher macro-optimization, including two fresh-confirmed updates, final validation, the later direction failure, and the checkpoint-assessment control-flow lesson.
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - Canonical account of two prospective dielectric-only damped-Fisher campaigns, including six consecutive fresh-confirmed updates in the higher-KL run, KL/support diagnostics, limitations, and checkpoint-state lessons.
 - [[wiki/answers/ffrefine-fisher-treatment-operators]] - Mathematical and implementation explanation of FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators.
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]] - Retrospective comparison of Fisher treatments on two independent 100 ns reaction-field archives, including the mixed-versus-conditional KL decomposition.
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]] - Convergence of water target values, raw gradients, and Fisher-conditioned directions across two independent 100 ns reaction-field archives.
@@ -64,7 +64,7 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]] - Implementation route plan for testing AWH-style replay force-field optimization with TSS and MBAR reference archives.
 - [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible, family-level ConFIG integration plan for FFRefine's replay natural-gradient optimizer.
 - [[wiki/answers/ffrefine-config-fisher-second-momentum]] - Why Adam-style second momentum is less obvious than first-moment smoothing for FFRefine's Fisher-preconditioned ConFIG optimizer.
-- [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Detailed mathematical account of FFRefine's QEq map, replay observables, multi-family loss, Fisher optimizer, and macro-epoch loop.
+- [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Current mathematical account of FFRefine's QEq map, replay observables, multi-family loss, state-conditional Fisher treatments, KL controls, macro-epoch loop, and prospective validation boundary.
 - [[wiki/answers/ffrefine-kl-divergence-definition-change]] - How and why FFRefine's KL trust region moved from a frozen-bias joint Fisher to a state-conditional KL, and its downstream effects on Fisher rank, condition, and natural directions.
 
 ## Author Entities
@@ -73,6 +73,8 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/entities/authors/michael-r-shirts]] - Repeated author entity for MBAR and configuration-mapping free-energy sources.
 
 ## Sources
+
+- [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]] - Osmotic-pressure calibration of charged residue/ion interactions with transfer tests on IDRs, a folded–disordered complex, and biomolecular condensates.
 
 - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]] - Conservative RF/AT shifting and switching schemes validated for organic liquids.
 
@@ -156,6 +158,8 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] - Five-system benchmark separating self-convergence from cross-method correctness for REUS, WT-MtD, WTM-eABF, and OPES.
 
 ## Concepts
+
+- [[wiki/concepts/osmometry-guided-force-field-optimization]] - Experimental osmotic-pressure calibration of residue and ion interactions with held-out biomolecular transfer validation.
 
 - [[wiki/concepts/conservative-reaction-field-cutoff-schemes]] - Conservative reaction-field shifting/switching schemes for atomic cutoffs and energy-conserving MD.
 

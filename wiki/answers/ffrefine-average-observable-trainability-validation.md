@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-20
-updated: 2026-09-02
+updated: 2026-09-03
 question: "Do FFRefine's validated replay mathematics establish that water enthalpy and dielectric permittivity can be trained from fresh TSS archives?"
 answer_status: partially-answered
 areas:
@@ -29,6 +29,7 @@ related:
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
@@ -74,6 +75,7 @@ project_evidence:
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
   - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap --depth 2"
 ---
@@ -82,9 +84,9 @@ graph_neighborhoods_used:
 
 ## Short answer
 
-Partially. The August 2026 checks did not establish fresh trainability, but the later dielectric-only prospective run `20260901-171027` has now crossed that boundary locally: two consecutive full-parameter updates reduced dielectric loss on newly simulated archives with paired intervals entirely below zero, and two independent final-validation replicas reproduced the best confirmed checkpoint. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+Yes for dielectric in the tested local reaction-field setup; not yet for enthalpy. The first dielectric-only prospective run `20260901-171027` crossed the fresh-trainability boundary with two consecutive paired-confirmed updates and two reproducible final-validation replicas. The higher-KL run `20260902-115818` strengthened that result to six consecutive paired-confirmed updates and reduced fresh dielectric loss from 7.3431 to 3.6057 through checkpoint 6. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
 
-This does not establish convergence, a universal sampling budget, or enthalpy trainability. The run stopped when a fourth fresh archive's two damped half-directions had Fisher-metric cosine 0.657 despite accepted direct dielectric splitting. The updated conclusion is therefore that dielectric is demonstrably trainable for multiple local macro updates under the corrected conditional-KL and damped-Fisher setup, while reliable continuation at every parameter state remains sampling limited.
+This does not establish convergence, a universal sampling budget, or enthalpy trainability. The first run encountered a later direction failure, whereas the higher-KL run's damped direction passed all seven completed optimization archives and was intentionally stopped during epoch 8 after the user judged the six fresh confirmations sufficient. The updated conclusion is that dielectric is demonstrably trainable for sustained local macro optimization under the corrected conditional-KL and damped-Fisher setup, while campaign-level reliability and collateral water properties remain untested.
 
 The earlier checks established two necessary precursor results.
 
@@ -480,6 +482,20 @@ The run also exposed a control-flow problem. The backend currently computes fres
 
 The full numerical chronology, KL behavior, parameter changes, interpretation, and limitations are recorded in [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]].
 
+### Higher-KL sustained prospective result
+
+Run `20260902-115818` retained the same reaction-field dielectric objective, complete ladder, 20 ns adaptive and 60 ns frozen-production budget, and $\gamma=0.1$ damped conditional-Fisher treatment. It raised the maximum conditional-KL target from 0.005 to 0.02 and the empirical archive-displacement ceiling from 0.1 to 0.2. This is a successful prospective configuration, not a matched causal demonstration that the larger KL values caused the improved continuation.
+
+Seven optimization epochs completed and each accepted three supported microproposals. Checkpoints 1 through 6 were then evaluated on their next fresh archives. Their paired candidate-minus-parent intervals were all below zero, and paired reductions were 9.06%, 10.97%, 11.33%, 13.91%, 15.82%, and 9.94%. Fresh loss decreased monotonically from 7.3431 at checkpoint 0 to 3.6057 at checkpoint 6. Replay predicted the correct sign and similar magnitude for every update.
+
+All six target temperatures moved toward experiment. Physical dielectric RMSE decreased from 43.36 to 30.38, but final residuals remained 23.81--35.27. The simulated 15-to-40 degrees Celsius decrease remained 20.25 dielectric units compared with 8.80 experimentally, showing that the run mostly corrected the curve level rather than its excessive temperature slope.
+
+The damped chronological-half direction passed all seven completed epochs with conditional-Fisher cosine 0.8112--0.9789. Raw Euclidean gradients failed three epochs, while the hard-cut reporter failed epoch 7 at cosine 0.5999 when damping passed at 0.9355. All 21 accepted microproposals passed ESS and support gates. The lowest target-state ESS retention was 0.5098 against the 0.5 threshold, so the largest accepted move had little retention margin even though its absolute ESS remained 1182.7.
+
+The exact empirical cumulative-KL audit was essential. Three accepted aligned proposals produced archive-to-candidate empirical KL 0.1202--0.1755, while a fourth remained above the 0.2 ceiling and was rejected. The sums of local quadratic estimates were only 0.0432--0.0585. [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
+
+Epoch 8 had passed adaptive readiness and parity when the user intentionally stopped the live run because the trainability evidence was sufficient. This is not a recorded scientific failure. Checkpoint 6 is the last fresh-validated state; checkpoint 7 has an 11.03% replay-predicted decrease but no fresh comparison.
+
 ## Dielectric-estimator scope
 
 FFRefine uses $\varepsilon_r=1+A$ for conducting PME and for Molly's current atom/site-pair reaction-field convention. The configured reaction-field dielectric changes the Hamiltonian but does not automatically require a second finite-boundary inversion in post-processing. [SRC-0075] [SRC-0076] [SRC-0077] [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]
@@ -515,12 +531,14 @@ The next dielectric evidence should extend the successful prospective sequence w
 - The full QEq-plus-bounded-parameter direction and replay-loss response reproduced across independent pooled archives, but the predefined empirical-KL and at-least-1% confidence gates did not both pass.
 - The original fresh scans used different electrostatics, but the matched 100 ns reaction-field comparison removes that Hamiltonian difference from the density/RDF/enthalpy/dielectric direction diagnosis.
 - Reaction-field dielectric has now shown two consecutive paired-confirmed fresh macro updates, but reliable continuation beyond them and convergence of the experimental curve remain unresolved.
+- The higher-KL reaction-field run extended this to six consecutive paired-confirmed fresh updates. It establishes sustained local continuation in one additional trajectory, not a campaign-level success probability or a universal 60 ns budget.
 - Candidate dielectric changes by temperature were not persisted in run `20260821-151000`; run `20260821-190105` corrected this reporting gap.
 - The number and length of independently prepared archives needed to validate the full dielectric direction remain unknown. Two replicas sharing one TSS preparation did not substitute for independent directional evidence, and one 100 ns archive pair does not characterize between-campaign variability.
 - The cross-observable run used one campaign seed and the long-archive run used one independent pair. Their dielectric directions require prospective repetition before a sampling allocation is selected.
 - The retrospective treatment campaign added paired candidate-minus-baseline intervals. The production hard-Fisher and small-$\gamma$ dielectric proposals passed bidirectional cross-archive replay on the observed pair, but treatment selection and evaluation reused the same archives.
 - The prospectively selected $\gamma=0.1$ treatment has passed fresh simulation, but it has not been compared against hard cutting in matched prospective arms.
 - Checkpoint 3 from run `20260901-171027` lacks a paired parent comparison because the pipeline conflated checkpoint assessment with next-direction readiness.
+- Checkpoint 7 from run `20260902-115818` lacks a fresh comparison because the user intentionally stopped the live run during epoch 8 after sufficient evidence had accumulated.
 - No converged experimental dielectric optimization and no fresh-validated experimental enthalpy optimization have been established.
 - No prospective hard-, damped-, identity-, or diagonal-conditioned enthalpy optimisation has passed held-out replay and fresh-simulation validation.
 

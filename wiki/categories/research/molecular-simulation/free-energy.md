@@ -127,6 +127,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0007-awh-updates-bias-from-conditional-histograms|AWH Updates Bias From Conditional Weight Histograms]]
 - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support|Boltzmann Generators Need Overlap and Reweighting Support]]
 - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]
+- [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation|Damped Conditional-Fisher Dielectric Training Survives Fresh Resimulation]]
 - [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms|Decoupling Implementations Must Preserve Intramolecular Solute Terms]]
 - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]
 - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]

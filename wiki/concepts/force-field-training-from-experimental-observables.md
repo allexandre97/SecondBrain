@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-08-04
+updated: 2026-09-03
 areas:
   - research
 categories:
@@ -18,6 +18,7 @@ related:
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
   - "[[wiki/concepts/forcebalance]]"
   - "[[wiki/concepts/protein-force-field-benchmark-datasets]]"
+  - "[[wiki/concepts/osmometry-guided-force-field-optimization]]"
 sources:
   - SRC-0014
   - SRC-0015
@@ -25,6 +26,7 @@ sources:
   - SRC-0022
   - SRC-0025
   - SRC-0043
+  - SRC-0078
 sensitivity: public
 encryption: none
 ---
@@ -45,6 +47,7 @@ Force-field parameters can be trained directly against experimental observables 
 - In the host-guest case, held-out systems alone are insufficient: test-set binding RMSE improves from 19.5 to 2.1 kcal/mol, yet neutral-molecule hydration RMSE worsens from 2.11 to 19.12 kcal/mol. Cross-observable validation reveals a functional-form or target-balance failure that same-observable validation misses. [SRC-0021] [SRC-0022]
 - ForceBalance is the shared optimization framework behind several examples in this wiki, including water-model fitting, SAXS lipid fitting, and host-guest binding-data fitting. [SRC-0025] [SRC-0014] [SRC-0021]
 - Protein force-field benchmark datasets should include multiple protein classes and observables, because no single structural observable gives a complete view of ensemble accuracy. [SRC-0043]
+- SRC-0078 uses concentration-dependent osmotic pressure to fit charged residue and ion interactions in small solutions, then separates calibration from transfer validation using IDR FRET, folded–disordered-complex NMR, and condensate reconfiguration dynamics. Two parameter routes fit osmometry, but only Lennard-Jones refinement consistently improves the held-out protein benchmarks. [SRC-0078]
 
 ## Core equations
 
@@ -95,6 +98,8 @@ Optimizing to one observable family can create tradeoffs with another; SRC-0021 
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/concepts/forcebalance]]
 - [[wiki/concepts/protein-force-field-benchmark-datasets]]
+- [[wiki/concepts/osmometry-guided-force-field-optimization]]
+- [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and]]
 - [[wiki/questions/force-field-training-validation-scope]]
 - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]
 - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise]]

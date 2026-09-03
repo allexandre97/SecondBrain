@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-03
 claim_status: limited
 claim_scope: local
 areas:
@@ -34,6 +34,7 @@ encryption: none
 project_evidence:
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
   - "FFRefine post hoc within-state/between-state Fisher decomposition of Archive A completed 2026-08-29"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 ---
 
 # Trust-Region KL Must Match Replay Conditioning
@@ -82,18 +83,24 @@ Recomputing with the unregularised Fisher preserved the nominal 0.005 values; th
 - If the intended trust region controls the joint extended ensemble, retain the mixture Fisher but add a matching joint-state empirical KL diagnostic.
 - Continue reporting support and fresh-simulation validation; matching KL geometry does not establish trainability. [SRC-0018]
 
+## Prospective operational evidence
+
+Higher-KL dielectric run `20260902-115818` prospectively exercised the matched state-conditional geometry for seven completed optimization epochs. Accepted individual-step empirical KL values were 0.00480--0.01999 under target 0.02. Three accepted aligned steps produced empirical archive-to-candidate KL 0.1202--0.1755, while a fourth remained at 0.2142--0.2515 and was rejected against the 0.2 ceiling.
+
+The sum of local Fisher-quadratic step estimates was only 0.0432--0.0585. The exact empirical archive audit therefore prevented the local estimates from being treated as an additive cumulative divergence. All 21 accepted steps retained replay support, and the first six checkpoint updates subsequently reduced paired loss on fresh archives. This supports the conditional-KL design as an operational trust-region implementation, not merely a retrospective geometric correction. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
 ## Limitations
 
 - The numerical decomposition has been performed for one archive endpoint and should be repeated for Archive B and future prospective archives.
 - The reported empirical KL is a maximum over states, whereas the within-state decomposition above is weighted by the TSS state probabilities.
 - Finite-step KL also contains higher-order terms beyond the local Fisher quadratic.
-- No prospective run has yet compared conditional-Fisher and joint-state-Fisher trust regions.
+- No matched prospective run has compared conditional-Fisher and joint-state-Fisher trust regions; the successful prospective runs used only the selected conditional geometry.
 
 ## FFRefine design recommendation
 
 For FFRefine's usual goal, the state density is prescribed by the enhanced-sampling design and can readapt after a force-field update. The weighted state-conditional Fisher should therefore orient proposals, while the maximum state-conditional KL should limit finite replay steps. The current mixture Fisher remains meaningful as a frozen-bias portability diagnostic because its between-state component predicts state-occupancy changes before the bias readapts.
 
-This is a project design recommendation rather than a prospective result. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]].
+This began as a project design recommendation and has now been exercised prospectively for dielectric training. The choice still lacks a matched prospective comparison against the old joint-state geometry. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]].
 
 ## Links
 

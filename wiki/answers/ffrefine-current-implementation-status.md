@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-08-20
+updated: 2026-09-03
 question: "What does the FFRefine codebase currently implement, and what remains unvalidated?"
 answer_status: answered
 areas:
@@ -32,10 +32,14 @@ related:
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
+  - "[[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
+  - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
 sources:
   - SRC-0018
+  - SRC-0023
   - SRC-0036
 sensitivity: public
 encryption: none
@@ -54,17 +58,19 @@ project_evidence:
   - "FFRefine fixed-archive PME dielectric mathematics run 20260819-092631"
   - "FFRefine fresh-archive enthalpy/cutoff trainability run 20260819-194707"
   - "FFRefine fresh-archive dielectric/PME trainability run 20260820-092232"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 ---
 
 # FFRefine Current Implementation Status
 
 ## Short answer
 
-As of 2026-08-20, FFRefine is a project-local Julia implementation for replay-based force-field fine tuning on top of Molly's `AWHGrads` branch, not a general Julia package. Its backend consumes completed user-owned TSS simulations, builds replay summaries and gradients, validates replay support, and can run replay-only natural-gradient proposal chains over named thermodynamic legs. The code now implements more than the original route plan: named-leg training, window-mixture MBAR replay, local TSS replay parity, QEq latent charge parameterization, bounded nonbonded parameter trust regions, Huber or MSE tolerance-normalized multi-target losses, split validation, ESS/Fisher gates, opt-in Fisher-whitened ConFIG aggregation, post-Fisher first-moment momentum, optimisation history, and two experiment surfaces.
+As of 2026-09-03, FFRefine is a project-local Julia implementation for replay-based force-field fine tuning on top of Molly's `AWHGrads` branch, not a general Julia package. Its backend consumes completed user-owned TSS simulations, builds replay summaries and gradients, validates replay support, and runs replay-only parameter-proposal chains over named thermodynamic legs. The current implementation includes state-conditional Fisher geometry, continuously damped and hard-cut treatment operators, worst-state conditional-KL scaling, exact empirical cumulative-KL checks, fresh paired checkpoint assessment, distinct evaluation and next-direction readiness states, named-leg training, window-mixture MBAR replay, local TSS replay parity, QEq latent charge parameterization, bounded nonbonded trust regions, multi-target losses, split validation, ConFIG aggregation, optional post-Fisher momentum, and isolated macro-epoch workers.
 
-The implemented experiment surfaces are ethanol solvation (`solvation.jl`) and water-temperature fitting (`water_temperature.jl`). Ethanol uses solvated and vacuum TSS legs and trains the solvation free-energy target by default; the density target is present but commented out. Water-temperature fitting supports density, RDF, relative enthalpy, and dielectric targets selected through target-family configuration. Its current default is an enthalpy-only diagnostic configuration using cutoff/reaction-field electrostatics and rigid water; PME remains selectable. Every target family uses the same exact 14 through 41 degrees Celsius TSS ladder, 28 states, original lambda schedule, window size 4, and 15 overlapping windows. Sparse experimental target temperatures affect scoring only, never the TSS ladder.
+The implemented experiment surfaces are ethanol solvation and water-temperature fitting. Water-temperature fitting supports density, RDF, relative enthalpy, and dielectric targets selected through target-family configuration. Its current working-tree default is dielectric-only training with cutoff/reaction-field electrostatics and rigid water; PME remains selectable. Every target family uses the same exact 14 through 41 degrees Celsius TSS ladder, 28 states, original lambda schedule, window size 4, and 15 overlapping windows. Sparse experimental target temperatures affect scoring only, never the TSS ladder.
 
-The wiki should not present FFRefine as production-validated. Focused tests and reduced smoke tests cover many numerical pieces, but the current audit did not find evidence of a complete production optimization run demonstrating improved water properties, improved ethanol solvation transfer, accepted-step quality under resimulation, or general robustness across systems. Those remain validation questions.
+The validation status is no longer zero. Two prospective reaction-field dielectric-only campaigns now demonstrate local accepted-step quality under resimulation. The first produced two paired-confirmed updates and reproducible final-validation loss. The higher-KL campaign produced six consecutive paired-confirmed updates and reduced fresh dielectric loss by 50.90% through checkpoint 6. This is evidence of local dielectric trainability, not evidence of a transferable improved water model, multi-property balance, ethanol transfer, or robust convergence across systems and seeds. [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
 
 ## Implemented architecture
 
@@ -89,7 +95,7 @@ The ethanol parameter-training setup includes QEq charge latents for ethanol and
 
 ### Water-temperature fitting
 
-`water_temperature.jl` defines one `:water` leg on the exact integer ladder from 14 through 41 degrees Celsius. Its target family and nonbonded method are configurable. The current default is enthalpy-only, cutoff/reaction-field electrostatics, and rigid water; PME is available for dielectric checks. Density targets span the full ladder, relative enthalpy uses the lowest-temperature state as reference, dielectric has experimental targets at 15, 20, 25, 30, 35, and 40 degrees Celsius, and Soper HH, HO, and OO RDF targets are evaluated at 25 degrees Celsius. In every case TSS retains all 28 states, the original lambda schedule, window size 4, and 15 overlapping windows.
+`water_temperature.jl` defines one `:water` leg on the exact integer ladder from 14 through 41 degrees Celsius. Its target family and nonbonded method are configurable. The current working-tree default is dielectric-only, cutoff/reaction-field electrostatics, and rigid water; PME remains selectable. Density targets span the full ladder, relative enthalpy uses the lowest-temperature state as reference, dielectric has experimental targets at 15, 20, 25, 30, 35, and 40 degrees Celsius, and Soper HH, HO, and OO RDF targets are evaluated at 25 degrees Celsius. In every case TSS retains all 28 states, the original lambda schedule, window size 4, and 15 overlapping windows.
 
 The script assembles training, split-validation, monitored-prediction, and curve-writing surfaces from the selected family so a diagnostic run cannot silently optimize one family while reporting another. It logs ladder coverage, target-specific curves, active parameter CSVs, memory/history diagnostics, and supports checkpoint/resume.
 
@@ -120,9 +126,11 @@ The codebase contains focused tests for parameterization, ESS policy, validity d
 
 Controlled fixed-archive checks now support the value/gradient/recovery mathematics for relative enthalpy and conducting-boundary PME dielectric permittivity. Both obtained prediction-gradient relative errors near $3\times10^{-5}$, loss-gradient relative errors below $6\times10^{-4}$, near-unit gradient cosines, large loss reduction, and accurate recovery of a 0.1% teacher shift. The old enthalpy artifact's `math_failure` label came from an overly strict normalized-RMSE cutoff, not failed gradient agreement; the harness now distinguishes gradient failure from recovery failure. [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 
-Fresh-archive trainability remains unresolved. Across 72 candidate perturbations per property over 10 ns and sequentially extended 20 ns archives, neither cutoff/reaction-field enthalpy nor PME dielectric produced an eligible direction under SNR at least 5, replay support, and empirical KL at most 0.02. The best valid 20 ns SNRs were 0.1121 and 0.08847 respectively. Large raw SNRs occurred only far outside support. The workflow therefore stopped with `inconclusive_sensitivity` before independent teacher generation or macro optimization. This is evidence of insufficient local identifiability under the tested archive, basis, and trust region, not evidence that the formulas are wrong or the properties fundamentally untrainable. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
+The original 10 ns and 20 ns coordinate scans did not establish fresh-archive trainability. Later conditional-Fisher development and prospective macro optimization changed the dielectric conclusion. Run `20260901-171027` produced two paired-confirmed fresh improvements and two consistent final-validation replicas. Run `20260902-115818` produced six consecutive paired-confirmed fresh improvements; checkpoint-0 to checkpoint-6 fresh loss fell from 7.3431 to 3.6057. All six target temperatures moved toward experiment, all accepted proposals passed support, and the selected damped direction passed every completed optimization archive. The user intentionally stopped the live run during epoch 8 after sufficient evidence had accumulated; this is not a recorded scientific failure. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 
-The current status is still implementation-validation, not scientific validation. Do not claim that FFRefine has demonstrated production improvement of ethanol solvation, water density/RDF/dielectric balance, transferability, or robust convergence. The durable claim remains narrower: FFRefine now implements a replay-optimization framework capable of testing the SRC-0018 idea with TSS and MBAR-style replay, provided the resulting updates pass support and resimulation checks.
+The positive result remains narrowly scoped. Checkpoint 7 has not been assessed on a completed fresh archive, the terminal validation replicas were not reached in the higher-KL campaign, the dielectric curve remains substantially above experiment and too steep with temperature, and collateral density, RDF, enthalpy, and stability properties were not evaluated. Experimental enthalpy trainability remains unresolved.
+
+The current status is implementation validation plus a local scientific proof of concept for dielectric-only training. Do not promote this to water-model validation, multi-property balance, transferability, or robust convergence. The durable positive claim is restricted to repeated fresh-resimulation dielectric descent under the tested damped conditional-Fisher reaction-field protocol.
 
 ## Links
 
@@ -135,7 +143,10 @@ The current status is still implementation-validation, not scientific validation
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]
+- [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
+- [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]
+- [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 - [[wiki/questions/force-field-training-validation-scope]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]

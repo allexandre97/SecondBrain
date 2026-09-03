@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-29
-updated: 2026-09-02
+updated: 2026-09-03
 question: "Which KL divergence should FFRefine use when extended-ensemble simulations train force-field parameters across temperature or alchemical ladders?"
 answer_status: answered
 areas:
@@ -30,6 +30,7 @@ related:
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
+  - "[[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
 sources:
@@ -54,6 +55,7 @@ project_evidence:
   - "FFRefine retrospective Fisher-treatment campaign completed 2026-08-28"
   - "FFRefine within-state/between-state Fisher decomposition completed 2026-08-29"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 ---
 
 # KL Definition for Extended-Ensemble Force-Field Training
@@ -352,9 +354,13 @@ Dielectric-only reaction-field run `20260901-171027` used the recommended design
 
 The proposal chain also exercised the cumulative constraint correctly. Individual accepted steps used maximum empirical conditional KL near 0.005. Four aligned steps produced archive-to-candidate KL near 0.077--0.080, while a fifth would have produced 0.111--0.113 and was rejected against the 0.1 ceiling. This is direct evidence that the corrected KL can function as an operational trust region during closed-loop temperature-ladder training.
 
+Run `20260902-115818` extended this operational evidence at a higher predeclared scale. It used maximum conditional-KL target 0.02 per proposal and empirical archive-displacement ceiling 0.2. Seven completed macro epochs each accepted three proposals. Individual accepted empirical KL was 0.00480--0.01999, cumulative empirical archive KL was 0.1202--0.1755, and every attempted fourth proposal was rejected when it remained above 0.2 after the configured line-search trials.
+
+The summed local quadratic estimates were only 0.0432--0.0585, about one third of the realised archive displacement for these aligned chains. The exact state-normalized archive-to-candidate calculation therefore remained necessary even after the Fisher and empirical KL conditioning were matched. All accepted proposals passed support, and checkpoints 1 through 6 subsequently reduced paired loss on fresh archives. This confirms that the corrected conditional trust region remains usable beyond the first short campaign. [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
+
 ## What remains unresolved
 
-- Conditional-Fisher damping has now produced two fresh-confirmed dielectric improvements in one prospective campaign; enthalpy and campaign-to-campaign reproducibility remain unresolved.
+- Conditional-Fisher damping has now produced two fresh-confirmed dielectric improvements in the first prospective campaign and six in the higher-KL campaign; enthalpy, matched geometry comparisons, and campaign-to-campaign success rates remain unresolved.
 - The enthalpy conditional-Fisher direction passes only at the 100 ns endpoint and fails both 100 ns chronological-half comparisons; the probability that this endpoint crossing repeats is unknown.
 - The best aggregation of state-wise ceilings may depend on whether strict maximum control is too sensitive to noisy low-support states.
 - A practical policy may need both a hard maximum and a robust high-quantile diagnostic when the ladder is very large or continuous.

@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-07-01
+updated: 2026-09-03
 areas:
   - research
 categories:
@@ -19,6 +19,7 @@ tags:
 sources:
   - SRC-0043
   - SRC-0067
+  - SRC-0078
 related:
   - "[[wiki/concepts/force-field-training-from-experimental-observables]]"
   - "[[wiki/concepts/ensemble-and-force-field-refinement]]"
@@ -43,6 +44,7 @@ Protein force-field benchmark datasets compare simulations against experimental 
 - Benchmarks should separate sampling precision from force-field accuracy by checking equilibration, convergence, and statistical uncertainty. [SRC-0043]
 - Simulation-experiment comparison depends on forward models and experimental structural models, so disagreement is not automatically a force-field error. [SRC-0043]
 - Large-scale mHDX-MS datasets add a complementary benchmark direction by measuring conformational fluctuation energy profiles and local opening stability across thousands of protein domains rather than only native structures or global folding stabilities. [SRC-0067]
+- SRC-0078 demonstrates a tiered transfer benchmark for charged-interaction refinement: equal-length sequence-diverse IDR FRET, residue-resolved NMR dynamics of a folded–disordered complex, and absolute reconfiguration times in multi-million-atom condensates. The condensate analysis also shows why convergence status and matched trajectory lengths must accompany dynamic benchmarks. [SRC-0078]
 
 ## Links
 
@@ -51,6 +53,8 @@ Protein force-field benchmark datasets compare simulations against experimental 
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
 - [[wiki/concepts/ensemble-and-force-field-refinement]]
 - [[wiki/concepts/protein-energy-landscape-profiling]]
+- [[wiki/concepts/osmometry-guided-force-field-optimization]]
+- [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and]]
 - [[wiki/claims/CLM-0015-molecular-datasets-have-distinct-intended-uses]]
 - [[wiki/questions/mlip-foundation-model-validation-scope]]
 

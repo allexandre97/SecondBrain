@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-09-02
 question: "What exactly is FFRefine doing, in paper-methods terms?"
 answer_status: answered
 areas:
@@ -21,29 +21,52 @@ tags:
   - mbar
   - water-models
 related:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
+  - "[[wiki/answers/ffrefine-kl-divergence-definition-change]]"
+  - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
+  - "[[wiki/answers/ffrefine-fisher-treatment-operators]]"
+  - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
+  - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
+  - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
+  - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
+  - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
   - "[[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
+  - "[[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]"
   - "[[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]"
 sources:
   - SRC-0016
   - SRC-0018
+  - SRC-0023
   - SRC-0036
 sensitivity: public
 encryption: none
 wiki_pages_used:
+  - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
+  - "[[wiki/answers/ffrefine-kl-divergence-definition-change]]"
+  - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
+  - "[[wiki/answers/ffrefine-fisher-treatment-operators]]"
+  - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
+  - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
+  - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
+  - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
+  - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
+  - "[[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]"
   - "[[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]"
 raw_sources_consulted: []
 wiki_pages_updated:
@@ -51,24 +74,29 @@ wiki_pages_updated:
   - "[[wiki/log]]"
 project_evidence:
   - "FFRefine code audit on 2026-07-29 against optimiser.jl, replay.jl, gradients.jl, parameterization.jl, validity.jl, backend.jl, solvation_pipeline.jl, water_temperature.jl, and focused tests"
+  - "FFRefine working-tree audit on 2026-09-02 against optimiser.jl, replay.jl, gradients.jl, parameterization.jl, validity.jl, backend.jl, epoch_pipeline.jl, optimisation_history.jl, reporting.jl, solvation.jl, water_temperature.jl, hexane_temperature.jl, and focused tests"
+  - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
 # FFRefine Paper Methods Knowledge Base
 
 ## Short answer
 
-FFRefine alternates between simulation and local, replay-only force-field optimization. A simulation macro epoch produces a frozen reference archive at parameters $\theta^{(k)}$. Within that archive, MBAR supplies normalized candidate-state frame weights; those weights produce free energies, ordinary observable means, and fluctuation-derived quantities such as the dielectric constant. Their derivatives are assembled into a tolerance-normalized multi-family loss. The physical-parameter gradients and Fisher matrix are then projected through a bounded latent parameterization, including a constrained charge-equilibration (QEq) map. A Fisher-preconditioned optimizer proposes a small latent displacement, and replay line search tests that displacement without running new molecular dynamics (MD). An accepted, supported proposal becomes the starting point for the next simulation macro epoch. [SRC-0018]
+FFRefine alternates between simulation and local, replay-only force-field optimization. A simulation macro epoch produces a frozen reference archive at parameters $\theta^{(k)}$. Within that archive, MBAR supplies normalized candidate-state frame weights; those weights produce free energies, ordinary observable means, relative enthalpies, and fluctuation-derived quantities such as the dielectric constant. Their derivatives are assembled into a tolerance-normalized multi-family loss. The physical-parameter gradients and a design-averaged, state-conditional Fisher metric are then projected through a bounded latent parameterization, including a constrained charge-equilibration (QEq) map. A hard-cut or continuously damped Fisher-preconditioned optimizer proposes a small latent displacement, and replay line search tests the displacement against loss, support, per-step empirical KL, and archive-displacement KL without running new molecular dynamics (MD). Supported replay proposals seed the next simulation macro epoch, where new configurations can test whether the predicted improvement survives resampling. [SRC-0018] [SRC-0023]
 
-This is an implemented method-development framework, not yet evidence that water density, radial distribution functions (RDFs), dielectric constants, or transferability have improved in production.
+Checkpoint assessment and readiness to construct another direction are conceptually separate, but the current macro pipeline does not yet keep them fully separate: a failed next-direction gate can suppress the paired parent comparison for an already simulated checkpoint. This occurred for checkpoint 3 in the first prospective dielectric run, leaving that checkpoint unassessed rather than disproved.
+
+The framework now has direct prospective evidence for one narrow result: in run `20260901-171027`, two consecutive dielectric-only reaction-field water updates reduced the paired fresh-archive loss, and two final-validation replicas reproduced the best confirmed checkpoint. This does not establish convergence to experiment, improvement of density, radial distribution functions (RDFs), enthalpy, ethanol solvation, hexane properties, or transferability.
 
 ## Scope and notation
 
-The two experiment surfaces are:
+The three experiment surfaces are:
 
 - ethanol solvation, represented as solvated and vacuum alchemical legs;
-- water-temperature fitting, represented as one temperature ladder.
+- water-temperature fitting, represented as one temperature ladder;
+- hexane-temperature fitting, represented as one temperature ladder.
 
-As of the 2026-07-29 audit, water training actively includes density and RDF targets. Dielectric prediction and differentiation are implemented, but dielectric targets are commented out of `TRAINING_TARGETS`, split validation, monitored predictions, and curve writing.
+As of the 2026-09-02 audit, water target construction supports density, RDF, relative enthalpy, and dielectric families selected through `WATER_TARGET_FAMILIES`. Training, split validation, required logging, and curve writing are assembled from the same selection. The default is dielectric-only fitting on the complete 28-state ladder from 14 through 41 degrees Celsius, with rigid water, atom/site-pair reaction-field electrostatics, mean-squared loss, a continuously damped Fisher with $\gamma=0.1$, and no momentum. Hexane currently trains relative enthalpy by default; density is implemented but disabled. Ethanol currently trains solvation free energy by default; solvated density is implemented but disabled.
 
 The main symbols below are:
 
@@ -90,7 +118,7 @@ At macro epoch $k$, FFRefine has current parameters $\theta^{(k)}$. It performs 
 
 ### 1. Build and adapt the TSS simulation
 
-FFRefine constructs the system and its thermodynamic-state ladder. Water uses temperature states; ethanol solvation uses alchemical states in each thermodynamic leg. Times Square Sampling (TSS) is run adaptively until its free-energy uncertainty criterion passes or the allowed adaptive extension is exhausted.
+FFRefine constructs the system and its thermodynamic-state ladder. Water and hexane use temperature states; ethanol solvation uses alchemical states in each thermodynamic leg. Times Square Sampling (TSS) is run adaptively until its free-energy uncertainty criterion passes or the allowed adaptive extension is exhausted.
 
 The adaptive stage is used to construct a broad reference distribution. The optimizer does **not** differentiate through the adaptive TSS recursion. This separation is inherited from the frozen-bias replay logic of SRC-0018. [SRC-0018]
 
@@ -282,6 +310,8 @@ $$
 
 where $k_e$ is Molly's Coulomb constant in the code's unit convention, $R$ is the molar gas constant, and $T_m$ is the target temperature.
 
+The implementation applies this estimator to conducting-boundary PME and to Molly's atom/site-pair reaction field. It does not claim that the same expression applies unchanged to arbitrary molecular or global reaction-field formulations.
+
 This distinction matters: the code computes a nonlinear function of reweighted ensemble moments,
 
 $$
@@ -390,6 +420,49 @@ $$
 \right].
 $$
 
+## How relative enthalpy is calculated
+
+For water or hexane, FFRefine defines the configurational molar enthalpy of frame $n$ as
+
+$$
+A_n(\theta)
+=
+\frac{U_n(\theta)+pV_n}{N_{\mathrm{mol}}},
+$$
+
+where $U_n$ is the potential energy, $p$ is the configured pressure, and $N_{\mathrm{mol}}$ is the number of molecules. The temperature-series target is relative to the lowest ladder temperature $m_0$:
+
+$$
+\Delta H_m
+=
+\overline A_m-\overline A_{m_0}
++K_m-K_{m_0},
+$$
+
+where $K_m$ is the analytic kinetic contribution calculated from the system degrees of freedom. The reference state is omitted from the target list because its relative value is identically zero.
+
+The gradient of each configurational mean contains both the direct energy derivative and the reweighting response:
+
+$$
+\nabla_\theta\overline A_m
+=
+\left\langle\frac{\nabla_\theta U}{N_{\mathrm{mol}}}\right\rangle_m
+-
+\operatorname{Cov}_m(A,g_m).
+$$
+
+The kinetic correction is independent of the fitted parameters, so
+
+$$
+\nabla_\theta\Delta H_m
+=
+\nabla_\theta\overline A_m
+-
+\nabla_\theta\overline A_{m_0}.
+$$
+
+Water and hexane both implement this relative-enthalpy path. The current water default does not activate it; the current hexane default does.
+
 ## Scalar targets, tolerances, and the meaning of alpha
 
 Each scalar target $i$ has:
@@ -457,7 +530,7 @@ The three weighting controls have different meanings:
 | $w_i$ | distributes importance within one family |
 | $\alpha_f$ | distributes importance between complete families |
 
-For the current water configuration, density and RDF both have $\alpha_f=1$. Density targets use unit $w_i$. RDF weights distribute within-family mass by structural region: 0.6 to first-shell bins, 0.3 to second-shell bins, and 0.1 to tail bins for each pair type, divided across the bins in each region.
+Every implemented water family currently has $\alpha_f=1$ when enabled. Density, relative-enthalpy, and dielectric targets use unit $w_i$. RDF weights distribute within-family mass by structural region: 0.6 to first-shell bins, 0.3 to second-shell bins, and 0.1 to tail bins for each pair type, divided across the bins in each region. Because the default water run enables dielectric alone, its six scalar targets each receive weight $1/6$.
 
 ### Target loss and gradient
 
@@ -517,7 +590,7 @@ $$
 \nabla_\phi y_i.
 $$
 
-The water optimizer currently uses $\delta=3$ and $c=2$. Inside the quadratic region, $c=2$ makes $c\,h_\delta(r)=r^2$, so the Huber loss matches MSE near the target and becomes linear only for $|r|>3$.
+The current water and hexane experiment surfaces select MSE. The ethanol surface uses the optimizer's default Huber loss with $\delta=1$ and $c=1$. These are experiment settings, not fixed properties of the shared backend.
 
 These are engineering-tolerance-normalized losses, not automatically chi-squared likelihoods. A chi-squared interpretation would require $\tau_i$ to be a justified observation standard deviation. [SRC-0018]
 
@@ -803,31 +876,44 @@ $$
 
 For multiple thermodynamic legs, FFRefine makes a stable union of physical and latent parameter names. A leg contributes only to names that it contains. Shared names identify the same global latent and couple the legs.
 
-For each leg, the physical empirical Fisher is a weighted score covariance,
+For leg $\ell$ and physical thermodynamic state $s$, the physical empirical Fisher is the state-normalized score covariance
 
 $$
-F_\theta^{(\ell)}
+F_{\theta,\ell s}
 =
-\sum_nW_n^{(\ell)}
-\left(g_n^{(\ell)}-\overline g^{(\ell)}\right)
-\left(g_n^{(\ell)}-\overline g^{(\ell)}\right)^T.
+\sum_nW_{n,\ell s}
+\left(g_{n,\ell s}-\overline g_{\ell s}\right)
+\left(g_{n,\ell s}-\overline g_{\ell s}\right)^T,
 $$
 
-FFRefine aligns these matrices by physical parameter name and adds them:
+where
 
 $$
-F_\theta=\sum_\ell F_\theta^{(\ell)}.
+\overline g_{\ell s}
+=
+\sum_nW_{n,\ell s}g_{n,\ell s}.
 $$
 
-It then projects the metric through the same Jacobian:
+With normalized leg weights $\omega_\ell$ and predeclared state weights $\gamma_{\ell s}$, FFRefine constructs the design-averaged conditional metric
 
 $$
 \boxed{
-F_\phi=J^TF_\theta J.
+\overline F_\theta
+=
+\sum_\ell\omega_\ell
+\sum_s\gamma_{\ell s}F_{\theta,\ell s}.
 }
 $$
 
-Thus predictions, loss gradients, and the KL metric all refer to the same bounded latent coordinates.
+It aligns all objects by physical parameter name and projects both the average and the individual state metrics through the same Jacobian:
+
+$$
+\overline F_\phi=J^T\overline F_\theta J,
+\qquad
+F_{\phi,\ell s}=J^TF_{\theta,\ell s}J.
+$$
+
+Thus predictions, loss gradients, proposal geometry, and state-wise KL limits all refer to the same bounded latent coordinates. This conditional metric replaced the earlier frozen-bias joint Fisher, which also included covariance between thermodynamic-state mean scores. That between-state term remains useful as a bias-portability diagnostic but is no longer the primary replay trust-region geometry because state-normalized replay KL does not measure it. [[wiki/answers/ffrefine-kl-divergence-definition-change]] [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
 
 ## The optimizer, step by step
 
@@ -850,12 +936,12 @@ g=\nabla_\phi
 \left(L_{\mathrm{target}}+L_{\mathrm{QEq}}\right).
 $$
 
-### 2. Stabilize and factorize the Fisher matrix
+### 2. Stabilize and factorize the average conditional Fisher
 
 First add diagonal regularization:
 
 $$
-F_r=F_\phi+\lambda_FI.
+F_r=\overline F_\phi+\lambda_FI.
 $$
 
 Next apply Jacobi scaling:
@@ -875,7 +961,7 @@ $$
 PF_rP=V\Lambda V^T.
 $$
 
-Only eigenmodes with
+For the hard-cut treatment, only eigenmodes with
 
 $$
 \lambda_j>\lambda_{\mathrm{floor}}
@@ -893,11 +979,11 @@ $$
 WW^T
 $$
 
-is the retained, regularized Fisher pseudoinverse, while $W$ also maps between latent coordinates and the retained Fisher-whitened space.
+is the retained, regularized Fisher pseudoinverse, while $W$ also maps between latent coordinates and the retained Fisher-whitened space. The same stabilized eigensystem is used by the continuously damped and modal-SNR treatments.
 
-### 3. Construct a descent direction
+### 3. Choose a Fisher treatment and construct a descent direction
 
-For weighted-sum aggregation, the raw natural-gradient direction is
+With weighted-sum aggregation and hard cutting, the raw natural-gradient direction is
 
 $$
 \boxed{
@@ -913,7 +999,29 @@ $$
 -F_r^+g.
 $$
 
-If ConFIG is enabled, FFRefine instead protects the active family components. Let
+The current water default instead uses continuous Tikhonov damping. Its modal gain is
+
+$$
+a_j(\gamma)
+=
+\frac{\lambda_j}{\lambda_j^2+\gamma^2},
+$$
+
+and its raw step is
+
+$$
+\boxed{
+\Delta\phi_{\mathrm{damp}}
+=
+-PV\operatorname{diag}\!\left[
+\frac{\lambda_j}{\lambda_j^2+\gamma^2}
+\right]V^TPg.
+}
+$$
+
+Unlike a hard pseudoinverse, this retains every positive mode but smoothly suppresses near-null modes. It is not the ordinary ridge filter $1/(\lambda_j+\gamma)$. FFRefine also implements diagonal Fisher scaling, latent-coordinate identity descent, and hard-cut modal-SNR filtering for treatment comparisons and diagnostics. The exact operators and their validation boundaries are recorded in [[wiki/answers/ffrefine-fisher-treatment-operators]].
+
+If ConFIG is enabled on the hard-cut Fisher-whitened path, FFRefine instead protects the active family components. Let
 
 $$
 h_f=W^Tg_f
@@ -967,17 +1075,21 @@ This is FFRefine's Fisher-space adaptation of ConFIG, not a direct claim made by
 
 ### 4. Apply momentum, norm control, and the KL trust region
 
-Optional first-moment momentum reuses the previous **accepted latent displacement**, not an Adam-style raw-gradient moment. It is projected into the current retained Fisher step space and kept only if its Fisher inner-product alignment with the new direction is positive. Under ConFIG, the coefficient is reduced or reset if mixing would violate a protected family's descent condition.
+Optional first-moment momentum reuses the previous **accepted latent displacement**, not an Adam-style raw-gradient moment. On the hard-cut path it is projected into the current retained Fisher step space and kept only if its Fisher inner-product alignment with the new direction is positive. Under ConFIG, the coefficient is reduced or reset if mixing would violate a protected family's descent condition. Momentum is disabled in the current dielectric-only water configuration.
 
-The resulting displacement is first clipped to the configured Euclidean norm limit. FFRefine then estimates the local KL change as
+The resulting displacement is first clipped to the configured Euclidean norm limit. FFRefine then estimates a local conditional KL for every leg and state,
 
 $$
-\widehat D_{\mathrm{KL}}
+\widehat D_{\ell s}
 =
-\frac12\Delta\phi^TF_r\Delta\phi.
+\frac12\Delta\phi^TF_{\phi,\ell s}\Delta\phi,
+\qquad
+\widehat D_{\max}
+=
+\max_{\ell,s}\widehat D_{\ell s}.
 $$
 
-If this exceeds the target $\kappa$,
+If the maximum exceeds the target $\kappa$,
 
 $$
 \Delta\phi
@@ -985,11 +1097,11 @@ $$
 \Delta\phi
 \sqrt{
 \frac{\kappa}
-{\widehat D_{\mathrm{KL}}}
+{\widehat D_{\max}}
 }.
 $$
 
-The water configuration currently uses $\kappa=0.02$. The Fisher/KL interpretation is local: it controls the quadratic approximation, not the exact finite-step distribution shift. [SRC-0018]
+The design-averaged quantity $\tfrac12\Delta\phi^T\overline F_\phi\Delta\phi$ is retained as a geometry diagnostic; the maximum prevents one physical state from being hidden by the average. The current dielectric-only water configuration uses $\kappa=0.005$ per proposal and an empirical archive-to-candidate KL ceiling of 0.1. The Fisher/KL interpretation is local: quadratic scaling does not replace exact finite-step replay diagnostics. [SRC-0018] [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]
 
 ### 5. Replay-only backtracking line search
 
@@ -1021,7 +1133,18 @@ W_{nm}(\theta)
 L(\phi_{t,j}).
 $$
 
-No MD is run inside the line search. The central acceptance checks require:
+No MD is run inside the line search. In addition to the quadratic proposal cap, FFRefine evaluates the exact state-normalized candidate-to-reference replay KL
+
+$$
+D_{\ell s}(\theta'\Vert\theta)
+=
+\sum_nW_{n,\ell s}(\theta')
+\log\frac{W_{n,\ell s}(\theta')}{W_{n,\ell s}(\theta)}.
+$$
+
+It checks the maximum across physical states both for the current microproposal and for the total displacement from the archive-generating parameters. The latter is evaluated directly because KL for several aligned steps is not additive.
+
+The central acceptance checks require:
 
 $$
 L(\phi_{t,j})
@@ -1029,7 +1152,7 @@ L(\phi_{t,j})
 L(\phi_t)+\Delta L_{\max},
 $$
 
-finite loss, step, and KL estimate, and, for ConFIG-protected components,
+finite loss, step, and KL estimates; compliance with the per-proposal empirical conditional-KL limit and cumulative archive-displacement limit; and, for ConFIG-protected components,
 
 $$
 L_f(\phi_{t,j})\le L_f(\phi_t)
@@ -1063,7 +1186,14 @@ This distinction prevents low-support replay predictions from being treated as v
 
 After an accepted, supported replay step, FFRefine recalculates candidate replay summaries and gradients at the new $\phi$. It can take several local replay proposals against the same frozen archive, subject to maximum-proposal, minimum-step, Fisher-support, ESS, and stale-progress stopping rules.
 
-When the replay chain ends, the resulting physical parameters seed the next macro epoch. New MD then determines whether the replay-predicted improvement survives resampling. After the configured optimization epochs, FFRefine performs a final validation-only epoch.
+When the replay chain ends, the resulting physical parameters seed the next macro epoch. New MD then determines whether the replay-predicted improvement survives resampling. A fresh archive should separately support:
+
+1. assessment of the sampled checkpoint against its parent on the same new configurations; and
+2. assessment of whether split data produce a reproducible treated direction for another update.
+
+The current pipeline still combines these statuses in `sampling_accepted`. In the first prospective dielectric run, failure of the second status prevented the paired comparison required for the first, so checkpoint 3 remained unassessed and final validation reverted to checkpoint 2. This is a control-flow limitation, not evidence that checkpoint 3 worsened the objective. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
+
+After the configured optimization epochs, FFRefine performs one or more final validation-only epochs or replicas.
 
 The full loop is therefore
 
@@ -1098,41 +1228,65 @@ Before optimization is allowed, FFRefine checks:
 - complete window coverage;
 - local or MBAR target ESS and candidate-ensemble ESS;
 - split-half disagreement of selected predictions;
-- Fisher eigenvalue diagnostics.
+- Fisher eigenvalue diagnostics;
+- agreement of the selected treated direction across chronological halves;
+- maximum state-conditional quadratic and empirical KL;
+- cumulative empirical displacement from the archive-generating parameters.
 
-The water configuration currently uses a replay/TSS threshold of 1.0 $k_{\mathrm B}T$, TSS standard-error threshold of 0.5 $k_{\mathrm B}T$, minimum local ESS ratio of 0.01, MBAR target and candidate ESS thresholds of 10 with 0.1 retention, split-density tolerance of 0.005 kg/L, split-RDF tolerance of 0.10, Fisher negative-eigenvalue tolerance of $10^{-6}$, and KL target of 0.02.
+The current dielectric-only water profile uses a replay/TSS threshold of 1.0 $k_{\mathrm B}T$, TSS standard-error threshold of 0.5 $k_{\mathrm B}T$, minimum local ESS ratio of 0.01, MBAR target and candidate ESS thresholds of 10 with 0.1 retention, Fisher negative-eigenvalue tolerance of $10^{-6}$, a per-proposal maximum conditional-KL target of 0.005, and a maximum empirical archive-displacement KL of 0.1. The selected damped half-directions must have Fisher-metric cosine at least 0.8 and norm ratio between 0.5 and 2. The direct dielectric family uses its own split diagnostic. Thresholds for density, RDF, enthalpy, and other experiment profiles are configuration-specific rather than universal properties of FFRefine.
 
-History records validity diagnostics, replay uncertainty, ESS, family losses, normalized residuals, line-search trials, aggregation diagnostics, physical and latent parameter snapshots, QEq state, density/RDF curves, memory use, and checkpoints. These records are implementation evidence, not scientific validation.
+History records validity diagnostics, replay uncertainty, ESS, family losses, normalized residuals, line-search trials, conditional and joint-KL diagnostics, treated-direction diagnostics, aggregation diagnostics, physical and latent parameter snapshots, QEq state, selected target curves, memory use, and checkpoints. The prospective run also persisted fresh paired comparisons and validation-replica results. These records are project evidence; their interpretation remains limited by the sampling and experimental design.
 
 ## Current validation boundary
 
-The defensible claim is that FFRefine implements a local replay optimizer capable of testing force-field fine tuning with TSS/MBAR archives. Replay accuracy is conditional on reference-ensemble support; importance reweighting cannot recover missing phase-space regions. [SRC-0018] [SRC-0016]
+The defensible implementation claim is that FFRefine is a local replay optimizer capable of testing force-field fine tuning with TSS/MBAR archives. Replay accuracy is conditional on reference-ensemble support; importance reweighting cannot recover missing phase-space regions. [SRC-0018] [SRC-0023]
 
-The following remain unvalidated: production improvement of the density/RDF balance, dielectric improvement, transferability, robust convergence across systems, and superiority over AWH or ordinary MBAR sampling. In particular, the dielectric mathematics above describes implemented but currently disabled target support, not a completed dielectric-training result.
+The scientific claim is narrower but no longer zero. In reaction-field run `20260901-171027`, two consecutive full-parameter dielectric-only updates reduced paired loss on the next fresh archive, and two final-validation replicas reproduced the best confirmed checkpoint. The final dielectric curve moved toward experiment at all six target temperatures, but remained substantially above experiment. A later archive passed direct dielectric splitting yet failed the predeclared damped-direction cosine gate, so the campaign stopped before convergence. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+This establishes one local multi-update dielectric result under one campaign seed. It does not establish a generally improved water model, density/RDF/enthalpy preservation, enthalpy trainability, ethanol or hexane improvement, transferability, robust convergence across systems, an optimal damping value, or superiority over AWH, ordinary MBAR workflows, or other Fisher treatments.
 
 ## Evidence and provenance
 
 - Frozen-reference replay, observable differentiation, Fisher/KL geometry, and the macro-epoch separation are grounded in [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]. [SRC-0018]
+- State-normalized multistate weighting and its overlap limitations are grounded in [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]. [SRC-0023]
 - The constrained QEq fine-tuning context is supported by [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]]. [SRC-0016]
 - Conflict-free gradient aggregation is grounded in [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]], while the Fisher-whitened adaptation is FFRefine-specific. [SRC-0036]
-- Exact target construction, multiplicity-aware QEq algebra, dielectric sufficient statistics, latent Jacobian, Fisher factorization, line search, support handling, and current configuration status come from the 2026-07-29 FFRefine code audit recorded in this page's frontmatter.
+- Exact target construction, multiplicity-aware QEq algebra, relative-enthalpy and dielectric estimators, latent Jacobian, current state-conditional Fisher implementation, treatment operators, line search, support handling, and experiment defaults come from the FFRefine audits recorded in this page's frontmatter.
+- The KL correction and treatment interpretation are synthesized from [[wiki/answers/ffrefine-kl-divergence-definition-change]], [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]], and [[wiki/answers/ffrefine-fisher-treatment-operators]].
+- The validation boundary is synthesized from [[wiki/answers/ffrefine-average-observable-trainability-validation]], [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]], [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]], and [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]. No raw sources were consulted for this refresh.
+- [[wiki/answers/ffrefine-current-implementation-status]] is an August 20 snapshot. Its then-current defaults and statement that fresh trainability was unresolved are superseded here by the September audit and prospective-result pages.
 
 ## Gaps and open questions
 
-- Dielectric targets are implemented but disabled, so the full fluctuation-gradient path still needs production validation.
+- The prospective dielectric result has one campaign seed and two confirmed updates; its campaign-level success probability and convergence behavior are unknown.
+- Checkpoint 3 is unassessed because the failed next-direction gate suppressed its paired parent comparison.
+- It is unknown whether longer continuation, additional independent replicas, or a newly prepared archive is the most efficient response to a failed treated direction.
+- No matched prospective hard-cut versus damped comparison has been performed, and $\gamma=0.1$ is not established as optimal.
+- Collateral density, RDF, and enthalpy preservation was not established for the final dielectric checkpoint; full experimental enthalpy optimization has not passed fresh validation.
 - Tolerance and family-weight choices are engineering decisions and require sensitivity analysis.
 - Fisher/KL and ESS thresholds are configured safeguards, not universal guarantees of safe extrapolation.
-- Replay-predicted improvements require confirmation with new simulation and held-out observables.
+- Future replay-predicted improvements still require confirmation with new simulation and held-out or collateral observables. [SRC-0018]
 
 ## Links
 
-- [[wiki/answers/ffrefine-current-implementation-status]]
+- [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+- [[wiki/answers/ffrefine-kl-divergence-definition-change]]
+- [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]
+- [[wiki/answers/ffrefine-fisher-treatment-operators]]
+- [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]
+- [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
+- [[wiki/answers/ffrefine-average-observable-trainability-validation]]
+- [[wiki/answers/ffrefine-current-implementation-status|FFRefine implementation status (August 20 snapshot)]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]
 - [[wiki/concepts/awh-replay-force-field-optimization]]
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses]]
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
+- [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
+- [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
+- [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/questions/force-field-training-validation-scope]]
 - [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
+- [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
 - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]

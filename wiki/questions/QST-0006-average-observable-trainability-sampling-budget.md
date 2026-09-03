@@ -2,8 +2,8 @@
 type: question
 status: active
 created: 2026-08-20
-updated: 2026-09-02
-question_status: open
+updated: 2026-09-03
+question_status: partially-answered
 areas:
   - research
 categories:
@@ -28,6 +28,7 @@ related:
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
+  - "[[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
 sources:
   - SRC-0018
@@ -45,6 +46,7 @@ project_evidence:
   - "FFRefine post hoc within-state/between-state Fisher decomposition completed 2026-08-29"
   - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 ---
 
 # Average-Observable Trainability Sampling Budget
@@ -96,6 +98,10 @@ At that stage, dielectric's corrected cumulative direction was highly reproducib
 The conditional retrospective campaign and first prospective dielectric run have now finished. The corrected campaign made hard full Fisher, damped $\gamma=0.03$ and $0.1$, diagonal, and selected modal-SNR dielectric proposals eligible. Damped $\gamma=0.1$ was frozen for the prospective run as a smooth full-correlation treatment. It passed three consecutive optimization-archive direction gates. The first two resulting checkpoints then produced paired fresh loss changes of -0.6168 and -0.5267 with intervals below zero, and two final-validation replicas reproduced the best checkpoint.
 
 The fourth macro archive passed direct dielectric splitting but failed the damped direction cosine gate at 0.657. Consequently, 60 ns in one replica is demonstrably sufficient in some parameter states and insufficient in another realization/state of the same campaign. The dielectric budget question has shifted from “can a fresh update ever work?” to “what adaptive allocation reliably restores an optimization-ready direction when a later macro archive fails?” [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
+
+The higher-KL run `20260902-115818` changes the balance of evidence again. With the same one-replica 60 ns production budget and $\gamma=0.1$ treatment, all seven completed optimization archives passed the damped direction gate, and checkpoints 1 through 6 each passed paired fresh comparison. This answers the existence question more strongly: one 60 ns replica can repeatedly resolve a useful dielectric direction along a sustained local trajectory.
+
+It does not identify a minimum or universal budget. The run is one additional campaign trajectory, its lowest accepted target-state ESS retention was only 0.5098 against a 0.5 threshold, and it was intentionally stopped before checkpoint 7 received a fresh comparison or terminal replicate validation. The open question is now primarily how success frequency, direction readiness, and collateral-property preservation vary across independent seeds and parameter regions, rather than whether dielectric training can work at all. [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
 
 The run cannot answer whether longer continuation, multiple independent replicas, or an independently prepared archive is most cost effective because no production extension was allowed. It also cannot characterize campaign-to-campaign success probability from one seed. Checkpoint 3 was not paired against its parent after the direction failure, exposing a separate pipeline question that must be fixed before sampling strategies are compared. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
 

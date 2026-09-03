@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-08-20
-updated: 2026-09-02
+updated: 2026-09-03
 claim_status: supported
 claim_scope: local
 areas:
@@ -38,6 +38,7 @@ project_evidence:
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
   - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 ---
 
 # Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability
@@ -63,6 +64,7 @@ This is a local FFRefine validation claim supported by the August 2026 water ent
 - Retrospective finite-step replay on those same archives found supported bidirectional dielectric descent for the production hard Fisher and small-$\gamma$ damping, with paired intervals below zero. Small-$\gamma$ enthalpy damping also gave paired-resolved bidirectional cross-archive descent despite failing the exact-direction gate. This strengthens fixed-archive evidence without testing a prospectively frozen treatment on new archives or by fresh candidate simulation. [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - The later prospective dielectric run supplies the positive complement to the claim. Once $\gamma=0.1$ damping and the conditional-KL policy were frozen, two consecutive updates reduced loss on the next fresh macro archive and the best checkpoint reproduced in two final-validation simulations. This establishes trainability only because the fixed-archive proposal was followed by fresh evidence. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - The same prospective run's fourth archive passed direct dielectric splitting but failed treated-direction agreement. A successful earlier update and a stable current mean did not guarantee that the next fresh archive contained a reproducible direction.
+- The higher-KL prospective run supplies a stronger positive complement. Checkpoints 1 through 6 all reduced paired loss on the next fresh archive, with every recorded interval below zero; fresh loss fell 50.90% from checkpoint 0 to checkpoint 6. The claim is supported precisely because six separate archive-local proposals were followed by new sampling and paired parent comparisons. [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
 
 ## Caveats
 
@@ -75,6 +77,7 @@ This is a local FFRefine validation claim supported by the August 2026 water ent
 - Cross-replaying archive-A and archive-B proposals is stronger than source-archive replay, but treatment selection on the same pair leaves method-selection uncertainty unmeasured.
 - Paired delete-block intervals below zero establish conditional replay descent, not between-campaign repeatability or recovery after resimulation.
 - Fresh confirmation of two dielectric updates does not invalidate the claim; it demonstrates the additional evidence needed to move from fixed-archive plausibility to local trainability.
+- Six consecutive fresh confirmations strengthen the local trainability conclusion but still do not turn a fixed-archive check into prospective evidence or establish a campaign-level success rate.
 
 ## Links
 

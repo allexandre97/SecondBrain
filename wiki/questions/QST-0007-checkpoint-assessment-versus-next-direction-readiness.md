@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-03
 question_status: partially-answered
 areas:
   - research
@@ -31,6 +31,7 @@ sensitivity: public
 encryption: none
 project_evidence:
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
 ---
 
 # Checkpoint Assessment vs Next-Direction Readiness
@@ -63,6 +64,8 @@ An optimization-ready epoch is necessarily evaluation-ready, but an evaluation-r
 
 Final-validation replicas do not normally produce another update. Their scientific purpose is to estimate the selected checkpoint's fresh objective. The treated direction can remain a useful reporter in those replicas, but should not veto an otherwise valid final objective estimate.
 
+The separation has now been implemented in the recorded checkpoint-assessment schema. Run `20260902-115818` persisted distinct `evaluation_valid`, `evaluation_accepted`, `direction_ready`, `optimisation_ready`, and `optimisation_ran` fields. In all seven completed epochs, evaluation and direction readiness passed together, and checkpoints 1 through 6 received paired fresh comparisons. This validates normal-path recording but does not yet exercise the decisive branch where evaluation passes and direction readiness fails.
+
 ## Proposed state model
 
 | State | Base observable/replay validity | Paired parent comparison | Selected direction | Consequence |
@@ -80,7 +83,7 @@ This proposal preserves conservative direction gating without discarding valid i
 - Which base diagnostics are strictly required for objective evaluation versus gradient construction should be made explicit for every FFRefine setup.
 - A paired comparison can still be inconclusive even when its point loss improves; this needs a separate extension/termination rule.
 - If a direction fails after the candidate is accepted, the best policy among longer continuation, more independent replicas, or stopping remains target and cost dependent.
-- The proposed separation has not yet been implemented and tested on a prospective rerun.
+- The separation is implemented and has been exercised on the all-pass path. It still requires a prospective case where evaluation passes and direction readiness fails before the control-flow fix is fully validated.
 
 ## Links
 

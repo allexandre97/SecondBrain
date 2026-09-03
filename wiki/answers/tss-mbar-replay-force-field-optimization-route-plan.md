@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-08-29
+updated: 2026-09-03
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -35,6 +35,8 @@ related:
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
+  - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
+  - "[[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
@@ -344,15 +346,21 @@ The implementation reuses Molly's lower-level MBAR machinery for the sampled-win
 
 A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].
 
-The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` supports density, RDF, relative enthalpy, and dielectric families through target-family configuration; its current default is an enthalpy-only diagnostic using cutoff/reaction-field electrostatics and rigid water. All families retain the exact 14 through 41 degrees Celsius TSS ladder, 28 states, original lambda schedule, window size 4, and 15 overlapping windows even when experimental targets exist at only a subset of temperatures. These are implementation facts from the FFRefine repository audit, not literature claims.
+The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` supports density, RDF, relative enthalpy, and dielectric families through target-family configuration; its current working-tree default is dielectric-only training using cutoff/reaction-field electrostatics and rigid water. All families retain the exact 14 through 41 degrees Celsius TSS ladder, 28 states, original lambda schedule, window size 4, and 15 overlapping windows even when experimental targets exist at only a subset of temperatures. These are implementation facts from the FFRefine repository audit, not literature claims.
 
-The route plan should therefore be read as a design envelope plus accumulated implementation lessons. It should not be read as evidence that full production optimization has already improved ethanol solvation, water density/RDF/dielectric agreement, or transferability. Focused tests and reduced smoke checks exist, but production validation remains open.
+The route plan should therefore be read as a design envelope plus accumulated implementation lessons. Prospective reaction-field dielectric-only runs now establish repeated local improvement under fresh resimulation, including six consecutive paired-confirmed updates in run `20260902-115818`. This does not establish ethanol solvation improvement, water density/RDF/dielectric balance, transferability, or robust convergence. [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
 
 ### Average-observable validation update
 
 The August 2026 enthalpy and PME dielectric checks add a validation stage between mathematical correctness and macro optimization. Fixed-archive values, finite-difference gradients, loss gradients, and 0.1% one-parameter recovery passed. Fresh 10 ns and 20 ns scans then found no tested direction meeting SNR 5, replay support, and empirical KL at most 0.02. At 20 ns the best valid SNR was 0.1121 for cutoff/reaction-field enthalpy and 0.08847 for PME dielectric, whereas much larger raw responses were outside replay support. [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 
 The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. Passing fixed-archive differentiation proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
+
+### Prospective dielectric proof of concept
+
+The later state-conditional Fisher implementation, continuous damping at $\gamma=0.1$, exact empirical cumulative-KL control, and fresh paired checkpoint assessment crossed the production-validation boundary for the dielectric-only reaction-field surface. The first campaign produced two paired-confirmed updates and reproducible final-validation loss. Higher-KL campaign `20260902-115818` produced six consecutive paired-confirmed updates and reduced fresh loss from 7.3431 to 3.6057 through checkpoint 6.
+
+This validates the route's central replay/resimulation loop for one local scientific objective: supported archive-derived proposals can survive fresh simulation repeatedly. It also preserves the route's scope boundary. The dielectric curve did not converge, checkpoint 7 was not fresh assessed before the user intentionally stopped the run, and no collateral or transferability targets were evaluated. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 
 ## Implementation route plan
 

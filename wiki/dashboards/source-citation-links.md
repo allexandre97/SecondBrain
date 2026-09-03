@@ -95,6 +95,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 - [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]]
 - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]]
 - [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]]
+- [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]]
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]
 - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]
 - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]

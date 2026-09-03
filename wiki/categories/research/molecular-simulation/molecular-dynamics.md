@@ -42,6 +42,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]]
 - [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|MDRefine]]
 - [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]]
+- [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]]
 - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]
 - [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|RNA Molecular Simulations Review]]
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]]
