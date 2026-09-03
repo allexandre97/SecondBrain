@@ -12,6 +12,7 @@ Repository-root vaults keep `raw/sources/`, `wiki/`, `schema/`, and `tools/` vis
 
 - `admin` - wiki governance, maintenance, privacy, and repository operating notes.
 - `research` - source-derived scientific and technical knowledge.
+- `personal` - personal-life documents, including personal finance and banking paperwork.
 
 ## Multi-facet assignment
 
@@ -25,6 +26,8 @@ Do not encode source IDs, dates, authors, or individual paper titles in category
 
 ## Registered categories and match terms
 
+- `personal/finance/banking` - personal banking accounts, terms and conditions, product terms, and related banking paperwork.
+  - Match terms: banking, current account, building society, Nationwide, FlexDirect, FlexPlus, FlexAccount, FlexBasic, FlexOne, overdraft, internet banking, debit card, switch service, FSCS
 - `admin/privacy` - privacy, sensitivity, and encryption metadata.
   - Match terms: privacy, sensitivity, encryption, access control
 - `admin/wiki-governance` - repository-wide wiki policies and operating agreements.

@@ -36,6 +36,10 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/reusable-codex-task-contracts|Reusable Codex Task Contracts]] - 1 source IDs; top source categories: `admin/wiki-governance` (1), `research/llm-wiki/design` (1)
 - [[wiki/concepts/wiki-page-metadata|Wiki Page Metadata]] - 1 source IDs; top source categories: `admin/wiki-governance` (1), `research/llm-wiki/design` (1)
 
+### personal/finance/banking
+
+- [[wiki/concepts/nationwide-current-accounts|Nationwide Current Accounts]] - 7 source IDs; top source categories: `personal/finance/banking` (7)
+
 ### research/adaptive-sampling
 
 - [[wiki/concepts/accelerated-weight-histogram-method|Accelerated Weight Histogram Method]] - 3 source IDs; top source categories: `research/adaptive-sampling` (3), `research/molecular-simulation/free-energy` (3), `research/statistics/monte-carlo` (2)
