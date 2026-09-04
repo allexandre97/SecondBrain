@@ -2,8 +2,8 @@
 type: question
 status: active
 created: 2026-09-02
-updated: 2026-09-03
-question_status: partially-answered
+updated: 2026-09-04
+question_status: answered
 areas:
   - research
 categories:
@@ -19,6 +19,7 @@ tags:
   - checkpoint-selection
   - early-stopping
 related:
+  - "[[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]"
   - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
@@ -32,6 +33,7 @@ encryption: none
 project_evidence:
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
+  - "FFRefine density-only aggressive conditional-KL/ESS water-temperature run 20260904-102939, completed 2026-09-04"
 ---
 
 # Checkpoint Assessment vs Next-Direction Readiness
@@ -64,7 +66,7 @@ An optimization-ready epoch is necessarily evaluation-ready, but an evaluation-r
 
 Final-validation replicas do not normally produce another update. Their scientific purpose is to estimate the selected checkpoint's fresh objective. The treated direction can remain a useful reporter in those replicas, but should not veto an otherwise valid final objective estimate.
 
-The separation has now been implemented in the recorded checkpoint-assessment schema. Run `20260902-115818` persisted distinct `evaluation_valid`, `evaluation_accepted`, `direction_ready`, `optimisation_ready`, and `optimisation_ran` fields. In all seven completed epochs, evaluation and direction readiness passed together, and checkpoints 1 through 6 received paired fresh comparisons. This validates normal-path recording but does not yet exercise the decisive branch where evaluation passes and direction readiness fails.
+The separation has now been implemented in the recorded checkpoint-assessment schema. Run `20260902-115818` persisted distinct `evaluation_valid`, `evaluation_accepted`, `direction_ready`, `optimisation_ready`, and `optimisation_ran` fields. In all seven completed epochs, evaluation and direction readiness passed together, and checkpoints 1 through 6 received paired fresh comparisons.
 
 ## Proposed state model
 
@@ -78,15 +80,22 @@ The separation has now been implemented in the recorded checkpoint-assessment sc
 
 This proposal preserves conservative direction gating without discarding valid information about an already simulated checkpoint.
 
+## Prospective branch validation
+
+Density-only run `20260904-102939` exercised the previously missing branch. In epoch 3, checkpoint 2 passed base evaluation and its paired comparison with checkpoint 1 was accepted: candidate loss 21.5935 versus parent replay loss 66.0780, with candidate-minus-parent interval [-52.2696, -36.6993]. The selected damped direction nevertheless failed its chronological-half gate after the allowed extensions, with final cosine 0.7280 against threshold 0.8.
+
+The recorded state was consequently `evaluation_valid=true`, `evaluation_accepted=true`, `direction_ready=false`, `optimisation_ready=false`, and `optimisation_ran=false`. Checkpoint 2 remained the best checkpoint, no uncertain next update was generated, and two final-validation replicas successfully evaluated that checkpoint at losses 20.0060 and 20.2560. This is the intended behavior and validates the control-flow separation on its decisive path. [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
+
 ## Remaining uncertainty
 
 - Which base diagnostics are strictly required for objective evaluation versus gradient construction should be made explicit for every FFRefine setup.
 - A paired comparison can still be inconclusive even when its point loss improves; this needs a separate extension/termination rule.
 - If a direction fails after the candidate is accepted, the best policy among longer continuation, more independent replicas, or stopping remains target and cost dependent.
-- The separation is implemented and has been exercised on the all-pass path. It still requires a prospective case where evaluation passes and direction readiness fails before the control-flow fix is fully validated.
+- The state separation is now validated on both the all-pass path and one prospective evaluation-pass/direction-fail path, but that branch should still be observed across other targets and campaign seeds.
 
 ## Links
 
+- [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]

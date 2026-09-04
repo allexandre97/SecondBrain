@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-08-20
-updated: 2026-09-03
+updated: 2026-09-04
 tension_status: active
 areas:
   - research
@@ -20,6 +20,7 @@ tags:
   - fisher-information
   - kl-conditioning
 related:
+  - "[[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]"
   - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
@@ -54,6 +55,8 @@ project_evidence:
   - "FFRefine state-conditional Fisher-treatment screen and replay completed 2026-08-30 through 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
+  - "FFRefine density-only KL 0.1/archive 1.0/ESS 0.45 water-temperature run 20260903-220645, completed 2026-09-03"
+  - "FFRefine density-only aggressive conditional-KL/ESS water-temperature run 20260904-102939, completed 2026-09-04"
 ---
 
 # Average-Observable Signal vs Replay Support
@@ -106,12 +109,19 @@ The higher-KL run `20260902-115818` demonstrates a sustained region where detect
 
 This adds a sixth tension: **faster local progress versus support margin**. The higher 0.02 proposal target and 0.2 archive ceiling produced a much longer successful sequence than the earlier run, but the two trajectories are not matched arms and cannot identify the larger KL budget as the cause. Larger supported steps can improve signal and reduce the number of macro epochs needed, while also consuming overlap margin more quickly. Exact empirical archive KL, state-wise ESS retention, and fresh paired validation must remain independent vetoes.
 
+Density positive-control run `20260904-102939` moved farther into that tradeoff. With per-proposal conditional-KL target 0.1, archive ceiling 1.0, and ESS-retention thresholds 0.25, two accepted chains reached empirical archive KL 0.3006 and 0.3803. Both macro-updates survived paired fresh resimulation, reducing fresh loss from 143.6331 to 56.0352 and then 21.5935; two terminal validations reproduced the selected checkpoint near loss 20.13. A later proposal was still rejected because minimum target-state ESS 98.70 crossed the absolute threshold even though relative retention 0.2726 passed.
+
+This adds a seventh tension: **a useful operating region versus a universal numerical boundary**. The density result falsifies an interpretation of archive KL 0.2 as a universal safety cutoff, but it does not show that archive KL 0.38 is generally safe. Preceding density run `20260903-220645` reached archive KL 0.3030 for its second checkpoint but could not establish a supported paired comparison on the fresh archive. The two runs were not matched, and difficult targets can have different signal and support geometry. KL, absolute ESS, relative ESS, loss uncertainty, and fresh response answer different questions and should not be collapsed into one scalar acceptance rule. [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
+
+The run also showed that this tension persists after a checkpoint improves. At checkpoint 2, raw and hard-cut half-directions passed after 30 ns, while the selected damped direction remained below threshold at cosine 0.728. The same checkpoint's two independent validation archives later gave damped cosines 0.946 and 0.821. Stable direct density loss can therefore coexist with archive-dependent readiness for another Fisher-conditioned step, even for a target previously treated as an uncomplicated positive control.
+
 ## Interpretation
 
-The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures. Neither dielectric's retrospective budget crossing nor enthalpy's isolated 100 ns crossing may be promoted to a universal sampling threshold. The two prospective runs support $\gamma=0.1$ as a viable dielectric treatment, and the higher-KL run establishes sustained local continuation, but they do not establish campaign-level reliability across independent seeds. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
+The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures, but the aggressive density run shows that even a positive control can develop treatment-specific next-direction uncertainty near an improved checkpoint. Neither dielectric's retrospective budget crossing, enthalpy's isolated 100 ns crossing, nor density's successful archive KL 0.3803 may be promoted to a universal sampling or support threshold. The two prospective dielectric runs support $\gamma=0.1$ as a viable treatment, and the aggressive density run supports testing a wider operating region, but none establishes campaign-level reliability across independent seeds. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
 
 ## Links
 
+- [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]

@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-08-29
-updated: 2026-09-03
+updated: 2026-09-04
 claim_status: limited
 claim_scope: local
 areas:
@@ -21,6 +21,7 @@ tags:
   - thermodynamic-conditioning
   - state-mixture
 related:
+  - "[[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
@@ -35,6 +36,8 @@ project_evidence:
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
   - "FFRefine post hoc within-state/between-state Fisher decomposition of Archive A completed 2026-08-29"
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
+  - "FFRefine density-only KL 0.1/archive 1.0/ESS 0.45 water-temperature run 20260903-220645, completed 2026-09-03"
+  - "FFRefine density-only aggressive conditional-KL/ESS water-temperature run 20260904-102939, completed 2026-09-04"
 ---
 
 # Trust-Region KL Must Match Replay Conditioning
@@ -45,7 +48,7 @@ When an empirical Fisher matrix defines a KL trust region, it must marginalize o
 
 ## Scope
 
-The mathematical conditioning requirement is general, but the quantitative evidence here is local to FFRefine's two archived 100 ns reaction-field water simulations and its August 2026 retrospective treatment campaign. It does not establish that a conditional or joint-state trust region is universally preferable.
+The mathematical conditioning requirement is general, but the quantitative evidence here is local to FFRefine's archived reaction-field water simulations and its retrospective and prospective water-temperature campaigns. It does not establish that a conditional or joint-state trust region is universally preferable.
 
 ## Mechanism
 
@@ -89,12 +92,17 @@ Higher-KL dielectric run `20260902-115818` prospectively exercised the matched s
 
 The sum of local Fisher-quadratic step estimates was only 0.0432--0.0585. The exact empirical archive audit therefore prevented the local estimates from being treated as an additive cumulative divergence. All 21 accepted steps retained replay support, and the first six checkpoint updates subsequently reduced paired loss on fresh archives. This supports the conditional-KL design as an operational trust-region implementation, not merely a retrospective geometric correction. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 
+Density-only positive-control run `20260904-102939` tested a more aggressive local region: maximum conditional-KL target 0.1, empirical archive ceiling 1.0, and target-state and candidate ESS-retention thresholds 0.25. Its accepted proposal chains reached empirical archive KL 0.3006 and 0.3803. Both resulting macro-updates were accepted by paired fresh comparisons; the fresh loss fell from 143.6331 to 56.0352 and then 21.5935, and two terminal validations gave losses 20.0060 and 20.2560.
+
+This rules out treating 0.2 as a universal empirical archive-KL safety boundary. It does not identify a replacement universal boundary. In preceding density run `20260903-220645`, an update constructed at archive KL 0.3030 could not obtain a supported paired comparison on its fresh archive, whereas the new run succeeded at 0.3006 and 0.3803. The runs were not matched and cannot isolate the cause. In the new run, an attempted later proposal was also rejected when its minimum target-state ESS fell to 98.70 despite relative retention 0.2726. Exact empirical archive KL, absolute and relative support, loss uncertainty, and fresh resimulation therefore remain complementary controls. [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
+
 ## Limitations
 
 - The numerical decomposition has been performed for one archive endpoint and should be repeated for Archive B and future prospective archives.
 - The reported empirical KL is a maximum over states, whereas the within-state decomposition above is weighted by the TSS state probabilities.
 - Finite-step KL also contains higher-order terms beyond the local Fisher quadratic.
 - No matched prospective run has compared conditional-Fisher and joint-state-Fisher trust regions; the successful prospective runs used only the selected conditional geometry.
+- The aggressive density result is one campaign realization and does not calibrate a transferable KL or ESS boundary for other targets or systems.
 
 ## FFRefine design recommendation
 
@@ -104,6 +112,7 @@ This began as a project design recommendation and has now been exercised prospec
 
 ## Links
 
+- [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]

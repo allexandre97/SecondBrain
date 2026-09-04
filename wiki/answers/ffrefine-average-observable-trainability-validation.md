@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-20
-updated: 2026-09-03
+updated: 2026-09-04
 question: "Do FFRefine's validated replay mathematics establish that water enthalpy and dielectric permittivity can be trained from fresh TSS archives?"
 answer_status: partially-answered
 areas:
@@ -21,6 +21,7 @@ tags:
   - trainability
   - validation
 related:
+  - "[[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]"
   - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
@@ -61,6 +62,7 @@ wiki_pages_updated:
   - "[[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
 project_evidence:
+  - "FFRefine density-only aggressive conditional-KL/ESS water-temperature run 20260904-102939, completed 2026-09-04"
   - "FFRefine fixed-archive enthalpy mathematics run 20260815-113946"
   - "FFRefine fixed-archive PME dielectric mathematics run 20260819-092631"
   - "FFRefine fresh-archive enthalpy/cutoff trainability run 20260819-194707"
@@ -496,6 +498,16 @@ The exact empirical cumulative-KL audit was essential. Three accepted aligned pr
 
 Epoch 8 had passed adaptive readiness and parity when the user intentionally stopped the live run because the trainability evidence was sufficient. This is not a recorded scientific failure. Checkpoint 6 is the last fresh-validated state; checkpoint 7 has an 11.03% replay-predicted decrease but no fresh comparison.
 
+## Aggressive density positive control
+
+Density-only run `20260904-102939` tested whether a stable target could use a wider optimisation region: maximum conditional-KL target 0.1 per proposal, empirical archive ceiling 1.0, and target-state and candidate ESS-retention thresholds 0.25. Two macro-updates were accepted on fresh paired archives. Loss decreased from 143.6331 initially to 56.0352 and then 21.5935; the paired candidate-minus-parent intervals were [-118.4985, -71.6306] and [-52.2696, -36.6993]. Two terminal validations gave losses 20.0060 and 20.2560.
+
+The accepted chains reached empirical archive KL 0.3006 and 0.3803. This shows that the earlier 0.2 ceiling is not a universal physical boundary: substantially larger displacements can remain useful when exact empirical KL, state-wise support, uncertainty, and fresh validation all agree. It does not show that the new thresholds are universally safe. In preceding run `20260903-220645`, a density update at archive KL 0.3030 could not establish a supported paired comparison on its fresh archive. The campaigns were not matched and do not identify which configuration or sampling difference caused the divergent outcomes.
+
+The run also exercised the corrected checkpoint state model. Checkpoint 2 passed direct evaluation and paired comparison but failed readiness for another damped step after 30 ns, with cosine 0.728. It was retained as the best checkpoint and validated rather than discarded. Raw and hard-cut reporters passed on that extended archive, and the two later validation archives gave damped cosines 0.946 and 0.821. Direct-target reproducibility and next-direction readiness are therefore distinct even for density. [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
+
+The full configuration, loss trajectory, KL/ESS evidence, direction diagnostics, and limitations are recorded in [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]].
+
 ## Dielectric-estimator scope
 
 FFRefine uses $\varepsilon_r=1+A$ for conducting PME and for Molly's current atom/site-pair reaction-field convention. The configured reaction-field dielectric changes the Hamiltonian but does not automatically require a second finite-boundary inversion in post-processing. [SRC-0075] [SRC-0076] [SRC-0077] [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant]]
@@ -539,11 +551,13 @@ The next dielectric evidence should extend the successful prospective sequence w
 - The prospectively selected $\gamma=0.1$ treatment has passed fresh simulation, but it has not been compared against hard cutting in matched prospective arms.
 - Checkpoint 3 from run `20260901-171027` lacks a paired parent comparison because the pipeline conflated checkpoint assessment with next-direction readiness.
 - Checkpoint 7 from run `20260902-115818` lacks a fresh comparison because the user intentionally stopped the live run during epoch 8 after sufficient evidence had accumulated.
+- The aggressive density thresholds have succeeded for one seed only; their repeatability and transfer to RDF or difficult average-observable targets remain unknown.
 - No converged experimental dielectric optimization and no fresh-validated experimental enthalpy optimization have been established.
 - No prospective hard-, damped-, identity-, or diagonal-conditioned enthalpy optimisation has passed held-out replay and fresh-simulation validation.
 
 ## Links
 
+- [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]

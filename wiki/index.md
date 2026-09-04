@@ -50,6 +50,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Answers
 
+- [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]] - Aggressive density-only positive control showing two fresh-confirmed updates, successful archive KL up to 0.3803, complementary KL/ESS gates, and separation of checkpoint validity from next-direction readiness.
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - Canonical account of two prospective dielectric-only damped-Fisher campaigns, including six consecutive fresh-confirmed updates in the higher-KL run, KL/support diagnostics, limitations, and checkpoint-state lessons.
 - [[wiki/answers/ffrefine-fisher-treatment-operators]] - Mathematical and implementation explanation of FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators.
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]] - Retrospective comparison of Fisher treatments on two independent 100 ns reaction-field archives, including the mixed-versus-conditional KL decomposition.
