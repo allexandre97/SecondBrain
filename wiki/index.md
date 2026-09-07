@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-03
+updated: 2026-09-07
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -85,7 +85,7 @@ Use this page as the main navigation point for reviewed wiki content.
 
 - [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] - Source note introducing the LLM-maintained wiki pattern.
 - [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] - Project design note for local-first personal/work wiki organization, metadata, and privacy controls.
-- [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Paper on Garnet, a graph-neural-network force field trained from scratch.
+- [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Revised manuscript on Garnet, including added dipole and condensed-phase validation.
 - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] - Review of automated and semi-automated cytoskeletal network image segmentation and tracing.
 - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] - Main paper introducing Times Square Sampling for adaptive on-the-fly free energy estimation.
 - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] - Supplement with TSS derivations, proofs, implementation recursions, and molecular-dynamics numerics.

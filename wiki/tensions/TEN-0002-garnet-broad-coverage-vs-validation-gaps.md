@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-09-07
 tension_status: active
 areas:
   - research
@@ -34,8 +34,9 @@ Garnet is presented as an automated force-field system covering proteins and sma
 
 ## Positions
 
-- SRC-0003 reports competitive benchmark performance across several small-molecule, protein, water, IDP, and selected RBFE tasks. [SRC-0003]
-- SRC-0003 also notes possible GB3 overfitting, IDP over-compaction, occasional aromatic-ring planarity failures, over-polarized charges, limited RBFE coverage, and future validation needs for additional biomolecular species. [SRC-0003]
+- SRC-0003 reports competitive benchmark performance across several small-molecule, protein, water, IDP, and selected RBFE tasks. Its revision adds dipole and condensed-phase small-molecule tests. [SRC-0003]
+- The added tests also sharpen the limitations: dipole magnitudes and orientations reflect over-polarization, density and enthalpy of vapourisation tend to be overestimated, and the latter errors suggest attractive intermolecular interactions are too strong. [SRC-0003, section "Small molecule benchmark"]
+- SRC-0003 also notes possible GB3 overfitting, IDP over-compaction, occasional aromatic-ring planarity failures, RBFE coverage limited to 8 of 58 systems, net-charge-change problems, and future validation needs for additional biomolecular species. [SRC-0003]
 
 ## Why it matters
 

@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-09-07
 claim_status: limited
 claim_scope: local
 areas:
@@ -43,7 +43,7 @@ This claim is local to SRC-0003 and limited to the molecule classes and tasks va
 
 ## Caveats
 
-- The source page records possible GB3 overfitting, IDP over-compaction, occasional aromatic-ring planarity failures, over-polarized charges, and limited RBFE coverage. [SRC-0003]
+- The revised source records possible GB3 overfitting, IDP over-compaction, occasional aromatic-ring planarity failures, over-polarized dipoles, overestimated small-molecule density and enthalpy of vapourisation, and RBFE testing on only 8 of 58 public benchmark systems. These limits constrain the validated scope but do not alter the parameter-assignment mechanism. [SRC-0003]
 
 ## Links
 

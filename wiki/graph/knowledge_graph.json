@@ -13999,7 +13999,7 @@
       "type": "source_ref"
     },
     {
-      "evidence": "line 20: - [[wiki/concepts/automated-force-field-training]]",
+      "evidence": "line 22: - [[wiki/concepts/automated-force-field-training]]",
       "source": "wiki/concepts/double-exponential-potential",
       "target": "wiki/concepts/automated-force-field-training",
       "type": "wikilink"
@@ -14011,13 +14011,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 19: - [[wiki/concepts/garnet-force-field]]",
+      "evidence": "line 21: - [[wiki/concepts/garnet-force-field]]",
       "source": "wiki/concepts/double-exponential-potential",
       "target": "wiki/concepts/garnet-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 18: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch]]",
+      "evidence": "line 20: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch]]",
       "source": "wiki/concepts/double-exponential-potential",
       "target": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "type": "wikilink"
@@ -15199,7 +15199,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 20: - [[wiki/concepts/automated-force-field-training]]",
+      "evidence": "line 22: - [[wiki/concepts/automated-force-field-training]]",
       "source": "wiki/concepts/garnet-force-field",
       "target": "wiki/concepts/automated-force-field-training",
       "type": "wikilink"
@@ -15211,25 +15211,25 @@
       "type": "related"
     },
     {
-      "evidence": "line 21: - [[wiki/concepts/double-exponential-potential]]",
+      "evidence": "line 23: - [[wiki/concepts/double-exponential-potential]]",
       "source": "wiki/concepts/garnet-force-field",
       "target": "wiki/concepts/double-exponential-potential",
       "type": "wikilink"
     },
     {
-      "evidence": "line 22: - [[wiki/questions/garnet-validation-scope]]",
+      "evidence": "line 24: - [[wiki/questions/garnet-validation-scope]]",
       "source": "wiki/concepts/garnet-force-field",
       "target": "wiki/questions/garnet-validation-scope",
       "type": "wikilink"
     },
     {
-      "evidence": "line 19: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch]]",
+      "evidence": "line 21: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch]]",
       "source": "wiki/concepts/garnet-force-field",
       "target": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "type": "wikilink"
     },
     {
-      "evidence": "line 23: - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and]]",
+      "evidence": "line 25: - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and]]",
       "source": "wiki/concepts/garnet-force-field",
       "target": "wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and",
       "type": "wikilink"
@@ -21907,19 +21907,25 @@
       "type": "related"
     },
     {
-      "evidence": "line 61: - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]]",
+      "evidence": "line 22: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|SRC-0016]]",
+      "source": "wiki/dashboards/source-citation-links",
+      "target": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 70: - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation",
       "type": "wikilink"
     },
     {
-      "evidence": "line 44: - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] -> [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|SRC-0007]]",
+      "evidence": "line 53: - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] -> [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|SRC-0007]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0005-times-square-sampling-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 47: - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
+      "evidence": "line 56: - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0006-times-square-sampling-supplement",
       "type": "wikilink"
@@ -21949,25 +21955,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 29: - [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
+      "evidence": "line 38: - [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0012-mbar-configuration-mapping",
       "type": "wikilink"
     },
     {
-      "evidence": "line 24: - [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] -> [[wiki/sources/SRC-0008-awh-free-energy-landscapes|SRC-0008]]",
+      "evidence": "line 33: - [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] -> [[wiki/sources/SRC-0008-awh-free-energy-landscapes|SRC-0008]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0013-ladybugs-lambda-dynamics",
       "type": "wikilink"
     },
     {
-      "evidence": "line 26: - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
+      "evidence": "line 35: - [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|Lipid Force Field SAXS Reparameterization]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization",
       "type": "wikilink"
     },
     {
-      "evidence": "line 22: - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
+      "evidence": "line 22: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|SRC-0016]]",
+      "source": "wiki/dashboards/source-citation-links",
+      "target": "wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 23: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|SRC-0021]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data",
       "type": "wikilink"
@@ -21979,45 +21991,51 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 22: - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
+      "evidence": "line 25: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach",
       "type": "wikilink"
     },
     {
-      "evidence": "line 32: - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
+      "evidence": "line 41: - [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|OPC Water Model]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0027-building-water-models-different-approach-opc",
       "type": "wikilink"
     },
     {
-      "evidence": "line 48: - [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
+      "evidence": "line 57: - [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0037-transferable-boltzmann-generators",
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]]",
+      "evidence": "line 81: - [[wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts|Mixture-of-Experts Overview]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0038-practical-and-theoretical-aspects-of-mixture-of-experts",
       "type": "wikilink"
     },
     {
-      "evidence": "line 42: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
+      "evidence": "line 51: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large",
       "type": "wikilink"
     },
     {
-      "evidence": "line 42: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
+      "evidence": "line 51: - [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|Scalable Boltzmann Generators]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body",
       "type": "wikilink"
     },
     {
-      "evidence": "line 27: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
+      "evidence": "line 36: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "line 26: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|SRC-0043]]",
+      "source": "wiki/dashboards/source-citation-links",
+      "target": "wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation",
       "type": "wikilink"
     },
     {
@@ -22027,31 +22045,31 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 33: - [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
+      "evidence": "line 42: - [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy",
       "type": "wikilink"
     },
     {
-      "evidence": "line 34: - [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|OpenFE RBFE Benchmark]] -> [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]",
+      "evidence": "line 28: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein",
       "type": "wikilink"
     },
     {
-      "evidence": "line 67: - [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]]",
+      "evidence": "line 76: - [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using",
       "type": "wikilink"
     },
     {
-      "evidence": "line 69: - [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]]",
+      "evidence": "line 78: - [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for",
       "type": "wikilink"
     },
     {
-      "evidence": "line 65: - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]",
+      "evidence": "line 74: - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space",
       "type": "wikilink"
@@ -22063,7 +22081,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 70: - [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]]",
+      "evidence": "line 79: - [[wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics|MD Pressure Tensor Calculation]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0051-a-general-pressure-tensor-calculation-for-molecular-dynamics",
       "type": "wikilink"
@@ -22075,7 +22093,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 75: - [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]]",
+      "evidence": "line 84: - [[wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a|OpenMM GPU Nonbonded Interactions]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0053-efficient-nonbonded-interactions-for-molecular-dynamics-on-a",
       "type": "wikilink"
@@ -22087,97 +22105,97 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 51: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] -> [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|SRC-0056]]",
+      "evidence": "line 60: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] -> [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|SRC-0056]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 51: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] -> [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|SRC-0056]]",
+      "evidence": "line 60: - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]] -> [[wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations|SRC-0056]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0056-rna-structural-dynamics-as-captured-by-molecular-simulations",
       "type": "wikilink"
     },
     {
-      "evidence": "line 38: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] -> [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|SRC-0057]]",
+      "evidence": "line 47: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] -> [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|SRC-0057]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules",
       "type": "wikilink"
     },
     {
-      "evidence": "line 38: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] -> [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|SRC-0057]]",
+      "evidence": "line 47: - [[wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven|Overlay Databank Supplement]] -> [[wiki/sources/SRC-0057-overlay-databank-unlocks-data-driven-analyses-of-biomolecules|SRC-0057]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0058-supplementary-information-for-overlay-databank-unlocks-data-driven",
       "type": "wikilink"
     },
     {
-      "evidence": "line 43: - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
+      "evidence": "line 52: - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential",
       "type": "wikilink"
     },
     {
-      "evidence": "line 49: - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
+      "evidence": "line 58: - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model",
       "type": "wikilink"
     },
     {
-      "evidence": "line 35: - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|OpenFE RBFE Benchmark Journal Version]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]",
+      "evidence": "line 29: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|SRC-0061]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version",
       "type": "wikilink"
     },
     {
-      "evidence": "line 37: - [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] -> [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]",
+      "evidence": "line 46: - [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|OpenFE RBFE Benchmark Supporting Information]] -> [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information",
       "type": "wikilink"
     },
     {
-      "evidence": "line 30: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] -> [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|SRC-0063]]",
+      "evidence": "line 39: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] -> [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|SRC-0063]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease",
       "type": "wikilink"
     },
     {
-      "evidence": "line 30: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] -> [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|SRC-0063]]",
+      "evidence": "line 39: - [[wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly|Neuronal Templated Tau Assembly Manuscript]] -> [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|SRC-0063]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly",
       "type": "wikilink"
     },
     {
-      "evidence": "line 27: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
+      "evidence": "line 36: - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities",
       "type": "wikilink"
     },
     {
-      "evidence": "line 39: - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
+      "evidence": "line 48: - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] -> [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps",
       "type": "wikilink"
     },
     {
-      "evidence": "line 41: - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] -> [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
+      "evidence": "line 50: - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]] -> [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design",
       "type": "wikilink"
     },
     {
-      "evidence": "line 79: - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]",
+      "evidence": "line 88: - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0069-segment-anything",
       "type": "wikilink"
     },
     {
-      "evidence": "line 23: - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] -> [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
+      "evidence": "line 32: - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] -> [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability",
       "type": "wikilink"
     },
     {
-      "evidence": "line 23: - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] -> [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
+      "evidence": "line 32: - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] -> [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains",
       "type": "wikilink"
@@ -22201,25 +22219,25 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 62: - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]]",
+      "evidence": "line 71: - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of",
       "type": "wikilink"
     },
     {
-      "evidence": "line 78: - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]",
+      "evidence": "line 87: - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0076-9901032v1",
       "type": "wikilink"
     },
     {
-      "evidence": "line 59: - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]",
+      "evidence": "line 68: - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development",
       "type": "wikilink"
     },
     {
-      "evidence": "line 76: - [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]]",
+      "evidence": "line 85: - [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]]",
       "source": "wiki/dashboards/source-citation-links",
       "target": "wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and",
       "type": "wikilink"
@@ -25099,7 +25117,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 72: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Paper on Garnet, a graph-neural-network force field trained from scratch.",
+      "evidence": "line 72: - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Revised manuscript on Garnet, including added dipole and condensed-phase validation.",
       "source": "wiki/index",
       "target": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "type": "wikilink"
@@ -28081,7 +28099,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 33: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment]]",
+      "evidence": "line 35: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment]]",
       "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "target": "wiki/claims/CLM-0002-garnet-automates-parameter-assignment",
       "type": "wikilink"
@@ -28093,13 +28111,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 29: - [[wiki/concepts/automated-force-field-training]]",
+      "evidence": "line 31: - [[wiki/concepts/automated-force-field-training]]",
       "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "target": "wiki/concepts/automated-force-field-training",
       "type": "wikilink"
     },
     {
-      "evidence": "line 30: - [[wiki/concepts/double-exponential-potential]]",
+      "evidence": "line 32: - [[wiki/concepts/double-exponential-potential]]",
       "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "target": "wiki/concepts/double-exponential-potential",
       "type": "wikilink"
@@ -28111,13 +28129,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 28: - [[wiki/concepts/garnet-force-field]]",
+      "evidence": "line 30: - [[wiki/concepts/garnet-force-field]]",
       "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "target": "wiki/concepts/garnet-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 31: - [[wiki/concepts/relative-binding-free-energy-benchmarking]]",
+      "evidence": "line 33: - [[wiki/concepts/relative-binding-free-energy-benchmarking]]",
       "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "target": "wiki/concepts/relative-binding-free-energy-benchmarking",
       "type": "wikilink"
@@ -28129,9 +28147,117 @@
       "type": "related"
     },
     {
-      "evidence": "line 32: - [[wiki/questions/garnet-validation-scope]]",
+      "evidence": "line 34: - [[wiki/questions/garnet-validation-scope]]",
       "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "target": "wiki/questions/garnet-validation-scope",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 56: - [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]] and [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data]] - cited for fitting force fields to experimental free-energy data. [SRC-0003, refs. 66--67]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 56: - [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]] and [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data]] - cited for fitting force fields to experimental free-energy data. [SRC-0003, refs. 66--67]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 57: - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]] - cited as a possible improvement to ensemble-reweighting accuracy. [SRC-0003, ref. 68]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 55: - [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach]] - cited for automated, reproducible force-field construction. [SRC-0003, ref. 26]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 58: - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation]] - cited for protein force-field benchmark data. [SRC-0003, ref. 75]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 54: - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and]] - cited as a central quantum-chemical training dataset. [SRC-0003, ref. 40]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 59: - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein]] - cited as the FEP+ comparison used in the RBFE assessment. [SRC-0003, ref. 56]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 53: - [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version]] - cited as the public OpenFE RBFE benchmark. [SRC-0003, ref. 15]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version",
+      "type": "wikilink"
+    },
+    {
+      "evidence": "frontmatter:cites_sources",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large",
+      "type": "cites_source"
+    },
+    {
+      "evidence": "line 52: - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large]] - cited as the Espaloma-0.3 force-field study. [SRC-0003, ref. 16]",
+      "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
+      "target": "wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large",
       "type": "wikilink"
     },
     {
@@ -28141,7 +28267,7 @@
       "type": "related"
     },
     {
-      "evidence": "line 34: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps]]",
+      "evidence": "line 36: - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps]]",
       "source": "wiki/sources/SRC-0003-training-a-force-field-from-scratch",
       "target": "wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps",
       "type": "wikilink"
@@ -38137,7 +38263,7 @@
       "type": "source_ref"
     },
     {
-      "evidence": "line 23: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment]]",
+      "evidence": "line 24: - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment]]",
       "source": "wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps",
       "target": "wiki/claims/CLM-0002-garnet-automates-parameter-assignment",
       "type": "wikilink"
@@ -38149,13 +38275,13 @@
       "type": "related"
     },
     {
-      "evidence": "line 25: - [[wiki/concepts/garnet-force-field]]",
+      "evidence": "line 26: - [[wiki/concepts/garnet-force-field]]",
       "source": "wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps",
       "target": "wiki/concepts/garnet-force-field",
       "type": "wikilink"
     },
     {
-      "evidence": "line 24: - [[wiki/questions/garnet-validation-scope]]",
+      "evidence": "line 25: - [[wiki/questions/garnet-validation-scope]]",
       "source": "wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps",
       "target": "wiki/questions/garnet-validation-scope",
       "type": "wikilink"

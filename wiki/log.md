@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-02
+updated: 2026-09-07
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -113,3 +113,4 @@ graph_exclude: true
 - 2026-09-03: Recorded higher-KL prospective dielectric run `20260902-115818`: six consecutive updates reduced paired loss on fresh archives, checkpoint-0 to checkpoint-6 loss fell 50.90%, all target temperatures improved, damped directions and replay support passed throughout, and exact empirical archive KL controlled aligned proposal chains. Added a scoped positive claim and updated the trainability, KL, sampling-budget, checkpoint-state, implementation-status, route-plan, and signal-versus-support pages. The live run was intentionally stopped during epoch 8 after sufficient evidence; checkpoint 7 remains fresh-unassessed.
 - 2026-09-03: Imported and ingested SRC-0078, a bioRxiv preprint on osmometry-guided optimization of charged residue and ion interactions, adding math-standard coverage of the virtual-wall estimator and kinetic convergence analysis, a reusable osmometry concept, two transfer-validation claims, and an open protein–nucleic-acid extension question.
 - 2026-09-04: Recorded aggressive density-only run `20260904-102939`: two fresh-confirmed macro-updates reduced loss by about 86%, empirical archive KL 0.3006 and 0.3803 remained support-valid, an absolute ESS gate rejected a later proposal despite passing relative retention, and the separated checkpoint state model preserved and validated an improved checkpoint when its next damped direction was unresolved. Contrasted this with run `20260903-220645`, whose archive-KL-0.3030 update lacked supported fresh paired evaluation, ruling out a universal scalar KL boundary in either direction.
+- 2026-09-07: Replaced the superseded 38-page arXiv v1 copy of SRC-0003 with the 44-page revised Garnet manuscript, retained the stable source ID and raw path, updated provenance and citation links, and incorporated the added dipole and small-molecule condensed-phase validation into linked concept, claim, question, and tension pages.
