@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-07
+updated: 2026-09-11
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -49,6 +49,12 @@ Use this page as the main navigation point for reviewed wiki content.
 - [[wiki/dashboards/tensions]] - Durable tension pages.
 
 ## Answers
+
+All nine Garnet presentation Blender animations now share the off-white background and adjusted typography/plot contrast; checks and backups are recorded in [[wiki/answers/garnet-structural-studies-presentation-plan]].
+
+The Garnet presentation animation now includes the matching complete-molecule-to-hydrogen-free opening in both atom-typing examples; see [[wiki/answers/garnet-structural-studies-presentation-plan]].
+
+- [[wiki/answers/garnet-structural-studies-presentation-plan]] - Structural Studies, 17 September 2026: 20 minutes plus questions; 10 September animation handoff and 11 September discrete atom-typing counterpart to O8 message passing (20 seconds, illustrative categories, off-white background, editable Blender file and preview). Includes confirmed HN/Hα coupling and TYK2/5 ns/default-OpenFE provenance; PowerPoint/projector testing remains.
 
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]] - Aggressive density-only positive control showing two fresh-confirmed updates, successful archive KL up to 0.3803, complementary KL/ESS gates, and separation of checkpoint validity from next-direction readiness.
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - Canonical account of two prospective dielectric-only damped-Fisher campaigns, including six consecutive fresh-confirmed updates in the higher-KL run, KL/support diagnostics, limitations, and checkpoint-state lessons.

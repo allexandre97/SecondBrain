@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-07
+updated: 2026-09-11
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -15,6 +15,10 @@ encryption: none
 graph_exclude: true
 ---
 # Wiki Log
+
+- 2026-09-11: Unified backgrounds across nine presentation Blender files to #F7F5F2; improved free-text, equation and plot contrast while preserving timeline/animation data. Recorded backups, representative renders, existing MolecularNodes sidecar warnings and unchanged movie exports in the presentation answer/index.
+
+- 2026-09-11: Matched the discrete-typing opening to the supplied message-passing Blender reference, copying exact molecular/camera actions and verifying all 341 opening frames; preserved the earlier discrete file and retained its 20-second duration.
 
 - 2026-06-29: Initialized the LLM wiki scaffold.
 - 2026-06-29: Ingested SRC-0001, created source summary and core concept pages for the LLM wiki pattern.
@@ -118,3 +122,51 @@ graph_exclude: true
 =======
 - 2026-09-03: Imported and ingested SRC-0079–SRC-0085 as the `nationwide-current-accounts` source bundle, a seven-document Nationwide Building Society current-account set (umbrella terms, FlexDirect product terms, FlexDirect cashback offer terms, Current Account Switch Service, Internet Banking terms, account guide, and FSCS depositor protection). Added the `personal` top-level root and `personal/finance/banking` category, a bundle hub concept, and public sensitivity per user confirmation.
 >>>>>>> 1d1eecddb9e7a1c031595e8506efd36b56f8659f
+
+- 2026-09-07: Reflected the Garnet Structural Studies presentation route plan in a linked preparation note; recorded the working artifact, scientific source locators, pending talk constraints and remaining deliverables.
+
+- 2026-09-07: Updated [[wiki/answers/garnet-structural-studies-presentation-plan]] and its index entry with user-confirmed colloquium constraints: 17 September, 20 minutes plus questions, no slide limit or template, 19:9 projector format, final title and abstract, and FFRefine reserved for possible inclusion in the later internal symposium. Reflected changes to the presentation project brief, route plan and AGENTS.md.
+
+- 2026-09-07: Reflected user editorial direction in [[wiki/answers/garnet-structural-studies-presentation-plan]] and its index entry: purposeful Morph transitions, classical Garnet positioning and sourced model alternatives, torsion/J-coupling explanation, and original-study citations. Working details and comparison references are in the presentation project route_plan.md; no new sources ingested.
+
+- 2026-09-07: Corrected the Garnet presentation aspect ratio to 16:9 in the preparation note and index, matching the project documents. The user confirmed that the earlier 19:9 specification was a typo.
+
+- 2026-09-07: Reflected the Garnet presentation backbone and assets in [[wiki/answers/garnet-structural-studies-presentation-plan]] and the index: 15 timed core records, three backups, master storyboard, reference ledger, figure manifest, original PDFs and inspected figure crops. Recorded the backup-only ranking-threshold ambiguity; no new wiki sources ingested or raw material modified.
+
+- 2026-09-07: Reflected review of user-edited Garnet slides and the complete PowerPoint add-in handoff in [[wiki/answers/garnet-structural-studies-presentation-plan]] and index. Recorded consolidated brief, nine images, prompt, archive, scientific qualifications and media placeholders. No new source ingestion or deck upload.
+
+- 2026-09-08: Reflected the supplied Garnet presentation first-deck review and molecular-media storyboard in the existing presentation answer and index. Recorded visual revisions, pending caffeine/aspirin choice and protein-movie provenance; preserved the original deck and raw wiki sources.
+
+- 2026-09-08: Recorded user confirmation of caffeine and Garnet protein movies (600 trajectory frames spanning 300 ns each), updated the presentation answer/index and reflected the second revision handoff bundle and local slide/media records.
+
+- 2026-09-08: Reflected the unchanged-deck review, deferred video insertion and new alanine-dipeptide torsion asset in the presentation answer/index; linked local molecular-visual revision and recorded pending quartet identification.
+
+- 2026-09-08: Corrected presentation review after the user supplied the revised deck and report_summary.txt.txt; distinguished earlier unchanged-file finding from the new revision and recorded targeted visual findings.
+
+- 2026-09-09: Reflected the Blender caffeine animation prompt and verified O8 neighbourhood in the presentation answer/index; no scene edits or new source ingestion.
+
+- 2026-09-09: Recorded the delivered editable caffeine message-passing Blender master v3, build script, inspected stage/arrival stills and 24-second lightweight preview in the presentation answer/index. Preserved prior scenes; full-quality rendering and projector playback remain outstanding. No new source ingestion.
+
+- 2026-09-09: Recorded Blender master v4, enlarging O/C/N element labels and adding white fill with black outlines at the user's request; refreshed stills and preview, preserving v3.
+
+- 2026-09-09: Recorded Blender master v5 with brighter parameter-card lettering and darker card backgrounds at the user's request; refreshed the parameter still and affected preview frames, preserving v4.
+
+- 2026-09-09: Recorded Blender master v6: a specific C7–O8 bond's two endpoint embeddings enter learned mixing and produce a bond embedding before parameter assignment. Extended the preview to 30 seconds for readable holds; checked the pooling explanation against SRC-0003 Methods. Preserved v5.
+
+- 2026-09-09: Recorded Blender master v7, adding an arrowhead from Parameter assignment to Atom interactions at the user's request; refreshed stills and preview, preserving v6.
+
+- 2026-09-09: Recorded Blender master v8 with consistent individual-atom origin colours across initial descriptions, message rounds and bond-embedding copies/output. Checked rendered stages and sender/copy colour matches; refreshed preview and preserved v7.
+
+- 2026-09-09: Recorded Blender master v9 with increased embedding-colour saturation for projector visibility; refreshed stills and preview, preserving v8. Actual projector playback remains untested.
+
+- 2026-09-09: Recorded Blender master v10: thicker C7–O8 highlight with a saturated cyan-to-amber endpoint gradient and two coordinated stroke/ring pulses. Checked peak/rest frames and animation keys; preserved v9. Full-quality animation rendering and actual projector playback remain outstanding.
+
+- 2026-09-09: Final timing review produced v11 (31 seconds): bond pulses finish before endpoint-copy motion begins; later bonded beats move one second later, retaining the final reading hold. Updated preview and stills; preserved v10.
+
+- 2026-09-09: Delivered caffeine force-field animation v08: 30 seconds, editable MolecularNodes geometry and signed live response curves; verified selections, deformation invariants and representative rendered frames. Added full-resolution stills, lightweight preview, build script and README. Preserved earlier versions and embedding master; full-quality animation render deferred.
+
+- 2026-09-09: Amplified force-field animation bond/angle motion to ±16%/±20° in v09; preserved timing and synchronization. No renders or checks, per user request.
+
+- 2026-09-10: Reflected the new animation integration handoff ZIP and review in the presentation answer/index: supplied 18-slide deck unchanged, nine decoded movies, 19 verified original stills, energy-curve correction, O8 sequence, user-confirmed HN/Hα and TYK2/5 ns/default-OpenFE provenance, and PowerPoint playback/static-export checks for the next editor. No new source ingestion.
+
+- 2026-09-11: Recorded the 20-second caffeine discrete atom-typing animation, requested Blender delivery path, preserved source snapshot, illustrative O8/C7 category-to-parameter lookups, exact #F7F5F2 background, editable builder, stills and preview. Updated presentation answer/index; checked 24 atoms, 25 bonds, lookup timing and sampled text bounds. Wiki validation retains the pre-existing missing-frontmatter failure in `wiki/answers/garnet-nonbonded-contact-cleanup.md`; no source ingestion or unrelated repairs.
