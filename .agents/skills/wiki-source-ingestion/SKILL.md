@@ -2,7 +2,7 @@
 
 name: wiki-source-ingestion
 description: Import and ingest source files into the SecondBrain wiki, including source bundles, scientific and math-heavy material, provenance, retrieval QA, and ingestion validation.
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Wiki Source Ingestion
 

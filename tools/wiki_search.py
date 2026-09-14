@@ -15,7 +15,7 @@ from typing import Any, Iterable
 from wiki_markdown import as_list, parse_frontmatter
 
 
-SCHEMA_VERSION = "1"
+SCHEMA_VERSION = "2"
 INDEX_DIRNAME = ".cache"
 INDEX_NAME = "wiki-search.sqlite3"
 GENERATED_INDEX_NAME = "wiki-search-generated.sqlite3"
@@ -72,9 +72,28 @@ def wiki_files(root: Path) -> list[Path]:
     return sorted(paths, key=lambda path: path.relative_to(root).as_posix())
 
 
-def corpus_manifest(root: Path) -> list[tuple[str, int, int]]:
+def _path_is_generated(path: Path) -> bool:
+    """Read only a page's frontmatter when classifying its corpus membership."""
+    frontmatter_lines: list[str] = []
+    with path.open(encoding="utf-8", errors="replace") as file:
+        first = file.readline()
+        if first.strip() != "---":
+            return False
+        frontmatter_lines.append(first)
+        for line in file:
+            frontmatter_lines.append(line)
+            if line.strip() == "---":
+                frontmatter, _body = parse_frontmatter("".join(frontmatter_lines))
+                return _is_generated(frontmatter)
+    return False
+
+
+def corpus_manifest(root: Path, include_generated: bool = False) -> list[tuple[str, int, int]]:
+    """Describe the files actually indexed for the selected generated-page policy."""
     manifest = []
     for path in wiki_files(root):
+        if not include_generated and _path_is_generated(path):
+            continue
         stat = path.stat()
         manifest.append((path.relative_to(root).as_posix(), stat.st_size, stat.st_mtime_ns))
     return manifest
@@ -223,7 +242,7 @@ def _create_schema(connection: sqlite3.Connection) -> None:
 def build_index(root: Path, include_generated: bool = False) -> Path:
     ensure_fts5()
     root = root.resolve()
-    manifest = corpus_manifest(root)
+    manifest = corpus_manifest(root, include_generated)
     destination = index_path(root, include_generated)
     destination.parent.mkdir(parents=True, exist_ok=True)
     file_descriptor, temporary_name = tempfile.mkstemp(
@@ -362,7 +381,11 @@ def index_is_stale(root: Path, include_generated: bool = False) -> bool:
     except sqlite3.Error:
         return True
     expected_mode = "1" if include_generated else "0"
-    return schema != (SCHEMA_VERSION,) or mode != (expected_mode,) or stored != corpus_manifest(root)
+    return (
+        schema != (SCHEMA_VERSION,)
+        or mode != (expected_mode,)
+        or stored != corpus_manifest(root, include_generated)
+    )
 
 
 def ensure_index(root: Path, include_generated: bool = False, rebuild: bool = False) -> Path:

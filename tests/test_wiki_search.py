@@ -236,6 +236,65 @@ uniquenavigationtoken
             wiki_search.index_path(self.root), wiki_search.index_path(self.root, True)
         )
 
+    def test_generated_only_content_change_does_not_stale_default_index(self) -> None:
+        default_database = wiki_search.ensure_index(self.root)
+        generated_database = wiki_search.ensure_index(self.root, include_generated=True)
+        default_mtime = default_database.stat().st_mtime_ns
+        generated_mtime = generated_database.stat().st_mtime_ns
+
+        self.write(
+            "wiki/concepts/generated.md",
+            """---
+type: concept
+generated: true
+---
+# Changed Generated Navigation
+
+changednavigationtoken with additional generated content
+""",
+        )
+
+        self.assertFalse(wiki_search.index_is_stale(self.root))
+        self.assertTrue(wiki_search.index_is_stale(self.root, include_generated=True))
+        wiki_search.ensure_index(self.root)
+        self.assertEqual(default_database.stat().st_mtime_ns, default_mtime)
+        self.assertEqual(generated_database.stat().st_mtime_ns, generated_mtime)
+        self.assertFalse(self.search("changednavigationtoken").results)
+        self.assertTrue(
+            self.search("changednavigationtoken", include_generated=True).results
+        )
+
+    def test_generated_page_becoming_handwritten_stales_default_index(self) -> None:
+        wiki_search.ensure_index(self.root)
+        self.write(
+            "wiki/concepts/generated.md",
+            """---
+type: concept
+---
+# Formerly Generated Page
+
+newlyindexedtoken
+""",
+        )
+        self.assertTrue(wiki_search.index_is_stale(self.root))
+        result = self.search("newlyindexedtoken").results[0]
+        self.assertEqual(result["path"], "wiki/concepts/generated.md")
+
+    def test_handwritten_page_becoming_generated_stales_default_index(self) -> None:
+        wiki_search.ensure_index(self.root)
+        self.write(
+            "wiki/plain.md",
+            """---
+generated: true
+---
+# Plain Page
+
+missingmetadata token
+""",
+        )
+        self.assertTrue(wiki_search.index_is_stale(self.root))
+        self.assertFalse(self.search("missingmetadata").results)
+
     def test_missing_and_malformed_frontmatter_are_safe(self) -> None:
         self.assertEqual(self.search("missingmetadata").results[0]["path"], "wiki/plain.md")
         self.assertEqual(self.search("malformedtoken").results[0]["path"], "wiki/malformed.md")
