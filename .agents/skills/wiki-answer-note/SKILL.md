@@ -17,10 +17,10 @@ Use this skill for prompts such as `Answer in the wiki: <question>` or `Write a 
 
 ## Answer-note workflow
 
-1. Start from `wiki/index.md`.
-2. Search relevant wiki pages.
-3. Identify likely starting pages from search results, index entries, categories, and source IDs.
-4. For non-trivial questions, run or consult graph-neighborhood information where useful, for example `python3 tools/query_graph.py --start <page> --depth <depth>`. Decide the depth of the search based on the complexity of the question.
+1. Run `python3 tools/search_wiki.py <query>` for deterministic first-pass retrieval unless the exact target path is already known.
+2. Inspect only the strongest relevant sections and pages; use `wiki/index.md` for orientation when useful rather than as the required topical entry point.
+3. Identify likely starting pages from search results, categories, and source IDs. Use only targeted `grep`, `find`, or direct reads after narrowing the scope.
+4. For non-trivial questions, run or consult graph-neighborhood information afterwards when useful, for example `python3 tools/query_graph.py --start <page> --depth <depth>`. Decide the depth based on the complexity of the question. Search scores indicate lexical relevance, not evidence quality or confidence.
 5. Use the graph neighborhood to choose which related sources, concepts, claims, questions, tensions, categories, authors, and source bundles to read before asking the LLM to synthesize.
 6. Do not require graph traversal for trivial questions where the starting page and answer are already obvious.
 7. Identify whether the wiki already answers the question.

@@ -57,6 +57,10 @@ Ingest this folder as one source bundle: /path/to/project_docs/
 
 When metadata is absent, infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile from filenames, document metadata, headings, source content, repository context, and user wording. Use the category registry before adding new category paths. Record meaningful uncertainty in the source page instead of forcing the user to specify everything upfront. Ask for clarification only when ambiguity blocks safe ingestion, such as unclear sensitivity for private material, unclear bundle boundaries, conflicting source roles, or a taxonomy decision that would create a new top-level branch.
 
+## Knowledge retrieval workflow
+
+For topical retrieval, run `python3 tools/search_wiki.py <query>` before broad wiki scanning, inspect only the strongest sections/pages, and then use `tools/query_graph.py` if relationship traversal would help. Skip lexical search when the exact path is already known. Targeted file search remains appropriate after candidate selection. Search scores express lexical relevance only, not truth, confidence, evidence strength, or source quality. Consult raw sources only as required by provenance and source-verification workflows.
+
 ## Answer-note workflow
 
 Use `.agents/skills/wiki-answer-note/SKILL.md` for persistent answer notes, targeted source lookup, and durable wiki updates before or alongside answer notes.

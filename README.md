@@ -84,16 +84,27 @@ python3 tools/build_concept_indexes.py
 
 This writes concept views under `wiki/dashboards/`, including category, method, biomolecule, source-cluster, and high-connectivity concept dashboards.
 
-## Search
+## Deterministic Wiki Search
 
-Use the local plain-text search helper to find compact snippets from Markdown files under `wiki/`:
+Use search as the cheap first pass for locating topical wiki content before opening pages or traversing the knowledge graph:
 
 ```sh
-python3 tools/search_wiki.py wiki
-python3 tools/search_wiki.py source ingestion
+python3 tools/search_wiki.py "force field optimization"
+python3 tools/search_wiki.py "free energy" --type concept --limit 5
+python3 tools/search_wiki.py "Garnet experimental observables" --json --limit 5
 ```
 
-The search is case-insensitive, recursive, and uses only the Python standard library.
+The tool uses Python's SQLite FTS5 and built-in BM25 ranking. It indexes each Markdown page under `wiki/` as logical heading-based sections, including page/display/short titles, aliases, headings, body text, categories, tags, areas, and source IDs. Ordinary queries are safely tokenized and use AND matching first, then deterministic OR fallback only if AND returns no filtered results. Shell quoting only groups arguments; it does not request raw FTS syntax.
+
+Supported filters are exact `--type`, `--category`, `--status`, `--source`, and `--tag`; `--path` performs an ASCII-case-insensitive repository-relative substring match. `--json` emits JSON only. Results are capped at two sections per page. The displayed `score` is `-bm25(...)`, so higher is better. Fixed FTS column weights are title/display/short title `12`, aliases `8`, section hierarchy `6`, categories/tags/areas/source IDs `3`, and body `1`.
+
+Pages marked `generated: true` are excluded by default. `--include-generated` uses a separate index containing them. Regenerable databases live in `.cache/wiki-search.sqlite3` and `.cache/wiki-search-generated.sqlite3`; a sorted path/size/high-resolution-mtime manifest triggers a full rebuild when the Markdown corpus changes. Force a rebuild with:
+
+```sh
+python3 tools/search_wiki.py --rebuild
+```
+
+Search is lexical retrieval, not semantic inference: ranking does not express truth, confidence, evidence strength, or source quality. Use `tools/query_graph.py` separately after selecting candidate pages when relationships matter, and verify sources according to the provenance workflow. Limitations include exact-token rather than fuzzy/semantic matching, simple frontmatter parsing, and heading-based rather than full CommonMark parsing. SQLite FTS5 support is required; there is no degraded fallback.
 
 ## Knowledge Graph
 

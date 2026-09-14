@@ -17,6 +17,7 @@ Avoid placing generated caches, dependency folders, or local environment artifac
 Run wiki tooling from the repository root:
 
 - `python3 tools/validate_wiki.py` to validate required structure, frontmatter, and Obsidian wikilinks.
+- `python3 tools/search_wiki.py <query>` for deterministic first-pass topical retrieval.
 - `python3 tools/suggest_categories.py` to report deterministic category suggestions without applying them.
 - `python3 tools/audit_categories.py` to inspect category drift.
 - `python3 tools/build_category_indexes.py` to regenerate category and dashboard navigation pages.
@@ -181,13 +182,15 @@ Do not perform a broad refactor during ingestion unless requested.
 
 ## Query workflow
 
-When answering a question using the wiki:
+When retrieving topical knowledge from the wiki:
 
-1. Read `wiki/index.md` first.
-2. Read only the most relevant pages.
-3. Answer from the wiki where possible.
-4. Identify gaps where the wiki is silent or uncertain.
-5. If the answer creates a useful synthesis, propose a page to add or update.
+1. Run `python3 tools/search_wiki.py <query>` first unless the exact target path is already known.
+2. Inspect and read only the strongest relevant sections/pages.
+3. Use `tools/query_graph.py` afterwards when relationship traversal would help.
+4. Answer from the wiki where possible, then consult raw sources only when provenance or missing detail requires it.
+5. Identify gaps and propose a durable page update when the answer creates reusable synthesis.
+
+Do not broadly grep or scan `wiki/` when deterministic search can identify candidates first. Targeted `grep`, `find`, and direct reads remain appropriate after retrieval has narrowed the scope. `wiki/index.md` remains an orientation aid. Search scores rank lexical relevance, not truth, confidence, evidence strength, or source quality.
 
 Requests such as:
 
