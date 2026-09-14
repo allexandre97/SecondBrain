@@ -420,39 +420,101 @@ missingmetadata token
         corrected, _corrections = self.correct("lexneedlx")
         self.assertEqual(corrected, ["lexneedla"])
 
-    def test_automatic_fuzzy_fallback_only_runs_after_empty_lexical_search(self) -> None:
-        typo = self.search("reweigting")
-        self.assertEqual(typo.match_mode, "fuzzy-and")
+    def test_automatic_fuzzy_prefers_corrected_and_over_partial_original_or(self) -> None:
+        self.write(
+            "wiki/concepts/boltzmann-generator.md",
+            "# Boltzmann Generator\n\nA deterministic target page.\n",
+        )
+        with mock.patch.object(
+            wiki_search, "_run_query", wraps=wiki_search._run_query
+        ) as run_query:
+            response = self.search("Boltzman generator", rebuild=True)
+        self.assertTrue(response.fuzzy)
+        self.assertEqual(response.effective_query, "boltzmann generator")
+        self.assertEqual(response.match_mode, "fuzzy-and")
+        self.assertEqual(
+            [call.args[1] for call in run_query.call_args_list],
+            [
+                '"boltzman" AND "generator"',
+                '"boltzmann" AND "generator"',
+            ],
+        )
+
+    def test_successful_original_and_bypasses_fuzzy_logic(self) -> None:
         with mock.patch.object(
             wiki_search,
             "fuzzy_correct_tokens",
             side_effect=AssertionError("fuzzy fallback should not run"),
         ):
-            exact = self.search("reweighting")
+            exact = self.search("free energy")
         self.assertFalse(exact.fuzzy)
         self.assertEqual(exact.match_mode, "and")
 
-    def test_explicit_fuzzy_forces_correction_after_partial_lexical_match(self) -> None:
-        automatic = self.search("reweigthing overlapneedle")
-        self.assertFalse(automatic.fuzzy)
-        self.assertEqual(automatic.match_mode, "or")
-        forced = self.search("reweigthing overlapneedle", fuzzy=True)
-        self.assertTrue(forced.fuzzy)
-        self.assertEqual(forced.effective_query, "reweighting overlapneedle")
-        self.assertEqual(forced.match_mode, "fuzzy-and")
+    def test_original_or_runs_when_corrected_and_is_empty(self) -> None:
+        with mock.patch.object(
+            wiki_search, "_run_query", wraps=wiki_search._run_query
+        ) as run_query:
+            response = self.search("reweigting Garnet")
+        self.assertFalse(response.fuzzy)
+        self.assertEqual(response.effective_query, "reweigting Garnet")
+        self.assertEqual(response.match_mode, "or")
+        self.assertTrue(response.results)
+        self.assertEqual(
+            [call.args[1] for call in run_query.call_args_list],
+            [
+                '"reweigting" AND "garnet"',
+                '"reweighting" AND "garnet"',
+                '"reweigting" OR "garnet"',
+            ],
+        )
 
-    def test_corrected_query_uses_or_fallback_when_corrected_and_is_empty(self) -> None:
-        response = self.search("reweigting garnat")
+    def test_corrected_or_only_runs_after_original_or_is_empty(self) -> None:
+        with mock.patch.object(
+            wiki_search, "_run_query", wraps=wiki_search._run_query
+        ) as run_query:
+            response = self.search("reweigting garnat")
         self.assertTrue(response.fuzzy)
         self.assertEqual(response.effective_query, "reweighting garnet")
         self.assertEqual(response.match_mode, "fuzzy-or")
         self.assertTrue(response.results)
+        self.assertEqual(
+            [call.args[1] for call in run_query.call_args_list],
+            [
+                '"reweigting" AND "garnat"',
+                '"reweighting" AND "garnet"',
+                '"reweigting" OR "garnat"',
+                '"reweighting" OR "garnet"',
+            ],
+        )
 
-    def test_no_fuzzy_disables_automatic_fallback(self) -> None:
-        response = self.search("reweigting", fuzzy=False)
-        self.assertFalse(response.fuzzy)
-        self.assertEqual(response.effective_query, "reweigting")
-        self.assertFalse(response.results)
+    def test_explicit_and_disabled_fuzzy_search_sequences(self) -> None:
+        with mock.patch.object(
+            wiki_search, "_run_query", wraps=wiki_search._run_query
+        ) as run_query:
+            forced = self.search("reweigthing overlapneedle", fuzzy=True)
+        self.assertTrue(forced.fuzzy)
+        self.assertEqual(forced.effective_query, "reweighting overlapneedle")
+        self.assertEqual(forced.match_mode, "fuzzy-and")
+        self.assertEqual(
+            [call.args[1] for call in run_query.call_args_list],
+            ['"reweighting" AND "overlapneedle"'],
+        )
+
+        with mock.patch.object(
+            wiki_search, "_run_query", wraps=wiki_search._run_query
+        ) as run_query:
+            disabled = self.search("reweigthing overlapneedle", fuzzy=False)
+        self.assertFalse(disabled.fuzzy)
+        self.assertEqual(disabled.effective_query, "reweigthing overlapneedle")
+        self.assertEqual(disabled.match_mode, "or")
+        self.assertTrue(disabled.results)
+        self.assertEqual(
+            [call.args[1] for call in run_query.call_args_list],
+            [
+                '"reweigthing" AND "overlapneedle"',
+                '"reweigthing" OR "overlapneedle"',
+            ],
+        )
 
     def test_cli_fuzzy_and_no_fuzzy_modes(self) -> None:
         output = io.StringIO()

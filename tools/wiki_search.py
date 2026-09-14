@@ -722,25 +722,70 @@ def search(
             "tag": tag,
             "per_page": per_page,
         }
-        results, match_mode = _search_tokens(connection, tokens, options)
-        if fuzzy is False or (results and fuzzy is not True):
+        if fuzzy is True:
+            corrected_tokens, corrections = fuzzy_correct_tokens(connection, tokens)
+            search_tokens = corrected_tokens if corrections else tokens
+            results, match_mode = _search_tokens(
+                connection, search_tokens, options, fuzzy=bool(corrections)
+            )
+            effective_query = " ".join(corrected_tokens) if corrections else query
+            return SearchResponse(
+                query,
+                effective_query,
+                match_mode,
+                bool(corrections),
+                corrections,
+                results,
+            )
+
+        if fuzzy is False:
+            results, match_mode = _search_tokens(connection, tokens, options)
             return SearchResponse(query, query, match_mode, False, [], results)
+
+        results = _run_query(connection, fts_query(tokens, "and"), **options)
+        if results:
+            return SearchResponse(query, query, "and", False, [], results)
 
         corrected_tokens, corrections = fuzzy_correct_tokens(connection, tokens)
-        if not corrections:
-            return SearchResponse(query, query, match_mode, False, [], results)
+        if corrections:
+            results = _run_query(
+                connection, fts_query(corrected_tokens, "and"), **options
+            )
+            if results:
+                return SearchResponse(
+                    query,
+                    " ".join(corrected_tokens),
+                    "fuzzy-and",
+                    True,
+                    corrections,
+                    results,
+                )
 
-        results, match_mode = _search_tokens(
-            connection, corrected_tokens, options, fuzzy=True
-        )
-        return SearchResponse(
-            query,
-            " ".join(corrected_tokens),
-            match_mode,
-            True,
-            corrections,
-            results,
-        )
+        match_mode = "and"
+        if len(tokens) > 1:
+            results = _run_query(connection, fts_query(tokens, "or"), **options)
+            match_mode = "or"
+            if results:
+                return SearchResponse(query, query, match_mode, False, [], results)
+
+        if corrections:
+            if len(corrected_tokens) > 1:
+                results = _run_query(
+                    connection, fts_query(corrected_tokens, "or"), **options
+                )
+                match_mode = "fuzzy-or"
+            else:
+                match_mode = "fuzzy-and"
+            return SearchResponse(
+                query,
+                " ".join(corrected_tokens),
+                match_mode,
+                True,
+                corrections,
+                results,
+            )
+
+        return SearchResponse(query, query, match_mode, False, [], results)
     except sqlite3.Error as error:
         raise SearchError(f"search index query failed: {error}") from error
     finally:
