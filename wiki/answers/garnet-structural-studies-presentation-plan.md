@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-07
-updated: 2026-09-11
+updated: 2026-09-14
 areas:
   - research
 categories:
@@ -11,13 +11,44 @@ tags:
   - presentation
 related:
   - "[[wiki/sources/SRC-0003-training-a-force-field-from-scratch]]"
+  - "[[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large]]"
+  - "[[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force]]"
 sources:
   - SRC-0003
+  - SRC-0072
+  - SRC-0073
 sensitivity: internal
 encryption: none
 ---
 
 # Garnet Structural Studies presentation preparation
+
+## Rehearsal handoff and validated decisions — 14 September 2026
+
+The current revision artifact is `Documents/Garnet_Presentation/powerpoint_rehearsal_handoff_2026-09-14.zip` relative to the user home directory (SHA256 `2774c27fdfc08279e56d214dd975d4e61194dfabd3458bf1d63ae67a4e74c6cc`). Its authoritative baseline is `ss_coloquia_17-09-2026.pptx` (SHA256 `c40cb5881cfada2f16b0025c6baca4351e0b78dc754e89dda551ad30508d566c`), with 15 core slides and five backups. The presenter reported an approximately 18-minute rehearsal. The archive is referenced in place; no binary was copied into the wiki.
+
+Validated decisions for the next targeted deck revision:
+
+- Swap current S03 and S04 so model choice precedes the classical interaction terms; slides from current S05 onward retain their numbers.
+- Present model families as broad, overlapping regions in a qualitative trade-space, explicitly labelled schematic rather than as a measured universal Pareto frontier. Include ReaxFF as a bond-order reactive-force-field example, without implying that reactivity guarantees greater equilibrium-property accuracy. ReaxFF reference: van Duin et al., *J. Phys. Chem. A* 105, 9396–9409 (2001), DOI [10.1021/jp004368u](https://doi.org/10.1021/jp004368u).
+- State the Garnet–Espaloma training contrast narrowly: Garnet directly trained against experimental liquid enthalpies and GB3 NMR observables, whereas Espaloma-0.3's learned fit used quantum-chemical/computational targets rather than direct experimental-observable losses and retained OpenFF 2.0.0 Lennard-Jones parameters. [SRC-0003, Results “The Garnet force field” and Methods “Neural network training”] [SRC-0072] [SRC-0073] There is no reported ablation establishing experimental fitting as the main cause of Garnet's van der Waals or water performance; present it as an enabling difference, not a proved causal ranking. [SRC-0003]
+- Use Supplementary Figure 8 to complement, not replace, Figure 6A: the scatter plots make target-specific agreement intuitive but show Garnet only, so they cannot preserve the default-OpenFE/FEP+ comparison context. [SRC-0003, Figure 6A and Supplementary Figure 8]
+- Do not apply the requested S06 “legacy” replacement literally: `legacy` is absent from current S06. The likely intended edit is current S07's water phrase, replacing “no attached legacy water force field” with “no separately attached independent water model.” Do not globally replace the word.
+
+Provenance for deck state, ordering, timing and wording is the artifact's `README.md`, `CURRENT_STATE.md`, and `DECISIONS_AND_VALIDATION.md`, inspected directly inside the ZIP on 14 September 2026. Scientific training and figure statements are linked above to [[wiki/sources/SRC-0003-training-a-force-field-from-scratch]], [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large]], and [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force]]. This artifact is a revision handoff, not a completed revision: Microsoft 365 playback, final PDF export and projector testing remain unverified.
+
+## RBFE side-by-side trajectory assets — 12 September 2026
+
+The source `/ssd/Blender/Garnet_Presentation/free_energy.blend` was left unchanged. Two derived Blender files and their corresponding `.MNSession` sidecars were created:
+
+- `/ssd/Blender/Garnet_Presentation/free_energy_panorama.blend` freezes the source frame-0 wide camera and light state at 35 mm, retains all 11 walkers, and keeps every walker visible throughout.
+- `/ssd/Blender/Garnet_Presentation/free_energy_binding_pocket.blend` freezes the close-up camera and light state established at source frame 704 and still present at frame 1004, at 70 mm. It retains only Walker 00, the camera and lights, and Walker 00's dependent MolecularNodes/session data, reducing the scene from 91 objects to 11.
+
+Both derived files cover frames 0–1000 inclusive at 30 fps (1,001 trajectory samples, approximately 33.37 seconds). They preserve the source Cycles setup at 1920×1080 with PNG RGBA output and AgX, and write to distinct directories under the presentation project's `Frames/` folder. Camera and light cinematic keyframes were removed; molecular trajectory and lambda/state actions were preserved.
+
+Independent validation reopened both files in Blender 5.1, checked render settings, static cameras, static lights and visibility, and rendered temporary midpoint previews. Both previews looked correct. The temporary preview paths are intentionally not retained. These paired assets support simultaneous panorama and binding-pocket playback on the relative binding free-energy results slide.
+
+This is a user-provided project-artifact and validation record from 12 September 2026. SRC-0003 supplies the Garnet and relative binding free-energy presentation context, but does not substantiate these Blender implementation details. [SRC-0003, Figure 6 and Methods “Relative binding free energy benchmark”]
 
 ## Animation backgrounds unified — 11 September 2026
 

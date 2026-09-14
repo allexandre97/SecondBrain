@@ -43,8 +43,9 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### research/adaptive-sampling
 
 - [[wiki/concepts/accelerated-weight-histogram-method|Accelerated Weight Histogram Method]] - 3 source IDs; top source categories: `research/adaptive-sampling` (3), `research/molecular-simulation/free-energy` (3), `research/statistics/monte-carlo` (2)
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - 9 source IDs; top source categories: `research/adaptive-sampling` (9), `research/molecular-simulation/free-energy` (9), `research/computational-drug-discovery` (4)
-- [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - 1 source IDs; top source categories: `research/adaptive-sampling` (1), `research/experimental-benchmarking` (1), `research/molecular-simulation/free-energy` (1)
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - 11 source IDs; top source categories: `research/adaptive-sampling` (11), `research/molecular-simulation/free-energy` (11), `research/computational-drug-discovery` (4)
+- [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - 3 source IDs; top source categories: `research/adaptive-sampling` (3), `research/molecular-simulation/free-energy` (3), `research/molecular-simulation/molecular-dynamics` (3)
+- [[wiki/concepts/generative-committor-guided-path-sampling|Generative Committor-Guided Path Sampling]] - 2 source IDs; top source categories: `research/adaptive-sampling` (2), `research/biomolecules/proteins` (2), `research/machine-learning/molecular-modeling` (2)
 - [[wiki/concepts/lambda-dynamics-with-bias-updated-gibbs-sampling|Lambda-Dynamics with Bias-Updated Gibbs Sampling]] - 1 source IDs; top source categories: `research/adaptive-sampling` (1), `research/computational-drug-discovery` (1), `research/molecular-simulation/free-energy` (1)
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - 2 source IDs; top source categories: `research/adaptive-sampling` (2), `research/computational-drug-discovery` (2), `research/molecular-simulation/free-energy` (2)
 - [[wiki/concepts/on-the-fly-probability-enhanced-sampling|On-the-Fly Probability-Enhanced Sampling]] - 3 source IDs; top source categories: `research/adaptive-sampling` (3), `research/molecular-simulation/free-energy` (3), `research/experimental-benchmarking` (1)
@@ -115,7 +116,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### research/machine-learning/molecular-modeling
 
-- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - 3 source IDs; top source categories: `research/machine-learning/molecular-modeling` (3), `research/machine-learning/scientific-modeling` (3), `research/molecular-simulation/free-energy` (3)
+- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - 4 source IDs; top source categories: `research/machine-learning/molecular-modeling` (4), `research/molecular-simulation/free-energy` (4), `research/machine-learning/scientific-modeling` (3)
 - [[wiki/concepts/gnn-to-symbolic-regression-potentials|GNN to Symbolic Regression Potentials]] - 1 source IDs; top source categories: `research/machine-learning/molecular-modeling` (1), `research/machine-learning/scientific-modeling` (1), `research/molecular-simulation/force-fields` (1)
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - 7 source IDs; top source categories: `research/machine-learning/molecular-modeling` (7), `research/molecular-simulation/datasets` (7), `research/molecular-simulation/force-fields` (7)
 - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]] - 2 source IDs; top source categories: `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)
@@ -145,7 +146,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - 4 source IDs; top source categories: `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (3), `research/statistics/monte-carlo` (3)
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - 21 source IDs; top source categories: `research/molecular-simulation/free-energy` (14), `research/molecular-simulation/force-fields` (12), `research/computational-drug-discovery` (8)
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - 16 source IDs; top source categories: `research/molecular-simulation/free-energy` (16), `research/adaptive-sampling` (7), `research/computational-drug-discovery` (7)
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - 18 source IDs; top source categories: `research/molecular-simulation/free-energy` (18), `research/adaptive-sampling` (9), `research/computational-drug-discovery` (7)
 - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - 2 source IDs; top source categories: `research/molecular-simulation/free-energy` (2), `research/statistics/monte-carlo` (2)
 - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - 1 source IDs; top source categories: `research/molecular-simulation/free-energy` (1), `research/statistics/monte-carlo` (1)
 - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - 1 source IDs; top source categories: `research/molecular-simulation/free-energy` (1)
@@ -197,20 +198,20 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0005-times-square-sampling-free-energy|SRC-0005]]
 
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 4 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`; tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs
 - [[wiki/concepts/times-square-sampling|Times Square Sampling]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`, `research/adaptive-sampling`; tags: `times-square-sampling`, `free-energy-estimation`, `stochastic-approximation`, `math-heavy`; 2 source IDs
 - [[wiki/concepts/tss-implementation-patterns|Times Square Sampling Implementation Patterns]] - categories: `research/adaptive-sampling`, `research/scientific-computing`, `research/molecular-simulation/free-energy`; tags: `implementation`, `adaptive-sampling`, `free-energy-estimation`, `math-heavy`; 2 source IDs
 
 ### [[wiki/sources/SRC-0006-times-square-sampling-supplement|SRC-0006]]
 
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 4 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`; tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs
 - [[wiki/concepts/times-square-sampling|Times Square Sampling]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`, `research/adaptive-sampling`; tags: `times-square-sampling`, `free-energy-estimation`, `stochastic-approximation`, `math-heavy`; 2 source IDs
 - [[wiki/concepts/tss-implementation-patterns|Times Square Sampling Implementation Patterns]] - categories: `research/adaptive-sampling`, `research/scientific-computing`, `research/molecular-simulation/free-energy`; tags: `implementation`, `adaptive-sampling`, `free-energy-estimation`, `math-heavy`; 2 source IDs
@@ -218,44 +219,44 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|SRC-0007]]
 
 - [[wiki/concepts/accelerated-weight-histogram-method|Accelerated Weight Histogram Method]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `accelerated-weight-histogram`, `enhanced-sampling`, `extended-ensemble`, `free-energy-estimation`, `math-heavy`; 3 source IDs
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 
 ### [[wiki/sources/SRC-0008-awh-free-energy-landscapes|SRC-0008]]
 
 - [[wiki/concepts/accelerated-weight-histogram-method|Accelerated Weight Histogram Method]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `accelerated-weight-histogram`, `enhanced-sampling`, `extended-ensemble`, `free-energy-estimation`, `math-heavy`; 3 source IDs
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 
 ### [[wiki/sources/SRC-0009-awh-alchemical-free-energy|SRC-0009]]
 
 - [[wiki/concepts/accelerated-weight-histogram-method|Accelerated Weight Histogram Method]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `accelerated-weight-histogram`, `enhanced-sampling`, `extended-ensemble`, `free-energy-estimation`, `math-heavy`; 3 source IDs
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 
 ### [[wiki/sources/SRC-0010-rethinking-metadynamics-opes|SRC-0010]]
 
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/on-the-fly-probability-enhanced-sampling|On-the-Fly Probability-Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `opes`, `metadynamics`, `probability-reconstruction`, `collective-variables`, `math-heavy`; 3 source IDs
 
 ### [[wiki/sources/SRC-0011-opes-supporting-information|SRC-0011]]
 
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
 - [[wiki/concepts/on-the-fly-probability-enhanced-sampling|On-the-Fly Probability-Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `opes`, `metadynamics`, `probability-reconstruction`, `collective-variables`, `math-heavy`; 3 source IDs
 
 ### [[wiki/sources/SRC-0012-mbar-configuration-mapping|SRC-0012]]
 
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `configuration-mapping`, `reweighting`, `phase-space-overlap`, `math-heavy`; 2 source IDs
 
 ### [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|SRC-0013]]
 
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/lambda-dynamics-with-bias-updated-gibbs-sampling|Lambda-Dynamics with Bias-Updated Gibbs Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/computational-drug-discovery`, `research/adaptive-sampling`; tags: `ladybugs`, `lambda-dynamics`, `gibbs-sampling`, `relative-binding-free-energy`, `fastmbar`, `math-heavy`; 1 source IDs
 
 ### [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|SRC-0014]]
@@ -311,7 +312,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 4 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `configuration-mapping`, `reweighting`, `phase-space-overlap`, `math-heavy`; 2 source IDs
 - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `free-energy-estimation`, `reweighting`, `bridge-sampling`, `math-heavy`; 1 source IDs
 
@@ -392,14 +393,14 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0037-transferable-boltzmann-generators|SRC-0037]]
 
-- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `normalizing-flows`, `equilibrium-sampling`, `reweighting`; 3 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `normalizing-flows`, `equilibrium-sampling`, `reweighting`; 4 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/transferable-and-scalable-boltzmann-generators|Transferable and Scalable Boltzmann Generators]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `transfer-learning`, `scalability`, `materials`; 2 source IDs
 
 ### [[wiki/sources/SRC-0039-scalable-boltzmann-generators-for-equilibrium-sampling-of-large|SRC-0039]]
 
-- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `normalizing-flows`, `equilibrium-sampling`, `reweighting`; 3 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `normalizing-flows`, `equilibrium-sampling`, `reweighting`; 4 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/transferable-and-scalable-boltzmann-generators|Transferable and Scalable Boltzmann Generators]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `transfer-learning`, `scalability`, `materials`; 2 source IDs
 
 ### [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|SRC-0040]]
@@ -410,8 +411,8 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]
 
-- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `normalizing-flows`, `equilibrium-sampling`, `reweighting`; 3 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `normalizing-flows`, `equilibrium-sampling`, `reweighting`; 4 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 
 ### [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]
 
@@ -432,18 +433,18 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0045-large-scale-collaborative-assessment-of-binding-free-energy|SRC-0045]]
 
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - categories: `research/molecular-simulation/free-energy`, `research/computational-drug-discovery`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `rbfe`, `drug-discovery`; 5 source IDs
 
 ### [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]
 
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - categories: `research/molecular-simulation/free-energy`, `research/computational-drug-discovery`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `rbfe`, `drug-discovery`; 5 source IDs
 
 ### [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|SRC-0047]]
 
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps|Solvation Free Energy Decoupling in LAMMPS]] - categories: `research/molecular-simulation/free-energy`; tags: `solvation-free-energy`, `LAMMPS`, `thermodynamic-integration`, `decoupling`; 1 source IDs
 
 ### [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|SRC-0055]]
@@ -475,7 +476,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|SRC-0061]]
 
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 16 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - categories: `research/molecular-simulation/free-energy`, `research/computational-drug-discovery`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `rbfe`, `drug-discovery`; 5 source IDs
 
 ### [[wiki/sources/SRC-0062-openfe-rbfe-benchmark-supporting-information|SRC-0062]]
@@ -540,8 +541,8 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|SRC-0074]]
 
-- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 9 source IDs
-- [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/experimental-benchmarking`; tags: `enhanced-sampling`, `convergence-diagnostics`, `cross-method-validation`, `free-energy-landscapes`; 1 source IDs
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
+- [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/experimental-benchmarking`; tags: `enhanced-sampling`, `convergence-diagnostics`, `cross-method-validation`, `free-energy-landscapes`; 3 source IDs
 - [[wiki/concepts/on-the-fly-probability-enhanced-sampling|On-the-Fly Probability-Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `opes`, `metadynamics`, `probability-reconstruction`, `collective-variables`, `math-heavy`; 3 source IDs
 
 ### [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|SRC-0077]]
@@ -554,3 +555,18 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - categories: `research/molecular-simulation/force-fields`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `force-field-training`, `experimental-observables`, `forcebalance`; 7 source IDs
 - [[wiki/concepts/osmometry-guided-force-field-optimization|Osmometry-Guided Force-Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `osmotic-pressure`, `force-field-optimization`, `charge-interactions`, `transfer-validation`; 1 source IDs
 - [[wiki/concepts/protein-force-field-benchmark-datasets|Protein Force Field Benchmark Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/data-management`, `research/experimental-benchmarking`, `research/molecular-simulation/datasets`; tags: `protein-force-fields`, `benchmarking`, `experimental-observables`, `datasets`; 3 source IDs
+
+### [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|SRC-0086]]
+
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
+- [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - categories: `research/molecular-simulation/free-energy`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `Boltzmann-generators`, `normalizing-flows`, `equilibrium-sampling`, `reweighting`; 4 source IDs
+- [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/experimental-benchmarking`; tags: `enhanced-sampling`, `convergence-diagnostics`, `cross-method-validation`, `free-energy-landscapes`; 3 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
+- [[wiki/concepts/generative-committor-guided-path-sampling|Generative Committor-Guided Path Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/molecular-simulation/molecular-dynamics`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `generative-sampling`, `committor`, `transition-path-sampling`, `rare-events`, `Gen-COMPAS`, `math-heavy`; 2 source IDs
+
+### [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|SRC-0087]]
+
+- [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
+- [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/experimental-benchmarking`; tags: `enhanced-sampling`, `convergence-diagnostics`, `cross-method-validation`, `free-energy-landscapes`; 3 source IDs
+- [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
+- [[wiki/concepts/generative-committor-guided-path-sampling|Generative Committor-Guided Path Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/molecular-simulation/molecular-dynamics`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `generative-sampling`, `committor`, `transition-path-sampling`, `rare-events`, `Gen-COMPAS`, `math-heavy`; 2 source IDs

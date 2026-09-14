@@ -34,6 +34,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]]
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]]
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]]
 - [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]]
 - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]]
@@ -54,6 +56,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/concepts/cdna-display-proteolysis-stability-measurements|cDNA Display Proteolysis Stability Measurements]]
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]]
 - [[wiki/concepts/garnet-force-field|Garnet Force Field]]
+- [[wiki/concepts/generative-committor-guided-path-sampling|Generative Committor-Guided Path Sampling]]
 - [[wiki/concepts/human-domainome-variant-stability-mapping|Human Domainome Variant-Stability Mapping]]
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]]
 - [[wiki/concepts/neuronal-templated-tau-assembly-systems|Neuronal Templated Tau Assembly Systems]]

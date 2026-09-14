@@ -1,91 +1,235 @@
 ---
+
 name: wiki-source-ingestion
-description: Use for importing and ingesting source files into the SecondBrain wiki, including source bundles, math-heavy sources, provenance, retrieval QA, and ingestion completion checks.
----
+description: Import and ingest source files into the SecondBrain wiki, including source bundles, scientific and math-heavy material, provenance, retrieval QA, and ingestion validation.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Wiki Source Ingestion
 
-Use this skill for `Ingest <path>`, `Ingest <these files/folder>`, source-bundle ingestion, source import, math-heavy source ingestion, and source-specific retrieval QA.
+Use this skill for requests such as:
 
-## Required contracts
+* `Ingest /path/to/source.pdf`
+* ingesting a paper and its supporting material;
+* ingesting a folder as one source bundle;
+* importing external source material into SecondBrain;
+* math-heavy source ingestion;
+* source-specific retrieval QA.
 
-- Apply the `Default Wiki Task Contract` and `Default Report Format` in `schema/workflows.md`.
-- Do not ingest extra sources.
-- Do not modify files in `raw/` unless explicitly instructed, except importing requested source files into `raw/sources/`.
-- Preserve source provenance, sensitivity metadata, encryption metadata, uncertainty, contradictions, limitations, and open questions.
-- Every non-trivial wiki claim must cite one or more stable source IDs.
-- Run `python3 tools/validate_wiki.py` before reporting completion.
+# Core contract
 
-## Minimal ingestion prompts
+Apply the repository's `Default Wiki Task Contract` and `Default Report Format` from `schema/workflows.md`.
 
-Detailed user-provided metadata is optional. Accept minimal prompts such as:
+Do not ingest sources the user did not request.
+
+Do not modify existing files in `raw/` except when explicitly instructed. Requested external source files may be copied into `raw/sources/` as part of ingestion.
+
+Preserve:
+
+* provenance;
+* sensitivity and encryption metadata;
+* uncertainty;
+* contradictions;
+* limitations;
+* open questions.
+
+Every non-trivial wiki claim must be traceable to one or more stable source IDs.
+
+Do not guess content that cannot be reliably extracted from a source.
+
+Run the required repository validation before reporting completion.
+
+# Workflow ownership
+
+For a delegated ingestion task, own the complete ingestion workflow:
+
+1. understand the requested source or source bundle;
+2. inspect only the existing wiki context needed for integration;
+3. import and identify the source files;
+4. analyse the source material;
+5. update the wiki;
+6. perform retrieval QA;
+7. run validation and generated-index tools required by the repository;
+8. report the result and any remaining gaps.
+
+Avoid redundant full-source passes.
+
+Reuse information already extracted during the current ingestion. Re-open source sections only when needed to verify a claim, equation, metadata field, citation, discrepancy, or gap.
+
+Do not spawn additional agents.
+
+# Minimal prompts and inference
+
+Detailed metadata is optional.
+
+Accept minimal requests such as:
 
 ```text
 Ingest /path/to/source.pdf
 ```
 
 ```text
-Ingest these two files as one source bundle:
-Main paper: /path/to/main.pdf
+Ingest these as one source bundle:
+Main paper: /path/to/paper.pdf
 Supplement: /path/to/supplement.pdf
 ```
 
 ```text
-Ingest this folder as one source bundle: /path/to/project_docs/
+Ingest /path/to/project_docs/ as one source bundle.
 ```
 
-When metadata is absent, infer title, slug, source type, bundle role, areas, categories, sensitivity, encryption, and coverage profile from filenames, document metadata, headings, source content, repository context, and user wording. Prefer category paths already documented in `schema/category_registry.md`; record uncertain category candidates instead of silently inventing new taxonomy branches. Record meaningful uncertainty in the source page instead of forcing the user to specify everything upfront. Ask for clarification only when ambiguity blocks safe ingestion, such as unclear sensitivity for private material, unclear bundle boundaries, conflicting source roles, or a taxonomy decision that would create a new top-level branch.
+Infer metadata where practical from:
 
-## Ingestion mode inference
+* user wording;
+* filenames;
+* document metadata;
+* titles and headings;
+* source content;
+* cross-references;
+* repository context.
 
-Before creating wiki pages, infer the ingestion mode from the provided file or files:
+Infer, where possible:
 
-- Treat a single file as a single-source ingestion unless its content clearly refers to required supplementary material that has also been provided.
-- Treat multiple files as a source bundle when user wording, filenames, document titles, cross-references, or folder organization indicate that the files must be understood together.
-- Infer bundle roles such as `main`, `supplement`, `appendix`, `data`, `code`, or `notes` when practical.
-- Detect source type, including math-heavy, code-heavy, admin/personal, project-design, scientific paper, review, or ordinary prose.
-- Select applicable guidance from this skill, including math-heavy source ingestion, source bundle guidance, sensitive material handling, and source-specific retrieval QA.
-- If the source appears math-heavy, automatically apply the math-heavy source ingestion workflow.
-- If a folder is supplied as one source bundle, inspect the folder enough to identify likely source files and exclude obvious generated files, dependency folders, caches, and local environment artifacts unless the user explicitly asks to ingest them.
+* title;
+* slug;
+* source type;
+* bundle membership and role;
+* areas and categories;
+* sensitivity;
+* encryption status;
+* coverage profile.
 
-## Source import workflow
+Prefer existing category paths from `schema/category_registry.md`.
 
-Use this workflow when a source is provided from any local path, not only from `raw/sources/`. User-provided title, slug, source type, and metadata are optional; infer them where practical and record uncertainty when inference is weak:
+Record meaningful uncertainty rather than forcing a confident classification.
 
-1. If the source is outside `raw/sources/`, copy it into `raw/sources/` before ingestion.
-2. Assign the next available source ID using the pattern `SRC-XXXX`.
-3. Preserve the original file extension.
-4. Normalize the imported filename as `SRC-XXXX-short-slug.ext`.
-5. Choose the slug using this priority: explicit `--slug`; explicit `--title`; inferred document title or first clear heading; first meaningful content line; original filename stem.
-6. Keep the slug lowercase, ASCII where practical, hyphen-separated, and short.
-7. Do not modify the original file.
+Ask for clarification only when ambiguity prevents safe ingestion, for example:
+
+* unclear sensitivity of private material;
+* uncertain bundle boundaries;
+* conflicting source roles;
+* a taxonomy decision requiring a new top-level branch.
+
+# Determine ingestion mode
+
+Before writing wiki content, determine whether the request is:
+
+* a single source;
+* a source bundle;
+* a folder bundle;
+* math-heavy;
+* code-heavy;
+* scientific;
+* review material;
+* project/design documentation;
+* administrative or personal material.
+
+Treat multiple files as a bundle when they are intended to be understood together.
+
+For a folder, inspect enough of its contents to identify likely source files and exclude obvious:
+
+* generated output;
+* caches;
+* dependency trees;
+* virtual environments;
+* build artifacts;
+
+unless explicitly requested.
+
+# Source import
+
+For each physical source file:
+
+1. Copy it into `raw/sources/` if it is not already there.
+
+2. Assign the next available `SRC-XXXX` identifier.
+
+3. Preserve the original extension.
+
+4. Normalize the repository filename to:
+
+   `SRC-XXXX-short-slug.ext`
+
+5. Choose the slug from, in order of preference:
+
+   * explicit user title or slug;
+   * document title;
+   * clear first heading;
+   * meaningful first content line;
+   * original filename stem.
+
+6. Keep the slug concise, lowercase, ASCII where practical, and hyphen-separated.
+
+7. Do not modify the original external file.
+
 8. Do not modify the imported raw source after copying.
-9. Record the original filename, imported path, source ID, and hash where practical. Do not expose machine-specific absolute local paths in public wiki metadata.
-10. Then continue with the normal one-source ingestion workflow.
 
-For simple imports, use `python3 tools/import_source.py /path/to/source.ext`, pass `--title` or `--slug` when a better name is known, or preview with `python3 tools/import_source.py --dry-run /path/to/source.ext`.
+9. Record the original filename, source ID, imported path, and hash where practical.
 
-## Single-source ingestion
+10. Do not expose unnecessary machine-specific absolute paths in public wiki metadata.
 
-1. Place or import exactly one requested source into `raw/sources/`.
-2. Apply the source import workflow if the source is not already normalized in `raw/sources/`.
-3. Create or update the source summary page and relevant concept, entity, claim, tension, or question pages.
-4. Give the source page a human-readable H1, `display_title`, `short_title`, aliases, and a visible `Source ID: SRC-XXXX` line near the top.
-5. Add a `## Raw source` section with the repository path and local relative link when the raw source exists; record a gap if it is missing.
-6. Run source-specific retrieval QA and record the checked questions, coverage decision, and known gaps in the source page.
-7. Apply the ingestion completion contract before reporting the ingestion as complete.
-8. Review new or changed wiki pages.
-9. If the source is math-heavy, confirm the equation inventory, proof map, implementation notes, and mathematical gaps before marking the source complete.
-10. Run `python3 tools/validate_wiki.py`.
-11. Run `python3 tools/build_category_indexes.py`
-12. Run `python3 tools/build_concept_indexes.py`
-13. Run `python3 tools/build_knowledge_graph.py`
+Use `tools/import_source.py` when appropriate rather than manually reproducing its behavior.
 
-Do not perform a broad refactor during ingestion unless requested.
+# Source bundles
 
-## Structured bibliographic metadata
+When a main document has supporting material, appendices, data, code, or notes that must be interpreted together, ingest them as one source bundle.
 
-During future source ingestion, extract structured bibliographic metadata when it is available from document metadata, the first page, or obvious citation information:
+Each physical file receives its own `SRC-XXXX` identifier and source page.
+
+Use shared metadata such as:
+
+```yaml
+source_bundle: stable-bundle-slug
+bundle_role: main
+```
+
+Typical roles include:
+
+* `main`
+* `supplement`
+* `appendix`
+* `data`
+* `code`
+* `notes`
+
+The main source page should link to related bundle members.
+
+Non-main source pages should link back to the main source when one can be identified.
+
+Judge overall coverage across the complete bundle, not the main document alone.
+
+Do not repeatedly reread both files in full merely because they form a bundle. Use cross-references and targeted source reads once the structure is understood.
+
+# Source page
+
+Each source should have a source page under `wiki/sources/`.
+
+Include:
+
+* human-readable H1;
+* stable source ID;
+* `display_title`;
+* `short_title`;
+* useful aliases;
+* source type;
+* sensitivity and encryption metadata;
+* areas, categories, and tags;
+* imported raw-source link;
+* bibliographic metadata where applicable;
+* summary;
+* methods or approach;
+* central results or claims;
+* limitations and caveats;
+* important open questions;
+* relevant concepts and entities;
+* bundle relationships where applicable;
+* ingestion QA;
+* known gaps.
+
+Keep source pages useful for future retrieval rather than reproducing the source verbatim.
+
+# Bibliographic metadata
+
+For papers and similar sources, extract metadata when clearly available:
 
 ```yaml
 authors: []
@@ -94,72 +238,66 @@ year:
 venue:
 doi:
 arxiv:
-metadata_review_status: unchecked | partial | reviewed | not-applicable
+metadata_review_status: unchecked
 cites_sources: []
-citation_match_status: unchecked | partial | reviewed
-cqt_review_status: unchecked | none-needed | source-local | linked
+citation_match_status: unchecked
+cqt_review_status: unchecked
 ```
 
-Use `authors` for literal author names from the source. Extract author names, year, venue, DOI, and arXiv ID only when they are visible or reliably present in source metadata. Do not guess author names. If a field is uncertain, leave it empty or record the uncertainty under `## Metadata notes`.
+Do not guess missing bibliographic fields.
 
-Use `author_entities` only when an optional durable author entity page exists under `wiki/entities/authors/`. Create author entity pages when an author appears in multiple ingested sources or is especially relevant; do not create one author page for every one-off paper author by default. Do not use ordinary `tags` for author names unless the tag already has a non-person semantic meaning.
+Use `metadata_review_status` as follows:
 
-Set `metadata_review_status` during ingestion. Use `reviewed` when bibliographic metadata has been checked, `partial` when only some metadata was checked, `unchecked` when it was not reviewed, and `not-applicable` only for non-paper, admin, or project-design sources where paper-style authorship/year metadata would be misleading.
+* `reviewed`: metadata was checked;
+* `partial`: some metadata was checked;
+* `unchecked`: not reviewed;
+* `not-applicable`: paper-style metadata is inappropriate.
 
-## Citation matching
+Create durable author entity pages only when useful, for example when an author appears repeatedly or is important to the knowledge base.
 
-During ingestion, inspect the bibliography or references section enough to identify whether the source cites already-ingested sources. This is a conservative review aid, not a mandate to fully extract every reference.
+# Existing-wiki integration
 
-Use source-page metadata from existing ingested sources when matching:
+Before creating new concept, entity, claim, question, or tension pages, search for relevant existing pages.
 
-- DOI or arXiv exact match: strong.
-- Exact title match: strong.
-- Title plus first author plus year: strong.
-- Fuzzy title only: candidate, not confirmed.
-- Author/year only: candidate, not confirmed.
+Prefer updating or linking an existing durable page over creating a near-duplicate.
 
-Do not invent citation links. When a match is manually accepted, add it to the citing source:
+Do not perform broad wiki cleanup or taxonomy refactoring during ingestion unless requested.
 
-```yaml
-cites_sources:
-  - SRC-XXXX
-citation_match_status: partial
-```
+Use the current source to enrich existing knowledge only when the source genuinely supports the addition.
 
-Use `citation_match_status: reviewed` only when the source's references were inspected thoroughly. Leave `citation_match_status: unchecked` or absent when references have not been inspected. Do not add `cited_by_sources` to source frontmatter; reverse citation links are generated information.
+# Claims, questions, and tensions
 
-The helper `python3 tools/match_cited_sources.py` reports conservative candidate matches from explicit source-page reference sections and never modifies source pages automatically.
+Create first-class semantic pages only when they improve future retrieval.
 
-## Claim, question, and tension extraction
+Create claim pages for statements that are:
 
-During future source ingestion, extract first-class claim, question, and tension pages only when they improve durable retrieval.
+* central;
+* reusable;
+* debatable;
+* comparative;
+* validation-relevant;
+* connected to multiple sources;
+* important for future reasoning.
 
-For sources with reusable claims, create about 3-7 central claim pages when appropriate. Do not create claim pages for every source-page bullet point. Use dedicated claim pages when the claim is:
+Do not create a claim page for every bullet point.
 
-- central to the source;
-- likely to be reused;
-- debatable;
-- comparative;
-- validation-relevant;
-- connected to multiple sources;
-- important for future reasoning.
+Create question pages for meaningful:
 
-Otherwise keep the claim local to the source page.
+* unresolved assumptions;
+* future work;
+* validation boundaries;
+* open scientific or technical questions.
 
-Create about 1-3 question pages when the source raises open questions, validation boundaries, unresolved assumptions, or future-work questions that should be reusable. Existing question pages may be updated and linked instead of creating duplicates.
+Create tension pages only for genuine:
 
-Create tension pages only when there is a real contradiction, limitation, unresolved conflict, incompatible assumption, or disagreement with existing wiki content. Do not turn every caveat into a tension page.
+* contradictions;
+* incompatible assumptions;
+* important limitations;
+* disagreements between sources or existing knowledge.
 
-Set `cqt_review_status` during ingestion:
+Do not turn every caveat into a tension.
 
-- `unchecked` before claim, question, and tension extraction has been reviewed.
-- `none-needed` when no first-class semantic object would add durable retrieval value.
-- `source-local` when source-page notes are enough.
-- `linked` when one or more first-class claim, question, or tension pages are linked or cite the source.
-
-Do not force claim, question, or tension pages when they would add noise.
-
-Use stable IDs for new pages:
+Use stable IDs:
 
 ```text
 wiki/claims/CLM-XXXX-short-slug.md
@@ -167,69 +305,73 @@ wiki/questions/QST-XXXX-short-slug.md
 wiki/tensions/TEN-XXXX-short-slug.md
 ```
 
-Source pages may include compact link sections when dedicated pages exist:
+Set `cqt_review_status` appropriately:
+
+* `unchecked`
+* `none-needed`
+* `source-local`
+* `linked`
+
+# Citation matching
+
+Inspect the source bibliography enough to detect citations to already-ingested sources when doing so is useful.
+
+Prefer strong matches:
+
+* DOI exact match;
+* arXiv exact match;
+* exact title;
+* title + first author + year.
+
+Treat fuzzy title or author/year-only matches as candidates, not confirmed links.
+
+Do not invent citation relationships.
+
+Use `tools/match_cited_sources.py` when appropriate.
+
+# Scientific and math-heavy sources
+
+Automatically apply this section when the material contains substantial:
+
+* equations;
+* derivations;
+* algorithms;
+* mathematical definitions;
+* theorem or proposition statements;
+* implementation recursions.
+
+Capture enough mathematical structure for future retrieval and technical use.
+
+Include, where relevant:
+
+* central definitions;
+* central equations;
+* algorithmic recursions;
+* important theorem or proposition statements;
+* implementation-relevant formulas;
+* variable definitions;
+* equation dependencies;
+* proof maps for long proofs;
+* known mathematical omissions.
+
+Do not reproduce long proofs unless needed.
+
+Use:
+
+* `coverage_profile: math-standard` when the central mathematical structure is captured adequately;
+* `coverage_profile: math-deep` when the representation supports close technical or implementation-oriented use.
+
+# Mathematical formatting
+
+Use Obsidian-compatible Markdown math.
+
+Inline:
 
 ```md
-## Claims
-
-- [[wiki/claims/CLM-0001-example-claim]]
-
-## Questions
-
-- [[wiki/questions/QST-0001-example-question]]
-
-## Tensions
-
-- [[wiki/tensions/TEN-0001-example-tension]]
+$F_k = -\log Z_k$
 ```
 
-## Source bundles
-
-A source bundle is allowed when the user provides a main document plus supplementary material, appendices, data, code, notes, or a folder of related files that must be understood together. The user does not need to provide detailed bundle metadata; infer bundle membership and roles where practical.
-
-For source bundles:
-
-- Import each physical source file as its own `SRC-XXXX`.
-- Infer a stable `source_bundle` slug from the main title, folder name, or user wording.
-- Infer `bundle_role` values such as `main`, `supplement`, `appendix`, `data`, `code`, or `notes` from filenames, headings, metadata, and cross-references.
-- Link the sources using shared metadata such as:
-
-```yaml
-source_bundle: times-square-sampling-2024
-bundle_role: main | supplement | appendix | data | code | notes
-```
-
-- Judge ingestion completion on the combined bundle, while still giving each physical file its own source page.
-- The main source page should link to supplement, appendix, data, code, or notes source pages.
-- Non-main source pages should link back to the main source page when one can be inferred.
-- Record inferred metadata and uncertainty in the source pages, especially when bundle boundaries or roles are inferred rather than explicit.
-- Ask for clarification only when ambiguity blocks safe ingestion, such as when a folder contains unrelated documents or when it is unclear which files should be treated as source material.
-- Record bundle-level known gaps on the main source page when any bundled file is not fully represented.
-
-## Math-heavy source ingestion
-
-Automatically use this workflow for sources containing substantial equations, derivations, proofs, algorithms, mathematical definitions, theorem statements, or implementation recursions. Math-heavy ingestion does not require full proof reproduction unless explicitly requested, but it must preserve enough mathematical structure for future retrieval and implementation-oriented review.
-
-For math-heavy sources, ingestion must include:
-
-- Central definitions.
-- Central equations.
-- Algorithmic recursions.
-- Theorem or proposition statements when important.
-- A proof map for long proofs.
-- Implementation-relevant formulas.
-- Variable definitions.
-- Equation dependencies.
-- Known omissions.
-
-Use `coverage_profile: math-standard` when the wiki captures the main mathematical structure well enough for retrieval and orientation. Use `coverage_profile: math-deep` when the wiki is detailed enough for close technical use, including important dependencies between equations and implementation-relevant formulas.
-
-## Obsidian math formatting
-
-Mathematical wiki content must use Obsidian-compatible Markdown math:
-
-- Use inline math with single dollar delimiters, for example `$F_k = -\log Z_k$`.
-- Use display math with double dollar delimiters:
+Display:
 
 ```md
 $$
@@ -237,94 +379,149 @@ $$
 $$
 ```
 
-- Prefer `$$ ... $$` display blocks over `\[ ... \]` for this wiki.
-- Put display math on its own lines, with a blank line before and after when practical.
-- Do not put important equations inside code fences.
-- Do not store equations only as screenshots or images if they can be represented in LaTeX.
-- Use standard LaTeX math syntax supported by MathJax and Obsidian where practical.
-- Avoid full LaTeX document constructs such as `\documentclass`, `\usepackage`, `\begin{document}`, and custom preamble-dependent macros.
-- Avoid relying on automatic equation numbering, `\label`, or `\ref`. Instead, identify equations in surrounding Markdown text.
-- For multi-line equations, use environments inside display math:
+Do not use `\[ ... \]`.
 
-```md
-$$
-\begin{aligned}
-Z_k &= e^{-F_k}, \\
-\xi_{km} &= e^{-F_k}\mu_{km}.
-\end{aligned}
-$$
-```
+Do not store reconstructable equations only as screenshots.
 
-- For equation inventories, keep very long formulas out of Markdown tables. Put the equation in a normal display block and let the table link to the section containing it.
-- Define symbols in a `Variable glossary` section.
-- If a formula cannot be reliably reconstructed from the PDF, do not guess. Mark it under `## Mathematical gaps`.
+Do not guess formulas that cannot be reliably reconstructed.
 
-## Equation inventory
+Put uncertain or missing mathematical content under `## Mathematical gaps`.
 
-For math-heavy sources, the source page should include an equation inventory table with columns like:
+Define important symbols in a variable glossary when useful.
+
+# Equation inventory
+
+For math-heavy material, maintain an equation inventory when it materially improves retrieval or implementation.
+
+Recommended columns:
 
 ```md
 | Equation / label | Source location | Wiki location | Purpose | Variables | Implementation relevance |
 | --- | --- | --- | --- | --- | --- |
 ```
 
-Each inventory row should cite the source ID and source equation number, section, page, or local label when available. If an important equation is omitted from the wiki, list it under `## Mathematical gaps` and explain why it is omitted.
+Each important equation should have a traceable source location such as:
 
-## Source-specific retrieval QA
+* equation number;
+* page;
+* section;
+* local label.
 
-During ingestion, generate 5-10 likely retrieval questions from the source itself and check whether the wiki can answer them using the source page and relevant concept, entity, claim, tension, and question pages. The questions should match the source type and should test retrieval of the source's central contribution, practical implications, evidence, limitations, and unresolved issues.
+If an important equation is intentionally omitted, record it under `## Mathematical gaps`.
 
-For a scientific paper, likely questions include:
+# Source-specific retrieval QA
 
-- What is the central contribution?
-- What problem does it address?
-- What methods were used?
-- What evidence or benchmarks support it?
-- What are the main limitations?
-- What future work does it identify?
-- What claims should not be overgeneralized?
+Before considering ingestion complete, generate a small set of likely future questions and verify that the wiki can answer them.
 
-For a project note, likely questions include:
+Usually 5–10 questions are sufficient.
 
-- What decision or design does this note establish?
-- What constraints does it introduce?
-- What workflow changes are required?
-- What remains unresolved?
+For a scientific paper, cover topics such as:
 
-For an admin or personal document, likely questions include:
+* central contribution;
+* problem addressed;
+* methods;
+* evidence or benchmarks;
+* key results;
+* limitations;
+* validation boundaries;
+* future work;
+* claims that should not be overgeneralized.
 
-- What action, deadline, obligation, or decision does it contain?
-- What people, institutions, dates, or dependencies are involved?
-- What sensitivity level should it have?
-- What should be retrievable later?
+For a source bundle, include questions that require information from the supporting material where relevant.
 
-Record the checked questions under the source page's `## Ingestion QA` section. The coverage decision must state whether the wiki representation is complete, partial, or needs review, and known gaps must be listed explicitly.
+Record the checked questions under `## Ingestion QA`.
 
-## Ingestion completion contract
+State whether coverage is:
 
-An ingestion is complete only when all of the following are true:
+* complete;
+* partial;
+* needs review.
 
-- The source has been imported or identified with a stable `SRC-XXXX` ID.
-- The source summary page exists in `wiki/sources/`.
-- The source summary page records source ID, imported path, original path or filename when available, SHA256 hash when available, sensitivity, encryption, areas, categories, and tags.
-- The source has been skimmed broadly enough to identify its main topics, claims, methods, evidence, limitations, and open questions.
-- All major concepts introduced by the source are represented either in existing concept pages or newly created concept pages.
-- Important limitations, caveats, contradictions, and validation boundaries are represented in source, concept, question, claim, or tension pages as appropriate.
-- `wiki/index.md` links the source and the main concept pages.
-- `wiki/log.md` records the ingestion.
-- `python3 tools/validate_wiki.py` passes.
-- Codex has run a source-specific retrieval QA check, recorded it in the source page, and verified that the wiki can answer the main questions a future user would naturally ask about the source.
+Record known gaps explicitly.
 
-For math-heavy sources, `ingestion_status: complete` also requires that key equations are present in wiki pages using Markdown/LaTeX math, equations have source IDs and source equation numbers where available, variables are explained, implementation-relevant formulas are represented, long proofs are summarized as proof maps, and mathematical gaps are explicitly listed.
+# Review before completion
 
-If any item is missing, mark the source page with `ingestion_status: partial` or `ingestion_status: needs-review`, document the gap under `## Ingestion QA`, and do not report the ingestion as complete.
+Before reporting success:
 
-## Sensitive material handling
+1. Review the new or modified source pages.
+2. Check that central claims are traceable.
+3. Check bundle relationships.
+4. Check bibliographic metadata where applicable.
+5. Check that important limitations and uncertainty were preserved.
+6. For math-heavy material, check equations, symbols, dependencies, and mathematical gaps.
+7. Run source-specific retrieval QA.
+8. Run repository validation.
+9. Run required generated-index or knowledge-graph builders.
 
-- Do not store credentials, passwords, private keys, API tokens, recovery codes, or secrets in the repo.
-- Encrypted sources may have safe plaintext index pages or redacted summaries.
-- Decrypted copies should not be committed.
-- Codex should not attempt to decrypt files unless explicitly instructed and the decrypted material is locally available.
-- Sensitive filenames should be generic when possible.
-- If encrypted material is unavailable, mark related claims as inaccessible or pending review instead of guessing.
-- Keep the encryption design tool-agnostic unless implementation is explicitly requested.
+# Validation
+
+Run:
+
+```bash
+python3 tools/validate_wiki.py
+python3 tools/build_category_indexes.py
+python3 tools/build_concept_indexes.py
+python3 tools/build_knowledge_graph.py
+```
+
+Run additional repository tools when required by the current workflow.
+
+Do not report validation as passed if it was not run or failed.
+
+If validation fails because of a clearly pre-existing unrelated problem, report that distinction rather than silently modifying unrelated content.
+
+# Completion contract
+
+An ingestion is complete only when:
+
+* every requested physical source has a stable source ID;
+* every requested source has a source page;
+* imported raw sources are linked where applicable;
+* source provenance is preserved;
+* the major topics, methods, claims, evidence, limitations, and open questions are represented;
+* important concepts are linked or represented;
+* bundle relationships are recorded;
+* important caveats and contradictions are preserved;
+* source-specific retrieval QA was completed;
+* `wiki/index.md` and `wiki/log.md` were updated as required;
+* required repository validation passed.
+
+For math-heavy material, completion also requires that important mathematical structure is represented or explicitly recorded as a gap.
+
+If these conditions are not met, mark the ingestion:
+
+* `partial`, or
+* `needs-review`
+
+and record the reason.
+
+# Independent review handoff
+
+A substantial or high-risk ingestion may be reviewed independently by the parent harness after completion.
+
+Make that review efficient by leaving:
+
+* clear source IDs;
+* explicit known gaps;
+* ingestion QA;
+* equation inventories where relevant;
+* concise validation results.
+
+Do not perform a redundant second full-source review yourself unless required to resolve a specific uncertainty.
+
+# Sensitive material
+
+Do not store:
+
+* credentials;
+* passwords;
+* private keys;
+* API tokens;
+* recovery codes;
+* other secrets.
+
+Do not commit decrypted copies of encrypted material.
+
+Do not attempt to decrypt sources unless explicitly instructed and the necessary plaintext access is already available.
+
+If protected material cannot be inspected, record the limitation instead of guessing.

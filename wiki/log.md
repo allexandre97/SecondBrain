@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-11
+updated: 2026-09-14
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -15,6 +15,10 @@ encryption: none
 graph_exclude: true
 ---
 # Wiki Log
+
+- 2026-09-14: Imported and ingested SRC-0086/SRC-0087 as the `breaking-timescales-generative-sampling-conformational-transitions-2026` main-paper/supplement bundle. Added math-deep coverage of Gen-COMPAS, including its DDPM–TMD–unbiased-shooting–VCN–RiteWeight loop, direct committor validation, implementation parameters, compute accounting, and global-convergence limits; added a reusable concept, proposal-validation claim, scalable-committor-validation question, conservative links to SRC-0041/SRC-0074, and updates to adaptive-sampling and validation pages.
+
+- 2026-09-12: Recorded the two derived Garnet RBFE presentation scenes for synchronized side-by-side playback: a static 35 mm panorama retaining all 11 walkers and a static 70 mm binding-pocket view retaining Walker 00 and dependencies only. Both preserve frames 0–1000, trajectory/lambda actions and the source render setup; independent Blender 5.1 reopening and midpoint renders passed, and the source scene remained unchanged.
 
 - 2026-09-11: Unified backgrounds across nine presentation Blender files to #F7F5F2; improved free-text, equation and plot contrast while preserving timeline/animation data. Recorded backups, representative renders, existing MolecularNodes sidecar warnings and unchanged movie exports in the presentation answer/index.
 
@@ -170,3 +174,5 @@ graph_exclude: true
 - 2026-09-10: Reflected the new animation integration handoff ZIP and review in the presentation answer/index: supplied 18-slide deck unchanged, nine decoded movies, 19 verified original stills, energy-curve correction, O8 sequence, user-confirmed HN/Hα and TYK2/5 ns/default-OpenFE provenance, and PowerPoint playback/static-export checks for the next editor. No new source ingestion.
 
 - 2026-09-11: Recorded the 20-second caffeine discrete atom-typing animation, requested Blender delivery path, preserved source snapshot, illustrative O8/C7 category-to-parameter lookups, exact #F7F5F2 background, editable builder, stills and preview. Updated presentation answer/index; checked 24 atoms, 25 bonds, lookup timing and sampled text bounds. Wiki validation retains the pre-existing missing-frontmatter failure in `wiki/answers/garnet-nonbonded-contact-cleanup.md`; no source ingestion or unrelated repairs.
+
+- 2026-09-14: Recorded the Garnet rehearsal handoff ZIP and authoritative `ss_coloquia_17-09-2026.pptx` baseline (15 core plus five backups; presenter-reported approximately 18 minutes). Preserved the validated S03/S04 swap, qualitative overlapping model trade-space with ReaxFF, narrowly sourced Garnet–Espaloma training contrast and no-ablation caveat, complementary roles of Figure 6A and Supplementary Figure 8, and the likely S07 rather than S06 water-wording edit. Referenced the archive in place without copying binaries; Microsoft 365, PDF and projector checks remain pending.

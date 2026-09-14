@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-29
-updated: 2026-07-31
+updated: 2026-09-14
 areas:
   - research
 categories:
@@ -31,6 +31,9 @@ related:
   - "[[wiki/concepts/tss-implementation-patterns]]"
   - "[[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of]]"
   - "[[wiki/concepts/enhanced-sampling-validation]]"
+  - "[[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions]]"
+  - "[[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement]]"
+  - "[[wiki/concepts/generative-committor-guided-path-sampling]]"
 sources:
   - SRC-0010
   - SRC-0011
@@ -41,6 +44,8 @@ sources:
   - SRC-0005
   - SRC-0006
   - SRC-0074
+  - SRC-0086
+  - SRC-0087
 sensitivity: public
 encryption: none
 ---
@@ -63,6 +68,7 @@ Adaptive enhanced sampling uses information learned during a simulation to steer
 - Windowing is a locality mechanism: it restricts updates to overlapping parameter-space neighborhoods where distributions are expected to have useful overlap. [SRC-0005, section 3.1]
 - Adaptive sampling must preserve convergence guarantees; SRC-0005 and SRC-0006 state assumptions and proof structure for convergence despite adaptation. [SRC-0005, section 2.2.4] [SRC-0006, section 5]
 - In realistic free-energy landscapes, internal stability can fail to detect parameter- or initialization-dependent bias. A five-system comparison therefore recommends separating self-convergence from cross-method or extended-reference validation. [SRC-0074]
+- Gen-COMPAS adapts a different object from extended-ensemble bias methods: a diffusion model proposes transition structures, bidirectional TMD refines them, unbiased shooting supplies dynamical data, and a learned committor focuses later proposals near $q=1/2$. [SRC-0086, pp. 2, 7–8] [SRC-0087, Algorithm S1]
 
 ## TSS, AWH, and OPES comparison
 
@@ -154,6 +160,9 @@ Windowing is derived by introducing the active-window variable `J`, enforcing a 
 - [[wiki/questions/tss-generalization-scope]]
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of]]
 - [[wiki/concepts/enhanced-sampling-validation]]
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions]]
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement]]
+- [[wiki/concepts/generative-committor-guided-path-sampling]]
 
 ## Open Questions
 

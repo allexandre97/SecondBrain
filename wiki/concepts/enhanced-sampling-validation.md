@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-07-31
-updated: 2026-07-31
+updated: 2026-09-14
 areas:
   - research
 categories:
@@ -21,8 +21,14 @@ related:
   - "[[wiki/concepts/on-the-fly-probability-enhanced-sampling]]"
   - "[[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]]"
   - "[[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness]]"
+  - "[[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions]]"
+  - "[[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement]]"
+  - "[[wiki/concepts/generative-committor-guided-path-sampling]]"
+  - "[[wiki/questions/QST-0009-scalable-independent-validation-of-learned-committors]]"
 sources:
   - SRC-0074
+  - SRC-0086
+  - SRC-0087
 sensitivity: public
 encryption: none
 ---
@@ -40,6 +46,12 @@ Enhanced-sampling validation separates internal stability from external correctn
 3. **Cross-method agreement:** compare independently produced landscapes on a common coordinate grid, using normalized probabilities or aligned free energies. [SRC-0074, eqs. 14-21]
 4. **Extended or independent reference:** when possible, compare with longer simulations or a reference that changes the main algorithmic assumptions. A method-marginalized average alone cannot exclude shared errors. [SRC-0074, p. 2 and Methods]
 5. **Physical validation:** check basin order, barrier locations, and free-energy differences against experimental or established mechanistic constraints where available. [SRC-0074, pp. 4-9]
+
+## Generative transition-path diagnostics
+
+Gen-COMPAS adds diagnostics specific to learned transition proposals. Consecutive transition-state ensembles are compared through nearest-neighbour RMSD distributions and Wasserstein distance; reweighted FELs receive trajectory-level bootstrap and partial-data degradation checks; bidirectional TMD endpoints are compared by predicted committor; and direct unbiased shooting is used where computationally feasible. These diagnostics answer different questions and should not be collapsed into one convergence label. [SRC-0087, pp. S16–S35]
+
+Eight-network committor ensembles provide a cheaper epistemic-disagreement signal for large systems, but cannot exclude a bias shared by all models. The paper correspondingly limits its FELs to exploratory local and pathway-level interpretation when global equilibrium convergence is not independently established. [SRC-0086, pp. 3, 6] [SRC-0087, p. S31]
 
 ## Context-dependent selection
 
@@ -92,6 +104,10 @@ The two values answer different questions and should not be collapsed into one c
 - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent]]
 - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]]
 - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness]]
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions]]
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement]]
+- [[wiki/concepts/generative-committor-guided-path-sampling]]
+- [[wiki/questions/QST-0009-scalable-independent-validation-of-learned-committors]]
 
 ## Open questions
 

@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-11
+updated: 2026-09-14
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -50,11 +50,15 @@ Use this page as the main navigation point for reviewed wiki content.
 
 ## Answers
 
+The 14 September Garnet rehearsal handoff records the authoritative 15-core-plus-five-backup baseline, approximately 18-minute rehearsal, S03/S04 swap, qualified model trade-space and Garnet–Espaloma comparison, Figure 6A/Supplementary Figure 8 roles, and the likely S07—not S06—water wording edit; see [[wiki/answers/garnet-structural-studies-presentation-plan]].
+
+The Garnet RBFE slide now has independently validated, synchronized 30 fps panorama and binding-pocket Blender assets for side-by-side playback; the original scene remains unchanged. Details are in [[wiki/answers/garnet-structural-studies-presentation-plan]].
+
 All nine Garnet presentation Blender animations now share the off-white background and adjusted typography/plot contrast; checks and backups are recorded in [[wiki/answers/garnet-structural-studies-presentation-plan]].
 
 The Garnet presentation animation now includes the matching complete-molecule-to-hydrogen-free opening in both atom-typing examples; see [[wiki/answers/garnet-structural-studies-presentation-plan]].
 
-- [[wiki/answers/garnet-structural-studies-presentation-plan]] - Structural Studies, 17 September 2026: 20 minutes plus questions; 10 September animation handoff and 11 September discrete atom-typing counterpart to O8 message passing (20 seconds, illustrative categories, off-white background, editable Blender file and preview). Includes confirmed HN/Hα coupling and TYK2/5 ns/default-OpenFE provenance; PowerPoint/projector testing remains.
+- [[wiki/answers/garnet-structural-studies-presentation-plan]] - Structural Studies, 17 September 2026: current rehearsed baseline is 15 core slides plus five backups at approximately 18 minutes; the 14 September revision handoff records the validated scientific and slide-order decisions. Microsoft 365 playback, final PDF export and projector testing remain.
 
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]] - Aggressive density-only positive control showing two fresh-confirmed updates, successful archive KL up to 0.3803, complementary KL/ESS gates, and separation of checkpoint validity from next-direction readiness.
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - Canonical account of two prospective dielectric-only damped-Fisher campaigns, including six consecutive fresh-confirmed updates in the higher-KL run, KL/support diagnostics, limitations, and checkpoint-state lessons.
@@ -80,6 +84,9 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/entities/authors/michael-r-shirts]] - Repeated author entity for MBAR and configuration-mapping free-energy sources.
 
 ## Sources
+
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] - Main Nature paper on generative proposals, bidirectional TMD, committor-guided transition-region sampling, and reweighted free-energy landscapes.
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]] - Algorithm S1, DDPM and RiteWeight equations, direct committor validation, convergence diagnostics, parameters, and compute estimates.
 
 - [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]] - Osmotic-pressure calibration of charged residue/ion interactions with transfer tests on IDRs, a folded–disordered complex, and biomolecular condensates.
 
@@ -180,6 +187,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Concepts
 
+- [[wiki/concepts/generative-committor-guided-path-sampling]] - Diffusion proposals refined by explicit dynamics and iteratively selected using a learned committor.
+
 - [[wiki/concepts/osmometry-guided-force-field-optimization]] - Experimental osmotic-pressure calibration of residue and ion interactions with held-out biomolecular transfer validation.
 
 - [[wiki/concepts/nationwide-current-accounts]] - Hub for the Nationwide current-account bundle: account family, interest/cashback, FSCS protection, and switching.
@@ -262,6 +271,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Questions
 
+- [[wiki/questions/QST-0009-scalable-independent-validation-of-learned-committors]] - How to validate learned committors independently at large-system scale without losing the sampling advantage.
+
 - [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]] - Whether fresh checkpoint assessment and statistical readiness for the next optimization direction should be separate pipeline states.
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]] - Sampling length, replica count, uncertainty, and direction-basis requirements for resolving enthalpy or dielectric teacher signals.
 - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.
@@ -284,6 +295,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/questions/rna-force-field-motif-validation-scope]] - RNA motif validation scope for transferable force-field changes.
 
 ## Claims
+
+- [[wiki/claims/CLM-0043-generated-transition-proposals-require-dynamical-validation]] - Gen-COMPAS generated structures are proposal targets, not equilibrium samples or final transition states.
 
 - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]] - A Fisher KL trust region and its empirical replay KL must condition on thermodynamic state consistently.
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] - Fixed-archive mathematical validation does not establish a statistically resolvable direction on fresh production data.

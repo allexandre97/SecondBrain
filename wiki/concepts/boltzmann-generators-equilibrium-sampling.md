@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-09-14
 areas:
   - research
 categories:
@@ -20,10 +20,13 @@ related:
   - "[[wiki/concepts/transferable-and-scalable-boltzmann-generators]]"
   - "[[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]]"
   - "[[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]]"
+  - "[[wiki/concepts/generative-committor-guided-path-sampling]]"
+  - "[[wiki/claims/CLM-0043-generated-transition-proposals-require-dynamical-validation]]"
 sources:
   - SRC-0041
   - SRC-0037
   - SRC-0039
+  - SRC-0086
 sensitivity: public
 encryption: none
 ---
@@ -41,6 +44,7 @@ Boltzmann generators use exact-likelihood generative models, often normalizing f
 - Training by example can help focus the model on relevant configurations when energy-only training is too diffuse or unstable early in training. [SRC-0041]
 - Importance reweighting supports equilibrium observables and free-energy estimates, but only if generated samples cover the target support with sufficient effective sample size. [SRC-0037] [SRC-0039]
 - Later work extends the original system-specific idea toward transfer across molecules and scale across materials systems. [SRC-0037] [SRC-0039]
+- Gen-COMPAS provides a useful contrast: its diffusion-generated configurations are structural targets rather than exact-density equilibrium proposals, so explicit-Hamiltonian TMD refinement, unbiased shooting, and trajectory reweighting carry the physical and statistical validation burden. [SRC-0086, pp. 2–3, 7]
 
 ## Core equations
 
@@ -74,6 +78,8 @@ $$
 - [[wiki/concepts/transferable-and-scalable-boltzmann-generators]]
 - [[wiki/claims/CLM-0016-boltzmann-generators-need-overlap-and-reweighting-support]]
 - [[wiki/tensions/TEN-0009-boltzmann-generator-one-shot-sampling-vs-overlap-risk]]
+- [[wiki/concepts/generative-committor-guided-path-sampling]]
+- [[wiki/claims/CLM-0043-generated-transition-proposals-require-dynamical-validation]]
 
 ## Open Questions
 

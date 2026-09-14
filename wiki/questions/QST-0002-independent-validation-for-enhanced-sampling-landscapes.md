@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-07-31
-updated: 2026-07-31
+updated: 2026-09-14
 question_status: open
 areas:
   - research
@@ -21,6 +21,8 @@ related:
   - "[[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness]]"
 sources:
   - SRC-0074
+  - SRC-0086
+  - SRC-0087
 sensitivity: public
 encryption: none
 ---
@@ -34,6 +36,8 @@ What practical reference design can distinguish stable method-specific bias from
 ## Context
 
 SRC-0074 combines blinded cross-method comparison, a probability-space consensus, and longer multiple-walker WTM-eABF trajectories. This detects failures missed by self-convergence, but the methods share coordinates and molecular models, while WTM-eABF is both a tested method and the long reference. [SRC-0074, p. 2 and Methods]
+
+Gen-COMPAS adds a complementary validation case: direct committor shooting and an independent DESRES trajectory support Trp-cage, whereas larger systems rely more heavily on structural convergence, TMD consistency, trajectory bootstrap, model ensembles, and literature agreement because direct shooting is expensive. [SRC-0086, pp. 3–6] [SRC-0087, pp. S16–S31]
 
 ## Current position
 
@@ -52,4 +56,7 @@ A defensible validation protocol should separate internal stability, parameter s
 - [[wiki/concepts/enhanced-sampling-validation]]
 - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness]]
 - [[wiki/tensions/TEN-0016-internal-convergence-vs-external-free-energy-correctness]]
+- [[wiki/questions/QST-0009-scalable-independent-validation-of-learned-committors]]
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions]]
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement]]
 

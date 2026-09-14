@@ -36,6 +36,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]]
 - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]]
 - [[wiki/sources/SRC-0054-accelerating-molecular-dynamics-simulations-using-fast-ewald-summation|Fast Ewald Summation with Prolates]]
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]
 - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]
 - [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]]
 - [[wiki/sources/SRC-0048-general-formulation-of-pressure-and-stress-tensor-for|Many-Body Pressure and Stress Tensor]]
@@ -55,6 +57,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/concepts/conservative-reaction-field-cutoff-schemes|Conservative Reaction-Field Cutoff Schemes]]
 - [[wiki/concepts/dipole-moment-fluctuation-dielectric-constant|Dipole-Moment Fluctuations and Dielectric Constants in Polar MD]]
+- [[wiki/concepts/generative-committor-guided-path-sampling|Generative Committor-Guided Path Sampling]]
 - [[wiki/concepts/gpu-md-neighbor-and-nonbonded-acceleration|GPU MD Neighbor and Nonbonded Acceleration]]
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]]
 - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]]
@@ -85,5 +88,6 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0035-dielectric-fluctuation-formulas-are-geometry-dependent|Dielectric Fluctuation Formulas Are Geometry-Dependent]]
 - [[wiki/claims/CLM-0027-ewald-pme-family-choices-trade-accuracy-smoothness-and-cost|Ewald/PME Family Choices Trade Accuracy, Smoothness, and Cost]]
 - [[wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md|Force-Based Virials Generalize Pressure and Stress to Many-Body MD]]
+- [[wiki/claims/CLM-0043-generated-transition-proposals-require-dynamical-validation|Generated Transition Proposals Require Dynamical Validation]]
 - [[wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited|GPU MD Neighbor and Nonbonded Performance Is Data-Layout Limited]]
 - [[wiki/claims/CLM-0036-site-site-reaction-fields-avoid-molecular-size-mismatch|Site-Site Reaction Fields Avoid Molecular-Size Mismatch]]

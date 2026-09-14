@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-29
-updated: 2026-07-01
+updated: 2026-09-14
 areas:
   - research
 categories:
@@ -42,6 +42,9 @@ related:
   - "[[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]"
   - "[[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]"
   - "[[wiki/concepts/solvation-free-energy-decoupling-in-lammps]]"
+  - "[[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions]]"
+  - "[[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement]]"
+  - "[[wiki/concepts/generative-committor-guided-path-sampling]]"
 sources:
   - SRC-0023
   - SRC-0010
@@ -59,6 +62,8 @@ sources:
   - SRC-0046
   - SRC-0061
   - SRC-0047
+  - SRC-0086
+  - SRC-0087
 sensitivity: public
 encryption: none
 ---
@@ -84,6 +89,7 @@ Free energy estimation computes differences between free energies, often by esti
 - Protein-ligand RBFE benchmark accuracy should be interpreted against experimental reproducibility, because assay-derived relative affinities have their own error floor. [SRC-0046]
 - OpenFE's journal benchmark reinforces that all-to-all pairwise metrics are more representative than edgewise metrics for arbitrary ligand comparisons, and that private active-project data can be substantially harder than curated public data. [SRC-0061, sections 3.1.1 and 3.2]
 - LAMMPS solvation free-energy decoupling can be implemented by adding an overlay correction that preserves intramolecular Coulomb energy while solute charges are scaled for solute-solvent electrostatic staging. [SRC-0047]
+- Gen-COMPAS uses RiteWeight to reconstruct stationary weights from many short unbiased trajectories initiated from non-equilibrium transition-region ensembles; projected free energies remain limited by trajectory connectivity and sampling coverage. [SRC-0087, pp. S15–S21]
 
 ## Sample, biasing, and reweighting patterns
 
@@ -97,6 +103,7 @@ Free-energy methods differ as much in when they use sample information as in wha
 | MBAR | Takes samples already collected from multiple equilibrium states and cross-evaluates their reduced potentials. [SRC-0023] | MBAR itself does not adaptively bias sampling; the simulation protocol supplies any bias. [SRC-0023] | Reweighting is the main estimator, solving coupled normalizing-constant equations for free energies, expectations, and uncertainties. [SRC-0023] |
 | LaDyBUGS | Alternates short conditional MD sampling with Gibbs updates over many discrete ligand alchemical states. [SRC-0013] | Dynamic biases keep the discrete alchemical states sampled during one production simulation. [SRC-0013, eqs. 1 and 4] | FastMBAR periodically estimates free energies and feeds those estimates into later bias updates. [SRC-0013] |
 | Boltzmann generators | Generate proposal samples from an exact-density learned model. [SRC-0041] | Training makes the proposal resemble the target through energy, entropy/Jacobian, and sometimes example-based objectives. [SRC-0041] | Importance reweighting corrects generated proposals to equilibrium estimates when overlap and effective sample size are adequate. [SRC-0041] [SRC-0037] [SRC-0039] |
+| Gen-COMPAS | Aggregates short unbiased trajectories launched after generative proposal and TMD refinement. [SRC-0086, pp. 2, 7–8] | TMD steers toward generated targets but is excluded from kinetic and thermodynamic estimators. [SRC-0086, p. 7] | RiteWeight reconstructs stationary frame weights from unbiased trajectory fragments started outside equilibrium. [SRC-0087, pp. S15–S16] |
 
 MBAR with configuration mapping is a useful boundary case: it remains an MBAR-style reweighting estimator, but first applies invertible maps and Jacobian corrections to improve overlap between states before solving the MBAR equations. [SRC-0012]
 
@@ -242,6 +249,9 @@ MBAR uses all cross-state reduced potentials to solve coupled normalization-cons
 - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation]]
 - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality]]
 - [[wiki/concepts/solvation-free-energy-decoupling-in-lammps]]
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions]]
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement]]
+- [[wiki/concepts/generative-committor-guided-path-sampling]]
 
 ## Open Questions
 
