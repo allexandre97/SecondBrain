@@ -8,6 +8,7 @@ import os
 import re
 import sqlite3
 import tempfile
+import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
@@ -15,13 +16,21 @@ from typing import Any, Iterable
 from wiki_markdown import as_list, parse_frontmatter
 
 
-SCHEMA_VERSION = "2"
+SCHEMA_VERSION = "3"
 INDEX_DIRNAME = ".cache"
 INDEX_NAME = "wiki-search.sqlite3"
 GENERATED_INDEX_NAME = "wiki-search-generated.sqlite3"
 # FTS columns: section_id (UNINDEXED), title, aliases, heading, metadata, body.
 BM25_WEIGHTS = (0.0, 12.0, 8.0, 6.0, 3.0, 1.0)
 DEFAULT_PER_PAGE = 2
+FUZZY_PRIORITY_BODY = 1
+FUZZY_PRIORITY_METADATA = 2
+FUZZY_PRIORITY_HEADING = 3
+FUZZY_PRIORITY_TITLE_OR_ALIAS = 4
+MIN_FUZZY_TERM_LENGTH = 4
+MAX_EDIT_DISTANCE_LENGTH_4_TO_5 = 1
+MAX_EDIT_DISTANCE_LENGTH_6_TO_8 = 2
+MAX_EDIT_DISTANCE_LENGTH_9_PLUS = 2
 HEADING_RE = re.compile(r"^ {0,3}(#{1,6})(?:[ \t]+(.*)|[ \t]*)$")
 FENCE_RE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
 TOKEN_RE = re.compile(r"[^\W_]+(?:['’][^\W_]+)*", re.UNICODE)
@@ -42,7 +51,10 @@ class Section:
 @dataclass(frozen=True)
 class SearchResponse:
     query: str
+    effective_query: str
     match_mode: str
+    fuzzy: bool
+    corrections: list[dict[str, Any]]
     results: list[dict[str, Any]]
 
 
@@ -204,6 +216,19 @@ def _create_schema(connection: sqlite3.Connection) -> None:
         CREATE TABLE page_categories (page_id INTEGER NOT NULL, value TEXT NOT NULL, PRIMARY KEY(page_id, value));
         CREATE TABLE page_tags (page_id INTEGER NOT NULL, value TEXT NOT NULL, PRIMARY KEY(page_id, value));
         CREATE TABLE page_sources (page_id INTEGER NOT NULL, value TEXT NOT NULL, PRIMARY KEY(page_id, value));
+        CREATE TABLE fuzzy_terms (
+            term TEXT PRIMARY KEY,
+            priority INTEGER NOT NULL,
+            document_frequency INTEGER NOT NULL
+        );
+        CREATE TABLE fuzzy_spellings (term TEXT PRIMARY KEY);
+        CREATE VIRTUAL TABLE fuzzy_source USING fts5(
+            title_alias,
+            headings,
+            metadata,
+            body,
+            tokenize='unicode61 remove_diacritics 2'
+        );
         CREATE TABLE sections (
             id INTEGER PRIMARY KEY,
             page_id INTEGER NOT NULL,
@@ -264,6 +289,7 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
 
             page_id = 0
             section_id = 0
+            spellings: set[str] = set()
             for relative_path, _size, _mtime_ns in manifest:
                 path = root / relative_path
                 text = path.read_text(encoding="utf-8", errors="replace")
@@ -315,8 +341,15 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
                 connection.executemany(
                     "INSERT INTO page_sources VALUES (?, ?)", [(page_id, value) for value in sources]
                 )
-                metadata = " ".join(_unique([*categories, *tags, *areas, *sources]))
+                metadata_values = _unique([*categories, *tags, *areas, *sources])
+                metadata = " ".join(metadata_values)
+                page_terms: dict[str, int] = {}
+                _add_fuzzy_terms(page_terms, title_terms, FUZZY_PRIORITY_TITLE_OR_ALIAS)
+                _add_fuzzy_terms(page_terms, aliases, FUZZY_PRIORITY_TITLE_OR_ALIAS)
+                _add_fuzzy_terms(page_terms, metadata_values, FUZZY_PRIORITY_METADATA)
                 for section in sections:
+                    _add_fuzzy_terms(page_terms, [section.heading], FUZZY_PRIORITY_HEADING)
+                    _add_fuzzy_terms(page_terms, [section.body], FUZZY_PRIORITY_BODY)
                     section_id += 1
                     connection.execute(
                         "INSERT INTO sections VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -347,6 +380,50 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
                             section.body,
                         ),
                     )
+                spellings.update(page_terms)
+                connection.execute(
+                    "INSERT INTO fuzzy_source(rowid, title_alias, headings, metadata, body) "
+                    "VALUES (?, ?, ?, ?, ?)",
+                    (
+                        page_id,
+                        " ".join([*title_terms, *aliases]),
+                        " ".join(section.heading for section in sections),
+                        metadata,
+                        "\n".join(section.body for section in sections),
+                    ),
+                )
+
+            connection.executemany(
+                "INSERT INTO fuzzy_spellings VALUES (?)",
+                [(term,) for term in sorted(spellings)],
+            )
+            connection.execute(
+                "CREATE VIRTUAL TABLE fuzzy_vocab USING fts5vocab(fuzzy_source, 'instance')"
+            )
+            connection.execute(
+                """
+                INSERT INTO fuzzy_terms(term, priority, document_frequency)
+                SELECT term,
+                       MAX(CASE col
+                           WHEN 'title_alias' THEN ?
+                           WHEN 'headings' THEN ?
+                           WHEN 'metadata' THEN ?
+                           ELSE ?
+                       END),
+                       COUNT(DISTINCT doc)
+                FROM fuzzy_vocab
+                GROUP BY term
+                ORDER BY term
+                """,
+                (
+                    FUZZY_PRIORITY_TITLE_OR_ALIAS,
+                    FUZZY_PRIORITY_HEADING,
+                    FUZZY_PRIORITY_METADATA,
+                    FUZZY_PRIORITY_BODY,
+                ),
+            )
+            connection.execute("DROP TABLE fuzzy_vocab")
+            connection.execute("DROP TABLE fuzzy_source")
             connection.commit()
         finally:
             connection.close()
@@ -376,6 +453,8 @@ def index_is_stale(root: Path, include_generated: bool = False) -> bool:
                 "SELECT path, size, mtime_ns FROM manifest ORDER BY path"
             ).fetchall()
             connection.execute("SELECT 1 FROM section_fts LIMIT 1").fetchone()
+            connection.execute("SELECT 1 FROM fuzzy_terms LIMIT 1").fetchone()
+            connection.execute("SELECT 1 FROM fuzzy_spellings LIMIT 1").fetchone()
         finally:
             connection.close()
     except sqlite3.Error:
@@ -396,7 +475,97 @@ def ensure_index(root: Path, include_generated: bool = False, rebuild: bool = Fa
 
 
 def query_tokens(query: str) -> list[str]:
-    return _unique(match.group(0).casefold() for match in TOKEN_RE.finditer(query))
+    normalized = unicodedata.normalize("NFC", query)
+    return _unique(match.group(0).casefold() for match in TOKEN_RE.finditer(normalized))
+
+
+def _add_fuzzy_terms(target: dict[str, int], values: Iterable[str], priority: int) -> None:
+    for value in values:
+        for term in query_tokens(value):
+            target[term] = max(priority, target.get(term, 0))
+
+
+def maximum_edit_distance(length: int) -> int | None:
+    if length < MIN_FUZZY_TERM_LENGTH:
+        return None
+    if length <= 5:
+        return MAX_EDIT_DISTANCE_LENGTH_4_TO_5
+    if length <= 8:
+        return MAX_EDIT_DISTANCE_LENGTH_6_TO_8
+    return MAX_EDIT_DISTANCE_LENGTH_9_PLUS
+
+
+def levenshtein_distance(left: str, right: str) -> int:
+    """Return the deterministic character-level edit distance between two terms."""
+    if left == right:
+        return 0
+    if len(left) < len(right):
+        left, right = right, left
+    if not right:
+        return len(left)
+
+    previous = list(range(len(right) + 1))
+    for left_index, left_character in enumerate(left, 1):
+        current = [left_index]
+        for right_index, right_character in enumerate(right, 1):
+            current.append(
+                min(
+                    current[-1] + 1,
+                    previous[right_index] + 1,
+                    previous[right_index - 1] + (left_character != right_character),
+                )
+            )
+        previous = current
+    return previous[-1]
+
+
+def levenshtein_similarity(left: str, right: str) -> float:
+    longest = max(len(left), len(right))
+    if longest == 0:
+        return 1.0
+    return 1.0 - levenshtein_distance(left, right) / longest
+
+
+def fuzzy_correct_tokens(
+    connection: sqlite3.Connection, tokens: list[str]
+) -> tuple[list[str], list[dict[str, Any]]]:
+    rows = connection.execute(
+        "SELECT term, priority, document_frequency FROM fuzzy_terms ORDER BY term"
+    ).fetchall()
+    vocabulary = {row[0] for row in rows}
+    vocabulary.update(
+        row[0] for row in connection.execute("SELECT term FROM fuzzy_spellings")
+    )
+    corrected_tokens: list[str] = []
+    corrections: list[dict[str, Any]] = []
+
+    for token in tokens:
+        max_distance = maximum_edit_distance(len(token))
+        if token in vocabulary or max_distance is None or not any(char.isalnum() for char in token):
+            corrected_tokens.append(token)
+            continue
+
+        candidates: list[tuple[int, int, int, str]] = []
+        for candidate, priority, document_frequency in rows:
+            if not any(char.isalnum() for char in candidate):
+                continue
+            if abs(len(candidate) - len(token)) > max_distance:
+                continue
+            distance = levenshtein_distance(token, candidate)
+            if distance <= max_distance:
+                candidates.append((distance, -priority, -document_frequency, candidate))
+
+        if not candidates:
+            corrected_tokens.append(token)
+            continue
+
+        distance, _priority, _document_frequency, corrected = min(candidates)
+        corrected_tokens.append(corrected)
+        corrections.append(
+            {"original": token, "corrected": corrected, "distance": distance}
+        )
+
+    return corrected_tokens, corrections
 
 
 def fts_query(tokens: list[str], mode: str) -> str:
@@ -497,6 +666,21 @@ def _run_query(
     return results
 
 
+def _search_tokens(
+    connection: sqlite3.Connection,
+    tokens: list[str],
+    options: dict[str, Any],
+    *,
+    fuzzy: bool = False,
+) -> tuple[list[dict[str, Any]], str]:
+    results = _run_query(connection, fts_query(tokens, "and"), **options)
+    mode = "fuzzy-and" if fuzzy else "and"
+    if not results and len(tokens) > 1:
+        results = _run_query(connection, fts_query(tokens, "or"), **options)
+        mode = "fuzzy-or" if fuzzy else "or"
+    return results, mode
+
+
 def search(
     root: Path,
     query: str,
@@ -511,7 +695,13 @@ def search(
     include_generated: bool = False,
     rebuild: bool = False,
     per_page: int = DEFAULT_PER_PAGE,
+    fuzzy: bool | None = None,
 ) -> SearchResponse:
+    """Search sections, with optional forced/disabled deterministic fuzzy correction.
+
+    ``fuzzy=None`` enables fallback after an empty lexical search, ``True`` forces
+    correction when eligible unknown terms exist, and ``False`` disables it.
+    """
     if limit < 1:
         raise SearchError("--limit must be at least 1")
     if per_page < 1:
@@ -532,13 +722,26 @@ def search(
             "tag": tag,
             "per_page": per_page,
         }
-        results = _run_query(connection, fts_query(tokens, "and"), **options)
-        match_mode = "and"
-        if not results and len(tokens) > 1:
-            results = _run_query(connection, fts_query(tokens, "or"), **options)
-            match_mode = "or"
+        results, match_mode = _search_tokens(connection, tokens, options)
+        if fuzzy is False or (results and fuzzy is not True):
+            return SearchResponse(query, query, match_mode, False, [], results)
+
+        corrected_tokens, corrections = fuzzy_correct_tokens(connection, tokens)
+        if not corrections:
+            return SearchResponse(query, query, match_mode, False, [], results)
+
+        results, match_mode = _search_tokens(
+            connection, corrected_tokens, options, fuzzy=True
+        )
+        return SearchResponse(
+            query,
+            " ".join(corrected_tokens),
+            match_mode,
+            True,
+            corrections,
+            results,
+        )
     except sqlite3.Error as error:
         raise SearchError(f"search index query failed: {error}") from error
     finally:
         connection.close()
-    return SearchResponse(query=query, match_mode=match_mode, results=results)

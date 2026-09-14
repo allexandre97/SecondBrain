@@ -26,6 +26,21 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--limit", type=int, default=10, help="Maximum results (default: 10).")
     parser.add_argument("--json", action="store_true", help="Write machine-readable JSON only.")
+    fuzzy_group = parser.add_mutually_exclusive_group()
+    fuzzy_group.add_argument(
+        "--fuzzy",
+        dest="fuzzy_mode",
+        action="store_const",
+        const=True,
+        help="Force correction of eligible unknown terms before returning results.",
+    )
+    fuzzy_group.add_argument(
+        "--no-fuzzy",
+        dest="fuzzy_mode",
+        action="store_const",
+        const=False,
+        help="Disable automatic fuzzy fallback.",
+    )
     parser.add_argument("--type", dest="page_type", help="Exact frontmatter type filter.")
     parser.add_argument("--category", help="Exact frontmatter category filter.")
     parser.add_argument("--path", help="Repository-relative path substring filter (ASCII case-insensitive).")
@@ -48,13 +63,22 @@ def build_parser() -> argparse.ArgumentParser:
 def response_payload(response: object) -> dict[str, object]:
     return {
         "query": response.query,
+        "effective_query": response.effective_query,
         "match_mode": response.match_mode,
+        "fuzzy": response.fuzzy,
+        "corrections": response.corrections,
         "score_semantics": "higher_is_better_negative_bm25",
         "results": response.results,
     }
 
 
 def print_human(response: object) -> None:
+    if response.corrections:
+        label = "Fuzzy correction" if len(response.corrections) == 1 else "Fuzzy corrections"
+        changes = "; ".join(
+            f"{item['original']} → {item['corrected']}" for item in response.corrections
+        )
+        print(f"{label}: {changes}")
     if not response.results:
         print("No matches found.")
         return
@@ -97,6 +121,7 @@ def main(argv: Sequence[str] | None = None, *, root: Path = ROOT) -> int:
             tag=args.tag,
             include_generated=args.include_generated,
             rebuild=args.rebuild,
+            fuzzy=args.fuzzy_mode,
         )
     except SearchError as error:
         print(f"ERROR: {error}", file=sys.stderr)

@@ -114,6 +114,18 @@ uniquenavigationtoken
     def search(self, query: str, **kwargs: object) -> wiki_search.SearchResponse:
         return wiki_search.search(self.root, query, **kwargs)
 
+    def correct(
+        self, query: str, *, include_generated: bool = False
+    ) -> tuple[list[str], list[dict[str, object]]]:
+        database = wiki_search.ensure_index(self.root, include_generated)
+        connection = sqlite3.connect(database)
+        try:
+            return wiki_search.fuzzy_correct_tokens(
+                connection, wiki_search.query_tokens(query)
+            )
+        finally:
+            connection.close()
+
     def test_index_creation_and_relative_paths(self) -> None:
         database = wiki_search.ensure_index(self.root)
         self.assertTrue(database.is_file())
@@ -327,16 +339,238 @@ missingmetadata token
         self.assertEqual(self.search("updatedsearchtoken").results[0]["path"], "wiki/plain.md")
         self.assertFalse(self.search("missingmetadata").results)
 
+    def test_one_character_typo_is_corrected(self) -> None:
+        response = self.search("reweigting")
+        self.assertTrue(response.fuzzy)
+        self.assertEqual(response.effective_query, "reweighting")
+        self.assertEqual(
+            response.corrections,
+            [{"original": "reweigting", "corrected": "reweighting", "distance": 1}],
+        )
+        self.assertEqual(response.results[0]["path"], "wiki/concepts/free-energy.md")
+
+    def test_two_character_typo_is_corrected_for_long_term(self) -> None:
+        response = self.search("overlapneedxx")
+        self.assertTrue(response.fuzzy)
+        self.assertEqual(response.effective_query, "overlapneedle")
+        self.assertEqual(response.corrections[0]["distance"], 2)
+
+    def test_known_term_is_never_changed_even_in_explicit_mode(self) -> None:
+        response = self.search("Reweighting", fuzzy=True)
+        self.assertFalse(response.fuzzy)
+        self.assertEqual(response.effective_query, "Reweighting")
+        self.assertEqual(response.corrections, [])
+        self.assertTrue(response.results)
+
+    def test_fuzzy_vocabulary_uses_fts_diacritic_normalization(self) -> None:
+        self.write("wiki/concepts/accent.md", "# Kubincová method\n\naccented title\n")
+        response = self.search("kubincova", fuzzy=True)
+        self.assertFalse(response.fuzzy)
+        self.assertTrue(response.results)
+        database = wiki_search.ensure_index(self.root)
+        connection = sqlite3.connect(database)
+        try:
+            self.assertEqual(
+                connection.execute(
+                    "SELECT priority FROM fuzzy_terms WHERE term = 'kubincova'"
+                ).fetchone(),
+                (wiki_search.FUZZY_PRIORITY_TITLE_OR_ALIAS,),
+            )
+        finally:
+            connection.close()
+
+    def test_short_unknown_token_is_not_corrected(self) -> None:
+        response = self.search("FEQ", fuzzy=True)
+        self.assertFalse(response.fuzzy)
+        self.assertEqual(response.effective_query, "FEQ")
+        self.assertFalse(response.results)
+
+    def test_candidate_outside_maximum_edit_distance_is_rejected(self) -> None:
+        self.write("wiki/concepts/distance.md", "# Qzxvw\n\nneutral text\n")
+        corrected, corrections = self.correct("qazxy")
+        self.assertEqual(corrected, ["qazxy"])
+        self.assertEqual(corrections, [])
+        self.assertEqual(wiki_search.maximum_edit_distance(5), 1)
+
+    def test_title_priority_breaks_equal_distance_tie(self) -> None:
+        self.write("wiki/concepts/priority-title.md", "# qazplumz\n\nneutral text\n")
+        self.write("wiki/concepts/priority-body.md", "# Neutral Priority\n\nqazpluma\n")
+        corrected, _corrections = self.correct("qazplumx")
+        self.assertEqual(corrected, ["qazplumz"])
+
+    def test_alias_is_a_high_priority_fuzzy_candidate(self) -> None:
+        self.write(
+            "wiki/concepts/alias-priority.md",
+            "---\naliases: [vexneedlz]\n---\n# Neutral Alias Candidate\n\nneutral\n",
+        )
+        self.write("wiki/concepts/alias-body.md", "# Neutral Body Candidate\n\nvexneedla\n")
+        corrected, _corrections = self.correct("vexneedlx")
+        self.assertEqual(corrected, ["vexneedlz"])
+
+    def test_document_frequency_breaks_candidate_tie(self) -> None:
+        self.write("wiki/concepts/df-a.md", "# Frequency One\n\ndfneedlz\n")
+        self.write("wiki/concepts/df-b.md", "# Frequency Two\n\ndfneedlz\n")
+        self.write("wiki/concepts/df-c.md", "# Frequency Three\n\ndfneedla\n")
+        corrected, _corrections = self.correct("dfneedlx")
+        self.assertEqual(corrected, ["dfneedlz"])
+
+    def test_lexical_order_breaks_complete_candidate_tie(self) -> None:
+        self.write("wiki/concepts/lex-a.md", "# Lexical One\n\nlexneedla\n")
+        self.write("wiki/concepts/lex-z.md", "# Lexical Two\n\nlexneedlz\n")
+        corrected, _corrections = self.correct("lexneedlx")
+        self.assertEqual(corrected, ["lexneedla"])
+
+    def test_automatic_fuzzy_fallback_only_runs_after_empty_lexical_search(self) -> None:
+        typo = self.search("reweigting")
+        self.assertEqual(typo.match_mode, "fuzzy-and")
+        with mock.patch.object(
+            wiki_search,
+            "fuzzy_correct_tokens",
+            side_effect=AssertionError("fuzzy fallback should not run"),
+        ):
+            exact = self.search("reweighting")
+        self.assertFalse(exact.fuzzy)
+        self.assertEqual(exact.match_mode, "and")
+
+    def test_explicit_fuzzy_forces_correction_after_partial_lexical_match(self) -> None:
+        automatic = self.search("reweigthing overlapneedle")
+        self.assertFalse(automatic.fuzzy)
+        self.assertEqual(automatic.match_mode, "or")
+        forced = self.search("reweigthing overlapneedle", fuzzy=True)
+        self.assertTrue(forced.fuzzy)
+        self.assertEqual(forced.effective_query, "reweighting overlapneedle")
+        self.assertEqual(forced.match_mode, "fuzzy-and")
+
+    def test_corrected_query_uses_or_fallback_when_corrected_and_is_empty(self) -> None:
+        response = self.search("reweigting garnat")
+        self.assertTrue(response.fuzzy)
+        self.assertEqual(response.effective_query, "reweighting garnet")
+        self.assertEqual(response.match_mode, "fuzzy-or")
+        self.assertTrue(response.results)
+
+    def test_no_fuzzy_disables_automatic_fallback(self) -> None:
+        response = self.search("reweigting", fuzzy=False)
+        self.assertFalse(response.fuzzy)
+        self.assertEqual(response.effective_query, "reweigting")
+        self.assertFalse(response.results)
+
+    def test_cli_fuzzy_and_no_fuzzy_modes(self) -> None:
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            code = search_wiki.main(
+                ["reweigthing", "overlapneedle", "--fuzzy", "--json"], root=self.root
+            )
+        self.assertEqual(code, 0)
+        self.assertTrue(json.loads(output.getvalue())["fuzzy"])
+
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            code = search_wiki.main(["reweigting", "--no-fuzzy", "--json"], root=self.root)
+        self.assertEqual(code, 0)
+        payload = json.loads(output.getvalue())
+        self.assertFalse(payload["fuzzy"])
+        self.assertFalse(payload["results"])
+
+    def test_conflicting_fuzzy_cli_flags_fail_cleanly(self) -> None:
+        error = io.StringIO()
+        with contextlib.redirect_stderr(error), self.assertRaises(SystemExit) as raised:
+            search_wiki.main(["query", "--fuzzy", "--no-fuzzy"], root=self.root)
+        self.assertEqual(raised.exception.code, 2)
+        self.assertIn("not allowed with argument", error.getvalue())
+
     def test_json_cli_is_clean_and_has_required_fields(self) -> None:
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            code = search_wiki.main(["reweigting", "--json"], root=self.root)
+        self.assertEqual(code, 0)
+        payload = json.loads(output.getvalue())
+        self.assertEqual(payload["query"], "reweigting")
+        self.assertEqual(payload["effective_query"], "reweighting")
+        self.assertTrue(payload["fuzzy"])
+        self.assertEqual(payload["match_mode"], "fuzzy-and")
+        self.assertEqual(payload["corrections"][0]["distance"], 1)
+        result = payload["results"][0]
+        for field in ("path", "title", "section", "score", "snippet", "type", "categories"):
+            self.assertIn(field, result)
+
+    def test_json_reports_no_correction_for_successful_exact_query(self) -> None:
         output = io.StringIO()
         with contextlib.redirect_stdout(output):
             code = search_wiki.main(["Garnet", "observables", "--json"], root=self.root)
         self.assertEqual(code, 0)
         payload = json.loads(output.getvalue())
         self.assertEqual(payload["query"], "Garnet observables")
-        result = payload["results"][0]
-        for field in ("path", "title", "section", "score", "snippet", "type", "categories"):
-            self.assertIn(field, result)
+        self.assertEqual(payload["effective_query"], "Garnet observables")
+        self.assertFalse(payload["fuzzy"])
+        self.assertEqual(payload["corrections"], [])
+
+    def test_human_output_reports_compact_fuzzy_correction(self) -> None:
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            code = search_wiki.main(["reweigting"], root=self.root)
+        self.assertEqual(code, 0)
+        self.assertEqual(output.getvalue().splitlines()[0], "Fuzzy correction: reweigting → reweighting")
+
+    def test_fuzzy_search_results_are_normal_bm25_results(self) -> None:
+        self.write("wiki/concepts/rank-title.md", "# rankneedle\n\nneutral text\n")
+        self.write("wiki/concepts/rank-body.md", "# Neutral Rank\n\nrankneedle text\n")
+        fuzzy = self.search("rankneedlf", limit=10, per_page=1, rebuild=True)
+        exact = self.search("rankneedle", limit=10, per_page=1)
+        self.assertTrue(fuzzy.fuzzy)
+        self.assertEqual(fuzzy.results, exact.results)
+        self.assertEqual(fuzzy.results[0]["path"], "wiki/concepts/rank-title.md")
+
+    def test_metadata_filters_continue_to_apply_exactly(self) -> None:
+        matched = self.search(
+            "estimatiox",
+            page_type="concept",
+            category="research/molecular-simulation/free-energy",
+            source="SRC-9001",
+            tag="thermodynamics",
+        )
+        self.assertTrue(matched.fuzzy)
+        self.assertEqual(matched.results[0]["path"], "wiki/concepts/free-energy.md")
+        self.assertFalse(self.search("estimatiox", page_type="source").results)
+        self.assertFalse(self.search("estimatiox", tag="thermodynamic").results)
+
+    def test_generated_pages_have_separate_fuzzy_vocabularies(self) -> None:
+        typo = "uniquenavigationtokeq"
+        default = self.search(typo, fuzzy=True)
+        self.assertFalse(default.fuzzy)
+        self.assertFalse(default.results)
+        included = self.search(typo, include_generated=True, fuzzy=True)
+        self.assertTrue(included.fuzzy)
+        self.assertEqual(included.effective_query, "uniquenavigationtoken")
+        self.assertEqual(included.results[0]["path"], "wiki/concepts/generated.md")
+
+    def test_fuzzy_vocabulary_updates_with_corpus_manifest(self) -> None:
+        database = wiki_search.ensure_index(self.root)
+        connection = sqlite3.connect(database)
+        try:
+            self.assertIsNone(
+                connection.execute(
+                    "SELECT term FROM fuzzy_terms WHERE term = 'refreshneedle'"
+                ).fetchone()
+            )
+        finally:
+            connection.close()
+
+        self.write("wiki/concepts/refreshed.md", "# refreshneedle\n\nnew corpus term\n")
+        self.assertTrue(wiki_search.index_is_stale(self.root))
+        response = self.search("refreshneedlf")
+        self.assertTrue(response.fuzzy)
+        self.assertEqual(response.effective_query, "refreshneedle")
+
+    def test_fuzzy_ordering_is_deterministic_across_runs(self) -> None:
+        self.write("wiki/concepts/fuzzy-b.md", "# Fuzzy B\n\ndeterministicneedle\n")
+        self.write("wiki/concepts/fuzzy-a.md", "# Fuzzy A\n\ndeterministicneedle\n")
+        first = self.search("deterministicneedlf", rebuild=True)
+        second = self.search("deterministicneedlf")
+        self.assertEqual(first, second)
+        self.assertEqual(
+            [result["path"] for result in first.results],
+            ["wiki/concepts/fuzzy-a.md", "wiki/concepts/fuzzy-b.md"],
+        )
 
     def test_rebuild_only_json(self) -> None:
         output = io.StringIO()

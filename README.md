@@ -91,12 +91,15 @@ Use search as the cheap first pass for locating topical wiki content before open
 ```sh
 python3 tools/search_wiki.py "force field optimization"
 python3 tools/search_wiki.py "free energy" --type concept --limit 5
+python3 tools/search_wiki.py "Boltzman generator" --fuzzy
 python3 tools/search_wiki.py "Garnet experimental observables" --json --limit 5
 ```
 
 The tool uses Python's SQLite FTS5 and built-in BM25 ranking. It indexes each Markdown page under `wiki/` as logical heading-based sections, including page/display/short titles, aliases, headings, body text, categories, tags, areas, and source IDs. Ordinary queries are safely tokenized and use AND matching first, then deterministic OR fallback only if AND returns no filtered results. Shell quoting only groups arguments; it does not request raw FTS syntax.
 
-Supported filters are exact `--type`, `--category`, `--status`, `--source`, and `--tag`; `--path` performs an ASCII-case-insensitive repository-relative substring match. `--json` emits JSON only. Results are capped at two sections per page. The displayed `score` is `-bm25(...)`, so higher is better. Fixed FTS column weights are title/display/short title `12`, aliases `8`, section hierarchy `6`, categories/tags/areas/source IDs `3`, and body `1`.
+Deterministic fuzzy typo tolerance is a bounded fallback, not semantic search. If the original AND/OR lexical search returns no filtered results, unknown terms of at least four characters may be corrected to terms in that index's wiki-derived vocabulary, after which the normal FTS query is rerun. Known terms and shorter tokens are never changed. Maximum Levenshtein distance is `1` for lengths 4–5 and `2` for lengths 6 and above. Candidates are selected by distance, field priority, document frequency, then alphabetical order. Use `--fuzzy` to force the corrected query even when the original lexical search has results, or `--no-fuzzy` to disable automatic fallback. These options are mutually exclusive.
+
+Supported filters are exact `--type`, `--category`, `--status`, `--source`, and `--tag`; `--path` performs an ASCII-case-insensitive repository-relative substring match. Fuzzy correction never applies to filters. `--json` emits JSON only and includes `query`, `effective_query`, `match_mode`, `fuzzy`, and `corrections` metadata. Results are capped at two sections per page. The displayed `score` is `-bm25(...)`, so higher is better. Fixed FTS column weights are title/display/short title `12`, aliases `8`, section hierarchy `6`, categories/tags/areas/source IDs `3`, and body `1`. Edit distance only chooses a corrected lexical query; result ordering and scores remain entirely BM25-based.
 
 Pages marked `generated: true` are excluded by default. `--include-generated` uses a separate index containing them. Regenerable databases live in `.cache/wiki-search.sqlite3` and `.cache/wiki-search-generated.sqlite3`; a sorted path/size/high-resolution-mtime manifest triggers a full rebuild when the Markdown corpus changes. Force a rebuild with:
 
@@ -104,7 +107,7 @@ Pages marked `generated: true` are excluded by default. `--include-generated` us
 python3 tools/search_wiki.py --rebuild
 ```
 
-Search is lexical retrieval, not semantic inference: ranking does not express truth, confidence, evidence strength, or source quality. Use `tools/query_graph.py` separately after selecting candidate pages when relationships matter, and verify sources according to the provenance workflow. Limitations include exact-token rather than fuzzy/semantic matching, simple frontmatter parsing, and heading-based rather than full CommonMark parsing. SQLite FTS5 support is required; there is no degraded fallback.
+Search is lexical retrieval, not semantic inference: fuzzy matching only handles nearby spellings and does not expand synonyms or concepts, while ranking does not express truth, confidence, evidence strength, or source quality. Use `tools/query_graph.py` separately after selecting candidate pages when relationships matter, and verify sources according to the provenance workflow. Limitations include wiki-vocabulary-only typo correction, simple frontmatter parsing, and heading-based rather than full CommonMark parsing. SQLite FTS5 support is required; there is no degraded fallback.
 
 ## Knowledge Graph
 
