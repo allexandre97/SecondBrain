@@ -16,6 +16,10 @@ graph_exclude: true
 ---
 # Wiki Log
 
+- 2026-09-14: Added SRC-0089 from two user-provided RpiCam project-goal summaries, preserving the standalone experimental-camera goal, artistic thesis, intended PIO/DMA/frame-memory pipeline, software and electrical glitch layers, physical interface, PSRAM/HSTX intent, historical milestones, supplemental wiring, and roadmap. Reconciled that intent with SRC-0088: TFT preview and microSD BMP storage are already implemented, USB frame export is absent, and remaining experimental/standalone features stay future work.
+
+- 2026-09-14: Ingested the current RpiCam repository in place as SRC-0088 without modifying the source tree or treating ignored generated artifacts as authoritative. Added durable architecture, hardware mapping, OV7670 QVGA RGB565 PIO/DMA capture, multicore double-buffered ST7789 preview, custom SPI/FatFs microSD BMP storage, build/runtime workflow and constraints; recorded the active incompatibility between current `h`/`s`/`L`/`q` firmware and older `FRAME_BEGIN`/`FRAME_END`, `e`/`S` and tuning-oriented Python tools, plus stale shift-right/“640 words” PIO comments.
+
 - 2026-09-14: Imported and ingested SRC-0086/SRC-0087 as the `breaking-timescales-generative-sampling-conformational-transitions-2026` main-paper/supplement bundle. Added math-deep coverage of Gen-COMPAS, including its DDPM–TMD–unbiased-shooting–VCN–RiteWeight loop, direct committor validation, implementation parameters, compute accounting, and global-convergence limits; added a reusable concept, proposal-validation claim, scalable-committor-validation question, conservative links to SRC-0041/SRC-0074, and updates to adaptive-sampling and validation pages.
 
 - 2026-09-12: Recorded the two derived Garnet RBFE presentation scenes for synchronized side-by-side playback: a static 35 mm panorama retaining all 11 walkers and a static 70 mm binding-pocket view retaining Walker 00 and dependencies only. Both preserve frames 0–1000, trajectory/lambda actions and the source render setup; independent Blender 5.1 reopening and midpoint renders passed, and the source scene remained unchanged.

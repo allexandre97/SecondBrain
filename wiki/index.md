@@ -85,6 +85,9 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Sources
 
+- [[wiki/sources/SRC-0089-rpicam-project-goal-summaries|RpiCam Project Goals]] - User-stated standalone experimental-camera goal, artistic thesis, software/electrical glitch layers, historical milestones, intended controls and memory strategy, and roadmap reconciled against current code.
+- [[wiki/sources/SRC-0088-rpicam-repository|RpiCam]] - Current RP2350 camera firmware architecture, OV7670 PIO/DMA capture, multicore ST7789 preview, custom SPI/FatFs microSD still storage, hardware mapping, build workflow, and known stale host-tool/PIO documentation.
+
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] - Main Nature paper on generative proposals, bidirectional TMD, committor-guided transition-region sampling, and reweighted free-energy landscapes.
 - [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]] - Algorithm S1, DDPM and RiteWeight equations, direct committor validation, convergence diagnostics, parameters, and compute estimates.
 
@@ -186,6 +189,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] - Five-system benchmark separating self-convergence from cross-method correctness for REUS, WT-MtD, WTM-eABF, and OPES.
 
 ## Concepts
+
+- [[wiki/concepts/rpicam-embedded-camera-firmware]] - Current embedded camera pipeline distinguished from the standalone artistic-camera goal, experimental software/electrical layers, memory strategy, physical interface, and roadmap.
 
 - [[wiki/concepts/generative-committor-guided-path-sampling]] - Diffusion proposals refined by explicit dynamics and iteratively selected using a learned committor.
 
@@ -329,6 +334,7 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Tensions
 
+- [[wiki/tensions/TEN-0019-rpicam-firmware-host-tool-protocol-drift]] - Current local TFT/microSD firmware behavior conflicts with retained Python USB frame-protocol tools and stale PIO comments.
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] - Larger observable signals versus loss of replay support and KL validity.
 - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization]] - TSS adaptive variance advantage versus broad MBAR generalization.
 - [[wiki/tensions/TEN-0004-configuration-mapping-overlap-gain-vs-support-risk]] - Mapped-overlap gains versus mapped-support risk.
