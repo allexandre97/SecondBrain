@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-14
+updated: 2026-09-18
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -88,6 +88,9 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/sources/SRC-0089-rpicam-project-goal-summaries|RpiCam Project Goals]] - User-stated standalone experimental-camera goal, artistic thesis, software/electrical glitch layers, historical milestones, intended controls and memory strategy, and roadmap reconciled against current code.
 - [[wiki/sources/SRC-0088-rpicam-repository|RpiCam]] - Current RP2350 camera firmware architecture, OV7670 PIO/DMA capture, multicore ST7789 preview, custom SPI/FatFs microSD still storage, hardware mapping, build workflow, and known stale host-tool/PIO documentation.
 
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] - Peer-reviewed journal version of Garnet, the graph-neural-network force field trained from scratch on QM, condensed-phase, and protein NMR data with a double-exponential non-bonded potential.
+- [[wiki/sources/SRC-0091-training-force-field-proteins-small-molecules-supplement|Garnet Chemical Science Supplement]] - Supplementary tables and figures: motif enrichment, condensed-phase density/enthalpy numbers, cmet net-charge-change RBFE failure, and training-dataset composition.
+
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] - Main Nature paper on generative proposals, bidirectional TMD, committor-guided transition-region sampling, and reweighted free-energy landscapes.
 - [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]] - Algorithm S1, DDPM and RiteWeight equations, direct committor validation, convergence diagnostics, parameters, and compute estimates.
 
@@ -115,7 +118,7 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 - [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|LLM Wiki]] - Source note introducing the LLM-maintained wiki pattern.
 - [[wiki/sources/SRC-0002-project-design-note|Project Design Note]] - Project design note for local-first personal/work wiki organization, metadata, and privacy controls.
-- [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Revised manuscript on Garnet, including added dipole and condensed-phase validation.
+- [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] - Revised preprint on Garnet, including added dipole and condensed-phase validation; published version at [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|SRC-0090]].
 - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]] - Review of automated and semi-automated cytoskeletal network image segmentation and tracing.
 - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]] - Main paper introducing Times Square Sampling for adaptive on-the-fly free energy estimation.
 - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]] - Supplement with TSS derivations, proofs, implementation recursions, and molecular-dynamics numerics.

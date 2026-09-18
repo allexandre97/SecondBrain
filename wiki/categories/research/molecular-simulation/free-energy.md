@@ -38,6 +38,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]]
 - [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]]
 - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]]
+- [[wiki/sources/SRC-0091-training-force-field-proteins-small-molecules-supplement|Garnet Chemical Science Supplement]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]]
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]
 - [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]]

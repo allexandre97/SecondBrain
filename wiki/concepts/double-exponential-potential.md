@@ -14,6 +14,7 @@ related:
   - "[[wiki/concepts/garnet-force-field]]"
 sources:
   - SRC-0003
+  - SRC-0090
 sensitivity: public
 encryption: none
 ---
@@ -22,7 +23,19 @@ encryption: none
 
 ## Summary
 
-The double exponential potential is the non-bonded potential used by Garnet as an alternative to Lennard-Jones interactions. [SRC-0003]
+The double exponential potential is the non-bonded potential used by Garnet as an alternative to Lennard-Jones interactions. [SRC-0003] Its published-version functional form is [SRC-0090, Methods]
+
+$$
+V(r;\sigma,\epsilon,a,b)
+=
+\epsilon\left(
+\frac{b\,e^{a}}{a-b}\exp\left[-a\frac{r}{r_m}\right]
+-\frac{a\,e^{b}}{a-b}\exp\left[-b\frac{r}{r_m}\right]
+\right),
+\qquad r_m=2^{1/6}\sigma,
+$$
+
+where $\sigma$ and $\epsilon$ are per-atom parameters and $a$, $b$ are trained global parameters (fitted to $a=12.2$, $b=4.33$). [SRC-0090, Methods]
 
 ## Key Points
 
@@ -37,5 +50,6 @@ The double exponential potential is the non-bonded potential used by Garnet as a
 ## Links
 
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules]]
 - [[wiki/concepts/garnet-force-field]]
 - [[wiki/concepts/automated-force-field-training]]

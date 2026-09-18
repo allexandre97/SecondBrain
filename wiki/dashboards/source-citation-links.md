@@ -50,6 +50,15 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|SRC-0061]]
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]] -> [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|SRC-0016]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|SRC-0021]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|SRC-0043]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SRC-0044]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|SRC-0046]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0061-openfe-rbfe-benchmark-journal-version|SRC-0061]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] -> [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|SRC-0074]]
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]
@@ -85,7 +94,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 
 ## Sources With Citation Match Status: unchecked
 
-- No source pages are currently unchecked.
+- [[wiki/sources/SRC-0091-training-force-field-proteins-small-molecules-supplement|Garnet Chemical Science Supplement]]
 
 ## Sources With Citation Match Status: partial
 
@@ -95,6 +104,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]]
 - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]]
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]]
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]
 - [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]
 - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]

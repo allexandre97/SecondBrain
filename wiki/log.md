@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-14
+updated: 2026-09-18
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -15,6 +15,8 @@ encryption: none
 graph_exclude: true
 ---
 # Wiki Log
+
+- 2026-09-18: Imported and ingested SRC-0090/SRC-0091 as the `garnet-training-force-field-from-scratch-2026` main-paper/supplement bundle: the peer-reviewed Chemical Science version of Garnet (DOI 10.1039/D6SC02874H, published 17 September 2026) and its supplementary information. Added math-standard coverage of the published-version equations (charge, harmonic bond/angle, torsion, double-exponential, buffered 14-7, Lennard-Jones 6-9, soft-core, ensemble reweighting, Karplus, DDE), benchmark results, the cmet net-charge-change RBFE failure, and citation links; recorded the preprint relationship to SRC-0003 and enriched the garnet-force-field and double-exponential-potential concept pages with the published-version source and functional form.
 
 - 2026-09-14: Added SRC-0089 from two user-provided RpiCam project-goal summaries, preserving the standalone experimental-camera goal, artistic thesis, intended PIO/DMA/frame-memory pipeline, software and electrical glitch layers, physical interface, PSRAM/HSTX intent, historical milestones, supplemental wiring, and roadmap. Reconciled that intent with SRC-0088: TFT preview and microSD BMP storage are already implemented, USB frame export is absent, and remaining experimental/standalone features stay future work.
 
@@ -124,12 +126,9 @@ graph_exclude: true
 - 2026-09-02: Refreshed the FFRefine paper-methods knowledge base against the current wiki and September working-tree audit, replacing the retired joint-Fisher/0.02-KL description with state-conditional geometry, damped treatment and cumulative-KL controls, adding relative enthalpy and the hexane surface, and correcting the dielectric validation boundary and checkpoint-assessment limitation.
 - 2026-09-03: Recorded higher-KL prospective dielectric run `20260902-115818`: six consecutive updates reduced paired loss on fresh archives, checkpoint-0 to checkpoint-6 loss fell 50.90%, all target temperatures improved, damped directions and replay support passed throughout, and exact empirical archive KL controlled aligned proposal chains. Added a scoped positive claim and updated the trainability, KL, sampling-budget, checkpoint-state, implementation-status, route-plan, and signal-versus-support pages. The live run was intentionally stopped during epoch 8 after sufficient evidence; checkpoint 7 remains fresh-unassessed.
 - 2026-09-03: Imported and ingested SRC-0078, a bioRxiv preprint on osmometry-guided optimization of charged residue and ion interactions, adding math-standard coverage of the virtual-wall estimator and kinetic convergence analysis, a reusable osmometry concept, two transfer-validation claims, and an open protein–nucleic-acid extension question.
-<<<<<<< HEAD
+- 2026-09-03: Imported and ingested SRC-0079–SRC-0085 as the `nationwide-current-accounts` source bundle, a seven-document Nationwide Building Society current-account set (umbrella terms, FlexDirect product terms, FlexDirect cashback offer terms, Current Account Switch Service, Internet Banking terms, account guide, and FSCS depositor protection). Added the `personal` top-level root and `personal/finance/banking` category, a bundle hub concept, and public sensitivity per user confirmation.
 - 2026-09-04: Recorded aggressive density-only run `20260904-102939`: two fresh-confirmed macro-updates reduced loss by about 86%, empirical archive KL 0.3006 and 0.3803 remained support-valid, an absolute ESS gate rejected a later proposal despite passing relative retention, and the separated checkpoint state model preserved and validated an improved checkpoint when its next damped direction was unresolved. Contrasted this with run `20260903-220645`, whose archive-KL-0.3030 update lacked supported fresh paired evaluation, ruling out a universal scalar KL boundary in either direction.
 - 2026-09-07: Replaced the superseded 38-page arXiv v1 copy of SRC-0003 with the 44-page revised Garnet manuscript, retained the stable source ID and raw path, updated provenance and citation links, and incorporated the added dipole and small-molecule condensed-phase validation into linked concept, claim, question, and tension pages.
-=======
-- 2026-09-03: Imported and ingested SRC-0079–SRC-0085 as the `nationwide-current-accounts` source bundle, a seven-document Nationwide Building Society current-account set (umbrella terms, FlexDirect product terms, FlexDirect cashback offer terms, Current Account Switch Service, Internet Banking terms, account guide, and FSCS depositor protection). Added the `personal` top-level root and `personal/finance/banking` category, a bundle hub concept, and public sensitivity per user confirmation.
->>>>>>> 1d1eecddb9e7a1c031595e8506efd36b56f8659f
 
 - 2026-09-07: Reflected the Garnet Structural Studies presentation route plan in a linked preparation note; recorded the working artifact, scientific source locators, pending talk constraints and remaining deliverables.
 

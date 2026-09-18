@@ -34,7 +34,9 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]]
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]]
+- [[wiki/sources/SRC-0091-training-force-field-proteins-small-molecules-supplement|Garnet Chemical Science Supplement]]
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]]
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]
 - [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]
 - [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]]

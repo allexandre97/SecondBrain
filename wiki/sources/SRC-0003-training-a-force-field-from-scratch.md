@@ -44,6 +44,8 @@ related:
   - "[[wiki/questions/garnet-validation-scope]]"
   - "[[wiki/claims/CLM-0002-garnet-automates-parameter-assignment]]"
   - "[[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps]]"
+  - "[[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules]]"
+  - "[[wiki/sources/SRC-0091-training-force-field-proteins-small-molecules-supplement]]"
 sources:
   - SRC-0003
 cites_sources:
@@ -122,6 +124,10 @@ This revised manuscript introduces Garnet, a graph-neural-network system that pr
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]] - cited as a possible improvement to ensemble-reweighting accuracy. [SRC-0003, ref. 68]
 - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation]] - cited for protein force-field benchmark data. [SRC-0003, ref. 75]
 - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein]] - cited as the FEP+ comparison used in the RBFE assessment. [SRC-0003, ref. 56]
+
+## Published version
+
+- The peer-reviewed journal version of this preprint is ingested as [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules]] (Chemical Science, DOI 10.1039/D6SC02874H, published 17 September 2026) with its supplementary information at [[wiki/sources/SRC-0091-training-force-field-proteins-small-molecules-supplement]]. The scientific content is largely shared; SRC-0090 adds the final DOI, venue, CC-BY licence, author-contribution statement, and the supplementary tables/figures.
 
 ## Revision history
 

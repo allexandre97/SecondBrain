@@ -69,8 +69,8 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### research/biomolecules/proteins
 
 - [[wiki/concepts/cdna-display-proteolysis-stability-measurements|cDNA Display Proteolysis Stability Measurements]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)
-- [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1)
-- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1)
+- [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/experimental-benchmarking` (2), `research/machine-learning/molecular-modeling` (2)
+- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/experimental-benchmarking` (2), `research/machine-learning/molecular-modeling` (2)
 - [[wiki/concepts/human-domainome-variant-stability-mapping|Human Domainome Variant-Stability Mapping]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/data-management` (1), `research/experimental-benchmarking` (1)
 - [[wiki/concepts/osmometry-guided-force-field-optimization|Osmometry-Guided Force-Field Optimization]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/molecular-simulation/force-fields` (1)
 - [[wiki/concepts/protein-energy-landscape-profiling|Protein Energy Landscape Profiling]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)
@@ -158,6 +158,10 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - 1 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (1)
 - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2), `research/high-performance-computing` (1)
 
+### research/scientific-computing
+
+- [[wiki/concepts/rpicam-embedded-camera-firmware|RpiCam Embedded Camera Firmware]] - 2 source IDs; top source categories: `research/scientific-computing` (2)
+
 ## Shared Source IDs
 
 ### [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|SRC-0001]]
@@ -184,8 +188,8 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|SRC-0003]]
 
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
-- [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - categories: `research/molecular-simulation/force-fields`; tags: `nonbonded-potentials`, `molecular-dynamics`; 1 source IDs
-- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 1 source IDs
+- [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - categories: `research/molecular-simulation/force-fields`; tags: `nonbonded-potentials`, `molecular-dynamics`; 2 source IDs
+- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 2 source IDs
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/scientific-computing`; tags: `garnet`, `functional-form-search`, `symbolic-regression`, `differentiable-simulation`; 6 source IDs
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - categories: `research/molecular-simulation/free-energy`, `research/computational-drug-discovery`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `rbfe`, `drug-discovery`; 5 source IDs
 
@@ -570,3 +574,8 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/experimental-benchmarking`; tags: `enhanced-sampling`, `convergence-diagnostics`, `cross-method-validation`, `free-energy-landscapes`; 3 source IDs
 - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/generative-committor-guided-path-sampling|Generative Committor-Guided Path Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/molecular-simulation/molecular-dynamics`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `generative-sampling`, `committor`, `transition-path-sampling`, `rare-events`, `Gen-COMPAS`, `math-heavy`; 2 source IDs
+
+### [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules|SRC-0090]]
+
+- [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - categories: `research/molecular-simulation/force-fields`; tags: `nonbonded-potentials`, `molecular-dynamics`; 2 source IDs
+- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 2 source IDs

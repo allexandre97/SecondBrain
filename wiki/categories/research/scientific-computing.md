@@ -30,9 +30,15 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ## Direct members
 
+### Sources
+
+- [[wiki/sources/SRC-0088-rpicam-repository|RpiCam]]
+- [[wiki/sources/SRC-0089-rpicam-project-goal-summaries|RpiCam Goals]]
+
 ### Concepts
 
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]]
+- [[wiki/concepts/rpicam-embedded-camera-firmware|RpiCam Embedded Camera Firmware]]
 - [[wiki/concepts/tss-implementation-patterns|Times Square Sampling Implementation Patterns]]
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]]
 
@@ -56,6 +62,10 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Questions
 
 - [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness|Checkpoint Assessment vs Next-Direction Readiness]]
+
+### Tensions
+
+- [[wiki/tensions/TEN-0019-rpicam-firmware-host-tool-protocol-drift|RpiCam Firmware–Host Tool Protocol Drift]]
 
 ### Claims
 

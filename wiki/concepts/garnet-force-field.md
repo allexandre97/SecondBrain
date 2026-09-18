@@ -18,6 +18,7 @@ related:
   - "[[wiki/concepts/double-exponential-potential]]"
 sources:
   - SRC-0003
+  - SRC-0090
 sensitivity: public
 encryption: none
 ---
@@ -26,7 +27,7 @@ encryption: none
 
 ## Summary
 
-Garnet is a graph-neural-network force field that predicts molecular mechanics parameters for arbitrary supported molecules from topology, using continuous atom typing instead of manually assigned atom types. [SRC-0003]
+Garnet is a graph-neural-network force field that predicts molecular mechanics parameters for arbitrary supported molecules from topology, using continuous atom typing instead of manually assigned atom types. [SRC-0003] The peer-reviewed journal version of this work is published in Chemical Science (DOI 10.1039/D6SC02874H). [SRC-0090]
 
 ## Key Points
 
@@ -42,6 +43,7 @@ Garnet is a graph-neural-network force field that predicts molecular mechanics p
 ## Links
 
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch]]
+- [[wiki/sources/SRC-0090-training-force-field-proteins-small-molecules]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/concepts/double-exponential-potential]]
 - [[wiki/questions/garnet-validation-scope]]
