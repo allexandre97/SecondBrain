@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-09-03
+updated: 2026-09-21
 question: "What does the FFRefine codebase currently implement, and what remains unvalidated?"
 answer_status: answered
 areas:
@@ -31,6 +31,7 @@ related:
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
   - "[[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
+  - "[[wiki/questions/QST-0010-damped-fisher-config-compatibility]]"
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]"
   - "[[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]"
@@ -60,13 +61,15 @@ project_evidence:
   - "FFRefine fresh-archive dielectric/PME trainability run 20260820-092232"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
+  - "FFRefine implementation audit on 2026-09-20: OptimiserSettings validation and water-temperature configuration correction"
+  - "FFRefine damped-Fisher + ConFIG focused test rerun on 2026-09-21: 33/33 passed; focused damped-Fisher, ConFIG, and momentum tests reported passing"
 ---
 
 # FFRefine Current Implementation Status
 
 ## Short answer
 
-As of 2026-09-03, FFRefine is a project-local Julia implementation for replay-based force-field fine tuning on top of Molly's `AWHGrads` branch, not a general Julia package. Its backend consumes completed user-owned TSS simulations, builds replay summaries and gradients, validates replay support, and runs replay-only parameter-proposal chains over named thermodynamic legs. The current implementation includes state-conditional Fisher geometry, continuously damped and hard-cut treatment operators, worst-state conditional-KL scaling, exact empirical cumulative-KL checks, fresh paired checkpoint assessment, distinct evaluation and next-direction readiness states, named-leg training, window-mixture MBAR replay, local TSS replay parity, QEq latent charge parameterization, bounded nonbonded trust regions, multi-target losses, split validation, ConFIG aggregation, optional post-Fisher momentum, and isolated macro-epoch workers.
+As of 2026-09-21, FFRefine is a project-local Julia implementation for replay-based force-field fine tuning on top of Molly's `AWHGrads` branch, not a general Julia package. Its backend consumes completed user-owned TSS simulations, builds replay summaries and gradients, validates replay support, and runs replay-only parameter-proposal chains over named thermodynamic legs. The current implementation includes state-conditional Fisher geometry, continuously damped and hard-cut treatment operators, worst-state conditional-KL scaling, exact empirical cumulative-KL checks, fresh paired checkpoint assessment, distinct evaluation and next-direction readiness states, named-leg training, window-mixture MBAR replay, local TSS replay parity, QEq latent charge parameterization, bounded nonbonded trust regions, multi-target losses, split validation, ConFIG aggregation, optional post-Fisher momentum, and isolated macro-epoch workers.
 
 The implemented experiment surfaces are ethanol solvation and water-temperature fitting. Water-temperature fitting supports density, RDF, relative enthalpy, and dielectric targets selected through target-family configuration. Its current working-tree default is dielectric-only training with cutoff/reaction-field electrostatics and rigid water; PME remains selectable. Every target family uses the same exact 14 through 41 degrees Celsius TSS ladder, 28 states, original lambda schedule, window size 4, and 15 overlapping windows. Sparse experimental target temperatures affect scoring only, never the TSS ladder.
 
@@ -109,6 +112,12 @@ ConFIG protects loss families rather than individual RDF bins. QEq regularizatio
 
 The shared optimizer also supports chain-local first-moment momentum after the Fisher solve for both `:weighted_sum` and `:config` aggregation. The momentum state is stored in latent parameter coordinates as accepted line-search displacements, projected into the current retained Fisher eigenspace, KL-bounded with the current Fisher metric, and reset after complete rejection or new frozen-reference ensembles. For ConFIG, reuse is limited component-wise so an aggregate-aligned previous step cannot become uphill for a protected family. This is an FFRefine implementation lesson rather than an Adam or M-ConFIG claim from SRC-0036.
 
+### Damped-Fisher/ConFIG compatibility and diagnostics
+
+`OptimiserSettings` now includes `fisher_damping_gamma` and permits `fisher_damping_gamma != nothing` with `gradient_aggregation == :config`, while still requiring `momentum_beta == 0`. `fisher_factorization` uses the damped modal gains consistently in ConFIG's whitening factor, so the family-level aggregate and natural-gradient step share the selected regularized Fisher geometry. Hard-reference diagnostics compare against hard-cut ConFIG, not a weighted-sum reference. Raw and capped KL diagnostics use the selected Fisher metric and conditional metric.
+
+`test/fisher_damping_checks.jl` covers constructor, numerical, conditional-KL, ConFIG, hard-reference, and reporting behavior. The focused rerun `source .env && TMPDIR=/tmp julia +1.11 --startup-file=no test/fisher_damping_checks.jl` passed 33/33; focused damped-Fisher, ConFIG, and momentum tests are also reported as passing. The earlier water run exposed a stale `WATER_TEMPERATURE_CONFIG` selection of `:config` alongside damped Fisher and was corrected before this implementation. [[wiki/questions/QST-0010-damped-fisher-config-compatibility]]
+
 ## Replay and estimator status
 
 FFRefine has two TSS replay modes with different roles:
@@ -130,7 +139,7 @@ The original 10 ns and 20 ns coordinate scans did not establish fresh-archive tr
 
 The positive result remains narrowly scoped. Checkpoint 7 has not been assessed on a completed fresh archive, the terminal validation replicas were not reached in the higher-KL campaign, the dielectric curve remains substantially above experiment and too steep with temperature, and collateral density, RDF, enthalpy, and stability properties were not evaluated. Experimental enthalpy trainability remains unresolved.
 
-The current status is implementation validation plus a local scientific proof of concept for dielectric-only training. Do not promote this to water-model validation, multi-property balance, transferability, or robust convergence. The durable positive claim is restricted to repeated fresh-resimulation dielectric descent under the tested damped conditional-Fisher reaction-field protocol.
+The current status is implementation validation plus a local scientific proof of concept for dielectric-only training. The 33/33 damped-Fisher checks and focused ConFIG/momentum tests validate implementation behavior, not scientific or production performance of the combined damped-Fisher + ConFIG method. No multi-family replay/fresh-resimulation campaign has validated that combined method. `CLM-0040` is limited to fresh-resimulation evidence for the damped conditional-Fisher dielectric protocol and does not validate ConFIG. Do not promote this to water-model validation, multi-property balance, transferability, or robust convergence. The durable positive claim is restricted to repeated fresh-resimulation dielectric descent under the tested damped conditional-Fisher reaction-field protocol.
 
 ## Links
 

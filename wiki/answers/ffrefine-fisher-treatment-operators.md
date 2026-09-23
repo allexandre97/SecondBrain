@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-01
-updated: 2026-09-02
+updated: 2026-09-21
 question: "How does FFRefine construct the unscaled hard-cut, diagonal, identity, continuously damped, and modal-SNR parameter steps, and what motivates each treatment?"
 answer_status: answered
 areas:
@@ -58,6 +58,7 @@ project_evidence:
   - "State-conditional treatment protocol fingerprint 533305656758db33454d19af400e39972e1ae94ad2c52ff60c5b0b788d8373f8"
   - "FFRefine state-conditional Fisher-treatment replay completed 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+  - "FFRefine damped-Fisher + ConFIG implementation and focused checks on 2026-09-21: 33/33 passed"
 ---
 
 # FFRefine Fisher-Treatment Operators
@@ -81,6 +82,10 @@ The five treatments differ only in how $A$ converts gradient components into par
 The retrospective campaign then rescales every nonzero direction to the same maximum state-conditional quadratic KL. That common rescaling makes the comparison primarily about **direction**, not about an arbitrary treatment-specific learning rate. Fisher/KL geometry and frozen-reference replay are grounded in SRC-0018; MBAR supplies the state-normalized replay weights used to estimate expectations and score moments. [SRC-0018] [SRC-0023]
 
 The exact diagonal, damping, and modal-SNR filters described here are FFRefine project methods. They are not attributed to SRC-0018 or SRC-0023.
+
+## Newly implemented damped-Fisher ConFIG path
+
+FFRefine now applies the continuously damped Fisher operator to family-level ConFIG aggregation as well as to the scalar natural-gradient path. `fisher_factorization` carries the damped modal gains into ConFIG's whitening factor, with `momentum_beta == 0` remaining the enforced compatibility constraint. Hard-reference diagnostics use hard-cut ConFIG, and raw/capped KL reporting uses the selected Fisher and conditional metric. Focused implementation checks, including `test/fisher_damping_checks.jl`, passed 33/33; this is an implementation result, not a source-backed scientific result. No multi-family replay/fresh-resimulation campaign has validated the combined method.
 
 ## Why construct an unscaled step first?
 
@@ -788,3 +793,4 @@ No raw sources were consulted. Exact operator filters, thresholds, jackknife for
 - The modal-SNR shrinkage function is pragmatic; no claim of statistical optimality has been established.
 - The tested SNR treatment does not quantify Fisher-eigenvector uncertainty.
 - Continuous damping at $\gamma=0.1$ has now produced two fresh-confirmed dielectric updates, but no prospective campaign has isolated it against hard cutting, diagonal scaling, or identity under matched independently regenerated trajectories.
+- The newly implemented damped-Fisher + ConFIG path has no multi-family replay/fresh-resimulation validation; the existing [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]] evidence applies only to the damped conditional-Fisher dielectric protocol, not to ConFIG.

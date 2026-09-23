@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-14
+updated: 2026-09-23
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -73,10 +73,11 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/answers/garnet-symbolic-regression-functional-search]] - Assessment of symbolic regression, pipeline placement, and differentiable functional-form search for a future Garnet force field.
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy]] - Synthesis of recurring validation problems across force-field fitting, machine-learning potentials, and free-energy estimators.
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]] - Implementation route plan for testing AWH-style replay force-field optimization with TSS and MBAR reference archives.
-- [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible, family-level ConFIG integration plan for FFRefine's replay natural-gradient optimizer.
+- [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible family-level ConFIG, archive direction-readiness heuristics, and first-order versus finite-step acceptance limits in FFRefine.
 - [[wiki/answers/ffrefine-config-fisher-second-momentum]] - Why Adam-style second momentum is less obvious than first-moment smoothing for FFRefine's Fisher-preconditioned ConFIG optimizer.
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Current mathematical account of FFRefine's QEq map, replay observables, multi-family loss, state-conditional Fisher treatments, KL controls, macro-epoch loop, and prospective validation boundary.
 - [[wiki/answers/ffrefine-kl-divergence-definition-change]] - How and why FFRefine's KL trust region moved from a frozen-bias joint Fisher to a state-conditional KL, and its downstream effects on Fisher rank, condition, and natural directions.
+- [[wiki/questions/QST-0010-damped-fisher-config-compatibility]] - Damped Fisher with family-level `:config` is implemented for `momentum_beta=0`; combined-method validation and nonzero-momentum behavior remain open.
 
 ## Author Entities
 

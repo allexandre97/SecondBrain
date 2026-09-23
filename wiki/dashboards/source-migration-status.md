@@ -29,18 +29,18 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 
 ## Summary
 
-- Total source pages: 78
-- Needing metadata backfill: 0
+- Total source pages: 89
+- Needing metadata backfill: 1
 - Needing citation review: 0
-- Partial citation review: 24
+- Partial citation review: 26
 - Needing claims/questions/tensions review: 0
-- Appearing current: 54
+- Appearing current: 62
 - Missing raw source files: 0
 - Needing manual review: 0
 
 ## Needs Metadata Backfill
 
-- None
+- [[wiki/sources/SRC-0088-rpicam-repository|RpiCam]] (`SRC-0088`) - missing source_path
 
 ## Needs Citation Review
 
@@ -72,6 +72,8 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]] (`SRC-0076`) - citation_match_status is partial
 - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]] (`SRC-0077`) - citation_match_status is partial
 - [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]] (`SRC-0078`) - citation_match_status is partial
+- [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] (`SRC-0086`) - citation_match_status is partial
+- [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]] (`SRC-0087`) - citation_match_status is partial
 
 ## Needs Claims/Questions/Tensions Review
 
@@ -133,6 +135,14 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]] (`SRC-0065`)
 - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]] (`SRC-0066`)
 - [[wiki/sources/SRC-0068-nnu-net-self-adapting-framework-for-u-net|nnU-Net]] (`SRC-0068`)
+- [[wiki/sources/SRC-0079-current-account-terms-and-conditions|Current Account Terms and Conditions]] (`SRC-0079`)
+- [[wiki/sources/SRC-0080-flexdirect-product-terms|FlexDirect Product Terms]] (`SRC-0080`)
+- [[wiki/sources/SRC-0081-flexdirect-cashback-offer-terms|FlexDirect Cashback Offer Terms]] (`SRC-0081`)
+- [[wiki/sources/SRC-0082-current-account-switch-service|Current Account Switch Service]] (`SRC-0082`)
+- [[wiki/sources/SRC-0083-internet-banking-terms-and-conditions|Internet Banking Terms and Conditions]] (`SRC-0083`)
+- [[wiki/sources/SRC-0084-guide-to-your-current-account|Guide to Your Current Account]] (`SRC-0084`)
+- [[wiki/sources/SRC-0085-fscs-depositor-protection|FSCS Depositor Protection]] (`SRC-0085`)
+- [[wiki/sources/SRC-0089-rpicam-project-goal-summaries|RpiCam Goals]] (`SRC-0089`)
 
 ## Has Missing Raw Source File
 
@@ -224,3 +234,14 @@ It inventories older source pages for semantic-pipeline backfill without re-inge
 | [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]<br>`SRC-0076` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 48 | partial-citation |
 | [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]<br>`SRC-0077` | present | yes | present | present | reviewed | partial | linked | 0 | 1 | 1 | 0 | none | math-standard | complete | 53 | partial-citation |
 | [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]]<br>`SRC-0078` | present | yes | present | present | reviewed | partial | linked | 0 | 2 | 1 | 1 | none | math-standard | complete | 78 | partial-citation |
+| [[wiki/sources/SRC-0079-current-account-terms-and-conditions|Current Account Terms and Conditions]]<br>`SRC-0079` | present | yes | present | present | reviewed | reviewed | none-needed | 0 | 0 | 0 | 0 | present (nationwide-current-accounts; main) | standard | complete | 62 | current |
+| [[wiki/sources/SRC-0080-flexdirect-product-terms|FlexDirect Product Terms]]<br>`SRC-0080` | present | yes | present | present | reviewed | reviewed | none-needed | 0 | 0 | 0 | 0 | present (nationwide-current-accounts; supplement) | standard | complete | 60 | current |
+| [[wiki/sources/SRC-0081-flexdirect-cashback-offer-terms|FlexDirect Cashback Offer Terms]]<br>`SRC-0081` | present | yes | present | present | reviewed | reviewed | none-needed | 0 | 0 | 0 | 0 | present (nationwide-current-accounts; supplement) | standard | complete | 59 | current |
+| [[wiki/sources/SRC-0082-current-account-switch-service|Current Account Switch Service]]<br>`SRC-0082` | present | yes | present | present | reviewed | reviewed | none-needed | 0 | 0 | 0 | 0 | present (nationwide-current-accounts; supplement) | standard | complete | 60 | current |
+| [[wiki/sources/SRC-0083-internet-banking-terms-and-conditions|Internet Banking Terms and Conditions]]<br>`SRC-0083` | present | yes | present | present | reviewed | reviewed | none-needed | 0 | 0 | 0 | 0 | present (nationwide-current-accounts; supplement) | standard | complete | 59 | current |
+| [[wiki/sources/SRC-0084-guide-to-your-current-account|Guide to Your Current Account]]<br>`SRC-0084` | present | yes | present | present | reviewed | reviewed | none-needed | 0 | 0 | 0 | 0 | present (nationwide-current-accounts; supplement) | standard | complete | 61 | current |
+| [[wiki/sources/SRC-0085-fscs-depositor-protection|FSCS Depositor Protection]]<br>`SRC-0085` | present | yes | present | present | reviewed | reviewed | none-needed | 0 | 0 | 0 | 0 | present (nationwide-current-accounts; supplement) | standard | complete | 58 | current |
+| [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]<br>`SRC-0086` | present | yes | present | present | reviewed | partial | linked | 2 | 2 | 2 | 1 | present (breaking-timescales-generative-sampling-conformational-transitions-2026; main) | math-standard | partial | 105 | partial-citation |
+| [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]<br>`SRC-0087` | present | yes | present | present | reviewed | partial | linked | 0 | 2 | 2 | 1 | present (breaking-timescales-generative-sampling-conformational-transitions-2026; supplement) | math-deep | partial | 88 | partial-citation |
+| [[wiki/sources/SRC-0088-rpicam-repository|RpiCam]]<br>`SRC-0088` | missing | no | missing | present | not-applicable | reviewed | linked | 0 | 0 | 0 | 1 | present (rpicam-repository; main) | deep | complete | 42 | metadata |
+| [[wiki/sources/SRC-0089-rpicam-project-goal-summaries|RpiCam Goals]]<br>`SRC-0089` | present | yes | missing | present | not-applicable | reviewed | linked | 0 | 0 | 0 | 1 | present (rpicam-repository; supplement) | deep | complete | 47 | current |

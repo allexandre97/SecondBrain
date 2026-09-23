@@ -158,6 +158,10 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]] - 1 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (1)
 - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]] - 2 source IDs; top source categories: `research/molecular-simulation/molecular-dynamics` (2), `research/high-performance-computing` (1)
 
+### research/scientific-computing
+
+- [[wiki/concepts/rpicam-embedded-camera-firmware|RpiCam Embedded Camera Firmware]] - 2 source IDs; top source categories: `research/scientific-computing` (2)
+
 ## Shared Source IDs
 
 ### [[wiki/sources/SRC-0001-karpathy-llm-knowledge-base|SRC-0001]]

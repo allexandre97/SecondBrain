@@ -79,6 +79,10 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-config-fisher-second-momentum|FFRefine ConFIG Fisher Second Momentum]]
 - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]
 
+### Questions
+
+- [[wiki/questions/QST-0010-damped-fisher-config-compatibility|How does FFRefine implement damped Fisher with ConFIG aggregation?]]
+
 ### Tensions
 
 - [[wiki/tensions/TEN-0003-cldice-topology-guarantee-vs-practical-transfer|clDice Topology Guarantee Versus Practical Transfer]]

@@ -119,6 +119,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/questions/QST-0005-corrected-energy-and-virial-policy-for-modified-cutoffs|Corrected Energy and Virial Policy for Modified Cutoffs]]
 - [[wiki/questions/force-field-training-validation-scope|Force Field Training Validation Scope]]
 - [[wiki/questions/garnet-validation-scope|Garnet Validation Scope]]
+- [[wiki/questions/QST-0010-damped-fisher-config-compatibility|How does FFRefine implement damped Fisher with ConFIG aggregation?]]
 - [[wiki/questions/mlip-foundation-model-validation-scope|MLIP Foundation Model Validation Scope]]
 - [[wiki/questions/QST-0008-osmometry-guided-protein-nucleic-acid-transfer|Osmometry-Guided Protein–Nucleic-Acid Transfer]]
 - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]

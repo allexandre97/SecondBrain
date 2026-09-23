@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-09-23
 question: "How can ConFIG be added to the FFRefine pipeline to alleviate gradient conflicts between losses?"
 answer_status: answered
 areas:
@@ -39,14 +39,14 @@ wiki_pages_used:
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
 raw_sources_consulted: []
 wiki_pages_updated:
-  - "[[wiki/concepts/conflict-free-pinn-training]]"
-  - "[[wiki/answers/ffrefine-current-implementation-status]]"
+  - "[[wiki/answers/adding-config-optimiser-to-ffrefine]]"
   - "[[wiki/index]]"
   - "[[wiki/log]]"
 project_evidence:
   - "FFRefine optimiser and backend code audit on 2026-07-28"
   - "FFRefine ConFIG optimizer implementation and focused tests on 2026-07-28"
   - "FFRefine post-Fisher momentum implementation and focused tests on 2026-07-28"
+  - "FFRefine archive direction reliability and family-regression acceptance code audit on 2026-09-23; focused-test outcomes reported for water_temperature_checks.jl, fisher_damping_checks.jl, and config_optimiser_checks.jl"
 ---
 
 # Adding ConFIG to FFRefine
@@ -194,17 +194,13 @@ The QEq regularization gradient must not simply be added after ConFIG if strict 
 
 The first option gives the clearest semantics, but it may legitimately return no common descent direction near a trade-off.
 
-### 5. Strengthen finite-step acceptance
+### 5. Finite-step acceptance and ConFIG's scope
 
-ConFIG is a local first-order construction. Candidate replay is nonlinear, and a KL-scaled finite step can still worsen an individual family. The line search should therefore record candidate losses by family and require, for protected families,
+ConFIG's common-descent property is first-order: it constructs an aggregate direction that is descending for its protected component gradients locally. It does not guarantee that every individual family has a lower loss after a nonlinear, finite, KL-bounded replay step.
 
-$$
-L_f(\phi+\Delta\phi)
-\leq
-L_f(\phi) + \eta_f,
-$$
+The current implementation does **not** veto a candidate solely because one family regresses. It retains the aggregate total-loss-increase constraint, candidate confidence/support and ESS checks, and KL checks. Family regressions are logged and reported for diagnosis; they are not an acceptance veto, and their presence does not guarantee that a later proposal will recover the family. Replay support remains a separate validity condition: a common-descent direction does not make an unsupported candidate trustworthy. [SRC-0018]
 
-where $\eta_f$ is zero for strict monotonicity or a small configured allowance for replay noise. Retain the existing total-loss improvement, ESS retention, maximum-weight, Fisher, split-half, and parameter-bound gates. Replay support remains a separate validity condition; a conflict-free gradient does not make an unsupported candidate trustworthy. [SRC-0018]
+In the inspected FFRefine code, `optimiser.jl` computes failed component/family diagnostics without rejecting on that basis, while `acceptance_decision` still enforces aggregate loss, support, and KL constraints. `test/config_optimiser_checks.jl` verifies that a worsening individual family can be accepted when aggregate constraints pass.
 
 ## Degenerate and Pareto-stationary cases
 
@@ -213,8 +209,8 @@ The implementation needs explicit outcomes rather than silently falling back:
 - Drop a family from the pseudoinverse only when its gradient norm is below a configured tolerance, and report it as locally stationary.
 - If a family gradient has material norm but negligible projection into the retained Fisher eigenspace, stop with a diagnostic such as `:family_outside_fisher_support`.
 - Use a stable singular-value cutoff for the normalized-gradient pseudoinverse and record its rank and condition estimate.
-- If no positive common direction exists numerically, report `:config_stationary` or `:config_degenerate`. Falling back to the weighted sum would remove the promised per-family protection.
-- If strict family-wise line search rejects every scale, end the replay proposal chain and resimulate or reconsider family weights/tolerances; do not bypass ESS or support gates.
+- If no positive common direction exists numerically, report `:config_stationary` or `:config_degenerate`. Falling back to the weighted sum would remove the promised first-order common-descent semantics.
+- A finite-step family regression is recorded but is not itself a line-search rejection; if aggregate acceptance, confidence/support ESS, or KL checks reject every scale, do not bypass those checks. Subsequent recovery is not guaranteed.
 
 M-ConFIG is not the first implementation to add. FFRefine already has all family gradients after one replay-gradient construction, so exact family-level ConFIG involves only a small dense solve. M-ConFIG's alternating momentum mainly helps when separate backpropagations are expensive, and SRC-0036 notes added memory and degradation as the number of losses grows. [SRC-0036, sections 3.2 and 5]
 
@@ -227,6 +223,14 @@ The implemented rule stores only chain-local latent displacement history. On a n
 For weighted-sum aggregation, a Fisher-alignment restart is enough to avoid reusing a previous displacement that opposes the current natural-gradient direction. For ConFIG, aggregate Fisher alignment is not sufficient: a previous displacement can agree with the aggregate direction while still being uphill for one protected family. The reusable guard is component-wise. Limit the effective momentum coefficient, or restart, so every protected current component still has a negative first-order projection after mixing. This preserves the local ConFIG protection before finite-step line-search checks.
 
 This is a project-specific optimizer adaptation supported by FFRefine synthetic tests, not a claim evaluated in SRC-0036 or SRC-0018. It should be interpreted as controlled first-moment smoothing inside the existing replay/Fisher trust-region machinery, not as Adam's second-moment normalization.
+
+## Archive direction-readiness gate
+
+The optional archive gate estimates family-direction uncertainty from four replica-stratified delete-block replay gradients by default. For each family, it uses the treated latent direction before KL scaling: the KL-bounded step is divided by its KL scale so trust-region scaling does not make distinct gradient strengths appear equal. The jackknife standard error is computed for the direction vector in the Fisher gate metric.
+
+With the default reliability multiplier of 2, a family is **resolved** when its direction signal exceeds twice its jackknife standard error. It is **negligible** only when signal plus twice the standard error is at most 0.1 times the maximum family scale; if that scale is zero, the special case requires the upper quantity to be exactly zero. Otherwise it is **uncertain**. A materially uncertain direction blocks readiness. Negligible families do not veto; resolved families are compared across the two chronological archive halves using treated-direction cosine and norm ratio. This reliability rule is a practical screening heuristic, not a calibrated confidence interval: its default multiplier and negligible fraction require campaign calibration and do not supply a confidence guarantee.
+
+The inspected implementation is narrowly evidenced by FFRefine `backend.jl` (`archive_treatment_diagnostics`, `archive_direction_reliability`, and replica-stratified block construction), `solvation_pipeline.jl` (`ArchiveGradientPolicy` defaults), `optimiser.jl` (line-search/acceptance logic), and tests `test/water_temperature_checks.jl`, `test/fisher_damping_checks.jl`, and `test/config_optimiser_checks.jl`.
 
 ## Diagnostics to record
 
@@ -249,22 +253,24 @@ These values distinguish genuine loss conflict from noisy gradients, Fisher trun
 1. **Linear algebra tests:** use two- and three-objective synthetic gradients and verify $g_f^\top\Delta\phi<0$ after Fisher mapping, including a non-diagonal Fisher matrix. Add a regression test showing that Euclidean ConFIG followed by an arbitrary Fisher inverse can fail this property.
 2. **Objective decomposition tests:** verify that summing the family objective values and gradients with the configured family weights reproduces the current weighted objective.
 3. **Degeneracy tests:** cover zero gradients, collinear gradients, rank deficiency, truncated Fisher modes, and incompatible regularization.
-4. **Line-search tests:** ensure a candidate with lower total loss but a worsened protected family is rejected, while ESS and support rejection behavior remains unchanged.
+4. **Line-search tests:** ensure aggregate total-loss, support/ESS, confidence, and KL checks remain enforced, while a finite-step regression in an individual family is reported but does not independently veto the candidate.
 5. **Water smoke test:** run a reduced replay-only proposal with density, RDF, and dielectric as the three tasks; compare per-family projections, accepted steps, ESS, and scalar loss against `:weighted_sum`.
 6. **Scientific validation:** only after the smoke test, compare repeated optimization/resimulation runs. The relevant outcome is not merely fewer negative gradient cosines, but improved cross-family behavior without worse replay support, stability, or transferability.
 
 ## Recommendation
 
-FFRefine now implements exact **family-level, Fisher-whitened ConFIG** behind an opt-in setting. The implementation keeps the weighted objective for reporting and candidate ranking, and adds family-wise finite-step guards. This is the smallest change that respects both ConFIG's conflict-free condition and FFRefine's natural-gradient/replay architecture.
+FFRefine implements **family-level, Fisher-whitened ConFIG** behind an opt-in setting. It keeps the weighted objective for reporting and aggregate candidate acceptance. ConFIG provides first-order common descent for the component gradients; individual finite-step family decreases are neither guaranteed nor used as an independent acceptance gate.
 
 The implemented route deliberately avoids per-bin ConFIG, M-ConFIG, and a standalone optimizer that bypasses FFRefine's Fisher and replay checks. The useful implementation lesson is that ConFIG should reuse the exact regularized, Jacobi-scaled, eigen-truncated Fisher factorization used by the natural-gradient path, so the protected descent tests are in the same geometry as the proposed KL-controlled step.
 
-FFRefine now also implements chain-local post-Fisher first-moment momentum for both `:weighted_sum` and `:config` aggregation. The default is deliberately moderate. The momentum proposal is always projected into the current retained Fisher eigenspace, checked against the current weighted or protected-component gradients, KL-bounded with the current Fisher metric, and then passed through the same ESS, drift, objective, and family-guard line search. The important implementation lesson is that ConFIG momentum must be guarded component-wise; Fisher agreement with the aggregate step alone does not protect every loss family.
+FFRefine now also implements chain-local post-Fisher first-moment momentum for both `:weighted_sum` and `:config` aggregation. The default is deliberately moderate. The momentum proposal is projected into the current retained Fisher eigenspace, checked against the current weighted or protected-component gradients, KL-bounded with the current Fisher metric, and passed through aggregate-loss, support/ESS, confidence, and KL checks. Component-wise first-order momentum checks do not guarantee finite-step decreases for every family.
 
 ## Sources used
 
 - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]: ConFIG condition, pseudoinverse construction, M-ConFIG, and limitations.
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]: frozen-reference replay, natural-gradient motivation, and support-sensitive optimization.
+
+The archive-gate thresholds and finite-step acceptance behavior are FFRefine project-design/implementation facts, not claims sourced to these scientific papers. They are grounded in the inspected project code and tests cited above; no scientific source is asserted for these design thresholds.
 
 ## Wiki pages used
 
@@ -275,22 +281,26 @@ FFRefine now also implements chain-local post-Fisher first-moment momentum for b
 
 ## Wiki updates made
 
-- Expanded [[wiki/concepts/conflict-free-pinn-training]] with the reusable Fisher-geometry adaptation.
-- Linked this design from [[wiki/answers/ffrefine-current-implementation-status]].
-- Updated [[wiki/index]] and [[wiki/log]], then regenerated category indexes and the knowledge graph.
+- Updated this answer with the archive direction-readiness heuristic, finite-step ConFIG scope, current acceptance gates, and project-evidence boundaries.
+- [[wiki/concepts/tolerance-normalized-multi-observable-losses]] remains the cited explanation of family-scaled objective values; it was read but not changed.
+- Updated [[wiki/index]] and [[wiki/log]].
 
 ## Implementation status after 2026-07-28
 
 FFRefine implements this design as an opt-in optimizer aggregation policy, with `:weighted_sum` retained as the default and `:config` selecting family-level Fisher-whitened ConFIG. The replay backend dispatches through the shared optimizer path, so water-temperature and solvation experiments use the same aggregation machinery. Water-temperature can opt in through its configuration, while existing runs remain on weighted-sum aggregation unless changed explicitly.
 
-The implementation treats QEq regularization as a ConFIG component only when QEq regularization is active. This preserves the intended conflict-free semantics without creating artificial protected components in non-QEq optimizations. Candidate callbacks must return values, support diagnostics, and the candidate parameterization so the central optimizer can compute per-family finite-step losses and enforce protected-family guards.
+The implementation treats QEq regularization as a ConFIG component only when QEq regularization is active. This preserves the intended conflict-free semantics without creating artificial protected components in non-QEq optimizations. Candidate callbacks must return values, support diagnostics, and the candidate parameterization so the central optimizer can compute and report per-family finite-step losses; family regressions do not independently veto acceptance.
 
 The optimizer also has post-Fisher first-moment momentum enabled by default with a moderate coefficient. It is deliberately chain-local and stores accepted latent displacements, so it does not attempt to transport velocity across rebuilt frozen-reference ensembles. Focused tests include a ConFIG counterexample where an aggregate-aligned previous step is uphill for one protected component; the implemented component-wise beta limiter keeps all protected first-order projections descending.
 
 Focused tests cover ConFIG linear algebra, objective decomposition, degeneracy diagnostics, backend dispatch, validity/reporting behavior, parameterization checks, water-temperature target assembly, optimizer momentum guards, KL rebounding, line-search history storage, and momentum history reporting. The old specialized solvation replay optimizer path was removed in favor of the common optimizer aggregation path.
 
+## Project validation record
+
+`test/fisher_damping_checks.jl` and `test/config_optimiser_checks.jl` passed. The relevant archive-gate testset in `test/water_temperature_checks.jl` passed, but the full water-temperature test file later timed out; it was not validated to completion. No production validation or campaign calibration has been completed. These are project-validation outcomes, not scientific-source evidence.
+
 ## Remaining gaps
 
 - SRC-0036 evaluates ordinary ConFIG primarily for PINNs and one multi-task benchmark; it does not validate this replay-force-field adaptation.
-- The correct family-wise line-search allowance under correlated replay uncertainty remains an empirical policy choice.
+- Archive reliability defaults are heuristic screening thresholds and still need campaign calibration; they are not calibrated confidence intervals.
 - Production evidence is still needed to show that reduced gradient conflict improves force-field quality rather than merely changing the local optimization trajectory.

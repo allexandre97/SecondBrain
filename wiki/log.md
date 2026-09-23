@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-14
+updated: 2026-09-23
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -15,6 +15,12 @@ encryption: none
 graph_exclude: true
 ---
 # Wiki Log
+
+- 2026-09-23: Updated the FFRefine ConFIG answer with the four-replica-stratified-delete-block archive direction heuristic, Fisher-metric jackknife uncertainty and uncalibrated-threshold caveat, plus clarified first-order common descent versus finite-step family regressions. Recorded current aggregate-loss/support-ESS/confidence/KL acceptance behavior and reported focused-test outcomes; no production validation or campaign calibration is claimed.
+
+- 2026-09-21: Recorded FFRefine implementation of damped Fisher with family-level `:config` aggregation under `momentum_beta == 0`; damped gains now flow through ConFIG factorization, hard-reference and selected-metric conditional-KL diagnostics were corrected, and focused damped-Fisher/ConFIG/momentum checks passed (33/33 in `test/fisher_damping_checks.jl`). No multi-family replay/fresh-resimulation campaign validates the combined method; CLM-0040 remains limited to the damped conditional-Fisher dielectric protocol.
+
+- 2026-09-20: Recorded the FFRefine damped-Fisher compatibility constraint: `OptimiserSettings` currently permits damped Fisher only with `:weighted_sum` and zero momentum; documented the post-production water configuration correction from `:config` to `:weighted_sum`; and added the open research question of implementing and validating damped Fisher with ConFIG without treating the guard as a theoretical incompatibility.
 
 - 2026-09-14: Added SRC-0089 from two user-provided RpiCam project-goal summaries, preserving the standalone experimental-camera goal, artistic thesis, intended PIO/DMA/frame-memory pipeline, software and electrical glitch layers, physical interface, PSRAM/HSTX intent, historical milestones, supplemental wiring, and roadmap. Reconciled that intent with SRC-0088: TFT preview and microSD BMP storage are already implemented, USB frame export is absent, and remaining experimental/standalone features stay future work.
 
