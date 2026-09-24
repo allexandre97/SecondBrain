@@ -108,6 +108,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training|Prospective Dielectric Training with a Damped Conditional Fisher]]
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
+- [[wiki/answers/ffrefine-loss-gate-diagnostic-policy|Should Loss-Confidence Gates Block FFRefine's Replay Proposals?]]
 - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]
 - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]
@@ -127,6 +128,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Tensions
 
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support|Average-Observable Signal vs Replay Support]]
+- [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift|ConFIG Family Exclusion vs Untreated Drift]]
 - [[wiki/tensions/TEN-0002-garnet-broad-coverage-vs-validation-gaps|Garnet Broad Coverage Versus Validation Gaps]]
 - [[wiki/tensions/TEN-0006-observable-fitting-gain-vs-transferability-tradeoff|Observable Fitting Gain vs Transferability Tradeoff]]
 - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting|Physical Water Construction vs Empirical Fitting]]
@@ -134,6 +136,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Claims
 
+- [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families|ConFIG Must Exclude Directionally Unreliable Families, Not Just Gate Readiness on Them]]
 - [[wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md|Conservative Atomic Reaction-Field Cutoffs Improve High-Permittivity MD]]
 - [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation|Damped Conditional-Fisher Dielectric Training Survives Fresh Resimulation]]
 - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]

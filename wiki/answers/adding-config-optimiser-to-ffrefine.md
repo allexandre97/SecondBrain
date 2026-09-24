@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-09-23
+updated: 2026-09-24
 question: "How can ConFIG be added to the FFRefine pipeline to alleviate gradient conflicts between losses?"
 answer_status: answered
 areas:
@@ -25,6 +25,9 @@ related:
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
+  - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
+  - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
+  - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
 sources:
   - SRC-0036
   - SRC-0018
@@ -47,6 +50,8 @@ project_evidence:
   - "FFRefine ConFIG optimizer implementation and focused tests on 2026-07-28"
   - "FFRefine post-Fisher momentum implementation and focused tests on 2026-07-28"
   - "FFRefine archive direction reliability and family-regression acceptance code audit on 2026-09-23; focused-test outcomes reported for water_temperature_checks.jl, fisher_damping_checks.jl, and config_optimiser_checks.jl"
+  - "FFRefine run water_rdf-dens-diel_aggressive, epoch 5, observed 2026-09-24: density family stayed active in ConFIG with a collapsing raw gradient norm (228 to ~2 over five epochs) and unstable delete-block reliability, and the aggregate step collapsed to estimated KL 0.0017"
+  - "FFRefine synthetic unit test, 2026-09-24: a three-family ConFIG step with one near-zero, sign-flipping family and two resolved families is more than 100x smaller than the corresponding two-family step under an identity Fisher"
 ---
 
 # Adding ConFIG to FFRefine
@@ -232,6 +237,22 @@ With the default reliability multiplier of 2, a family is **resolved** when its 
 
 The inspected implementation is narrowly evidenced by FFRefine `backend.jl` (`archive_treatment_diagnostics`, `archive_direction_reliability`, and replica-stratified block construction), `solvation_pipeline.jl` (`ArchiveGradientPolicy` defaults), `optimiser.jl` (line-search/acceptance logic), and tests `test/water_temperature_checks.jl`, `test/fisher_damping_checks.jl`, and `test/config_optimiser_checks.jl`.
 
+## Unreliable directions must be excluded from aggregation, not just from readiness (2026-09-24 update)
+
+The reliability screen above was originally used only to gate readiness: a materially uncertain family blocked the proposal, while a negligible family "did not veto." That framing understated a separate risk that project evidence has since exposed.
+
+ConFIG whitens every *included* family gradient to unit norm before solving for the common direction, so every included family gets equal angular weight in $u$ regardless of how large or well-resolved its raw gradient is. [SRC-0036, equations 2-3] A family that is still formally active but whose treated direction is small, noisy, or sign-flipping therefore steers the shared direction exactly as strongly as a family with a large, stable gradient. If that direction disagrees with the other families, ConFIG's pseudoinverse construction can shrink the entire aggregate step by orders of magnitude rather than simply averaging it down, because $u$ is chosen so that every included component has an equal, small positive projection.
+
+**Observed collapse.** In FFRefine run `water_rdf-dens-diel_aggressive` (water density, RDF, and dielectric families under family-level Fisher-whitened ConFIG), the density family's raw gradient norm fell 228, 117, 37, 20, and about 2 across macro epochs 1 through 5. Its treated direction flipped sign between chronological archive halves, and its delete-block reliability classification moved from `:uncertain` (signal 0.012, standard error 0.044) to `:negligible` between consecutive attempts. Density remained active in ConFIG throughout. At epoch 5 the aggregate step collapsed to an estimated KL of 0.0017 at nominal scale 1.0, with the RDF and dielectric step projections roughly 10 to 30 times smaller than in earlier, better-conditioned epochs.
+
+**Reproduction.** A synthetic unit test with two resolved families plus one near-zero family pointing against them, under an identity Fisher, reproduces the mechanism directly: the three-family ConFIG step is more than 100x smaller than the two-family step obtained by dropping the near-zero, conflicting family.
+
+**Adopted policy.** Families whose treated direction is classified `:uncertain` or `:negligible` by the delete-block reliability screen are now excluded from the ConFIG family set for that proposal, and the remaining family weights are renormalized over the included families while preserving each included family's within-family target weighting. This is a stronger rule than excluding on a small raw gradient norm alone or on cosine similarity alone: exclusion is driven by the reliability classification of the *treated* direction, the same quantity the readiness gate already computes. Excluded families are kept in monitoring, ESS/support accounting, and KL coverage; they are simply removed from the vectors that construct $u$. A proposal can still reach a `partial_ready` checkpoint state when at least one family remains eligible after exclusion; a family whose direction is resolved but chronologically unstable still blocks readiness as before. Per-epoch exclusion streaks are recorded per family so that cycling behavior (a family excluded, drifting, becoming resolved, being re-included, and being excluded again) is visible in the optimisation history; no hysteresis is applied to exclusion decisions yet.
+
+**Open tension.** Excluding a family from aggregation removes its only training signal for that epoch, since nothing else optimizes it. A family that is marginally resolved but has high loss, such as dielectric with a signal-to-standard-error ratio near 3 against the default reliability multiplier of 2 in the same run, could in principle drop in and out of the aggregate across epochs, leaving some proposals that optimize only the remaining families. `required_families` and `min_eligible_families` settings exist as explicit, currently uncalibrated controls against this risk. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] and [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]].
+
+This is a project design decision and project-evidence finding, not a claim evaluated in SRC-0036. It refines, rather than replaces, the "does not veto" framing in [[#5. Finite-step acceptance and ConFIG's scope]]: that section is about finite-step family *regressions* not independently rejecting an already-constructed candidate, while this section is about which family gradients are allowed to shape the candidate direction in the first place.
+
 ## Diagnostics to record
 
 For every proposal, write:
@@ -282,7 +303,11 @@ The archive-gate thresholds and finite-step acceptance behavior are FFRefine pro
 ## Wiki updates made
 
 - Updated this answer with the archive direction-readiness heuristic, finite-step ConFIG scope, current acceptance gates, and project-evidence boundaries.
+- Updated this answer on 2026-09-24 with the observed aggregate-step collapse from an uncertain/negligible-direction family remaining active in ConFIG, its unit-test reproduction, and the adopted exclusion-and-renormalize policy.
+- Added [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]] and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
+- Added [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]] for a related but distinct 2026-09-24 finding about loss-based acceptance gates under KL/ESS-bounded replay.
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses]] remains the cited explanation of family-scaled objective values; it was read but not changed.
+- Updated [[wiki/concepts/awh-replay-force-field-optimization]].
 - Updated [[wiki/index]] and [[wiki/log]].
 
 ## Implementation status after 2026-07-28
@@ -304,3 +329,4 @@ Focused tests cover ConFIG linear algebra, objective decomposition, degeneracy d
 - SRC-0036 evaluates ordinary ConFIG primarily for PINNs and one multi-task benchmark; it does not validate this replay-force-field adaptation.
 - Archive reliability defaults are heuristic screening thresholds and still need campaign calibration; they are not calibrated confidence intervals.
 - Production evidence is still needed to show that reduced gradient conflict improves force-field quality rather than merely changing the local optimization trajectory.
+- The exclusion-and-renormalize policy for unreliable directions is evidenced by one water multi-family run and one synthetic unit test; `required_families`, `min_eligible_families`, and exclusion-streak reporting have not yet been campaign-calibrated. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].

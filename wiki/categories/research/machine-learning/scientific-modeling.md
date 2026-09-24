@@ -86,8 +86,10 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Tensions
 
 - [[wiki/tensions/TEN-0003-cldice-topology-guarantee-vs-practical-transfer|clDice Topology Guarantee Versus Practical Transfer]]
+- [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift|ConFIG Family Exclusion vs Untreated Drift]]
 
 ### Claims
 
 - [[wiki/claims/CLM-0003-cldice-connectivity-aware-tubular-segmentation|clDice Captures Tubular Connectivity Better Than Overlap Alone]]
+- [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families|ConFIG Must Exclude Directionally Unreliable Families, Not Just Gate Readiness on Them]]
 - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]

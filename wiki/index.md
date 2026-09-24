@@ -60,6 +60,7 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 - [[wiki/answers/garnet-structural-studies-presentation-plan]] - Structural Studies, 17 September 2026: current rehearsed baseline is 15 core slides plus five backups at approximately 18 minutes; the 14 September revision handoff records the validated scientific and slide-order decisions. Microsoft 365 playback, final PDF export and projector testing remain.
 
+- [[wiki/answers/ffrefine-current-implementation-status]] - Current FFRefine code and experiment snapshot audited against clean repository HEAD on 23 September 2026; includes the latest ConFIG finite-step family-regression acceptance policy.
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]] - Aggressive density-only positive control showing two fresh-confirmed updates, successful archive KL up to 0.3803, complementary KL/ESS gates, and separation of checkpoint validity from next-direction readiness.
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - Canonical account of two prospective dielectric-only damped-Fisher campaigns, including six consecutive fresh-confirmed updates in the higher-KL run, KL/support diagnostics, limitations, and checkpoint-state lessons.
 - [[wiki/answers/ffrefine-fisher-treatment-operators]] - Mathematical and implementation explanation of FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators.
@@ -73,7 +74,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/answers/garnet-symbolic-regression-functional-search]] - Assessment of symbolic regression, pipeline placement, and differentiable functional-form search for a future Garnet force field.
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy]] - Synthesis of recurring validation problems across force-field fitting, machine-learning potentials, and free-energy estimators.
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]] - Implementation route plan for testing AWH-style replay force-field optimization with TSS and MBAR reference archives.
-- [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible family-level ConFIG, archive direction-readiness heuristics, and first-order versus finite-step acceptance limits in FFRefine.
+- [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible family-level ConFIG, archive direction-readiness heuristics, first-order versus finite-step acceptance limits, and the exclusion-and-renormalize policy for directionally unreliable families in FFRefine.
+- [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]] - Why FFRefine treats paired loss-confidence acceptance gates as diagnostic rather than blocking under its KL/ESS-bounded replay trust region.
 - [[wiki/answers/ffrefine-config-fisher-second-momentum]] - Why Adam-style second momentum is less obvious than first-moment smoothing for FFRefine's Fisher-preconditioned ConFIG optimizer.
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Current mathematical account of FFRefine's QEq map, replay observables, multi-family loss, state-conditional Fisher treatments, KL controls, macro-epoch loop, and prospective validation boundary.
 - [[wiki/answers/ffrefine-kl-divergence-definition-change]] - How and why FFRefine's KL trust region moved from a frozen-bias joint Fisher to a state-conditional KL, and its downstream effects on Fisher rank, condition, and natural directions.
@@ -302,6 +304,7 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Claims
 
+- [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]] - FFRefine's family-level ConFIG must exclude directionally unreliable families or the aggregate step can collapse.
 - [[wiki/claims/CLM-0043-generated-transition-proposals-require-dynamical-validation]] - Gen-COMPAS generated structures are proposal targets, not equilibrium samples or final transition states.
 
 - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]] - A Fisher KL trust region and its empirical replay KL must condition on thermodynamic state consistently.
@@ -335,6 +338,7 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Tensions
 
+- [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] - Excluding directionally unreliable families from FFRefine's ConFIG aggregation protects the shared step but leaves excluded families untrained for those epochs.
 - [[wiki/tensions/TEN-0019-rpicam-firmware-host-tool-protocol-drift]] - Current local TFT/microSD firmware behavior conflicts with retained Python USB frame-protocol tools and stale PIO comments.
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] - Larger observable signals versus loss of replay support and KL validity.
 - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization]] - TSS adaptive variance advantage versus broad MBAR generalization.

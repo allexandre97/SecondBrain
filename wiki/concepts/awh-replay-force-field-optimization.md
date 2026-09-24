@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-08-29
+updated: 2026-09-24
 areas:
   - research
 categories:
@@ -23,11 +23,18 @@ related:
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
   - "[[wiki/answers/ffrefine-paper-methods-knowledge-base]]"
   - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
+  - "[[wiki/answers/adding-config-optimiser-to-ffrefine]]"
+  - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
+  - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
+  - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
 sources:
   - SRC-0005
   - SRC-0006
   - SRC-0018
   - SRC-0023
+  - SRC-0025
+  - SRC-0026
+  - SRC-0036
 sensitivity: public
 encryption: none
 ---
@@ -100,6 +107,12 @@ A 2026-07-29 FFRefine code audit updated the implementation lesson: the current 
 
 A 2026-07-29 FFRefine water-temperature memory update added an eighth implementation lesson: in a Julia replay-optimization loop, ordinary object reuse and explicit garbage collection may reduce per-epoch allocation without returning the resident set to the operating system after a large optimization phase. For memory-heavy macro epochs that combine PME workspaces, threaded replay, automatic differentiation, FFT/native library state, and candidate optimization, the robust reclamation boundary is a disposable worker process per macro epoch. The supervisor should pass only compact serialized epoch requests and responses, wait for worker exit before deserializing the result or starting resimulation, and record both child memory telemetry and supervisor RSS after exit. This is a project operational lesson for long SRC-0018-style replay/resimulation loops, not a new scientific claim. [SRC-0018]
 
+A 2026-09-24 FFRefine multi-family water run added a ninth implementation lesson, in two parts, about multi-objective aggregation and acceptance gating for SRC-0018-style replay optimization.
+
+First, when multiple target families are combined through ConFIG-style Fisher-whitened gradient aggregation, every family that participates gets equal angular weight in the shared descent direction regardless of how reliable its estimated direction is, because the construction normalizes each included family's whitened gradient to unit norm. [SRC-0036] A family whose treated direction is directionally unreliable, as estimated from delete-block reliability rather than from a small raw gradient norm or a low pairwise cosine alone, can therefore collapse the aggregate step by orders of magnitude if it stays active while the other families disagree with it. In the observed run, a near-stationary density family with collapsing raw gradient norm and unstable delete-block reliability stayed active and shrank the aggregate step to an estimated KL of 0.0017; a synthetic unit test reproduced the mechanism directly, with a three-family step more than 100x smaller than the corresponding two-family step. The adopted response excludes `:uncertain` and `:negligible` families from the aggregation and renormalizes the remaining family weights, while keeping excluded families in monitoring, support, and KL accounting; this trades aggregate-step integrity against the risk that an excluded, marginally-resolved, high-loss family receives no training signal for the epochs it is excluded. This is a project implementation lesson and finding, not a claim evaluated in SRC-0036. [[wiki/answers/adding-config-optimiser-to-ffrefine]] [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]] [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]
+
+Second, in the same run, KL and ESS trust-region bounds were what actually limited replay steps: fresh loss fell monotonically across five macro epochs, and a point-loss veto and stale-progress stop never fired. A paired delete-block loss-confidence acceptance gate fired only on already-small, well-supported steps, truncating one chain and forcing an unneeded production extension, while it passed every step of a chain whose replay prediction later over-predicted the fresh-archive improvement for one family. FFRefine therefore made loss-based acceptance gates diagnostic by default, relying on the KL/ESS bounds plus a loud post hoc warning on significant fresh-loss regression, while retaining an enforcing mode. This is FFRefine's project-specific policy given its KL/ESS-bounded architecture and this run's evidence; it is not a claim that loss-based step rejection is unhelpful in general, and it does not reproduce or contradict ForceBalance's noise-based Levenberg-Marquardt step rejection. [SRC-0018] [SRC-0025] [SRC-0026] [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]
+
 ## Caveats
 
 The method is only as good as the support of the frozen ensemble; failed replay/AWH parity or low ESS indicates that new sampling is needed before trusting an update. [SRC-0018]
@@ -116,3 +129,7 @@ TSS and MBAR variants need their own readiness and support diagnostics. TSS read
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base]]
+- [[wiki/answers/adding-config-optimiser-to-ffrefine]]
+- [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]
+- [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]
+- [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]

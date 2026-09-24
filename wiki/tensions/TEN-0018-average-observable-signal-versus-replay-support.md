@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-08-20
-updated: 2026-09-04
+updated: 2026-09-24
 tension_status: active
 areas:
   - research
@@ -23,6 +23,7 @@ related:
   - "[[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]"
   - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
+  - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-long-archive-target-gradient-convergence]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
@@ -119,9 +120,14 @@ The run also showed that this tension persists after a checkpoint improves. At c
 
 The tension should be managed by increasing genuinely independent information while keeping support and fresh-simulation requirements fixed. Density and RDF should remain matched positive controls because they distinguish pipeline-wide Fisher failures from target-specific gradient failures, but the aggressive density run shows that even a positive control can develop treatment-specific next-direction uncertainty near an improved checkpoint. Neither dielectric's retrospective budget crossing, enthalpy's isolated 100 ns crossing, nor density's successful archive KL 0.3803 may be promoted to a universal sampling or support threshold. The two prospective dielectric runs support $\gamma=0.1$ as a viable treatment, and the aggressive density run supports testing a wider operating region, but none establishes campaign-level reliability across independent seeds. Replicas sharing one TSS preparation must not be counted as equivalent to independently prepared archives, and neither cumulative two-archive agreement nor paired uncertainty conditional on those archives replaces broader independent validation. SRC-0018's frozen-reference workflow makes support and resimulation part of optimisation validity, not optional diagnostics. [SRC-0018]
 
+## Related finding
+
+A 2026-09-24 multi-family run added a related but distinct finding about diagnostic reliability under this same KL/ESS-bounded trust region: a paired loss-confidence acceptance gate cost work on already-small, well-supported steps while passing every step of the chain that actually over-predicted its fresh-archive improvement. That finding is about which diagnostic detects a real failure, not about signal size versus support, so it is kept as its own answer note rather than folded into this tension. [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]
+
 ## Links
 
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
+- [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation]]

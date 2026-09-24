@@ -55,6 +55,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training|Prospective Dielectric Training with a Damped Conditional Fisher]]
+- [[wiki/answers/ffrefine-loss-gate-diagnostic-policy|Should Loss-Confidence Gates Block FFRefine's Replay Proposals?]]
 - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan|Testing Replay Force-Field Optimization With TSS and MBAR]]
 - [[wiki/answers/training-initially-disabled-lennard-jones-parameters|Training Initially Disabled Lennard-Jones Parameters]]
@@ -66,10 +67,12 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Tensions
 
+- [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift|ConFIG Family Exclusion vs Untreated Drift]]
 - [[wiki/tensions/TEN-0019-rpicam-firmware-host-tool-protocol-drift|RpiCam Firmware–Host Tool Protocol Drift]]
 
 ### Claims
 
+- [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families|ConFIG Must Exclude Directionally Unreliable Families, Not Just Gate Readiness on Them]]
 - [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation|Damped Conditional-Fisher Dielectric Training Survives Fresh Resimulation]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]
 - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]

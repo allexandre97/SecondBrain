@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-23
+updated: 2026-09-24
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -15,6 +15,10 @@ encryption: none
 graph_exclude: true
 ---
 # Wiki Log
+
+- 2026-09-24: Recorded two FFRefine multi-family water-run findings (`water_rdf-dens-diel_aggressive`, density/RDF/dielectric under family-level ConFIG). First, a family with an unreliable treated direction (collapsing raw gradient norm, sign-flipping chronological halves, `:uncertain`/`:negligible` delete-block reliability) can collapse the shared ConFIG step by orders of magnitude if kept active, reproduced in a synthetic unit test; FFRefine now excludes such families from aggregation with weight renormalization. Second, KL/ESS bounds, not a paired loss-confidence gate, limited replay steps in the run; the gate cost work on small steps and missed the run's actual archive-to-fresh over-prediction failure, so loss-based acceptance gates are now diagnostic by default. Updated [[wiki/answers/adding-config-optimiser-to-ffrefine]] and [[wiki/concepts/awh-replay-force-field-optimization]]; added [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]; linked from [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] and the TSS/MBAR route plan. Evidenced by one project run and one unit test; no campaign calibration of exclusion thresholds or loss-gate modes.
+
+- 2026-09-23: Audited FFRefine against clean HEAD `a3b6aa552faab3b91271a1e7a9cabbc97793978a`; refreshed the current implementation and methods notes to reflect that ConFIG finite-step family regressions are diagnosed rather than individually vetoed, while aggregate-loss, support/ESS, and KL constraints remain. Preserved dated campaign limits and historical context; focused optimizer regression checks passed 33/33.
 
 - 2026-09-23: Updated the FFRefine ConFIG answer with the four-replica-stratified-delete-block archive direction heuristic, Fisher-metric jackknife uncertainty and uncalibrated-threshold caveat, plus clarified first-order common descent versus finite-step family regressions. Recorded current aggregate-loss/support-ESS/confidence/KL acceptance behavior and reported focused-test outcomes; no production validation or campaign calibration is claimed.
 

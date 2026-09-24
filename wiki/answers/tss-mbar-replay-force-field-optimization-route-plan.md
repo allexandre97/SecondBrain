@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-09-03
+updated: 2026-09-24
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -40,6 +40,10 @@ related:
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]]"
+  - "[[wiki/answers/adding-config-optimiser-to-ffrefine]]"
+  - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
+  - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
+  - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -362,6 +366,10 @@ The later state-conditional Fisher implementation, continuous damping at $\gamma
 
 This validates the route's central replay/resimulation loop for one local scientific objective: supported archive-derived proposals can survive fresh simulation repeatedly. It also preserves the route's scope boundary. The dielectric curve did not converge, checkpoint 7 was not fresh assessed before the user intentionally stopped the run, and no collateral or transferability targets were evaluated. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
 
+### Multi-family ConFIG aggregation and loss-gate policy update
+
+A 2026-09-24 multi-family water run (density, RDF, dielectric under family-level Fisher-whitened ConFIG) found that a near-stationary but formally active family with an unreliable treated direction can collapse the shared ConFIG step by orders of magnitude, and that a paired loss-confidence acceptance gate cost work on well-supported steps while missing the run's actual failure (a chain that over-predicted its fresh-archive improvement). FFRefine's response excludes directionally unreliable families from ConFIG aggregation with weight renormalization, and now treats loss-based acceptance gates as diagnostic by default under the existing KL/ESS trust region. See [[wiki/answers/adding-config-optimiser-to-ffrefine]], [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
+
 ## Implementation route plan
 
 ### Phase 1: Define the sampler-agnostic interfaces
@@ -534,6 +542,7 @@ Method-specific reference denominators:
 
 - Added this answer note.
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]] with a sampler-agnostic extension note covering TSS and MBAR adapters.
+- Updated on 2026-09-24 with a pointer to the multi-family ConFIG aggregation and loss-gate diagnostic-policy findings recorded in [[wiki/answers/adding-config-optimiser-to-ffrefine]], [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
 
 ## Remaining gaps
 
