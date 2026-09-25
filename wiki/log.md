@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-24
+updated: 2026-09-25
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -15,6 +15,10 @@ encryption: none
 graph_exclude: true
 ---
 # Wiki Log
+
+- 2026-09-25: Ingested SRC-0091, "Use of the Weighted Histogram Analysis Method for the Analysis of Simulated and Parallel Tempering Simulations" (Chodera, Swope, Pitera, Seok, Dill, JCTC 2007), as a math-deep source. This paper is ref 10 of [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]], confirmed by exact bibliographic match; its section 5.2 fully specifies the "fast multiscale" statistical-inefficiency estimator (quadratic lag schedule $t_i=1+i(i-1)/2$, zero-crossing truncation, ~10% reported accuracy) that SRC-0090 previously listed as a mathematical gap. Updated SRC-0090's `cites_sources`, Mathematical gaps, and Known gaps to resolve that citation. Added the estimator's full equations to [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]] and created [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise]]. Updated the [[wiki/entities/authors/john-d-chodera]] entity; the paper's other four authors (Swope, Pitera, Seok, Dill) appear only in this single source and were not given separate entity pages. No relationship was recorded to MBAR ([[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]): this 2007 paper predates the 2008 MBAR paper and does not discuss it, so no citation link was invented.
+
+- 2026-09-25: Ingested SRC-0090, "A Simple Method for Automated Equilibration Detection in Molecular Simulations" (Chodera, JCTC 2016), as a standalone math-standard source. Added [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]] and [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time]]; confirmed a citation match to the already-ingested MBAR paper ([[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]) via its reduced-potential footnote, and linked the new concept from [[wiki/concepts/multistate-bennett-acceptance-ratio]]'s existing correlated-sample caveat. Updated the [[wiki/entities/authors/john-d-chodera]] entity. No current FFRefine or TSS project material references this method, so no link was forced into that unrelated in-progress work.
 
 - 2026-09-24: Recorded two FFRefine multi-family water-run findings (`water_rdf-dens-diel_aggressive`, density/RDF/dielectric under family-level ConFIG). First, a family with an unreliable treated direction (collapsing raw gradient norm, sign-flipping chronological halves, `:uncertain`/`:negligible` delete-block reliability) can collapse the shared ConFIG step by orders of magnitude if kept active, reproduced in a synthetic unit test; FFRefine now excludes such families from aggregation with weight renormalization. Second, KL/ESS bounds, not a paired loss-confidence gate, limited replay steps in the run; the gate cost work on small steps and missed the run's actual archive-to-fresh over-prediction failure, so loss-based acceptance gates are now diagnostic by default. Updated [[wiki/answers/adding-config-optimiser-to-ffrefine]] and [[wiki/concepts/awh-replay-force-field-optimization]]; added [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]; linked from [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] and the TSS/MBAR route plan. Evidenced by one project run and one unit test; no campaign calibration of exclusion thresholds or loss-gate modes.
 

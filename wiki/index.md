@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-23
+updated: 2026-09-25
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -87,6 +87,9 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/entities/authors/michael-r-shirts]] - Repeated author entity for MBAR and configuration-mapping free-energy sources.
 
 ## Sources
+
+- [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]] - Single-author JCTC paper proposing an $N_\text{eff}$-maximizing, distribution-free automated equilibration-time selection algorithm for molecular simulation timeseries, with a liquid-argon benchmark and a `pymbar.timeseries.detectEquilibration()` reference implementation.
+- [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for|WHAM for Simulated and Parallel Tempering]] - 2007 JCTC paper deriving STWHAM and PTWHAM (WHAM for simulated tempering and parallel tempering/replica exchange), with full uncertainty propagation and the "fast multiscale" statistical-inefficiency estimator (section 5.2) that SRC-0090 cites and relies on.
 
 - [[wiki/sources/SRC-0089-rpicam-project-goal-summaries|RpiCam Project Goals]] - User-stated standalone experimental-camera goal, artistic thesis, software/electrical glitch layers, historical milestones, intended controls and memory strategy, and roadmap reconciled against current code.
 - [[wiki/sources/SRC-0088-rpicam-repository|RpiCam]] - Current RP2350 camera firmware architecture, OV7670 PIO/DMA capture, multicore ST7789 preview, custom SPI/FatFs microSD still storage, hardware mapping, build workflow, and known stale host-tool/PIO documentation.
@@ -192,6 +195,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]] - Five-system benchmark separating self-convergence from cross-method correctness for REUS, WT-MtD, WTM-eABF, and OPES.
 
 ## Concepts
+
+- [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]] - Bias-variance framework for equilibration-time choice, statistical inefficiency and effective sample size, the $N_\text{eff}$-maximizing automated equilibration-detection algorithm, and the full "fast multiscale" integrated-autocorrelation-time estimator (quadratic lag schedule, zero-crossing truncation).
 
 - [[wiki/concepts/rpicam-embedded-camera-firmware]] - Current embedded camera pipeline distinguished from the standalone artistic-camera goal, experimental software/electrical layers, memory strategy, physical interface, and roadmap.
 
@@ -304,6 +309,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Claims
 
+- [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise]] - Truncating the integrated-autocorrelation-time sum at the correlation function's first zero-crossing, with a quadratic lag-sampling schedule, controls noise-dominated-tail error and stays close to the full-sum estimate.
+- [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time]] - Per-trajectory $N_\text{eff}$-maximization selects a near bias-optimal equilibration time, close to the RMS error achievable only with multi-replicate oracle knowledge, on a liquid-argon benchmark.
 - [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]] - FFRefine's family-level ConFIG must exclude directionally unreliable families or the aggregate step can collapse.
 - [[wiki/claims/CLM-0043-generated-transition-proposals-require-dynamical-validation]] - Gen-COMPAS generated structures are proposal targets, not equilibrium samples or final transition states.
 

@@ -29,6 +29,8 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 
 ## Confirmed Source Citation Links
 
+- [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]
+- [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]] -> [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for|SRC-0091]]
 - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] -> [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|SRC-0007]]
 - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] -> [[wiki/sources/SRC-0008-awh-free-energy-landscapes|SRC-0008]]
 - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]
@@ -89,6 +91,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 
 ## Sources With Citation Match Status: partial
 
+- [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]]
 - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]]
 - [[wiki/sources/SRC-0004-automated-cytoskeletal-network-segmentation|Cytoskeletal Network Segmentation Review]]

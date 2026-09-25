@@ -32,12 +32,14 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Sources
 
+- [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]]
 - [[wiki/sources/SRC-0008-awh-free-energy-landscapes|AWH Free Energy Landscapes]]
 - [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|Extended-Ensemble AWH]]
 - [[wiki/sources/SRC-0012-mbar-configuration-mapping|MBAR with Configuration Mapping]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|Original MBAR Paper]]
 - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]]
 - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]]
+- [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for|WHAM for Simulated and Parallel Tempering (STWHAM/PTWHAM)]]
 
 ### Concepts
 
@@ -48,6 +50,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]]
 - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]]
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]]
+- [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection|Statistical Inefficiency and Automated Equilibration Detection]]
 - [[wiki/concepts/times-square-sampling|Times Square Sampling]]
 
 ### Answers
@@ -87,5 +90,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]
 - [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation|Damped Conditional-Fisher Dielectric Training Survives Fresh Resimulation]]
 - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]
+- [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise|Multiscale Truncated Autocorrelation Estimator Controls Tail Noise]]
+- [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time|N_eff Maximization Gives Near-Optimal Equilibration Time]]
 - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]
 - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]

@@ -32,6 +32,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Sources
 
+- [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]]
 - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]]
 - [[wiki/sources/SRC-0075-dipole-moment-fluctuation-formulas-in-computer-simulations-of|Dipole Moment Fluctuation Formulas]]
@@ -52,6 +53,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|StABlE MLFF Training]]
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]]
 - [[wiki/sources/SRC-0055-uucg-rna-tetraloop-as-a-formidable-force-field|UUCG RNA Tetraloop Force-Field Challenge]]
+- [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for|WHAM for Simulated and Parallel Tempering (STWHAM/PTWHAM)]]
 
 ### Concepts
 
@@ -65,6 +67,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]]
 - [[wiki/concepts/rna-molecular-dynamics-simulations|RNA Molecular Dynamics Simulations]]
 - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]]
+- [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection|Statistical Inefficiency and Automated Equilibration Detection]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]]
 
 ### Questions
@@ -90,4 +93,6 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0024-force-based-virials-generalize-pressure-and-stress-to-many-body-md|Force-Based Virials Generalize Pressure and Stress to Many-Body MD]]
 - [[wiki/claims/CLM-0043-generated-transition-proposals-require-dynamical-validation|Generated Transition Proposals Require Dynamical Validation]]
 - [[wiki/claims/CLM-0026-gpu-md-neighbor-and-nonbonded-performance-is-data-layout-limited|GPU MD Neighbor and Nonbonded Performance Is Data-Layout Limited]]
+- [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise|Multiscale Truncated Autocorrelation Estimator Controls Tail Noise]]
+- [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time|N_eff Maximization Gives Near-Optimal Equilibration Time]]
 - [[wiki/claims/CLM-0036-site-site-reaction-fields-avoid-molecular-size-mismatch|Site-Site Reaction Fields Avoid Molecular-Size Mismatch]]

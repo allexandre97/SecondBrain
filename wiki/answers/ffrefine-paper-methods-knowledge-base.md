@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-29
-updated: 2026-09-02
+updated: 2026-09-23
 question: "What exactly is FFRefine doing, in paper-methods terms?"
 answer_status: answered
 areas:
@@ -75,6 +75,8 @@ wiki_pages_updated:
 project_evidence:
   - "FFRefine code audit on 2026-07-29 against optimiser.jl, replay.jl, gradients.jl, parameterization.jl, validity.jl, backend.jl, solvation_pipeline.jl, water_temperature.jl, and focused tests"
   - "FFRefine working-tree audit on 2026-09-02 against optimiser.jl, replay.jl, gradients.jl, parameterization.jl, validity.jl, backend.jl, epoch_pipeline.jl, optimisation_history.jl, reporting.jl, solvation.jl, water_temperature.jl, hexane_temperature.jl, and focused tests"
+  - "FFRefine clean HEAD audit on 2026-09-23 at a3b6aa552faab3b91271a1e7a9cabbc97793978a: optimizer finite-step family regressions are diagnostic, not an individual acceptance veto"
+  - "FFRefine test/config_optimiser_checks.jl passed 33/33 on 2026-09-23"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
 ---
 
@@ -1152,14 +1154,7 @@ L(\phi_{t,j})
 L(\phi_t)+\Delta L_{\max},
 $$
 
-finite loss, step, and KL estimates; compliance with the per-proposal empirical conditional-KL limit and cumulative archive-displacement limit; and, for ConFIG-protected components,
-
-$$
-L_f(\phi_{t,j})\le L_f(\phi_t)
-\quad\text{for every protected }f.
-$$
-
-The first accepted scale is used. If all configured scales fail, the replay proposal chain stops.
+finite loss, step, and KL estimates, and compliance with the per-proposal empirical conditional-KL limit and cumulative archive-displacement limit. For ConFIG, each protected component's direction remains first-order descending, but an individual family loss may increase at a finite replay step. The optimizer records those regressions in `failed_components`; they are not an independent acceptance veto. The aggregate-loss, support/ESS, and KL rules remain operative. The first candidate satisfying acceptance is used; if all configured scales fail, the replay proposal chain stops.
 
 ### 6. Check support after finite-step acceptance
 
@@ -1251,10 +1246,10 @@ This establishes one local multi-update dielectric result under one campaign see
 - State-normalized multistate weighting and its overlap limitations are grounded in [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]. [SRC-0023]
 - The constrained QEq fine-tuning context is supported by [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]]. [SRC-0016]
 - Conflict-free gradient aggregation is grounded in [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]], while the Fisher-whitened adaptation is FFRefine-specific. [SRC-0036]
-- Exact target construction, multiplicity-aware QEq algebra, relative-enthalpy and dielectric estimators, latent Jacobian, current state-conditional Fisher implementation, treatment operators, line search, support handling, and experiment defaults come from the FFRefine audits recorded in this page's frontmatter.
+- Exact target construction, multiplicity-aware QEq algebra, relative-enthalpy and dielectric estimators, latent Jacobian, current state-conditional Fisher implementation, treatment operators, line search, support handling, and experiment defaults come from the FFRefine audits recorded in this page's frontmatter. The current finite-step ConFIG acceptance behavior was checked against clean repository HEAD `a3b6aa552faab3b91271a1e7a9cabbc97793978a` (`optimiser.jl`, `backend.jl`, and `test/config_optimiser_checks.jl`).
 - The KL correction and treatment interpretation are synthesized from [[wiki/answers/ffrefine-kl-divergence-definition-change]], [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]], and [[wiki/answers/ffrefine-fisher-treatment-operators]].
 - The validation boundary is synthesized from [[wiki/answers/ffrefine-average-observable-trainability-validation]], [[wiki/answers/ffrefine-long-archive-target-gradient-convergence]], [[wiki/answers/ffrefine-retrospective-fisher-treatment-development]], and [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]. No raw sources were consulted for this refresh.
-- [[wiki/answers/ffrefine-current-implementation-status]] is an August 20 snapshot. Its then-current defaults and statement that fresh trainability was unresolved are superseded here by the September audit and prospective-result pages.
+- [[wiki/answers/ffrefine-current-implementation-status]] contains the current 2026-09-23 implementation snapshot. Earlier descriptions in this note remain historical where explicitly tied to the 2026-09-02 audit or dated campaigns; its finite-step ConFIG acceptance description is updated to the 2026-09-23 repository HEAD.
 
 ## Gaps and open questions
 

@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-09-25
 areas:
   - research
 categories:
@@ -18,8 +18,10 @@ related:
   - "[[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]"
   - "[[wiki/concepts/free-energy-estimation]]"
   - "[[wiki/concepts/mbar-with-configuration-mapping]]"
+  - "[[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]]"
 sources:
   - SRC-0023
+  - SRC-0090
 sensitivity: public
 encryption: none
 ---
@@ -84,7 +86,7 @@ $$
 
 MBAR is natural for alchemical free energies, umbrella sampling, parallel tempering analysis, and any setting where samples from several biased equilibrium states can be evaluated under all relevant reduced potentials. [SRC-0023]
 
-Correlated trajectories should be decorrelated or subsampled before using the asymptotic covariance estimator, otherwise uncertainty can be underestimated. [SRC-0023]
+Correlated trajectories should be decorrelated or subsampled before using the asymptotic covariance estimator, otherwise uncertainty can be underestimated. [SRC-0023] A practical, distribution-free way to choose how much initial data to discard and estimate the effective number of uncorrelated samples is given in [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]]. [SRC-0090]
 
 ## Caveats
 
@@ -96,6 +98,7 @@ MBAR is statistically optimal within its assumptions, but the assumptions do not
 - [[wiki/concepts/free-energy-estimation]]
 - [[wiki/concepts/mbar-with-configuration-mapping]]
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar]]
+- [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]]
 
 ## Open Questions
 

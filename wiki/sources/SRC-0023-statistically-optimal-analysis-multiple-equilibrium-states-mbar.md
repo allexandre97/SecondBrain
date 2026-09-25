@@ -2,7 +2,7 @@
 type: source
 status: active
 created: 2026-06-30
-updated: 2026-07-01
+updated: 2026-09-25
 source_id: SRC-0023
 display_title: "Statistically Optimal Analysis of Samples from Multiple Equilibrium States"
 short_title: "Original MBAR Paper"
@@ -41,6 +41,7 @@ related:
   - "[[wiki/concepts/multistate-bennett-acceptance-ratio]]"
   - "[[wiki/concepts/free-energy-estimation]]"
   - "[[wiki/concepts/mbar-with-configuration-mapping]]"
+  - "[[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]]"
 sources:
   - SRC-0023
 cites_sources: []
@@ -179,6 +180,7 @@ The paper demonstrates MBAR on DNA hairpin optical-tweezer data by combining con
 - [[wiki/concepts/free-energy-estimation]]
 - [[wiki/concepts/mbar-with-configuration-mapping]]
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar]]
+- [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]] - cites this paper's reduced-potential definition; also relevant to this page's correlated-sample caveat via [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]].
 
 ## Claims
 

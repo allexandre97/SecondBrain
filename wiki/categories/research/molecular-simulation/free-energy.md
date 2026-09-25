@@ -59,6 +59,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0005-times-square-sampling-free-energy|Times Square Sampling]]
 - [[wiki/sources/SRC-0006-times-square-sampling-supplement|Times Square Sampling Supplement]]
 - [[wiki/sources/SRC-0037-transferable-boltzmann-generators|Transferable Boltzmann Generators]]
+- [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for|WHAM for Simulated and Parallel Tempering (STWHAM/PTWHAM)]]
 
 ### Concepts
 
