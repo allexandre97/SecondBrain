@@ -99,8 +99,10 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-config-fisher-second-momentum|FFRefine ConFIG Fisher Second Momentum]]
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
 - [[wiki/answers/ffrefine-fisher-treatment-operators|FFRefine Fisher-Treatment Operators]]
+- [[wiki/answers/ffrefine-improved-gates-water-run-lessons|FFRefine Improved Replay-Gate Design: Lessons From Water Run 20260924-204914]]
 - [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
+- [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration|FFRefine Multi-Series Equilibration Cut Calibration]]
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
@@ -136,10 +138,12 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Claims
 
+- [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting|Calibrated Materiality Threshold Prevents Over-Cutting in Multi-Series Equilibration Detection]]
 - [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families|ConFIG Must Exclude Directionally Unreliable Families, Not Just Gate Readiness on Them]]
 - [[wiki/claims/CLM-0037-conservative-atomic-reaction-field-cutoffs-improve-high-permittivity-md|Conservative Atomic Reaction-Field Cutoffs Improve High-Permittivity MD]]
 - [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation|Damped Conditional-Fisher Dielectric Training Survives Fresh Resimulation]]
 - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]
+- [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length|Family-Weight Renormalisation After Exclusion Changes the Natural-Gradient Step Length]]
 - [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability|Fixed-Archive Gradient Validation Does Not Establish Fresh-Archive Trainability]]
 - [[wiki/claims/CLM-0012-forcebalance-reduces-manual-fitting-noise|ForceBalance Reduces Manual Fitting Noise]]
 - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]

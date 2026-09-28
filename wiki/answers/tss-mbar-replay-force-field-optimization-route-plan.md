@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-09-24
+updated: 2026-09-28
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -44,6 +44,10 @@ related:
   - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
+  - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
+  - "[[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]"
+  - "[[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]"
+  - "[[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -72,6 +76,8 @@ raw_sources_consulted:
 wiki_pages_updated:
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
+  - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
+  - "[[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients.md --depth 1"
 ---
@@ -370,6 +376,12 @@ This validates the route's central replay/resimulation loop for one local scient
 
 A 2026-09-24 multi-family water run (density, RDF, dielectric under family-level Fisher-whitened ConFIG) found that a near-stationary but formally active family with an unreliable treated direction can collapse the shared ConFIG step by orders of magnitude, and that a paired loss-confidence acceptance gate cost work on well-supported steps while missing the run's actual failure (a chain that over-predicted its fresh-archive improvement). FFRefine's response excludes directionally unreliable families from ConFIG aggregation with weight renormalization, and now treats loss-based acceptance gates as diagnostic by default under the existing KL/ESS trust region. See [[wiki/answers/adding-config-optimiser-to-ffrefine]], [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
 
+### Improved replay-gate design lessons from a 22-epoch water run (2026-09-28)
+
+Designing calibrated, cross-fitted replay-chain diagnostics against a longer 22-epoch multi-family water run (`20260924-204914`) produced four further findings. First, replay-prediction calibration can be checked per family across epochs, but the cumulative-error uncertainty must account for telescoping realised changes and shared archives, not a naive sum of per-epoch variances. Second, the run shows the "optimiser's curse": from epoch 10 on, a converged family's replay-predicted improvement was optimistic in most epochs, consistent with a multi-step replay chain optimising its own replay estimate. Third, renormalising the remaining family weights to sum to 1 after excluding a family changes the natural-gradient step's uncapped length, and acted as a large accidental step-size boost in exactly the epochs where the smallest-weighted family made its best progress. Fourth, the existing chronological half-archive stability gate (cosine ≥ 0.8) mostly reacted to ordinary sampling noise rather than real drift, costing about 13% of the run's wall time while missing the run's actual failure mode, motivating a planned cross-fitted "aggregation promise" test in place of a fixed angle threshold. See [[wiki/answers/ffrefine-improved-gates-water-run-lessons]], [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]], [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]], and [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]].
+
+Separately, adapting SRC-0090's per-trajectory $N_\text{eff}$-maximizing equilibration cut and SRC-0091's fast multiscale statistical-inefficiency estimator to a frozen-bias production archive with several observable series and a single replica walking a temperature ladder — a combination neither source addresses — found that the fast estimator itself reads about 15-20% high on AR(1) series, and that naively taking the latest of several per-series argmax cuts over-cuts a stationary archive by an amount that grows sharply as $N/g$ falls; a materiality threshold calibrated conditionally on a cut-independent statistic controls this. See [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] and [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]].
+
 ## Implementation route plan
 
 ### Phase 1: Define the sampler-agnostic interfaces
@@ -543,6 +555,7 @@ Method-specific reference denominators:
 - Added this answer note.
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]] with a sampler-agnostic extension note covering TSS and MBAR adapters.
 - Updated on 2026-09-24 with a pointer to the multi-family ConFIG aggregation and loss-gate diagnostic-policy findings recorded in [[wiki/answers/adding-config-optimiser-to-ffrefine]], [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
+- Updated on 2026-09-28 with pointers to [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] (replay calibration, the optimiser's curse, family-weight renormalisation, and the legacy stability gate) and [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] (fast-estimator bias and multi-series over-cutting calibration), and the new claims [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]] and [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]].
 
 ## Remaining gaps
 

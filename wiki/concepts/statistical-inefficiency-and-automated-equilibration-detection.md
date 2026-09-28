@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-09-25
-updated: 2026-09-25
+updated: 2026-09-28
 areas:
   - research
 categories:
@@ -21,6 +21,8 @@ related:
   - "[[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]"
   - "[[wiki/concepts/multistate-bennett-acceptance-ratio]]"
   - "[[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for]]"
+  - "[[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]"
+  - "[[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]"
 sources:
   - SRC-0090
   - SRC-0091
@@ -129,8 +131,11 @@ This is reported to be accurate to within about 10% of the full (unsparsified) s
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
 - [[wiki/concepts/multistate-bennett-acceptance-ratio]]
 - [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for]]
+- [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]
+- [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]
 
 ## Open Questions
 
 - How does $N_\text{eff}$-maximization behave for strongly non-Gaussian, multimodal, or metastable biomolecular observables where a single trajectory may not sample all relevant states? [SRC-0090]
 - How sensitive is the resulting $t_0^\text{opt}$ to the choice of underlying statistical-inefficiency estimator on realistic, finite molecular-dynamics timeseries? [SRC-0090]
+- How should this method combine several observable series into one cut, and how does it apply to a single replica walking a multi-state temperature ladder? These gaps are partially addressed by FFRefine project evidence (not by SRC-0090 or SRC-0091 themselves): a materiality-calibrated threshold on $N_\text{eff}$ gain, keyed on a per-series statistic unaffected by the cut search, controls the over-cutting bias that results from naively taking the latest of several per-series argmax cuts; per-state centring of each series removes the confound between "which state is occupied" and "has the configuration relaxed" for a single replica on a ladder. See [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]] and [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]].

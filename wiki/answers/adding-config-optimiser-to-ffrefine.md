@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-09-24
+updated: 2026-09-28
 question: "How can ConFIG be added to the FFRefine pipeline to alleviate gradient conflicts between losses?"
 answer_status: answered
 areas:
@@ -28,6 +28,8 @@ related:
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
   - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
+  - "[[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]"
+  - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
 sources:
   - SRC-0036
   - SRC-0018
@@ -43,6 +45,7 @@ wiki_pages_used:
 raw_sources_consulted: []
 wiki_pages_updated:
   - "[[wiki/answers/adding-config-optimiser-to-ffrefine]]"
+  - "[[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]"
   - "[[wiki/index]]"
   - "[[wiki/log]]"
 project_evidence:
@@ -52,6 +55,7 @@ project_evidence:
   - "FFRefine archive direction reliability and family-regression acceptance code audit on 2026-09-23; focused-test outcomes reported for water_temperature_checks.jl, fisher_damping_checks.jl, and config_optimiser_checks.jl"
   - "FFRefine run water_rdf-dens-diel_aggressive, epoch 5, observed 2026-09-24: density family stayed active in ConFIG with a collapsing raw gradient norm (228 to ~2 over five epochs) and unstable delete-block reliability, and the aggregate step collapsed to estimated KL 0.0017"
   - "FFRefine synthetic unit test, 2026-09-24: a three-family ConFIG step with one near-zero, sign-flipping family and two resolved families is more than 100x smaller than the corresponding two-family step under an identity Fisher"
+  - "FFRefine water run 20260924-204914, epochs 10 and 18, analysed through the `improved-gates` design work: renormalised uncapped ConFIG step KL of 0.77 and 0.30 (capped to a 0.095 target) versus a reconstructed unrenormalised uncapped KL of 0.0045 and 0.0018 in the same rdf-only epochs, which produced rdf's largest per-epoch loss decreases in the run"
 ---
 
 # Adding ConFIG to FFRefine
@@ -253,6 +257,14 @@ ConFIG whitens every *included* family gradient to unit norm before solving for 
 
 This is a project design decision and project-evidence finding, not a claim evaluated in SRC-0036. It refines, rather than replaces, the "does not veto" framing in [[#5. Finite-step acceptance and ConFIG's scope]]: that section is about finite-step family *regressions* not independently rejecting an already-constructed candidate, while this section is about which family gradients are allowed to shape the candidate direction in the first place.
 
+## Renormalising remaining family weights after exclusion changes the step length (2026-09-28 update)
+
+Excluding a family disables its targets and renormalises the remaining family weights to sum to 1 (`effective_target_weights`). A 22-epoch water run (`20260924-204914`; rdf, density, dielectric weighted 1, 2, 10) shows this is not scale-neutral for the optimiser. Renormalisation leaves the step's *direction* among the included families unchanged (a common rescaling factor under weighted sum; ConFIG unit-normalizes each included component regardless), but it rescales the objective's magnitude, and the natural-gradient step uses a fixed learning rate of 1 that is only ever capped, never lengthened, at the KL target. So renormalisation changes the *uncapped* step length before the cap is applied.
+
+Reconstructing the uncapped ConFIG step KL as $\tfrac12|c|^2$ from the logged `h_dot_c` diagnostic matched the logged KL in uncapped epochs. In two rdf-only epochs (10 and 18, KL target 0.095) the renormalised uncapped KL was 0.77 and 0.30 (both capped down to 0.095); reconstructed without renormalisation it would have been only 0.0045 and 0.0018 — three orders of magnitude smaller and no longer capped. These were the same two epochs in which rdf made its largest per-epoch loss decreases in the run (about -0.128 and -0.083), so renormalisation acted as an accidental step-size boost in exactly the epochs where it happened to help. Under weighted sum, the same renormalisation also weakens the data/regularization balance whenever families are excluded (regularization is not itself renormalised), for example about 13x weaker in an rdf-only epoch.
+
+**Adopted response (partial).** FFRefine now reports the optimised loss on a full-objective scale as well (dividing only the data term back by the renormalisation factor; the prior term is untouched), so logged-loss jumps caused purely by which families are currently included can be distinguished from real progress, and stale-progress/`max_loss_increase` diagnostics can be read on a consistent scale. The optimiser's *step* itself is unchanged and remains renormalised: whether to keep renormalising the step, decouple it from the reporting scale, or adopt an explicit scale convention is deferred to a combined step-length-policy decision, because the objective's arbitrary scale is also what produces long runs of many tiny, well-supported proposals once a family converges and the active objective shrinks. See [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]] and [[wiki/answers/ffrefine-improved-gates-water-run-lessons]].
+
 ## Diagnostics to record
 
 For every proposal, write:
@@ -306,6 +318,7 @@ The archive-gate thresholds and finite-step acceptance behavior are FFRefine pro
 - Updated this answer on 2026-09-24 with the observed aggregate-step collapse from an uncertain/negligible-direction family remaining active in ConFIG, its unit-test reproduction, and the adopted exclusion-and-renormalize policy.
 - Added [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]] and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
 - Added [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]] for a related but distinct 2026-09-24 finding about loss-based acceptance gates under KL/ESS-bounded replay.
+- Updated this answer on 2026-09-28 with the family-weight-renormalisation step-length finding from water run `20260924-204914`, and added [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]] and [[wiki/answers/ffrefine-improved-gates-water-run-lessons]].
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses]] remains the cited explanation of family-scaled objective values; it was read but not changed.
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]].
 - Updated [[wiki/index]] and [[wiki/log]].
@@ -330,3 +343,4 @@ Focused tests cover ConFIG linear algebra, objective decomposition, degeneracy d
 - Archive reliability defaults are heuristic screening thresholds and still need campaign calibration; they are not calibrated confidence intervals.
 - Production evidence is still needed to show that reduced gradient conflict improves force-field quality rather than merely changing the local optimization trajectory.
 - The exclusion-and-renormalize policy for unreliable directions is evidenced by one water multi-family run and one synthetic unit test; `required_families`, `min_eligible_families`, and exclusion-streak reporting have not yet been campaign-calibrated. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
+- Whether to keep renormalising the optimiser's step (as opposed to only its reported loss) after family exclusion is an open, undecided design question, deferred to a combined step-length-policy decision. See [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]].

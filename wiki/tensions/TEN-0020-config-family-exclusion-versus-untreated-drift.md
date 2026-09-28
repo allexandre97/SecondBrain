@@ -2,7 +2,7 @@
 type: tension
 status: active
 created: 2026-09-24
-updated: 2026-09-24
+updated: 2026-09-28
 tension_status: active
 areas:
   - research
@@ -22,6 +22,7 @@ related:
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
+  - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
 related_claims:
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
 sources:
@@ -30,6 +31,7 @@ sensitivity: public
 encryption: none
 project_evidence:
   - "FFRefine run water_rdf-dens-diel_aggressive, epoch 5, observed 2026-09-24: density family excluded scenario reconstructed from its :uncertain/:negligible reliability classification and collapsing raw gradient norm"
+  - "FFRefine water run 20260924-204914, epochs 13 and 20, observed through the `improved-gates` design analysis: density excluded from ConFIG, then pushed uphill quadratically by the remaining families' steps across the epoch's proposals (+0.02, +0.06, +0.13, +0.22, ..., +0.58 at epoch 13; comparable pattern at epoch 20), each accurately predicted by replay (+0.58 predicted vs +0.57 realised at epoch 13; +0.43 vs +0.37 at epoch 20), then recovered on return the following epoch (-0.49 and -0.35 respectively)"
 ---
 
 # ConFIG Family Exclusion vs Untreated Drift
@@ -51,9 +53,15 @@ Retrieval or reasoning about FFRefine's ConFIG policy should not treat exclusion
 
 FFRefine records per-epoch exclusion streaks per family so cycling (excluded, drifting, resolved, re-included, excluded again) is visible in the optimisation history, without yet applying hysteresis to the exclusion decision itself. `required_families` and `min_eligible_families` settings exist as explicit controls: they can require a specific family to always participate, or require a minimum number of eligible families before a proposal is attempted, but neither has been campaign-calibrated. A `partial_ready` checkpoint state allows an epoch to proceed when at least one family remains eligible after exclusion, which is itself part of the tension: a partial step is a real trade-off between "some progress now" and "progress on every currently active family."
 
+## Evidence that the predicted cycle occurs, and the project's response
+
+A 22-epoch water run (`20260924-204914`; rdf, density, dielectric under family-level ConFIG) shows the exact cycle this tension anticipated. At epoch 13, density had been excluded as near its constrained optimum; with no signal of its own, it was pushed uphill quadratically by the other families' steps across the chain's eight proposals (+0.02, +0.06, +0.13, +0.22, ..., +0.58), then recovered by -0.49 once re-included the following epoch. A comparable pattern occurred at epoch 20 (+0.43 pushed uphill, then -0.35 recovered). In both cases the replay chain's own prediction of the uphill push was accurate against fresh resimulation (+0.58 predicted vs +0.57 realised at epoch 13; +0.43 vs +0.37 at epoch 20), so the cycle is not itself evidence of a replay-calibration failure; see [[wiki/answers/ffrefine-improved-gates-water-run-lessons]].
+
+Given this evidence, the project's explicit decision is **not to guard against exclusion cycling**: it is treated as an accepted consequence of exclusion-based ConFIG, left "out until re-evaluated," rather than something a gate should prevent. Instead, the per-family exclusion-cycle count and its associated fresh-loss cost (the rise while excluded and the recovery after return) are recorded as a **comparison metric between aggregation methods**: weighted sum keeps a near-optimum family's small restoring gradient in the objective throughout, so it is expected to cycle less than ConFIG, which excludes the family outright whenever its direction is not confidently resolved. This reframes the tension from an unresolved risk needing a fix into a measured, monitored trade-off whose size is one of the intended outputs of a future ConFIG-versus-weighted-sum campaign.
+
 ## Resolution status
 
-Active and unresolved. The exclusion policy is evidenced by one water multi-family run and one synthetic unit test; no campaign has yet measured whether excluded high-loss families recover on their own, drift further from target, or oscillate in and out of the aggregate over many epochs.
+Active, but no longer purely unresolved for the specific cycling behavior: one 22-epoch water run confirms the predicted exclude/drift/recover cycle occurs, that replay accurately predicts the drift and recovery when it does, and the project has decided to treat cycling as a tracked, accepted trade-off rather than to gate against it. What remains open is whether ConFIG's higher expected cycling rate, relative to weighted sum, is worth its other benefits (protection against unreliable directions collapsing the aggregate step; see [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]) — a question reserved for a future comparison campaign between the two aggregation methods.
 
 ## Links
 
@@ -62,3 +70,4 @@ Active and unresolved. The exclusion policy is evidenced by one water multi-fami
 - [[wiki/concepts/awh-replay-force-field-optimization]]
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]
+- [[wiki/answers/ffrefine-improved-gates-water-run-lessons]]

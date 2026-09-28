@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-09-25
-updated: 2026-09-25
+updated: 2026-09-28
 claim_status: supported
 claim_scope: local
 areas:
@@ -56,3 +56,4 @@ This is a local, source-specific claim. It was demonstrated on a single simple L
 - [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]]
 - [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
+- [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]] - project evidence on combining several per-trajectory cuts, a gap this claim's single-trajectory scope leaves open.

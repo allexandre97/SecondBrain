@@ -92,4 +92,5 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/claims/CLM-0003-cldice-connectivity-aware-tubular-segmentation|clDice Captures Tubular Connectivity Better Than Overlap Alone]]
 - [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families|ConFIG Must Exclude Directionally Unreliable Families, Not Just Gate Readiness on Them]]
+- [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length|Family-Weight Renormalisation After Exclusion Changes the Natural-Gradient Step Length]]
 - [[wiki/claims/CLM-0011-stability-aware-mlff-training-targets-md-stability|Stability-Aware MLFF Training Targets MD Stability]]

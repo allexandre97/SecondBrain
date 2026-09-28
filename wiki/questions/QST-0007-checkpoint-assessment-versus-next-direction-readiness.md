@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-09-02
-updated: 2026-09-04
+updated: 2026-09-28
 question_status: answered
 areas:
   - research
@@ -25,6 +25,7 @@ related:
   - "[[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]]"
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
+  - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
 sources:
   - SRC-0018
   - SRC-0023
@@ -86,6 +87,10 @@ Density-only run `20260904-102939` exercised the previously missing branch. In e
 
 The recorded state was consequently `evaluation_valid=true`, `evaluation_accepted=true`, `direction_ready=false`, `optimisation_ready=false`, and `optimisation_ran=false`. Checkpoint 2 remained the best checkpoint, no uncertain next update was generated, and two final-validation replicas successfully evaluated that checkpoint at losses 20.0060 and 20.2560. This is the intended behavior and validates the control-flow separation on its decisive path. [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
 
+## 2026-09-28 update: the direction-readiness test itself is being redesigned
+
+Independently of the evaluation/direction-readiness state separation above, project evidence from water run `20260924-204914` found that the *specific* chronological half-archive stability check used to determine `direction_ready` (cosine similarity ≥ 0.8 between treated directions from the archive's two halves) mostly reacts to ordinary sampling noise rather than real drift, blocking 5 of 22 checkpoints for families with signal-to-standard-error ratios of only about 2-4 and costing roughly 13% of the run's wall time. The planned replacement is a cross-fitted "aggregation promise" test evaluated out of sample at the level of the step the optimiser is about to take (per included family for ConFIG, or on the weighted total for weighted sum), rather than a fixed angle threshold on a family's raw direction split into two halves. This does not change the evaluation/direction-readiness separation itself, but it is expected to replace the specific statistic that currently populates `direction_ready`. See [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] and [[wiki/answers/adding-config-optimiser-to-ffrefine]].
+
 ## Remaining uncertainty
 
 - Which base diagnostics are strictly required for objective evaluation versus gradient construction should be made explicit for every FFRefine setup.
@@ -103,3 +108,4 @@ The recorded state was consequently `evaluation_valid=true`, `evaluation_accepte
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
+- [[wiki/answers/ffrefine-improved-gates-water-run-lessons]]

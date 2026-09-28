@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-25
+updated: 2026-09-28
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -76,6 +76,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]] - Implementation route plan for testing AWH-style replay force-field optimization with TSS and MBAR reference archives.
 - [[wiki/answers/adding-config-optimiser-to-ffrefine]] - Fisher-compatible family-level ConFIG, archive direction-readiness heuristics, first-order versus finite-step acceptance limits, and the exclusion-and-renormalize policy for directionally unreliable families in FFRefine.
 - [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]] - Why FFRefine treats paired loss-confidence acceptance gates as diagnostic rather than blocking under its KL/ESS-bounded replay trust region.
+- [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] - Replay-prediction calibration with telescoping cumulative error, the optimiser's curse in replay chains, family-weight renormalisation as an implicit step-size change, and why the legacy half-archive stability gate reacts to noise, from a 22-epoch water run.
+- [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] - Adapting N_eff-maximizing equilibration detection to a frozen-bias production archive with several observable series and a single replica on a temperature ladder, including the fast estimator's measured bias and a calibrated multi-series over-cutting correction.
 - [[wiki/answers/ffrefine-config-fisher-second-momentum]] - Why Adam-style second momentum is less obvious than first-moment smoothing for FFRefine's Fisher-preconditioned ConFIG optimizer.
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Current mathematical account of FFRefine's QEq map, replay observables, multi-family loss, state-conditional Fisher treatments, KL controls, macro-epoch loop, and prospective validation boundary.
 - [[wiki/answers/ffrefine-kl-divergence-definition-change]] - How and why FFRefine's KL trust region moved from a frozen-bias joint Fisher to a state-conditional KL, and its downstream effects on Fisher rank, condition, and natural directions.
@@ -309,6 +311,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Claims
 
+- [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]] - Renormalising remaining family weights after excluding a family from FFRefine's objective rescales the natural-gradient step's uncapped length, acting as an implicit step-size change.
+- [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]] - Taking the latest of several per-series N_eff-maximizing equilibration cuts over-cuts; a materiality threshold calibrated on a cut-independent statistic corrects it.
 - [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise]] - Truncating the integrated-autocorrelation-time sum at the correlation function's first zero-crossing, with a quadratic lag-sampling schedule, controls noise-dominated-tail error and stays close to the full-sum estimate.
 - [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time]] - Per-trajectory $N_\text{eff}$-maximization selects a near bias-optimal equilibration time, close to the RMS error achievable only with multi-replicate oracle knowledge, on a liquid-argon benchmark.
 - [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]] - FFRefine's family-level ConFIG must exclude directionally unreliable families or the aggregate step can collapse.

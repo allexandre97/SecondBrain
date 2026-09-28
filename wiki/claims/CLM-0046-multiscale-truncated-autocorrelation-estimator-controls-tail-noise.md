@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-09-25
-updated: 2026-09-25
+updated: 2026-09-28
 claim_status: supported
 claim_scope: local
 areas:
@@ -19,6 +19,8 @@ related:
   - "[[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for]]"
   - "[[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]]"
   - "[[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]]"
+  - "[[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]"
+  - "[[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]"
 sources:
   - SRC-0091
 sensitivity: public
@@ -47,9 +49,12 @@ This is a local, source-specific claim about a specific practical estimator ("fa
 - The "at most 10%" accuracy claim is stated without a described comparison protocol (dataset, sample size, or error metric), so it should be treated as the source's own summary claim rather than an independently reproducible benchmark. [SRC-0091, section 5.2]
 - The zero-crossing truncation heuristic is explicitly stated to be inappropriate for correlation functions with a genuine negative dip at short lag, such as velocity autocorrelation functions. [SRC-0091, section 5.2]
 - SRC-0090 reports this estimator "may not perform well for all problems," based on a single benchmark system (liquid argon), not a general guarantee. [SRC-0090]
+- FFRefine project unit tests (branch `improved-gates`, commits `20d286f` and `16ea49a`) quantify this estimator's own bias on synthetic AR(1) series, compared against the estimator's own expected value under its lag-sparsification-and-truncation rule rather than the closed-form $(1+\phi)/(1-\phi)$: it reads about 15% high at $\phi=0.5$ and about 20% high at $\phi=0.9$, because the retained, quadratically-sparsified lags weight the near-lag (still strongly correlated) part of the autocorrelation function before the zero-crossing truncation removes the noise-dominated tail. This is project evidence, not a finding of SRC-0091 itself, but it is consistent with, and gives a concrete number to, the general concern about noisy tail contributions this estimator is designed to control. See [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]].
 
 ## Links
 
 - [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for]]
 - [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]]
 - [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]]
+- [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]
+- [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]
