@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-09-28
+updated: 2026-10-01
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -60,7 +60,8 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 - [[wiki/answers/garnet-structural-studies-presentation-plan]] - Structural Studies, 17 September 2026: current rehearsed baseline is 15 core slides plus five backups at approximately 18 minutes; the 14 September revision handoff records the validated scientific and slide-order decisions. Microsoft 365 playback, final PDF export and projector testing remain.
 
-- [[wiki/answers/ffrefine-current-implementation-status]] - Current FFRefine code and experiment snapshot audited against clean repository HEAD on 23 September 2026; includes the latest ConFIG finite-step family-regression acceptance policy.
+- [[wiki/answers/ffrefine-current-implementation-status]] - Current FFRefine code and experiment snapshot, refreshed against master `6b20031` on 1 October 2026: macro-epoch control flow, block-based direction gates, extend-or-exclude production policy, configuration surface, and defaults.
+- [[wiki/answers/ffrefine-direction-gates-and-production-policy]] - How FFRefine's cross-fitted, Monte Carlo calibrated direction gates and expected-value rescue/α-spending production policy work, with lessons, provisional campaign evidence, and design-versus-code differences.
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]] - Aggressive density-only positive control showing two fresh-confirmed updates, successful archive KL up to 0.3803, complementary KL/ESS gates, and separation of checkpoint validity from next-direction readiness.
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - Canonical account of two prospective dielectric-only damped-Fisher campaigns, including six consecutive fresh-confirmed updates in the higher-KL run, KL/support diagnostics, limitations, and checkpoint-state lessons.
 - [[wiki/answers/ffrefine-fisher-treatment-operators]] - Mathematical and implementation explanation of FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators.
@@ -81,6 +82,7 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/answers/ffrefine-config-fisher-second-momentum]] - Why Adam-style second momentum is less obvious than first-moment smoothing for FFRefine's Fisher-preconditioned ConFIG optimizer.
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base]] - Current mathematical account of FFRefine's QEq map, replay observables, multi-family loss, state-conditional Fisher treatments, KL controls, macro-epoch loop, and prospective validation boundary.
 - [[wiki/answers/ffrefine-kl-divergence-definition-change]] - How and why FFRefine's KL trust region moved from a frozen-bias joint Fisher to a state-conditional KL, and its downstream effects on Fisher rank, condition, and natural directions.
+- [[wiki/answers/molly-master-migration-constraints-for-ffrefine]] - What must change for FFRefine to run on Molly's `master` branch instead of `AWHGrads`: a differently shaped parameter-gradient API with no charges, a replay archive logger unique to `AWHGrads`, missing conversion helpers, small PME energy drift, and alchemical-state semantics that change intermediate-λ energies.
 - [[wiki/questions/QST-0010-damped-fisher-config-compatibility]] - Damped Fisher with family-level `:config` is implemented for `momentum_beta=0`; combined-method validation and nonzero-momentum behavior remain open.
 
 ## Author Entities
@@ -89,6 +91,14 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/entities/authors/michael-r-shirts]] - Repeated author entity for MBAR and configuration-mapping free-energy sources.
 
 ## Sources
+
+- [[wiki/sources/SRC-0097-densities-and-derived-thermodynamic-properties-for-the-n|High-Pressure n-Heptane/n-Octane/Ethanol Densities]] - 2016 Journal of Chemical Thermodynamics paper (Abdussalam, Ivaniš, Radović & Kijevčanin) reporting vibrating-tube-densimeter densities of pure n-heptane, n-octane and ethanol at (288.15-413.15) K and (0.1-60) MPa, and of their three binary mixtures at (293.15-373.15) K and (0.1-40) MPa (n-octane + ethanol newly measured at high pressure), fitted with a modified Tammann-Tait equation of state and used to derive excess molar volume, isothermal compressibility and isobaric thermal expansion coefficient; alcohol-containing mixtures show positive excess volume from hydrogen-bond disruption.
+- [[wiki/sources/SRC-0096-traceable-measurements-of-the-static-permittivity-of-dielectric|NPL Static Permittivity Reference Liquids]] - 2005 Measurement Science and Technology paper (Gregory & Clarke, NPL) reporting traceable "static" (0.1-1.0 MHz) permittivity measurements of ten dielectric reference liquids (acetone, butan-1-ol, DMSO, ethanediol, ethanol, methanol, propan-1-ol, water, cyclohexane, silicone oil) over 5-50 °C using a shielded variable-separation admittance cell, with a detailed uncertainty budget and literature agreement for methanol, cyclohexane and water.
+- [[wiki/sources/SRC-0095-temperature-dependent-complex-dielectric-permittivity-a-simple-measurement|Benchtop Temperature-Dependent Dielectric Permittivity Measurement]] - 2023 Scientific Reports paper (Baker-Fales, Gutiérrez-Cano, Catalá-Civera & Vlachos) presenting a benchtop bireentrant-cavity method for complex dielectric permittivity near 2.45 GHz up to 7 bar, with new temperature-dependent data (as regressed fit parameters) for water, 9 non-alcohol organic solvents, 4 alcohols, and HCl solutions; alcohols and HCl solutions show non-monotonic temperature dependence unlike the monotonic non-alcohol-organic/water trend.
+- [[wiki/sources/SRC-0094-investigation-of-microwave-dielectric-properties-of-biodiesel-components|Microwave Dielectric Properties of Biodiesel Components]] - 2013 Bioresource Technology paper (Muley & Boldor) measuring complex dielectric permittivity of soybean oil, ethanol, methanol, NaOH-catalyst solutions, and oil-alcohol-catalyst mixtures (280 MHz-4.5 GHz, 30-75 °C) to support microwave-assisted transesterification reactor design; a new, currently isolated topic area for SecondBrain.
+
+- [[wiki/sources/SRC-0093-the-structure-of-liquid-ethanol-a-neutron-diffraction|Liquid Ethanol Neutron Diffraction and MD]] - 2000 J. Chem. Phys. paper (Benmore & Loh) measuring liquid ethanol structure via H/D isotopic-substitution neutron diffraction and comparing to four-site/nine-site OPLS molecular dynamics; confirms hydrogen bonding dominates via winding chains, and directly cross-checks its results against SRC-0092's x-ray data.
+- [[wiki/sources/SRC-0092-hydrogen-bonding-in-liquid-methanol-and-ethanol-determined|Methanol/Ethanol X-Ray Diffraction]] - 1984 J. Chem. Phys. paper (Narten & Habenschuss) measuring liquid methanol and ethanol structure by x-ray diffraction; finds ~1.8 OH···OH hydrogen-bonded neighbors per hydroxyl at 2.8 Å, consistent with chain-like association, plus fitted intramolecular C-O/C-C/C···O bond geometry.
 
 - [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]] - Single-author JCTC paper proposing an $N_\text{eff}$-maximizing, distribution-free automated equilibration-time selection algorithm for molecular simulation timeseries, with a liquid-argon benchmark and a `pymbar.timeseries.detectEquilibration()` reference implementation.
 - [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for|WHAM for Simulated and Parallel Tempering]] - 2007 JCTC paper deriving STWHAM and PTWHAM (WHAM for simulated tempering and parallel tempering/replica exchange), with full uncertainty propagation and the "fast multiscale" statistical-inefficiency estimator (section 5.2) that SRC-0090 cites and relies on.
@@ -286,8 +296,12 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Questions
 
+- [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]] - Why Molly's Enzyme-differentiated PME path disagrees with finite differences at ~3.8e-3 relative error for a charge gradient while σ and DEXP α gradients agree to ~1e-9/1e-10.
 - [[wiki/questions/QST-0009-scalable-independent-validation-of-learned-committors]] - How to validate learned committors independently at large-system scale without losing the sampling advantage.
 
+- [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]] - What step-length and renormalisation policy FFRefine's KL-capped natural-gradient step should use after family exclusion.
+- [[wiki/questions/QST-0012-persistent-replay-prediction-optimism-for-one-family]] - What to do when one family's replay-predicted improvements stay optimistic against fresh resimulation.
+- [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]] - ConFIG versus weighted-sum aggregation under calibrated direction gates, and production length for under-powered heavy families.
 - [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]] - Whether fresh checkpoint assessment and statistical readiness for the next optimization direction should be separate pipeline states.
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]] - Sampling length, replica count, uncertainty, and direction-basis requirements for resolving enthalpy or dielectric teacher signals.
 - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.
@@ -304,13 +318,21 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 - [[wiki/questions/rbfe-benchmark-prospective-use-scope]] - Validation boundaries for RBFE benchmark transfer to prospective drug-discovery use.
 - [[wiki/questions/QST-0001-cldice-biological-transfer-scope]] - Validation boundary for clDice transfer to biological fiber reconstruction tasks.
 - [[wiki/questions/sted-tau-fiber-analysis-validation-scope]] - Validation boundary for STED tau-fiber segmentation and morphology analysis.
-- [[wiki/questions/md-free-energy-decoupling-implementation-validation]] - Validation suite question for MD free-energy decoupling implementations.
+- [[wiki/questions/md-free-energy-decoupling-implementation-validation]] - Validation suite question for MD free-energy decoupling implementations; now includes project evidence from a second engine pair (two Molly branches) showing intermediate-λ, not just endpoint, parity must be checked.
 - [[wiki/questions/md-virial-pressure-implementation-for-autodiff-and-many-body-potentials]] - Virial and pressure API question for autodiff, many-body, constraint, and long-range terms.
 - [[wiki/questions/gpu-md-neighbor-list-layout-choice-for-molly-enzyme]] - GPU neighbor-list and nonbonded layout decision question for Molly/Enzyme/MD.
 - [[wiki/questions/rna-force-field-motif-validation-scope]] - RNA motif validation scope for transferable force-field changes.
 
 ## Claims
 
+- [[wiki/claims/CLM-0056-ethanol-alkane-mixing-gives-positive-excess-volume-from-hydrogen-bond-disruption]] - Mixing ethanol with n-heptane or n-octane gives positive excess molar volume at every measured condition, growing with temperature and shrinking with pressure, attributed to disruption of ethanol's self-associated hydrogen-bonded network.
+- [[wiki/claims/CLM-0055-hcl-ionic-strength-reverses-loss-factor-temperature-trend]] - Increasing HCl concentration reverses the sign of the dielectric loss factor's temperature dependence, from decreasing (water) to increasing (pH ≤ 2), a previously unreported ionic-strength effect.
+- [[wiki/claims/CLM-0054-alcohols-show-non-monotonic-dielectric-permittivity-temperature-dependence]] - Alcohols show dielectric constant and loss factor rising then falling with temperature, unlike the monotonic decrease seen in water and non-alcohol organic solvents.
+- [[wiki/claims/CLM-0053-naoh-catalyst-dissolution-sharply-increases-alcohol-dielectric-loss]] - Dissolving NaOH catalyst into ethanol or methanol sharply increases dielectric loss (ionic conduction) and lowers the dielectric constant, with a much larger effect in methanol, implying faster microwave heating for methanol-catalyst biodiesel mixtures.
+- [[wiki/claims/CLM-0052-neutron-md-liquid-ethanol-winding-hydrogen-bonded-chains]] - Neutron diffraction and OPLS MD confirm liquid ethanol's intermolecular structure is dominated by disordered, winding hydrogen-bonded chains rather than closed hexamer/tetramer clusters, and cross-checks against independent x-ray data.
+- [[wiki/claims/CLM-0051-xray-diffraction-alcohol-oh-hydrogen-bond-geometry]] - X-ray diffraction shows liquid methanol and ethanol hydroxyl groups have ~1.8 hydrogen-bonded OH···OH neighbors at ~2.8 Å, consistent with chain-like association.
+- [[wiki/claims/CLM-0050-retesting-a-failed-gate-after-extension-needs-alpha-spending]] - Retesting a gate-failed family after extending its archive is optional stopping and needs α-spending.
+- [[wiki/claims/CLM-0049-few-block-pseudo-value-covariance-understates-promise-null]] - A Monte Carlo null drawn from few jackknife pseudo-values is too lenient; a structured Fisher-proportional noise model restores nominal error.
 - [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]] - Renormalising remaining family weights after excluding a family from FFRefine's objective rescales the natural-gradient step's uncapped length, acting as an implicit step-size change.
 - [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]] - Taking the latest of several per-series N_eff-maximizing equilibration cuts over-cuts; a materiality threshold calibrated on a cut-independent statistic corrects it.
 - [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise]] - Truncating the integrated-autocorrelation-time sum at the correlation function's first zero-crossing, with a quadratic lag-sampling schedule, controls noise-dominated-tail error and stays close to the full-sum estimate.

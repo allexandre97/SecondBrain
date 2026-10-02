@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-09-24
+updated: 2026-10-02
 areas:
   - research
 categories:
@@ -15,6 +15,7 @@ tags:
   - natural-gradient
   - force-field-optimization
 related:
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
   - "[[wiki/concepts/accelerated-weight-histogram-method]]"
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
   - "[[wiki/concepts/times-square-sampling]]"
@@ -27,6 +28,7 @@ related:
   - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
+  - "[[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -113,6 +115,10 @@ First, when multiple target families are combined through ConFIG-style Fisher-wh
 
 Second, in the same run, KL and ESS trust-region bounds were what actually limited replay steps: fresh loss fell monotonically across five macro epochs, and a point-loss veto and stale-progress stop never fired. A paired delete-block loss-confidence acceptance gate fired only on already-small, well-supported steps, truncating one chain and forcing an unneeded production extension, while it passed every step of a chain whose replay prediction later over-predicted the fresh-archive improvement for one family. FFRefine therefore made loss-based acceptance gates diagnostic by default, relying on the KL/ESS bounds plus a loud post hoc warning on significant fresh-loss regression, while retaining an enforcing mode. This is FFRefine's project-specific policy given its KL/ESS-bounded architecture and this run's evidence; it is not a claim that loss-based step rejection is unhelpful in general, and it does not reproduce or contradict ForceBalance's noise-based Levenberg-Marquardt step rejection. [SRC-0018] [SRC-0025] [SRC-0026] [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]
 
+A 2026-10-01 FFRefine update added a tenth implementation lesson, about deciding which target families a replay step may use. Direction readiness is better decided by an out-of-sample test of the step the optimiser will actually take than by a fixed angle threshold between archive halves: FFRefine now cross-fits the aggregated step over jackknife time blocks and asks whether it still decreases each held-out block's loss with confidence, with Monte Carlo calibrated multipliers. A failed test cannot distinguish "no descent" from "not enough data", and every fresh macro-epoch archive restarts the evidence, so the only way to accumulate evidence at fixed parameters is to extend the current archive; such a retest after failure is optional stopping and needs an α-spending correction. These are project lessons, not results from SRC-0018. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]], [[wiki/claims/CLM-0049-few-block-pseudo-value-covariance-understates-promise-null]] and [[wiki/claims/CLM-0050-retesting-a-failed-gate-after-extension-needs-alpha-spending]].
+
+A 2026-10-02 FFRefine investigation into migrating the Molly.jl backend from the `AWHGrads` branch to `master` added an eleventh implementation lesson: TSS replay archives, free-energy seeds, and serialized alchemical states are tied to the exact alchemical Hamiltonian definition of the Molly version that produced them, not only to the physical force field and λ schedule. On an ethanol-in-water probe, the two Molly branches agreed on free-energy endpoints but disagreed at intermediate λ, because `AWHGrads` scales each solute charge (pair energy $\propto\lambda^2$) while master scales the pair energy directly (pair energy $\propto\lambda$), because master's default `intraLJ=false` annihilates rather than decouples solute-solute sterics, and because `AWHGrads`' zero-shortcut makes intra-solute sterics discontinuous exactly at λ = 0 while master is continuous; alchemical role indices were also renumbered between the two branches. The practical consequence is that energy parity on fixed coordinates and over the full λ grid, not only at the endpoints, should be checked before reusing an archive, seed, or serialized state across a sampler or backend version change, even when the underlying free-energy theory is unchanged. This is a project implementation lesson from diffs and probes against FFRefine's own force-field files, not a new literature claim. [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]
+
 ## Caveats
 
 The method is only as good as the support of the frozen ensemble; failed replay/AWH parity or low ESS indicates that new sampling is needed before trusting an update. [SRC-0018]
@@ -133,3 +139,5 @@ TSS and MBAR variants need their own readiness and support diagnostics. TSS read
 - [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]
 - [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]
 - [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]
+- [[wiki/answers/ffrefine-direction-gates-and-production-policy]]
+- [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]
