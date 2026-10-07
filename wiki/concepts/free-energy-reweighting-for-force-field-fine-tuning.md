@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-07-01
+updated: 2026-10-07
 areas:
   - research
 categories:
@@ -17,11 +17,13 @@ related:
   - "[[wiki/concepts/free-energy-estimation]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/concepts/ensemble-and-force-field-refinement]]"
+  - "[[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]"
 sources:
   - SRC-0016
   - SRC-0018
   - SRC-0019
   - SRC-0020
+  - SRC-0098
 sensitivity: public
 encryption: none
 ---
@@ -35,6 +37,7 @@ Free-energy reweighting fine-tunes force fields by estimating the effect of cand
 ## Key Points
 
 - SRC-0016 uses Zwanzig reweighting to fine-tune espaloma charges against hydration free energies without resimulating each candidate. [SRC-0016]
+- SRC-0016's charge-equilibration (QEq) step reuses the electronegativity/hardness functional form originally introduced for graph-net charge prediction in [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]] and adopted by Espaloma. That functional form generalizes to non-GNN, per-atom-type refinement, where hardness becomes redundant with electronegativity within one fixed fit and only matters if coefficients transfer beyond the fitting set; see [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]. [SRC-0098] [SRC-0016]
 - SRC-0018 uses frozen-bias AWH replay to estimate endpoint free energies and gradients from a frozen extended-ensemble reference. [SRC-0018]
 - SRC-0019 and SRC-0020 use exponential reweighting and maximum-entropy logic to refine ensembles, force-field corrections, and forward models. [SRC-0019] [SRC-0020]
 - Effective sample size, Kish size ratio, split-half checks, or parity checks are necessary because reweighting fails when the reference ensemble lacks support for the candidate model. [SRC-0016] [SRC-0018] [SRC-0020]
@@ -88,3 +91,5 @@ ESS and KSR detect weight concentration, but high values do not guarantee that a
 - [[wiki/concepts/free-energy-estimation]]
 - [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 - [[wiki/questions/force-field-training-validation-scope]]
+- [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]
+- [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]

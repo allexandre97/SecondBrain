@@ -57,6 +57,7 @@ tags:
   - binding-free-energy
 related:
   - "[[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force]]"
+  - "[[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]"
   - "[[wiki/concepts/espaloma-machine-learned-mm-force-fields]]"
   - "[[wiki/concepts/automated-force-field-training]]"
   - "[[wiki/concepts/machine-learning-potential-datasets]]"
@@ -67,6 +68,7 @@ sources:
 cites_sources:
   - SRC-0023
   - SRC-0044
+  - SRC-0098
 citation_match_status: partial
 cqt_review_status: linked
 sensitivity: public
@@ -132,7 +134,8 @@ where $G$ is the molecular graph and $F_{\mathrm{NN}}$ are neural-network parame
 
 ## Mathematical Gaps
 
-- The wiki records the main MM energy decomposition and graph-to-parameter abstraction, but does not reproduce the full expanded Class I equation, all loss functions, charge-equilibration details, or every training objective from the supplement. [SRC-0072] [SRC-0073]
+- The wiki records the main MM energy decomposition and graph-to-parameter abstraction, but does not reproduce the full expanded Class I equation, all loss functions, or every training objective from the supplement. [SRC-0072] [SRC-0073]
+- Charge equilibration: the main text (around the Stage-3 force-field-generation discussion) states that partial charges are produced "using a geometry-independent charge equilibration approach [ref 67], following the protocol of Wang et al. [ref 68], we predict the electronegativity and hardness of atoms used in a charge equilibration to predict atomic partial charges while preserving the total charge," with AM1-BCC ELF10 partial charges as the training target. Reference 67 is Gilson, Gilson & Potter 2003 (doi `10.1021/ci034148o`, not separately ingested); reference 68 is confirmed by direct text match to be [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]] (arXiv `1909.07903`), whose §2.4 gives the exact constrained-minimization and closed-form QEq equations this paper reuses. The espaloma-specific charge-loss formula and hyperparameters from the supplement are still not reproduced here. [SRC-0072] [SRC-0098]
 
 ## Limitations and Caveats
 
@@ -152,6 +155,7 @@ where $G$ is the molecular graph and $F_{\mathrm{NN}}$ are neural-network parame
 ## Links
 
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force]]
+- [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]
 - [[wiki/concepts/espaloma-machine-learned-mm-force-fields]]
 - [[wiki/concepts/automated-force-field-training]]
 - [[wiki/concepts/machine-learning-potential-datasets]]
@@ -163,6 +167,7 @@ where $G$ is the molecular graph and $F_{\mathrm{NN}}$ are neural-network parame
 
 - Confirmed cited source: SRC-0072 cites the original MBAR paper, already ingested as SRC-0023, through its alchemical free-energy analysis machinery. [SRC-0072] [SRC-0023]
 - Confirmed cited source: SRC-0072 uses SPICE-derived quantum-chemical data and cites the SPICE dataset, already ingested as SRC-0044. [SRC-0072] [SRC-0044]
+- Confirmed cited source (2026-10-07, checked by direct text match against the raw PDF): SRC-0072's charge-equilibration sentence cites reference 68, Wang, Fass, Stern, Luo & Chodera, arXiv `1909.07903`, now ingested as [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]. The adjacent reference 67 (Gilson, Gilson & Potter 2003, doi `10.1021/ci034148o`) is not separately ingested. [SRC-0072] [SRC-0098]
 - Partial citation review: other OpenFF, Espaloma, OpenMM, Perses, and benchmark references were not normalized into source links because they are not currently ingested as source pages.
 
 ## Metadata notes

@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-10-02
+updated: 2026-10-07
 areas:
   - research
 categories:
@@ -29,6 +29,8 @@ related:
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
   - "[[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
+  - "[[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]"
+  - "[[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -37,6 +39,7 @@ sources:
   - SRC-0025
   - SRC-0026
   - SRC-0036
+  - SRC-0098
 sensitivity: public
 encryption: none
 ---
@@ -119,6 +122,8 @@ A 2026-10-01 FFRefine update added a tenth implementation lesson, about deciding
 
 A 2026-10-02 FFRefine investigation into migrating the Molly.jl backend from the `AWHGrads` branch to `master` added an eleventh implementation lesson: TSS replay archives, free-energy seeds, and serialized alchemical states are tied to the exact alchemical Hamiltonian definition of the Molly version that produced them, not only to the physical force field and λ schedule. On an ethanol-in-water probe, the two Molly branches agreed on free-energy endpoints but disagreed at intermediate λ, because `AWHGrads` scales each solute charge (pair energy $\propto\lambda^2$) while master scales the pair energy directly (pair energy $\propto\lambda$), because master's default `intraLJ=false` annihilates rather than decouples solute-solute sterics, and because `AWHGrads`' zero-shortcut makes intra-solute sterics discontinuous exactly at λ = 0 while master is continuous; alchemical role indices were also renumbered between the two branches. The practical consequence is that energy parity on fixed coordinates and over the full λ grid, not only at the endpoints, should be checked before reusing an archive, seed, or serialized state across a sampler or backend version change, even when the underlying free-energy theory is unchanged. This is a project implementation lesson from diffs and probes against FFRefine's own force-field files, not a new literature claim. [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]
 
+A 2026-10-07 review of QEq's literature origin added a twelfth implementation lesson, this time a durable scientific/mathematical result rather than a code-level finding: when electronegativity and hardness coefficients are shared per atom type (looked up) instead of predicted per atom by a graph net, hardness is redundant with electronegativity for any single fixed fitting problem. For any feasible charge vector $\mathbf q^*$, setting electronegativity $\mathbf e=-\mathbf q^*$, hardness $\mathbf h=\mathbf 1$, and zero Lagrange multipliers reaches $\mathbf q^*$ exactly and uniquely, so the $(\mathbf e,\mathbf h)\to\mathbf q$ Jacobian has rank $p-r$ ($p$ shared charge parameters, $r$ independent net-charge constraints) with every hardness column exactly $q_k$ times the corresponding electronegativity column; a per-type QEq Fisher or Gauss-Newton block is therefore structurally singular, not merely ill-conditioned, along the hardness directions and a uniform electronegativity shift. Hardness only becomes a meaningful, non-gauge direction once shared coefficients are expected to transfer to molecules with a different net-charge constraint structure than the one used to fit them -- which is why hardness is trainable in Espaloma's per-atom, supervised, many-molecule setting but is pure gauge within a replay-reweighting fit to a small, fixed set of training species. This result traces the QEq functional form to [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]] (Wang et al. 2019) and Gilson et al. 2003, and is derived in full in [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]].
+
 ## Caveats
 
 The method is only as good as the support of the frozen ensemble; failed replay/AWH parity or low ESS indicates that new sampling is needed before trusting an update. [SRC-0018]
@@ -141,3 +146,5 @@ TSS and MBAR variants need their own readiness and support diagnostics. TSS read
 - [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]
 - [[wiki/answers/ffrefine-direction-gates-and-production-policy]]
 - [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]
+- [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]
+- [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]

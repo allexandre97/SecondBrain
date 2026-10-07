@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-29
-updated: 2026-09-23
+updated: 2026-10-07
 question: "What exactly is FFRefine doing, in paper-methods terms?"
 answer_status: answered
 areas:
@@ -42,11 +42,14 @@ related:
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
   - "[[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]"
   - "[[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]"
+  - "[[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]"
+  - "[[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]"
 sources:
   - SRC-0016
   - SRC-0018
   - SRC-0023
   - SRC-0036
+  - SRC-0098
 sensitivity: public
 encryption: none
 wiki_pages_used:
@@ -602,6 +605,8 @@ These are engineering-tolerance-normalized losses, not automatically chi-squared
 
 Independent optimization of atomic charges would make charge conservation an external constraint and would not naturally share statistical strength between equivalent atom types. FFRefine instead optimizes electronegativity- and hardness-like coefficients and deterministically solves for charges satisfying every configured molecular charge constraint. Charge equilibration as constrained minimization is also used in the force-field fine-tuning approach of SRC-0016. [SRC-0016]
 
+This functional form originates with the electronegativity/hardness trick in [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]] (Wang et al. 2019, Eqs. 12-15), itself adapted from Gilson, Gilson & Potter (2003), and is the same construction used by Espaloma's charge model. [SRC-0098] A 2026-10-07 review established that FFRefine's per-type (shared, looked-up) parameterization of $\mathbf e,\mathbf h$ -- as opposed to Wang/Espaloma's per-atom, graph-net-predicted $\mathbf e,\mathbf h$ -- makes hardness redundant with electronegativity for any single fixed fit: the $(\mathbf e,\mathbf h)\to\mathbf q$ Jacobian has rank $p-r$ with every hardness column a scalar multiple of the corresponding electronegativity column, so a per-type QEq Fisher/Gauss-Newton block is structurally singular along the hardness directions and a uniform electronegativity shift, not merely ill-conditioned. Hardness only becomes identifiable when shared coefficients are expected to transfer to molecules with a different net-charge constraint structure than the one used to fit them. See the full derivation in [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]].
+
 ### Atom-type features and bounded coefficients
 
 Let $p$ be the number of selected shared charge parameters and $d$ the number of selected atom types. FFRefine builds a one-hot feature matrix
@@ -843,6 +848,8 @@ $$
 $$
 
 with the two terms placed in their respective latent blocks. This regularizer penalizes the absolute QEq feature coefficients relative to their zero-coefficient reference; it does not penalize only the change made in the current epoch.
+
+Because the per-type hardness directions are structurally null for any loss built only from the resulting charges (see above), this $L_2$ regularizer is also what keeps the hardness latents numerically bounded; it does not by itself make those directions informative, and the stabilized Fisher eigensystem used by the optimizer step below should still be expected to carry a near-zero eigenvalue block attributable to hardness and the uniform-electronegativity-shift gauge. [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]
 
 ## How every gradient and metric is put into one coordinate system
 
@@ -1245,6 +1252,7 @@ This establishes one local multi-update dielectric result under one campaign see
 - Frozen-reference replay, observable differentiation, Fisher/KL geometry, and the macro-epoch separation are grounded in [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]. [SRC-0018]
 - State-normalized multistate weighting and its overlap limitations are grounded in [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]. [SRC-0023]
 - The constrained QEq fine-tuning context is supported by [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies]]. [SRC-0016]
+- The QEq functional form's literature origin and the per-type hardness-redundancy result are from [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]] and [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]] (added 2026-10-07). [SRC-0098]
 - Conflict-free gradient aggregation is grounded in [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]], while the Fisher-whitened adaptation is FFRefine-specific. [SRC-0036]
 - Exact target construction, multiplicity-aware QEq algebra, relative-enthalpy and dielectric estimators, latent Jacobian, current state-conditional Fisher implementation, treatment operators, line search, support handling, and experiment defaults come from the FFRefine audits recorded in this page's frontmatter. The current finite-step ConFIG acceptance behavior was checked against clean repository HEAD `a3b6aa552faab3b91271a1e7a9cabbc97793978a` (`optimiser.jl`, `backend.jl`, and `test/config_optimiser_checks.jl`).
 - The KL correction and treatment interpretation are synthesized from [[wiki/answers/ffrefine-kl-divergence-definition-change]], [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]], and [[wiki/answers/ffrefine-fisher-treatment-operators]].
@@ -1285,3 +1293,5 @@ This establishes one local multi-update dielectric result under one campaign see
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
 - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]
+- [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]
+- [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]

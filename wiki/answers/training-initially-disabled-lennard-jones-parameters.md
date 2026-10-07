@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-14
-updated: 2026-07-14
+updated: 2026-10-07
 question: "How should force-field optimization make initially disabled Lennard-Jones parameters trainable, and are exactly zero atomic charges affected in the same way?"
 answer_status: answered
 areas:
@@ -26,6 +26,7 @@ related:
   - "[[wiki/questions/force-field-training-validation-scope]]"
   - "[[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
+  - "[[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]"
 sources:
   - SRC-0016
   - SRC-0018
@@ -102,6 +103,8 @@ $$
 The derivative is generally nonzero at $q_i=0$. Therefore, an exactly neutral atomic site can normally acquire charge without a nonzero initialization. When molecular net charge is constrained, the meaningful direction transfers charge between at least two atoms, and its gradient is the corresponding difference in electrostatic potential.
 
 The charge direction can still be unidentifiable in special cases: exact symmetry, a constraint that removes the direction, or an environment containing no electrostatic coupling. Those cases should be diagnosed from the constrained Jacobian or gradient, not inferred from $q_i=0$ alone.
+
+The same relative-bound-at-zero failure mode documented below for Lennard-Jones epsilon also applies to charge-equilibration (QEq) electronegativity: if an atom type starts with exactly zero charge, its electronegativity seed $e_t^{(0)}=-q_t^{(0)}$ is also exactly zero, and a multiplicative trust-region window around it collapses to $\{0\}$. [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]] records this caveat together with a separate, independent identifiability result for per-type QEq hardness.
 
 ## Limits of a small positive seed
 
@@ -192,3 +195,4 @@ Recommended diagnostics are:
 - [[wiki/questions/force-field-training-validation-scope]]
 - [[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
+- [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]

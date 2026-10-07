@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-10-01
+updated: 2026-10-07
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -215,3 +215,5 @@ graph_exclude: true
 - 2026-09-11: Recorded the 20-second caffeine discrete atom-typing animation, requested Blender delivery path, preserved source snapshot, illustrative O8/C7 category-to-parameter lookups, exact #F7F5F2 background, editable builder, stills and preview. Updated presentation answer/index; checked 24 atoms, 25 bonds, lookup timing and sampled text bounds. Wiki validation retains the pre-existing missing-frontmatter failure in `wiki/answers/garnet-nonbonded-contact-cleanup.md`; no source ingestion or unrelated repairs.
 
 - 2026-09-14: Recorded the Garnet rehearsal handoff ZIP and authoritative `ss_coloquia_17-09-2026.pptx` baseline (15 core plus five backups; presenter-reported approximately 18 minutes). Preserved the validated S03/S04 swap, qualitative overlapping model trade-space with ReaxFF, narrowly sourced Garnet–Espaloma training contrast and no-ablation caveat, complementary roles of Figure 6A and Supplementary Figure 8, and the likely S07 rather than S06 water-wording edit. Referenced the archive in place without copying binaries; Microsoft 365, PDF and projector checks remain pending.
+
+- 2026-10-07: Ingested [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]] (Wang, Fass, Stern, Luo & Chodera 2019, arXiv:1909.07903), the source of the electronegativity/hardness charge-equilibration (QEq) trick used by Espaloma; confirmed by direct text match that SRC-0072 cites it (reference 68) alongside Gilson et al. 2003 (reference 67, not separately ingested), and recorded that confirmed citation link plus the previously open charge-equilibration gap on SRC-0072. Added a new answer note, [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]], proving that when QEq electronegativity/hardness coefficients are shared per atom type instead of predicted per atom by a network, hardness is redundant with electronegativity within any single fixed fit (derived a rank-$p-r$ Jacobian identity and two explicit gauge directions building on the QEq system already recorded in [[wiki/answers/ffrefine-paper-methods-knowledge-base]]), explained why hardness becomes meaningful only under cross-molecule coefficient transfer, and noted the shared relative-bound-at-zero failure mode with [[wiki/answers/training-initially-disabled-lennard-jones-parameters]]. Cross-linked the new source and answer note from the Espaloma, free-energy-reweighting, and AWH-replay concept pages and from the FFRefine paper-methods answer note; no FFRefine repository code was modified or inspected directly in this write-back.
