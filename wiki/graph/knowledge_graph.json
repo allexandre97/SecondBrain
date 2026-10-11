@@ -1657,7 +1657,7 @@
       "type": "wikilink"
     },
     {
-      "evidence": "line 97: | Q | QEq hardness default | **Open.** Keep today's undamped, non-gauge-fixed behaviour for now; Garnet 2.0 may need charge equilibration with a different parameterisation, so the per-type electronegativity/hardness redundancy result (see [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]) may not carry over, and `ChargeModel` is kept as an extension point so Garnet 2.0 could plug in a different default. To be decided before the Phase 2 parameter-layer work. |",
+      "evidence": "line 97: | Q | QEq hardness default | **Open.** Keep today's behaviour for now: no gauge fixing; hardness is a bounded latent inside per-epoch QEq bounds, and regularisation is set per experiment (off for water and hexane, default for solvation). Garnet 2.0 may need charge equilibration with a different parameterisation, so the per-type electronegativity/hardness redundancy result (see [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]) may not carry over, and `ChargeModel` is kept as an extension point so Garnet 2.0 could plug in a different default. To be decided before the Phase 2 parameter-layer work. |",
       "source": "wiki/answers/ffrefine-generalist-package-plan-decisions",
       "target": "wiki/answers/qeq-per-type-electronegativity-hardness-redundancy",
       "type": "wikilink"
