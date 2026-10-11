@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-10-02
+updated: 2026-10-05
 question: "What does the FFRefine codebase currently implement, and what remains unvalidated?"
 answer_status: answered
 areas:
@@ -41,6 +41,7 @@ related:
   - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
   - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
   - "[[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]"
+  - "[[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
   - "[[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]]"
   - "[[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]]"
   - "[[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
@@ -166,6 +167,8 @@ This distinction is important: MBAR connectivity allows every archived frame to 
 
 **2026-10-01 note.** The first campaigns in which the new gates decide (one ConFIG and one weighted-sum water run with rdf, density and dielectric, started 2026-09-30) were still running at 6 epochs; their provisional evidence is recorded in [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]]. No focused test suites were re-run for the 2026-10-01 audit; the statements below about test results refer to their own dates.
 
+**2026-10-05 note: an out-of-memory crash exposes a missing memory budget.** One of the two deciding water campaigns (weighted sum, `20260930-132911`) ended when its epoch-27 worker was killed by the kernel's out-of-memory killer during a rescue-extended epoch; see [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]] for the campaign-specific numbers. Stated generically, independent of that campaign: a FFRefine replay worker's resident memory grows roughly linearly with the number of archive frames it holds, so any mechanism that lengthens an archive at fixed parameters (a rescue extension, a longer default production length, or a larger TSS ladder) raises a worker's peak memory, and the current extend-or-exclude production policy ([[wiki/answers/ffrefine-direction-gates-and-production-policy]]) has no memory-cost term to weigh against this. A kernel signal kill also leaves a Julia process's exit code at 0 with a failed status; the signal is recorded separately (`termsignal`), so monitoring that prints only the exit code reports a crash as an exit with code 0 unless the signal itself is surfaced. Neither a memory budget nor signal-aware monitoring is implemented as of this note; both are untested candidate remedies.
+
 For paper-methods details on the exact loss, target definitions, replay estimators, latent parameterization, optimizer, and validation gates, see [[wiki/answers/ffrefine-paper-methods-knowledge-base]].
 
 The codebase contains focused tests for parameterization, ESS policy, validity diagnostics, backend alignment, reporting, PME gradient/threading behavior, water-temperature target assembly, ConFIG aggregation, and post-Fisher momentum guards. These support implementation correctness of specific components, including finite-difference gradient checks, MBAR/source-window behavior, KL rebounding, line-search momentum storage, and a component-wise ConFIG momentum counterexample.
@@ -199,6 +202,7 @@ The current status is implementation validation plus a local scientific proof of
 - [[wiki/answers/ffrefine-direction-gates-and-production-policy]]
 - [[wiki/answers/ffrefine-improved-gates-water-run-lessons]]
 - [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]
+- [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]
 - [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]]
 - [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]]
 - [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]

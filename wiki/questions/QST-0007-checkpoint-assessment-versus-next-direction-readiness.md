@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-09-02
-updated: 2026-09-28
+updated: 2026-10-01
 question_status: answered
 areas:
   - research
@@ -26,6 +26,7 @@ related:
   - "[[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
 sources:
   - SRC-0018
   - SRC-0023
@@ -91,6 +92,10 @@ The recorded state was consequently `evaluation_valid=true`, `evaluation_accepte
 
 Independently of the evaluation/direction-readiness state separation above, project evidence from water run `20260924-204914` found that the *specific* chronological half-archive stability check used to determine `direction_ready` (cosine similarity ≥ 0.8 between treated directions from the archive's two halves) mostly reacts to ordinary sampling noise rather than real drift, blocking 5 of 22 checkpoints for families with signal-to-standard-error ratios of only about 2-4 and costing roughly 13% of the run's wall time. The planned replacement is a cross-fitted "aggregation promise" test evaluated out of sample at the level of the step the optimiser is about to take (per included family for ConFIG, or on the weighted total for weighted sum), rather than a fixed angle threshold on a family's raw direction split into two halves. This does not change the evaluation/direction-readiness separation itself, but it is expected to replace the specific statistic that currently populates `direction_ready`. See [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] and [[wiki/answers/adding-config-optimiser-to-ffrefine]].
 
+## 2026-10-01 update: the replacement is implemented
+
+The chronological half-archive cosine/norm-ratio statistic no longer populates `direction_ready`. Since FFRefine commit `26affa0` (2026-09-30), `direction_ready` is true when the evaluation and the Fisher metric are valid and the block-based direction gates classify the checkpoint `:ready` or `:partial_ready` (or when no gate policy is configured). The evaluation/direction separation above is unchanged: fresh-loss comparisons are diagnostic only, `evaluation_accepted` equals `evaluation_valid`, and `optimisation_ready` requires both. What happens after a direction failure is now decided by a generic extend-or-exclude production policy: a rescue extension when its expected value is positive, otherwise an immediate stop, and the campaign ends at its "noise floor" when a checkpoint cannot optimise (after up to `max_unready_epochs` repeats, default 0). This partly answers the remaining question below about longer continuation versus stopping. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
+
 ## Remaining uncertainty
 
 - Which base diagnostics are strictly required for objective evaluation versus gradient construction should be made explicit for every FFRefine setup.
@@ -109,3 +114,4 @@ Independently of the evaluation/direction-readiness state separation above, proj
 - [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]
 - [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar]]
 - [[wiki/answers/ffrefine-improved-gates-water-run-lessons]]
+- [[wiki/answers/ffrefine-direction-gates-and-production-policy]]

@@ -16,6 +16,7 @@ tags:
   - force-field-optimization
 related:
   - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
+  - "[[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
   - "[[wiki/concepts/accelerated-weight-histogram-method]]"
   - "[[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning]]"
   - "[[wiki/concepts/times-square-sampling]]"
@@ -146,5 +147,6 @@ TSS and MBAR variants need their own readiness and support diagnostics. TSS read
 - [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]
 - [[wiki/answers/ffrefine-direction-gates-and-production-policy]]
 - [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]
+- [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]
 - [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]
 - [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]

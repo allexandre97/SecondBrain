@@ -60,8 +60,9 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 - [[wiki/answers/garnet-structural-studies-presentation-plan]] - Structural Studies, 17 September 2026: current rehearsed baseline is 15 core slides plus five backups at approximately 18 minutes; the 14 September revision handoff records the validated scientific and slide-order decisions. Microsoft 365 playback, final PDF export and projector testing remain.
 
-- [[wiki/answers/ffrefine-current-implementation-status]] - Current FFRefine code and experiment snapshot, refreshed against master `6b20031` on 1 October 2026: macro-epoch control flow, block-based direction gates, extend-or-exclude production policy, configuration surface, and defaults.
-- [[wiki/answers/ffrefine-direction-gates-and-production-policy]] - How FFRefine's cross-fitted, Monte Carlo calibrated direction gates and expected-value rescue/α-spending production policy work, with lessons, provisional campaign evidence, and design-versus-code differences.
+- [[wiki/answers/ffrefine-current-implementation-status]] - Current FFRefine code and experiment snapshot, refreshed against master `6b20031` on 1 October 2026: macro-epoch control flow, block-based direction gates, extend-or-exclude production policy, configuration surface, and defaults; now also records a generic out-of-memory implementation lesson from a crashed campaign worker.
+- [[wiki/answers/ffrefine-direction-gates-and-production-policy]] - How FFRefine's cross-fitted, Monte Carlo calibrated direction gates and expected-value rescue/α-spending production policy work, with lessons, provisional campaign evidence, design-versus-code differences, and generic rescue-policy flaws exposed by six production rescues.
+- [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]] - ConFIG-versus-weighted-sum water campaign: weighted sum ended on an out-of-memory crash at checkpoint 26 (still improving); ConFIG, still running through checkpoint 33, regressed from its best loss as density and dielectric began seesawing with a net ascent and all three families turned pairwise conflicting; six rescue extensions exposed generic policy flaws, and weighted sum showed both a KL-cap two-cycle and a crawl regime.
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]] - Aggressive density-only positive control showing two fresh-confirmed updates, successful archive KL up to 0.3803, complementary KL/ESS gates, and separation of checkpoint validity from next-direction readiness.
 - [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] - Canonical account of two prospective dielectric-only damped-Fisher campaigns, including six consecutive fresh-confirmed updates in the higher-KL run, KL/support diagnostics, limitations, and checkpoint-state lessons.
 - [[wiki/answers/ffrefine-fisher-treatment-operators]] - Mathematical and implementation explanation of FFRefine's hard-cut, diagonal, identity, continuously damped, and modal-SNR unscaled-step operators.
@@ -298,12 +299,13 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Questions
 
+- [[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]] - Whether RDF, density thermal expansion, and dielectric sit on a genuine trade-off surface for FFRefine's ten-parameter water model; all three families are now measured conflicting pairwise, but the two campaigns' confounds (exclusion, a crash) still leave the question open.
 - [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]] - Why Molly's Enzyme-differentiated PME path disagrees with finite differences at ~3.8e-3 relative error for a charge gradient while σ and DEXP α gradients agree to ~1e-9/1e-10.
 - [[wiki/questions/QST-0009-scalable-independent-validation-of-learned-committors]] - How to validate learned committors independently at large-system scale without losing the sampling advantage.
 
-- [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]] - What step-length and renormalisation policy FFRefine's KL-capped natural-gradient step should use after family exclusion.
-- [[wiki/questions/QST-0012-persistent-replay-prediction-optimism-for-one-family]] - What to do when one family's replay-predicted improvements stay optimistic against fresh resimulation.
-- [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]] - ConFIG versus weighted-sum aggregation under calibrated direction gates, and production length for under-powered heavy families.
+- [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]] - What step-length and renormalisation policy FFRefine's KL-capped natural-gradient step should use after family exclusion; one run has now shown both a KL-cap two-cycle (family included) and a crawl regime (family excluded).
+- [[wiki/questions/QST-0012-persistent-replay-prediction-optimism-for-one-family]] - What to do when one family's replay-predicted improvements stay biased against fresh resimulation; the bias has now flipped sign (over-prediction, not only optimism) for a different family in the same run.
+- [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]] - ConFIG versus weighted-sum aggregation under calibrated direction gates: partially answered; weighted sum's run ended on an out-of-memory crash while still improving, and ConFIG's continuing run regressed sharply as all three families turned pairwise conflicting.
 - [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]] - Whether fresh checkpoint assessment and statistical readiness for the next optimization direction should be separate pipeline states.
 - [[wiki/questions/QST-0006-average-observable-trainability-sampling-budget]] - Sampling length, replica count, uncertainty, and direction-basis requirements for resolving enthalpy or dielectric teacher signals.
 - [[wiki/questions/QST-0002-independent-validation-for-enhanced-sampling-landscapes]] - How to design practical enhanced-sampling references that minimize shared method and model bias.
@@ -373,7 +375,7 @@ The Garnet presentation animation now includes the matching complete-molecule-to
 
 ## Tensions
 
-- [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] - Excluding directionally unreliable families from FFRefine's ConFIG aggregation protects the shared step but leaves excluded families untrained for those epochs.
+- [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] - Excluding directionally unreliable families from FFRefine's ConFIG aggregation protects the shared step but leaves excluded families untrained for those epochs; the exclusion cycle has now escalated from a single-family, four-epoch conflict to a multi-family, net-ascending seesaw once all three families turned pairwise conflicting (inference: unlikely to recover under the current policy).
 - [[wiki/tensions/TEN-0019-rpicam-firmware-host-tool-protocol-drift]] - Current local TFT/microSD firmware behavior conflicts with retained Python USB frame-protocol tools and stale PIO comments.
 - [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]] - Larger observable signals versus loss of replay support and KL validity.
 - [[wiki/tensions/TEN-0001-tss-variance-advantage-vs-mbar-generalization]] - TSS adaptive variance advantage versus broad MBAR generalization.

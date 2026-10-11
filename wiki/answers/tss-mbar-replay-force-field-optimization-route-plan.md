@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-09-28
+updated: 2026-10-04
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -21,6 +21,8 @@ tags:
   - awh
   - implementation-route
 related:
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
+  - "[[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
@@ -381,6 +383,10 @@ A 2026-09-24 multi-family water run (density, RDF, dielectric under family-level
 Designing calibrated, cross-fitted replay-chain diagnostics against a longer 22-epoch multi-family water run (`20260924-204914`) produced four further findings. First, replay-prediction calibration can be checked per family across epochs, but the cumulative-error uncertainty must account for telescoping realised changes and shared archives, not a naive sum of per-epoch variances. Second, the run shows the "optimiser's curse": from epoch 10 on, a converged family's replay-predicted improvement was optimistic in most epochs, consistent with a multi-step replay chain optimising its own replay estimate. Third, renormalising the remaining family weights to sum to 1 after excluding a family changes the natural-gradient step's uncapped length, and acted as a large accidental step-size boost in exactly the epochs where the smallest-weighted family made its best progress. Fourth, the existing chronological half-archive stability gate (cosine ≥ 0.8) mostly reacted to ordinary sampling noise rather than real drift, costing about 13% of the run's wall time while missing the run's actual failure mode, motivating a planned cross-fitted "aggregation promise" test in place of a fixed angle threshold. See [[wiki/answers/ffrefine-improved-gates-water-run-lessons]], [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]], [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]], and [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]].
 
 Separately, adapting SRC-0090's per-trajectory $N_\text{eff}$-maximizing equilibration cut and SRC-0091's fast multiscale statistical-inefficiency estimator to a frozen-bias production archive with several observable series and a single replica walking a temperature ladder — a combination neither source addresses — found that the fast estimator itself reads about 15-20% high on AR(1) series, and that naively taking the latest of several per-series argmax cuts over-cuts a stationary archive by an amount that grows sharply as $N/g$ falls; a materiality threshold calibrated conditionally on a cut-independent statistic controls this. See [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] and [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]].
+
+### Calibrated direction gates and extend-or-exclude production policy (2026-10-01)
+
+Since 2026-09-30, FFRefine decides family eligibility with block-based, cross-fitted direction gates (replacing the chronological half-archive cosine gate) and decides, before any replay chain, whether to optimise, buy one rescue extension of the current archive, or stop, using a generic expected-value policy with α-spending for the retest. The first deciding ConFIG and weighted-sum water campaigns were still running on 2026-10-01. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]].
 
 ## Implementation route plan
 

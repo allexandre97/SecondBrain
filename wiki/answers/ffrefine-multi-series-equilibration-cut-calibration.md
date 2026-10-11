@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-28
-updated: 2026-09-28
+updated: 2026-10-01
 question: "How should automated N_eff-maximizing equilibration detection be adapted for a frozen-bias TSS production archive with several observable series and a single replica walking a temperature ladder, and how accurate is the fast multiscale statistical-inefficiency estimator in that setting?"
 answer_status: answered
 areas:
@@ -20,6 +20,7 @@ tags:
   - mbar
   - replay-reweighting
 related:
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
   - "[[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]]"
   - "[[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in]]"
   - "[[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for]]"
@@ -113,9 +114,13 @@ The multi-series combination rule, its Monte Carlo calibration, the per-state ce
 - Updated [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time]]'s Links to point to the new claim and answer note.
 - Updated [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]'s implementation snapshot with a pointer to this note.
 
+## Status update (2026-10-01)
+
+The cut described here is implemented as stage 1 in FFRefine (master `6b20031`) and runs in report-only mode for the water experiment only: per replica, one series per observable target family (loss-sensitivity weighted at checkpoint evaluation, tolerance weighted on raw production data; the dielectric family uses the per-frame squared box dipole) plus the active-state reduced potential, each centred per sampled state; δ is looked up from the calibrated table keyed on the number of series and the smallest $N/g_{\mathrm{late}}$, where $g_{\mathrm{late}}$ is measured on the second half of each series; a cut above half the archive is only flagged; `:apply` mode (frame removal) and the gradient series are not implemented. Hexane and solvation do not yet pass an equilibration policy. In the shadow water campaign `20260928-220040` (11 epochs), as summarised in the project's design document, the cut was never material beyond 1.6% of the archive and never flagged an archive. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
+
 ## Remaining gaps
 
 - The multi-series calibration and the fast estimator's measured bias are demonstrated only on stationary synthetic AR(1) series, not on FFRefine's real observable series or on the heavier-tailed gradient series planned for a later implementation stage.
-- Whether FFRefine's production archives ever need the enforcing (frame-removing) mode of the cut, rather than report-only, is untested; the first campaign with the cut in report-only mode has not yet run to completion at the time of writing.
+- Whether FFRefine's production archives ever need the enforcing (frame-removing) mode of the cut, rather than report-only, is untested; the first campaign with the cut in report-only mode has not yet run to completion at the time of writing (2026-09-28); see the 2026-10-01 status update above for the shadow-campaign result.
 - The block-length-versus-correlation-time consistency check (jackknife blocks should be at least about 10 times the measured $g$) has not yet been evaluated against production dielectric-dipole series, which are expected to be the noisiest.
 - No comparison exists yet between the observable-only cut and the combined observable-plus-gradient cut planned for stage 2.

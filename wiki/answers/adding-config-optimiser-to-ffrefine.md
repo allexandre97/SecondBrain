@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-09-28
+updated: 2026-10-01
 question: "How can ConFIG be added to the FFRefine pipeline to alleviate gradient conflicts between losses?"
 answer_status: answered
 areas:
@@ -19,6 +19,7 @@ tags:
   - natural-gradient
   - replay-reweighting
 related:
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
   - "[[wiki/concepts/conflict-free-pinn-training]]"
   - "[[wiki/concepts/tolerance-normalized-multi-observable-losses]]"
   - "[[wiki/answers/ffrefine-current-implementation-status]]"
@@ -234,6 +235,8 @@ For weighted-sum aggregation, a Fisher-alignment restart is enough to avoid reus
 This is a project-specific optimizer adaptation supported by FFRefine synthetic tests, not a claim evaluated in SRC-0036 or SRC-0018. It should be interpreted as controlled first-moment smoothing inside the existing replay/Fisher trust-region machinery, not as Adam's second-moment normalization.
 
 ## Archive direction-readiness gate
+
+**Superseded (2026-10-01).** This section and the "Adopted policy" of the 2026-09-24 update below describe the legacy gate: four delete-block replicates, a reliability multiplier of 2, and a chronological half-archive cosine/norm-ratio check. Since FFRefine commit `26affa0` (2026-09-30) they are replaced by block-based, aggregation-aware direction gates: 8 jackknife blocks, a Monte Carlo calibrated size filter applied only before ConFIG aggregation, and a cross-fitted aggregation-promise test with family-removal loops for both ConFIG and weighted sum. Under weighted sum, uncertain or negligible families are no longer excluded for that reason alone. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]]. The text below is kept as the historical record.
 
 The optional archive gate estimates family-direction uncertainty from four replica-stratified delete-block replay gradients by default. For each family, it uses the treated latent direction before KL scaling: the KL-bounded step is divided by its KL scale so trust-region scaling does not make distinct gradient strengths appear equal. The jackknife standard error is computed for the direction vector in the Fisher gate metric.
 

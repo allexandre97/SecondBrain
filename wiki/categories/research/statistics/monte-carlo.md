@@ -57,6 +57,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training|Aggressive Density-Only KL and ESS Training]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
+- [[wiki/answers/ffrefine-direction-gates-and-production-policy|FFRefine Direction Gates and Extend-or-Exclude Production Policy]]
 - [[wiki/answers/ffrefine-fisher-treatment-operators|FFRefine Fisher-Treatment Operators]]
 - [[wiki/answers/ffrefine-improved-gates-water-run-lessons|FFRefine Improved Replay-Gate Design: Lessons From Water Run 20260924-204914]]
 - [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]
@@ -92,8 +93,10 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting|Calibrated Materiality Threshold Prevents Over-Cutting in Multi-Series Equilibration Detection]]
 - [[wiki/claims/CLM-0005-configuration-mapping-extends-mbar|Configuration Mapping Extends MBAR Through Warped Overlap]]
 - [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation|Damped Conditional-Fisher Dielectric Training Survives Fresh Resimulation]]
+- [[wiki/claims/CLM-0049-few-block-pseudo-value-covariance-understates-promise-null|Few-Block Pseudo-Value Covariance Understates the Null of a Cross-Fitted Promise Test]]
 - [[wiki/claims/CLM-0004-mbar-is-optimal-but-overlap-limited|MBAR Is Statistically Efficient But Overlap-Limited]]
 - [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise|Multiscale Truncated Autocorrelation Estimator Controls Tail Noise]]
 - [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time|N_eff Maximization Gives Near-Optimal Equilibration Time]]
+- [[wiki/claims/CLM-0050-retesting-a-failed-gate-after-extension-needs-alpha-spending|Retesting a Failed Gate After an Extension Needs α-Spending]]
 - [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning|Trust-Region KL Must Match Replay Conditioning]]
 - [[wiki/claims/CLM-0001-tss-self-adjustment-can-lower-variance|TSS Self-Adjustment Can Lower Variance]]

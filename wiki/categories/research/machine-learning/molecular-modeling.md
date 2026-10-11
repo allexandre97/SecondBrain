@@ -38,6 +38,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]
 - [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]
 - [[wiki/sources/SRC-0040-using-graph-neural-network-and-symbolic-regression-to|GNN to Symbolic-Regression Potentials]]
+- [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction|Graph Nets for Partial Charge Prediction]]
 - [[wiki/sources/SRC-0065-mace-mdp-molecular-dipole-moments-polarizabilities|MACE-MDP]]
 - [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|OMol25 Dataset]]
 - [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|Original Boltzmann Generators]]
@@ -72,6 +73,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
 - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
 - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]
+- [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy|When Is a Per-Type QEq Hardness Coefficient Redundant?]]
 
 ### Questions
 

@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-09-28
-updated: 2026-09-28
+updated: 2026-10-04
 claim_status: supported
 claim_scope: local
 areas:
@@ -19,6 +19,7 @@ tags:
   - trust-region
   - multi-objective-optimization
 related:
+  - "[[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]]"
   - "[[wiki/answers/adding-config-optimiser-to-ffrefine]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
@@ -59,6 +60,10 @@ Reporting and acceptance diagnostics (logged loss, stale-progress thresholds, `m
 - The regularisation/data balance under `:weighted_sum` is separately affected: an unrenormalised regularisation term becomes relatively weaker whenever excluded families shrink the renormalisation factor (for example, about 13x weaker in an rdf-only epoch); this is a related but distinct effect from the step-length change described here.
 - This is a project design finding from a single water run (`20260924-204914`, 22 epochs); it has not been tested against an alternative step-length or normalisation convention.
 
+## Status (2026-10-04)
+
+Still undecided: at FFRefine master `6b20031` losses and loss thresholds are reported on the full-objective scale while the step keeps renormalised weights. The open design question is tracked in [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]], which now also records a distinct KL-cap oscillation pathology observed in a completed weighted-sum campaign; see [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]].
+
 ## Links
 
 - [[wiki/answers/adding-config-optimiser-to-ffrefine]]
@@ -66,3 +71,4 @@ Reporting and acceptance diagnostics (logged loss, stale-progress thresholds, `m
 - [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]
 - [[wiki/concepts/awh-replay-force-field-optimization]]
 - [[wiki/answers/ffrefine-improved-gates-water-run-lessons]]
+- [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]

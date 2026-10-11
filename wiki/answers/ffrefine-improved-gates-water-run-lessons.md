@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-28
-updated: 2026-09-28
+updated: 2026-10-01
 question: "What did designing calibrated, cross-fitted replay-chain diagnostics against FFRefine water run 20260924-204914 reveal about replay-prediction calibration, the optimiser's curse, family-weight renormalisation, and the legacy half-archive stability gate?"
 answer_status: answered
 areas:
@@ -28,6 +28,7 @@ related:
   - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
 sources: []
 sensitivity: public
 encryption: none
@@ -58,6 +59,8 @@ Designing calibrated, cross-fitted diagnostics against a 22-epoch multi-family w
 2. **The run shows the "optimiser's curse":** from epoch 10 on, a converged family's replay-predicted improvement was optimistic in most epochs, consistent with a chain optimising its own replay estimate.
 3. **Renormalising the remaining family weights to sum to 1 after excluding a family is not scale-neutral for the optimiser:** it leaves directions unchanged but rescales the natural-gradient step length, and it happened to act as a large accidental step-size boost in exactly the epochs where the smallest family made its best progress. See [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]].
 4. **The legacy chronological half-archive stability gate (cosine similarity ≥ 0.8) mostly reacts to ordinary sampling noise, not to real drift,** and cost about 13% of the run's wall time while never catching the run's actual failure mode. This motivates replacing it with a cross-fitted, out-of-sample "aggregation promise" test rather than an uncalibrated cosine threshold.
+
+**Status update (2026-10-01).** The planned replacement described in finding 4 is now implemented and authoritative: since FFRefine commit `26affa0` (2026-09-30) the cross-fitted aggregation-promise test, a Monte Carlo calibrated size filter for ConFIG, and a report-only promise-drift test decide family eligibility, and the half-archive cosine/norm-ratio gate has been removed (an early/late pseudo-value cosine is still reported for comparison). The per-step survival ratio is implemented as a report-only statistic. The replay-calibration diagnostic, exclusion-cycle tracking and full-objective-scale reporting described below are implemented and report-only. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]] for the current mechanics. Statements below that call the test "planned" or "a design proposal" are historical as of 2026-09-28.
 
 ## Detailed answer
 
@@ -93,7 +96,7 @@ Reconstructing the uncapped ConFIG step KL as $\tfrac12|c|^2$ from the logged `h
 
 Separately from family-size (reliability) screening, FFRefine's existing direction-readiness check splits the frozen archive into two chronological halves and requires the treated (Fisher-whitened) direction's cosine similarity between halves to be at least 0.8, with a companion norm-ratio check in [0.5, 2]. Over the first 22 epochs of run `20260924-204914`, this test blocked 5 checkpoints (epochs 5, 8, 13, 15, and 19), each time because a family with a signal-to-standard-error ratio of only about 2-4 had chronological half-cosines of 0.39-0.78 (dielectric) or, once, density — cosines that low are exactly what sampling noise alone produces at that signal/SE ratio, not evidence of a real change in direction over time. The blocked checkpoints forced 13 production extensions, costing roughly 11 hours of the run's wall time (about 13%), including at least one case where the block "passed" only because a later, noisy retry happened to land above the threshold, not because new information had arrived. The companion norm-ratio check was inert whenever both chronological halves were still capped at the same KL target (both then have the same Fisher-metric length by construction, giving a ratio near 1), and only became informative once a family's signal fell below the cap — at which point it was still being compared against a threshold with no noise model behind it.
 
-**Lesson and planned response.** A fixed cosine/norm-ratio threshold conflates "noisy" with "genuinely drifting," is not tied to any noise model, and does not account for the number of included families or the aggregation method. The planned replacement is a cross-fitted "aggregation promise" test evaluated at the level of the step the optimiser is about to take, rather than at the level of a family's raw direction: for ConFIG, whether the step still promises descent for every included family; for weighted sum, whether it still promises descent for the weighted total. Both are evaluated out of sample (the step is recomputed leaving out each jackknife block in turn and scored on that block's own data), which is designed to reject a step that is fitting noise while still passing an in-sample check, and to be comparable across different numbers of included families and different aggregation methods without a hand-set angle threshold. This test is a design proposal at the time of writing, not yet implemented or campaign-validated; see [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]] for the related distinction between evaluation validity and next-direction readiness that this test is intended to refine.
+**Lesson and planned response.** A fixed cosine/norm-ratio threshold conflates "noisy" with "genuinely drifting," is not tied to any noise model, and does not account for the number of included families or the aggregation method. The planned replacement is a cross-fitted "aggregation promise" test evaluated at the level of the step the optimiser is about to take, rather than at the level of a family's raw direction: for ConFIG, whether the step still promises descent for every included family; for weighted sum, whether it still promises descent for the weighted total. Both are evaluated out of sample (the step is recomputed leaving out each jackknife block in turn and scored on that block's own data), which is designed to reject a step that is fitting noise while still passing an in-sample check, and to be comparable across different numbers of included families and different aggregation methods without a hand-set angle threshold. This test was a design proposal at the time of writing (2026-09-28); it was implemented and made authoritative on 2026-09-30 (see [[wiki/answers/ffrefine-direction-gates-and-production-policy]]) and its first deciding campaigns were still running on 2026-10-01; see [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]] for the related distinction between evaluation validity and next-direction readiness that this test is intended to refine.
 
 ## Key equations
 
@@ -128,6 +131,6 @@ None. All findings in this note are FFRefine project evidence from run `20260924
 ## Remaining gaps
 
 - All findings are evidenced by one water run (`20260924-204914`, 22 epochs) and its accompanying unit tests; no campaign compares the legacy half-archive gate against the planned cross-fitted aggregation-promise test under matched conditions.
-- The cross-fitted survival ratio $\rho$ and the aggregation-promise test are design proposals, not yet implemented or validated against fresh resimulation.
+- The cross-fitted survival ratio $\rho$ and the aggregation-promise test were design proposals on 2026-09-28; both are implemented as of 2026-09-30 (the survival ratio report-only), but neither has yet been validated against fresh resimulation.
 - Whether to keep renormalising the optimiser's *step* (as opposed to only its reported loss) after family exclusion remains an open, undecided design question tied to the general step-length policy.
-- Whether a weighted-sum run cycles excluded families less often than a ConFIG run, as the project's own reasoning predicts, has not yet been measured; it is proposed as a comparison metric between the two aggregation methods.
+- Whether a weighted-sum run cycles excluded families less often than a ConFIG run, as the project's own reasoning predicts, has not yet been measured; it is proposed as a comparison metric between the two aggregation methods. Provisional data from the 2026-09-30 campaigns are in [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]].

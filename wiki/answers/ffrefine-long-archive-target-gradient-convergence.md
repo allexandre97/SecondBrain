@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-26
-updated: 2026-09-02
+updated: 2026-10-01
 question: "What did two independent 100 ns reaction-field TSS archives establish about convergence of FFRefine water target values, gradients, and natural-gradient directions?"
 answer_status: partially-answered
 areas:
@@ -24,6 +24,7 @@ tags:
   - dielectric-constant
   - independent-archives
 related:
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
   - "[[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]"
   - "[[wiki/answers/ffrefine-retrospective-fisher-treatment-development]]"
   - "[[wiki/answers/ffrefine-average-observable-trainability-validation]]"
@@ -79,7 +80,7 @@ The experiment used:
 - 100 ns of production per archive, saved every 5 ps, giving 20,001 frames per archive;
 - cumulative analyses at 10 ns intervals and chronological-half analyses at every prefix;
 - delete-block jackknife calculations with 2, 5, and 10 ns blocks;
-- the prospective direction gate used elsewhere in FFRefine: Fisher-metric cosine at least 0.8 and norm ratio between 0.5 and 2.
+- the prospective direction gate then used elsewhere in FFRefine: Fisher-metric cosine at least 0.8 and norm ratio between 0.5 and 2 (this legacy gate was replaced on 2026-09-30 by block-based direction gates; see [[wiki/answers/ffrefine-direction-gates-and-production-policy]]).
 
 The comparison is deliberately cost- and protocol-matched across target families. Experimental target sparsity changes scoring only; it does not change the TSS ladder.
 

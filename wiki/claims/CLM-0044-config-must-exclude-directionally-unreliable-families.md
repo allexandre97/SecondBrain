@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-09-24
-updated: 2026-09-24
+updated: 2026-10-05
 claim_status: supported
 claim_scope: local
 areas:
@@ -20,11 +20,14 @@ tags:
   - fisher-information
   - trust-region
 related:
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
   - "[[wiki/answers/adding-config-optimiser-to-ffrefine]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
   - "[[wiki/concepts/conflict-free-pinn-training]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]"
+  - "[[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
+  - "[[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]]"
 sources:
   - SRC-0036
 sensitivity: public
@@ -62,6 +65,18 @@ ConFIG's common-descent construction is designed to give every protected family 
 
 FFRefine now excludes families classified `:uncertain` or `:negligible` by the delete-block reliability screen from the ConFIG family set used to construct the aggregate direction, renormalizing the remaining family weights while preserving within-family target weighting. Excluded families remain in monitoring, ESS/support accounting, and KL coverage. This creates a distinct risk, discussed in [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]: excluding a family removes its only training signal for that epoch.
 
+## 2026-10-01 update: current exclusion mechanism
+
+The exclusion principle still holds in current FFRefine, but the mechanism described under "Adopted response" has been replaced (commit `26affa0`, 2026-09-30). The legacy reliability multiplier of 2 is gone. Under ConFIG, a family enters aggregation only if its size statistic (signal over jackknife standard error of the unscaled treated direction) exceeds a Monte Carlo calibrated multiplier; entering families must then pass a cross-fitted aggregation-promise test, and the least confident failing family is removed until all pass. Under weighted sum, families are no longer excluded for being uncertain or negligible; one is removed only if it prevents confident descent of the weighted total. Remaining family weights are still renormalised for the step. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
+
+## 2026-10-04 update: unreliability can be a genuine between-family conflict
+
+A still-running ConFIG water campaign (`20260930-132851`), snapshot at 27 epochs taken 2026-10-04, sharpens this claim's mechanism with family weights spanning rdf 1, density 2, dielectric 10. Dielectric was excluded by the current cross-fitted promise test in 16 of 27 epochs (13 `:descent_not_confident`, 3 `:uncertain`), including a 4-consecutive-epoch exclusion. Directly measured whitened inter-family gradient cosines showed dielectric was genuinely in conflict with rdf and density (-0.17 to -0.77 across the run), not merely noisy on its own: when density was separately excluded for its own reasons, dielectric's promise test passed easily, with no change to dielectric's own gradient estimate. The removal rule (drop the single least-confident family) always dropped dielectric, the highest-loss-share family, rather than a lower-share family that was conflicting with it. So the directional unreliability this claim describes can arise specifically from a between-family conflict, not only from a family's own sampling noise; see [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] and [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]] for the latest campaign-snapshot comparison, including a prior project decision this evidence contradicts.
+
+## 2026-10-05 update: the conflict became mutual, not one family against the other two
+
+By checkpoint 33 of the same still-running campaign, the mechanism generalised: whitened gradient cosines show rdf, density, and dielectric now conflicting **pairwise**, not only dielectric against the other two as in the 2026-10-04 update. The rdf-density cosine, previously mildly positive (+0.05 to +0.17), turned negative (-0.31 to -0.77) over checkpoints 29-34. With the conflict mutual, exclusion stopped behaving like a single-family, bounded sawtooth and became a seesaw between density and dielectric with a net rise in the full objective (fresh total loss 1.82 best, rising to 5.05 by checkpoint 32): each family's return from exclusion was accompanied by an easy promise test (reflecting how far it had drifted), while the other family's promise fell, including two density-excluded chains that ran despite replay's own prediction of a full-objective rise of about 1.4-1.6. This is consistent with, but does not by itself establish, every included family eventually conflicting with every other once the parameter trajectory moves far enough from the shared early-epoch region; see [[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]] for the open question of whether this reflects the model's achievable parameter space or an artifact of the aggregation's own trajectory. Full numbers in [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]].
+
 ## Links
 
 - [[wiki/answers/adding-config-optimiser-to-ffrefine]]
@@ -69,3 +84,5 @@ FFRefine now excludes families classified `:uncertain` or `:negligible` by the d
 - [[wiki/concepts/conflict-free-pinn-training]]
 - [[wiki/concepts/awh-replay-force-field-optimization]]
 - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]
+- [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]
+- [[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]]

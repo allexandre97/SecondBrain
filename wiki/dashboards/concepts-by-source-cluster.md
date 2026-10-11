@@ -86,7 +86,6 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### research/computational-drug-discovery
 
-- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - 2 source IDs; top source categories: `research/computational-drug-discovery` (2), `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/datasets` (2)
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]] - 2 source IDs; top source categories: `research/computational-drug-discovery` (2), `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2)
 
 ### research/computer-vision/biomedical-imaging
@@ -117,6 +116,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### research/machine-learning/molecular-modeling
 
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - 4 source IDs; top source categories: `research/machine-learning/molecular-modeling` (4), `research/molecular-simulation/free-energy` (4), `research/machine-learning/scientific-modeling` (3)
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - 3 source IDs; top source categories: `research/machine-learning/molecular-modeling` (3), `research/molecular-simulation/force-fields` (3), `research/computational-drug-discovery` (2)
 - [[wiki/concepts/gnn-to-symbolic-regression-potentials|GNN to Symbolic Regression Potentials]] - 1 source IDs; top source categories: `research/machine-learning/molecular-modeling` (1), `research/machine-learning/scientific-modeling` (1), `research/molecular-simulation/force-fields` (1)
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - 7 source IDs; top source categories: `research/machine-learning/molecular-modeling` (7), `research/molecular-simulation/datasets` (7), `research/molecular-simulation/force-fields` (7)
 - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]] - 2 source IDs; top source categories: `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)
@@ -134,17 +134,17 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### research/molecular-simulation/force-fields
 
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - 17 source IDs; top source categories: `research/molecular-simulation/force-fields` (17), `research/machine-learning/molecular-modeling` (9), `research/machine-learning/scientific-modeling` (7)
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - 8 source IDs; top source categories: `research/molecular-simulation/force-fields` (4), `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (3)
 - [[wiki/concepts/ensemble-and-force-field-refinement|Ensemble and Force Field Refinement]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/free-energy` (2), `research/molecular-simulation/molecular-dynamics` (1)
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - 7 source IDs; top source categories: `research/molecular-simulation/force-fields` (7), `research/biomolecules/proteins` (4), `research/experimental-benchmarking` (4)
 - [[wiki/concepts/forcebalance|ForceBalance]] - 5 source IDs; top source categories: `research/molecular-simulation/force-fields` (5), `research/computational-drug-discovery` (2), `research/experimental-benchmarking` (2)
-- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - 4 source IDs; top source categories: `research/molecular-simulation/force-fields` (4), `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (1)
+- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - 5 source IDs; top source categories: `research/molecular-simulation/force-fields` (5), `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (1)
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - 6 source IDs; top source categories: `research/molecular-simulation/force-fields` (6), `research/machine-learning/scientific-modeling` (4), `research/machine-learning/molecular-modeling` (3)
 - [[wiki/concepts/opc-water-model|OPC Water Model]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2)
 - [[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models|TIP3P-FB and TIP4P-FB Water Models]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2)
 
 ### research/molecular-simulation/free-energy
 
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - 7 source IDs; top source categories: `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (3), `research/molecular-simulation/force-fields` (3)
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - 21 source IDs; top source categories: `research/molecular-simulation/free-energy` (14), `research/molecular-simulation/force-fields` (12), `research/computational-drug-discovery` (8)
 - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - 18 source IDs; top source categories: `research/molecular-simulation/free-energy` (18), `research/adaptive-sampling` (9), `research/computational-drug-discovery` (7)
 - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - 2 source IDs; top source categories: `research/molecular-simulation/free-energy` (2), `research/statistics/monte-carlo` (2)
@@ -207,7 +207,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0005-times-square-sampling-free-energy|SRC-0005]]
 
 - [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 7 source IDs
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`; tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs
@@ -217,7 +217,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0006-times-square-sampling-supplement|SRC-0006]]
 
 - [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]] - categories: `research/adaptive-sampling`, `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `adaptive-sampling`, `simulated-tempering`, `resource-allocation`, `math-heavy`; 11 source IDs
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 7 source IDs
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/on-the-fly-estimation-versus-mbar|On-the-Fly Estimation Versus the Multistate Bennett Acceptance Ratio]] - categories: `research/statistics/monte-carlo`, `research/molecular-simulation/free-energy`; tags: `on-the-fly-estimation`, `mbar`, `asymptotic-variance`, `math-heavy`; 2 source IDs
@@ -279,7 +279,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 4 source IDs
+- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
 
 ### [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|SRC-0017]]
 
@@ -290,9 +290,9 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|SRC-0018]]
 
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 7 source IDs
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
-- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 4 source IDs
+- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]] - categories: `research/molecular-simulation/force-fields`, `research/scientific-computing`; tags: `force-field-optimization`, `multi-objective-optimization`, `loss-functions`, `observable-targets`; 1 source IDs
 
 ### [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|SRC-0019]]
@@ -300,13 +300,13 @@ Concepts are first grouped by the most frequent category among their cited sourc
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/ensemble-and-force-field-refinement|Ensemble and Force Field Refinement]] - categories: `research/molecular-simulation/force-fields`; tags: `ensemble-refinement`, `maximum-entropy`, `forward-model-refinement`, `mdrefine`; 2 source IDs
-- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 4 source IDs
+- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
 
 ### [[wiki/sources/SRC-0020-mdrefine-supplementary-material|SRC-0020]]
 
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/ensemble-and-force-field-refinement|Ensemble and Force Field Refinement]] - categories: `research/molecular-simulation/force-fields`; tags: `ensemble-refinement`, `maximum-entropy`, `forward-model-refinement`, `mdrefine`; 2 source IDs
-- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 4 source IDs
+- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
 
 ### [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|SRC-0021]]
 
@@ -318,7 +318,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]
 
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 7 source IDs
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/free-energy-estimation|Free Energy Estimation]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `free-energy-estimation`, `partition-functions`, `molecular-simulation`, `math-heavy`; 18 source IDs
 - [[wiki/concepts/mbar-with-configuration-mapping|MBAR with Configuration Mapping]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `configuration-mapping`, `reweighting`, `phase-space-overlap`, `math-heavy`; 2 source IDs
@@ -334,7 +334,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]
 
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 7 source IDs
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - categories: `research/molecular-simulation/force-fields`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `force-field-training`, `experimental-observables`, `forcebalance`; 7 source IDs
 - [[wiki/concepts/forcebalance|ForceBalance]] - categories: `research/molecular-simulation/force-fields`; tags: `forcebalance`, `parameter-optimization`, `force-field-training`; 5 source IDs
@@ -342,7 +342,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0026-building-force-fields-forcebalance-supporting-information|SRC-0026]]
 
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 7 source IDs
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/forcebalance|ForceBalance]] - categories: `research/molecular-simulation/force-fields`; tags: `forcebalance`, `parameter-optimization`, `force-field-training`; 5 source IDs
 - [[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models|TIP3P-FB and TIP4P-FB Water Models]] - categories: `research/molecular-simulation/force-fields`, `research/experimental-benchmarking`; tags: `water-models`, `tip3p-fb`, `tip4p-fb`, `forcebalance`; 2 source IDs
 
@@ -403,7 +403,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed|SRC-0036]]
 
-- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 7 source IDs
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/conflict-free-pinn-training|Conflict-Free PINN Training]] - categories: `research/machine-learning/scientific-modeling`; tags: `PINNs`, `gradient-conflict`, `multi-objective-optimization`; 1 source IDs
 
 ### [[wiki/sources/SRC-0037-transferable-boltzmann-generators|SRC-0037]]
@@ -544,14 +544,14 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]
 
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
-- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 2 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 3 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/computational-drug-discovery`; tags: `SMIRNOFF`, `OpenFF`, `bespoke-force-fields`, `machine-learning-potentials`, `valence-parameters`; 2 source IDs
 
 ### [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|SRC-0073]]
 
 - [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
-- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 2 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 3 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 
 ### [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|SRC-0074]]
@@ -590,3 +590,9 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 - [[wiki/concepts/multistate-bennett-acceptance-ratio|Multistate Bennett Acceptance Ratio]] - categories: `research/molecular-simulation/free-energy`, `research/statistics/monte-carlo`; tags: `mbar`, `free-energy-estimation`, `reweighting`, `bridge-sampling`, `math-heavy`; 2 source IDs
 - [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection|Statistical Inefficiency and Automated Equilibration Detection]] - categories: `research/molecular-simulation/molecular-dynamics`, `research/statistics/monte-carlo`; tags: `equilibration`, `statistical-inefficiency`, `effective-sample-size`, `autocorrelation`, `burn-in`, `wham`, `math-heavy`; 2 source IDs
+
+### [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction|SRC-0098]]
+
+- [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 3 source IDs
+- [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs

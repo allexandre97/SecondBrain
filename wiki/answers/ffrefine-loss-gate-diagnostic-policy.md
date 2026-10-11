@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-24
-updated: 2026-09-24
+updated: 2026-10-01
 question: "Should paired loss-confidence acceptance gates block FFRefine's KL/ESS-bounded replay proposals, or serve only as diagnostics?"
 answer_status: answered
 areas:
@@ -19,6 +19,7 @@ tags:
   - kl-conditioning
   - validation-policy
 related:
+  - "[[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
   - "[[wiki/answers/adding-config-optimiser-to-ffrefine]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
@@ -106,6 +107,10 @@ No new equation is introduced by the loss-gate policy; it is an acceptance-logic
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]] with a ninth implementation lesson summarizing this finding and the ConFIG family-exclusion finding.
 - Updated [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]'s related links to point to this note; its evidence chronology was read but not rewritten.
 - Updated [[wiki/index]] and [[wiki/log]].
+
+## Status (2026-10-01)
+
+Still current at FFRefine master `6b20031`: `loss_gate_mode` defaults to `:diagnostic`. Under `:enforce`, the loss gate is now the first rule of the generic production policy; because the production decision is taken before the replay chain, the enforced rule is re-applied after the chain (a rejected proposal stops the epoch; an inconclusive, blocked proposal extends production once while extensions remain). See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
 
 ## Remaining gaps
 
