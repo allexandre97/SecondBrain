@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-30
-updated: 2026-10-07
+updated: 2026-10-11
 areas:
   - research
 categories:
@@ -32,6 +32,7 @@ related:
   - "[[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
   - "[[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]"
   - "[[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -103,6 +104,8 @@ A 2026-07-15 FFRefine parameter-training refactor added a third implementation l
 
 A 2026-07-15 FFRefine shared-parameter update added a fourth implementation lesson: the replay-gradient basis must encode molecular parameter equivalence independently of particle-instance count. In solvated systems with many repeated solvent molecules, a force-field parameter coordinate should represent a reusable chemical parameter, not an individual atom instance, unless the model intentionally assigns molecule-specific parameters. Atomic charge extraction is especially easy to get wrong because per-particle charge fields can create one derivative slot per atom. The practical fix is to build topology-aware charge keys from molecule-template identity and local site identity, so repeated copies of the same molecule share charge coordinates while distinct sites within a molecule remain separate. For the ethanol-in-water FFRefine case, this reduced the solvated active physical basis from thousands of per-atom charge slots to 22 shared physical parameters, with 12 shared charge sites and 24 QEq/LJ latent coordinates. This is a project implementation lesson about constructing the parameter basis for SRC-0018-style replay optimization, not a new literature claim. [SRC-0018]
 
+**Superseded description (as of 2026-07-16, confirmed by a 2026-10-11 audit).** The paragraph above describes molecule-template charge keys, which were the implementation at the time. Production has used **atom-type** charge keys instead since FFRefine commit `d48d2f1` ("Group charges by atom type", 2026-07-16); the molecular-template charge-key code (`molecular_template_charge_keys`) is now dead, unreachable code, not the active implementation. The underlying lesson above still holds — a force-field parameter coordinate should represent a reusable chemical parameter, not one slot per atom instance — and atom-type keys achieve that sharing by a different, coarser grouping than molecule-template-plus-local-site identity. One consequence of this correction: per-atom-type charges are keyed exactly the way Molly.jl already keys its own σ/ϵ parameters by atom type, which is why FFRefine's 2026-10-11 package-planning session proposes adding per-atom-type charge parameters to Molly itself as a separate pull request (work item U7); see [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/answers/molly-master-migration-constraints-for-ffrefine]].
+
 A 2026-07-18 FFRefine epoch-control update added a fifth implementation lesson: replay acceptance is not the same as validated improvement. If a replay optimizer accepts and applies any parameter change, the next macro epoch should resimulate with those parameters even when the optimizer also reports local convergence, Fisher degeneracy, split disagreement, or inability to find a further improving replay step. The fresh simulation is the only check that the accepted parameters improve the loss under newly sampled data rather than only under the old frozen archive. If no proposal is accepted or applied, the pipeline can stop without resimulation; if ESS collapse occurs, the candidate still becomes the resimulation target because the archive no longer supports replay validation. A final accepted update at the configured optimization-epoch limit should therefore be followed by one simulation-only validation epoch, without allowing another optimizer step. This is a project control-flow lesson for SRC-0018-style frozen-reference replay optimization, not a new literature claim. [SRC-0018]
 
 A 2026-07-22 FFRefine parameter-bounds update added a sixth implementation lesson: bounded force-field training parameters are better treated as epoch-local relative trust regions than as fixed absolute intervals. A relative radius such as 5% should be evaluated around the current physical value at the start of each macro epoch, so a parameter that moved from 1.0 to 1.2 is next allowed within 1.2 plus or minus 5%, assuming the previous replay step was accepted and resimulated. For descriptor-based QEq parameters, the trust region should be expressed first in physical electronegativity or hardness units, then converted to the latent coefficient bounds used by the optimizer; if several descriptors share one feature coefficient, the converted intervals should be intersected. This keeps the optimizer local in the same sense as ESS and Fisher/KL controls, while avoiding stale absolute boxes that either overconstrain later epochs or silently allow large relative moves for small parameters. This is a project implementation lesson for SRC-0018-style local replay optimization, not a new literature claim. [SRC-0018]
@@ -150,3 +153,4 @@ TSS and MBAR variants need their own readiness and support diagnostics. TSS read
 - [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]
 - [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]
 - [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction]]
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions]]

@@ -104,6 +104,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
 - [[wiki/answers/ffrefine-direction-gates-and-production-policy|FFRefine Direction Gates and Extend-or-Exclude Production Policy]]
 - [[wiki/answers/ffrefine-fisher-treatment-operators|FFRefine Fisher-Treatment Operators]]
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions|FFRefine Generalist-Package Plan: 2026-10-11 Decisions]]
 - [[wiki/answers/ffrefine-improved-gates-water-run-lessons|FFRefine Improved Replay-Gate Design: Lessons From Water Run 20260924-204914]]
 - [[wiki/answers/ffrefine-kl-divergence-definition-change|FFRefine KL Divergence Definition Change]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]

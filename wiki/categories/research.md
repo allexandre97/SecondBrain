@@ -36,8 +36,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/categories/research/high-performance-computing|research/high-performance-computing]] - 12 direct, 12 total pages in branch.
 - [[wiki/categories/research/llm-wiki|research/llm-wiki]] - 0 direct, 12 total pages in branch.
 - [[wiki/categories/research/machine-learning|research/machine-learning]] - 0 direct, 80 total pages in branch.
-- [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 235 total pages in branch.
-- [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 41 direct, 41 total pages in branch.
+- [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 237 total pages in branch.
+- [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 43 direct, 43 total pages in branch.
 - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 53 total pages in branch.
 
 ## Direct members

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-01
-updated: 2026-10-05
+updated: 2026-10-11
 question: "How do FFRefine's current block-based direction gates and extend-or-exclude production policy work (master 6b20031, 2026-10-01), and what did building and running them teach?"
 answer_status: answered
 areas:
@@ -36,6 +36,7 @@ related:
   - "[[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 sources:
   - SRC-0036
 sensitivity: public
@@ -65,6 +66,7 @@ wiki_pages_updated:
   - "[[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 project_evidence:
   - "FFRefine repository audit on 2026-10-01 at master 6b20031 (direction_gates.jl, production_decision.jl, configuration.jl, backend.jl, epoch_pipeline.jl, solvation_pipeline.jl, validity.jl, optimiser.jl, water_temperature.jl, hexane_temperature.jl, solvation.jl, optimisation_history.jl); the new gates became authoritative in commit 26affa0 and the production policy in e49cfde, both 2026-09-30"
   - "FFRefine design document for the improved gates (project-local, not a literature source), used for rationale and for its recorded analysis of runs 20260924-204914 and 20260928-220040; treated as rationale, not as a description of the code"
@@ -72,6 +74,7 @@ project_evidence:
   - "FFRefine shadow water run 20260928-220040 (legacy gates deciding, new gates in shadow), 11 epochs, as summarised in the design document"
   - "FFRefine water runs 20260930-132851 (ConFIG) and 20260930-132911 (weighted sum), rdf+density+dielectric, 50 ns production, both still running; per-epoch CSV records read on 2026-10-01 after 6 epochs each (provisional)"
   - "2026-10-05 update: weighted sum ended on an out-of-memory crash at its epoch-27 worker (last completed checkpoint 26, 107.9 h); ConFIG still running through checkpoint 33 (112.7 h); six production rescue extensions (five resolved, one cut short by the crash) read from per-epoch records, as detailed in [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
+  - "FFRefine commit 110fe64 (2026-10-07, \"Damped Levenberg-Marquardt trust-region step; report-only direction gates\"); FFRefine repository planning document `ffrefine_package_plan.md`, dated 2026-10-11, declaring the canonical regime (R) and the planned gate/ConFIG/momentum removal; see [[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 ---
 
 # FFRefine Direction Gates and Extend-or-Exclude Production Policy
@@ -258,6 +261,21 @@ The project's design document mixes implemented behaviour, planned stages and su
 - The document cites history schema 32; the code is at 34.
 - The document's measured costs (0.85 and 0.05) are shadow-run values; the 2026-09-30 campaign measured about 0.45 and 0.10.
 
+## 2026-10-07 and 2026-10-11 status update: gates retired under the canonical regime
+
+**2026-10-07 (commit `110fe64`, "Damped Levenberg-Marquardt trust-region step; report-only direction gates").** The natural-gradient step described throughout this page was replaced by a damped Levenberg-Marquardt trust-region step, and the direction gates were made report-only (`gate_mode=report`): by this date they no longer decide family eligibility or the production decision at all. **The rationale for this specific change is not recorded anywhere in the project or in SecondBrain; this page does not speculate about it.**
+
+**2026-10-11 (planning document).** This report-only combination, together with weighted-sum aggregation, was declared the project's canonical regime (decision R). The planning document gives two reasons to remove the direction gates entirely (not yet done in code as of 2026-10-11), rather than leave them as report-only diagnostics:
+
+1. In report mode they never exclude a family or block a step, so they already have no operational effect.
+2. They test the natural-gradient direction described throughout this page, not the trust-region step the canonical regime actually takes. A report-only diagnostic that certifies a step the optimiser never takes is not informative, independent of whether the gates' own statistics are well calibrated.
+
+Also decided for removal under the canonical regime: ConFIG aggregation (so the ConFIG-versus-weighted-sum comparison this page and [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]] describe is no longer pursued operationally, independent of its scientific outcome), rescue/extension sizing (the production decision reduces to "extend production once if evaluation validity fails, otherwise optimise"), momentum, the natural-gradient step and its proposal path, loss gates in every mode, the archive KL budget, and Huber loss. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/answers/ffrefine-current-implementation-status]] for the full removal list and its rationale.
+
+**What remains valid.** CLM-0049 and CLM-0050 are statistical claims about Monte Carlo calibration of a cross-fitted promise test under a fixed block count; they remain correct statistical findings about that calibration procedure, independent of whether FFRefine continues to use the gates in production. Removing the gates does not retract these claims; it only means FFRefine no longer applies the calibrated procedure they describe.
+
+**The momentum open issue is now moot.** The "Remaining gaps" item below, "the gates certify the non-momentum step; whether momentum ... should be disabled or the momentum step certified is open", is moot once momentum itself is removed under the canonical regime: there is no momentum step left to certify or not certify.
+
 ## Sources used
 
 - SRC-0036 for ConFIG itself; every other statement is FFRefine project evidence listed in this page's frontmatter.
@@ -273,11 +291,13 @@ The project's design document mixes implemented behaviour, planned stages and su
 - [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]
 - [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]]
 - [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions]]
 
 ## Wiki updates made
 
 - Added this answer note, [[wiki/claims/CLM-0049-few-block-pseudo-value-covariance-understates-promise-null]], [[wiki/claims/CLM-0050-retesting-a-failed-gate-after-extension-needs-alpha-spending]], [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]], [[wiki/questions/QST-0012-persistent-replay-prediction-optimism-for-one-family]] and [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]].
 - Marked the legacy half-archive gate and legacy reliability screen as superseded where pages described them as current, and refreshed the implementation-status snapshot.
+- **2026-10-11:** added the status-update section above recording the 2026-10-07 trust-region/report-only-gates change (rationale not recorded) and the 2026-10-11 decision to remove the gates, ConFIG, and momentum entirely under the canonical regime; linked [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
 
 ## Remaining gaps
 
@@ -286,7 +306,7 @@ The project's design document mixes implemented behaviour, planned stages and su
 - The production-extension policy has no memory-budget term (lesson 10); a rescue extension can push a worker's resident memory past what the node can provide, especially when another campaign is co-scheduled on the same node.
 - Whether promise drift should gate (`drift_mode = :gate`) is undecided; so far it has only been checked for calibration in the shadow run.
 - Only a checkpoint's first step is certified; later proposals in a replay chain are not re-certified, and the survival ratio has not yet been compared against realised fresh changes.
-- The gates certify the non-momentum step; whether momentum (hexane, solvation defaults) should be disabled or the momentum step certified is open.
+- The gates certify the non-momentum step; whether momentum (hexane, solvation defaults) should be disabled or the momentum step certified is open. **Moot as of 2026-10-11:** momentum is decided for removal under the canonical regime (see the 2026-10-07/2026-10-11 status update above).
 - The equilibration report is enabled only for water; hexane and solvation would first need per-frame series for their fluctuation observables.
 - The step-length and renormalisation policy remains undecided; see [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]].
 - The Monte Carlo numbers in lessons 3 and 4 were not re-run for this write-back.

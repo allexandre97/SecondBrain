@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-10-01
-updated: 2026-10-05
+updated: 2026-10-11
 question_status: partially-answered
 areas:
   - research
@@ -26,6 +26,7 @@ related:
   - "[[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]]"
   - "[[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
   - "[[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 sources:
   - SRC-0036
 sensitivity: public
@@ -66,6 +67,10 @@ The comparison ended asymmetrically. Weighted sum's run stopped at checkpoint 26
 
 Taken together, weighted sum's last measured state (fresh loss 1.376, improving) is substantially better than ConFIG's trajectory since checkpoint 27 (fresh loss worsening to 5.05), but this comparison is no longer a clean aggregation-versus-aggregation race: weighted sum's data stops at an externally caused crash, not at a comparable point in its own optimisation trajectory, and ConFIG's regression reflects a qualitatively different exclusion regime (multi-family net-ascending cycling) than the single-family conflict recorded at the first snapshot. The question is left **partially answered**: weighted sum's step-length pathologies (two-cycle, then crawl) and ConFIG's conflict-driven exclusion are both now well documented as reusable lessons (see [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]), but neither campaign reached a clean, comparable terminus from which to declare a winner on this water model. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] for the sharpened tension and [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]] for the step-length side of weighted sum's behaviour.
 
+## Project decision (2026-10-11): FFRefine no longer pursues this operationally
+
+FFRefine's 2026-10-11 planning document declares weighted-sum aggregation under a damped Levenberg-Marquardt trust-region step the project's canonical regime (decision R), and decides (not yet implemented in code as of 2026-10-11) to remove ConFIG aggregation entirely, along with the direction gates both aggregations were evaluated under. This is a **project decision about which regime FFRefine will run in production**, not a resolution of this question's scientific comparison: the evidence above (two single-seed, gate-decided campaigns reaching different physical compromises, one ending on an unrelated out-of-memory crash) remains exactly as inconclusive as the 2026-10-05 update left it. FFRefine simply no longer intends to run ConFIG or to decide between it and weighted sum using these gates going forward. Whether ConFIG would in fact out-perform weighted sum under a like-for-like comparison, or under the new trust-region step rather than the retired natural-gradient step, is left open and is not expected to be investigated further by this project. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/answers/ffrefine-current-implementation-status]].
+
 ## Links
 
 - [[wiki/answers/ffrefine-direction-gates-and-production-policy]]
@@ -76,3 +81,4 @@ Taken together, weighted sum's last measured state (fresh loss 1.376, improving)
 - [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]
 - [[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]]
 - [[wiki/sources/SRC-0036-config-towards-conflict-free-training-of-physics-informed]]
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions]]

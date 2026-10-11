@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-10-04
+updated: 2026-10-11
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -50,6 +50,7 @@ related:
   - "[[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]"
   - "[[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]"
   - "[[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -388,6 +389,10 @@ Separately, adapting SRC-0090's per-trajectory $N_\text{eff}$-maximizing equilib
 
 Since 2026-09-30, FFRefine decides family eligibility with block-based, cross-fitted direction gates (replacing the chronological half-archive cosine gate) and decides, before any replay chain, whether to optimise, buy one rescue extension of the current archive, or stop, using a generic expected-value policy with α-spending for the retest. The first deciding ConFIG and weighted-sum water campaigns were still running on 2026-10-01. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]].
 
+### Canonical regime and a generalist-package plan (2026-10-11)
+
+Commit `110fe64` (2026-10-07) replaced the natural-gradient step with a damped Levenberg-Marquardt trust-region step and made the direction gates report-only; the rationale for that specific change was not recorded. A 2026-10-11 planning session then declared this combination — damped trust-region step, weighted-sum aggregation, report-only gates — the project's canonical regime (decision R), and decided (not yet implemented) to remove the direction gates, ConFIG aggregation, momentum, the natural-gradient path, rescue/extension sizing, loss gates in every mode, the archive KL budget, and Huber loss, on the reasoning that a report-only diagnostic is only informative if it evaluates the step the optimiser actually takes, which the gates (built around the now-unused natural-gradient direction) no longer do. The same session planned turning FFRefine into a generalist Julia package mirroring Molly's own API conventions, migrating its Molly backend from `AWHGrads` to `master` only after that package shell exists (so migration and generalisation are validated against separate, fixed references), and proposed a list of Molly-side changes (a generic per-sample TSS hook, a `ThermodynamicCycle` abstraction, and per-atom-type charge parameters among them) gated on whether each change is useful to Molly users on its own. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/answers/ffrefine-current-implementation-status]].
+
 ## Implementation route plan
 
 ### Phase 1: Define the sampler-agnostic interfaces
@@ -562,6 +567,7 @@ Method-specific reference denominators:
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]] with a sampler-agnostic extension note covering TSS and MBAR adapters.
 - Updated on 2026-09-24 with a pointer to the multi-family ConFIG aggregation and loss-gate diagnostic-policy findings recorded in [[wiki/answers/adding-config-optimiser-to-ffrefine]], [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
 - Updated on 2026-09-28 with pointers to [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] (replay calibration, the optimiser's curse, family-weight renormalisation, and the legacy stability gate) and [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] (fast-estimator bias and multi-series over-cutting calibration), and the new claims [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]] and [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]].
+- Updated on 2026-10-11 with a new subsection recording the canonical trust-region/weighted-sum regime and the 2026-10-11 generalist-package planning session, pointing to [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
 
 ## Remaining gaps
 

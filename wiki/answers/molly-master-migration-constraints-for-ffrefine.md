@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-02
-updated: 2026-10-02
+updated: 2026-10-11
 question: "What must change for FFRefine to run on Molly's `master` branch instead of Molly's `AWHGrads` branch, and why?"
 answer_status: answered
 areas:
@@ -29,6 +29,8 @@ related:
   - "[[wiki/questions/md-free-energy-decoupling-implementation-validation]]"
   - "[[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms]]"
   - "[[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
+  - "[[wiki/concepts/molly-jl-simulation-package-facts]]"
 sources: []
 sensitivity: public
 encryption: none
@@ -68,7 +70,9 @@ Pitfalls found: a `ParameterPlan` caches host copies of its own system's atoms, 
 
 Parameter names changed: master shares prefixes across a family (all Coulomb variants use `inter_CO_`; DEXP and DEXP soft-core both use `inter_DEXP_`), and `extract_parameters` keeps only the first value seen per shared prefix. Renames relative to `AWHGrads`: `inter_DEXPSC_*` → `inter_DEXP_*`, and `inter_CRF_*`/`inter_CE_*` → `inter_CO_*`.
 
-**Decision:** keep charge parameters on the FFRefine side (a local ordered container plus post-injection charge rebuilding) rather than adopting the upstream atom-type-keyed design. FFRefine needs molecular-template, not atom-type, charge keys (an existing implementation lesson in [[wiki/concepts/awh-replay-force-field-optimization]]), which the upstream design does not cover.
+**Decision, corrected 2026-10-11:** this page originally recommended keeping charge parameters entirely on the FFRefine side because FFRefine supposedly needed molecular-template, not atom-type, charge keys. That premise was wrong: FFRefine production has keyed charges by atom type since commit `d48d2f1` (2026-07-16, "Group charges by atom type"), before this page was written; the molecular-template charge-key code was already dead by 2026-10-02. See the corrected fourth implementation lesson in [[wiki/concepts/awh-replay-force-field-optimization]].
+
+With that correction, FFRefine's atom-type charge keys match how Molly's upstream `extract_parameters`/`ParameterPlan` design already keys σ and ϵ by atom type. The 2026-10-11 package-planning session therefore decided (K) to propose per-atom-type charge parameters (`atom_<type>_charge`) as a separate Molly pull request (work item U7, investigation first, not blocking the Phase 1 migration): once merged, it replaces FFRefine's local charge-injection layer, with `ChargeModel`/QEq logic mapping onto Molly's own charge parameters rather than FFRefine rebuilding `Atom`s after injection. Until U7 merges, FFRefine keeps local charge injection (an ordered container plus post-injection charge rebuilding), as originally found in this investigation. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
 
 ### B. TSS replay archive
 
@@ -92,15 +96,25 @@ Probed on ethanol-in-water plus a vacuum leg, with FFRefine-style states (soft-c
 4. **λ = 0 discontinuity on `AWHGrads`.** `AWHGrads`' `LJZeroShortcut` skips every pair involving an atom with λ = 0, so intra-solute DEXP interactions vanish exactly at λ = 0 but are present for every λ > 0 (for ethanol, about 0.05 kJ/mol: vacuum 15.786 at λ = 0 versus 15.736 at λ = 0.25 and 0.5). Master with `intraLJ=true` is continuous.
 5. **Consequence.** TSS biases, initial free-energy seeds, and replay archives are tied to the exact alchemical Hamiltonian definition and are not portable across this backend change; ΔG between the physical endpoints is unchanged in principle, but replay parity must be re-established after any switch.
 
+**Decisions made 2026-10-11, recorded here for this specific finding:**
+- **(F) Accept master's pair-scaling electrostatic λ path** (point 3 above) rather than reproducing `AWHGrads`' per-charge scaling.
+- **(E) Keep FFRefine's own alchemical-ladder builder** (the λ schedule, soft-core α = 0.85, and vacuum-leg construction) rather than switching to Molly's native alchemical types, until Molly's own alchemical setup can reproduce it (work item U6, below).
+
+**Molly `master`'s native alchemical types, found during the 2026-10-11 package-planning session.** Master has `AbsoluteFESystem`, `RelativeFESystem`, and `set_lambda!`, giving native alchemical free-energy support that did not exist in this form on `AWHGrads`. Its convention is: λ = 0 is the coupled (physical) end and λ = 1 is the decoupled (ghost) end (the reverse of FFRefine's own ladder, which runs λ from 1 at the coupled end to 0); atoms being alchemically removed get the `DeleteRole`; and dual topology (`dual=true`) is required. **`AbsoluteFESystem` cannot currently convert FFRefine's double-exponential (DEXP) soft-core potential**, because building the λ-dependent interaction calls `to_lambda_function` on every pairwise interaction, and no `to_lambda_function` method exists for `DoubleExponential`, even though the receiving alchemical type `DoubleExponentialSoftCore` already exists. This is why FFRefine's own λ-ladder builder is being kept (decision E) rather than replaced immediately; work item **U6** (Phase 3) is to add the missing `to_lambda_function` conversion plus whatever else is needed so `AbsoluteFESystem` can reproduce FFRefine's own ladder, after which FFRefine's builder can be retired. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/concepts/molly-jl-simulation-package-facts]] for the general Molly facts.
+
 ### F. PME charge-gradient mismatch (pre-existing, branch-independent)
 
 Using water with the garnet force field (2661 atoms), PME with `grad_safe=true`, CPU Float64, single thread, the derivative of potential energy with respect to the shared O charge ($q=-0.9052$) gave Enzyme $9.415971\times10^{4}$ versus central finite difference $9.380141\times10^{4}$ ($h=10^{-6}$), a relative error of $3.8\times10^{-3}$. Split by component: real-space pair part relative error $6.4\times10^{-9}$; Ewald exclusion-correction part $8.4\times10^{-10}$; PME reciprocal + self part Enzyme $3.308299\times10^{5}$ versus finite difference $3.304716\times10^{5}$, relative error $1.1\times10^{-3}$. Finite differences are trusted here because the energy is quadratic in the charges (no truncation error) with rounding at about $10^{-9}$ relative; σ and DEXP α gradients through the same PME system match finite differences at $10^{-10}$ and $10^{-9}$. This exists identically on both branches and matters only when charges (e.g. QEq) are trained with PME; FFRefine's water and hexane runs default to reaction field. See [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]] for the open-question write-up.
 
+### G. Loggers under generalized-ensemble sampling (found 2026-10-11)
+
+Molly `master`'s loggers belong to the generalized-ensemble simulation object, not to an individual `ThermoState`'s own `System`. In TSS, AWH, and replica-exchange (REMD) runs alike, a logger runs per replica and follows that replica as it moves across physical states; a logger attached to one `ThermoState`'s `System` is therefore silently never invoked during these runs. This is why FFRefine's planned target-logger declarations attach to the FFRefine ensemble object (planned as `TSSEnsemble(...; loggers)`), mirroring how `TSSSimulation(...; loggers)` already takes them on master, rather than to individual thermodynamic-state systems. See decision L and section C ("Fit targets, Molly loggers, and gradients of averages") in [[wiki/answers/ffrefine-generalist-package-plan-decisions]], and the general Molly facts in [[wiki/concepts/molly-jl-simulation-package-facts]].
+
 ## Recommended strategy
 
-- Port the TSS replay archive logger upstream to master (or add a generic per-step TSS hook), since it cannot be reconstructed robustly from master's public loggers (B).
-- Keep an FFRefine-side parameter container, charge layer, and system converter rather than adopting master's atom-type-keyed `extract_parameters`/`ParameterPlan` design as-is: a local ordered dict for charges, post-injection charge rebuilding, and project-local replacements for the removed `ustrip(::System)`/`from_device(::System)`/`_float_precision_convert` helpers, with the System float type passed explicitly (A, C).
-- Make an explicit alchemical decision rather than inheriting master's defaults silently: set `intraLJ=true` to preserve `AWHGrads`' decoupling semantics, and explicitly accept or replace the reaction-field/plain-Coulomb λ-scaling change (pair-λ instead of per-charge-λ) (E).
+- Port the TSS replay archive logger upstream to master (or add a generic per-step TSS hook), since it cannot be reconstructed robustly from master's public loggers (B). **Decided 2026-10-11:** a generic per-sample TSS hook (work item U1), not a direct port of the `AWHGrads`-only replay-archive logger; FFRefine owns the archive format built from that hook. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
+- Keep an FFRefine-side parameter container, charge layer, and system converter rather than adopting master's atom-type-keyed `extract_parameters`/`ParameterPlan` design as-is: a local ordered dict for charges, post-injection charge rebuilding, and project-local replacements for the removed `ustrip(::System)`/`from_device(::System)`/`_float_precision_convert` helpers, with the System float type passed explicitly (A, C). **Corrected 2026-10-11:** the charge layer should stay local only until Molly's own per-atom-type charge parameters (U7) merge, not indefinitely; see the corrected charge-key discussion in section A above.
+- Make an explicit alchemical decision rather than inheriting master's defaults silently: set `intraLJ=true` to preserve `AWHGrads`' decoupling semantics, and explicitly accept or replace the reaction-field/plain-Coulomb λ-scaling change (pair-λ instead of per-charge-λ) (E). **Decided 2026-10-11 (F):** accept master's pair-scaling path.
 - Do not reuse `AWHGrads`-era TSS replay archives, free-energy seeds, or serialized alchemical states on master; the role numbering and intermediate-λ Hamiltonian differ even though endpoints agree (E).
 
 ## Validation checklist
@@ -131,6 +145,8 @@ None (no literature source). All content is FFRefine project evidence from the 2
 
 - [[wiki/answers/ffrefine-current-implementation-status]]
 - [[wiki/concepts/awh-replay-force-field-optimization]]
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions]]
+- [[wiki/concepts/molly-jl-simulation-package-facts]]
 
 ## Wiki updates made
 
@@ -138,6 +154,7 @@ None (no literature source). All content is FFRefine project evidence from the 2
 - Added [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]] for the F finding.
 - Added section E as project evidence to [[wiki/questions/md-free-energy-decoupling-implementation-validation]], linked to [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms]].
 - Added a short pointer to this note in [[wiki/answers/ffrefine-current-implementation-status]].
+- **2026-10-11 update:** corrected section A's charge-key decision (production has used atom-type charge keys since 2026-07-16, not molecular-template keys); added decisions F and E and work item U7 where they apply; added `AbsoluteFESystem`/`RelativeFESystem`/`set_lambda!`, the missing DEXP `to_lambda_function` conversion, and the λ=0-coupled/λ=1-decoupled/`DeleteRole`/`dual=true` convention to section E; added section G on loggers being ignored on `ThermoState` systems under generalized-ensemble sampling. Added links to the new [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/concepts/molly-jl-simulation-package-facts]] pages.
 
 ## Remaining gaps
 

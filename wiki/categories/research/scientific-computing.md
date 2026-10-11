@@ -38,6 +38,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Concepts
 
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]]
+- [[wiki/concepts/molly-jl-simulation-package-facts|Molly.jl Simulation Package: Facts Relevant to FFRefine]]
 - [[wiki/concepts/rpicam-embedded-camera-firmware|RpiCam Embedded Camera Firmware]]
 - [[wiki/concepts/tss-implementation-patterns|Times Square Sampling Implementation Patterns]]
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses|Tolerance-Normalized Multi-Observable Losses]]
@@ -52,6 +53,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
 - [[wiki/answers/ffrefine-direction-gates-and-production-policy|FFRefine Direction Gates and Extend-or-Exclude Production Policy]]
 - [[wiki/answers/ffrefine-fisher-treatment-operators|FFRefine Fisher-Treatment Operators]]
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions|FFRefine Generalist-Package Plan: 2026-10-11 Decisions]]
 - [[wiki/answers/ffrefine-improved-gates-water-run-lessons|FFRefine Improved Replay-Gate Design: Lessons From Water Run 20260924-204914]]
 - [[wiki/answers/ffrefine-long-archive-target-gradient-convergence|FFRefine Long-Archive Target-Gradient Convergence]]
 - [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration|FFRefine Multi-Series Equilibration Cut Calibration]]

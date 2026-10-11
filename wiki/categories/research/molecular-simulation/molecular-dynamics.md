@@ -64,6 +64,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]]
 - [[wiki/concepts/md-pressure-and-stress-tensor-calculation|MD Pressure and Stress Tensor Calculation]]
 - [[wiki/concepts/molecular-dynamics-constraint-solvers|Molecular Dynamics Constraint Solvers]]
+- [[wiki/concepts/molly-jl-simulation-package-facts|Molly.jl Simulation Package: Facts Relevant to FFRefine]]
 - [[wiki/concepts/particle-mesh-ewald-and-long-range-electrostatics|Particle Mesh Ewald and Long-range Electrostatics]]
 - [[wiki/concepts/rna-molecular-dynamics-simulations|RNA Molecular Dynamics Simulations]]
 - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]]
@@ -72,6 +73,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Answers
 
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions|FFRefine Generalist-Package Plan: 2026-10-11 Decisions]]
 - [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration|FFRefine Multi-Series Equilibration Cut Calibration]]
 - [[wiki/answers/molly-master-migration-constraints-for-ffrefine|Molly Master Migration Constraints for FFRefine]]
 

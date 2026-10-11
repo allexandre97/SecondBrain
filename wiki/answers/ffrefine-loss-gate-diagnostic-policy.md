@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-24
-updated: 2026-10-01
+updated: 2026-10-11
 question: "Should paired loss-confidence acceptance gates block FFRefine's KL/ESS-bounded replay proposals, or serve only as diagnostics?"
 answer_status: answered
 areas:
@@ -25,6 +25,7 @@ related:
   - "[[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]"
   - "[[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]"
   - "[[wiki/concepts/forcebalance]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 sources:
   - SRC-0018
   - SRC-0025
@@ -107,10 +108,17 @@ No new equation is introduced by the loss-gate policy; it is an acceptance-logic
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]] with a ninth implementation lesson summarizing this finding and the ConFIG family-exclusion finding.
 - Updated [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]'s related links to point to this note; its evidence chronology was read but not rewritten.
 - Updated [[wiki/index]] and [[wiki/log]].
+- **2026-10-11:** added the status-update section below and linked [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
 
 ## Status (2026-10-01)
 
 Still current at FFRefine master `6b20031`: `loss_gate_mode` defaults to `:diagnostic`. Under `:enforce`, the loss gate is now the first rule of the generic production policy; because the production decision is taken before the replay chain, the enforced rule is re-applied after the chain (a rejected proposal stops the epoch; an inconclusive, blocked proposal extends production once while extensions remain). See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
+
+## Status update (2026-10-11): loss gates decided for removal in every mode
+
+FFRefine's 2026-10-11 package-planning document declares a damped Levenberg-Marquardt trust-region step with weighted-sum aggregation the project's canonical regime, and decides (not yet implemented in code as of 2026-10-11) to remove loss gates **in all modes** — both `:diagnostic` and `:enforce` — including the paired delete-block loss-confidence comparison and the stale-progress stop. This is a broader removal than the 2026-10-01 status above, which only recorded `:diagnostic` as the default while keeping `:enforce` available; `:enforce` itself is now also planned for removal, not merely de-emphasised. The reasoning recorded for the direction gates generally — that a diagnostic is only useful if it evaluates the step the optimiser actually takes — applies here too, since the loss gate was built around the KL/ESS-bounded natural-gradient replay trust region this page describes, which is itself being replaced. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/answers/ffrefine-current-implementation-status]] for the full removal list.
+
+This status update does not revisit this page's own evidence or conclusion (that the loss gate cost work without guarding against the observed failure mode); it only records that FFRefine's production policy is moving away from loss-based acceptance gating entirely, rather than continuing to keep `:enforce` as an available but unused option.
 
 ## Remaining gaps
 

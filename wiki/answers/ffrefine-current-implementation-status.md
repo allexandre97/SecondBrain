@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-10-05
+updated: 2026-10-11
 question: "What does the FFRefine codebase currently implement, and what remains unvalidated?"
 answer_status: answered
 areas:
@@ -45,6 +45,7 @@ related:
   - "[[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]]"
   - "[[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]]"
   - "[[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 sources:
   - SRC-0018
   - SRC-0023
@@ -73,6 +74,8 @@ project_evidence:
   - "FFRefine clean HEAD audit on 2026-09-23 at a3b6aa552faab3b91271a1e7a9cabbc97793978a: ConFIG finite-step family regressions are reported, not individually vetoed; focused test/config_optimiser_checks.jl passed 33/33"
   - "FFRefine master audit on 2026-10-01 at 6b20031 (code read only; no tests re-run for this audit): block-based direction gates authoritative since commit 26affa0 and generic extend-or-exclude production policy since e49cfde (both 2026-09-30); generic configuration surface; history schema 34"
   - "FFRefine Molly AWHGrads-to-master migration analysis on 2026-10-02: static diffs plus small Julia probes against FFRefine's garnet force-field files, no completed port or fresh experiment run; see [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
+  - "FFRefine commit 110fe64 (2026-10-07, \"Damped Levenberg-Marquardt trust-region step; report-only direction gates\"): the direction gates became report-only and a damped Levenberg-Marquardt trust-region step was introduced; the rationale for this change is not recorded"
+  - "FFRefine repository planning document `ffrefine_package_plan.md`, dated 2026-10-11: declares the damped trust-region/weighted-sum regime canonical (decision R) and decides a list of report-only-diagnostic and out-of-regime removals (decision D), none yet implemented in code as of 2026-10-11; see [[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
 ---
 
 # FFRefine Current Implementation Status
@@ -181,6 +184,40 @@ The positive result remains narrowly scoped. Checkpoint 7 has not been assessed 
 
 The current status is implementation validation plus a local scientific proof of concept for dielectric-only training. The 2026-09-23 optimizer change revises only finite-step family-regression acceptance: ConFIG's first-order component-direction guard remains, while finite-step family decreases are not guaranteed or required. The 33/33 damped-Fisher checks and focused ConFIG/momentum tests validate implementation behavior, not scientific or production performance of the combined damped-Fisher + ConFIG method. No multi-family replay/fresh-resimulation campaign has validated that combined method. `CLM-0040` is limited to fresh-resimulation evidence for the damped conditional-Fisher dielectric protocol and does not validate ConFIG. Do not promote this to water-model validation, multi-property balance, transferability, or robust convergence. The durable positive claim is restricted to repeated fresh-resimulation dielectric descent under the tested damped conditional-Fisher reaction-field protocol.
 
+## 2026-10-11 update: canonical regime and planned removals (not yet implemented)
+
+**Canonical regime decided (R).** Commit `110fe64` (2026-10-07, "Damped Levenberg-Marquardt trust-region step; report-only direction gates") introduced a damped Levenberg-Marquardt trust-region step and made the direction gates report-only (`gate_mode=report`). The 2026-10-11 planning document declares this combination — a damped Levenberg-Marquardt trust-region step with weighted-sum gradient aggregation — the project's **canonical regime** and the package's future default, matching the water runs of 2026-10-06 to 2026-10-08. The rationale for the 2026-10-07 change itself (why a trust-region step replaced the natural-gradient step, and why the gates were made report-only rather than removed at that time) is **not recorded anywhere in the project or in SecondBrain**; this page does not invent one.
+
+**Decided for removal (planned for Phase 0 of the package plan; NOT yet done in code as of 2026-10-11):**
+
+- the direction gates entirely: block statistics, the promise test, Monte Carlo calibration, family selection, and exclusion;
+- rescue and extension sizing, so the production decision reduces to "extend production once if validity fails, otherwise optimise";
+- ConFIG aggregation;
+- momentum (the post-Fisher first-moment momentum described above);
+- the natural-gradient step and its proposal path;
+- loss gates in all modes (`:diagnostic` and `:enforce`), including the paired delete-block loss-confidence comparison and the stale-progress stop;
+- the archive Kullback-Leibler (KL) budget, replaced by the effective-sample-size (ESS)-retention retry;
+- Huber loss (mean squared error only).
+
+**Reasons given for removing the direction gates specifically:** in report mode the gates never exclude or block anything, so they have no operational effect; and the gates test the natural-gradient direction, not the trust-region step the optimiser actually takes under the canonical regime, so even as a report-only diagnostic they describe a step that is never taken. A reusable validation lesson follows: **a report-only diagnostic must evaluate the same step or rule the optimiser actually takes, or it is uninformative.** This generalises beyond FFRefine's specific gates.
+
+**Kept, as necessary or informative:**
+
+- validity checks: MBAR ESS including the ESS-retention retry, replay/TSS parity, split validation, and window coverage;
+- fresh-archive losses with block standard errors;
+- replay calibration (predicted versus realised change per family);
+- step-to-family angles and step efficiency;
+- archive reachability;
+- the equilibration report (water);
+- memory tracking;
+- per-target curves.
+
+**Decided for removal as report-only diagnostics:** the backward replay comparison (parent parameters replayed on the new archive), the Fisher-treatment report (damped versus hard-cut comparison), the paired proposal-loss confidence interval, stale-progress tracking, and the legacy half-cosine (early-versus-late pseudo-value cosine), which is computed inside the direction-gate evaluation and goes with it.
+
+**Local-window TSS replay is retained only as the replay/TSS parity probe.** All training uses window-mixture MBAR; the local-window replay gradient, Fisher, and ESS machinery described above as part of the implemented architecture is dead code (reachable only through the parity probe, which uses local weights and free energies without gradients) and is planned for removal.
+
+Full planning context, sequencing rationale, and the Molly-side work list are in [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
+
 ## Links
 
 - [[wiki/answers/adding-config-optimiser-to-ffrefine]]
@@ -206,3 +243,4 @@ The current status is implementation validation plus a local scientific proof of
 - [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]]
 - [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]]
 - [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]
+- [[wiki/answers/ffrefine-generalist-package-plan-decisions]]
