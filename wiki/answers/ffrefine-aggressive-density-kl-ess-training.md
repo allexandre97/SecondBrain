@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-10-11
 question: "What did FFRefine's aggressive density-only KL and ESS campaign establish?"
 answer_status: partially-answered
 areas:
@@ -49,6 +49,9 @@ wiki_pages_updated:
 project_evidence:
   - "FFRefine density-only KL 0.1/archive 1.0/ESS 0.45 water-temperature run 20260903-220645, completed 2026-09-03"
   - "FFRefine density-only aggressive conditional-KL/ESS water-temperature run 20260904-102939, completed 2026-09-04"
+scope: snapshot
+currency: current
+as_of: 2026-09-04
 ---
 
 # Aggressive Density-Only KL and ESS Training

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-10-11
 question: "Within the FFRefine context and pipeline, when the momentum adam-like step was added to the ConFIG optimiser preconditioned by the Fisher matrix, why is the second momentum tricky, or at least not as obvious, to get as the first momentum was?"
 answer_status: answered
 areas:
@@ -43,6 +43,9 @@ wiki_pages_updated:
   - "[[wiki/log]]"
 project_evidence:
   - "FFRefine post-Fisher momentum implementation and focused tests on 2026-07-28"
+scope: snapshot
+currency: current
+as_of: 2026-07-29
 ---
 
 # FFRefine ConFIG Fisher Second Momentum

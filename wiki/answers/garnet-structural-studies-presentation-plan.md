@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-07
-updated: 2026-09-14
+updated: 2026-10-11
 areas:
   - research
 categories:
@@ -19,9 +19,15 @@ sources:
   - SRC-0073
 sensitivity: internal
 encryption: none
+scope: snapshot
+currency: historical
+as_of: 2026-09-14
 ---
 
 # Garnet Structural Studies presentation preparation
+
+> [!currency] Historical — describes the state as of 2026-09-14; kept as a record, not as the current state.
+> The Structural Studies colloquium was delivered on 2026-09-17; this page is the pre-talk preparation plan and rehearsal handoff, not a post-talk record.
 
 ## Rehearsal handoff and validated decisions — 14 September 2026
 

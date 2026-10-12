@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-26
-updated: 2026-10-01
+updated: 2026-10-11
 question: "What did two independent 100 ns reaction-field TSS archives establish about convergence of FFRefine water target values, gradients, and natural-gradient directions?"
 answer_status: partially-answered
 areas:
@@ -47,6 +47,9 @@ project_evidence:
   - "FFRefine Jacobi-scaled truncated-Fisher implementation audit completed 2026-08-26"
   - "FFRefine retrospective Fisher-treatment screen and paired cross-archive replay completed 2026-08-28"
   - "FFRefine state-conditional Fisher/KL reanalysis of the same two 100 ns archives completed 2026-08-30"
+scope: snapshot
+currency: current
+as_of: 2026-08-30
 ---
 
 # FFRefine Long-Archive Target-Gradient Convergence

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-28
-updated: 2026-10-01
+updated: 2026-10-12
 question: "How can ConFIG be added to the FFRefine pipeline to alleviate gradient conflicts between losses?"
 answer_status: answered
 areas:
@@ -31,6 +31,7 @@ related:
   - "[[wiki/answers/ffrefine-loss-gate-diagnostic-policy]]"
   - "[[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]"
   - "[[wiki/answers/ffrefine-improved-gates-water-run-lessons]]"
+  - "[[wiki/answers/ffrefine-decision-register]]"
 sources:
   - SRC-0036
   - SRC-0018
@@ -57,6 +58,13 @@ project_evidence:
   - "FFRefine run water_rdf-dens-diel_aggressive, epoch 5, observed 2026-09-24: density family stayed active in ConFIG with a collapsing raw gradient norm (228 to ~2 over five epochs) and unstable delete-block reliability, and the aggregate step collapsed to estimated KL 0.0017"
   - "FFRefine synthetic unit test, 2026-09-24: a three-family ConFIG step with one near-zero, sign-flipping family and two resolved families is more than 100x smaller than the corresponding two-family step under an identity Fisher"
   - "FFRefine water run 20260924-204914, epochs 10 and 18, analysed through the `improved-gates` design work: renormalised uncapped ConFIG step KL of 0.77 and 0.30 (capped to a 0.095 target) versus a reconstructed unrenormalised uncapped KL of 0.0045 and 0.0018 in the same rdf-only epochs, which produced rdf's largest per-epoch loss decreases in the run"
+  - "FFRefine master audit on 2026-10-01 at 6b20031: the legacy archive gate and reliability screen replaced by block-based direction gates since commit 26affa0 (2026-09-30); see [[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
+scope: snapshot
+currency: current
+as_of: 2026-10-01
+as_of_commit:
+  - FFRefine@a3b6aa5
+  - FFRefine@6b20031
 ---
 
 # Adding ConFIG to FFRefine
@@ -234,19 +242,27 @@ For weighted-sum aggregation, a Fisher-alignment restart is enough to avoid reus
 
 This is a project-specific optimizer adaptation supported by FFRefine synthetic tests, not a claim evaluated in SRC-0036 or SRC-0018. It should be interpreted as controlled first-moment smoothing inside the existing replay/Fisher trust-region machinery, not as Adam's second-moment normalization.
 
-## Archive direction-readiness gate
+## Legacy archive direction-readiness gate
 
-**Superseded (2026-10-01).** This section and the "Adopted policy" of the 2026-09-24 update below describe the legacy gate: four delete-block replicates, a reliability multiplier of 2, and a chronological half-archive cosine/norm-ratio check. Since FFRefine commit `26affa0` (2026-09-30) they are replaced by block-based, aggregation-aware direction gates: 8 jackknife blocks, a Monte Carlo calibrated size filter applied only before ConFIG aggregation, and a cross-fitted aggregation-promise test with family-removal loops for both ConFIG and weighted sum. Under weighted sum, uncertain or negligible families are no longer excluded for that reason alone. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]]. The text below is kept as the historical record.
+Until FFRefine commit `26affa0` (2026-09-30), direction readiness was decided by the legacy gate described in this section: four delete-block replicates, a reliability multiplier of 2, and a chronological half-archive cosine/norm-ratio check. By 2026-10-01 it had been replaced by block-based, aggregation-aware direction gates: 8 jackknife blocks, a Monte Carlo calibrated size filter applied only before ConFIG aggregation, and a cross-fitted aggregation-promise test with family-removal loops for both ConFIG and weighted sum. Under weighted sum, uncertain or negligible families are no longer excluded for that reason alone. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]]. The description below is kept as the record of the legacy gate.
 
-The optional archive gate estimates family-direction uncertainty from four replica-stratified delete-block replay gradients by default. For each family, it uses the treated latent direction before KL scaling: the KL-bounded step is divided by its KL scale so trust-region scaling does not make distinct gradient strengths appear equal. The jackknife standard error is computed for the direction vector in the Fisher gate metric.
+The optional archive gate estimated family-direction uncertainty from four replica-stratified delete-block replay gradients by default. For each family, it used the treated latent direction before KL scaling: the KL-bounded step is divided by its KL scale so trust-region scaling does not make distinct gradient strengths appear equal. The jackknife standard error was computed for the direction vector in the Fisher gate metric.
 
-With the default reliability multiplier of 2, a family is **resolved** when its direction signal exceeds twice its jackknife standard error. It is **negligible** only when signal plus twice the standard error is at most 0.1 times the maximum family scale; if that scale is zero, the special case requires the upper quantity to be exactly zero. Otherwise it is **uncertain**. A materially uncertain direction blocks readiness. Negligible families do not veto; resolved families are compared across the two chronological archive halves using treated-direction cosine and norm ratio. This reliability rule is a practical screening heuristic, not a calibrated confidence interval: its default multiplier and negligible fraction require campaign calibration and do not supply a confidence guarantee.
+With the default reliability multiplier of 2, a family was **resolved** when its direction signal exceeded twice its jackknife standard error. It was **negligible** only when signal plus twice the standard error was at most 0.1 times the maximum family scale; if that scale was zero, the special case required the upper quantity to be exactly zero. Otherwise it was **uncertain**. A materially uncertain direction blocked readiness. Negligible families did not veto; resolved families were compared across the two chronological archive halves using treated-direction cosine and norm ratio. This reliability rule was a practical screening heuristic, not a calibrated confidence interval: its default multiplier and negligible fraction required campaign calibration and did not supply a confidence guarantee.
 
-The inspected implementation is narrowly evidenced by FFRefine `backend.jl` (`archive_treatment_diagnostics`, `archive_direction_reliability`, and replica-stratified block construction), `solvation_pipeline.jl` (`ArchiveGradientPolicy` defaults), `optimiser.jl` (line-search/acceptance logic), and tests `test/water_temperature_checks.jl`, `test/fisher_damping_checks.jl`, and `test/config_optimiser_checks.jl`.
+The inspected implementation was narrowly evidenced by FFRefine `backend.jl` (`archive_treatment_diagnostics`, `archive_direction_reliability`, and replica-stratified block construction), `solvation_pipeline.jl` (`ArchiveGradientPolicy` defaults), `optimiser.jl` (line-search/acceptance logic), and tests `test/water_temperature_checks.jl`, `test/fisher_damping_checks.jl`, and `test/config_optimiser_checks.jl`.
 
-## Unreliable directions must be excluded from aggregation, not just from readiness (2026-09-24 update)
+**Family exclusion under the legacy screen (from 2026-09-24 until `26affa0`).** Families whose treated direction was classified `:uncertain` or `:negligible` by the delete-block reliability screen were excluded from the ConFIG family set for that proposal, and the remaining family weights were renormalized over the included families while preserving each included family's within-family target weighting. This was a stronger rule than excluding on a small raw gradient norm alone or on cosine similarity alone: exclusion was driven by the reliability classification of the *treated* direction, the same quantity the readiness gate already computed. Excluded families were kept in monitoring, ESS/support accounting, and KL coverage; they were simply removed from the vectors that construct $u$. A proposal could still reach a `partial_ready` checkpoint state when at least one family remained eligible after exclusion; a family whose direction was resolved but chronologically unstable still blocked readiness as before. Per-epoch exclusion streaks were recorded per family so that cycling behavior (a family excluded, drifting, becoming resolved, being re-included, and being excluded again) is visible in the optimisation history; no hysteresis was applied to exclusion decisions. The reason for this rule is the first lesson below.
 
-The reliability screen above was originally used only to gate readiness: a materially uncertain family blocked the proposal, while a negligible family "did not veto." That framing understated a separate risk that project evidence has since exposed.
+## Lessons from multi-family water runs
+
+These lessons come from FFRefine project evidence (runs `water_rdf-dens-diel_aggressive` and `20260924-204914`, and a synthetic unit test), not from SRC-0036.
+
+### Unreliable directions must be excluded from aggregation, not just from readiness
+
+See [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]].
+
+The legacy reliability screen was originally used only to gate readiness: a materially uncertain family blocked the proposal, while a negligible family "did not veto." That framing understated a separate risk that project evidence exposed.
 
 ConFIG whitens every *included* family gradient to unit norm before solving for the common direction, so every included family gets equal angular weight in $u$ regardless of how large or well-resolved its raw gradient is. [SRC-0036, equations 2-3] A family that is still formally active but whose treated direction is small, noisy, or sign-flipping therefore steers the shared direction exactly as strongly as a family with a large, stable gradient. If that direction disagrees with the other families, ConFIG's pseudoinverse construction can shrink the entire aggregate step by orders of magnitude rather than simply averaging it down, because $u$ is chosen so that every included component has an equal, small positive projection.
 
@@ -254,19 +270,21 @@ ConFIG whitens every *included* family gradient to unit norm before solving for 
 
 **Reproduction.** A synthetic unit test with two resolved families plus one near-zero family pointing against them, under an identity Fisher, reproduces the mechanism directly: the three-family ConFIG step is more than 100x smaller than the two-family step obtained by dropping the near-zero, conflicting family.
 
-**Adopted policy.** Families whose treated direction is classified `:uncertain` or `:negligible` by the delete-block reliability screen are now excluded from the ConFIG family set for that proposal, and the remaining family weights are renormalized over the included families while preserving each included family's within-family target weighting. This is a stronger rule than excluding on a small raw gradient norm alone or on cosine similarity alone: exclusion is driven by the reliability classification of the *treated* direction, the same quantity the readiness gate already computes. Excluded families are kept in monitoring, ESS/support accounting, and KL coverage; they are simply removed from the vectors that construct $u$. A proposal can still reach a `partial_ready` checkpoint state when at least one family remains eligible after exclusion; a family whose direction is resolved but chronologically unstable still blocks readiness as before. Per-epoch exclusion streaks are recorded per family so that cycling behavior (a family excluded, drifting, becoming resolved, being re-included, and being excluded again) is visible in the optimisation history; no hysteresis is applied to exclusion decisions yet.
+FFRefine's response was the family-exclusion rule described under the legacy gate above.
 
-**Open tension.** Excluding a family from aggregation removes its only training signal for that epoch, since nothing else optimizes it. A family that is marginally resolved but has high loss, such as dielectric with a signal-to-standard-error ratio near 3 against the default reliability multiplier of 2 in the same run, could in principle drop in and out of the aggregate across epochs, leaving some proposals that optimize only the remaining families. `required_families` and `min_eligible_families` settings exist as explicit, currently uncalibrated controls against this risk. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] and [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]].
+**Open tension.** Excluding a family from aggregation removes its only training signal for that epoch, since nothing else optimizes it. A family that is marginally resolved but has high loss, such as dielectric with a signal-to-standard-error ratio near 3 against the default reliability multiplier of 2 in the same run, could in principle drop in and out of the aggregate across epochs, leaving some proposals that optimize only the remaining families. `required_families` and `min_eligible_families` settings exist as explicit, uncalibrated controls against this risk. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] and [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]].
 
 This is a project design decision and project-evidence finding, not a claim evaluated in SRC-0036. It refines, rather than replaces, the "does not veto" framing in [[#5. Finite-step acceptance and ConFIG's scope]]: that section is about finite-step family *regressions* not independently rejecting an already-constructed candidate, while this section is about which family gradients are allowed to shape the candidate direction in the first place.
 
-## Renormalising remaining family weights after exclusion changes the step length (2026-09-28 update)
+### Renormalising remaining family weights after exclusion changes the step length
+
+See [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]].
 
 Excluding a family disables its targets and renormalises the remaining family weights to sum to 1 (`effective_target_weights`). A 22-epoch water run (`20260924-204914`; rdf, density, dielectric weighted 1, 2, 10) shows this is not scale-neutral for the optimiser. Renormalisation leaves the step's *direction* among the included families unchanged (a common rescaling factor under weighted sum; ConFIG unit-normalizes each included component regardless), but it rescales the objective's magnitude, and the natural-gradient step uses a fixed learning rate of 1 that is only ever capped, never lengthened, at the KL target. So renormalisation changes the *uncapped* step length before the cap is applied.
 
 Reconstructing the uncapped ConFIG step KL as $\tfrac12|c|^2$ from the logged `h_dot_c` diagnostic matched the logged KL in uncapped epochs. In two rdf-only epochs (10 and 18, KL target 0.095) the renormalised uncapped KL was 0.77 and 0.30 (both capped down to 0.095); reconstructed without renormalisation it would have been only 0.0045 and 0.0018 — three orders of magnitude smaller and no longer capped. These were the same two epochs in which rdf made its largest per-epoch loss decreases in the run (about -0.128 and -0.083), so renormalisation acted as an accidental step-size boost in exactly the epochs where it happened to help. Under weighted sum, the same renormalisation also weakens the data/regularization balance whenever families are excluded (regularization is not itself renormalised), for example about 13x weaker in an rdf-only epoch.
 
-**Adopted response (partial).** FFRefine now reports the optimised loss on a full-objective scale as well (dividing only the data term back by the renormalisation factor; the prior term is untouched), so logged-loss jumps caused purely by which families are currently included can be distinguished from real progress, and stale-progress/`max_loss_increase` diagnostics can be read on a consistent scale. The optimiser's *step* itself is unchanged and remains renormalised: whether to keep renormalising the step, decouple it from the reporting scale, or adopt an explicit scale convention is deferred to a combined step-length-policy decision, because the objective's arbitrary scale is also what produces long runs of many tiny, well-supported proposals once a family converges and the active objective shrinks. See [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]] and [[wiki/answers/ffrefine-improved-gates-water-run-lessons]].
+FFRefine's partial response is described under the implementation status below. See also [[wiki/answers/ffrefine-improved-gates-water-run-lessons]].
 
 ## Diagnostics to record
 
@@ -325,16 +343,23 @@ The archive-gate thresholds and finite-step acceptance behavior are FFRefine pro
 - [[wiki/concepts/tolerance-normalized-multi-observable-losses]] remains the cited explanation of family-scaled objective values; it was read but not changed.
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]].
 - Updated [[wiki/index]] and [[wiki/log]].
+- 2026-10-11: folded the dated 2026-09-24 and 2026-09-28 update sections and the superseded-gate note into undated sections (legacy gate, lessons, implementation status) describing the 2026-10-01 state; later decisions are in [[wiki/answers/ffrefine-decision-register]].
 
-## Implementation status after 2026-07-28
+## Implementation status
 
-FFRefine implements this design as an opt-in optimizer aggregation policy, with `:weighted_sum` retained as the default and `:config` selecting family-level Fisher-whitened ConFIG. The replay backend dispatches through the shared optimizer path, so water-temperature and solvation experiments use the same aggregation machinery. Water-temperature can opt in through its configuration, while existing runs remain on weighted-sum aggregation unless changed explicitly.
+Since 2026-07-28, FFRefine implements this design as an opt-in optimizer aggregation policy, with `:weighted_sum` retained as the default and `:config` selecting family-level Fisher-whitened ConFIG. The replay backend dispatches through the shared optimizer path, so water-temperature and solvation experiments use the same aggregation machinery. Water-temperature can opt in through its configuration, while existing runs remain on weighted-sum aggregation unless changed explicitly.
 
 The implementation treats QEq regularization as a ConFIG component only when QEq regularization is active. This preserves the intended conflict-free semantics without creating artificial protected components in non-QEq optimizations. Candidate callbacks must return values, support diagnostics, and the candidate parameterization so the central optimizer can compute and report per-family finite-step losses; family regressions do not independently veto acceptance.
 
 The optimizer also has post-Fisher first-moment momentum enabled by default with a moderate coefficient. It is deliberately chain-local and stores accepted latent displacements, so it does not attempt to transport velocity across rebuilt frozen-reference ensembles. Focused tests include a ConFIG counterexample where an aggregate-aligned previous step is uphill for one protected component; the implemented component-wise beta limiter keeps all protected first-order projections descending.
 
 Focused tests cover ConFIG linear algebra, objective decomposition, degeneracy diagnostics, backend dispatch, validity/reporting behavior, parameterization checks, water-temperature target assembly, optimizer momentum guards, KL rebounding, line-search history storage, and momentum history reporting. The old specialized solvation replay optimizer path was removed in favor of the common optimizer aggregation path.
+
+From 2026-09-24 until commit `26affa0` (2026-09-30), unreliable families were excluded from ConFIG under the legacy screen, as described in [[#Legacy archive direction-readiness gate]]; from `26affa0` until `110fe64` (2026-10-07), the Monte Carlo calibrated size filter and promise test of the direction gates decided which families entered the aggregation. At `110fe64` the gates became report-only and no longer decide this (FFR-020 in [[wiki/answers/ffrefine-decision-register]]).
+
+**Response to the renormalisation finding (partial).** FFRefine reports the optimised loss on a full-objective scale as well (dividing only the data term back by the renormalisation factor; the prior term is untouched), so logged-loss jumps caused purely by which families are currently included can be distinguished from real progress, and stale-progress/`max_loss_increase` diagnostics can be read on a consistent scale. The optimiser's *step* itself is unchanged and remains renormalised: whether to keep renormalising the step, decouple it from the reporting scale, or adopt an explicit scale convention is deferred to a combined step-length-policy decision, because the objective's arbitrary scale is also what produces long runs of many tiny, well-supported proposals once a family converges and the active objective shrinks. See [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]] and [[wiki/answers/ffrefine-improved-gates-water-run-lessons]].
+
+Later decisions about ConFIG, momentum, and family exclusion are tracked in [[wiki/answers/ffrefine-decision-register]] (FFR-008, FFR-009, FFR-012, FFR-013, FFR-015, FFR-033, FFR-034).
 
 ## Project validation record
 
@@ -343,7 +368,7 @@ Focused tests cover ConFIG linear algebra, objective decomposition, degeneracy d
 ## Remaining gaps
 
 - SRC-0036 evaluates ordinary ConFIG primarily for PINNs and one multi-task benchmark; it does not validate this replay-force-field adaptation.
-- Archive reliability defaults are heuristic screening thresholds and still need campaign calibration; they are not calibrated confidence intervals.
+- The legacy archive reliability defaults were heuristic screening thresholds that were never campaign-calibrated; they were not calibrated confidence intervals. The direction gates that replaced them use Monte Carlo calibrated multipliers; see [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
 - Production evidence is still needed to show that reduced gradient conflict improves force-field quality rather than merely changing the local optimization trajectory.
-- The exclusion-and-renormalize policy for unreliable directions is evidenced by one water multi-family run and one synthetic unit test; `required_families`, `min_eligible_families`, and exclusion-streak reporting have not yet been campaign-calibrated. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
+- The exclusion-and-renormalize policy for unreliable directions was evidenced by one water multi-family run and one synthetic unit test; `required_families`, `min_eligible_families`, and exclusion-streak reporting have not yet been campaign-calibrated. See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
 - Whether to keep renormalising the optimiser's step (as opposed to only its reported loss) after family exclusion is an open, undecided design question, deferred to a combined step-length-policy decision. See [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]].

@@ -135,6 +135,31 @@ uniquenavigationtoken
         self.assertIn("wiki/concepts/free-energy.md", paths)
         self.assertTrue(all(not Path(path).is_absolute() for path in paths))
 
+    def test_results_report_file_line_range_of_matching_section(self) -> None:
+        self.write(
+            "wiki/concepts/vertical-tab.md",
+            "---\ntype: concept\n---\n# Page\n\nformula \x0bec{x} here\n\n## Target\n\nlinerangetoken\n\n",
+        )
+        cases = {
+            "estimator": (
+                "wiki/concepts/free-energy.md",
+                "## Reweighting",
+                "The overlapneedle estimator reweights sampled configurations.",
+            ),
+            "diagnostic": ("wiki/concepts/free-energy.md", "## Diagnostics", "```"),
+            "linerangetoken": ("wiki/concepts/vertical-tab.md", "## Target", "linerangetoken"),
+        }
+        for query, (path, heading, last_line) in cases.items():
+            with self.subTest(query=query):
+                result = self.search(query).results[0]
+                self.assertEqual(result["path"], path)
+                file_lines = (self.root / path).read_text(encoding="utf-8").split("\n")
+                self.assertEqual(file_lines[result["line_start"] - 1], heading)
+                self.assertEqual(file_lines[result["line_end"] - 1], last_line)
+
+        intro = self.search("missingmetadata").results[0]
+        self.assertEqual((intro["line_start"], intro["line_end"]), (1, 3))
+
     def test_body_title_display_alias_heading_and_source_matches(self) -> None:
         cases = {
             "ordinary corpus": "wiki/concepts/free-energy.md",

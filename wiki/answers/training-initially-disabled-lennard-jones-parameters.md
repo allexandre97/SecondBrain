@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-14
-updated: 2026-10-07
+updated: 2026-10-11
 question: "How should force-field optimization make initially disabled Lennard-Jones parameters trainable, and are exactly zero atomic charges affected in the same way?"
 answer_status: answered
 areas:
@@ -40,6 +40,7 @@ wiki_pages_used:
   - "[[wiki/questions/force-field-training-validation-scope]]"
   - "[[wiki/tensions/TEN-0007-physical-water-construction-vs-empirical-fitting]]"
 raw_sources_consulted: []
+scope: timeless
 ---
 
 # Training Initially Disabled Lennard-Jones Parameters

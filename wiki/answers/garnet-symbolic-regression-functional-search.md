@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-10-11
 question: "For the next version of Garnet, could symbolic regression let the model choose the best functional for a given interaction, where would SR fit in the pipeline, and how should parameter-count mismatch and training cost be handled?"
 answer_status: answered
 areas:
@@ -67,6 +67,7 @@ wiki_pages_updated:
   - wiki/concepts/garnet-functional-form-search.md
   - wiki/index.md
   - wiki/log.md
+scope: timeless
 ---
 
 # Symbolic Regression for Garnet Functional-Form Search

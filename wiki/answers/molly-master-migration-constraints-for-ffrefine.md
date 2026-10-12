@@ -46,6 +46,11 @@ project_evidence:
   - "FFRefine project investigation, 2026-10-02: static diffs between Molly AWHGrads head `e122c88b` (2026-07-31) and Molly master head `587d3644` (2026-10-02); merge base `491668ae` (AWHGrads has 50 commits not on master, master has 184 not on AWHGrads); compared against FFRefine commit `6b20031`, which currently runs only on AWHGrads"
   - "FFRefine project probes, 2026-10-02: small Julia probe scripts (not kept; scripts were temporary) built with FFRefine's own garnet force-field XMLs and PDBs, run on CPU in Float64 against both Molly checkouts"
   - "Full project-local write-up: `molly_master_migration.md` in the FFRefine repository root"
+scope: snapshot
+currency: current
+as_of: 2026-10-02
+as_of_commit:
+  - Molly@587d3644
 ---
 
 # Molly Master Migration Constraints for FFRefine

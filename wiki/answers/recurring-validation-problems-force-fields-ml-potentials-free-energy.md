@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-10-11
 question: "What are the recurring validation problems across force-field fitting, ML potentials, and free-energy estimators?"
 answer_status: answered
 areas:
@@ -68,6 +68,7 @@ wiki_pages_updated:
   - wiki/concepts/cross-domain-validation-problems-in-molecular-simulation.md
   - wiki/index.md
   - wiki/log.md
+scope: timeless
 ---
 
 # Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators

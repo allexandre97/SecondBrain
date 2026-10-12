@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-29
-updated: 2026-09-03
+updated: 2026-10-11
 question: "Which KL divergence should FFRefine use when extended-ensemble simulations train force-field parameters across temperature or alchemical ladders?"
 answer_status: answered
 areas:
@@ -56,6 +56,7 @@ project_evidence:
   - "FFRefine within-state/between-state Fisher decomposition completed 2026-08-29"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
+scope: timeless
 ---
 
 # KL Definition for Extended-Ensemble Force-Field Training

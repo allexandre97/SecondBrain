@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-10-01
-updated: 2026-10-05
+updated: 2026-10-11
 claim_status: limited
 claim_scope: local
 areas:
@@ -28,6 +28,7 @@ encryption: none
 project_evidence:
   - "FFRefine production-decision Monte Carlo checks (B = 8, alpha = 0.05, alpha0 = 0.04, c_ex = 1, rho = 0.85, c0 = 0.05), reported by the implementing session 2026-09-30 to 2026-10-01: uncorrected two-look false-pass 0.0727 (size) and 0.070 (promise), about 1.45 alpha; with alpha-spending 0.051 and 0.056; conditional model at kappa = 1.1, z = 1.6: realised 0.23 vs predicted 0.08; after selection on a failed look 0: realised 0.565 vs predicted 0.458"
   - "FFRefine master 6b20031, production_decision.jl (rescue_look_threshold, gate_looks, rescue_pass_probability) and test/production_decision_checks.jl"
+scope: timeless
 ---
 
 # Retesting a Failed Gate After an Extension Needs α-Spending
@@ -50,11 +51,12 @@ Local project-evidence claim for FFRefine's one-look rescue policy: archives ext
 
 - Numbers come from synthetic Monte Carlo checks and were reported by the implementing session; the test code was inspected but not re-run for this page.
 - The calibration ignores that a rescued ConFIG look can change the included set.
-- No deciding campaign had executed a rescue extension at the time of writing (2026-10-01), so realised look-1 pass rates in production are unmeasured.
+- As of 2026-10-05, six rescue extensions have run in the two deciding water campaigns (five resolved, one cut short by an out-of-memory crash before its chain ran) — too few to re-estimate a realised look-1 pass rate in production; see Evidence timeline.
 
-## 2026-10-05 update: production rescues now observed
+## Evidence timeline
 
-Six rescue extensions have now run in the two deciding water campaigns (five resolved, one cut short by an out-of-memory crash before its chain ran). They are too few to re-estimate a realised look-1 pass rate, but they do show failure modes beyond the look-level statistics this claim covers: a rescue can pass its own targeted statistic and still fail a *later* stage of the gate (a ConFIG size-filter rescue passing size and then failing the promise test), and a weighted-sum rescue's total-based statistic can make a family that is simply at its own constrained optimum look rescuable, bypassing this policy's own "not rescuable" protection, which is keyed to the family's own size statistic. These are generic design flaws, not failures of the alpha-spending correction itself, and are recorded with full numbers in [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]].
+- 2026-10-01: at the time of writing, no deciding campaign had executed a rescue extension, so realised look-1 pass rates in production were unmeasured.
+- 2026-10-05: six rescue extensions have now run in the two deciding water campaigns (five resolved, one cut short by an out-of-memory crash before its chain ran). They are too few to re-estimate a realised look-1 pass rate, but they do show failure modes beyond the look-level statistics this claim covers: a rescue can pass its own targeted statistic and still fail a *later* stage of the gate (a ConFIG size-filter rescue passing size and then failing the promise test), and a weighted-sum rescue's total-based statistic can make a family that is simply at its own constrained optimum look rescuable, bypassing this policy's own "not rescuable" protection, which is keyed to the family's own size statistic. These are generic design flaws, not failures of the alpha-spending correction itself. [[wiki/answers/ffrefine-direction-gates-and-production-policy]], [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]
 
 ## Links
 

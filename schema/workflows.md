@@ -59,7 +59,35 @@ When metadata is absent, infer title, slug, source type, bundle role, areas, cat
 
 ## Knowledge retrieval workflow
 
-For topical retrieval, run `python3 tools/search_wiki.py <query>` before broad wiki scanning, inspect only the strongest sections/pages, and then use `tools/query_graph.py` if relationship traversal would help. Skip lexical search when the exact path is already known. Targeted file search remains appropriate after candidate selection. Search scores express lexical relevance only, not truth, confidence, evidence strength, or source quality. Consult raw sources only as required by provenance and source-verification workflows.
+For topical retrieval, run `python3 tools/search_wiki.py <query>` before broad wiki scanning, inspect only the strongest sections/pages (each result reports the section's file line range as `line_start`/`line_end`), and then use `tools/query_graph.py` if relationship traversal would help. Skip lexical search when the exact path is already known. Targeted file search remains appropriate after candidate selection. Search scores express lexical relevance only, not truth, confidence, evidence strength, or source quality. Consult raw sources only as required by provenance and source-verification workflows.
+
+## Currency workflow
+
+Time scope and currency fields are defined in `schema/page_templates.md` under `Time Scope and Currency`.
+
+When retrieving:
+
+- Every search result reports `scope`, `currency`, `as_of`, and `superseded_by`. Treat `historical` and `superseded` results as records of a past state, not as the current state; follow `superseded_by` for current information. Use `python3 tools/search_wiki.py --current <query>` when only the present state matters, and the default search when rationale or history matters.
+- When reaching a page by wikilink rather than by search, read its first 20 or so lines (frontmatter and any `> [!currency]` banner) before relying on a section.
+- For project state, the project repository is authoritative. When a page has `as_of_commit` and the repository is available, compare that commit with the repository's current state before relying on implementation details.
+
+When project state changes:
+
+1. Rewrite affected `living` pages in place and update their `as_of`; add one line to their `## Changes` list. Do not append dated update sections.
+2. For each affected `snapshot`, run `python3 tools/set_currency.py <page> --superseded-by <replacement> --note "<one-line reason>"`, or `--currency historical --note "..."` when no single page replaces it. Do not otherwise edit the snapshot's body.
+3. Move lessons that remain valid into claim or concept pages rather than leaving them only in a superseded snapshot.
+4. New project-state pages must declare `scope`, `currency`, and `as_of` from the start, and list their dated `project_evidence`. Every answer page declares `scope`, even when it is `timeless`.
+5. `tools/set_currency.py` also adds or removes the `**Superseded:**`/`**Historical:**` marker on the page's `wiki/index.md` entry; do not edit those markers by hand. When writing a new index entry for a non-current page, run the tool on the page afterwards.
+
+### Recording change over time
+
+Readers often see only one section, so each section must be true as written, without a later section correcting it.
+
+- **Timeless pages** (claims, questions, tensions, concepts): lead with the current statement or status, rewritten when evidence changes it. Record dated observations as bullets in a `## Evidence timeline` section (`- 2026-10-05: observation. [[evidence page]]`), oldest first. Do not add dated update or status headings. A question that is moot for a project but scientifically open says so in its status line.
+- **Living pages**: rewrite the body to describe the present; add one line per change to `## Changes` (`- 2026-10-11: what changed. [[evidence page]]`).
+- **Snapshots**: the body describes only the `as_of` state. Later developments go to the relevant living page or a newer snapshot, and the old snapshot is marked with `tools/set_currency.py`; never append to it.
+
+`tools/validate_wiki.py` warns on dated update or status headings on any page, and on any dated heading on a living page.
 
 ## Answer-note workflow
 

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-01
-updated: 2026-09-21
+updated: 2026-10-11
 question: "How does FFRefine construct the unscaled hard-cut, diagonal, identity, continuously damped, and modal-SNR parameter steps, and what motivates each treatment?"
 answer_status: answered
 areas:
@@ -59,6 +59,7 @@ project_evidence:
   - "FFRefine state-conditional Fisher-treatment replay completed 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
   - "FFRefine damped-Fisher + ConFIG implementation and focused checks on 2026-09-21: 33/33 passed"
+scope: timeless
 ---
 
 # FFRefine Fisher-Treatment Operators

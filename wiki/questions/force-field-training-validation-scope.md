@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-06-30
-updated: 2026-08-20
+updated: 2026-10-11
 areas:
   - research
 categories:
@@ -42,6 +42,7 @@ sensitivity: public
 encryption: none
 project_evidence:
   - "FFRefine fixed-archive and fresh-archive water average-observable validation through 2026-08-20"
+scope: timeless
 ---
 
 # Force Field Training Validation Scope

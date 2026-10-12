@@ -9,6 +9,7 @@ An LLM-assisted wiki workspace for turning raw source material into reviewed Mar
 - `schema/` documents page templates, glossary terms, workflows, and lint rules.
 - `tools/` stores local maintenance scripts.
 - `tests/` stores local smoke tests for wiki tooling.
+- `claude-config/` stores the Claude Code agent definitions shared between workstations; see `claude-config/README.md`.
 
 ## Obsidian Vault
 
@@ -93,6 +94,18 @@ python3 tools/search_wiki.py "force field optimization"
 python3 tools/search_wiki.py "free energy" --type concept --limit 5
 python3 tools/search_wiki.py "Boltzman generator" --fuzzy
 python3 tools/search_wiki.py "Garnet experimental observables" --json --limit 5
+python3 tools/search_wiki.py "direction gates" --current
+```
+
+Each result reports the section's file line range (`line_start`/`line_end`) and the page's time scope and currency (`scope`, `currency`, `as_of`, `superseded_by`). `--current` excludes historical and superseded pages.
+
+## Page Currency
+
+Pages describing project state declare a time scope (`timeless`, `living`, or `snapshot`) and currency (`current`, `historical`, or `superseded`); see `Time Scope and Currency` in `schema/page_templates.md`. Change these fields, the page's `> [!currency]` banner, and its `wiki/index.md` marker with:
+
+```sh
+python3 tools/set_currency.py wiki/answers/page.md --scope snapshot --currency current --as-of 2026-10-01 --as-of-commit FFRefine@6b20031
+python3 tools/set_currency.py wiki/answers/page.md --superseded-by wiki/answers/replacement --note "What changed and when."
 ```
 
 The tool uses Python's SQLite FTS5 and built-in BM25 ranking. It indexes each Markdown page under `wiki/` as logical heading-based sections, including page/display/short titles, aliases, headings, body text, categories, tags, areas, and source IDs. Ordinary queries are safely tokenized and use AND matching first, then deterministic OR fallback only if AND returns no filtered results. Shell quoting only groups arguments; it does not request raw FTS syntax.

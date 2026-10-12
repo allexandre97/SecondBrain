@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-02
-updated: 2026-10-11
+updated: 2026-10-12
 question: "Can the AWH frozen-bias replay force-field optimization idea be tested with Times Square Sampling and MBAR, and what machinery is common versus method-specific?"
 answer_status: answered
 areas:
@@ -51,6 +51,8 @@ related:
   - "[[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]"
   - "[[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]]"
   - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
+  - "[[wiki/answers/ffrefine-decision-register]]"
+  - "[[wiki/answers/tss-mbar-replay-phased-implementation-plan]]"
 sources:
   - SRC-0005
   - SRC-0006
@@ -83,6 +85,7 @@ wiki_pages_updated:
   - "[[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]]"
 graph_neighborhoods_used:
   - "tools/query_graph.py --start wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients.md --depth 1"
+scope: timeless
 ---
 
 # Testing Replay Force-Field Optimization With TSS and MBAR
@@ -217,7 +220,7 @@ F_{\mathrm{cond}}
 [\nabla_\phi u_{\theta,s}(x)].
 $$
 
-This should define proposal orientation, while the maximum state-conditional candidate-to-reference KL and state-wise ESS should control finite replay steps. By contrast, the covariance over the state-labelled frozen-bias mixture also contains the between-state covariance of mean scores. It measures the change in joint state occupancy if the old bias remains frozen. That remains a useful bias-portability diagnostic, but it should not be treated as equivalent to state-normalized replay KL. This is a project design recommendation supported by the 2026-08-29 conditioning analysis and has not yet been prospectively validated. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]] and [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]].
+This should define proposal orientation, while the maximum state-conditional candidate-to-reference KL and state-wise ESS should control finite replay steps. By contrast, the covariance over the state-labelled frozen-bias mixture also contains the between-state covariance of mean scores. It measures the change in joint state occupancy if the old bias remains frozen. That remains a useful bias-portability diagnostic, but it should not be treated as equivalent to state-normalized replay KL. This is a project design recommendation supported by the 2026-08-29 conditioning analysis; its prospective evidence is limited to the dielectric-only reaction-field training recorded in [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]. See [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]] and [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]].
 
 Keep the SRC-0018 update logic as the common optimizer:
 
@@ -321,9 +324,9 @@ MBAR-specific diagnostics should include:
 
 The MBAR route will likely be the easiest baseline to implement, because it avoids adaptive-bias readiness. It will also be the least forgiving: if the initial state grid or windows do not cover the candidate force-field distributions, MBAR cannot adaptively repair that support problem. [SRC-0023] [[wiki/claims/CLM-0010-reweighting-fine-tuning-depends-on-support]]
 
-### FFRefine window-mixture MBAR implementation status
+### Window-mixture MBAR reference for frozen windowed TSS
 
-A 2026-07-24 FFRefine implementation uses the frozen TSS windows themselves as the sampled MBAR states. For window $j$ with local rung set $W_j$, frozen local free-energy estimates $f_{jk}$, and frozen local log densities $\log \gamma_{jk}$, its unnormalized conditional configuration density is represented by the reduced potential
+A window-mixture MBAR reference uses the frozen TSS windows themselves as the sampled MBAR states; FFRefine implemented this on 2026-07-24 (implementation and test details in [[wiki/answers/ffrefine-current-implementation-status]]). For window $j$ with local rung set $W_j$, frozen local free-energy estimates $f_{jk}$, and frozen local log densities $\log \gamma_{jk}$, its unnormalized conditional configuration density is represented by the reduced potential
 
 $$
 u_j^{\mathrm{mix}}(x)
@@ -353,154 +356,19 @@ Consequently, every archived frame is considered for every thermodynamic target 
 
 This global MBAR estimator does not replace local-window replay as a TSS readiness check. Local replay followed by the ordinary TSS stitching equations remains the appropriate parity diagnostic against the TSS-reported free-energy surface. The MBAR denominator is instead used consistently for optimization free energies, all optimized observables, their gradients, candidate ESS, and empirical Fisher estimates. During candidate replay, the sampled-window normalization constants and reference denominator are held fixed while candidate target reduced potentials change, preserving the frozen-reference separation required by SRC-0018. [SRC-0018]
 
-The implementation reuses Molly's lower-level MBAR machinery for the sampled-window solve and target weights, and Molly's partitioned cross-state energy assembly for reduced potentials. Focused synthetic tests verify normalization, observable and free-energy finite-difference gradients, overlap rejection, and source-window contributions. Molecular smoke tests and a reduced water-temperature test verify that the 25 degrees Celsius RDF target receives weight from frames belonging to every TSS window in the test archive. This has **not yet been validated in a complete production optimization run**. In particular, no empirical claim should yet be made that it improves RDF convergence, density/RDF balance, accepted-step quality, or resimulation agreement. Those remain production validation questions.
+## Validation staging
 
-## Current FFRefine implementation snapshot
+Mathematical correctness, local identifiability on fresh production, and prospective resimulation are separate validation stages. Passing fixed-archive differentiation (values, finite-difference gradients, loss gradients, and small teacher-parameter recovery) proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
 
-A 2026-07-28 code audit found that FFRefine has moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend now consumes named TSS legs and completed simulations, constructs replay summaries, checks replay/TSS parity, ESS, Fisher, and split diagnostics, and only then runs replay-only proposal chains. It also implements a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. See [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-paper-methods-knowledge-base]].
+Only fresh resimulation validates the central replay/resimulation loop. So far this has been shown for one local scientific objective: in FFRefine's dielectric-only reaction-field water training, supported archive-derived proposals survived fresh simulation repeatedly. This does not establish ethanol solvation improvement, water density/RDF/dielectric balance, transferability, or robust convergence. [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]] The underlying evidence for both stages is listed in the Evidence timeline below.
 
-The implemented experiment surfaces are narrower than the general route plan. `solvation.jl` is a two-leg ethanol solvation workflow whose default training set currently enables the solvation free-energy target; the solvated density target is defined but commented out. `water_temperature.jl` supports density, RDF, relative enthalpy, and dielectric families through target-family configuration; its current working-tree default is dielectric-only training using cutoff/reaction-field electrostatics and rigid water. All families retain the exact 14 through 41 degrees Celsius TSS ladder, 28 states, original lambda schedule, window size 4, and 15 overlapping windows even when experimental targets exist at only a subset of temperatures. These are implementation facts from the FFRefine repository audit, not literature claims.
+## Phased implementation plan
 
-The route plan should therefore be read as a design envelope plus accumulated implementation lessons. Prospective reaction-field dielectric-only runs now establish repeated local improvement under fresh resimulation, including six consecutive paired-confirmed updates in run `20260902-115818`. This does not establish ethanol solvation improvement, water density/RDF/dielectric balance, transferability, or robust convergence. [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
+A phased plan built on this analysis (sampler-agnostic interfaces, an AWH control path, an MBAR baseline first, then a minimal nonwindowed TSS prototype, then a three-way benchmark) was proposed on 2026-07-02; its windowed-TSS steps were revised on 2026-07-07 (commit `eb401bb`). It is kept as a historical snapshot in [[wiki/answers/tss-mbar-replay-phased-implementation-plan]].
 
-### Average-observable validation update
+## FFRefine project state
 
-The August 2026 enthalpy and PME dielectric checks add a validation stage between mathematical correctness and macro optimization. Fixed-archive values, finite-difference gradients, loss gradients, and 0.1% one-parameter recovery passed. Fresh 10 ns and 20 ns scans then found no tested direction meeting SNR 5, replay support, and empirical KL at most 0.02. At 20 ns the best valid SNR was 0.1121 for cutoff/reaction-field enthalpy and 0.08847 for PME dielectric, whereas much larger raw responses were outside replay support. [[wiki/answers/ffrefine-average-observable-trainability-validation]]
-
-The route must therefore require local-identifiability screening on fresh production before commissioning teacher simulations. Passing fixed-archive differentiation proves that the implemented estimator is internally consistent; it does not prove that a production archive resolves a supported parameter direction. A failed sensitivity screen should be reported as `inconclusive_sensitivity`, not as mathematics failure or proof of fundamental untrainability. [[wiki/claims/CLM-0038-fixed-archive-gradient-validation-does-not-establish-fresh-archive-trainability]] [[wiki/tensions/TEN-0018-average-observable-signal-versus-replay-support]]
-
-### Prospective dielectric proof of concept
-
-The later state-conditional Fisher implementation, continuous damping at $\gamma=0.1$, exact empirical cumulative-KL control, and fresh paired checkpoint assessment crossed the production-validation boundary for the dielectric-only reaction-field surface. The first campaign produced two paired-confirmed updates and reproducible final-validation loss. Higher-KL campaign `20260902-115818` produced six consecutive paired-confirmed updates and reduced fresh loss from 7.3431 to 3.6057 through checkpoint 6.
-
-This validates the route's central replay/resimulation loop for one local scientific objective: supported archive-derived proposals can survive fresh simulation repeatedly. It also preserves the route's scope boundary. The dielectric curve did not converge, checkpoint 7 was not fresh assessed before the user intentionally stopped the run, and no collateral or transferability targets were evaluated. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]]
-
-### Multi-family ConFIG aggregation and loss-gate policy update
-
-A 2026-09-24 multi-family water run (density, RDF, dielectric under family-level Fisher-whitened ConFIG) found that a near-stationary but formally active family with an unreliable treated direction can collapse the shared ConFIG step by orders of magnitude, and that a paired loss-confidence acceptance gate cost work on well-supported steps while missing the run's actual failure (a chain that over-predicted its fresh-archive improvement). FFRefine's response excludes directionally unreliable families from ConFIG aggregation with weight renormalization, and now treats loss-based acceptance gates as diagnostic by default under the existing KL/ESS trust region. See [[wiki/answers/adding-config-optimiser-to-ffrefine]], [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
-
-### Improved replay-gate design lessons from a 22-epoch water run (2026-09-28)
-
-Designing calibrated, cross-fitted replay-chain diagnostics against a longer 22-epoch multi-family water run (`20260924-204914`) produced four further findings. First, replay-prediction calibration can be checked per family across epochs, but the cumulative-error uncertainty must account for telescoping realised changes and shared archives, not a naive sum of per-epoch variances. Second, the run shows the "optimiser's curse": from epoch 10 on, a converged family's replay-predicted improvement was optimistic in most epochs, consistent with a multi-step replay chain optimising its own replay estimate. Third, renormalising the remaining family weights to sum to 1 after excluding a family changes the natural-gradient step's uncapped length, and acted as a large accidental step-size boost in exactly the epochs where the smallest-weighted family made its best progress. Fourth, the existing chronological half-archive stability gate (cosine ≥ 0.8) mostly reacted to ordinary sampling noise rather than real drift, costing about 13% of the run's wall time while missing the run's actual failure mode, motivating a planned cross-fitted "aggregation promise" test in place of a fixed angle threshold. See [[wiki/answers/ffrefine-improved-gates-water-run-lessons]], [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]], [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]], and [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]].
-
-Separately, adapting SRC-0090's per-trajectory $N_\text{eff}$-maximizing equilibration cut and SRC-0091's fast multiscale statistical-inefficiency estimator to a frozen-bias production archive with several observable series and a single replica walking a temperature ladder — a combination neither source addresses — found that the fast estimator itself reads about 15-20% high on AR(1) series, and that naively taking the latest of several per-series argmax cuts over-cuts a stationary archive by an amount that grows sharply as $N/g$ falls; a materiality threshold calibrated conditionally on a cut-independent statistic controls this. See [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] and [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]].
-
-### Calibrated direction gates and extend-or-exclude production policy (2026-10-01)
-
-Since 2026-09-30, FFRefine decides family eligibility with block-based, cross-fitted direction gates (replacing the chronological half-archive cosine gate) and decides, before any replay chain, whether to optimise, buy one rescue extension of the current archive, or stop, using a generic expected-value policy with α-spending for the retest. The first deciding ConFIG and weighted-sum water campaigns were still running on 2026-10-01. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]].
-
-### Canonical regime and a generalist-package plan (2026-10-11)
-
-Commit `110fe64` (2026-10-07) replaced the natural-gradient step with a damped Levenberg-Marquardt trust-region step and made the direction gates report-only; the rationale for that specific change was not recorded. A 2026-10-11 planning session then declared this combination — damped trust-region step, weighted-sum aggregation, report-only gates — the project's canonical regime (decision R), and decided (not yet implemented) to remove the direction gates, ConFIG aggregation, momentum, the natural-gradient path, rescue/extension sizing, loss gates in every mode, the archive KL budget, and Huber loss, on the reasoning that a report-only diagnostic is only informative if it evaluates the step the optimiser actually takes, which the gates (built around the now-unused natural-gradient direction) no longer do. The same session planned turning FFRefine into a generalist Julia package mirroring Molly's own API conventions, migrating its Molly backend from `AWHGrads` to `master` only after that package shell exists (so migration and generalisation are validated against separate, fixed references), and proposed a list of Molly-side changes (a generic per-sample TSS hook, a `ThermodynamicCycle` abstraction, and per-atom-type charge parameters among them) gated on whether each change is useful to Molly users on its own. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/answers/ffrefine-current-implementation-status]].
-
-## Implementation route plan
-
-### Phase 1: Define the sampler-agnostic interfaces
-
-Implement or refactor around four interfaces:
-
-| Interface | Responsibility | Method-specific? |
-| --- | --- | --- |
-| `ReferenceArchive` | Store frames, visited states/windows, volumes, reference energies, and metadata. | Mostly common. |
-| `ReferenceAdapter` | Provide `log_reference_mixture(frame)` and readiness diagnostics. | Yes. |
-| `ReplayEstimator` | Compute target free energies, observables, gradients, ESS, and split diagnostics. | Mostly common. |
-| `TrustRegionOptimizer` | Build loss, Fisher metric, KL-scaled step, and acceptance decisions. | Common. |
-
-The hard boundary is that `TrustRegionOptimizer` should not know whether the archive came from AWH, TSS, or MBAR. It should only consume predictions, gradients, Fisher estimates, and diagnostics.
-
-### Phase 2: Lock down the AWH control path
-
-Keep the existing SRC-0018 AWH path as the reference implementation. Add regression tests around:
-
-- frozen reference mixture denominator,
-- endpoint replay free energies,
-- endpoint gradients,
-- observable replay estimate and gradient,
-- candidate-ensemble ESS,
-- Fisher score covariance,
-- line-search rejection on low ESS,
-- replay/AWH parity gate. [SRC-0018]
-
-This phase prevents the TSS and MBAR experiments from moving the target.
-
-### Phase 3: Implement the MBAR baseline first
-
-The MBAR baseline is the cleanest first alternative because it does not require adaptive sampler implementation.
-
-1. Choose a small thermodynamic cycle, such as the ethanol hydration example already used by SRC-0018. [SRC-0018]
-2. Run fixed equilibrium or biased simulations at a discrete lambda schedule.
-3. Decorrelate or stride frames and build a cross-state reduced-potential matrix $u_k(x_n)$.
-4. Solve MBAR for the reference sampled states or import the reference $\hat f_k$ values. [SRC-0023]
-5. Implement `MBARReferenceAdapter.log_reference_mixture`.
-6. Evaluate endpoint targets as unsampled candidate states against the fixed reference mixture.
-7. Reuse the common replay gradient, observable, ESS, Fisher, and line-search logic.
-8. After each accepted parameter update, run a short independent resimulation check before allowing additional trust-region steps.
-
-Success criteria:
-
-- free energies match standard MBAR at the reference parameterization,
-- replay gradients pass finite-difference checks,
-- ESS and overlap decline predictably as parameter perturbations grow,
-- accepted updates improve the tolerance-normalized objective and survive resimulation.
-
-### Phase 4: Implement a minimal TSS-as-reference prototype
-
-Start with the smallest TSS feature set that can generate a fixed reference archive:
-
-1. Implement a nonwindowed TSS sampler over the same lambda schedule, or choose a small enough schedule that windows are unnecessary.
-2. Run adaptive TSS until free-energy estimates, rung occupancy, and visit-control diagnostics stabilize.
-3. Freeze the TSS sampling distribution: no stochastic-approximation updates, no history forgetting, and no changing visit-control tilts during production.
-4. Collect frozen production frames with visited rung metadata.
-5. Export the exact frozen denominator used by the production kernel.
-6. Plug the archive into the common replay estimator.
-
-Only after this nonwindowed path works should the implementation add windowed TSS:
-
-1. Store active window labels and local rung sets.
-2. Export local window denominators for every retained frame.
-3. Compute replay free energies and observable averages locally inside each active window.
-4. Stitch local replay free-energy surfaces with the same reported TSS equations used for ordinary local estimates.
-5. Stitch local observable averages with the reported window probabilities and global rung density.
-6. Add window stitching diagnostics from SRC-0006 as readiness checks, but keep replay weights tied to the actual frozen production density. [SRC-0006]
-
-Success criteria:
-
-- TSS reported profile and replayed profile agree within configured tolerance on supported states,
-- split-epoch and split-half estimates are stable,
-- window offsets are connected and not dominated by one weak overlap,
-- the same optimizer can consume TSS archives without sampler-specific branches.
-
-### Phase 5: Compare AWH, TSS, and MBAR under one benchmark
-
-Use one benchmark before expanding:
-
-- same molecule or system,
-- same lambda schedule where possible,
-- same trainable parameter subset,
-- same experimental or reference targets,
-- same optimizer settings,
-- same validation resimulations.
-
-Report:
-
-- wall-clock and force-evaluation cost,
-- target loss improvement per macro epoch,
-- ESS after each accepted step,
-- split-half disagreement,
-- parity or profile disagreement,
-- number of rejected line-search proposals,
-- number of forced resimulations,
-- held-out observable or held-out lambda validation.
-
-Do not rank methods by final training loss alone. The relevant question is which method produces reference archives that support reliable parameter updates under the same validation standard. [SRC-0018] [[wiki/questions/force-field-training-validation-scope]]
-
-## Recommended first prototype
-
-Build the MBAR baseline first, then the minimal nonwindowed TSS adapter.
-
-MBAR first is useful because it tests the sampler-agnostic optimizer with the least new sampling code. It will also expose whether the current replay and Fisher implementation truly depends on AWH-specific assumptions. [SRC-0023] [SRC-0018]
-
-TSS second is the real test of the user's idea. If TSS frozen archives give higher support or lower split uncertainty than AWH or MBAR for the same system, then TSS is not just another estimator; it becomes a better adaptive reference generator for replay-based force-field optimization. [SRC-0005] [SRC-0006]
+This page is a sampler-agnostic design analysis; read it as a design envelope, not as a description of any codebase. FFRefine's implementation of the route is described in [[wiki/answers/ffrefine-current-implementation-status]] (a snapshot pinned to a commit), its decisions and their status in [[wiki/answers/ffrefine-decision-register]], and the project evidence that refined this design in the Evidence timeline below and in [[wiki/answers/ffrefine-paper-methods-knowledge-base]].
 
 ## Key equations
 
@@ -540,6 +408,21 @@ Method-specific reference denominators:
 | TSS | Exact frozen simulated-tempering or windowed TSS denominator used by production; in the simplest nonwindowed case, $\sum_k\exp[\log\pi_{\mathrm{ref},k}+F_{\mathrm{ref},k}-H_{\mathrm{ref},k}(x)]$. [SRC-0005] [SRC-0006] |
 | MBAR | $\sum_k N_k\exp[\hat f_k^{\mathrm{ref}}-u_k^{\mathrm{ref}}(x)]$ for the sampled reference states. [SRC-0023] |
 
+## Evidence timeline
+
+- 2026-07-07: an FFRefine ethanol-solvation scaffold test found that windowed TSS replay must be local to the active window and then stitched; the global-offset alternative gave about $6\,k_BT$ replay/TSS disagreement (see the TSS adapter section).
+- 2026-07-13: an FFRefine production failure refined the TSS replay/TSS parity policy toward interval-based, leg-local decisions (see the TSS adapter section).
+- 2026-07-24: FFRefine implemented the window-mixture MBAR reference described above. At that date it had **not yet been validated in a complete production optimization run**; in particular, no empirical claim was made that it improves RDF convergence, density/RDF balance, accepted-step quality, or resimulation agreement, which remained production validation questions. [[wiki/answers/ffrefine-current-implementation-status]]
+- 2026-07-28: a code audit found that FFRefine had moved from a route-plan prototype toward a project-local implementation on Molly's `AWHGrads` branch. The backend consumed named TSS legs and completed simulations, constructed replay summaries, checked replay/TSS parity, ESS, Fisher, and split diagnostics, and only then ran replay-only proposal chains. It also implemented a global latent coordinate map across arbitrary named legs, QEq charge latents with molecular charge constraints, relative per-epoch bounds for non-QEq parameters, optimisation history, and concise terminal reporting. The implemented experiment surfaces were narrower than this route. [[wiki/answers/ffrefine-current-implementation-status]] [[wiki/answers/ffrefine-paper-methods-knowledge-base]]
+- 2026-08-15 to 2026-08-20: FFRefine enthalpy and PME dielectric checks added a validation stage between mathematical correctness and macro optimization. Fixed-archive values, finite-difference gradients, loss gradients, and 0.1% one-parameter recovery passed. Fresh 10 ns and 20 ns scans then found no tested direction meeting SNR 5, replay support, and empirical KL at most 0.02. At 20 ns the best valid SNR was 0.1121 for cutoff/reaction-field enthalpy and 0.08847 for PME dielectric, whereas much larger raw responses were outside replay support. [[wiki/answers/ffrefine-average-observable-trainability-validation]]
+- 2026-08-29: an FFRefine conditioning analysis separated the state-conditional Fisher (proposal orientation) from the frozen-bias joint Fisher (bias-portability diagnostic), as described in the optimizer section; at that date the recommendation had not been prospectively validated. [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training]] [[wiki/claims/CLM-0039-trust-region-kl-must-match-replay-conditioning]]
+- 2026-09-02 to 2026-09-03: the state-conditional Fisher implementation, continuous damping at $\gamma=0.1$, exact empirical cumulative-KL control, and fresh paired checkpoint assessment crossed the production-validation boundary for the dielectric-only reaction-field surface. The first campaign produced two paired-confirmed updates and reproducible final-validation loss. Higher-KL campaign `20260902-115818` produced six consecutive paired-confirmed updates and reduced fresh loss from 7.3431 to 3.6057 through checkpoint 6. The dielectric curve did not converge, checkpoint 7 was not fresh assessed before the user intentionally stopped the run, and no collateral or transferability targets were evaluated. [[wiki/answers/ffrefine-prospective-dielectric-damped-fisher-training]] [[wiki/claims/CLM-0040-damped-conditional-fisher-dielectric-training-survives-fresh-resimulation]]
+- 2026-09-24: a multi-family water run (density, RDF, dielectric under family-level Fisher-whitened ConFIG) found that a near-stationary but formally active family with an unreliable treated direction can collapse the shared ConFIG step by orders of magnitude, and that a paired loss-confidence acceptance gate cost work on well-supported steps while missing the run's actual failure (a chain that over-predicted its fresh-archive improvement). FFRefine's response excluded directionally unreliable families from ConFIG aggregation with weight renormalization, and treated loss-based acceptance gates as diagnostic by default under the existing KL/ESS trust region. [[wiki/answers/adding-config-optimiser-to-ffrefine]] [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]] [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]] [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]
+- 2026-09-28: designing calibrated, cross-fitted replay-chain diagnostics against a 22-epoch multi-family water run (`20260924-204914`) produced four findings. First, replay-prediction calibration can be checked per family across epochs, but the cumulative-error uncertainty must account for telescoping realised changes and shared archives, not a naive sum of per-epoch variances. Second, the run shows the "optimiser's curse": from epoch 10 on, a converged family's replay-predicted improvement was optimistic in most epochs, consistent with a multi-step replay chain optimising its own replay estimate. Third, renormalising the remaining family weights to sum to 1 after excluding a family changes the natural-gradient step's uncapped length, and acted as a large accidental step-size boost in exactly the epochs where the smallest-weighted family made its best progress. Fourth, the chronological half-archive stability gate (cosine ≥ 0.8) mostly reacted to ordinary sampling noise rather than real drift, costing about 13% of the run's wall time while missing the run's actual failure mode, motivating a cross-fitted "aggregation promise" test in place of a fixed angle threshold. [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]] [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]] [[wiki/questions/QST-0007-checkpoint-assessment-versus-next-direction-readiness]]
+- 2026-09-28: adapting SRC-0090's per-trajectory $N_\text{eff}$-maximizing equilibration cut and SRC-0091's fast multiscale statistical-inefficiency estimator to a frozen-bias production archive with several observable series and a single replica walking a temperature ladder — a combination neither source addresses — found that the fast estimator itself reads about 15-20% high on AR(1) series, and that naively taking the latest of several per-series argmax cuts over-cuts a stationary archive by an amount that grows sharply as $N/g$ falls; a materiality threshold calibrated conditionally on a cut-independent statistic controls this. [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]
+- 2026-10-01: since 2026-09-30, FFRefine decided family eligibility with block-based, cross-fitted direction gates (replacing the chronological half-archive cosine gate) and decided, before any replay chain, whether to optimise, buy one rescue extension of the current archive, or stop, using a generic expected-value policy with α-spending for the retest. The first deciding ConFIG and weighted-sum water campaigns were still running on 2026-10-01. [[wiki/answers/ffrefine-direction-gates-and-production-policy]] [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]]
+- 2026-10-07 to 2026-10-11: commit `110fe64` introduced a damped Levenberg-Marquardt trust-region step and made the direction gates report-only (rationale not recorded); on 2026-10-11 this step, with weighted-sum aggregation, became the canonical regime, superseding the natural-gradient step as the canonical step. The natural-gradient path is still in the code at `110fe64` and is decided for removal (FFR-035); whether the trust-region step replaces it in every experiment is not recorded. The 2026-10-11 planning session also decided (not yet implemented) to remove the direction gates, ConFIG, momentum, rescue/extension sizing, loss gates in every mode, the archive KL budget, and Huber loss, and planned a generalist Julia package mirroring Molly's API, a Molly `master` migration after the package shell, and Molly-side changes gated on their usefulness to Molly users. [[wiki/answers/ffrefine-decision-register]] [[wiki/answers/ffrefine-generalist-package-plan-decisions]]
+
 ## Sources used
 
 - SRC-0018 for frozen-bias replay, endpoint and observable gradients, candidate-ensemble ESS, empirical Fisher/KL geometry, readiness gates, and line-search acceptance.
@@ -567,7 +450,8 @@ Method-specific reference denominators:
 - Updated [[wiki/concepts/awh-replay-force-field-optimization]] with a sampler-agnostic extension note covering TSS and MBAR adapters.
 - Updated on 2026-09-24 with a pointer to the multi-family ConFIG aggregation and loss-gate diagnostic-policy findings recorded in [[wiki/answers/adding-config-optimiser-to-ffrefine]], [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], [[wiki/claims/CLM-0044-config-must-exclude-directionally-unreliable-families]], and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
 - Updated on 2026-09-28 with pointers to [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] (replay calibration, the optimiser's curse, family-weight renormalisation, and the legacy stability gate) and [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration]] (fast-estimator bias and multi-series over-cutting calibration), and the new claims [[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]] and [[wiki/claims/CLM-0048-family-weight-renormalisation-changes-natural-gradient-step-length]].
-- Updated on 2026-10-11 with a new subsection recording the canonical trust-region/weighted-sum regime and the 2026-10-11 generalist-package planning session, pointing to [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
+- Updated on 2026-10-11 with a subsection recording the canonical trust-region/weighted-sum regime and the 2026-10-11 generalist-package planning session, pointing to [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
+- Split on 2026-10-11 so that this page holds only the sampler-agnostic design: the FFRefine implementation-snapshot subsections and the window-mixture MBAR implementation status moved to the Evidence timeline, [[wiki/answers/ffrefine-current-implementation-status]] and [[wiki/answers/ffrefine-decision-register]]; the phased implementation plan and recommended first prototype moved to [[wiki/answers/tss-mbar-replay-phased-implementation-plan]].
 
 ## Remaining gaps
 

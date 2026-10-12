@@ -48,6 +48,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--source", help="Exact source_id or frontmatter sources filter.")
     parser.add_argument("--tag", help="Exact frontmatter tag filter.")
     parser.add_argument(
+        "--current",
+        dest="current_only",
+        action="store_true",
+        help="Exclude pages whose currency is historical or superseded.",
+    )
+    parser.add_argument(
         "--include-generated",
         action="store_true",
         help="Use a separate index that includes pages with generated: true.",
@@ -87,6 +93,14 @@ def print_human(response: object) -> None:
         print(f"{number}. {result['path']}")
         section = result["section_path"] or "(page introduction)"
         print(f"   Section: {section}")
+        print(f"   Lines: {result['line_start']}-{result['line_end']}")
+        if result["scope"] != "timeless" or result["currency"]:
+            currency = f"   Currency: {result['scope']}, {result['currency'] or 'unspecified'}"
+            if result["as_of"]:
+                currency += f", as of {result['as_of']}"
+            if result["superseded_by"]:
+                currency += "; superseded by " + ", ".join(result["superseded_by"])
+            print(currency)
         print(f"   Score: {result['score']:.6f}")
         if result["snippet"]:
             print(f"   {result['snippet']}")
@@ -119,6 +133,7 @@ def main(argv: Sequence[str] | None = None, *, root: Path = ROOT) -> int:
             status=args.status,
             source=args.source,
             tag=args.tag,
+            current_only=args.current_only,
             include_generated=args.include_generated,
             rebuild=args.rebuild,
             fuzzy=args.fuzzy_mode,

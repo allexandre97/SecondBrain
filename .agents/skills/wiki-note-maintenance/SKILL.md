@@ -33,6 +33,7 @@ When asked to lint, validate, or health-check the wiki, check for:
 - Thin pages that should be merged or expanded.
 - Important repeated terms that deserve concept/entity pages.
 - Stale pages superseded by newer sources.
+- Currency warnings from `tools/validate_wiki.py`: living pages with dated headings or an old `as_of`.
 - `wiki/index.md` links missing for important source, concept, entity, or answer pages.
 - `wiki/log.md` entries missing for wiki content changes.
 
@@ -83,6 +84,10 @@ When asked to organize concept pages:
 - Treat moving or renaming concept files as a separate explicit migration with backlink updates, link-churn review, `wiki/index.md` updates, and validation.
 - Use `python3 tools/build_concept_indexes.py` for semantic browsing dashboards when the task is about browsing or grouping concepts.
 - Do not infer new categories silently; use existing frontmatter and the category registry, and report uncertain candidates instead of rewriting taxonomy during unrelated maintenance.
+
+## Currency maintenance
+
+When classifying or repairing time scope and currency, follow `Time Scope and Currency` in `schema/page_templates.md` and the `Currency workflow` in `schema/workflows.md`. Use `python3 tools/set_currency.py` for every metadata and banner change; use `--dry-run` to preview. Base `as_of` and `as_of_commit` on the page's own dated `project_evidence`, never on the edit date.
 
 ## Index and log consistency
 

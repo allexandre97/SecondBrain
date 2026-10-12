@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-04
-updated: 2026-10-05
+updated: 2026-10-11
 question: "How did FFRefine's two deciding water campaigns develop past their first snapshot (2026-10-04): what happened when weighted sum's epoch-27 worker was killed by an out-of-memory condition, what does ConFIG's continuing run through checkpoint 33 show about conflict-driven exclusion, and what did six production rescue extensions reveal about weaknesses in the extend-or-exclude policy?"
 answer_status: answered
 areas:
@@ -74,6 +74,9 @@ project_evidence:
   - "Six production rescue extensions observed across both campaigns (CF epochs 27, 29, 32; WS epochs 26, 27) plus the first snapshot's single rescue (CF 27, now superseded by this fuller account); one (WS 27) was cut short by the out-of-memory crash before its chain ran"
   - "Out-of-memory crash evidence: worker RSS versus archive frame count, node memory co-scheduling, and monitoring that reported the killed worker as exiting with code 0"
   - "Earlier context already recorded in [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]: legacy half-archive-gate run 20260924-204914 and shadow campaign 20260928-220040"
+scope: snapshot
+currency: current
+as_of: 2026-10-05
 ---
 
 # ConFIG-Versus-Weighted-Sum Water Campaign: Weighted Sum's Crash and ConFIG's Continuing Regression

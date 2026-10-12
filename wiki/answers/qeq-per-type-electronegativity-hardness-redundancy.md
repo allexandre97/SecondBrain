@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-11
 question: "When charge-equilibration (QEq) electronegativity and hardness coefficients are shared per atom type (looked up) instead of predicted per atom by a network, is the hardness parameter redundant, and when does it matter?"
 answer_status: answered
 areas:
@@ -53,6 +53,7 @@ wiki_pages_updated:
   - "[[wiki/log]]"
 project_evidence:
   - "FFRefine (coding-project) session, reported 2026-10-07: per-type QEq redundancy, zero-charge-seed multiplicative-bound failure, and the supervised-vs-reweighting training contrast, observed while reusing FFRefine's multiplicity-weighted QEq implementation for force-field refinement. The derivations in this note were independently re-derived and checked during this SecondBrain write-back against FFRefine's already-recorded QEq KKT system in [[wiki/answers/ffrefine-paper-methods-knowledge-base]]; the FFRefine project's own Julia code was not inspected directly by this write-back."
+scope: timeless
 ---
 
 # When Is a Per-Type QEq Hardness Coefficient Redundant?

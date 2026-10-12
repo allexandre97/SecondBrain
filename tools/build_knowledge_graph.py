@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from wiki_currency import currency_metadata
 from wiki_markdown import as_list, h1, parse_frontmatter
 
 
@@ -216,17 +217,21 @@ def build_graph() -> dict[str, list[dict[str, Any]]]:
     for page in pages:
         categories = sorted(as_list(page.frontmatter.get("categories", [])))
         sources = sorted(as_list(page.frontmatter.get("sources", [])))
-        add_node(
-            nodes,
-            node(
-                page.page_id,
-                page.page_type,
-                page.label,
-                path=f"{page.page_id}.md",
-                categories=categories,
-                sources=sources,
-            ),
+        item = node(
+            page.page_id,
+            page.page_type,
+            page.label,
+            path=f"{page.page_id}.md",
+            categories=categories,
+            sources=sources,
         )
+        # Only time-bound pages carry currency fields, keeping timeless nodes unchanged.
+        currency = currency_metadata(page.frontmatter)
+        if currency["scope"] != "timeless" or currency["currency"]:
+            for key in ("scope", "currency", "as_of"):
+                if currency[key]:
+                    item[key] = currency[key]
+        add_node(nodes, item)
 
     for page in pages:
         for source_id in sorted(as_list(page.frontmatter.get("sources", []))):
@@ -241,6 +246,11 @@ def build_graph() -> dict[str, list[dict[str, Any]]]:
             target = category_node_id(category)
             add_node(nodes, node(target, "category", category, value=category))
             add_edge(edges, edge(page.page_id, target, "category", "frontmatter:categories"))
+
+        for replacement in currency_metadata(page.frontmatter)["superseded_by"]:
+            target = normalize_wikilink_target(replacement, page_index)
+            if target:
+                add_edge(edges, edge(page.page_id, target, "superseded_by", "frontmatter:superseded_by"))
 
         for raw_related in sorted(as_list(page.frontmatter.get("related", []))):
             target = normalize_wikilink_target(clean_wikilink_value(raw_related), page_index)

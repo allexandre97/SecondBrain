@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-01
-updated: 2026-10-11
+updated: 2026-10-12
 question: "How do FFRefine's current block-based direction gates and extend-or-exclude production policy work (master 6b20031, 2026-10-01), and what did building and running them teach?"
 answer_status: answered
 areas:
@@ -37,6 +37,7 @@ related:
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
+  - "[[wiki/answers/ffrefine-decision-register]]"
 sources:
   - SRC-0036
 sensitivity: public
@@ -73,11 +74,23 @@ project_evidence:
   - "FFRefine Monte Carlo checks in the direction-gate and production-decision test suites, with numbers as reported by the implementing session of 2026-09-28 to 2026-10-01; the test code was inspected for this write-back but the Monte Carlo numbers were not re-run"
   - "FFRefine shadow water run 20260928-220040 (legacy gates deciding, new gates in shadow), 11 epochs, as summarised in the design document"
   - "FFRefine water runs 20260930-132851 (ConFIG) and 20260930-132911 (weighted sum), rdf+density+dielectric, 50 ns production, both still running; per-epoch CSV records read on 2026-10-01 after 6 epochs each (provisional)"
-  - "2026-10-05 update: weighted sum ended on an out-of-memory crash at its epoch-27 worker (last completed checkpoint 26, 107.9 h); ConFIG still running through checkpoint 33 (112.7 h); six production rescue extensions (five resolved, one cut short by the crash) read from per-epoch records, as detailed in [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
+  - "Campaign records read on 2026-10-05: weighted sum ended on an out-of-memory crash at its epoch-27 worker (last completed checkpoint 26, 107.9 h); ConFIG still running through checkpoint 33 (112.7 h); six production rescue extensions (five resolved, one cut short by the crash) read from per-epoch records, as detailed in [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]"
   - "FFRefine commit 110fe64 (2026-10-07, \"Damped Levenberg-Marquardt trust-region step; report-only direction gates\"); FFRefine repository planning document `ffrefine_package_plan.md`, dated 2026-10-11, declaring the canonical regime (R) and the planned gate/ConFIG/momentum removal; see [[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
+scope: snapshot
+currency: superseded
+as_of: 2026-10-01
+as_of_commit:
+  - FFRefine@6b20031
+superseded_by:
+  - "[[wiki/answers/ffrefine-current-implementation-status]]"
+  - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
+  - "[[wiki/answers/ffrefine-decision-register]]"
 ---
 
 # FFRefine Direction Gates and Extend-or-Exclude Production Policy
+
+> [!currency] Superseded — describes the state as of 2026-10-01 (FFRefine@6b20031). Current information: [[wiki/answers/ffrefine-current-implementation-status]], [[wiki/answers/ffrefine-generalist-package-plan-decisions]], [[wiki/answers/ffrefine-decision-register]]
+> Direction gates became report-only in commit 110fe64 (2026-10-07) and were decided for removal on 2026-10-11, along with momentum (FFR-034); see FFR-020 and FFR-031 in the decision register.
 
 ## Question
 
@@ -223,7 +236,7 @@ $$
 
 ## Validation and implementation lessons
 
-These lessons come from Monte Carlo checks in FFRefine's tests and from campaign records. Numbers marked as session-reported were reported by the implementing session and were not re-run for this write-back.
+These lessons come from Monte Carlo checks in FFRefine's tests and from campaign records. Numbers marked as session-reported were reported by the implementing session and were not re-run for this write-back. Lessons 8-10 come from campaign records read through 2026-10-05, after this page's as-of date, but they evaluate the same `6b20031` production policy described here.
 
 1. **A null drawn from few pseudo-values is too lenient.** Drawing the promise-test null from the sample covariance of only $B=8$ pseudo-values (rank $B-1$) understates the effective noise dimension and gave null false-pass rates of 0.08–0.10 at nominal 0.05. A Fisher-proportional noise model with data-estimated family scales and correlations brought weighted-sum rates to 0.049–0.053 and put the ConFIG multiplier within about 5% of the exact null quantile; the per-dataset ConFIG procedure remains slightly liberal (about 0.06–0.07) because scales and correlations come from the data being tested. See [[wiki/claims/CLM-0049-few-block-pseudo-value-covariance-understates-promise-null]].
 2. **The analytic inflation fits only one tested quantity.** Cross-fitted $q_i$ share terms through the leave-one-out steps (correlation about $1/(B-1)$), so plain $t_{1-\alpha,B-1}$ is too liberal (0.10–0.13 for one family or the total). The analytic inflation $\sqrt{2(B-1)/(B-2)}$ is right for one family or the weighted total but far too strict for multi-family ConFIG (about 2.9 against an exact quantile of about 2.1; false-pass about 0.015).
@@ -232,7 +245,7 @@ These lessons come from Monte Carlo checks in FFRefine's tests and from campaign
 5. **Debias a vector-length statistic before predicting rescues.** With no true gradient, signal/SE stays near 1 however much data is collected. The debiased statistic's null distribution does not depend on the amount of data (mean about 0.27, exactly zero in about 55% of draws), and its debiased signal estimate goes to 0, so it never predicts rescues that cannot happen.
 6. **A failed gate cannot tell "no descent" from "not enough data".** Because each checkpoint starts a fresh archive of the same length at new parameters, a family's standard error does not shrink between checkpoints, and a family whose true statistic sits near its threshold flips in and out; only an extension within a checkpoint accumulates data at fixed parameters. In the shadow run the cost of excluding the heavy dielectric family included its forgone progress (about 60–90% of an epoch's progress), not only its rise while excluded (0.03–0.18). See [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]].
 7. **Measure costs; do not assume them.** The design assumed one production period cost about 0.85 of an epoch and one re-evaluation about 0.05 (shadow-run timings). In the 2026-09-30 ConFIG campaign the measured values were $\rho\approx0.40$–$0.45$ and $c_0\approx0.09$–$0.11$, which changes which rescues have positive expected value.
-8. **A rescue's pass-probability model must score every stage a family still has to clear, not only the stage it currently failed.** By 2026-10-05, five rescues had resolved and one had been cut short by a crash (see below): one ConFIG promise-test rescue passed and ran (epoch 27, $t=2.18\to2.67$ against $m_0=2.26$); two ConFIG size-filter rescues passed their own (size) statistic and then failed the *later* promise stage because of a genuine inter-family conflict (epoch 29: size $z$ 1.26$\to$1.97 passed, promise $t=-3.04$ failed; epoch 32: size $z$ 1.52$\to$2.67 passed, promise $t=0.48$ failed) — the extension was bought and "succeeded" by its own test, but contributed nothing; and two weighted-sum rescues used the total's $t$ with the family restored rather than the family's own debiased size statistic, so the policy's intended protection against rescuing a family that is simply at its own constrained optimum (which keys off that family's own size statistic; a family with $z\le0$ or negligible is never rescuable) never engaged — a family at a genuine optimum with a large loss share (density, holding about 54% of the loss) looked rescuable twice (epoch 26: predicted total $t$ 2.79, realised 1.40, failed; epoch 27: gate passed at 2.84 against threshold 2.73, but the worker was killed before any chain ran). See [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]] for the full six-rescue account and the all-three-family-conflict context that produced the ConFIG rescues.
+8. **A rescue's pass-probability model must score every stage a family still has to clear, not only the stage it currently failed.** By 2026-10-05, five rescues had resolved and one had been cut short by a crash (see [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]]): one ConFIG promise-test rescue passed and ran (epoch 27, $t=2.18\to2.67$ against $m_0=2.26$); two ConFIG size-filter rescues passed their own (size) statistic and then failed the *later* promise stage because of a genuine inter-family conflict (epoch 29: size $z$ 1.26$\to$1.97 passed, promise $t=-3.04$ failed; epoch 32: size $z$ 1.52$\to$2.67 passed, promise $t=0.48$ failed) — the extension was bought and "succeeded" by its own test, but contributed nothing; and two weighted-sum rescues used the total's $t$ with the family restored rather than the family's own debiased size statistic, so the policy's intended protection against rescuing a family that is simply at its own constrained optimum (which keys off that family's own size statistic; a family with $z\le0$ or negligible is never rescuable) never engaged — a family at a genuine optimum with a large loss share (density, holding about 54% of the loss) looked rescuable twice (epoch 26: predicted total $t$ 2.79, realised 1.40, failed; epoch 27: gate passed at 2.84 against threshold 2.73, but the worker was killed before any chain ran). See [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]] for the full six-rescue account and the all-three-family-conflict context that produced the ConFIG rescues.
 9. **A measured production-cost fraction is only meaningful relative to a non-pathological epoch.** $\rho$ is defined relative to the *current* epoch's own wall time; once a run enters a slow or crawling regime, its own inflated wall time becomes the denominator, so further extensions can look artificially cheap. Weighted sum's measured $\rho$ fell to 0.18–0.28 during a crawl regime (chains using all 21 proposals for tiny, well-calibrated steps), against about 0.48 for ConFIG's faster epochs in the same window — the same cost model, applied to runs in different dynamical regimes, gives cost estimates that are not comparable across those regimes.
 10. **The rescue model has no memory-cost term, and an archive extension is exactly the operation that raises a worker's peak memory.** A replay worker's resident memory grew roughly linearly with archive frame count in production (about 11 MB per frame, of which about 6 MB was live GC heap); a normal 50 ns (10,001-frame) epoch peaked at 205–260 GB, and rescue-extended archives (14,440–17,282 frames) peaked at 290–311 GB. One worker was killed by the kernel's out-of-memory killer during a rescued epoch while a second campaign's worker held a large but separate allocation on the same node; the two campaigns' ordinary peaks already summed to roughly the node's total memory, and a rescue extension was what pushed the combined total over the edge. The run's monitoring reported the killed worker as having exited with code 0, because a kernel signal kill leaves a Julia process's exit code at 0 with a failed status and records the signal separately (`termsignal`), which the message did not print — so it looked like a clean exit unless the signal itself is surfaced. Candidate remedies, untested: cap the rescue multiplier $\kappa$ by predicted frame count times measured bytes-per-frame against an explicit memory budget; bound the worker's heap; avoid co-scheduling campaigns whose ordinary peak memory can coincide on one node; and report terminating signals, not only exit codes. See [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]] and [[wiki/answers/ffrefine-current-implementation-status]].
 
@@ -245,9 +258,7 @@ These lessons come from Monte Carlo checks in FFRefine's tests and from campaign
 
 These two runs are single seeds with different epoch-1 fresh losses; they do not yet answer which aggregation is better. See [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]] and [[wiki/questions/QST-0012-persistent-replay-prediction-optimism-for-one-family]].
 
-**2026-10-04 update:** both campaigns are still running; a snapshot was taken at weighted sum 23 epochs/90.8 h and ConFIG 27 epochs/92.3 h. The interim comparison, including a late conflict-driven dielectric exclusion that regressed ConFIG's loss, one rescue extension (the first observed in a deciding campaign), a weighted-sum KL-capped step-oscillation pathology, and the physical trade-offs each aggregation reached so far, is in [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]].
-
-**2026-10-05 update:** weighted sum is no longer running — its epoch-27 worker was killed by an out-of-memory condition at the first replay proposal of epoch 27, after its direction gates had already passed a rescue for density; its last completed checkpoint is 26 (107.9 h), plateauing at about -0.03/epoch with density excluded for 5 consecutive epochs at a genuine (noise-level) constrained optimum, and its earlier two-cycle oscillation replaced by a crawl once density left the step. ConFIG is still running (checkpoint 33, 112.7 h, epoch 34 in progress); its fresh loss rose from a best of 1.82 to 5.05 over checkpoints 27–32 as density and dielectric began seesawing with a net ascent and all three families turned pairwise conflicting. Lessons 8–10 above come from this update's six rescue extensions and the out-of-memory crash; full numbers in [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]].
+The later course of both runs, from a 2026-10-04 snapshot (weighted sum 23 epochs/90.8 h, ConFIG 27 epochs/92.3 h) to weighted sum's out-of-memory end on 2026-10-05, is recorded in [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]] and [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]].
 
 ## Design document versus code
 
@@ -260,21 +271,6 @@ The project's design document mixes implemented behaviour, planned stages and su
 - The document lists `loss_gate_mode` among the water legacy aliases; in the code it is an ordinary water config key read by the optimiser and replay settings, not part of the policy surface.
 - The document cites history schema 32; the code is at 34.
 - The document's measured costs (0.85 and 0.05) are shadow-run values; the 2026-09-30 campaign measured about 0.45 and 0.10.
-
-## 2026-10-07 and 2026-10-11 status update: gates retired under the canonical regime
-
-**2026-10-07 (commit `110fe64`, "Damped Levenberg-Marquardt trust-region step; report-only direction gates").** The natural-gradient step described throughout this page was replaced by a damped Levenberg-Marquardt trust-region step, and the direction gates were made report-only (`gate_mode=report`): by this date they no longer decide family eligibility or the production decision at all. **The rationale for this specific change is not recorded anywhere in the project or in SecondBrain; this page does not speculate about it.**
-
-**2026-10-11 (planning document).** This report-only combination, together with weighted-sum aggregation, was declared the project's canonical regime (decision R). The planning document gives two reasons to remove the direction gates entirely (not yet done in code as of 2026-10-11), rather than leave them as report-only diagnostics:
-
-1. In report mode they never exclude a family or block a step, so they already have no operational effect.
-2. They test the natural-gradient direction described throughout this page, not the trust-region step the canonical regime actually takes. A report-only diagnostic that certifies a step the optimiser never takes is not informative, independent of whether the gates' own statistics are well calibrated.
-
-Also decided for removal under the canonical regime: ConFIG aggregation (so the ConFIG-versus-weighted-sum comparison this page and [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]] describe is no longer pursued operationally, independent of its scientific outcome), rescue/extension sizing (the production decision reduces to "extend production once if evaluation validity fails, otherwise optimise"), momentum, the natural-gradient step and its proposal path, loss gates in every mode, the archive KL budget, and Huber loss. See [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/answers/ffrefine-current-implementation-status]] for the full removal list and its rationale.
-
-**What remains valid.** CLM-0049 and CLM-0050 are statistical claims about Monte Carlo calibration of a cross-fitted promise test under a fixed block count; they remain correct statistical findings about that calibration procedure, independent of whether FFRefine continues to use the gates in production. Removing the gates does not retract these claims; it only means FFRefine no longer applies the calibrated procedure they describe.
-
-**The momentum open issue is now moot.** The "Remaining gaps" item below, "the gates certify the non-momentum step; whether momentum ... should be disabled or the momentum step certified is open", is moot once momentum itself is removed under the canonical regime: there is no momentum step left to certify or not certify.
 
 ## Sources used
 
@@ -297,16 +293,16 @@ Also decided for removal under the canonical regime: ConFIG aggregation (so the 
 
 - Added this answer note, [[wiki/claims/CLM-0049-few-block-pseudo-value-covariance-understates-promise-null]], [[wiki/claims/CLM-0050-retesting-a-failed-gate-after-extension-needs-alpha-spending]], [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]], [[wiki/questions/QST-0012-persistent-replay-prediction-optimism-for-one-family]] and [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]].
 - Marked the legacy half-archive gate and legacy reliability screen as superseded where pages described them as current, and refreshed the implementation-status snapshot.
-- **2026-10-11:** added the status-update section above recording the 2026-10-07 trust-region/report-only-gates change (rationale not recorded) and the 2026-10-11 decision to remove the gates, ConFIG, and momentum entirely under the canonical regime; linked [[wiki/answers/ffrefine-generalist-package-plan-decisions]].
+- 2026-10-11: a status-update section on the 2026-10-07 trust-region/report-only-gates change and the 2026-10-11 removal decisions was added and then, the same day, moved to [[wiki/answers/ffrefine-decision-register]] (FFR-020, FFR-031 to FFR-034) and [[wiki/answers/ffrefine-current-implementation-status]], so that this page describes only the `6b20031` state.
 
 ## Remaining gaps
 
-- Weighted sum's campaign ended on an out-of-memory crash, not a `:noise_floor` stop or a clean completion; ConFIG is still running. No deciding campaign has yet reached `:noise_floor` through the gates' own logic.
-- The rescue policy's pass-probability model, weighted-sum rescue statistic, and cost-fraction normalisation all have generic flaws exposed only once several rescues had been observed (lessons 8–9 above); none of the candidate fixes are implemented.
+- In the campaign records read through 2026-10-05, no deciding campaign had reached `:noise_floor` through the gates' own logic: weighted sum's campaign ended on an out-of-memory crash, not a `:noise_floor` stop or a clean completion, and ConFIG was still running.
+- The rescue policy's pass-probability model, weighted-sum rescue statistic, and cost-fraction normalisation all have generic flaws exposed only once several rescues had been observed (lessons 8–9 above); none of the candidate fixes was implemented as of 2026-10-05.
 - The production-extension policy has no memory-budget term (lesson 10); a rescue extension can push a worker's resident memory past what the node can provide, especially when another campaign is co-scheduled on the same node.
 - Whether promise drift should gate (`drift_mode = :gate`) is undecided; so far it has only been checked for calibration in the shadow run.
 - Only a checkpoint's first step is certified; later proposals in a replay chain are not re-certified, and the survival ratio has not yet been compared against realised fresh changes.
-- The gates certify the non-momentum step; whether momentum (hexane, solvation defaults) should be disabled or the momentum step certified is open. **Moot as of 2026-10-11:** momentum is decided for removal under the canonical regime (see the 2026-10-07/2026-10-11 status update above).
+- The gates certify the non-momentum step; whether momentum (hexane, solvation defaults) should be disabled or the momentum step certified is open.
 - The equilibration report is enabled only for water; hexane and solvation would first need per-frame series for their fluctuation observables.
 - The step-length and renormalisation policy remains undecided; see [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]].
 - The Monte Carlo numbers in lessons 3 and 4 were not re-run for this write-back.

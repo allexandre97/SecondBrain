@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-09-02
-updated: 2026-10-01
+updated: 2026-10-12
 question_status: answered
 areas:
   - research
@@ -36,6 +36,7 @@ project_evidence:
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
   - "FFRefine density-only aggressive conditional-KL/ESS water-temperature run 20260904-102939, completed 2026-09-04"
+scope: timeless
 ---
 
 # Checkpoint Assessment vs Next-Direction Readiness
@@ -59,16 +60,16 @@ SRC-0018 requires archive-derived replay updates to survive resimulation, but it
 
 ## Current position
 
-The statuses should be separated conceptually and in recorded artifacts:
+Answered. The statuses have been separated conceptually, in recorded artifacts, and (since 2026-09-30) in the mechanism that populates direction readiness:
 
-- **evaluation accepted** should require the base replay/ESS and direct-observable diagnostics needed for a trustworthy fresh loss, plus a paired parent comparison when a parent exists;
-- **optimization ready** should additionally require the selected treated-direction diagnostics needed to construct another proposal.
+- **evaluation accepted** requires the base replay/ESS and direct-observable diagnostics needed for a trustworthy fresh loss, plus a paired parent comparison when a parent exists;
+- **optimization ready** additionally requires the selected treated-direction diagnostics needed to construct another proposal.
 
-An optimization-ready epoch is necessarily evaluation-ready, but an evaluation-ready epoch need not be optimization-ready. When only the first passes, the current checkpoint can still become the best checkpoint if its paired fresh comparison is accepted; the pipeline should then stop, extend sampling, or acquire independent information before attempting another update.
+An optimization-ready epoch is necessarily evaluation-ready, but an evaluation-ready epoch need not be optimization-ready. When only the first passes, the current checkpoint can still become the best checkpoint if its paired fresh comparison is accepted; the pipeline then stops, extends sampling, or acquires independent information before attempting another update.
 
 Final-validation replicas do not normally produce another update. Their scientific purpose is to estimate the selected checkpoint's fresh objective. The treated direction can remain a useful reporter in those replicas, but should not veto an otherwise valid final objective estimate.
 
-The separation has now been implemented in the recorded checkpoint-assessment schema. Run `20260902-115818` persisted distinct `evaluation_valid`, `evaluation_accepted`, `direction_ready`, `optimisation_ready`, and `optimisation_ran` fields. In all seven completed epochs, evaluation and direction readiness passed together, and checkpoints 1 through 6 received paired fresh comparisons.
+The separation has been implemented in the recorded checkpoint-assessment schema. Run `20260902-115818` persisted distinct `evaluation_valid`, `evaluation_accepted`, `direction_ready`, `optimisation_ready`, and `optimisation_ran` fields. In all seven completed epochs, evaluation and direction readiness passed together, and checkpoints 1 through 6 received paired fresh comparisons.
 
 ## Proposed state model
 
@@ -88,13 +89,14 @@ Density-only run `20260904-102939` exercised the previously missing branch. In e
 
 The recorded state was consequently `evaluation_valid=true`, `evaluation_accepted=true`, `direction_ready=false`, `optimisation_ready=false`, and `optimisation_ran=false`. Checkpoint 2 remained the best checkpoint, no uncertain next update was generated, and two final-validation replicas successfully evaluated that checkpoint at losses 20.0060 and 20.2560. This is the intended behavior and validates the control-flow separation on its decisive path. [[wiki/answers/ffrefine-aggressive-density-kl-ess-training]]
 
-## 2026-09-28 update: the direction-readiness test itself is being redesigned
+## Direction-readiness mechanism at FFRefine `6b20031` (2026-09-30 to 2026-10-07)
 
-Independently of the evaluation/direction-readiness state separation above, project evidence from water run `20260924-204914` found that the *specific* chronological half-archive stability check used to determine `direction_ready` (cosine similarity ≥ 0.8 between treated directions from the archive's two halves) mostly reacts to ordinary sampling noise rather than real drift, blocking 5 of 22 checkpoints for families with signal-to-standard-error ratios of only about 2-4 and costing roughly 13% of the run's wall time. The planned replacement is a cross-fitted "aggregation promise" test evaluated out of sample at the level of the step the optimiser is about to take (per included family for ConFIG, or on the weighted total for weighted sum), rather than a fixed angle threshold on a family's raw direction split into two halves. This does not change the evaluation/direction-readiness separation itself, but it is expected to replace the specific statistic that currently populates `direction_ready`. See [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] and [[wiki/answers/adding-config-optimiser-to-ffrefine]].
+The chronological half-archive cosine/norm-ratio statistic no longer populated `direction_ready`. Since FFRefine commit `26affa0` (2026-09-30), `direction_ready` was true when the evaluation and the Fisher metric were valid and the block-based direction gates classified the checkpoint `:ready` or `:partial_ready` (or when no gate policy was configured). The evaluation/direction separation described above was unchanged: fresh-loss comparisons remained diagnostic only, `evaluation_accepted` equalled `evaluation_valid`, and `optimisation_ready` required both. What happened after a direction failure was decided by a generic extend-or-exclude production policy: a rescue extension when its expected value was positive, otherwise an immediate stop, with the campaign ending at its "noise floor" when a checkpoint could not optimise (after up to `max_unready_epochs` repeats, default 0). This answered part of the remaining uncertainty below about longer continuation versus stopping. At FFRefine `110fe64` (2026-10-07) the direction gates became report-only, so they no longer populate `direction_ready` this way (FFR-020); removal of the gates and the production policy's rescue sizing is decided but not implemented (FFR-031, FFR-032). See [[wiki/answers/ffrefine-decision-register]] and [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
 
-## 2026-10-01 update: the replacement is implemented
+## Evidence timeline
 
-The chronological half-archive cosine/norm-ratio statistic no longer populates `direction_ready`. Since FFRefine commit `26affa0` (2026-09-30), `direction_ready` is true when the evaluation and the Fisher metric are valid and the block-based direction gates classify the checkpoint `:ready` or `:partial_ready` (or when no gate policy is configured). The evaluation/direction separation above is unchanged: fresh-loss comparisons are diagnostic only, `evaluation_accepted` equals `evaluation_valid`, and `optimisation_ready` requires both. What happens after a direction failure is now decided by a generic extend-or-exclude production policy: a rescue extension when its expected value is positive, otherwise an immediate stop, and the campaign ends at its "noise floor" when a checkpoint cannot optimise (after up to `max_unready_epochs` repeats, default 0). This partly answers the remaining question below about longer continuation versus stopping. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
+- 2026-09-28: project evidence from water run `20260924-204914` found that the *specific* chronological half-archive stability check used to determine `direction_ready` (cosine similarity ≥ 0.8 between treated directions from the archive's two halves) mostly reacts to ordinary sampling noise rather than real drift, blocking 5 of 22 checkpoints for families with signal-to-standard-error ratios of only about 2-4 and costing roughly 13% of the run's wall time. The planned replacement was a cross-fitted "aggregation promise" test evaluated out of sample at the level of the step the optimiser is about to take (per included family for ConFIG, or on the weighted total for weighted sum), rather than a fixed angle threshold on a family's raw direction split into two halves. See [[wiki/answers/ffrefine-improved-gates-water-run-lessons]] and [[wiki/answers/adding-config-optimiser-to-ffrefine]].
+- 2026-10-01: the planned replacement described above was implemented (commit `26affa0`, 2026-09-30); see "Current direction-readiness mechanism" above and [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
 
 ## Remaining uncertainty
 

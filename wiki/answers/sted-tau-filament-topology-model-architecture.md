@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-10-11
 question: "Given the manuscript draft wiki/sources/SRC-0064-versatile-neuronal-culture-system-templated-tau-assembly.md, how should the unfinished STED morphology comparisons be quantified, and what model architecture best supports topology-aware tau filament analysis across tauopathy seeds and days in vitro?"
 answer_status: partially-answered
 areas:
@@ -66,6 +66,9 @@ wiki_pages_updated:
   - wiki/answers/sted-tau-filament-topology-model-architecture.md
   - wiki/index.md
   - wiki/log.md
+scope: snapshot
+currency: current
+as_of: 2026-07-01
 ---
 
 # How should STED tau filament morphology be quantified?

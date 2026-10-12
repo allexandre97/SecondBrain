@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-10-11
 question: "How does TSS compare with AWH and OPES as an adaptive free-energy method?"
 answer_status: answered
 areas:
@@ -47,6 +47,7 @@ wiki_pages_used:
 raw_sources_consulted: []
 wiki_pages_updated:
   - "[[wiki/concepts/adaptive-enhanced-sampling]]"
+scope: timeless
 ---
 
 # TSS, AWH, and OPES as Adaptive Free-Energy Methods

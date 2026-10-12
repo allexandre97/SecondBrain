@@ -9,6 +9,7 @@ This repository is a local-first LLM-maintained wiki, not an application scaffol
 - `schema/` for conventions, templates, workflows, and validation rules.
 - `tools/` for local maintenance scripts.
 - `tests/` for smoke tests and validation-tool tests.
+- `claude-config/` for the user-level Claude Code agent definitions shared between workstations (`~/.claude/agents` links here; see `claude-config/README.md`). Keep machine-specific values out of it.
 
 Avoid placing generated caches, dependency folders, or local environment artifacts in version control.
 
@@ -141,6 +142,8 @@ Use Obsidian-style wikilinks for internal links:
 [[wiki/entities/example-entity]]
 ```
 
+Pages that describe project state (anything with `project_evidence`) declare a time scope and currency (`scope`, `currency`, `as_of`, optionally `as_of_commit` and `superseded_by`); see `Time Scope and Currency` in `schema/page_templates.md` and the `Currency workflow` in `schema/workflows.md`. Change them with `python3 tools/set_currency.py`, not by hand, and never append dated update sections to project pages.
+
 Prefer short sections:
 
 * Summary
@@ -185,7 +188,7 @@ Do not perform a broad refactor during ingestion unless requested.
 When retrieving topical knowledge from the wiki:
 
 1. Run `python3 tools/search_wiki.py <query>` first unless the exact target path is already known.
-2. Inspect and read only the strongest relevant sections/pages.
+2. Inspect and read only the strongest relevant sections/pages, using each result's `line_start`/`line_end` file line range. Check each result's `currency`: `historical` and `superseded` results describe a past state; follow `superseded_by` for the current one.
 3. Use `tools/query_graph.py` afterwards when relationship traversal would help.
 4. Answer from the wiki where possible, then consult raw sources only when provenance or missing detail requires it.
 5. Identify gaps and propose a durable page update when the answer creates reusable synthesis.

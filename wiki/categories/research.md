@@ -26,7 +26,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ## Subcategories
 
-- [[wiki/categories/research/adaptive-sampling|research/adaptive-sampling]] - 45 direct, 45 total pages in branch.
+- [[wiki/categories/research/adaptive-sampling|research/adaptive-sampling]] - 47 direct, 47 total pages in branch.
 - [[wiki/categories/research/bioimage-analysis|research/bioimage-analysis]] - 0 direct, 24 total pages in branch.
 - [[wiki/categories/research/biomolecules|research/biomolecules]] - 0 direct, 52 total pages in branch.
 - [[wiki/categories/research/computational-drug-discovery|research/computational-drug-discovery]] - 25 direct, 25 total pages in branch.
@@ -36,8 +36,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/categories/research/high-performance-computing|research/high-performance-computing]] - 12 direct, 12 total pages in branch.
 - [[wiki/categories/research/llm-wiki|research/llm-wiki]] - 0 direct, 12 total pages in branch.
 - [[wiki/categories/research/machine-learning|research/machine-learning]] - 0 direct, 82 total pages in branch.
-- [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 239 total pages in branch.
-- [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 43 direct, 43 total pages in branch.
+- [[wiki/categories/research/molecular-simulation|research/molecular-simulation]] - 0 direct, 242 total pages in branch.
+- [[wiki/categories/research/scientific-computing|research/scientific-computing]] - 46 direct, 46 total pages in branch.
 - [[wiki/categories/research/statistics|research/statistics]] - 0 direct, 53 total pages in branch.
 
 ## Direct members

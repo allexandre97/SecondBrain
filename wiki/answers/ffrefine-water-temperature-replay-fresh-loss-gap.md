@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-07
-updated: 2026-08-20
+updated: 2026-10-11
 question: "Why can FFRefine water-temperature replay optimization show monotone intra-epoch loss but upward loss jumps between macro epochs?"
 answer_status: answered
 areas:
@@ -52,6 +52,9 @@ project_evidence:
   - "FFRefine water_temperature.jl audit on 2026-08-07"
   - "FFRefine artifact audit: /ssd/outputs/water-temperature/20260806-210949"
   - "FFRefine fixed-archive and fresh-archive water average-observable validation through 2026-08-20"
+scope: snapshot
+currency: current
+as_of: 2026-08-20
 ---
 
 # FFRefine Water-Temperature Replay Fresh Loss Gap

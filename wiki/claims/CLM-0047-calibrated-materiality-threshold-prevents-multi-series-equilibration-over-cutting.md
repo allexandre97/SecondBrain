@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-09-28
-updated: 2026-09-28
+updated: 2026-10-11
 claim_status: supported
 claim_scope: local
 areas:
@@ -33,6 +33,7 @@ encryption: none
 project_evidence:
   - "FFRefine `improved-gates` worktree branch, commits 20d286f and 16ea49a: Monte Carlo simulation of stationary AR(1) series checking the bias of the argmax-N_eff cut, both for one series and for the maximum cut over several series"
   - "FFRefine `improved_gates_plan.md` section 3.0, choice 4, referencing an independent reviewer's stationary AR(1) simulation with a 10-frame grid and up to 90% search depth"
+scope: timeless
 ---
 
 # Calibrated Materiality Threshold Prevents Over-Cutting in Multi-Series Equilibration Detection

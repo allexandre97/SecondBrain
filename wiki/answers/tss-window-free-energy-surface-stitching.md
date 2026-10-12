@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-10-11
 question: "How is TSS able to mix the free-energy surfaces of each window into a complete free energy surface that covers all the rungs?"
 answer_status: answered
 areas:
@@ -37,6 +37,7 @@ raw_sources_consulted:
   - raw/sources/SRC-0006-times-square-sampling-supplement.pdf
 wiki_pages_updated:
   - "[[wiki/concepts/tss-implementation-patterns]]"
+scope: timeless
 ---
 
 # How TSS Stitches Window Free-Energy Surfaces

@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-09-20
-updated: 2026-09-21
+updated: 2026-10-11
 question_status: partially-answered
 areas:
   - research
@@ -30,6 +30,7 @@ project_evidence:
   - "FFRefine implementation audit on 2026-09-20"
   - "FFRefine damped-Fisher + ConFIG focused test rerun on 2026-09-21: 33/33 passed"
   - "FFRefine water-temperature run failed after production because WATER_TEMPERATURE_CONFIG combined :config with damped Fisher; corrected to :weighted_sum"
+scope: timeless
 ---
 
 # How does FFRefine implement damped Fisher with ConFIG aggregation?

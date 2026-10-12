@@ -22,6 +22,11 @@ related:
 sources: []
 sensitivity: public
 encryption: none
+scope: snapshot
+currency: current
+as_of: 2026-10-02
+as_of_commit:
+  - Molly@587d3644
 ---
 
 # Molly.jl Simulation Package: Facts Relevant to FFRefine

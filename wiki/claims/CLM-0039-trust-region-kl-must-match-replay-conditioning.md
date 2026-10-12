@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-08-29
-updated: 2026-09-04
+updated: 2026-10-11
 claim_status: limited
 claim_scope: local
 areas:
@@ -38,6 +38,7 @@ project_evidence:
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
   - "FFRefine density-only KL 0.1/archive 1.0/ESS 0.45 water-temperature run 20260903-220645, completed 2026-09-03"
   - "FFRefine density-only aggressive conditional-KL/ESS water-temperature run 20260904-102939, completed 2026-09-04"
+scope: timeless
 ---
 
 # Trust-Region KL Must Match Replay Conditioning

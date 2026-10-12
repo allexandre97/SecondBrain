@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-30
-updated: 2026-09-02
+updated: 2026-10-11
 question: "In FFRefine, how did the definition of the KL divergence change? Why was that change needed? What implications does that change have downstream for other calculated quantities?"
 answer_status: answered
 areas:
@@ -42,6 +42,9 @@ wiki_pages_used:
   - "[[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients]]"
 raw_sources_consulted: []
 wiki_pages_updated: []
+scope: snapshot
+currency: current
+as_of: 2026-09-02
 ---
 
 # FFRefine KL Divergence Definition Change

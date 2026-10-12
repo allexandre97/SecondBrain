@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-11
 claim_status: limited
 claim_scope: local
 areas:
@@ -27,6 +27,7 @@ encryption: none
 project_evidence:
   - "FFRefine direction-gate Monte Carlo checks (B = 8), 2026-09-28 to 2026-10-01, as recorded in the project's improved-gates design document and reported by the implementing session: null false-pass 0.08-0.10 with a pseudo-value sample-covariance null; 0.049-0.053 (weighted sum) with a Fisher-proportional null; ConFIG multiplier within about 5% of the exact null quantile (about 2.1), per-dataset ConFIG procedure about 0.06-0.07; plain Student-t 0.10-0.13 (one family or total); analytic inflation about 2.9 and false-pass about 0.015 for multi-family ConFIG"
   - "FFRefine master 6b20031, direction_gates.jl (calibrate_promise_multiplier, promise_noise_model, promise_inflation)"
+scope: timeless
 ---
 
 # Few-Block Pseudo-Value Covariance Understates the Null of a Cross-Fitted Promise Test

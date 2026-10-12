@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-07-01
-updated: 2026-07-02
+updated: 2026-10-11
 question: "How do TSS, AWH, OPES, MBAR, LaDyBUGS, and Boltzmann generators differ in how they use samples, biasing, reweighting, and validation diagnostics?"
 answer_status: answered
 areas:
@@ -83,6 +83,7 @@ graph_neighborhoods_used:
   - "tools/query_graph.py --source-id SRC-0005"
   - "tools/query_graph.py --source-id SRC-0013"
   - "tools/query_graph.py --source-id SRC-0041"
+scope: timeless
 ---
 
 # Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods

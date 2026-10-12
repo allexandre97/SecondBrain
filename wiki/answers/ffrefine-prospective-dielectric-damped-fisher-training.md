@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-02
-updated: 2026-09-03
+updated: 2026-10-11
 question: "What do FFRefine's prospective dielectric-only damped-Fisher water-temperature macro-optimizations establish?"
 answer_status: partially-answered
 areas:
@@ -78,6 +78,9 @@ project_evidence:
   - "FFRefine state-conditional Fisher-treatment replay completed 2026-08-31, replay hash 01de5d364e231b464706dd0a78cf1d8ff236fa7c38c110c3a7ccfcc3d77f7c84"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
   - "FFRefine higher-KL dielectric-only damped-Fisher reaction-field water-temperature run 20260902-115818, intentionally stopped during epoch 8 on 2026-09-03 after six paired-confirmed fresh updates"
+scope: snapshot
+currency: current
+as_of: 2026-09-03
 ---
 
 # Prospective Dielectric Training with a Damped Conditional Fisher

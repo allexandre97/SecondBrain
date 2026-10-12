@@ -21,6 +21,38 @@ graph_exclude: true | false
 ---
 ```
 
+## Time Scope and Currency
+
+Every page has exactly one time scope. Missing `scope` means `timeless`.
+
+- `timeless`: literature, concepts, claims, derivations, and lessons that stay valid regardless of project state.
+- `living`: describes the present and is rewritten in place when the state changes, for example a decision register or an open-work list. History lives in git and in a short dated `## Changes` list at the end, never in dated update sections.
+- `snapshot`: describes one moment, for example an implementation audit, a campaign result, or a design as it stood. It is frozen after writing except for currency metadata and the banner.
+
+Do not mix scopes on one page: move still-valid lessons out of snapshots into claims or concepts. Pages describing a project's implementation are snapshots pinned to a commit; the project repository is authoritative for current implementation, so living pages record what code cannot: decisions, rationale, open questions, and results.
+
+Living and snapshot pages add:
+
+```yaml
+scope: living | snapshot
+currency: current | historical | superseded
+as_of: YYYY-MM-DD            # date the content describes, not the edit date
+as_of_commit:                # optional; Repository@commit the content describes
+  - FFRefine@6b20031
+superseded_by:               # required exactly when currency is superseded
+  - "[[wiki/answers/replacement-page]]"
+```
+
+- `current`: still describes the present as far as the wiki knows.
+- `historical`: describes a past state that no single page replaces; kept as a record. Living pages cannot be historical.
+- `superseded`: replaced by the pages in `superseded_by`.
+
+Timeless pages normally omit `currency`; a timeless page that has been replaced, for example by a merge, may set `currency: superseded` with `superseded_by` (`as_of` optional).
+
+Historical and superseded pages begin, directly under the H1, with a `> [!currency]` banner, and their `wiki/index.md` entry starts its description with `**Superseded:**` or `**Historical:**`; `tools/set_currency.py` maintains both. Answer pages and pages with `project_evidence` must declare `scope` explicitly. Any other page that describes project or codebase state, such as a concept page of facts about a repository at a commit, must also declare `scope`, even though the validator cannot detect it.
+
+Record evidence that comes from project work rather than from ingested sources in `project_evidence`: one dated entry per repository audit, run, test result, or planning document, naming commits where known. Set these fields and the banner with `python3 tools/set_currency.py` rather than by hand; `tools/validate_wiki.py` enforces the rules.
+
 Use `graph_exclude: true` for navigation-heavy pages that should be filterable out of Obsidian Graph view, including dashboards, most README index pages, `wiki/index.md`, and `wiki/log.md`. Category pages under `wiki/categories/` should use `graph_exclude: false` so they can act as useful grouping nodes in Obsidian Graph view. Omit the field or use `false` for normal content pages.
 
 Source pages should also include:
@@ -231,6 +263,11 @@ encryption: none
 wiki_pages_used: []
 raw_sources_consulted: []
 wiki_pages_updated: []
+project_evidence: []       # dated project evidence: repository audits, runs, planning documents
+scope: timeless | living | snapshot   # required on every answer page
+currency: current          # living and snapshot pages only
+as_of: YYYY-MM-DD          # living and snapshot pages only
+as_of_commit: []           # optional, Repository@commit
 ---
 
 # Question

@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-08-28
-updated: 2026-09-02
+updated: 2026-10-11
 question: "What did retrospective Fisher-treatment development on two independent 100 ns reaction-field TSS archives establish about density, RDF, enthalpy, and dielectric optimisation?"
 answer_status: partially-answered
 areas:
@@ -66,6 +66,9 @@ project_evidence:
   - "FFRefine post hoc within-state/between-state Fisher decomposition of the 100 ns treatment proposals completed 2026-08-29"
   - "FFRefine state-conditional Fisher-treatment screen completed 2026-08-30 and replay completed 2026-08-31"
   - "FFRefine dielectric-only damped-Fisher reaction-field water-temperature run 20260901-171027, completed 2026-09-02"
+scope: snapshot
+currency: current
+as_of: 2026-09-02
 ---
 
 # FFRefine Retrospective Fisher-Treatment Development

@@ -2,7 +2,7 @@
 type: claim
 status: active
 created: 2026-09-28
-updated: 2026-10-04
+updated: 2026-10-12
 claim_status: supported
 claim_scope: local
 areas:
@@ -31,6 +31,7 @@ encryption: none
 project_evidence:
   - "FFRefine water run 20260924-204914 (families rdf, density, dielectric; family weights 1, 2, 10), epochs 1-22, observed through the `improved-gates` design analysis: rdf's effective weight after renormalisation rises from 1/13 (all three families included) to 1 (rdf-only epochs); reconstructed uncapped ConFIG step KL (1/2 |c|^2 from logged h_dot_c) matches logged KL in uncapped epochs (0.032/0.029, 0.088/0.086, 0.0078/0.0083)"
   - "FFRefine epochs 10 and 18 (rdf-only, KL target 0.095): uncapped ConFIG step KL under today's renormalisation was 0.77 and 0.30 (both capped to 0.095); reconstructed without renormalisation it would have been 0.0045 and 0.0018, in the same two epochs that produced rdf's largest per-epoch rdf-loss decreases (about -0.128 and -0.083)"
+scope: timeless
 ---
 
 # Family-Weight Renormalisation After Exclusion Changes the Natural-Gradient Step Length
@@ -60,9 +61,9 @@ Reporting and acceptance diagnostics (logged loss, stale-progress thresholds, `m
 - The regularisation/data balance under `:weighted_sum` is separately affected: an unrenormalised regularisation term becomes relatively weaker whenever excluded families shrink the renormalisation factor (for example, about 13x weaker in an rdf-only epoch); this is a related but distinct effect from the step-length change described here.
 - This is a project design finding from a single water run (`20260924-204914`, 22 epochs); it has not been tested against an alternative step-length or normalisation convention.
 
-## Status (2026-10-04)
+## Evidence timeline
 
-Still undecided: at FFRefine master `6b20031` losses and loss thresholds are reported on the full-objective scale while the step keeps renormalised weights. The open design question is tracked in [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]], which now also records a distinct KL-cap oscillation pathology observed in a completed weighted-sum campaign; see [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]].
+- 2026-10-04: still undecided. At FFRefine master `6b20031`, losses and loss thresholds are reported on the full-objective scale while the step keeps renormalised weights. The open design question is tracked in [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion]], which also records a distinct KL-cap oscillation pathology observed in the weighted-sum campaign `20260930-132911` (still running as of this 2026-10-04 snapshot; it later ended on 2026-10-05 when its epoch-27 worker was killed by an out-of-memory condition, not by a planned completion); see [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results]].
 
 ## Links
 

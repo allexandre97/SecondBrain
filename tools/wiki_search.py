@@ -13,10 +13,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
+from wiki_currency import NOT_CURRENT, currency_metadata
 from wiki_markdown import as_list, parse_frontmatter
 
 
-SCHEMA_VERSION = "3"
+SCHEMA_VERSION = "5"
 INDEX_DIRNAME = ".cache"
 INDEX_NAME = "wiki-search.sqlite3"
 GENERATED_INDEX_NAME = "wiki-search-generated.sqlite3"
@@ -46,6 +47,10 @@ class Section:
     section_path: str
     order: int
     body: str
+    # 1-based, inclusive line range within the lines given to parse_sections:
+    # the heading line through the last non-blank line before the next heading.
+    line_start: int
+    line_end: int
 
 
 @dataclass(frozen=True)
@@ -122,21 +127,31 @@ def _clean_heading(value: str) -> str:
 
 def parse_sections(lines: list[str]) -> tuple[str, list[Section]]:
     """Split Markdown on ATX headings while leaving fenced-code headings untouched."""
-    raw_sections: list[tuple[int, str, list[str]]] = []
+    raw_sections: list[tuple[int, str, list[str], int, int]] = []
     current_level = 0
     current_heading = ""
     current_body: list[str] = []
+    current_start = 0
     hierarchy: list[tuple[int, str]] = []
     section_paths: list[str] = []
     fence_marker = ""
 
-    def finish() -> None:
+    def finish(next_heading_index: int) -> None:
         body = "\n".join(current_body).strip()
         if current_heading or body:
-            raw_sections.append((current_level, current_heading, list(current_body)))
+            first = current_start
+            last = next_heading_index - 1
+            while last > first and not lines[last].strip():
+                last -= 1
+            if not current_heading:
+                while first < last and not lines[first].strip():
+                    first += 1
+            raw_sections.append(
+                (current_level, current_heading, list(current_body), first + 1, last + 1)
+            )
             section_paths.append(" > ".join(value for _level, value in hierarchy))
 
-    for line in lines:
+    for index, line in enumerate(lines):
         if fence_marker:
             current_body.append(line)
             closing_fence = re.match(
@@ -158,7 +173,7 @@ def parse_sections(lines: list[str]) -> tuple[str, list[Section]]:
             current_body.append(line)
             continue
 
-        finish()
+        finish(index)
         level = len(heading_match.group(1))
         heading = _clean_heading(heading_match.group(2) or "")
         hierarchy = [(old_level, value) for old_level, value in hierarchy if old_level < level]
@@ -166,21 +181,37 @@ def parse_sections(lines: list[str]) -> tuple[str, list[Section]]:
         current_level = level
         current_heading = heading
         current_body = []
+        current_start = index
 
-    finish()
-    title = next((heading for level, heading, _body in raw_sections if level == 1 and heading), "")
+    finish(len(lines))
+    title = next(
+        (heading for level, heading, _body, _start, _end in raw_sections if level == 1 and heading),
+        "",
+    )
     sections = [
         Section(
             heading=heading,
             section_path=section_paths[order],
             order=order,
             body="\n".join(body).strip(),
+            line_start=start,
+            line_end=end,
         )
-        for order, (_level, heading, body) in enumerate(raw_sections)
+        for order, (_level, heading, body, start, end) in enumerate(raw_sections)
     ]
     if not sections:
-        sections = [Section(heading="", section_path="", order=0, body="")]
+        sections = [Section(heading="", section_path="", order=0, body="", line_start=1, line_end=1)]
     return title, sections
+
+
+def _body_start_index(file_lines: list[str]) -> int:
+    """Index of the first line after frontmatter, using parse_frontmatter's fence rule."""
+    if not file_lines or file_lines[0].strip() != "---":
+        return 0
+    for index, line in enumerate(file_lines[1:], 1):
+        if line.strip() == "---":
+            return index + 1
+    return 0
 
 
 def _scalar(frontmatter: dict[str, Any], key: str) -> str:
@@ -211,7 +242,11 @@ def _create_schema(connection: sqlite3.Connection) -> None:
             source_id TEXT NOT NULL,
             aliases_json TEXT NOT NULL,
             categories_json TEXT NOT NULL,
-            tags_json TEXT NOT NULL
+            tags_json TEXT NOT NULL,
+            scope TEXT NOT NULL,
+            currency TEXT NOT NULL,
+            as_of TEXT NOT NULL,
+            superseded_by_json TEXT NOT NULL
         );
         CREATE TABLE page_categories (page_id INTEGER NOT NULL, value TEXT NOT NULL, PRIMARY KEY(page_id, value));
         CREATE TABLE page_tags (page_id INTEGER NOT NULL, value TEXT NOT NULL, PRIMARY KEY(page_id, value));
@@ -237,6 +272,8 @@ def _create_schema(connection: sqlite3.Connection) -> None:
             section TEXT NOT NULL,
             section_path TEXT NOT NULL,
             section_order INTEGER NOT NULL,
+            line_start INTEGER NOT NULL,
+            line_end INTEGER NOT NULL,
             page_type TEXT NOT NULL,
             status TEXT NOT NULL,
             source_id TEXT NOT NULL,
@@ -293,11 +330,16 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
             for relative_path, _size, _mtime_ns in manifest:
                 path = root / relative_path
                 text = path.read_text(encoding="utf-8", errors="replace")
-                frontmatter, body_lines = parse_frontmatter(text)
+                frontmatter, _body_lines = parse_frontmatter(text)
                 if _is_generated(frontmatter) and not include_generated:
                     continue
 
-                h1_title, sections = parse_sections(body_lines)
+                # Split on "\n" only so reported line numbers match editors and
+                # file readers; str.splitlines() also breaks on characters such
+                # as "\x0b".
+                file_lines = [line.removesuffix("\r") for line in text.split("\n")]
+                line_offset = _body_start_index(file_lines)
+                h1_title, sections = parse_sections(file_lines[line_offset:])
                 display_title = _scalar(frontmatter, "display_title")
                 short_title = _scalar(frontmatter, "short_title")
                 title = h1_title or display_title or short_title or path.stem.replace("-", " ").title()
@@ -315,10 +357,11 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
                 aliases_json = json.dumps(aliases, ensure_ascii=False)
                 categories_json = json.dumps(categories, ensure_ascii=False)
                 tags_json = json.dumps(tags, ensure_ascii=False)
+                currency = currency_metadata(frontmatter)
 
                 page_id += 1
                 connection.execute(
-                    "INSERT INTO pages VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    "INSERT INTO pages VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                     (
                         page_id,
                         relative_path,
@@ -329,6 +372,10 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
                         aliases_json,
                         categories_json,
                         tags_json,
+                        currency["scope"],
+                        currency["currency"] or "",
+                        currency["as_of"] or "",
+                        json.dumps(currency["superseded_by"], ensure_ascii=False),
                     ),
                 )
                 connection.executemany(
@@ -352,7 +399,7 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
                     _add_fuzzy_terms(page_terms, [section.body], FUZZY_PRIORITY_BODY)
                     section_id += 1
                     connection.execute(
-                        "INSERT INTO sections VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        "INSERT INTO sections VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                         (
                             section_id,
                             page_id,
@@ -361,6 +408,8 @@ def build_index(root: Path, include_generated: bool = False) -> Path:
                             section.heading,
                             section.section_path,
                             section.order,
+                            section.line_start + line_offset,
+                            section.line_end + line_offset,
                             page_type,
                             status,
                             source_id,
@@ -588,6 +637,7 @@ def _run_query(
     status: str | None,
     source: str | None,
     tag: str | None,
+    current_only: bool,
     per_page: int,
 ) -> list[dict[str, Any]]:
     conditions = ["section_fts MATCH ?"]
@@ -614,6 +664,9 @@ def _run_query(
     if tag:
         conditions.append("EXISTS (SELECT 1 FROM page_tags t WHERE t.page_id = p.id AND t.value = ?)")
         parameters.append(tag)
+    if current_only:
+        conditions.append(f"p.currency NOT IN ({', '.join('?' for _ in NOT_CURRENT)})")
+        parameters.extend(NOT_CURRENT)
 
     weights = ", ".join(str(weight) for weight in BM25_WEIGHTS)
     # Rank the complete match set, then stream until the per-page cap yields
@@ -625,7 +678,9 @@ def _run_query(
                s.categories_json, s.tags_json,
                -bm25(section_fts, {weights}) AS score,
                snippet(section_fts, 5, '⟦', '⟧', ' … ', 24) AS body_snippet,
-               snippet(section_fts, -1, '⟦', '⟧', ' … ', 24) AS best_snippet
+               snippet(section_fts, -1, '⟦', '⟧', ' … ', 24) AS best_snippet,
+               s.line_start, s.line_end,
+               p.scope, p.currency, p.as_of, p.superseded_by_json
         FROM section_fts
         JOIN sections s ON s.id = CAST(section_fts.section_id AS INTEGER)
         JOIN pages p ON p.id = s.page_id
@@ -651,6 +706,12 @@ def _run_query(
                 "section": row[2] or None,
                 "section_path": row[3] or None,
                 "section_order": row[4],
+                "line_start": row[14],
+                "line_end": row[15],
+                "scope": row[16],
+                "currency": row[17] or None,
+                "as_of": row[18] or None,
+                "superseded_by": json.loads(row[19]),
                 "score": round(float(row[11]), 8),
                 "snippet": re.sub(r"\s+", " ", selected_snippet).strip(),
                 "type": row[5] or None,
@@ -692,6 +753,7 @@ def search(
     status: str | None = None,
     source: str | None = None,
     tag: str | None = None,
+    current_only: bool = False,
     include_generated: bool = False,
     rebuild: bool = False,
     per_page: int = DEFAULT_PER_PAGE,
@@ -720,6 +782,7 @@ def search(
             "status": status,
             "source": source,
             "tag": tag,
+            "current_only": current_only,
             "per_page": per_page,
         }
         if fuzzy is True:

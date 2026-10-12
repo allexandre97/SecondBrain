@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-09-28
-updated: 2026-10-01
+updated: 2026-10-11
 question: "How should automated N_eff-maximizing equilibration detection be adapted for a frozen-bias TSS production archive with several observable series and a single replica walking a temperature ladder, and how accurate is the fast multiscale statistical-inefficiency estimator in that setting?"
 answer_status: answered
 areas:
@@ -29,6 +29,7 @@ related:
   - "[[wiki/claims/CLM-0047-calibrated-materiality-threshold-prevents-multi-series-equilibration-over-cutting]]"
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
+  - "[[wiki/answers/ffrefine-decision-register]]"
 sources:
   - SRC-0090
   - SRC-0091
@@ -50,6 +51,10 @@ wiki_pages_updated:
 project_evidence:
   - "FFRefine `improved-gates` worktree branch, commits 20d286f and 16ea49a: unit tests and Monte Carlo checks of the fast multiscale g-estimator and of the multi-series equilibration-cut calibration"
   - "FFRefine `improved_gates_plan.md` section 3.0, a design document for a frozen-bias TSS water production archive seeded from the end of an equilibrated parity run at the same force-field parameters"
+  - "FFRefine repository audit on 2026-10-01 at master 6b20031 (stage-1 implementation of the cut) and the shadow water run 20260928-220040 as summarised in the project's design document; see [[wiki/answers/ffrefine-direction-gates-and-production-policy]]"
+scope: snapshot
+currency: current
+as_of: 2026-10-01
 ---
 
 # FFRefine Multi-Series Equilibration Cut Calibration
@@ -73,7 +78,7 @@ This bias runs in the "safe" direction for equilibration detection (an inflated 
 
 ### Over-cutting when maximizing over several series
 
-FFRefine's planned cut uses one series per enabled target family (density, dielectric dipole, RDF projected onto the family's current loss sensitivity) plus the active-state reduced potential, each reduced to a scalar and, for a single replica walking a temperature ladder, centred per active state before detection (subtracting each frame's per-state mean) so that the ladder walk itself is not mistaken for a transient. Naively taking the latest of these several per-series $N_\text{eff}$-maximizing cuts as the one global cut over-cuts a stationary archive: each series' own argmax is a noisy estimate of "no cut needed," and the maximum over several such noisy estimates is biased toward later, larger cuts purely from selection. FFRefine's Monte Carlo checks and an independent reviewer's simulation of stationary AR(1) series (10-frame grid, up to 90% search depth) found:
+FFRefine's cut uses one series per enabled target family (density, dielectric dipole, RDF projected onto the family's current loss sensitivity) plus the active-state reduced potential, each reduced to a scalar and, for a single replica walking a temperature ladder, centred per active state before detection (subtracting each frame's per-state mean) so that the ladder walk itself is not mistaken for a transient. Naively taking the latest of these several per-series $N_\text{eff}$-maximizing cuts as the one global cut over-cuts a stationary archive: each series' own argmax is a noisy estimate of "no cut needed," and the maximum over several such noisy estimates is biased toward later, larger cuts purely from selection. FFRefine's Monte Carlo checks and an independent reviewer's simulation of stationary AR(1) series (10-frame grid, up to 90% search depth) found:
 
 - a single series' mean cut is biased late by at most about 1.5% of the archive once $N/g\ge200$;
 - the maximum over 10 such series raises this to roughly 6-12% at $N/g=200$-$1300$ (FFRefine's own test found about 12% at $N/g=200$), and to about 35% at $N/g\approx40$, with roughly a 28% chance the maximum-of-10 cut exceeds 50% of the archive and the archive is wrongly flagged as not equilibrated.
@@ -112,15 +117,15 @@ The multi-series combination rule, its Monte Carlo calibration, the per-state ce
 - Updated [[wiki/concepts/statistical-inefficiency-and-automated-equilibration-detection]]'s Open Questions to note that FFRefine's project evidence now partially addresses the multi-series and single-replica-multi-state gaps.
 - Updated [[wiki/claims/CLM-0046-multiscale-truncated-autocorrelation-estimator-controls-tail-noise]]'s Caveats with the measured AR(1) bias.
 - Updated [[wiki/claims/CLM-0045-neff-maximization-gives-near-optimal-equilibration-time]]'s Links to point to the new claim and answer note.
-- Updated [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]'s implementation snapshot with a pointer to this note.
+- Updated [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]'s implementation snapshot with a pointer to this note (since 2026-10-11 that pointer is in the route plan's Evidence timeline).
 
-## Status update (2026-10-01)
+## Implementation at master `6b20031`
 
-The cut described here is implemented as stage 1 in FFRefine (master `6b20031`) and runs in report-only mode for the water experiment only: per replica, one series per observable target family (loss-sensitivity weighted at checkpoint evaluation, tolerance weighted on raw production data; the dielectric family uses the per-frame squared box dipole) plus the active-state reduced potential, each centred per sampled state; δ is looked up from the calibrated table keyed on the number of series and the smallest $N/g_{\mathrm{late}}$, where $g_{\mathrm{late}}$ is measured on the second half of each series; a cut above half the archive is only flagged; `:apply` mode (frame removal) and the gradient series are not implemented. Hexane and solvation do not yet pass an equilibration policy. In the shadow water campaign `20260928-220040` (11 epochs), as summarised in the project's design document, the cut was never material beyond 1.6% of the archive and never flagged an archive. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
+At FFRefine master `6b20031` (2026-10-01), the cut described here is implemented as stage 1 and runs in report-only mode for the water experiment only: per replica, one series per observable target family (loss-sensitivity weighted at checkpoint evaluation, tolerance weighted on raw production data; the dielectric family uses the per-frame squared box dipole) plus the active-state reduced potential, each centred per sampled state; δ is looked up from the calibrated table keyed on the number of series and the smallest $N/g_{\mathrm{late}}$, where $g_{\mathrm{late}}$ is measured on the second half of each series; a cut above half the archive is only flagged; `:apply` mode (frame removal) and the gradient series are not implemented. Hexane and solvation do not yet pass an equilibration policy. In the shadow water campaign `20260928-220040` (11 epochs), as summarised in the project's design document, the cut was never material beyond 1.6% of the archive and never flagged an archive. See [[wiki/answers/ffrefine-direction-gates-and-production-policy]].
 
 ## Remaining gaps
 
 - The multi-series calibration and the fast estimator's measured bias are demonstrated only on stationary synthetic AR(1) series, not on FFRefine's real observable series or on the heavier-tailed gradient series planned for a later implementation stage.
-- Whether FFRefine's production archives ever need the enforcing (frame-removing) mode of the cut, rather than report-only, is untested; the first campaign with the cut in report-only mode has not yet run to completion at the time of writing (2026-09-28); see the 2026-10-01 status update above for the shadow-campaign result.
+- Whether FFRefine's production archives ever need the enforcing (frame-removing) mode of the cut, rather than report-only, is untested. When this note was first written (2026-09-28), no campaign with the cut in report-only mode had run to completion; the shadow-campaign result recorded by 2026-10-01 is in the implementation section above.
 - The block-length-versus-correlation-time consistency check (jackknife blocks should be at least about 10 times the measured $g$) has not yet been evaluated against production dielectric-dipole series, which are expected to be the noisiest.
 - No comparison exists yet between the observable-only cut and the combined observable-plus-gradient cut planned for stage 2.

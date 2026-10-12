@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-12
 question: "How did the 2026-10-11 FFRefine planning session decide to sequence turning FFRefine into a generalist package, migrate it to Molly `master`, and divide work between FFRefine and Molly, and why?"
 answer_status: answered
 areas:
@@ -50,6 +50,12 @@ project_evidence:
   - "Molly.jl `master` at commit `587d3644` (2026-10-02)"
   - "FFRefine commit `d48d2f1` (2026-07-16, \"Group charges by atom type\")"
   - "FFRefine commit `110fe64` (2026-10-07, \"Damped Levenberg-Marquardt trust-region step; report-only direction gates\")"
+scope: snapshot
+currency: current
+as_of: 2026-10-11
+as_of_commit:
+  - FFRefine@110fe64
+  - Molly@587d3644
 ---
 
 # FFRefine Generalist-Package Plan: 2026-10-11 Decisions
@@ -150,7 +156,7 @@ This generalises FFRefine's current cycle prediction, which is restricted to the
 | Q | QEq hardness default | **Open.** Keep today's behaviour for now: no gauge fixing; hardness is a bounded latent inside per-epoch QEq bounds, and regularisation is set per experiment (off for water and hexane, default for solvation). Garnet 2.0 may need charge equilibration with a different parameterisation, so the per-type electronegativity/hardness redundancy result (see [[wiki/answers/qeq-per-type-electronegativity-hardness-redundancy]]) may not carry over, and `ChargeModel` is kept as an extension point so Garnet 2.0 could plug in a different default. To be decided before the Phase 2 parameter-layer work. |
 | N | Package name | **Open.** `FFRefine` is the current working name; it may be too close to the unrelated `MDRefine` project. A rename before registration is considered mechanical (module name, `Project.toml` name, examples; the package UUID can stay). To be decided before Phase 3 documentation. |
 
-Decisions R and D (the canonical regime and report-only diagnostic policy) are elaborated as an implementation-status update in [[wiki/answers/ffrefine-current-implementation-status]], since they concern what the running code currently does and is planned to stop doing, rather than the package/migration architecture covered here.
+Decisions R and D (the canonical regime and report-only diagnostic policy) are tracked in [[wiki/answers/ffrefine-decision-register]] (FFR-029 to FFR-040), with their effect on the code described in [[wiki/answers/ffrefine-current-implementation-status]], since they concern what the running code currently does and is planned to stop doing, rather than the package/migration architecture covered here.
 
 ### G. Process-isolation rationale (P), not previously recorded
 
@@ -172,10 +178,10 @@ None (no literature source). All content is FFRefine project evidence and projec
 
 - Added this answer note.
 - Updated [[wiki/answers/ffrefine-current-implementation-status]] with the canonical-regime status and planned-but-not-yet-implemented removals.
-- Added a 2026-10-11 lessons entry to [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]].
+- Added a 2026-10-11 lessons entry to [[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]] (since moved to [[wiki/answers/ffrefine-decision-register]] / the route plan's Evidence timeline).
 - Corrected the charge-key description and added the AbsoluteFESystem/DEXP/logger facts in [[wiki/answers/molly-master-migration-constraints-for-ffrefine]].
 - Corrected the fourth implementation lesson in [[wiki/concepts/awh-replay-force-field-optimization]] to mark molecular-template charge keys as superseded by atom-type charge keys (production since 2026-07-16, commit `d48d2f1`).
-- Added 2026-10-11 status notes to [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], and to [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]].
+- Added 2026-10-11 status notes to [[wiki/answers/ffrefine-direction-gates-and-production-policy]] and [[wiki/answers/ffrefine-loss-gate-diagnostic-policy]], and to [[wiki/questions/QST-0011-config-versus-weighted-sum-under-calibrated-direction-gates]] (since moved to [[wiki/answers/ffrefine-decision-register]] / the route plan's Evidence timeline).
 - Added a new Molly-facts concept page, [[wiki/concepts/molly-jl-simulation-package-facts]].
 
 ## Remaining gaps

@@ -18,7 +18,7 @@ Use this skill for prompts such as `Answer in the wiki: <question>` or `Write a 
 ## Answer-note workflow
 
 1. Run `python3 tools/search_wiki.py <query>` for deterministic first-pass retrieval unless the exact target path is already known.
-2. Inspect only the strongest relevant sections and pages; use `wiki/index.md` for orientation when useful rather than as the required topical entry point.
+2. Inspect only the strongest relevant sections and pages; use `wiki/index.md` for orientation when useful rather than as the required topical entry point. Check each result's `currency` and follow the `Currency workflow` in `schema/workflows.md`: do not present a `historical` or `superseded` page as the current state.
 3. Identify likely starting pages from search results, categories, and source IDs. Use only targeted `grep`, `find`, or direct reads after narrowing the scope.
 4. For non-trivial questions, run or consult graph-neighborhood information afterwards when useful, for example `python3 tools/query_graph.py --start <page> --depth <depth>`. Decide the depth based on the complexity of the question. Search scores indicate lexical relevance, not evidence quality or confidence.
 5. Use the graph neighborhood to choose which related sources, concepts, claims, questions, tensions, categories, authors, and source bundles to read before asking the LLM to synthesize.
@@ -65,6 +65,8 @@ Before or alongside an answer note, update durable pages when the answer depends
 - Claim pages for discrete cited claims that should be retrievable independently.
 - Tension pages for contradictions, conflicts, or incompatible interpretations.
 - Question pages for open questions that remain unresolved after lookup.
+
+When the answer records or changes project state, follow the `Currency workflow` in `schema/workflows.md`: give new project-state pages `scope`, `currency`, and `as_of`; rewrite living pages in place; mark affected snapshots with `tools/set_currency.py` instead of appending dated update sections.
 
 Keep durable updates narrow and cite them locally. Preserve existing sensitivity and encryption metadata. Do not turn answer-note work into a broad cleanup unless requested.
 

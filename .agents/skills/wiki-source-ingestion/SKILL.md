@@ -125,6 +125,8 @@ Before writing wiki content, determine whether the request is:
 
 Treat multiple files as a bundle when they are intended to be understood together.
 
+For project/design documentation or source code, source pages stay records of the source, but concept, answer, or other pages that describe what a project or codebase currently does must declare `scope` (usually `snapshot`, with `currency`, `as_of`, and `as_of_commit` when known), following `Time Scope and Currency` in `schema/page_templates.md`. Literature-derived pages stay `timeless` and need no currency fields.
+
 For a folder, inspect enough of its contents to identify likely source files and exclude obvious:
 
 * generated output;

@@ -52,7 +52,10 @@ def node_line(node: dict[str, Any]) -> str:
     path = node.get("path")
     value = node.get("value")
     detail = path or value or node["id"]
-    return f"- `{node['id']}` ({node_type}) - {label} [{detail}]"
+    line = f"- `{node['id']}` ({node_type}) - {label} [{detail}]"
+    if node.get("currency") in ("historical", "superseded"):
+        line += f" **{node['currency'].upper()}** (as of {node.get('as_of', 'unknown')})"
+    return line
 
 
 def print_node_list(title: str, node_ids: list[str], nodes: dict[str, dict[str, Any]]) -> None:

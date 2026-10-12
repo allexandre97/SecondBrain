@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-09-14
-updated: 2026-09-14
+updated: 2026-10-11
 areas:
   - research
   - work
@@ -26,6 +26,9 @@ sources:
   - SRC-0089
 sensitivity: public
 encryption: none
+scope: snapshot
+currency: current
+as_of: 2026-09-14
 ---
 # RpiCam Embedded Camera Firmware
 

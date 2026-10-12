@@ -5,7 +5,11 @@ from __future__ import annotations
 
 import re
 import sys
+from datetime import date
 from pathlib import Path
+
+from wiki_currency import currency_issues, currency_metadata, index_marker_issues
+from wiki_markdown import parse_frontmatter
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -153,6 +157,7 @@ def main() -> int:
             if not candidate.is_file():
                 errors.append(f"Source page source_path does not exist in {path.relative_to(ROOT)}: {source_path}")
 
+    currency_by_target: dict[str, str | None] = {}
     for path in wiki_pages:
         text = path.read_text(encoding="utf-8")
         if LOCAL_PATH_RE.search(text):
@@ -162,6 +167,13 @@ def main() -> int:
                 "Obsidian math warning in "
                 f"{path.relative_to(ROOT)}: prefer $$ display math over \\[ ... \\]"
             )
+        if path not in FRONTMATTER_EXEMPT:
+            frontmatter, body_lines = parse_frontmatter(text)
+            page_errors, page_warnings = currency_issues(frontmatter, body_lines, date.today())
+            rel = path.relative_to(ROOT)
+            currency_by_target[rel.with_suffix("").as_posix()] = currency_metadata(frontmatter)["currency"]
+            errors.extend(f"Currency in {rel}: {message}" for message in page_errors)
+            warnings.extend(f"Currency in {rel}: {message}" for message in page_warnings)
         if "ingestion_status: complete" in text and SOURCE_QA_SECTION not in text:
             errors.append(f"Complete source page missing ingestion QA section: {path.relative_to(ROOT)}")
         if (
@@ -173,6 +185,14 @@ def main() -> int:
             and EQUATION_INVENTORY_SECTION not in text
         ):
             errors.append(f"Math-heavy source page missing equation inventory section: {path.relative_to(ROOT)}")
+
+    index_page = ROOT / "wiki" / "index.md"
+    if index_page.is_file():
+        index_lines = index_page.read_text(encoding="utf-8").split("\n")
+        errors.extend(
+            f"Currency marker in wiki/index.md {message}"
+            for message in index_marker_issues(index_lines, currency_by_target)
+        )
 
     navigation_pages = {
         ROOT / "wiki" / "index.md",
