@@ -33,6 +33,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Sources
 
 - [[wiki/sources/SRC-0097-densities-and-derived-thermodynamic-properties-for-the-n|Abdussalam et al. High-Pressure Alkane/Ethanol Densities]]
+- [[wiki/sources/SRC-0103-all-atom-inverse-protein-folding-discrete-flow-matching|ADFLIP]]
 - [[wiki/sources/SRC-0095-temperature-dependent-complex-dielectric-permittivity-a-simple-measurement|Baker-Fales et al. Benchtop Dielectric Permittivity Measurement]]
 - [[wiki/sources/SRC-0093-the-structure-of-liquid-ethanol-a-neutron-diffraction|Benmore & Loh Liquid Ethanol Neutron Diffraction]]
 - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]
@@ -41,6 +42,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0100-training-force-field-proteins-small-molecules-supplement|Garnet Chemical Science Supplement]]
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]]
 - [[wiki/sources/SRC-0099-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]]
+- [[wiki/sources/SRC-0102-grappa-a-machine-learned-molecular-mechanics-force-field|grappa-bonded]]
+- [[wiki/sources/SRC-0101-learning-consistent-molecular-mechanics-force-fields-from-first|grappa-fullFF]]
 - [[wiki/sources/SRC-0096-traceable-measurements-of-the-static-permittivity-of-dielectric|Gregory & Clarke NPL Static Permittivity Reference Liquids]]
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]]
 - [[wiki/sources/SRC-0022-tuning-potential-functions-host-guest-binding-data-supporting-information|Host-Guest Potential Tuning Supplement]]
@@ -57,12 +60,14 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|presto Bespoke SMIRNOFF Force Fields]]
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]
 - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]]
+- [[wiki/sources/SRC-0104-de-novo-design-of-protein-structure-and-function|RFdiffusion]]
 - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]]
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]]
 
 ### Concepts
 
+- [[wiki/concepts/adflip-discrete-flow-matching-inverse-folding|ADFLIP: All-Atom Discrete Flow Matching for Inverse Protein Folding]]
 - [[wiki/concepts/cdna-display-proteolysis-stability-measurements|cDNA Display Proteolysis Stability Measurements]]
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]]
 - [[wiki/concepts/enhanced-sampling-validation|Enhanced-Sampling Validation]]
@@ -75,6 +80,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/concepts/protein-energy-landscape-profiling|Protein Energy Landscape Profiling]]
 - [[wiki/concepts/protein-force-field-benchmark-datasets|Protein Force Field Benchmark Datasets]]
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]]
+- [[wiki/concepts/rfdiffusion-diffusion-based-de-novo-protein-design|RFdiffusion: Diffusion-Based De Novo Protein Design]]
 - [[wiki/concepts/self-configuring-u-net-medical-image-segmentation|Self-Configuring U-Net Medical Image Segmentation]]
 - [[wiki/concepts/tip3p-fb-and-tip4p-fb-water-models|TIP3P-FB and TIP4P-FB Water Models]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]]
@@ -101,6 +107,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Claims
 
+- [[wiki/claims/CLM-0059-adflip-all-atom-and-multi-conformation-conditioning-improves-inverse-folding-recovery|ADFLIP's All-Atom and Multi-Conformation Conditioning Improves Inverse-Folding Recovery]]
 - [[wiki/claims/CLM-0054-alcohols-show-non-monotonic-dielectric-permittivity-temperature-dependence|Alcohols Show Non-Monotonic Dielectric Permittivity-Temperature Dependence, Unlike Water and Non-Alcohol Organic Solvents]]
 - [[wiki/claims/CLM-0030-cdna-display-proteolysis-is-scalable-but-assumption-limited|cDNA Display Proteolysis Is Scalable but Assumption-Limited]]
 - [[wiki/claims/CLM-0014-dataset-scale-does-not-replace-coverage-validation|Dataset Scale Does Not Replace Coverage and Validation]]
@@ -108,6 +115,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0013-energy-force-error-is-not-downstream-md-reliability|Energy/Force Error Is Not Downstream MD Reliability]]
 - [[wiki/claims/CLM-0034-enhanced-sampling-method-performance-is-context-dependent|Enhanced-Sampling Method Performance Is Context-Dependent]]
 - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]
+- [[wiki/claims/CLM-0058-grappa-matches-or-exceeds-espaloma-accuracy-at-mm-cost-and-extends-to-new-chemistries|Grappa Matches or Exceeds Espaloma Accuracy at MM Cost and Extends to New Chemistries]]
+- [[wiki/claims/CLM-0057-grappa-fullff-jointly-learns-nonbonded-parameters-without-degrading-bonded-accuracy|grappa-fullFF Jointly Learns Nonbonded Parameters Without Degrading Bonded Accuracy]]
 - [[wiki/claims/CLM-0055-hcl-ionic-strength-reverses-loss-factor-temperature-trend|Increasing HCl Concentration Reverses the Sign of the Dielectric Loss Factor's Temperature Dependence]]
 - [[wiki/claims/CLM-0042-lennard-jones-refinement-outperforms-charge-scaling-after-shared-osmometry-fit|Lennard-Jones Refinement Outperforms Charge Scaling After a Shared Osmometry Fit]]
 - [[wiki/claims/CLM-0056-ethanol-alkane-mixing-gives-positive-excess-volume-from-hydrogen-bond-disruption|Mixing Ethanol with n-Heptane or n-Octane Gives Positive Excess Volume, Attributed to Hydrogen-Bond Disruption]]
@@ -117,6 +126,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation|Observable-Fitted Force Fields Need Held-Out Validation]]
 - [[wiki/claims/CLM-0041-osmometry-calibrated-charge-interactions-transfer-to-complex-protein-systems|Osmometry-Calibrated Charge Interactions Transfer to Complex Protein Systems]]
 - [[wiki/claims/CLM-0018-public-rbfe-benchmarks-can-be-easier-than-private-active-project-data|Public RBFE Benchmarks Can Be Easier Than Private Active-Project Data]]
+- [[wiki/claims/CLM-0062-rfdiffusion-raises-binder-design-success-two-orders-of-magnitude-with-cryo-em-confirmed-accuracy|RFdiffusion Raises Binder-Design Success Two Orders of Magnitude, With Cryo-EM-Confirmed Atomic Accuracy]]
 - [[wiki/claims/CLM-0033-self-convergence-does-not-establish-free-energy-correctness|Self-Convergence Does Not Establish Free-Energy Correctness]]
 - [[wiki/claims/CLM-0031-stability-explains-many-but-not-all-missense-effects|Stability Explains Many but Not All Missense Effects]]
 - [[wiki/claims/CLM-0051-xray-diffraction-alcohol-oh-hydrogen-bond-geometry|X-Ray Diffraction Alcohol OH Hydrogen-Bond Geometry]]

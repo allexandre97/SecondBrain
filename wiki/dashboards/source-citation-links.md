@@ -29,6 +29,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 
 ## Confirmed Source Citation Links
 
+- [[wiki/sources/SRC-0103-all-atom-inverse-protein-folding-discrete-flow-matching|ADFLIP]] -> [[wiki/sources/SRC-0104-de-novo-design-of-protein-structure-and-function|SRC-0104]]
 - [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]] -> [[wiki/sources/SRC-0023-statistically-optimal-analysis-multiple-equilibrium-states-mbar|SRC-0023]]
 - [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]] -> [[wiki/sources/SRC-0091-use-of-the-weighted-histogram-analysis-method-for|SRC-0091]]
 - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]] -> [[wiki/sources/SRC-0007-improving-efficiency-extended-ensemble-awh|SRC-0007]]
@@ -65,6 +66,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 - [[wiki/sources/SRC-0099-training-force-field-proteins-small-molecules|Garnet Force Field (Chemical Science)]] -> [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] -> [[wiki/sources/SRC-0041-boltzmann-generators-sampling-equilibrium-states-of-many-body|SRC-0041]]
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]] -> [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|SRC-0074]]
+- [[wiki/sources/SRC-0102-grappa-a-machine-learned-molecular-mechanics-force-field|grappa-bonded]] -> [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]
 - [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|Host-Guest Potential Tuning]] -> [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]
 - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]] -> [[wiki/sources/SRC-0070-mega-scale-experimental-analysis-of-protein-folding-stability|SRC-0070]]
 - [[wiki/sources/SRC-0013-ladybugs-lambda-dynamics|LaDyBUGS Lambda-Dynamics]] -> [[wiki/sources/SRC-0008-awh-free-energy-landscapes|SRC-0008]]
@@ -102,6 +104,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 
 ## Sources With Citation Match Status: partial
 
+- [[wiki/sources/SRC-0103-all-atom-inverse-protein-folding-discrete-flow-matching|ADFLIP]]
 - [[wiki/sources/SRC-0090-a-simple-method-for-automated-equilibration-detection-in|Automated Equilibration Detection]]
 - [[wiki/sources/SRC-0077-reaction-field-electrostatics-in-molecular-dynamics-simulations-development|Conservative Atomic Reaction-Field Electrostatics]]
 - [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|Convergence Is Not Correctness]]
@@ -113,6 +116,8 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 - [[wiki/sources/SRC-0086-breaking-timescales-generative-sampling-conformational-transitions|Gen-COMPAS]]
 - [[wiki/sources/SRC-0087-breaking-timescales-generative-sampling-conformational-transitions-supplement|Gen-COMPAS Supplement]]
 - [[wiki/sources/SRC-0049-gpu-native-compressed-neighbor-lists-with-a-space|GPU Compressed Neighbor Lists]]
+- [[wiki/sources/SRC-0102-grappa-a-machine-learned-molecular-mechanics-force-field|grappa-bonded]]
+- [[wiki/sources/SRC-0101-learning-consistent-molecular-mechanics-force-fields-from-first|grappa-fullFF]]
 - [[wiki/sources/SRC-0071-site-saturation-mutagenesis-of-500-human-protein-domains|Human Domainome 1]]
 - [[wiki/sources/SRC-0047-performing-solvation-free-energy-calculations-in-lammps-using|LAMMPS Solvation Free Energy]]
 - [[wiki/sources/SRC-0052-lincs-a-linear-constraint-solver-for-molecular-simulations|LINCS Constraint Solver]]
@@ -126,6 +131,7 @@ Confirmed links come from source-page `cites_sources` frontmatter. Candidate mat
 - [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]]
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]
 - [[wiki/sources/SRC-0076-9901032v1|Reaction Field for Interaction-Site Models]]
+- [[wiki/sources/SRC-0104-de-novo-design-of-protein-structure-and-function|RFdiffusion]]
 - [[wiki/sources/SRC-0069-segment-anything|Segment Anything]]
 - [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|Six Open Questions for MLIP Foundation Models]]
 - [[wiki/sources/SRC-0050-a-smooth-particle-mesh-ewald-method|Smooth Particle Mesh Ewald]]

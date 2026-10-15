@@ -2,7 +2,7 @@
 type: concept
 status: active
 created: 2026-06-29
-updated: 2026-07-02
+updated: 2026-10-12
 areas:
   - research
 categories:
@@ -23,6 +23,7 @@ related:
   - "[[wiki/concepts/machine-learning-potential-datasets]]"
   - "[[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]"
   - "[[wiki/concepts/espaloma-machine-learned-mm-force-fields]]"
+  - "[[wiki/concepts/grappa-machine-learned-force-fields]]"
 sources:
   - SRC-0003
   - SRC-0014
@@ -41,6 +42,8 @@ sources:
   - SRC-0066
   - SRC-0072
   - SRC-0073
+  - SRC-0101
+  - SRC-0102
 sensitivity: public
 encryption: none
 ---
@@ -70,6 +73,8 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - UBio-MolFM is a biology-focused instance of this broader program, combining a domain-specific DFT dataset, energy-force-consistent training, long-short range equivariant architecture, and downstream MD observable checks. [SRC-0060]
 - `presto` uses transferable MLPs as fast reference models for fitting bespoke SMIRNOFF valence parameters, trading direct QM fitting cost for MLP evaluation speed while preserving a conventional MM functional form. [SRC-0066]
 - Espaloma-0.3 uses graph neural networks to assign parameters for a conventional Class I MM functional form across small molecules, peptides, proteins, and RNA, with downstream checks on geometries, NMR observables, and protein-ligand binding free energies. [SRC-0072] [SRC-0073]
+- `grappa-bonded` (Seute, Hartmann, Stühmer & Gräter, Chemical Science 2025, SRC-0102) learns only bonded MM parameters via a permutation-equivariant graph-attention encoder plus per-interaction-type "symmetric transformer" heads, holding nonbonded parameters fixed to an externally assigned scheme; it matches or exceeds Espaloma-0.3 accuracy on the same benchmark, extends to new chemistry (peptide radicals) with modest added data, and reproduces experimental *J*-couplings, folding free energy, and large-scale MD stability at standard MM computational cost. [SRC-0102]
+- `grappa-fullFF` extends the bonded-only `grappa-bonded` graph-attention model to jointly predict nonbonded (partial-charge and Lennard-Jones) parameters from QM energies and forces alone, using physics-informed electrostatic-potential and effective-volume-ratio regularization to resolve the bonded/nonbonded energy-degeneracy ambiguity, without externally assigned nonbonded parameters. [SRC-0101]
 
 ## Links
 
@@ -86,6 +91,7 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps]]
 - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large]]
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force]]
+- [[wiki/sources/SRC-0102-grappa-a-machine-learned-molecular-mechanics-force-field]]
 - [[wiki/concepts/garnet-force-field]]
 - [[wiki/concepts/double-exponential-potential]]
 - [[wiki/concepts/force-field-training-from-experimental-observables]]
@@ -99,6 +105,7 @@ Automated force-field training aims to learn molecular mechanics parameters and 
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models]]
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting]]
 - [[wiki/concepts/espaloma-machine-learned-mm-force-fields]]
+- [[wiki/concepts/grappa-machine-learned-force-fields]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model]]
 - [[wiki/questions/force-field-training-validation-scope]]
 - [[wiki/claims/CLM-0009-observable-fitting-needs-held-out-validation]]

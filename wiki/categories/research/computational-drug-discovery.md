@@ -32,6 +32,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Sources
 
+- [[wiki/sources/SRC-0103-all-atom-inverse-protein-folding-discrete-flow-matching|ADFLIP]]
 - [[wiki/sources/SRC-0009-awh-alchemical-free-energy|AWH Alchemical Free Energies]]
 - [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|espaloma-0.3]]
 - [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|espaloma-0.3 Supplement]]
@@ -49,6 +50,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Concepts
 
+- [[wiki/concepts/adflip-discrete-flow-matching-inverse-folding|ADFLIP: All-Atom Discrete Flow Matching for Inverse Protein Folding]]
 - [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]]
 - [[wiki/concepts/lambda-dynamics-with-bias-updated-gibbs-sampling|Lambda-Dynamics with Bias-Updated Gibbs Sampling]]
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]]
@@ -64,6 +66,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Claims
 
+- [[wiki/claims/CLM-0060-adflip-training-free-guidance-improves-affinity-targeted-generation-with-limited-gains|ADFLIP's Training-Free Guidance Improves Affinity-Targeted Generation, with Limited Gains]]
 - [[wiki/claims/CLM-0019-edgewise-rbfe-metrics-can-overstate-arbitrary-comparison-quality|Edgewise RBFE Metrics Can Overstate Arbitrary Comparison Quality]]
 - [[wiki/claims/CLM-0017-experimental-reproducibility-bounds-rbfe-error-interpretation|Experimental Reproducibility Bounds RBFE Error Interpretation]]
 - [[wiki/claims/CLM-0032-gnn-mm-force-fields-need-downstream-simulation-validation|GNN MM Force Fields Need Downstream Simulation Validation]]

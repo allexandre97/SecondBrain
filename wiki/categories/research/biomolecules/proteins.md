@@ -32,6 +32,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Sources
 
+- [[wiki/sources/SRC-0103-all-atom-inverse-protein-folding-discrete-flow-matching|ADFLIP]]
 - [[wiki/sources/SRC-0046-the-maximal-and-current-accuracy-of-rigorous-protein|FEP+ Binding Free-Energy Accuracy]]
 - [[wiki/sources/SRC-0100-training-force-field-proteins-small-molecules-supplement|Garnet Chemical Science Supplement]]
 - [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|Garnet Force Field]]
@@ -49,12 +50,14 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/sources/SRC-0078-predictive-all-atom-simulations-of-disordered-proteins-and|Osmometry-Guided Force-Field Optimization]]
 - [[wiki/sources/SRC-0067-protein-energy-landscape-discovery-analysis-design|Protein Energy Landscapes]]
 - [[wiki/sources/SRC-0043-structure-based-experimental-datasets-for-benchmarking-protein-simulation|Protein Force-Field Benchmark Datasets]]
+- [[wiki/sources/SRC-0104-de-novo-design-of-protein-structure-and-function|RFdiffusion]]
 - [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SPICE Dataset]]
 - [[wiki/sources/SRC-0063-sted-imaging-tau-filaments-alzheimer-disease|STED Tau Filaments]]
 - [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|UBio-MolFM]]
 
 ### Concepts
 
+- [[wiki/concepts/adflip-discrete-flow-matching-inverse-folding|ADFLIP: All-Atom Discrete Flow Matching for Inverse Protein Folding]]
 - [[wiki/concepts/cdna-display-proteolysis-stability-measurements|cDNA Display Proteolysis Stability Measurements]]
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]]
 - [[wiki/concepts/garnet-force-field|Garnet Force Field]]
@@ -66,6 +69,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/concepts/protein-energy-landscape-profiling|Protein Energy Landscape Profiling]]
 - [[wiki/concepts/protein-force-field-benchmark-datasets|Protein Force Field Benchmark Datasets]]
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]]
+- [[wiki/concepts/rfdiffusion-diffusion-based-de-novo-protein-design|RFdiffusion: Diffusion-Based De Novo Protein Design]]
 - [[wiki/concepts/super-resolution-imaging-of-tau-pathology|Super-Resolution Imaging of Tau Pathology]]
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]]
 
@@ -79,7 +83,11 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Claims
 
+- [[wiki/claims/CLM-0059-adflip-all-atom-and-multi-conformation-conditioning-improves-inverse-folding-recovery|ADFLIP's All-Atom and Multi-Conformation Conditioning Improves Inverse-Folding Recovery]]
+- [[wiki/claims/CLM-0060-adflip-training-free-guidance-improves-affinity-targeted-generation-with-limited-gains|ADFLIP's Training-Free Guidance Improves Affinity-Targeted Generation, with Limited Gains]]
 - [[wiki/claims/CLM-0030-cdna-display-proteolysis-is-scalable-but-assumption-limited|cDNA Display Proteolysis Is Scalable but Assumption-Limited]]
 - [[wiki/claims/CLM-0002-garnet-automates-parameter-assignment|Garnet Automates Force-Field Parameter Assignment]]
 - [[wiki/claims/CLM-0041-osmometry-calibrated-charge-interactions-transfer-to-complex-protein-systems|Osmometry-Calibrated Charge Interactions Transfer to Complex Protein Systems]]
+- [[wiki/claims/CLM-0062-rfdiffusion-raises-binder-design-success-two-orders-of-magnitude-with-cryo-em-confirmed-accuracy|RFdiffusion Raises Binder-Design Success Two Orders of Magnitude, With Cryo-EM-Confirmed Atomic Accuracy]]
+- [[wiki/claims/CLM-0061-rfdiffusion-self-conditioning-and-mse-loss-are-necessary-for-design-quality|RFdiffusion's Self-Conditioning and MSE Loss Are Necessary for Design Quality]]
 - [[wiki/claims/CLM-0031-stability-explains-many-but-not-all-missense-effects|Stability Explains Many but Not All Missense Effects]]

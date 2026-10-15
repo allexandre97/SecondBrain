@@ -72,14 +72,15 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### research/biomolecules/proteins
 
+- [[wiki/concepts/adflip-discrete-flow-matching-inverse-folding|ADFLIP: All-Atom Discrete Flow Matching for Inverse Protein Folding]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/computational-drug-discovery` (1), `research/experimental-benchmarking` (1)
 - [[wiki/concepts/cdna-display-proteolysis-stability-measurements|cDNA Display Proteolysis Stability Measurements]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)
 - [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/experimental-benchmarking` (2), `research/machine-learning/molecular-modeling` (2)
-- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/experimental-benchmarking` (2), `research/machine-learning/molecular-modeling` (2)
 - [[wiki/concepts/human-domainome-variant-stability-mapping|Human Domainome Variant-Stability Mapping]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/data-management` (1), `research/experimental-benchmarking` (1)
 - [[wiki/concepts/osmometry-guided-force-field-optimization|Osmometry-Guided Force-Field Optimization]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/molecular-simulation/force-fields` (1)
 - [[wiki/concepts/protein-energy-landscape-profiling|Protein Energy Landscape Profiling]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/data-management` (2), `research/experimental-benchmarking` (2)
 - [[wiki/concepts/protein-force-field-benchmark-datasets|Protein Force Field Benchmark Datasets]] - 3 source IDs; top source categories: `research/biomolecules/proteins` (3), `research/experimental-benchmarking` (3), `research/data-management` (2)
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - 5 source IDs; top source categories: `research/biomolecules/proteins` (5), `research/experimental-benchmarking` (5), `research/computational-drug-discovery` (4)
+- [[wiki/concepts/rfdiffusion-diffusion-based-de-novo-protein-design|RFdiffusion: Diffusion-Based De Novo Protein Design]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1)
 - [[wiki/concepts/super-resolution-imaging-of-tau-pathology|Super-Resolution Imaging of Tau Pathology]] - 2 source IDs; top source categories: `research/biomolecules/proteins` (2), `research/computer-vision/biomedical-imaging` (2)
 - [[wiki/concepts/ubio-molfm-biological-molecular-foundation-model|UBio-MolFM Biological Molecular Foundation Model]] - 1 source IDs; top source categories: `research/biomolecules/proteins` (1), `research/biomolecules/rna` (1), `research/experimental-benchmarking` (1)
 
@@ -102,6 +103,8 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### research/experimental-benchmarking
 
 - [[wiki/concepts/conservative-reaction-field-cutoff-schemes|Conservative Reaction-Field Cutoff Schemes]] - 1 source IDs; top source categories: `research/experimental-benchmarking` (1), `research/molecular-simulation/force-fields` (1), `research/molecular-simulation/molecular-dynamics` (1)
+- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - 3 source IDs; top source categories: `research/experimental-benchmarking` (3), `research/machine-learning/molecular-modeling` (3), `research/machine-learning/scientific-modeling` (3)
+- [[wiki/concepts/grappa-machine-learned-force-fields|Grappa Machine-Learned Force Fields]] - 2 source IDs; top source categories: `research/experimental-benchmarking` (2), `research/machine-learning/molecular-modeling` (2), `research/machine-learning/scientific-modeling` (2)
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]] - 3 source IDs; top source categories: `research/experimental-benchmarking` (3), `research/machine-learning/molecular-modeling` (3), `research/molecular-simulation/datasets` (3)
 - [[wiki/concepts/molecular-response-property-foundation-models|Molecular Response-Property Foundation Models]] - 1 source IDs; top source categories: `research/experimental-benchmarking` (1), `research/machine-learning/molecular-modeling` (1), `research/molecular-simulation/datasets` (1)
 
@@ -120,7 +123,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### research/machine-learning/molecular-modeling
 
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]] - 4 source IDs; top source categories: `research/machine-learning/molecular-modeling` (4), `research/molecular-simulation/free-energy` (4), `research/machine-learning/scientific-modeling` (3)
-- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - 3 source IDs; top source categories: `research/machine-learning/molecular-modeling` (3), `research/molecular-simulation/force-fields` (3), `research/computational-drug-discovery` (2)
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - 5 source IDs; top source categories: `research/machine-learning/molecular-modeling` (5), `research/molecular-simulation/force-fields` (5), `research/machine-learning/scientific-modeling` (3)
 - [[wiki/concepts/gnn-to-symbolic-regression-potentials|GNN to Symbolic Regression Potentials]] - 1 source IDs; top source categories: `research/machine-learning/molecular-modeling` (1), `research/machine-learning/scientific-modeling` (1), `research/molecular-simulation/force-fields` (1)
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - 7 source IDs; top source categories: `research/machine-learning/molecular-modeling` (7), `research/molecular-simulation/datasets` (7), `research/molecular-simulation/force-fields` (7)
 - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]] - 2 source IDs; top source categories: `research/machine-learning/molecular-modeling` (2), `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/molecular-dynamics` (2)
@@ -137,7 +140,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### research/molecular-simulation/force-fields
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - 17 source IDs; top source categories: `research/molecular-simulation/force-fields` (17), `research/machine-learning/molecular-modeling` (9), `research/machine-learning/scientific-modeling` (7)
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - 19 source IDs; top source categories: `research/molecular-simulation/force-fields` (19), `research/machine-learning/molecular-modeling` (11), `research/machine-learning/scientific-modeling` (9)
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - 8 source IDs; top source categories: `research/molecular-simulation/force-fields` (4), `research/molecular-simulation/free-energy` (4), `research/adaptive-sampling` (3)
 - [[wiki/concepts/ensemble-and-force-field-refinement|Ensemble and Force Field Refinement]] - 2 source IDs; top source categories: `research/molecular-simulation/force-fields` (2), `research/molecular-simulation/free-energy` (2), `research/molecular-simulation/molecular-dynamics` (1)
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - 7 source IDs; top source categories: `research/molecular-simulation/force-fields` (7), `research/biomolecules/proteins` (4), `research/experimental-benchmarking` (4)
@@ -195,9 +198,9 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0003-training-a-force-field-from-scratch|SRC-0003]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - categories: `research/molecular-simulation/force-fields`; tags: `nonbonded-potentials`, `molecular-dynamics`; 2 source IDs
-- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 2 source IDs
+- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 3 source IDs
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/scientific-computing`; tags: `garnet`, `functional-form-search`, `symbolic-regression`, `differentiable-simulation`; 6 source IDs
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]] - categories: `research/molecular-simulation/free-energy`, `research/computational-drug-discovery`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `rbfe`, `drug-discovery`; 5 source IDs
 
@@ -273,7 +276,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0014-lipid-force-field-saxs-reparameterization|SRC-0014]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - categories: `research/molecular-simulation/force-fields`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `force-field-training`, `experimental-observables`, `forcebalance`; 7 source IDs
 - [[wiki/concepts/forcebalance|ForceBalance]] - categories: `research/molecular-simulation/force-fields`; tags: `forcebalance`, `parameter-optimization`, `force-field-training`; 5 source IDs
@@ -281,19 +284,19 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0016-fine-tuning-mm-force-fields-to-experimental-free-energies|SRC-0016]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
 
 ### [[wiki/sources/SRC-0017-symbolic-regression-reinforcement-learning-interatomic-potentials|SRC-0017]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/scientific-computing`; tags: `garnet`, `functional-form-search`, `symbolic-regression`, `differentiable-simulation`; 6 source IDs
 - [[wiki/concepts/symbolic-regression-interatomic-potentials|Symbolic Regression Interatomic Potentials]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`; tags: `symbolic-regression`, `interatomic-potentials`, `equation-learning`; 2 source IDs
 
 ### [[wiki/sources/SRC-0018-force-field-optimization-via-awh-gradients|SRC-0018]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
@@ -301,7 +304,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0019-mdrefine-python-package-refining-md-trajectories|SRC-0019]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/ensemble-and-force-field-refinement|Ensemble and Force Field Refinement]] - categories: `research/molecular-simulation/force-fields`; tags: `ensemble-refinement`, `maximum-entropy`, `forward-model-refinement`, `mdrefine`; 2 source IDs
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
@@ -314,7 +317,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0021-tuning-potential-functions-host-guest-binding-data|SRC-0021]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - categories: `research/molecular-simulation/force-fields`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `force-field-training`, `experimental-observables`, `forcebalance`; 7 source IDs
 - [[wiki/concepts/forcebalance|ForceBalance]] - categories: `research/molecular-simulation/force-fields`; tags: `forcebalance`, `parameter-optimization`, `force-field-training`; 5 source IDs
@@ -330,14 +333,14 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0024-stable-training-machine-learning-force-fields-boltzmann-estimators|SRC-0024]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/garnet-functional-form-search|Garnet Functional-Form Search]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/scientific-computing`; tags: `garnet`, `functional-form-search`, `symbolic-regression`, `differentiable-simulation`; 6 source IDs
 - [[wiki/concepts/stability-aware-mlff-training|Stability-Aware MLFF Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/machine-learning/molecular-modeling`, `research/molecular-simulation/molecular-dynamics`; tags: `machine-learning-force-fields`, `stable-training`, `differentiable-simulation`; 2 source IDs
 
 ### [[wiki/sources/SRC-0025-building-force-fields-automatic-systematic-reproducible-approach|SRC-0025]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/force-field-training-from-experimental-observables|Force Field Training from Experimental Observables]] - categories: `research/molecular-simulation/force-fields`, `research/experimental-benchmarking`, `research/biomolecules/proteins`; tags: `force-field-training`, `experimental-observables`, `forcebalance`; 7 source IDs
@@ -352,7 +355,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0027-building-water-models-different-approach-opc|SRC-0027]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/opc-water-model|OPC Water Model]] - categories: `research/molecular-simulation/force-fields`; tags: `water-models`, `opc`, `multipoles`; 2 source IDs
 
 ### [[wiki/sources/SRC-0029-densely-connected-stacked-u-network-for-filament-segmentation|SRC-0029]]
@@ -435,7 +438,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0042-the-open-molecules-2025-omol25-dataset-evaluations-and|SRC-0042]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 
@@ -446,7 +449,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0044-spice-a-dataset-of-drug-like-molecules-and|SRC-0044]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 
@@ -478,14 +481,14 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0059-six-open-questions-in-machine-learned-interatomic-potential|SRC-0059]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/molecular-simulation/datasets`, `research/molecular-simulation/molecular-dynamics`, `research/experimental-benchmarking`, `research/high-performance-computing`; tags: `machine-learned-interatomic-potentials`, `foundation-models`, `mlip`, `equivariance`, `long-range-interactions`, `benchmarking`; 3 source IDs
 
 ### [[wiki/sources/SRC-0060-ubio-molfm-universal-molecular-foundation-model|SRC-0060]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`, `research/machine-learning/molecular-modeling`, `research/experimental-benchmarking`, `research/statistics/monte-carlo`; tags: `validation`, `transferability`, `benchmarking`, `molecular-simulation`; 21 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 - [[wiki/concepts/machine-learned-interatomic-potential-foundation-models|Machine-Learned Interatomic Potential Foundation Models]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/molecular-simulation/datasets`, `research/molecular-simulation/molecular-dynamics`, `research/experimental-benchmarking`, `research/high-performance-computing`; tags: `machine-learned-interatomic-potentials`, `foundation-models`, `mlip`, `equivariance`, `long-range-interactions`, `benchmarking`; 3 source IDs
@@ -516,7 +519,7 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0066-presto-bespoke-smirnoff-force-fields-mlps|SRC-0066]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
 - [[wiki/concepts/forcebalance|ForceBalance]] - categories: `research/molecular-simulation/force-fields`; tags: `forcebalance`, `parameter-optimization`, `force-field-training`; 5 source IDs
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/computational-drug-discovery`; tags: `SMIRNOFF`, `OpenFF`, `bespoke-force-fields`, `machine-learning-potentials`, `valence-parameters`; 2 source IDs
 
@@ -547,15 +550,15 @@ Concepts are first grouped by the most frequent category among their cited sourc
 
 ### [[wiki/sources/SRC-0072-machine-learned-molecular-mechanics-force-fields-from-large|SRC-0072]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
-- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 3 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 5 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/computational-drug-discovery`; tags: `SMIRNOFF`, `OpenFF`, `bespoke-force-fields`, `machine-learning-potentials`, `valence-parameters`; 2 source IDs
 
 ### [[wiki/sources/SRC-0073-supplementary-material-for-machine-learned-molecular-mechanics-force|SRC-0073]]
 
-- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 17 source IDs
-- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 3 source IDs
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 5 source IDs
 - [[wiki/concepts/machine-learning-potential-datasets|Machine Learning Potential Datasets]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`, `research/data-management`, `research/molecular-simulation/datasets`, `research/machine-learning/molecular-modeling`, `research/biomolecules/proteins`; tags: `datasets`, `machine-learning-potentials`, `quantum-chemistry`; 7 source IDs
 
 ### [[wiki/sources/SRC-0074-convergence-is-not-correctness-context-dependent-performance-of|SRC-0074]]
@@ -598,10 +601,23 @@ Concepts are first grouped by the most frequent category among their cited sourc
 ### [[wiki/sources/SRC-0098-graph-nets-partial-charge-prediction|SRC-0098]]
 
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]] - categories: `research/molecular-simulation/force-fields`, `research/adaptive-sampling`, `research/molecular-simulation/free-energy`; tags: `awh`, `replay-reweighting`, `natural-gradient`, `force-field-optimization`; 8 source IDs
-- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 3 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 5 source IDs
 - [[wiki/concepts/free-energy-reweighting-for-force-field-fine-tuning|Free Energy Reweighting for Force Field Fine-Tuning]] - categories: `research/molecular-simulation/force-fields`, `research/molecular-simulation/free-energy`; tags: `reweighting`, `zwanzig`, `effective-sample-size`, `force-field-fine-tuning`; 5 source IDs
 
 ### [[wiki/sources/SRC-0099-training-force-field-proteins-small-molecules|SRC-0099]]
 
 - [[wiki/concepts/double-exponential-potential|Double Exponential Potential]] - categories: `research/molecular-simulation/force-fields`; tags: `nonbonded-potentials`, `molecular-dynamics`; 2 source IDs
-- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 2 source IDs
+- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 3 source IDs
+
+### [[wiki/sources/SRC-0101-learning-consistent-molecular-mechanics-force-fields-from-first|SRC-0101]]
+
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 5 source IDs
+- [[wiki/concepts/garnet-force-field|Garnet Force Field]] - categories: `research/molecular-simulation/force-fields`, `research/biomolecules/proteins`, `research/machine-learning/molecular-modeling`; tags: `garnet`, `molecular-dynamics`, `graph-neural-networks`; 3 source IDs
+- [[wiki/concepts/grappa-machine-learned-force-fields|Grappa Machine-Learned Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`; tags: `grappa`, `force-fields`, `graph-neural-networks`, `nonbonded-parameters`, `partial-charges`, `lennard-jones`; 2 source IDs
+
+### [[wiki/sources/SRC-0102-grappa-a-machine-learned-molecular-mechanics-force-field|SRC-0102]]
+
+- [[wiki/concepts/automated-force-field-training|Automated Force Field Training]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/scientific-modeling`; tags: `automation`, `molecular-dynamics`; 19 source IDs
+- [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`, `research/computational-drug-discovery`; tags: `force-fields`, `molecular-mechanics`, `graph-neural-networks`, `espaloma`, `OpenFF`; 5 source IDs
+- [[wiki/concepts/grappa-machine-learned-force-fields|Grappa Machine-Learned Force Fields]] - categories: `research/molecular-simulation/force-fields`, `research/machine-learning/molecular-modeling`, `research/machine-learning/scientific-modeling`; tags: `grappa`, `force-fields`, `graph-neural-networks`, `nonbonded-parameters`, `partial-charges`, `lennard-jones`; 2 source IDs
