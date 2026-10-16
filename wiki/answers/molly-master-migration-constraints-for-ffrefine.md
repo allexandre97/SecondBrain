@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-02
-updated: 2026-10-15
+updated: 2026-10-16
 question: "What must change for FFRefine to run on Molly's `master` branch instead of Molly's `AWHGrads` branch, and why?"
 answer_status: answered
 areas:
@@ -32,6 +32,7 @@ related:
   - "[[wiki/answers/ffrefine-generalist-package-plan-decisions]]"
   - "[[wiki/concepts/molly-jl-simulation-package-facts]]"
   - "[[wiki/answers/ffrefine-decision-register]]"
+  - "[[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]]"
 sources: []
 sensitivity: public
 encryption: none
@@ -50,6 +51,7 @@ project_evidence:
   - "Full project-local write-up: `molly_master_migration.md` in the FFRefine repository root"
   - "FFRefine project probes, 2026-10-15: CPU, Float64 probes against Molly master `623d314a` plus the unmerged system-conversion PR branch (U2, head `0e4b8819`), using FFRefine's garnet-force-field water (2661 atoms), hexane, and ethanol systems built as FFRefine's own drivers build them (Float32 unitful, then converted to Float64 unitless with `grad_safe=true`); covered the PME charge-gradient Enzyme-vs-finite-difference question (QST-0014), PME/Enzyme thread safety, PME energy parity against the Phase 0 baselines, and a parameter-container benchmark on garnet ethanol (6282 atoms, DEXP+RF, 223 keys)"
   - "FFRefine refactor step 13a, 2026-10-15 (working tree on top of commit `68a2aae`, not yet committed): pinned Molly to master `ac3ede15856d2ac8da18cbc7325a3fa49aaa8f0f` in `Project.toml` `[sources]`, re-seeding the Manifest from the default environment then `Pkg.resolve()`; implemented `FFParameterSet`/`ParameterSchema`/`atom_parameter_indices` in `src/molly_compat.jl`; `julia +1.12 --project=. -e 'using FFRefine'` loads; `test/parameter_container_checks.jl` passes 156/156; full write-up in `refactor/LOG.md`, \"Step 13a\", in the FFRefine repository"
+  - "FFRefine refactor step 15, 2026-10-16: a controlled CPU Float64 comparison (Float64 copy of a Float32-built system) of Molly master with DefaultLambdaScheduler(intraLJ=true) against Molly AWHGrads on ethanol hydration, isolating the electrostatic lambda-path difference from the intra-solute steric scheduler difference; see [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]]"
 scope: snapshot
 currency: current
 as_of: 2026-10-02
@@ -120,6 +122,8 @@ Probed on ethanol-in-water plus a vacuum leg, with FFRefine-style states (soft-c
 3. **Reaction-field / plain Coulomb electrostatics differ in how pairs scale with λ.** `AWHGrads` scaled each solute charge, so a solute-solute pair scales as $\lambda_e^2$, where $\lambda_e$ is the electrostatic coupling; master scales the pair energy by the pair λ, so the pair scales as $\lambda_e$. Endpoints are identical but intermediate states differ: at λ = 0.75, solvated energy is −62427.81 kJ/mol (`AWHGrads`) versus −62441.01 kJ/mol (master); vacuum is 11.909 versus 8.083 kJ/mol. The PME path is unaffected because the mesh scales charges on both branches. Both branches annihilate intramolecular solute electrostatics, which connects to the overlay-correction caveat in [[wiki/claims/CLM-0023-decoupling-implementations-must-preserve-intramolecular-solute-terms]] and [[wiki/questions/md-free-energy-decoupling-implementation-validation]].
 4. **λ = 0 discontinuity on `AWHGrads`.** `AWHGrads`' `LJZeroShortcut` skips every pair involving an atom with λ = 0, so intra-solute DEXP interactions vanish exactly at λ = 0 but are present for every λ > 0 (for ethanol, about 0.05 kJ/mol: vacuum 15.786 at λ = 0 versus 15.736 at λ = 0.25 and 0.5). Master with `intraLJ=true` is continuous.
 5. **Consequence.** TSS biases, initial free-energy seeds, and replay archives are tied to the exact alchemical Hamiltonian definition and are not portable across this backend change; ΔG between the physical endpoints is unchanged in principle, but replay parity must be re-established after any switch.
+
+**Refined, 2026-10-16 (FFRefine refactor step 15).** The point-3/point-4 numbers above were taken with master's default `intraLJ=false`, which also changes intra-solute steric (an)nihilation relative to `AWHGrads` (point 2), confounding the electrostatic-path comparison. Holding `intraLJ=true` fixed on master isolates the electrostatic path alone. Comparing master (`intraLJ=true`) minus `AWHGrads`, CPU Float64 (a Float64 copy of a Float32-built system), ethanol hydration: solvated/vacuum agree to $\le 2\times10^{-15}$ kJ/mol at λ = 1, 0.5, 0.25; at λ = 0.75 they differ by −13.205 kJ/mol (solvated) and −3.827 kJ/mol (vacuum) — the pair-scaling-versus-per-charge-scaling difference acting alone; at λ = 0 both legs agree again (−0.050 kJ/mol), reproducing the λ = 0 discontinuity of point 4 under this controlled comparison and showing it is independent of the electrostatic-path choice. See [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]] for the full table and discussion.
 
 **Decisions made 2026-10-11, recorded here for this specific finding:**
 - **(F) Accept master's pair-scaling electrostatic λ path** (point 3 above) rather than reproducing `AWHGrads`' per-charge scaling.
@@ -201,6 +205,7 @@ None (no literature source). All content is FFRefine project evidence from the 2
 - **2026-10-11 update:** corrected section A's charge-key decision (production has used atom-type charge keys since 2026-07-16, not molecular-template keys); added decisions F and E and work item U7 where they apply; added `AbsoluteFESystem`/`RelativeFESystem`/`set_lambda!`, the missing DEXP `to_lambda_function` conversion, and the λ=0-coupled/λ=1-decoupled/`DeleteRole`/`dual=true` convention to section E; added section G on loggers being ignored on `ThermoState` systems under generalized-ensemble sampling. Added links to the new [[wiki/answers/ffrefine-generalist-package-plan-decisions]] and [[wiki/concepts/molly-jl-simulation-package-facts]] pages.
 - **2026-10-15 update:** added the resolution of the F mismatch on Molly master (PME must be passed `Duplicated`, not `Const`) and updated [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]] accordingly; clarified section D's PME energy parity against the Phase 0 baselines and the ethanol offset artifact; finalized the parameter-container design at the end of section A and recorded it as FFR-049 in [[wiki/answers/ffrefine-decision-register]]; added section H on PME/Enzyme thread safety (shared-PME hazard, FFTW re-planning, shadow reuse) and the `inter_CO_dist_cutoff`/`inter_CE_*` naming note.
 - **2026-10-15 update (FFRefine refactor step 13a write-back):** added the "Implemented and verified" paragraph to section A, recording that the parameter container was built (`FFParameterSet`/`ParameterSchema`/`atom_parameter_indices`) and unit-tested, and updated FFR-049 to `implemented` in [[wiki/answers/ffrefine-decision-register]] (also updated FFR-021 and the register's short-answer phase summary, since Phase 1 migration now has code); added section I on the `Pkg.resolve()`-cannot-raise-a-fixed-version Manifest mechanism found while pinning Molly to `master`, and its fix (reseed the Manifest from the stacked default environment, never `Pkg.update()`).
+- **2026-10-16 update (FFRefine refactor step 15 write-back):** added a "Refined, 2026-10-16" paragraph to section E isolating the electrostatic λ-path difference (point 3) from the `intraLJ` steric-scheduler difference (point 2) via a controlled comparison; added [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]] for the full numbers and for an unrelated Enzyme struct-field-layout gradient bug found in the same step, and [[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]] for that bug's unresolved mechanism.
 
 ## Remaining gaps
 

@@ -75,6 +75,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/answers/ffrefine-generalist-package-plan-decisions|FFRefine Generalist-Package Plan: 2026-10-11 Decisions]]
 - [[wiki/answers/ffrefine-multi-series-equilibration-cut-calibration|FFRefine Multi-Series Equilibration Cut Calibration]]
+- [[wiki/answers/ffrefine-step14-enzyme-gradient-injection-and-beta-precision-validation|FFRefine Step 14: Enzyme Gradient-Injection Validation and Molly-Era β-Precision Mapping]]
+- [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss|FFRefine Step 15: Enzyme Struct-Layout Gradient Loss and the Electrostatic Alchemical λ Path]]
 - [[wiki/answers/molly-master-migration-constraints-for-ffrefine|Molly Master Migration Constraints for FFRefine]]
 
 ### Questions
@@ -85,6 +87,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/questions/QST-0004-molecular-cutoff-reaction-field-fluctuation-formula|Molecular-Cutoff Reaction-Field Fluctuation Formula]]
 - [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch|PME Charge-Gradient Enzyme-vs-Finite-Difference Mismatch]]
 - [[wiki/questions/QST-0003-reaction-field-versus-ewald-dielectric-limit|Reaction-Field Versus Ewald Dielectric Limit]]
+- [[wiki/questions/QST-0016-enzyme-map-struct-rebuild-silently-drops-gradient|Why Does Enzyme Reverse-Mode Silently Drop Part of a Gradient Through a Non-Inlined `map` That Rebuilds Structs?]]
+- [[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient|Why Does Enzyme Reverse-Mode Silently Zero a Gradient Depending on Struct Field Layout and a Never-Taken Type-Unstable Branch?]]
 
 ### Tensions
 

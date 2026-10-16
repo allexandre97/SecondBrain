@@ -2,7 +2,7 @@
 type: question
 status: active
 created: 2026-10-15
-updated: 2026-10-15
+updated: 2026-10-16
 question_status: partially-answered
 areas:
   - research
@@ -20,6 +20,7 @@ related:
   - "[[wiki/answers/ffrefine-step14-enzyme-gradient-injection-and-beta-precision-validation]]"
   - "[[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]]"
   - "[[wiki/concepts/molly-jl-simulation-package-facts]]"
+  - "[[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]]"
 sources: []
 sensitivity: public
 encryption: none
@@ -51,7 +52,7 @@ This is FFRefine project evidence from refactor step 14 probes against FFRefine'
 
 ## Current Position
 
-**Not resolved.** The practical workaround is established and verified (avoid `map` over two parallel arrays that builds a new struct inside a non-inlined function that itself returns the differentiated object; inline the code, use a broadcast/comprehension, or map over indices instead), and the final production validation after applying it shows water reaction-field and PME reduced-potential gradients against central finite differences agreeing to $\le 4\times10^{-8}$ relative for charges, σ, ϵ, DEXP α, and bond $k$ (see [[wiki/answers/ffrefine-step14-enzyme-gradient-injection-and-beta-precision-validation]], section A). But the underlying Enzyme mechanism — why this specific combination (two closed-over arrays consumed in lockstep by `map`, constructing a new struct per iteration, across a non-inlined function boundary) causes a partial, silent, non-erroring loss of exactly the cross-field (σ/ϵ) part of the gradient while leaving the charge and bonded gradients correct — is not understood. Candidate mechanisms that have not been tested against each other: an activity-inference error at the non-inlined function's boundary that marks one of the two mapped arrays (or the returned struct's non-charge fields) as inactive; an aliasing or shadow-reuse bug between the two arrays' shadows inside `map`; or a reverse-mode accumulation bug specific to constructing an immutable struct from two co-iterated arrays. This is a different symptom from the PME charge-gradient mismatch in [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]] (that one affected charge gradients through PME's mutable grids and is resolved by passing PME `Duplicated`; this one affects σ/ϵ gradients through an ordinary immutable-struct rebuild, and no missing-shadow explanation has been identified).
+**Not resolved.** The practical workaround is established and verified (avoid `map` over two parallel arrays that builds a new struct inside a non-inlined function that itself returns the differentiated object; inline the code, use a broadcast/comprehension, or map over indices instead), and the final production validation after applying it shows water reaction-field and PME reduced-potential gradients against central finite differences agreeing to $\le 4\times10^{-8}$ relative for charges, σ, ϵ, DEXP α, and bond $k$ (see [[wiki/answers/ffrefine-step14-enzyme-gradient-injection-and-beta-precision-validation]], section A). But the underlying Enzyme mechanism — why this specific combination (two closed-over arrays consumed in lockstep by `map`, constructing a new struct per iteration, across a non-inlined function boundary) causes a partial, silent, non-erroring loss of exactly the cross-field (σ/ϵ) part of the gradient while leaving the charge and bonded gradients correct — is not understood. Candidate mechanisms that have not been tested against each other: an activity-inference error at the non-inlined function's boundary that marks one of the two mapped arrays (or the returned struct's non-charge fields) as inactive; an aliasing or shadow-reuse bug between the two arrays' shadows inside `map`; or a reverse-mode accumulation bug specific to constructing an immutable struct from two co-iterated arrays. This is a different symptom from the PME charge-gradient mismatch in [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]] (that one affected charge gradients through PME's mutable grids and is resolved by passing PME `Duplicated`; this one affects σ/ϵ gradients through an ordinary immutable-struct rebuild, and no missing-shadow explanation has been identified), and from the struct-field-layout-dependent silent zero in [[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]] (found step 15, 2026-10-16; there the gradient is exactly zeroed rather than halved, triggered by a `Bool`-then-padding-then-`Float64` field layout plus a never-taken type-unstable branch, not by a `map` over two arrays). Together the two pages establish that Enzyme reverse-mode AD, at the versions probed, can silently drop or corrupt gradients through more than one independent mechanism tied to code shape or memory layout rather than to the mathematics being differentiated.
 
 **Evidence timeline**
 
@@ -66,3 +67,4 @@ This is FFRefine project evidence from refactor step 14 probes against FFRefine'
 - [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]
 - [[wiki/concepts/molly-jl-simulation-package-facts]]
 - [[wiki/answers/ffrefine-decision-register]]
+- [[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]]

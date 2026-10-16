@@ -2,7 +2,7 @@
 type: answer
 status: active
 created: 2026-10-11
-updated: 2026-10-15
+updated: 2026-10-16
 question: "What has the FFRefine project decided, what is implemented, and what is still open?"
 answer_status: answered
 areas:
@@ -45,6 +45,8 @@ related:
   - "[[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]]"
   - "[[wiki/questions/QST-0016-enzyme-map-struct-rebuild-silently-drops-gradient]]"
   - "[[wiki/answers/ffrefine-step14-enzyme-gradient-injection-and-beta-precision-validation]]"
+  - "[[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]]"
+  - "[[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]]"
   - "[[wiki/questions/force-field-training-validation-scope]]"
   - "[[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]"
 sources: []
@@ -72,6 +74,8 @@ wiki_pages_updated:
   - "[[wiki/answers/tss-mbar-replay-force-field-optimization-route-plan]]"
   - "[[wiki/concepts/awh-replay-force-field-optimization]]"
   - "[[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
+  - "[[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]]"
+  - "[[wiki/concepts/molly-jl-simulation-package-facts]]"
 project_evidence:
   - "FFRefine ethanol-solvation windowed-TSS replay scaffold test, 2026-07-07"
   - "FFRefine parameter-training refactor and shared-parameter (charge-key) update, 2026-07-15"
@@ -91,9 +95,10 @@ project_evidence:
   - "FFRefine audit on 2026-10-11 confirming that the molecule-template charge-key code is dead"
   - "FFRefine Molly-master probes on 2026-10-15 against Molly master `623d314a` plus the unmerged system-conversion PR branch (U2, head `0e4b8819`): PME charge-gradient Enzyme-vs-finite-difference resolution, PME/Enzyme thread safety, PME energy parity against Phase 0 baselines, and a parameter-container benchmark on garnet ethanol; see [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]"
   - "FFRefine refactor step 13a, 2026-10-15 (working tree on top of commit `68a2aae`, not yet committed): pinned Molly to master `ac3ede15856d2ac8da18cbc7325a3fa49aaa8f0f` via `Project.toml` `[sources]`; implemented and unit-tested the `FFParameterSet`/`ParameterSchema`/`atom_parameter_indices` container (`src/molly_compat.jl`, `test/parameter_container_checks.jl`, 156/156 pass); `julia +1.12 --project=. -e 'using FFRefine'` loads"
+  - "FFRefine refactor step 15, 2026-10-16: found and fixed an Enzyme bug where parameter-interaction struct field layout (Bool field followed by padding/zero-size fields before Float64 parameters) combined with a never-taken type-unstable branch in Molly's with_pairwise_partition silently zeroed gradients for DoubleExponentialSoftCore, LennardJones, Mie, and AshbaughHatch weight_14 and every later interaction in the same tuple; and isolated the electrostatic lambda-path difference between Molly AWHGrads and master from the intraLJ steric-scheduler difference on ethanol hydration; see [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]]"
 scope: living
 currency: current
-as_of: 2026-10-15
+as_of: 2026-10-16
 as_of_commit:
   - FFRefine@110fe64
 ---
@@ -140,7 +145,7 @@ Status values: `implemented` (with commit where known), `decided, not implemente
 | FFR-021 | A | Sequencing | Package shell on `AWHGrads` (Phase 0), then migrate to Molly `master` (Phase 1), then generalise (Phase 2), then prove and publish (Phase 3) | decided; Phase 1 started in code (step 13a, 2026-10-15: Molly pinned to `master` `ac3ede15`, package loads, parameter container implemented — FFR-049; working tree, not yet committed) | 2026-10-11 | Migration changes numerics and generalisation changes structure; each needs a fixed reference | [[wiki/answers/ffrefine-generalist-package-plan-decisions]], [[wiki/answers/molly-master-migration-constraints-for-ffrefine]] |
 | FFR-022 | B | Shape of Molly U1 | A generic per-sample TSS hook in Molly; FFRefine owns the archive format built from it | decided, not implemented | 2026-10-11 | Replaces porting the `AWHGrads`-only replay logger upstream as-is | [[wiki/answers/ffrefine-generalist-package-plan-decisions]] |
 | FFR-023 | L | Target loggers | Attach target loggers to the FFRefine ensemble, mirroring `TSSSimulation(...; loggers)` | decided, not implemented | 2026-10-11 | Molly `master` ignores loggers on a `ThermoState`'s own system in generalized-ensemble runs | [[wiki/answers/ffrefine-generalist-package-plan-decisions]] |
-| FFR-024 | F | Electrostatic λ path | Accept Molly `master`'s pair scaling (pair energy ∝ λ) instead of `AWHGrads`' per-charge scaling (∝ λ²) | decided, not implemented | 2026-10-11 | rationale not recorded | [[wiki/answers/ffrefine-generalist-package-plan-decisions]], [[wiki/answers/molly-master-migration-constraints-for-ffrefine]] |
+| FFR-024 | F | Electrostatic λ path | Accept Molly `master`'s pair scaling (pair energy ∝ λ) instead of `AWHGrads`' per-charge scaling (∝ λ²) | decided, not implemented; magnitude confirmed in isolation 2026-10-16 (step 15: holding `intraLJ=true` fixed on both branches, the electrostatic-path difference alone is 0 at λ = 1, 0.5, 0.25, 0, and a few kJ/mol at λ = 0.75 — see [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]]) | 2026-10-11 | rationale not recorded | [[wiki/answers/ffrefine-generalist-package-plan-decisions]], [[wiki/answers/molly-master-migration-constraints-for-ffrefine]], [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]] |
 | FFR-025 | E | Ethanol λ ladder | Keep FFRefine's own alchemical-ladder builder until Molly (via work item U6) can reproduce it | decided; the local builder remains in use | 2026-10-11 | Molly lacks the DEXP-to-λ conversion needed to reproduce the ladder | [[wiki/answers/ffrefine-generalist-package-plan-decisions]] |
 | FFR-026 | P | Process isolation | Keep one subprocess per macro epoch as the production default; in-process mode only for tests and debugging | implemented (existing behaviour, FFR-010); whether one continuous process is now safe is open | 2026-10-11 | Contains inter-epoch memory leaks and unpredictable segmentation faults (suspected PME, multithreading and Enzyme interaction; not independently validated). A related but distinct PME/Enzyme/threading hazard — concurrent Enzyme gradients sharing one PME object giving silently wrong results, traced to non-thread-safe FFTW re-planning — was directly probed and confirmed 2026-10-15 (see section H in [[wiki/answers/molly-master-migration-constraints-for-ffrefine]]), without establishing that it is the same mechanism behind the leaks/segfaults | [[wiki/answers/ffrefine-generalist-package-plan-decisions]], [[wiki/answers/molly-master-migration-constraints-for-ffrefine]] |
 | FFR-027 | C | Checkpoints | Breaking change: pre-package checkpoint and run formats cannot be resumed after the migration | decided, not implemented | 2026-10-11 | rationale not recorded | [[wiki/answers/ffrefine-generalist-package-plan-decisions]] |
@@ -184,6 +189,7 @@ Open questions recorded on their own pages:
 - [[wiki/questions/QST-0014-pme-charge-gradient-enzyme-vs-finite-difference-mismatch]]: PME charge-gradient mismatch, relevant to charge training and FFR-041. Resolved 2026-10-15 for CPU, Float64, water PME on Molly master (PME must be passed `Duplicated`, not `Const`); open for independent verification on `AWHGrads`, and for GPU and hexane/ethanol PME charge gradients.
 - [[wiki/questions/QST-0015-rdf-density-dielectric-pareto-front-for-this-water-parameterisation]]: whether RDF, density and dielectric genuinely trade off for this water model.
 - [[wiki/questions/QST-0016-enzyme-map-struct-rebuild-silently-drops-gradient]]: why Enzyme silently halves a Lennard-Jones gradient through a non-inlined `map`-based struct rebuild; a workaround is verified but the mechanism is not understood.
+- [[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]]: why Enzyme silently zeroes a gradient depending on interaction-struct field layout (a `Bool` field followed by padding/zero-size fields before `Float64` parameters) and a never-taken type-unstable branch; a struct-reorder workaround is verified (merged for `DoubleExponentialSoftCore`, unmerged for `LennardJones`/`Mie`/`AshbaughHatch`) but the mechanism is not understood.
 - [[wiki/questions/force-field-training-validation-scope]]: what evidence would show transfer beyond the fitted observables and systems.
 - [[wiki/tensions/TEN-0020-config-family-exclusion-versus-untreated-drift]]: family exclusion versus untreated drift, tied to FFR-013 and FFR-017.
 
@@ -220,3 +226,4 @@ None (no literature source). Every entry is FFRefine project evidence listed in 
 - 2026-10-15: added FFR-049 (parameter container design: immutable key schema plus values vector) from the 2026-10-15 Molly-master probes; added a cross-reference to the confirmed PME/Enzyme thread-safety hazard in FFR-026's rationale; updated the QST-0014 open-questions blurb to reflect its 2026-10-15 resolution for CPU, Float64, water PME on master. See [[wiki/answers/molly-master-migration-constraints-for-ffrefine]].
 - 2026-10-15: recorded FFRefine refactor step 13a: FFR-049 (parameter container) is now implemented and verified, not just decided; FFR-021 (migration sequencing) and the short answer's phase summary updated to reflect that Phase 1 migration started in code (Molly pinned to `master`, package loads). See the new section I in [[wiki/answers/molly-master-migration-constraints-for-ffrefine]].
 - 2026-10-15: recorded FFRefine refactor step 14: FFR-049's parameter container is now wired into production gradient injection, not only unit-tested in isolation. Step 14 found and fixed an Enzyme bug in which a non-inlined `map`-based post-injection charge rebuild silently returned about half the correct σ/ϵ gradient with no error (added [[wiki/questions/QST-0016-enzyme-map-struct-rebuild-silently-drops-gradient]] for the unresolved mechanism), and established that comparing gradients/energies against `AWHGrads`-era references needs a β-precision rescaling because `ThermoState.beta` is computed at a different float precision on `master`. See [[wiki/answers/ffrefine-step14-enzyme-gradient-injection-and-beta-precision-validation]].
+- 2026-10-16: recorded FFRefine refactor step 15: a second, independent Enzyme silent-gradient-loss mechanism was found and partly fixed, triggered by interaction-struct field layout (a `Bool` field followed by padding/zero-size fields before `Float64` parameters) plus a never-taken type-unstable branch in Molly's `with_pairwise_partition` (added [[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient]] for the unresolved mechanism; the `DoubleExponentialSoftCore` field-reorder fix is merged into Molly master, the `LennardJones`/`Mie`/`AshbaughHatch` fix is on an unmerged branch); and FFR-024's electrostatic λ-path difference was isolated from the `intraLJ` steric-scheduler difference and confirmed on ethanol hydration. See [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss]].

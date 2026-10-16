@@ -118,6 +118,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/answers/ffrefine-paper-methods-knowledge-base|FFRefine Paper Methods Knowledge Base]]
 - [[wiki/answers/ffrefine-paper-methods-pre-2026-10-07-optimizer-and-gates|FFRefine Paper Methods: Pre-2026-10-07 Optimizer and Validation Gates]]
 - [[wiki/answers/ffrefine-retrospective-fisher-treatment-development|FFRefine Retrospective Fisher-Treatment Development]]
+- [[wiki/answers/ffrefine-step14-enzyme-gradient-injection-and-beta-precision-validation|FFRefine Step 14: Enzyme Gradient-Injection Validation and Molly-Era β-Precision Mapping]]
+- [[wiki/answers/ffrefine-step15-enzyme-struct-layout-gradient-loss|FFRefine Step 15: Enzyme Struct-Layout Gradient Loss and the Electrostatic Alchemical λ Path]]
 - [[wiki/answers/ffrefine-water-temperature-replay-fresh-loss-gap|FFRefine Water-Temperature Replay Fresh Loss Gap]]
 - [[wiki/answers/garnet-structural-studies-presentation-plan|Garnet Structural Studies presentation preparation]]
 - [[wiki/answers/ffrefine-kl-definition-for-extended-ensemble-training|KL Definition for Extended-Ensemble Force-Field Training]]
@@ -147,6 +149,8 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 - [[wiki/questions/rna-force-field-motif-validation-scope|RNA Force-Field Motif Validation Scope]]
 - [[wiki/questions/QST-0012-persistent-replay-prediction-optimism-for-one-family|What Should FFRefine Do About a Family Whose Replay Predictions Stay Optimistic?]]
 - [[wiki/questions/QST-0013-step-length-policy-after-family-exclusion|What Step-Length Policy Should FFRefine's KL-Capped Natural-Gradient Step Use After Family Exclusion?]]
+- [[wiki/questions/QST-0016-enzyme-map-struct-rebuild-silently-drops-gradient|Why Does Enzyme Reverse-Mode Silently Drop Part of a Gradient Through a Non-Inlined `map` That Rebuilds Structs?]]
+- [[wiki/questions/QST-0017-enzyme-struct-field-layout-silently-drops-gradient|Why Does Enzyme Reverse-Mode Silently Zero a Gradient Depending on Struct Field Layout and a Never-Taken Type-Unstable Branch?]]
 
 ### Tensions
 
