@@ -51,10 +51,15 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Concepts
 
 - [[wiki/concepts/adflip-discrete-flow-matching-inverse-folding|ADFLIP: All-Atom Discrete Flow Matching for Inverse Protein Folding]]
+- [[wiki/concepts/diffusion-guided-alchemical-molecular-design|Alchemical Molecular Design With Optional Diffusion Guidance]]
 - [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]]
 - [[wiki/concepts/lambda-dynamics-with-bias-updated-gibbs-sampling|Lambda-Dynamics with Bias-Updated Gibbs Sampling]]
 - [[wiki/concepts/mlp-driven-bespoke-smirnoff-force-field-fitting|MLP-Driven Bespoke SMIRNOFF Force-Field Fitting]]
 - [[wiki/concepts/relative-binding-free-energy-benchmarking|Relative Binding Free Energy Benchmarking]]
+
+### Answers
+
+- [[wiki/answers/diffusion-guided-alchemical-atom-cloud-ligand-design|Alchemical Atom-Cloud Ligand Design: Candidate Architectures and Build Plan]]
 
 ### Questions
 

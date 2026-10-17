@@ -30,7 +30,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ## Subcategories
 
-- [[wiki/categories/research/machine-learning/molecular-modeling|research/machine-learning/molecular-modeling]] - 62 direct, 62 total pages in branch.
+- [[wiki/categories/research/machine-learning/molecular-modeling|research/machine-learning/molecular-modeling]] - 64 direct, 64 total pages in branch.
 - [[wiki/categories/research/machine-learning/scientific-modeling|research/machine-learning/scientific-modeling]] - 56 direct, 56 total pages in branch.
 - [[wiki/categories/research/machine-learning/statistical-modeling|research/machine-learning/statistical-modeling]] - 2 direct, 2 total pages in branch.
 

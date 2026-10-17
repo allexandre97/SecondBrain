@@ -103,6 +103,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/answers/adding-config-optimiser-to-ffrefine|Adding ConFIG to FFRefine]]
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training|Aggressive Density-Only KL and ESS Training]]
+- [[wiki/answers/diffusion-guided-alchemical-atom-cloud-ligand-design|Alchemical Atom-Cloud Ligand Design: Candidate Architectures and Build Plan]]
 - [[wiki/answers/ffrefine-config-vs-weighted-sum-water-campaign-results|ConFIG-Versus-Weighted-Sum Water Campaign: Weighted Sum's Crash and ConFIG's Continuing Regression]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
 - [[wiki/answers/ffrefine-config-fisher-second-momentum|FFRefine ConFIG Fisher Second Momentum]]

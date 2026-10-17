@@ -2,7 +2,7 @@
 type: overview
 status: active
 created: 2026-06-30
-updated: 2026-10-15
+updated: 2026-10-16
 areas: []
 categories:
   - admin/wiki-maintenance
@@ -19,6 +19,9 @@ graph_exclude: true
 Use this page as the main navigation point for reviewed wiki content.
 
 ## Core Pages
+
+- [[wiki/answers/diffusion-guided-alchemical-atom-cloud-ligand-design]] - Living atom-cloud ligand-design proposal comparing direct/diffusion/learned guidance, discrete gradient search, population methods, generative flow networks, and expanded ensembles; compatible combinations and architecture choice remain open.
+- [[wiki/concepts/diffusion-guided-alchemical-molecular-design]] - Conceptual distinction between chemical proposals, relaxed Hamiltonians, and equilibrium evaluation.
 
 - [[overview]] - Project overview.
 - [[log]] - Chronological wiki activity log.

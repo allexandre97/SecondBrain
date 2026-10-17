@@ -59,6 +59,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Concepts
 
 - [[wiki/concepts/adflip-discrete-flow-matching-inverse-folding|ADFLIP: All-Atom Discrete Flow Matching for Inverse Protein Folding]]
+- [[wiki/concepts/diffusion-guided-alchemical-molecular-design|Alchemical Molecular Design With Optional Diffusion Guidance]]
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]]
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]]
 - [[wiki/concepts/espaloma-machine-learned-mm-force-fields|Espaloma Machine-Learned MM Force Fields]]
@@ -79,6 +80,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 ### Answers
 
+- [[wiki/answers/diffusion-guided-alchemical-atom-cloud-ligand-design|Alchemical Atom-Cloud Ligand Design: Candidate Architectures and Build Plan]]
 - [[wiki/answers/recurring-validation-problems-force-fields-ml-potentials-free-energy|Recurring Validation Problems Across Force-Field Fitting, Machine-Learning Potentials, and Free-Energy Estimators]]
 - [[wiki/answers/sample-bias-reweighting-method-comparison|Sample, Bias, Reweighting, and Diagnostics Across Free-Energy Methods]]
 - [[wiki/answers/garnet-symbolic-regression-functional-search|Symbolic Regression for Garnet Functional-Form Search]]

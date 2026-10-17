@@ -67,6 +67,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 
 - [[wiki/concepts/accelerated-weight-histogram-method|Accelerated Weight Histogram Method]]
 - [[wiki/concepts/adaptive-enhanced-sampling|Adaptive Enhanced Sampling]]
+- [[wiki/concepts/diffusion-guided-alchemical-molecular-design|Alchemical Molecular Design With Optional Diffusion Guidance]]
 - [[wiki/concepts/awh-replay-force-field-optimization|AWH Replay Force Field Optimization]]
 - [[wiki/concepts/boltzmann-generators-equilibrium-sampling|Boltzmann Generators for Equilibrium Sampling]]
 - [[wiki/concepts/cross-domain-validation-problems-in-molecular-simulation|Cross-Domain Validation Problems in Molecular Simulation]]
@@ -89,6 +90,7 @@ This page is generated from wiki page frontmatter. Edit page categories at the s
 ### Answers
 
 - [[wiki/answers/ffrefine-aggressive-density-kl-ess-training|Aggressive Density-Only KL and ESS Training]]
+- [[wiki/answers/diffusion-guided-alchemical-atom-cloud-ligand-design|Alchemical Atom-Cloud Ligand Design: Candidate Architectures and Build Plan]]
 - [[wiki/answers/ffrefine-average-observable-trainability-validation|FFRefine Average-Observable Trainability Validation]]
 - [[wiki/answers/ffrefine-current-implementation-status|FFRefine Current Implementation Status]]
 - [[wiki/answers/ffrefine-decision-register|FFRefine Decision Register]]
